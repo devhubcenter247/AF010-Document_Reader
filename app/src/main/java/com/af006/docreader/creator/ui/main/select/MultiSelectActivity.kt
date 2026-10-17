@@ -25,9 +25,6 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
  */
 class MultiSelectActivity :
     BaseAppActivity<ActivityMultiSelectBinding>(ActivityMultiSelectBinding::inflate) {
-    override val fullStatus: Boolean
-        get() = true
-
     private val viewModel: DocumentsViewModel by viewModel()
     private val documentAdapter by lazy { DocumentAdapter().apply { selectionMode = true } }
 
@@ -56,7 +53,6 @@ class MultiSelectActivity :
     }
 
     override fun ActivityMultiSelectBinding.setData() {
-        layoutTop.updatePadding(top = statusBarHeight)
         rcvDocuments.adapter = documentAdapter
 
         viewModel.documents.mainCollect { response ->
@@ -107,13 +103,14 @@ class MultiSelectActivity :
     private fun ActivityMultiSelectBinding.updateSelection(ids: Set<Long>) {
         selectedIds = ids
         documentAdapter.selectedIds = ids
-        tvSelected.text = getString(R.string.selected_count, ids.size)
-        btnSelectAll.setText(
-            if (ids.isNotEmpty() && ids.size == documents.size) R.string.deselect_all
-            else R.string.select_all
-        )
-        layoutActions.setAllEnabled(ids.isNotEmpty())
-        layoutActions.alpha = if (ids.isNotEmpty()) 1f else 0.5f
+        tvCount.text = ids.size.toString()
+        btnSelectAll.setText(if (ids.isNotEmpty() && ids.size == documents.size) R.string.fo_clear else R.string.select_all)
+        val any = ids.isNotEmpty()
+        btnShare.isEnabled = any
+        btnZip.isEnabled = any
+        btnDelete.isEnabled = any
+        // Merge takes PDFs only.
+        btnMerge.isEnabled = any && selected.all { it.type == DocumentType.Pdf }
     }
 
     private fun shareSelected() {

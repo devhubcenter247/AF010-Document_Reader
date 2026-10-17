@@ -42,7 +42,6 @@ class DocumentActions(
         when (action) {
             FileAction.Share -> if (!activity.shareFile(doc.path)) toast(R.string.file_share_failed)
             FileAction.Favorite -> viewModel.setFavorite(doc, !item.isFavorite)
-            FileAction.Edit -> open(doc)
             FileAction.Rename -> RenameDialog(activity, doc) { newName ->
                 viewModel.rename(doc, newName) { renamed ->
                     if (!renamed) toast(R.string.file_rename_failed)
@@ -57,7 +56,6 @@ class DocumentActions(
                 }
             }.show()
             FileAction.Info -> FileInfoBottomSheet(activity, doc).show()
-            FileAction.ToPdf -> activity.openTool(Tool.OfficeToPdf, listOf(doc.path))
         }
     }
 

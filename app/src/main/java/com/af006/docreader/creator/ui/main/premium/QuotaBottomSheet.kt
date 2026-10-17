@@ -5,6 +5,7 @@ import com.af010.creator.docreader.R
 import com.af010.creator.docreader.databinding.SheetQuotaBinding
 import com.af010.creator.docreader.model.PremiumPlan
 import com.af010.creator.docreader.model.Tool
+import com.af010.creator.docreader.ui.common.showToolTile
 import com.ui.baselib.base.BaseBottomSheet
 import com.ui.baselib.extensions.clickSingle
 
@@ -22,7 +23,7 @@ class QuotaBottomSheet(
 ) : BaseBottomSheet<SheetQuotaBinding>(activity, SheetQuotaBinding::inflate) {
 
     override fun SheetQuotaBinding.onBind() {
-        ivTool.setImageResource(tool.icon)
+        ivTool.showToolTile(tool)
         tvTitle.text = activity.getString(R.string.quota_title, activity.getString(tool.title))
         tvTrialTerms.text = activity.getString(
             R.string.quota_trial_terms, PremiumPlan.FREE, PremiumPlan.Yearly.price, PremiumPlan.TRIAL_DAYS

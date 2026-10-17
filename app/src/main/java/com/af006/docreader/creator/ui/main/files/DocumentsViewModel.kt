@@ -10,6 +10,7 @@ import com.af010.creator.docreader.model.SortByData
 import com.af010.creator.docreader.model.SortOption
 import com.af010.creator.docreader.model.SortOrder
 import com.af010.creator.docreader.model.StorageTab
+import com.af010.creator.docreader.pdf.ContentHit
 import com.af010.creator.docreader.pdf.ContentIndex
 import com.af010.creator.docreader.utils.PreferenceHelper
 import com.af010.creator.docreader.utils.extensions.folderName
@@ -45,8 +46,11 @@ data class DocumentFilter(
     val scope: SearchScope = SearchScope.FileName
 )
 
-/** Where [DocumentFilter.query] is looked for: file names, the text inside the files, or both. */
-enum class SearchScope { All, FileName, Content }
+/**
+ * Where [DocumentFilter.query] is looked for: file names, the text inside the files, or both.
+ * [Apart] lists name matches only and reports text matches separately ([DocumentsViewModel.contentHits]).
+ */
+enum class SearchScope { All, FileName, Content, Apart }
 
 /** Shared by every screen that lists documents; each screen owns its own instance and filter. */
 @OptIn(ExperimentalCoroutinesApi::class)
@@ -87,21 +91,33 @@ class DocumentsViewModel(
     /** Ids of the documents whose text has the query; it grows while the files are being read. */
     private val contentMatches = MutableStateFlow<Set<Long>>(emptySet())
 
+    /** With [SearchScope.Apart]: the places the query was found inside documents, as they are read. */
+    val contentHits: StateFlow<List<ContentHit>>
+        field = MutableStateFlow(emptyList())
+
     init {
         viewModelScope.launch {
             combine(
-                filter.map { it.query to it.scope }.distinctUntilChanged(),
+                filter.map { Triple(it.query, it.scope, it.type) }.distinctUntilChanged(),
                 source
             ) { search, response -> search to (response as? DataResponse.DataSuccess)?.data.orEmpty() }
                 .collectLatest { (search, documents) ->
-                    val (query, scope) = search
+                    val (query, scope, type) = search
                     contentMatches.value = emptySet()
+                    contentHits.value = emptyList()
                     if (scope == SearchScope.FileName || query.length < MIN_CONTENT_QUERY) return@collectLatest
                     // Wait for a pause in typing: reading files is slow the first time.
                     delay(CONTENT_SEARCH_DELAY_MS)
                     val found = HashSet<Long>()
+                    val hits = ArrayList<ContentHit>()
                     for (document in documents) {
-                        if (contentIndex.contains(document, query)) {
+                        if (scope == SearchScope.Apart) {
+                            if (type != null && document.type != type) continue
+                            val inside = contentIndex.hits(document, query)
+                            if (inside.isEmpty()) continue
+                            hits += inside
+                            contentHits.value = hits.toList()
+                        } else if (contentIndex.contains(document, query)) {
                             found += document.mediaId
                             contentMatches.value = found.toSet()
                         }
@@ -159,7 +175,7 @@ class DocumentsViewModel(
         .filter { filter.folder == null || it.folderName == filter.folder }
         .filter {
             filter.query.isEmpty() || when (filter.scope) {
-                SearchScope.FileName -> it.name.contains(filter.query, ignoreCase = true)
+                SearchScope.FileName, SearchScope.Apart -> it.name.contains(filter.query, ignoreCase = true)
                 SearchScope.Content -> it.mediaId in contentMatches
                 SearchScope.All -> it.name.contains(filter.query, ignoreCase = true) || it.mediaId in contentMatches
             }

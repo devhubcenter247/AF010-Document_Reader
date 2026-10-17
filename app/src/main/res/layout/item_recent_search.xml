@@ -7,14 +7,14 @@
     android:background="?attr/selectableItemBackground"
     android:gravity="center_vertical"
     android:orientation="horizontal"
-    android:paddingStart="@dimen/_15sdp"
+    android:paddingStart="@dimen/_3sdp"
     android:paddingEnd="@dimen/_6sdp">
 
     <ImageView
         android:layout_width="@dimen/_13sdp"
         android:layout_height="@dimen/_13sdp"
         android:contentDescription="@null"
-        android:src="@drawable/ic_app_clock"
+        android:src="@drawable/ic_fo_clock"
         app:tint="@color/text_secondary" />
 
     <TextView
@@ -22,7 +22,7 @@
         style="@style/RowLabelStyle"
         android:layout_marginStart="@dimen/_9sdp"
         android:ellipsize="end"
-        android:fontFamily="@font/nunito_600"
+        android:fontFamily="@font/nunito_700"
         android:maxLines="1"
         tools:text="report" />
 
@@ -33,7 +33,7 @@
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/scanner_close"
         android:padding="@dimen/_6sdp"
-        android:src="@drawable/ic_app_close"
+        android:src="@drawable/ic_fo_close"
         app:tint="@color/text_secondary" />
 
 </LinearLayout>

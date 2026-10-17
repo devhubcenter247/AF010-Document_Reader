@@ -42,4 +42,5 @@
     <color name="color_blob_peach">#2A2620</color>
     <color name="color_blob_butter">#2B2819</color>
     <color name="color_blob_sage">#202A22</color>
+    <color name="color_bg_app_clear">#0014161C</color>
 </resources>

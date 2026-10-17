@@ -9,6 +9,7 @@ import com.af010.creator.docreader.databinding.LayoutOptionBinding
 import com.af010.creator.docreader.databinding.LayoutToolFileBinding
 import com.af010.creator.docreader.databinding.LayoutToolHeaderBinding
 import com.af010.creator.docreader.model.Tool
+import com.af010.creator.docreader.ui.common.showToolTile
 import com.af010.creator.docreader.utils.AppUtils
 import com.af010.creator.docreader.utils.extensions.iconRes
 import com.af010.creator.docreader.utils.extensions.setFillColor
@@ -37,7 +38,7 @@ fun Context.pageCountText(count: Int): String =
     resources.getQuantityString(R.plurals.translate_page_count, count, count)
 
 fun LayoutToolHeaderBinding.show(tool: Tool, @StringRes title: Int, @StringRes subtitle: Int) {
-    ivIcon.setImageResource(tool.icon)
+    ivIcon.showToolTile(tool)
     tvTitle.setText(title)
     tvSubtitle.setText(subtitle)
 }

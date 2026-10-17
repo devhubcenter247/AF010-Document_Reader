@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- A choice in a sheet: flat until picked, then a white card. -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_selected="true">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/color_surface_card" />
+            <corners android:radius="@dimen/_15sdp" />
+        </shape>
+    </item>
+    <item android:drawable="@android:color/transparent" />
+</selector>

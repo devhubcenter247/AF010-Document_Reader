@@ -6,37 +6,37 @@ import android.text.style.BackgroundColorSpan
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
+import androidx.core.view.isVisible
 import com.af010.creator.docreader.R
 import com.af010.creator.docreader.databinding.ItemDocumentBinding
 import com.af010.creator.docreader.model.RecentUi
+import com.af010.creator.docreader.ui.common.showTypeTile
 import com.af010.creator.docreader.utils.extensions.dateText
 import com.af010.creator.docreader.utils.extensions.folderName
-import com.af010.creator.docreader.utils.extensions.iconRes
 import com.af010.creator.docreader.utils.extensions.name
-import com.af010.creator.docreader.utils.extensions.setCompoundDrawablesSized
 import com.af010.creator.docreader.utils.extensions.sizeText
 import com.ui.baselib.base.DiffAdapter
-import com.ui.baselib.extensions.visibleOrGone
 
-class DocumentAdapter : DiffAdapter<RecentUi, ItemDocumentBinding>(
+/** What closes a document row: the star and options button, an "Open" pill, or nothing. */
+enum class RowEnd { Options, Open, Nothing }
+
+/** Document rows as floating cards: the type tile, name and details, then [end]. */
+class DocumentAdapter(private val end: RowEnd = RowEnd.Options) : DiffAdapter<RecentUi, ItemDocumentBinding>(
     areItemsTheSame = { old, new -> old.document.mediaId == new.document.mediaId },
     areContentsTheSame = { old, new -> old.sameContent(new) }
 ) {
-    override fun createBinding(
-        inflater: LayoutInflater,
-        parent: ViewGroup,
-        viewType: Int
-    ) = ItemDocumentBinding.inflate(inflater, parent, false)
+    override fun createBinding(inflater: LayoutInflater, parent: ViewGroup, viewType: Int) =
+        ItemDocumentBinding.inflate(inflater, parent, false)
 
-    private var onItemClick: ((RecentUi) -> Unit) = {}
-    private var onItemLongClick: ((RecentUi) -> Unit) = {}
-    private var onItemMoreClick: ((RecentUi) -> Unit) = {}
+    private var onItemClick: (RecentUi) -> Unit = {}
+    private var onItemLongClick: (RecentUi) -> Unit = {}
+    private var onItemMoreClick: (RecentUi) -> Unit = {}
 
     fun onDocumentClick(listener: (RecentUi) -> Unit) = apply { onItemClick = listener }
     fun onDocumentLongClick(listener: (RecentUi) -> Unit) = apply { onItemLongClick = listener }
     fun onMoreClick(listener: (RecentUi) -> Unit) = apply { onItemMoreClick = listener }
 
-    /** Multi-select: rows show a checkbox instead of the options button. */
+    /** Multi-select: a tick box leads each row and picked rows are ringed. */
     var selectionMode = false
 
     var selectedIds: Set<Long> = emptySet()
@@ -45,7 +45,7 @@ class DocumentAdapter : DiffAdapter<RecentUi, ItemDocumentBinding>(
             notifyItemRangeChanged(0, itemCount)
         }
 
-    /** Search: the part of the name matching this text is highlighted, and the folder replaces the date. */
+    /** Search: the matching part of the name is marked, and the folder replaces the date. */
     var query = ""
         set(value) {
             if (field == value) return
@@ -56,40 +56,35 @@ class DocumentAdapter : DiffAdapter<RecentUi, ItemDocumentBinding>(
     override fun ItemDocumentBinding.bind(item: RecentUi, position: Int) {
         val context = root.context
         val doc = item.document
-        ivType.setImageResource(doc.type.iconRes)
-        tvName.text = highlighted(doc.name, ContextCompat.getColor(context, R.color.color_search_highlight))
-        tvName.setCompoundDrawablesSized(
-            com.intuit.sdp.R.dimen._10sdp,
-            end = if (item.isFavorite && !selectionMode) R.drawable.ic_app_star_filled else 0
-        )
+        tvType.showTypeTile(doc)
+        tvName.text = marked(doc.name, ContextCompat.getColor(context, R.color.color_pro))
         tvMeta.text = context.getString(
             R.string.document_meta,
-            if (query.isEmpty()) doc.dateText(context) else doc.folderName,
-            doc.sizeText(context)
+            doc.sizeText(context),
+            if (query.isEmpty()) doc.dateText(context) else doc.folderName
         )
 
-        ivCheck.visibleOrGone(selectionMode)
-        ivCheck.setImageResource(
-            if (doc.mediaId in selectedIds) R.drawable.ic_app_checkbox_on else R.drawable.ic_app_checkbox_off
-        )
-        btnMore.visibleOrGone(!selectionMode)
+        root.isActivated = selectionMode && doc.mediaId in selectedIds
+        ivCheck.isVisible = selectionMode
+        ivCheck.imageAlpha = if (root.isActivated) 255 else 0
+        ivFavorite.isVisible = item.isFavorite && !selectionMode && end == RowEnd.Options
+        btnOpen.isVisible = end == RowEnd.Open && !selectionMode
+        btnMore.isVisible = end == RowEnd.Options && !selectionMode
 
-        root.setOnClickListener { onItemClick.invoke(item) }
+        root.setOnClickListener { onItemClick(item) }
+        btnOpen.setOnClickListener { onItemClick(item) }
         root.setOnLongClickListener {
-            onItemLongClick.invoke(item)
+            onItemLongClick(item)
             true
         }
-        btnMore.setOnClickListener { onItemMoreClick.invoke(item) }
+        btnMore.setOnClickListener { onItemMoreClick(item) }
     }
 
-    private fun highlighted(name: String, color: Int): CharSequence {
+    private fun marked(name: String, color: Int): CharSequence {
         val start = if (query.isEmpty()) -1 else name.indexOf(query, ignoreCase = true)
         if (start < 0) return name
         return SpannableString(name).apply {
-            setSpan(
-                BackgroundColorSpan(color), start, start + query.length,
-                Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
-            )
+            setSpan(BackgroundColorSpan(color), start, start + query.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
         }
     }
 }

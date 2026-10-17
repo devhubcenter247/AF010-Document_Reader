@@ -1,161 +1,130 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/color_bg_app"
-    android:orientation="vertical"
     tools:context=".ui.main.select.MultiSelectActivity">
 
     <LinearLayout
         android:id="@+id/layoutTop"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/color_bg_selected"
-        android:orientation="vertical">
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_49sdp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="@dimen/_12sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <LinearLayout
-            android:layout_width="match_parent"
+        <ImageView
+            android:id="@+id/btnClose"
+            style="@style/RoundIconButton"
+            android:layout_width="@dimen/_32sdp"
+            android:layout_height="@dimen/_32sdp"
+            android:contentDescription="@string/close"
+            android:src="@drawable/ic_fo_close" />
+
+        <TextView
+            android:id="@+id/tvCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_9sdp"
+            android:fontFamily="@font/nunito_800"
+            android:textColor="@color/text_primary"
+            android:textSize="@dimen/_20sdp"
+            tools:text="3" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_weight="1"
+            android:fontFamily="@font/nunito_700"
+            android:text="@string/fo_selected"
+            android:textColor="@color/text_secondary"
+            android:textSize="@dimen/_12sdp" />
+
+        <TextView
+            android:id="@+id/btnSelectAll"
+            android:layout_width="wrap_content"
             android:layout_height="@dimen/_31sdp"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:paddingHorizontal="@dimen/_9sdp">
-
-            <ImageView
-                android:id="@+id/btnClose"
-                style="@style/IconButtonStyle"
-                android:contentDescription="@string/scanner_close"
-                android:src="@drawable/ic_app_close"
-                android:background="@drawable/bg_surface_card_r17sdp"
-                android:clipToOutline="true" />
-
-            <TextView
-                android:id="@+id/tvSelected"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/_6sdp"
-                android:layout_weight="1"
-                android:fontFamily="@font/nunito_700"
-                android:textColor="@color/text_primary"
-                android:textSize="@dimen/_13sdp"
-                tools:text="3 selected" />
-
-            <TextView
-                android:id="@+id/btnSelectAll"
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/_23sdp"
-                android:fontFamily="@font/nunito_800"
-                android:gravity="center"
-                android:paddingHorizontal="@dimen/_10sdp"
-                android:text="@string/select_all"
-                android:textSize="@dimen/_10sdp"
-                android:background="@drawable/bg_surface_card_r12sdp"
-                android:textColor="@color/text_on_selected" />
-        </LinearLayout>
+            android:background="@drawable/bg_open_pill"
+            android:fontFamily="@font/nunito_800"
+            android:foreground="?attr/selectableItemBackground"
+            android:gravity="center"
+            android:paddingHorizontal="@dimen/_12sdp"
+            android:text="@string/select_all"
+            android:textColor="@color/text_on_selected"
+            android:textSize="@dimen/_11sdp" />
     </LinearLayout>
 
-    <FrameLayout
-        android:layout_width="match_parent"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcvDocuments"
+        android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_weight="1">
+        android:clipToPadding="false"
+        android:paddingHorizontal="@dimen/_15sdp"
+        android:paddingTop="@dimen/_5sdp"
+        android:paddingBottom="@dimen/_100sdp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/layoutTop"
+        tools:listitem="@layout/item_document" />
 
-        <FrameLayout
-            style="@style/CardAppStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/_13sdp"
-            android:layout_marginVertical="@dimen/_5sdp"
-            android:background="@drawable/bg_card"
-            android:clipToOutline="true">
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rcvDocuments"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:overScrollMode="never"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                tools:listitem="@layout/item_document" />
-        </FrameLayout>
-    </FrameLayout>
+    <View
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_100sdp"
+        android:background="@drawable/bg_bottom_fade"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <LinearLayout
         android:id="@+id/layoutActions"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_54sdp"
-        android:layout_marginHorizontal="@dimen/_9sdp"
-        android:layout_marginTop="@dimen/_5sdp"
-        android:layout_marginBottom="@dimen/_13sdp"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_55sdp"
+        android:layout_marginHorizontal="@dimen/_12sdp"
+        android:layout_marginBottom="@dimen/_17sdp"
+        android:background="@drawable/bg_ink_bar"
+        android:elevation="@dimen/_10sdp"
+        android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:background="@drawable/bg_surface_card_r15sdp"
-        android:foreground="@drawable/stroke_r15sdp_st1sdp_stroke"
-        android:clipToOutline="true">
+        android:outlineAmbientShadowColor="@color/color_shadow"
+        android:outlineSpotShadowColor="@color/color_shadow"
+        android:paddingHorizontal="@dimen/_6sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
         <TextView
             android:id="@+id/btnShare"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:drawablePadding="@dimen/_5sdp"
-            android:fontFamily="@font/nunito_700"
-            android:gravity="center"
-            android:paddingVertical="@dimen/_9sdp"
+            style="@style/InkBarAction"
             android:text="@string/file_action_share"
-            android:textSize="@dimen/_9sdp"
-            app:drawableTint="@color/text_primary"
-            android:textColor="@color/text_primary"
-            app:drawableTopCompat="@drawable/ic_app_share_17sdp" />
+            app:drawableTopCompat="@drawable/ic_fo_share_17sdp" />
 
         <TextView
             android:id="@+id/btnMerge"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:drawablePadding="@dimen/_5sdp"
-            android:fontFamily="@font/nunito_700"
-            android:gravity="center"
-            android:paddingVertical="@dimen/_9sdp"
-            android:text="@string/merge_pdf"
-            android:textSize="@dimen/_9sdp"
-            app:drawableTint="@color/text_primary"
-            android:textColor="@color/text_primary"
-            app:drawableTopCompat="@drawable/ic_app_merge_17sdp" />
+            style="@style/InkBarAction"
+            android:text="@string/fo_merge_pdf"
+            app:drawableTopCompat="@drawable/ic_fo_merge_17sdp" />
 
         <TextView
             android:id="@+id/btnZip"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:drawablePadding="@dimen/_5sdp"
-            android:fontFamily="@font/nunito_700"
-            android:gravity="center"
-            android:paddingVertical="@dimen/_9sdp"
+            style="@style/InkBarAction"
             android:text="@string/zip"
-            android:textSize="@dimen/_9sdp"
-            app:drawableTint="@color/text_primary"
-            android:textColor="@color/text_primary"
-            app:drawableTopCompat="@drawable/ic_app_zip_17sdp" />
+            app:drawableTopCompat="@drawable/ic_fo_zip_17sdp" />
 
         <TextView
             android:id="@+id/btnDelete"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:drawablePadding="@dimen/_5sdp"
-            android:fontFamily="@font/nunito_700"
-            android:gravity="center"
-            android:paddingVertical="@dimen/_9sdp"
+            style="@style/InkBarAction"
             android:text="@string/file_action_delete"
-            android:textSize="@dimen/_9sdp"
-            app:drawableTint="@color/color_error"
-            android:textColor="@color/color_error"
-            app:drawableTopCompat="@drawable/ic_app_trash_17sdp" />
-
+            android:textColor="@color/ink_bar_danger"
+            app:drawableTint="@color/ink_bar_danger"
+            app:drawableTopCompat="@drawable/ic_fo_trash_17sdp" />
     </LinearLayout>
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

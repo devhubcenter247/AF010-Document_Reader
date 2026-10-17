@@ -6,48 +6,27 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <LinearLayout
+    <TextView
+        android:id="@+id/tvTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:paddingHorizontal="@dimen/_15sdp"
-        android:paddingTop="@dimen/_13sdp"
-        android:paddingBottom="@dimen/_7sdp">
-
-        <View
-            android:id="@+id/viewColor"
-            android:layout_width="@dimen/_6sdp"
-            android:layout_height="@dimen/_17sdp"
-            tools:uiBackgroundColor="@color/accent" />
-
-        <TextView
-            android:id="@+id/tvTitle"
-            style="@style/TextSectionTitle"
-            android:textSize="@dimen/_11sdp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_8sdp"
-            tools:text="Convert" />
-
-        <TextView
-            android:id="@+id/tvCount"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_8sdp"
-            android:fontFamily="@font/nunito_600"
-            android:textColor="@color/text_secondary"
-            android:textSize="@dimen/_9sdp"
-            tools:text="4 tools" />
-    </LinearLayout>
+        android:fontFamily="@font/nunito_800"
+        android:paddingStart="@dimen/_6sdp"
+        android:paddingTop="@dimen/_12sdp"
+        android:paddingBottom="@dimen/_4sdp"
+        android:textColor="@color/text_primary"
+        android:textSize="@dimen/_12sdp"
+        tools:text="Convert" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcvTools"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/_9sdp"
+        android:clipToPadding="false"
         android:nestedScrollingEnabled="false"
         android:overScrollMode="never"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:spanCount="2"
+        tools:itemCount="4"
         tools:listitem="@layout/item_tool" />
-
 </LinearLayout>

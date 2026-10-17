@@ -43,8 +43,24 @@ val DocumentType.colorRes: Int
         DocumentType.Doc -> R.color.color_file_word
         DocumentType.Excel -> R.color.color_file_excel
         DocumentType.Ppt -> R.color.color_file_powerpoint
-        DocumentType.Txt, DocumentType.Image -> R.color.color_file_txt
+        DocumentType.Txt -> R.color.color_file_txt
+        DocumentType.Image -> R.color.color_file_image
     }
+
+/** The pale tint of [colorRes], for soft badges. */
+val DocumentType.softColorRes: Int
+    @ColorRes get() = when (this) {
+        DocumentType.Pdf -> R.color.color_file_pdf_bg
+        DocumentType.Doc -> R.color.color_file_word_bg
+        DocumentType.Excel -> R.color.color_file_excel_bg
+        DocumentType.Ppt -> R.color.color_file_powerpoint_bg
+        DocumentType.Txt -> R.color.color_file_txt_bg
+        DocumentType.Image -> R.color.color_file_image_bg
+    }
+
+/** The file's extension as shown on its tile: "PDF", "DOCX", at most four letters. */
+val RecentDocument.extensionLabel: String
+    get() = path.substringAfterLast('.', "").uppercase(Locale.ROOT).take(4).ifEmpty { "FILE" }
 
 val RecentDocument.name: String get() = path.substringAfterLast('/')
 

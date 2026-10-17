@@ -400,6 +400,7 @@ class PdfReaderActivity : BaseAppActivity<ActivityPdfReaderBinding>(ActivityPdfR
             Tool.Sign -> startSigning()
             Tool.Annotate -> setMode(Mode.Annotate)
             Tool.FillForm -> startForm()
+            Tool.AddText -> setMode(Mode.Text)
             else -> Unit
         }
     }

@@ -147,6 +147,12 @@
     <color name="color_white_12">#1FFFFFFF</color>
     <color name="color_white_16">#29FFFFFF</color>
     <color name="color_white_28">#47FFFFFF</color>
+    <color name="color_white_55">#8CFFFFFF</color>
+    <color name="color_white_20">#33FFFFFF</color>
+    <color name="color_on_primary_soft">#DCE7FF</color>
+    <color name="color_on_pdf_soft">#FFE1E1</color>
+    <color name="color_danger_soft">#FFB4A8</color>
+    <color name="color_ink_bar">#1F2433</color>
 
     <!-- Folio palette additions -->
     <color name="text_tertiary">#4B5263</color> <!-- Chữ phụ đậm hơn: nút phụ, chú thích trên nền xám -->
@@ -175,4 +181,5 @@
     <color name="color_folder_back">#F2B544</color>
     <color name="color_folder_label">#99FFFFFF</color>
     <color name="color_tool_indigo">#5B5BD6</color>
+    <color name="color_bg_app_clear">#00F2F4F8</color>
 </resources>

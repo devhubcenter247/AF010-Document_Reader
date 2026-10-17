@@ -81,7 +81,7 @@ object AppUtils {
     val documentPath: String
         get() {
             val filePath = File(
-                "${Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)}/Pdf Reader"
+                "${Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)}/Folio"
             )
             if (!filePath.exists()) filePath.mkdirs()
             return filePath.absolutePath

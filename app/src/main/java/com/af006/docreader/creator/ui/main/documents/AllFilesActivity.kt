@@ -1,78 +1,100 @@
 package com.af010.creator.docreader.ui.main.documents
 
-import androidx.core.view.updatePadding
+import androidx.core.view.isVisible
 import com.af010.creator.docreader.R
 import com.af010.creator.docreader.base.BaseAppActivity
 import com.af010.creator.docreader.databinding.ActivityAllFilesBinding
 import com.af010.creator.docreader.model.DocumentType
-import com.af010.creator.docreader.ui.main.files.BrowseType
-import com.af010.creator.docreader.ui.main.files.BrowseTypeAdapter
+import com.af010.creator.docreader.model.StorageTab
+import com.af010.creator.docreader.ui.main.common.FilterChip
+import com.af010.creator.docreader.ui.main.common.FilterChipAdapter
+import com.af010.creator.docreader.ui.main.common.isNoAccess
+import com.af010.creator.docreader.ui.main.common.select
+import com.af010.creator.docreader.ui.main.common.setUp
+import com.af010.creator.docreader.ui.main.common.showNoAccess
+import com.af010.creator.docreader.ui.main.files.DocumentActions
+import com.af010.creator.docreader.ui.main.files.DocumentAdapter
 import com.af010.creator.docreader.ui.main.files.DocumentsViewModel
+import com.af010.creator.docreader.ui.main.files.sheet.SortBottomSheet
 import com.af010.creator.docreader.ui.main.search.SearchActivity
+import com.af010.creator.docreader.ui.main.select.MultiSelectActivity
+import com.af010.creator.docreader.utils.StoragePermissionRequester
+import com.d010.pdf.reader.viewmodel.DataResponse
 import com.ui.baselib.extensions.clickSingle
-import com.ui.baselib.extensions.visible
-import com.ui.baselib.extensions.visibleOrGone
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-/** Browse every document on the device by type or by folder. */
+/** Every document, as Recent / Favourites / All, narrowed by type and sorted. */
 class AllFilesActivity : BaseAppActivity<ActivityAllFilesBinding>(ActivityAllFilesBinding::inflate) {
-    override val fullStatus: Boolean
-        get() = true
 
     private val viewModel: DocumentsViewModel by viewModel()
-    private val typeAdapter by lazy { BrowseTypeAdapter() }
-    private val folderAdapter by lazy { FolderAdapter() }
+    private val rows = DocumentAdapter()
+    private val typeChips = FilterChipAdapter<DocumentType?>()
+    private val actions by lazy { DocumentActions(this, viewModel) }
+    private val permissionRequester = StoragePermissionRequester(this) { viewModel.refresh() }
 
-    override fun backPressed() {
-        finish()
-    }
+    override fun initialize() = Unit
 
-    override fun initialize() {
-
-    }
+    override fun backPressed() = finish()
 
     override fun ActivityAllFilesBinding.setData() {
-        toolbar.root.updatePadding(top = statusBarHeight)
-        toolbar.tvTitle.setText(R.string.all_file)
-        toolbar.btnSearch.visible()
-        rcvTypes.adapter = typeAdapter
-        rcvFolders.adapter = folderAdapter
+        bar.tvTitle.setText(R.string.all_file)
+        bar.btnFirst.isVisible = true
+        bar.btnFirst.setImageResource(R.drawable.ic_fo_search)
+        bar.btnFirst.contentDescription = getString(R.string.search_files)
 
-        viewModel.typeCounts.mainCollect { counts ->
-            typeAdapter.submitList(types.map { it.copy(count = counts[it.type] ?: 0) })
-            btnTxt.text = getString(
-                R.string.document_meta,
-                getString(R.string.tab_txt),
-                (counts[DocumentType.Txt] ?: 0).toString()
-            )
-        }
-        viewModel.folders.mainCollect { folders ->
-            folderAdapter.submitList(folders)
-            tvFolders.visibleOrGone(folders.isNotEmpty())
-            layoutFolders.visibleOrGone(folders.isNotEmpty())
+        segmentTab.setUp(R.string.recent, R.string.fo_favourites, R.string.fo_all) { viewModel.setTab(StorageTab.entries[it]) }
+        rcvTypes.adapter = typeChips
+        typeChips.submitList(TYPES.map { (type, label) -> FilterChip(type, label, isSelected = type == null) })
+        rcvDocuments.adapter = rows
+
+        viewModel.filter.mainCollect { segmentTab.select(it.tab.ordinal) }
+        viewModel.documents.mainCollect { response ->
+            val files = (response as? DataResponse.DataSuccess)?.data
+            if (files != null) rows.submitList(files)
+            rcvDocuments.isVisible = !files.isNullOrEmpty()
+            emptyList.root.isVisible = files?.isEmpty() == true
+            if (response.isNoAccess) emptyState.showNoAccess() else emptyState.root.isVisible = false
         }
     }
 
     override fun ActivityAllFilesBinding.onClick() {
-        toolbar.btnBack.clickSingle { finish() }
-        toolbar.btnSearch.clickSingle { launchActivity<SearchActivity>() }
-        typeAdapter.onTypeClick {
-            launchActivity<FileListActivity>(FileListActivity.EXTRA_TYPE to it.type.name)
+        bar.btnBack.clickSingle { finish() }
+        bar.btnFirst.clickSingle { launchActivity<SearchActivity>() }
+        btnSort.clickSingle {
+            SortBottomSheet(this@AllFilesActivity, viewModel.filter.value.sort) { viewModel.setSort(it) }.show()
         }
-        folderAdapter.onFolderClick {
-            launchActivity<FileListActivity>(FileListActivity.EXTRA_FOLDER to it)
+        typeChips.onChipClick { type ->
+            typeChips.select(type)
+            viewModel.setScope(type, null)
         }
-        btnTxt.clickSingle {
-            launchActivity<FileListActivity>(FileListActivity.EXTRA_TYPE to DocumentType.Txt.name)
-        }
+        emptyState.btnPrimary.clickSingle { permissionRequester.request(this@AllFilesActivity) }
+        emptyList.tvTitle.setText(R.string.fo_nothing_here)
+        emptyList.tvDesc.setText(R.string.fo_nothing_here_desc)
+        rows
+            .onDocumentClick { actions.open(it.document) }
+            .onMoreClick { actions.showOptions(it) }
+            .onDocumentLongClick {
+                launchActivity<MultiSelectActivity>(
+                    MultiSelectActivity.EXTRA_TAB to viewModel.filter.value.tab.name,
+                    MultiSelectActivity.EXTRA_TYPE to viewModel.filter.value.type?.name,
+                    MultiSelectActivity.EXTRA_SELECTED_ID to it.document.mediaId
+                )
+            }
     }
 
-    companion object {
-        private val types = listOf(
-            BrowseType(DocumentType.Pdf, R.string.tab_pdf),
-            BrowseType(DocumentType.Doc, R.string.tab_word),
-            BrowseType(DocumentType.Excel, R.string.tab_excel),
-            BrowseType(DocumentType.Ppt, R.string.powerpoint)
+    override fun onResume() {
+        super.onResume()
+        viewModel.refresh()
+    }
+
+    private companion object {
+        val TYPES = listOf(
+            null to R.string.fo_all,
+            DocumentType.Pdf to R.string.tab_pdf,
+            DocumentType.Doc to R.string.tab_word,
+            DocumentType.Excel to R.string.tab_excel,
+            DocumentType.Ppt to R.string.powerpoint,
+            DocumentType.Txt to R.string.fo_text
         )
     }
 }

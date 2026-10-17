@@ -1,47 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:background="@drawable/bg_segment_track"
     android:orientation="horizontal"
-    android:padding="@dimen/_3sdp"
-    android:background="@drawable/bg_surface_track_r9sdp"
-    android:clipToOutline="true">
+    android:padding="@dimen/_3sdp">
 
     <TextView
         android:id="@+id/tvFirst"
-        android:layout_width="0dp"
-        android:layout_height="@dimen/_25sdp"
-        android:layout_weight="1"
-        android:fontFamily="@font/nunito_700"
-        android:gravity="center"
-        android:paddingHorizontal="@dimen/_11sdp"
-        android:textSize="@dimen/_10sdp"
+        style="@style/SegmentItem"
         tools:text="Recent" />
 
     <TextView
         android:id="@+id/tvSecond"
-        android:layout_width="0dp"
-        android:layout_height="@dimen/_25sdp"
-        android:layout_weight="1"
-        android:fontFamily="@font/nunito_700"
-        android:gravity="center"
-        android:paddingHorizontal="@dimen/_11sdp"
-        android:textSize="@dimen/_10sdp"
-        tools:text="Favorites" />
+        style="@style/SegmentItem"
+        tools:text="Favourites" />
 
     <TextView
         android:id="@+id/tvThird"
-        android:layout_width="0dp"
-        android:layout_height="@dimen/_25sdp"
-        android:layout_weight="1"
-        android:fontFamily="@font/nunito_700"
-        android:gravity="center"
-        android:paddingHorizontal="@dimen/_11sdp"
-        android:textSize="@dimen/_10sdp"
+        style="@style/SegmentItem"
         android:visibility="gone"
-        tools:text="Side by side" />
-
+        tools:text="All" />
 </LinearLayout>

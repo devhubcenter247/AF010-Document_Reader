@@ -120,11 +120,6 @@
             android:screenOrientation="portrait"
             tools:ignore="DiscouragedApi,LockedOrientationActivity" />
         <activity
-            android:name=".ui.main.documents.FileListActivity"
-            android:exported="false"
-            android:screenOrientation="portrait"
-            tools:ignore="DiscouragedApi,LockedOrientationActivity" />
-        <activity
             android:name=".ui.main.search.SearchActivity"
             android:exported="false"
             android:screenOrientation="portrait"

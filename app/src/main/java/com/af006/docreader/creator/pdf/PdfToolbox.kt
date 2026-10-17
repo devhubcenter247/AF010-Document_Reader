@@ -262,14 +262,16 @@ class PdfToolbox(context: Context) {
         }
     }
 
-    /** The text layers of the first [maxPages] pages, one after the other. */
+    /** The text layers of the first [maxPages] pages, each ended by a form feed ([PAGE_BREAK]). */
     suspend fun documentText(file: File, maxPages: Int): String = withContext(dispatcher) {
         val doc = open(file)
         try {
             buildString {
                 for (page in 0 until minOf(pdfium.getPageCount(doc), maxPages)) {
                     currentCoroutineContext().ensureActive()
-                    pdfium.getPageTextLayout(doc, page)?.let { append(it.text).append('\n') }
+                    // An empty page still gets its break, so breaks count pages.
+                    pdfium.getPageTextLayout(doc, page)?.let { append(it.text) }
+                    append(PAGE_BREAK)
                 }
             }
         } finally {
@@ -469,6 +471,9 @@ class PdfToolbox(context: Context) {
     ).firstOrNull { File(it).canRead() }
 
     companion object {
+        /** Ends each page in [documentText]. */
+        const val PAGE_BREAK = '\u000C'
+
         // A4 at 200 dpi
         private const val IMAGE_WIDTH = 1654
         private const val IMAGE_QUALITY = 90

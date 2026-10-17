@@ -1,10 +1,10 @@
 package com.af010.creator.docreader.ui.main.tools
 
 import android.view.LayoutInflater
-import androidx.core.content.ContextCompat
-import androidx.recyclerview.widget.GridLayoutManager
+import android.view.inputmethod.InputMethodManager
+import androidx.core.view.isVisible
+import androidx.core.widget.doAfterTextChanged
 import com.af010.creator.docreader.R
-import com.af010.creator.docreader.app.remote.remoteConfig
 import com.af010.creator.docreader.base.BaseAppFragment
 import com.af010.creator.docreader.databinding.FragmentToolsBinding
 import com.af010.creator.docreader.databinding.ItemToolSectionBinding
@@ -12,75 +12,68 @@ import com.af010.creator.docreader.model.Tool
 import com.af010.creator.docreader.model.ToolGroup
 import com.af010.creator.docreader.ui.main.common.FilterChip
 import com.af010.creator.docreader.ui.main.common.FilterChipAdapter
-import com.af010.creator.docreader.ui.main.premium.PaywallActivity
-import com.af010.creator.docreader.utils.extensions.setFillColor
-import com.ui.baselib.extensions.afterTextChanged
 import com.ui.baselib.extensions.clickSingle
-import com.ui.baselib.extensions.visibleOrGone
 
+/** The Toolbox: every tool by section, narrowed by a section chip or by name. */
 class ToolsFragment : BaseAppFragment<FragmentToolsBinding>(FragmentToolsBinding::inflate) {
 
-    /** null = "All". */
-    private var group: ToolGroup? = null
+    /** null = every section. */
+    private var section: ToolGroup? = null
     private var query = ""
 
-    private val groupAdapter by lazy { FilterChipAdapter<ToolGroup?>() }
+    private val sectionChips = FilterChipAdapter<ToolGroup?>()
+    private val toolbox = Tool.entries.filter { it.inToolbox }
 
     override fun FragmentToolsBinding.initView() {
-        btnPro.visibleOrGone(remoteConfig.paywallEnabled)
-        tvSubtitle.text = getString(R.string.tools_subtitle, Tool.entries.size)
-
-        rcvGroups.adapter = groupAdapter
-        groupAdapter.submitList(
-            listOf(FilterChip<ToolGroup?>(null, R.string.filter_all, isSelected = group == null)) +
-                    ToolGroup.entries.map { FilterChip<ToolGroup?>(it, it.title, isSelected = it == group) }
+        tvSubtitle.text = resources.getQuantityString(R.plurals.fo_toolbox_count, toolbox.size, toolbox.size)
+        rcvGroups.adapter = sectionChips
+        sectionChips.submitList(
+            listOf(FilterChip<ToolGroup?>(null, R.string.fo_all, isSelected = section == null)) +
+                ToolGroup.entries.map { FilterChip<ToolGroup?>(it, it.chip, isSelected = it == section) }
         )
-        renderSections()
+        showSections()
     }
 
     override fun FragmentToolsBinding.onClick() {
-        btnPro.clickSingle { PaywallActivity.start(requireActivity()) }
-        cardScan.clickSingle { requireActivity().openTool(Tool.Scan) }
-        cardSign.clickSingle { requireActivity().openTool(Tool.Sign) }
-        cardCompress.clickSingle { requireActivity().openTool(Tool.Compress) }
-
-        groupAdapter.onChipClick {
-            group = it
-            groupAdapter.select(it)
-            renderSections()
+        btnSearch.clickSingle { toggleSearch() }
+        sectionChips.onChipClick {
+            section = it
+            sectionChips.select(it)
+            showSections()
         }
-        edtSearch.afterTextChanged {
-            query = it.trim()
-            renderSections()
+        edtSearch.doAfterTextChanged {
+            query = it?.toString()?.trim().orEmpty()
+            showSections()
         }
     }
 
-    private fun FragmentToolsBinding.renderSections() {
+    private fun FragmentToolsBinding.toggleSearch() {
+        val open = !edtSearch.isVisible
+        edtSearch.isVisible = open
+        val keyboard = requireContext().getSystemService(InputMethodManager::class.java)
+        if (open) {
+            edtSearch.requestFocus()
+            keyboard.showSoftInput(edtSearch, InputMethodManager.SHOW_IMPLICIT)
+        } else {
+            edtSearch.text = null
+            keyboard.hideSoftInputFromWindow(edtSearch.windowToken, 0)
+        }
+    }
+
+    private fun FragmentToolsBinding.showSections() {
         layoutSections.removeAllViews()
         val inflater = LayoutInflater.from(layoutSections.context)
-        ToolGroup.entries
-            .filter { group == null || it == group }
-            .forEach { toolGroup ->
-                val tools = Tool.entries.filter {
-                    it.group == toolGroup && getString(it.title).contains(query, ignoreCase = true)
-                }
-                if (tools.isEmpty()) return@forEach
-
-                val section = ItemToolSectionBinding.inflate(inflater, layoutSections, true)
-                section.viewColor.setFillColor(ContextCompat.getColor(section.root.context, toolGroup.color))
-                section.tvTitle.setText(toolGroup.title)
-                section.tvCount.text =
-                    resources.getQuantityString(R.plurals.tool_count, tools.size, tools.size)
-                section.rcvTools.layoutManager = GridLayoutManager(section.root.context, 2).apply {
-                    // An odd tool out at the end takes the full row.
-                    spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
-                        override fun getSpanSize(position: Int) =
-                            if (tools.size % 2 == 1 && position == tools.lastIndex) 2 else 1
-                    }
-                }
-                section.rcvTools.adapter = ToolAdapter()
-                    .onToolClick { requireActivity().openTool(it) }
-                    .submitList(tools)
+        var shown = 0
+        for (group in ToolGroup.entries) {
+            if (section != null && group != section) continue
+            val tools = toolbox.filter { it.group == group && getString(it.title).contains(query, ignoreCase = true) }
+            if (tools.isEmpty()) continue
+            shown += tools.size
+            ItemToolSectionBinding.inflate(inflater, layoutSections, true).apply {
+                tvTitle.setText(group.title)
+                rcvTools.adapter = ToolAdapter { requireActivity().openTool(it) }.apply { submitList(tools) }
             }
+        }
+        tvNoTools.isVisible = shown == 0
     }
 }

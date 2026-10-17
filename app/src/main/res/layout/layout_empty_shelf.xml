@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Three rounded pages and a friendly line, for lists with nothing in them yet. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:paddingHorizontal="@dimen/_31sdp"
+    android:paddingTop="@dimen/_31sdp">
+
+    <ImageView
+        android:layout_width="@dimen/_92sdp"
+        android:layout_height="@dimen/_54sdp"
+        android:importantForAccessibility="no"
+        android:src="@drawable/ic_empty_shelf" />
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_6sdp"
+        android:fontFamily="@font/nunito_800"
+        android:gravity="center"
+        android:text="@string/fo_empty_shelf"
+        android:textColor="@color/text_primary"
+        android:textSize="@dimen/_12sdp" />
+
+    <TextView
+        android:id="@+id/tvDesc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_6sdp"
+        android:fontFamily="@font/nunito_600"
+        android:gravity="center"
+        android:lineSpacingMultiplier="1.15"
+        android:text="@string/fo_empty_shelf_desc"
+        android:textColor="@color/text_secondary"
+        android:textSize="@dimen/_11sdp" />
+</LinearLayout>

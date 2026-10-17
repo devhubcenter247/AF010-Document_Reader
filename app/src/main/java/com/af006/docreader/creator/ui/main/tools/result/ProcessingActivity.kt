@@ -10,6 +10,7 @@ import com.af010.creator.docreader.model.Tool
 import com.af010.creator.docreader.model.ToolRequest
 import com.af010.creator.docreader.pdf.ToolRunner
 import com.af010.creator.docreader.pdf.ToolState
+import com.af010.creator.docreader.ui.common.showToolTile
 import com.af010.creator.docreader.ui.main.tools.translate.TranslateResultActivity
 import com.ui.baselib.extensions.clickSingle
 import com.ui.baselib.extensions.visibleOrInvisible
@@ -65,7 +66,7 @@ class ProcessingActivity :
     }
 
     private fun ActivityProcessingBinding.show(state: ToolState.Running) {
-        ivTool.setImageResource(state.request.tool.icon)
+        ivTool.showToolTile(state.request.tool)
         tvTitle.setText(titles[state.request.tool] ?: R.string.processing_generic)
         if (state.step != 0) tvSubtitle.setText(state.step)
 

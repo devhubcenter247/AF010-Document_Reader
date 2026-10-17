@@ -22,7 +22,7 @@ fun LayoutEmptyStateBinding.show(
     @StringRes message: Int,
     @StringRes primary: Int = 0,
     @StringRes secondary: Int = 0,
-    @DrawableRes icon: Int = R.drawable.ic_app_folder
+    @DrawableRes icon: Int = R.drawable.ic_fo_folder
 ) {
     ivIcon.setImageResource(icon)
     tvTitle.text = title

@@ -1,42 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    style="@style/BottomSheetAppStyle"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@drawable/bg_sheet"
     android:orientation="vertical"
-    android:paddingBottom="@dimen/_10sdp"
-    android:background="@drawable/bg_surface_card_r22sdp_22sdp_0_0"
-    android:clipToOutline="true">
+    android:paddingHorizontal="@dimen/_15sdp"
+    android:paddingBottom="@dimen/_18sdp">
 
     <View
-        android:layout_width="@dimen/_31sdp"
+        android:layout_width="@dimen/_34sdp"
         android:layout_height="@dimen/_4sdp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="@dimen/_8sdp"
-        android:background="@drawable/bg_handle_r3sdp" />
+        android:background="@drawable/bg_handle" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_14sdp"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:paddingHorizontal="@dimen/_15sdp"
-        android:paddingTop="@dimen/_9sdp">
+        android:paddingHorizontal="@dimen/_3sdp">
 
-        <ImageView
-            android:id="@+id/ivType"
-            android:layout_width="@dimen/_23sdp"
-            android:layout_height="@dimen/_28sdp"
-            android:contentDescription="@null"
-            tools:src="@drawable/ic_file_word" />
+        <TextView
+            android:id="@+id/tvType"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:background="@drawable/bg_type_badge"
+            android:fontFamily="@font/nunito_800"
+            android:gravity="center"
+            android:maxLines="1"
+            android:rotation="-4"
+            android:textSize="@dimen/_9sdp"
+            tools:backgroundTint="@color/color_file_pdf_bg"
+            tools:text="PDF"
+            tools:textColor="@color/color_file_pdf" />
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_9sdp"
+            android:layout_marginStart="@dimen/_11sdp"
+            android:layout_weight="1"
             android:orientation="vertical">
 
             <TextView
@@ -44,191 +50,89 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ellipsize="middle"
-                android:fontFamily="@font/nunito_700"
+                android:fontFamily="@font/nunito_800"
                 android:maxLines="1"
                 android:textColor="@color/text_primary"
-                android:textSize="@dimen/_11sdp"
-                tools:text="Service-agreement.docx" />
+                android:textSize="@dimen/_13sdp"
+                tools:text="Lease_Agreement_2026.pdf" />
 
             <TextView
                 android:id="@+id/tvMeta"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_2sdp"
                 android:fontFamily="@font/nunito_600"
+                android:maxLines="1"
                 android:textColor="@color/text_secondary"
-                android:textSize="@dimen/_9sdp"
-                tools:text="84 KB · edited 5 min ago" />
+                android:textSize="@dimen/_10sdp"
+                tools:text="2.4 MB · Downloads" />
         </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/_15sdp"
         android:layout_marginTop="@dimen/_11sdp"
-        android:layout_marginBottom="@dimen/_8sdp"
         android:orientation="horizontal">
 
         <TextView
             android:id="@+id/btnShare"
-            style="@style/CardAppStyle"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/_55sdp"
-            android:layout_marginEnd="@dimen/_4sdp"
-            android:layout_weight="1"
-            android:drawablePadding="@dimen/_5sdp"
-            android:fontFamily="@font/nunito_700"
-            android:gravity="center"
-            android:paddingVertical="@dimen/_9sdp"
+            style="@style/ActionTile"
             android:text="@string/file_action_share"
-            android:textSize="@dimen/_9sdp"
-            android:background="@drawable/bg_surface_card_r13sdp_st1sdp_stroke"
-            android:textColor="@color/text_primary"
-            app:drawableTopCompat="@drawable/ic_app_share_17sdp" />
+            app:drawableTopCompat="@drawable/ic_fo_share_17sdp" />
 
         <TextView
             android:id="@+id/btnFavorite"
-            style="@style/CardAppStyle"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/_55sdp"
-            android:layout_marginStart="@dimen/_4sdp"
-            android:layout_marginEnd="@dimen/_4sdp"
-            android:layout_weight="1"
-            android:drawablePadding="@dimen/_5sdp"
-            android:fontFamily="@font/nunito_700"
-            android:gravity="center"
-            android:paddingVertical="@dimen/_9sdp"
-            android:text="@string/file_action_favorite"
-            android:textSize="@dimen/_9sdp"
-            app:drawableTint="@color/color_e4a11b"
-            android:background="@drawable/bg_surface_card_r13sdp_st1sdp_stroke"
-            android:textColor="@color/text_primary"
-            app:drawableTopCompat="@drawable/ic_app_star_17sdp" />
+            style="@style/ActionTile"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:text="@string/fo_favourite"
+            app:drawableTopCompat="@drawable/ic_fo_star_17sdp" />
 
         <TextView
-            android:id="@+id/btnToPdf"
-            style="@style/CardAppStyle"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/_55sdp"
-            android:layout_marginStart="@dimen/_4sdp"
-            android:layout_weight="1"
-            android:drawablePadding="@dimen/_5sdp"
-            android:fontFamily="@font/nunito_700"
-            android:gravity="center"
-            android:paddingVertical="@dimen/_9sdp"
-            android:text="@string/to_pdf"
-            android:textSize="@dimen/_9sdp"
-            app:drawableTint="@color/color_file_pdf"
-            android:background="@drawable/bg_surface_card_r13sdp_st1sdp_stroke"
-            android:textColor="@color/text_primary"
-            app:drawableTopCompat="@drawable/ic_app_download_17sdp" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/rowEdit"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_40sdp"
-        android:background="?attr/selectableItemBackground"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:paddingHorizontal="@dimen/_15sdp">
-
-        <ImageView
-            android:layout_width="@dimen/_17sdp"
-            android:layout_height="@dimen/_17sdp"
-            android:contentDescription="@null"
-            android:src="@drawable/ic_app_pen" />
-
-        <TextView
-            style="@style/RowLabelStyle"
-            android:text="@string/open_to_edit"
-            android:textColor="@color/text_primary" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/rowRename"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_40sdp"
-        android:background="?attr/selectableItemBackground"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:paddingHorizontal="@dimen/_15sdp">
-
-        <ImageView
-            android:layout_width="@dimen/_17sdp"
-            android:layout_height="@dimen/_17sdp"
-            android:contentDescription="@null"
-            android:src="@drawable/ic_app_text" />
-
-        <TextView
-            style="@style/RowLabelStyle"
+            android:id="@+id/btnRename"
+            style="@style/ActionTile"
+            android:layout_marginStart="@dimen/_8sdp"
             android:text="@string/file_action_rename"
-            android:textColor="@color/text_primary" />
+            app:drawableTopCompat="@drawable/ic_fo_pen_17sdp" />
+
+        <TextView
+            android:id="@+id/btnCopy"
+            style="@style/ActionTile"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:text="@string/fo_copy"
+            app:drawableTopCompat="@drawable/ic_fo_copy_17sdp" />
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/rowCopy"
+        style="@style/FloatingCard"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_40sdp"
-        android:background="?attr/selectableItemBackground"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:paddingHorizontal="@dimen/_15sdp">
-
-        <ImageView
-            android:layout_width="@dimen/_17sdp"
-            android:layout_height="@dimen/_17sdp"
-            android:contentDescription="@null"
-            android:src="@drawable/ic_app_copy" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_11sdp"
+        android:background="@drawable/bg_benefits_card"
+        android:clipToOutline="true"
+        android:orientation="vertical"
+        android:paddingHorizontal="@dimen/_5sdp"
+        android:paddingVertical="@dimen/_3sdp">
 
         <TextView
-            style="@style/RowLabelStyle"
-            android:text="@string/make_a_copy"
-            android:textColor="@color/text_primary" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/rowInfo"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_40sdp"
-        android:background="?attr/selectableItemBackground"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:paddingHorizontal="@dimen/_15sdp">
-
-        <ImageView
-            android:layout_width="@dimen/_17sdp"
-            android:layout_height="@dimen/_17sdp"
-            android:contentDescription="@null"
-            android:src="@drawable/ic_app_info" />
-
-        <TextView
-            style="@style/RowLabelStyle"
+            android:id="@+id/rowInfo"
+            style="@style/CardRow"
             android:text="@string/file_info"
-            android:textColor="@color/text_primary" />
-    </LinearLayout>
+            app:drawableEndCompat="@drawable/ic_fo_chevron_17sdp"
+            app:drawableStartCompat="@drawable/ic_fo_info_17sdp" />
 
-    <LinearLayout
-        android:id="@+id/rowDelete"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_40sdp"
-        android:background="?attr/selectableItemBackground"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:paddingHorizontal="@dimen/_15sdp">
-
-        <ImageView
-            android:layout_width="@dimen/_17sdp"
-            android:layout_height="@dimen/_17sdp"
-            android:contentDescription="@null"
-            android:src="@drawable/ic_app_trash"
-            app:tint="@color/color_error" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_2sdp"
+            android:layout_marginHorizontal="@dimen/_6sdp"
+            android:background="@drawable/line_dashed" />
 
         <TextView
-            style="@style/RowLabelStyle"
+            android:id="@+id/rowDelete"
+            style="@style/CardRow"
             android:text="@string/file_action_delete"
-            android:textColor="@color/color_error" />
+            android:textColor="@color/color_error"
+            app:drawableStartCompat="@drawable/ic_fo_trash_17sdp"
+            app:drawableTint="@color/color_error" />
     </LinearLayout>
-
 </LinearLayout>

@@ -47,7 +47,7 @@ fun Activity.openTool(tool: Tool, paths: List<String> = emptyList()) {
         // The Office screen draws the pages: it opens the file and converts it there.
         tool == Tool.OfficeToPdf -> OfficeActivity.start(this, paths.first(), toPdf = true)
         // Edited in the reader, which opens straight in the tool's mode.
-        tool == Tool.Sign || tool == Tool.Annotate || tool == Tool.FillForm ->
+        tool == Tool.Sign || tool == Tool.Annotate || tool == Tool.FillForm || tool == Tool.AddText ->
             PdfReaderActivity.start(this, paths.first(), tool)
         tool == Tool.Organize -> startActivity(PdfOrganizeActivity.intent(this, paths.first()))
         tool == Tool.PdfToImages -> ProcessingActivity.start(this, ToolRequest.PdfToImages(paths.first()))

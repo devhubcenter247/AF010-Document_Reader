@@ -9,7 +9,7 @@
     android:orientation="vertical"
     android:paddingBottom="@dimen/_10sdp"
     tools:context=".ui.main.reader.office.sheet.OfficeOptionsBottomSheet"
-    android:background="@drawable/bg_surface_card_r22sdp_22sdp_0_0"
+    android:background="@drawable/bg_sheet"
     android:clipToOutline="true">
 
     <include

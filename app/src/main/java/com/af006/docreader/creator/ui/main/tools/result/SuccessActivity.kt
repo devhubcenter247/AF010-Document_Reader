@@ -13,18 +13,19 @@ import com.af010.creator.docreader.databinding.ActivitySuccessBinding
 import com.af010.creator.docreader.databinding.ItemNextToolBinding
 import com.af010.creator.docreader.model.Tool
 import com.af010.creator.docreader.model.ToolResult
-import com.af010.creator.docreader.ui.main.tools.openTool
-import com.af010.creator.docreader.ui.main.tools.isImage
-import com.af010.creator.docreader.ui.main.tools.typeIcon
+import com.af010.creator.docreader.ui.common.showToolTile
 import com.af010.creator.docreader.ui.main.reader.office.OfficeActivity
 import com.af010.creator.docreader.ui.main.reader.pdf.PdfReaderActivity
+import com.af010.creator.docreader.ui.main.tools.isImage
+import com.af010.creator.docreader.ui.main.tools.openTool
+import com.af010.creator.docreader.ui.main.tools.typeIcon
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.CenterCrop
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.d010.pdf.reader.base.openFileWith
 import com.ui.baselib.base.BaseAdapter
 import com.ui.baselib.extensions.clickSingle
 import com.ui.baselib.extensions.visibleOrGone
-import com.bumptech.glide.Glide
-import com.bumptech.glide.load.resource.bitmap.CenterCrop
-import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.ui.baselib.utils.dpToPx
 import java.io.File
 
@@ -125,7 +126,7 @@ class SuccessActivity : BaseAppActivity<ActivitySuccessBinding>(ActivitySuccessB
         }
 
         override fun ItemNextToolBinding.bind(item: Tool, position: Int) {
-            ivIcon.setImageResource(item.icon)
+            ivIcon.showToolTile(item)
             tvTitle.setText(item.title)
             root.setOnClickListener { onItemClick.invoke(item) }
         }

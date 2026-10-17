@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TextView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/tvChip"
     android:layout_width="wrap_content"
-    android:layout_height="@dimen/_27sdp"
+    android:layout_height="@dimen/_29sdp"
     android:layout_marginEnd="@dimen/_6sdp"
-    android:drawablePadding="@dimen/_4sdp"
-    android:fontFamily="@font/nunito_700"
+    android:background="@drawable/bg_filter_chip"
+    android:drawablePadding="@dimen/_5sdp"
+    android:fontFamily="@font/nunito_800"
     android:gravity="center"
-    android:paddingHorizontal="@dimen/_11sdp"
-    android:textSize="@dimen/_10sdp"
-    tools:text="Convert"
-    android:background="@drawable/bg_surface_card_r15sdp_st1sdp_stroke"
-    android:textColor="@color/text_primary" />
+    android:paddingHorizontal="@dimen/_12sdp"
+    android:textColor="@color/text_filter_chip"
+    android:textSize="@dimen/_11sdp"
+    app:drawableTint="@color/text_filter_chip"
+    tools:text="Convert" />

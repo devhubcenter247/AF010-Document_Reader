@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- One choice in a sheet list: icon tile, label, and a tick while picked (selected state). -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_46sdp"
+    android:background="@drawable/bg_choice_row"
+    android:elevation="@dimen/_3sdp"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:outlineAmbientShadowColor="@color/color_shadow"
+    android:outlineSpotShadowColor="@color/color_shadow"
+    android:paddingStart="@dimen/_8sdp"
+    android:paddingEnd="@dimen/_12sdp">
+
+    <ImageView
+        android:id="@+id/ivIcon"
+        android:layout_width="@dimen/_31sdp"
+        android:layout_height="@dimen/_31sdp"
+        android:background="@drawable/bg_choice_icon"
+        android:duplicateParentState="true"
+        android:importantForAccessibility="no"
+        android:padding="@dimen/_8sdp"
+        app:tint="@color/choice_icon"
+        tools:src="@drawable/ic_fo_clock" />
+
+    <TextView
+        android:id="@+id/tvLabel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_9sdp"
+        android:layout_weight="1"
+        android:fontFamily="@font/nunito_800"
+        android:textColor="@color/text_primary"
+        android:textSize="@dimen/_12sdp"
+        tools:text="Date modified" />
+
+    <ImageView
+        android:id="@+id/ivTick"
+        android:layout_width="@dimen/_15sdp"
+        android:layout_height="@dimen/_15sdp"
+        android:importantForAccessibility="no"
+        android:src="@drawable/ic_fo_check"
+        android:visibility="invisible"
+        app:tint="@color/primary" />
+</LinearLayout>
