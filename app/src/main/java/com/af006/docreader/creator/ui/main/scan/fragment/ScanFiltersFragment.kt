@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
+import androidx.core.view.updateLayoutParams
 import androidx.core.view.updatePadding
 import androidx.lifecycle.lifecycleScope
 import com.af010.creator.docreader.R
@@ -21,15 +22,14 @@ import com.af010.creator.docreader.ui.main.scan.ScanPage
 import com.af010.creator.docreader.ui.main.scan.ScanSessionViewModel
 import com.af010.creator.docreader.ui.main.scan.detection.DocumentImageProcessor
 import com.af010.creator.docreader.ui.main.scan.detection.ScanFilter
+import com.af010.creator.docreader.ui.dialog.TextInputDialog
 import com.af010.creator.docreader.ui.main.tools.result.ProcessingActivity
-import com.af010.creator.docreader.utils.extensions.setStroke
+import com.af010.creator.docreader.ui.main.tools.show
 import com.bumptech.glide.Glide
 import com.ui.baselib.base.BaseAdapter
 import com.ui.baselib.extensions.click
 import com.ui.baselib.extensions.clickSingle
-import com.ui.baselib.extensions.visible
 import com.ui.baselib.extensions.visibleOrInvisible
-import com.ui.baselib.utils.dpToPx
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
@@ -59,11 +59,15 @@ class ScanFiltersFragment :
     private val page: ScanPage? get() = viewModel.pageList.getOrNull(index)
 
     override fun FragmentScanFiltersBinding.initView() {
-        toolbar.root.updatePadding(top = statusBarHeight)
-        toolbar.tvSubtitle.visible()
-        toolbar.tvSubtitle.setText(R.string.scan_tap_filter)
-        toolbar.btnAction.setText(R.string.save_pdf)
-        toolbar.btnAction.visible()
+        // The bar has a fixed height: grow it by the status bar it now reaches under.
+        topBar.root.updatePadding(top = statusBarHeight)
+        topBar.root.updateLayoutParams { height += statusBarHeight }
+        topBar.tvTitle.text = viewModel.name
+        topBar.tvSubtitle.isVisible = true
+        topBar.tvSubtitle.setText(R.string.fo_pick_a_look)
+        topBar.btnFirst.setImageResource(R.drawable.ic_fo_pencil)
+        topBar.btnFirst.contentDescription = getString(R.string.fo_rename)
+        topBar.btnFirst.isVisible = true
         rcvFilters.adapter = filterAdapter
         filterAdapter.submitList(ScanFilter.entries.map { FilterPreview(it) })
 
@@ -74,21 +78,23 @@ class ScanFiltersFragment :
     }
 
     override fun FragmentScanFiltersBinding.onClick() {
-        toolbar.btnBack.click { addPage() }
+        topBar.btnBack.click { addPage() }
+        topBar.btnFirst.clickSingle { renameScan() }
         btnAddPage.click { addPage() }
         btnPrevious.click { viewModel.select(index - 1) }
         btnNext.click { viewModel.select(index + 1) }
         filterAdapter.onFilterClick { applyFilter(it) }
 
         btnCrop.click { cropAgain() }
-        btnRotate.click { rotate() }
         btnCleanUp.click { if (!busy && page != null) navigateTo(ScanActivity.ROUTE_CLEAN_UP) }
         btnDelete.click { if (!busy) viewModel.delete(index) }
 
-        toolbar.btnAction.clickSingle {
+        action.btnAction.clickSingle {
             val pages = viewModel.pageList
             if (busy || pages.isEmpty()) return@clickSingle
-            val name = "Scan_" + SimpleDateFormat("yyyyMMdd_HHmmss", Locale.US).format(Date())
+            val name = viewModel.name.replace('/', '-').trim().ifEmpty {
+                "Scan_" + SimpleDateFormat("yyyyMMdd_HHmmss", Locale.US).format(Date())
+            }
             ProcessingActivity.start(
                 appContext(),
                 ToolRequest.ImagesToPdf(
@@ -117,7 +123,11 @@ class ScanFiltersFragment :
         val binding = bindingOrNull ?: return
         val pages = viewModel.pageList
         val page = page ?: return
-        binding.toolbar.tvTitle.text = getString(R.string.page_of, index + 1, pages.size)
+        binding.tvPage.text = getString(R.string.fo_x_of_y, index + 1, pages.size)
+        binding.action.show(
+            getString(R.string.fo_save_pdf_pages, resources.getQuantityString(R.plurals.translate_page_count, pages.size, pages.size)),
+            R.drawable.ic_fo_download
+        )
         binding.btnPrevious.visibleOrInvisible(index > 0)
         binding.btnNext.visibleOrInvisible(index < pages.lastIndex)
         Glide.with(this).load(page.output).into(binding.ivPage)
@@ -157,24 +167,13 @@ class ScanFiltersFragment :
         }
     }
 
-    private fun rotate() {
-        val page = page ?: return
-        val target = index
-        runBusy {
-            // Rotate the unfiltered crop too, so a filter picked later keeps the rotation.
-            val rotated = withContext(Dispatchers.Default) {
-                val cropped = processor.rotateClockwise(page.cropped) ?: return@withContext null
-                if (page.output == page.cropped) return@withContext page.copy(cropped = cropped, output = cropped)
-                val output = processor.rotateClockwise(page.output)
-                if (output == null) {
-                    cropped.delete()
-                    return@withContext null
-                }
-                page.copy(cropped = cropped, output = output)
-            }
-            if (rotated == null) toast(R.string.scanner_capture_failed)
-            else viewModel.updatePage(target, rotated)
-        }
+    private fun renameScan() {
+        TextInputDialog(
+            requireActivity(), R.string.fo_rename, R.string.fo_scan_name, R.string.fo_rename, viewModel.name
+        ) { name ->
+            viewModel.name = name.trim()
+            bindingOrNull?.topBar?.tvTitle?.text = viewModel.name
+        }.show()
     }
 
     /** Opens the corner screen on the page's original photo; the result replaces the page. */
@@ -234,11 +233,7 @@ class ScanFiltersFragment :
             val context = root.context
             val isSelected = item.filter == selected
             tvLabel.setText(item.filter.label)
-            tvLabel.setTextColor(
-                ContextCompat.getColor(context, if (isSelected) R.color.text_on_selected else R.color.text_primary)
-            )
-            card.setStroke(if (isSelected) context.dpToPx(3) else 0, ContextCompat.getColor(context, R.color.primary))
-            card.invalidate()
+            root.isSelected = isSelected
             ivPreview.setImageBitmap(item.bitmap)
             root.setOnClickListener { onItemClick.invoke(item.filter) }
         }

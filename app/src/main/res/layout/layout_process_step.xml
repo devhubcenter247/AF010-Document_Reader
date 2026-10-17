@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- One step of a running tool: a tick once done, a spinner while running, a ring before. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:minHeight="@dimen/_32sdp"
+    android:orientation="horizontal">
+
+    <FrameLayout
+        android:layout_width="@dimen/_18sdp"
+        android:layout_height="@dimen/_18sdp">
+
+        <View
+            android:id="@+id/viewTodo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_step_ring" />
+
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:id="@+id/spinner"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:indeterminate="true"
+            android:visibility="gone"
+            app:indicatorColor="@color/primary"
+            app:indicatorSize="@dimen/_18sdp"
+            app:trackThickness="@dimen/_2sdp" />
+
+        <ImageView
+            android:id="@+id/ivDone"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_circle_variant"
+            android:backgroundTint="@color/color_file_excel_bg"
+            android:importantForAccessibility="no"
+            android:padding="@dimen/_4sdp"
+            android:src="@drawable/ic_fo_check"
+            android:visibility="gone"
+            app:tint="@color/color_file_excel" />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/tvStep"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_9sdp"
+        android:layout_weight="1"
+        android:ellipsize="middle"
+        android:fontFamily="@font/nunito_700"
+        android:maxLines="1"
+        android:textColor="@color/text_tertiary"
+        android:textSize="@dimen/_11sdp"
+        tools:text="Read 3 files" />
+</LinearLayout>

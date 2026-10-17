@@ -4,55 +4,12 @@ import android.graphics.Bitmap
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
-import androidx.core.widget.doAfterTextChanged
 import com.af010.creator.docreader.R
 import com.af010.creator.docreader.databinding.ItemPageThumbBinding
-import com.af010.creator.docreader.databinding.ItemSplitRangeBinding
 import com.af010.creator.docreader.utils.extensions.setFillColor
 import com.af010.creator.docreader.utils.extensions.setStroke
 import com.ui.baselib.base.BaseAdapter
 import com.ui.baselib.utils.dpToPx
-
-/** One-based, inclusive page range typed by the user; a bound is null while its field is empty. */
-data class PageRange(val from: Int?, val to: Int?) {
-    fun isValid(pageCount: Int): Boolean =
-        from != null && to != null && from >= 1 && to >= from && to <= pageCount
-}
-
-class PageRangeAdapter : BaseAdapter<PageRange, ItemSplitRangeBinding>() {
-    override fun createBinding(
-        inflater: LayoutInflater,
-        parent: ViewGroup,
-        viewType: Int
-    ): ItemSplitRangeBinding = ItemSplitRangeBinding.inflate(inflater, parent, false).apply {
-        // Typing updates the item in place: rebinding the row would move the cursor.
-        edtFrom.doAfterTextChanged { edit(root.tag as? Int) { range -> range.copy(from = it.toNumber()) } }
-        edtTo.doAfterTextChanged { edit(root.tag as? Int) { range -> range.copy(to = it.toNumber()) } }
-    }
-
-    private var onRangesChanged: (() -> Unit) = {}
-    private var onItemRemove: ((Int) -> Unit) = {}
-
-    fun onChanged(listener: () -> Unit) = apply { onRangesChanged = listener }
-    fun onRemoveClick(listener: (position: Int) -> Unit) = apply { onItemRemove = listener }
-
-    override fun ItemSplitRangeBinding.bind(item: PageRange, position: Int) {
-        root.tag = null
-        edtFrom.setText(item.from?.toString().orEmpty())
-        edtTo.setText(item.to?.toString().orEmpty())
-        root.tag = position
-        btnRemove.setOnClickListener { onItemRemove.invoke(position) }
-    }
-
-    private fun edit(position: Int?, change: (PageRange) -> PageRange) {
-        val list = getMutableList()
-        val current = list.getOrNull(position ?: return) ?: return
-        list[position] = change(current)
-        onRangesChanged()
-    }
-
-    private fun CharSequence?.toNumber(): Int? = this?.toString()?.toIntOrNull()
-}
 
 /** Page thumbnails to tap; [load] hands back the picture of a page once it is drawn. */
 class PageThumbAdapter(

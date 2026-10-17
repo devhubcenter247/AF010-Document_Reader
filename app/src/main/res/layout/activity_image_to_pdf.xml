@@ -10,130 +10,73 @@
     tools:context=".ui.main.tools.images.ImageToPdfActivity">
 
     <include
-        android:id="@+id/toolbar"
-        layout="@layout/layout_toolbar" />
+        android:id="@+id/topBar"
+        layout="@layout/layout_screen_bar" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rcvImages"
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:clipToPadding="false"
-        android:overScrollMode="never"
-        android:padding="@dimen/_8sdp"
-        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-        app:spanCount="3"
-        tools:listitem="@layout/item_image_page" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingHorizontal="@dimen/_12sdp"
-        android:paddingTop="@dimen/_9sdp"
-        android:background="@drawable/bg_surface_card_line_top_1sdp_stroke">
+        android:overScrollMode="never">
 
         <LinearLayout
-            android:id="@+id/btnPageSize"
-            style="@style/CardAppStyle"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/_40sdp"
-            android:layout_marginEnd="@dimen/_3sdp"
-            android:layout_weight="1"
-            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:background="@drawable/bg_surface_card_r11sdp"
-            android:foreground="@drawable/stroke_r11sdp_st1sdp_stroke"
-            android:clipToOutline="true">
+            android:paddingHorizontal="@dimen/_15sdp"
+            android:paddingBottom="@dimen/_10sdp">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rcvImages"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_minus5sdp"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:clipChildren="false"
+                android:clipToPadding="false"
+                android:nestedScrollingEnabled="false"
+                android:overScrollMode="never"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:spanCount="3"
+                tools:itemCount="6"
+                tools:listitem="@layout/item_image_page" />
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/nunito_600"
-                android:text="@string/page_size"
-                android:textColor="@color/text_secondary"
-                android:textSize="@dimen/_9sdp" />
+                style="@style/OptionHeading"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:text="@string/fo_page_size" />
+
+            <include
+                android:id="@+id/segmentSize"
+                layout="@layout/layout_segment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
             <TextView
-                android:id="@+id/tvPageSize"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_2sdp"
-                android:fontFamily="@font/nunito_800"
-                android:textColor="@color/text_primary"
-                android:textSize="@dimen/_10sdp"
-                tools:text="A4" />
+                style="@style/OptionHeading"
+                android:layout_marginTop="@dimen/_11sdp"
+                android:text="@string/fo_orientation" />
+
+            <include
+                android:id="@+id/segmentOrientation"
+                layout="@layout/layout_segment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                style="@style/OptionHeading"
+                android:layout_marginTop="@dimen/_11sdp"
+                android:text="@string/fo_margins" />
+
+            <include
+                android:id="@+id/segmentMargins"
+                layout="@layout/layout_segment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
         </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/btnOrientation"
-            style="@style/CardAppStyle"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/_40sdp"
-            android:layout_marginStart="@dimen/_3sdp"
-            android:layout_marginEnd="@dimen/_3sdp"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:background="@drawable/bg_surface_card_r11sdp"
-            android:foreground="@drawable/stroke_r11sdp_st1sdp_stroke"
-            android:clipToOutline="true">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/nunito_600"
-                android:text="@string/orientation"
-                android:textColor="@color/text_secondary"
-                android:textSize="@dimen/_9sdp" />
-
-            <TextView
-                android:id="@+id/tvOrientation"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_2sdp"
-                android:fontFamily="@font/nunito_800"
-                android:textColor="@color/text_primary"
-                android:textSize="@dimen/_10sdp"
-                tools:text="A4" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/btnMargins"
-            style="@style/CardAppStyle"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/_40sdp"
-            android:layout_marginStart="@dimen/_3sdp"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:background="@drawable/bg_surface_card_r11sdp"
-            android:foreground="@drawable/stroke_r11sdp_st1sdp_stroke"
-            android:clipToOutline="true">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/nunito_600"
-                android:text="@string/margins"
-                android:textColor="@color/text_secondary"
-                android:textSize="@dimen/_9sdp" />
-
-            <TextView
-                android:id="@+id/tvMargins"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_2sdp"
-                android:fontFamily="@font/nunito_800"
-                android:textColor="@color/text_primary"
-                android:textSize="@dimen/_10sdp"
-                tools:text="A4" />
-        </LinearLayout>
-
-    </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
 
     <include
         android:id="@+id/action"
-        layout="@layout/layout_tool_action_plain" />
-
+        layout="@layout/layout_tool_action" />
 </LinearLayout>

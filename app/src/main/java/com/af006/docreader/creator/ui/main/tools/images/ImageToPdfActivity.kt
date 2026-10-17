@@ -5,10 +5,14 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.core.view.updatePadding
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
+import androidx.core.view.isVisible
 import com.af010.creator.docreader.R
+import com.af010.creator.docreader.model.Tool
+import com.af010.creator.docreader.ui.main.common.select
+import com.af010.creator.docreader.ui.main.common.setUp
+import com.af010.creator.docreader.ui.main.tools.show
 import com.af010.creator.docreader.base.BaseAppActivity
 import com.af010.creator.docreader.databinding.ActivityImageToPdfBinding
 import com.af010.creator.docreader.databinding.ItemImagePageBinding
@@ -17,13 +21,10 @@ import com.af010.creator.docreader.model.PageOrientation
 import com.af010.creator.docreader.model.PageSetup
 import com.af010.creator.docreader.model.PageSize
 import com.af010.creator.docreader.model.ToolRequest
-import com.af010.creator.docreader.ui.main.tools.pageCountText
 import com.af010.creator.docreader.ui.main.tools.result.ProcessingActivity
 import com.bumptech.glide.Glide
 import com.ui.baselib.base.BaseAdapter
-import com.ui.baselib.extensions.click
 import com.ui.baselib.extensions.clickSingle
-import com.ui.baselib.extensions.visible
 import com.ui.baselib.extensions.visibleOrGone
 import java.io.File
 import java.text.SimpleDateFormat
@@ -33,9 +34,6 @@ import java.util.Locale
 /** Pick photos, put them in order, choose the page layout, and turn them into one PDF. */
 class ImageToPdfActivity :
     BaseAppActivity<ActivityImageToPdfBinding>(ActivityImageToPdfBinding::inflate) {
-    override val fullStatus: Boolean
-        get() = true
-
     private var images: List<File> = emptyList()
     private var setup = PageSetup()
 
@@ -56,9 +54,22 @@ class ImageToPdfActivity :
     }
 
     override fun ActivityImageToPdfBinding.setData() {
-        toolbar.root.updatePadding(top = statusBarHeight)
-        toolbar.tvTitle.setText(R.string.images_to_pdf)
-        toolbar.tvSubtitle.visible()
+        topBar.show(Tool.ImagesToPdf, R.string.photos_to_pdf)
+        action.show(getString(R.string.fo_create_my_pdf), R.drawable.ic_fo_photo)
+        segmentSize.setUp(PageSize.A4.title, PageSize.Letter.title, PageSize.Fit.title) {
+            setup = setup.copy(size = PageSize.entries[it])
+            render()
+        }
+        segmentOrientation.setUp(
+            PageOrientation.Portrait.title, PageOrientation.Landscape.title, PageOrientation.Auto.title
+        ) {
+            setup = setup.copy(orientation = PageOrientation.entries[it])
+            render()
+        }
+        segmentMargins.setUp(PageMargin.None.title, PageMargin.Small.title, PageMargin.Large.title) {
+            setup = setup.copy(margin = PageMargin.entries[it])
+            render()
+        }
         rcvImages.adapter = imageAdapter
         ItemTouchHelper(dragCallback).attachToRecyclerView(rcvImages)
         render()
@@ -66,27 +77,13 @@ class ImageToPdfActivity :
     }
 
     override fun ActivityImageToPdfBinding.onClick() {
-        toolbar.btnBack.clickSingle { finish() }
+        topBar.btnBack.clickSingle { finish() }
         imageAdapter
             .onAddClick { pickImages() }
             .onRemoveClick { file ->
                 images = images - file
                 render()
             }
-
-        // Each option steps to its next value on tap.
-        btnPageSize.click {
-            setup = setup.copy(size = PageSize.entries.next(setup.size))
-            render()
-        }
-        btnOrientation.click {
-            setup = setup.copy(orientation = PageOrientation.entries.next(setup.orientation))
-            render()
-        }
-        btnMargins.click {
-            setup = setup.copy(margin = PageMargin.entries.next(setup.margin))
-            render()
-        }
         action.btnAction.clickSingle {
             val name = "PDF_" + SimpleDateFormat("yyyyMMdd_HHmmss", Locale.US).format(Date())
             ProcessingActivity.start(
@@ -124,17 +121,13 @@ class ImageToPdfActivity :
     private fun render() = with(binding) {
         // The trailing null is the "Add" tile.
         imageAdapter.submitList(images + null)
-        toolbar.tvSubtitle.text =
-            resources.getQuantityString(R.plurals.image_count_reorder, images.size, images.size)
-        tvPageSize.setText(setup.size.title)
-        tvOrientation.setText(setup.orientation.title)
-        tvMargins.setText(setup.margin.title)
-        action.btnAction.text = getString(R.string.create_pdf_action, pageCountText(images.size))
+        topBar.tvSubtitle.isVisible = true
+        topBar.tvSubtitle.text = resources.getQuantityString(R.plurals.fo_photos_reorder, images.size, images.size)
+        segmentSize.select(setup.size.ordinal)
+        segmentOrientation.select(setup.orientation.ordinal)
+        segmentMargins.select(setup.margin.ordinal)
         action.btnAction.isEnabled = images.isNotEmpty()
-        action.btnAction.alpha = if (images.isNotEmpty()) 1f else 0.5f
     }
-
-    private fun <T> List<T>.next(current: T): T = this[(indexOf(current) + 1) % size]
 
     private val dragCallback = object : ItemTouchHelper.SimpleCallback(
         ItemTouchHelper.UP or ItemTouchHelper.DOWN or ItemTouchHelper.START or ItemTouchHelper.END, 0
@@ -185,8 +178,11 @@ class ImageToPdfActivity :
             tvNumber.visibleOrGone(item != null)
             btnRemove.visibleOrGone(item != null)
             btnAdd.setOnClickListener { onAdd.invoke() }
+            card.rotation = 0f
             if (item == null) return
 
+            // A loose pile: each photo leans a little, the way the design draws them.
+            card.rotation = TILTS[position % TILTS.size]
             tvNumber.text = (position + 1).toString()
             Glide.with(ivImage).load(item).centerCrop().into(ivImage)
             btnRemove.setOnClickListener { onItemRemove.invoke(item) }
@@ -195,5 +191,6 @@ class ImageToPdfActivity :
 
     private companion object {
         const val IMPORT_DIR = "images_to_pdf"
+        val TILTS = floatArrayOf(-2f, 1.5f, -1f, 2f, -1.5f)
     }
 }

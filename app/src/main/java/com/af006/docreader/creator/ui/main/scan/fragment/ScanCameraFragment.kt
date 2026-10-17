@@ -1,5 +1,6 @@
 package com.af010.creator.docreader.ui.main.scan.fragment
 
+import android.content.res.ColorStateList
 import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -222,12 +223,10 @@ class ScanCameraFragment :
     }
 
     private fun TextView.setModeSelected(selected: Boolean) {
-        setFillColor(if (selected) ContextCompat.getColor(context, R.color.on_primary) else 0)
-        setTextColor(ContextCompat.getColor(context, if (selected) R.color.color_ink else R.color.color_icon_muted))
-        invalidate()
+        isSelected = selected
     }
 
-    /** The pill at the top: "Edges found · hold still" in orange, or a plain prompt. */
+    /** The pill over the preview: "Hold still…" with a green dot, or a plain prompt. */
     private fun showHint(holding: Boolean, capturing: Boolean = false) {
         val hint = bindingOrNull?.scanHint ?: return
         val context = hint.context
@@ -238,12 +237,8 @@ class ScanCameraFragment :
                 else -> R.string.scanner_hint_searching
             }
         )
-        hint.setFillColor(ContextCompat.getColor(
-            context, if (holding) R.color.accent else R.color.color_white_12
-        ))
-        hint.setTextColor(ContextCompat.getColor(context, if (holding) R.color.on_accent else R.color.on_primary))
-        hint.setCompoundDrawablesSized(com.intuit.sdp.R.dimen._12sdp, start = if (holding) R.drawable.ic_app_check else 0)
-        hint.invalidate()
+        // A green dot while the page holds still and the scan is about to happen.
+        hint.setCompoundDrawablesWithIntrinsicBounds(if (holding || capturing) R.drawable.ic_dot_green else 0, 0, 0, 0)
     }
 
     private fun toggleFlash() {
@@ -256,7 +251,10 @@ class ScanCameraFragment :
         if (flashOn) ImageCapture.FLASH_MODE_ON else ImageCapture.FLASH_MODE_OFF
 
     private fun updateFlashIcon() {
-        binding.btnFlash.setImageResource(if (flashOn) R.drawable.ic_app_flash else R.drawable.ic_app_no_flash)
+        binding.btnFlash.imageTintList = ColorStateList.valueOf(
+            ContextCompat.getColor(requireContext(), if (flashOn) R.color.accent else R.color.white)
+        )
+        binding.btnFlash.isSelected = flashOn
     }
 
     private fun showScannedPages(lastPage: File?, count: Int) {

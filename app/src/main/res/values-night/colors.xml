@@ -44,4 +44,13 @@
     <color name="color_blob_sage">#202A22</color>
     <color name="color_bg_app_clear">#0014161C</color>
     <color name="star_idle">#8AB4FF</color>
+    <color name="line_soft">#2E4370</color>  <!-- Dashed "add" outlines and light blue frames -->
+    <color name="excel_track">#3341C47A</color>
+    <color name="zip_box">#8C6A0C</color>
+    <color name="warning_track">#33F4B740</color>
+    <color name="ocr_picture_bg">#2A2E38</color>
+    <color name="ocr_picture_line">#4A5060</color>
+    <color name="ocr_tag_dark">#BF000000</color>
+    <color name="ocr_highlight">#806B4E00</color>
+    <color name="scan_board">#2A2E38</color>
 </resources>

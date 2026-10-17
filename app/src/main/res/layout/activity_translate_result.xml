@@ -10,91 +10,123 @@
     tools:context=".ui.main.tools.translate.TranslateResultActivity">
 
     <include
-        android:id="@+id/toolbar"
-        layout="@layout/layout_toolbar" />
+        android:id="@+id/topBar"
+        layout="@layout/layout_screen_bar" />
 
     <include
         android:id="@+id/segmentMode"
         layout="@layout/layout_segment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/_13sdp"
-        android:layout_marginTop="@dimen/_9sdp" />
+        android:layout_marginHorizontal="@dimen/_15sdp"
+        android:layout_marginBottom="@dimen/_9sdp" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rcvPages"
+    <!-- One page of text at a time -->
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollPage"
+        style="@style/FloatingCard"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginHorizontal="@dimen/_15sdp"
         android:layout_weight="1"
-        android:clipToPadding="false"
-        android:overScrollMode="never"
-        android:paddingHorizontal="@dimen/_13sdp"
-        android:paddingTop="@dimen/_6sdp"
-        android:paddingBottom="@dimen/_11sdp"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:listitem="@layout/item_translated_page" />
-
-    <!-- Pages left untranslated in the free version -->
-    <LinearLayout
-        android:id="@+id/cardUnlock"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/_13sdp"
-        android:layout_marginBottom="@dimen/_13sdp"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:padding="@dimen/_13sdp"
-        android:visibility="gone"
-        tools:visibility="visible"
-        android:background="@drawable/bg_grad_gradient_start_gradient_end_315_r15sdp"
-        android:clipToOutline="true">
-
-        <ImageView
-            android:layout_width="@dimen/_33sdp"
-            android:layout_height="@dimen/_33sdp"
-            android:contentDescription="@null"
-            android:padding="@dimen/_8sdp"
-            android:src="@drawable/ic_app_lock"
-            app:tint="@color/on_primary"
-            android:background="@drawable/bg_white_16_r11sdp"
-            android:clipToOutline="true" />
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/_9sdp"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/tvUnlockTitle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/nunito_800"
-                android:textColor="@color/on_primary"
-                android:textSize="@dimen/_11sdp"
-                tools:text="Translate the other 15 pages" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/nunito_600"
-                android:text="@string/translate_unlock_desc"
-                android:textColor="@color/color_on_gradient_secondary"
-                android:textSize="@dimen/_9sdp" />
-        </LinearLayout>
+        android:background="@drawable/bg_rounded_panel"
+        android:backgroundTint="@color/color_surface_card"
+        android:clipToOutline="true"
+        android:overScrollMode="never">
 
         <TextView
-            android:id="@+id/btnUnlock"
+            android:id="@+id/tvText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="serif"
+            android:lineSpacingMultiplier="1.35"
+            android:paddingHorizontal="@dimen/_15sdp"
+            android:paddingVertical="@dimen/_17sdp"
+            android:textColor="@color/text_primary"
+            android:textIsSelectable="true"
+            android:textSize="@dimen/_12sdp"
+            tools:text="4. Security deposit. On signing this Agreement, the Tenant shall pay a security deposit equal to one month of rent." />
+    </androidx.core.widget.NestedScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="@dimen/_15sdp"
+        android:paddingTop="@dimen/_11sdp">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rcvPages"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:clipToPadding="false"
+            android:orientation="horizontal"
+            android:overScrollMode="never"
+            android:paddingVertical="@dimen/_4sdp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/item_page_number" />
+
+        <TextView
+            android:id="@+id/btnMore"
             android:layout_width="wrap_content"
-            android:layout_height="@dimen/_23sdp"
-            android:fontFamily="@font/nunito_700"
-            android:gravity="center"
-            android:paddingHorizontal="@dimen/_11sdp"
-            android:text="@string/unlock"
+            android:layout_height="@dimen/_31sdp"
+            android:layout_marginStart="@dimen/_6sdp"
+            android:background="@drawable/bg_pro_pill"
+            android:drawablePadding="@dimen/_5sdp"
+            android:fontFamily="@font/nunito_800"
+            android:gravity="center_vertical"
+            android:paddingStart="@dimen/_8sdp"
+            android:paddingEnd="@dimen/_11sdp"
+            android:textColor="@color/color_warning"
             android:textSize="@dimen/_10sdp"
-            android:background="@drawable/bg_on_primary_r12sdp"
-            android:textColor="@color/primary_dark" />
+            android:visibility="gone"
+            app:drawableStartCompat="@drawable/ic_fo_crown_13sdp"
+            app:drawableTint="@color/color_premium_gold"
+            tools:text="35 more pages"
+            tools:visibility="visible" />
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingHorizontal="@dimen/_15sdp"
+        android:paddingTop="@dimen/_9sdp"
+        android:paddingBottom="@dimen/_17sdp"
+        android:clipToPadding="false">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnShare"
+            style="@style/SoftPillButton"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_43sdp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/color_surface_card"
+            android:text="@string/file_action_share"
+            app:icon="@drawable/ic_fo_share"
+            app:strokeColor="@color/color_stroke"
+            app:strokeWidth="@dimen/_1sdp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSave"
+            style="@style/PrimaryPillButton"
+            android:layout_width="0dp"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_weight="1.4"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:letterSpacing="0"
+            android:minHeight="0dp"
+            android:stateListAnimator="@null"
+            android:text="@string/fo_save_as_pdf"
+            android:textAllCaps="false"
+            app:backgroundTint="@null"
+            app:icon="@drawable/ic_fo_download"
+            app:iconGravity="textStart"
+            app:iconPadding="@dimen/_6sdp"
+            app:iconSize="@dimen/_15sdp"
+            app:iconTint="@color/on_primary" />
+    </LinearLayout>
 </LinearLayout>

@@ -3,6 +3,9 @@ package com.af010.creator.docreader.ui.main.tools.result
 import android.content.Context
 import android.content.Intent
 import androidx.core.content.IntentCompat
+import androidx.core.content.res.ResourcesCompat
+import androidx.core.view.isInvisible
+import androidx.core.view.isVisible
 import com.af010.creator.docreader.R
 import com.af010.creator.docreader.base.BaseAppActivity
 import com.af010.creator.docreader.databinding.ActivityProcessingBinding
@@ -10,10 +13,10 @@ import com.af010.creator.docreader.model.Tool
 import com.af010.creator.docreader.model.ToolRequest
 import com.af010.creator.docreader.pdf.ToolRunner
 import com.af010.creator.docreader.pdf.ToolState
-import com.af010.creator.docreader.ui.common.showToolTile
+import com.af010.creator.docreader.ui.main.tools.TOOL_STEPS
+import com.af010.creator.docreader.databinding.LayoutProcessStepBinding
 import com.af010.creator.docreader.ui.main.tools.translate.TranslateResultActivity
 import com.ui.baselib.extensions.clickSingle
-import com.ui.baselib.extensions.visibleOrInvisible
 import org.koin.android.ext.android.inject
 
 /** Shows the progress of the tool job started with [EXTRA_REQUEST], then moves on to its result. */
@@ -66,21 +69,45 @@ class ProcessingActivity :
     }
 
     private fun ActivityProcessingBinding.show(state: ToolState.Running) {
-        ivTool.showToolTile(state.request.tool)
-        tvTitle.setText(titles[state.request.tool] ?: R.string.processing_generic)
-        if (state.step != 0) tvSubtitle.setText(state.step)
+        val request = state.request
+        tvTool.setText(request.tool.title)
+        tvStepCount.text = getString(R.string.fo_step_of, TOOL_STEPS, TOOL_STEPS)
+        tvTitle.setText(titles[request.tool] ?: R.string.processing_generic)
+
+        val files = request.inputCount
+        stepRead.show(resources.getQuantityString(R.plurals.fo_step_read_files, files, files), Step.Done)
+        stepWork.show(getString(if (state.step != 0) state.step else R.string.fo_step_working), Step.Now)
+        stepSave.show(getString(R.string.fo_step_save), Step.Later)
 
         val counted = state.total > 0
         progress.isIndeterminate = !counted
-        tvPercent.visibleOrInvisible(counted)
-        tvCount.visibleOrInvisible(counted)
+        tvPercent.isInvisible = !counted
         if (counted) {
             val percent = state.done * 100 / state.total
             progress.setProgressCompat(percent, true)
             tvPercent.text = getString(R.string.translate_percent, percent)
-            tvCount.text = getString(R.string.progress_count, state.done, state.total)
         }
     }
+
+    private enum class Step { Done, Now, Later }
+
+    private fun LayoutProcessStepBinding.show(text: String, step: Step) {
+        tvStep.text = text
+        ivDone.isVisible = step == Step.Done
+        spinner.isVisible = step == Step.Now
+        viewTodo.isVisible = step == Step.Later
+        tvStep.setTextColor(getColor(if (step == Step.Now) R.color.text_primary else R.color.text_tertiary))
+        tvStep.typeface = ResourcesCompat.getFont(this@ProcessingActivity, if (step == Step.Now) R.font.nunito_800 else R.font.nunito_700)
+    }
+
+    /** How many files the job reads, for "Read 3 files". */
+    private val ToolRequest.inputCount: Int
+        get() = when (this) {
+            is ToolRequest.Merge -> paths.size
+            is ToolRequest.Zip -> paths.size
+            is ToolRequest.ImagesToPdf -> paths.size
+            else -> 1
+        }
 
     /** Shows 100%, then runs [then] [DONE_HOLD_MS] later; not when the screen was left meanwhile (Cancel). */
     private fun afterFinished(then: () -> Unit) {
@@ -89,8 +116,10 @@ class ProcessingActivity :
         with(binding) {
             progress.isIndeterminate = false
             progress.setProgressCompat(100, true)
-            tvPercent.visibleOrInvisible(true)
+            tvPercent.isInvisible = false
             tvPercent.text = getString(R.string.translate_percent, 100)
+            stepWork.show(stepWork.tvStep.text.toString(), Step.Done)
+            stepSave.show(stepSave.tvStep.text.toString(), Step.Done)
             btnCancel.isEnabled = false
         }
         postDelayed(DONE_HOLD_MS) {

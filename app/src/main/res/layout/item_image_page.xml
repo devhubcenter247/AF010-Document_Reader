@@ -1,70 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<!-- A photo in Photos to PDF with its place in the order, or the last tile that adds more. -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="@dimen/_4sdp">
+    android:clipChildren="false"
+    android:clipToPadding="false"
+    android:padding="@dimen/_5sdp">
 
     <FrameLayout
         android:id="@+id/card"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="@drawable/bg_surface_card_r11sdp"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_98sdp"
+        android:background="@drawable/bg_photo_tile"
         android:clipToOutline="true"
-        app:layout_constraintDimensionRatio="3:4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:elevation="@dimen/_3sdp"
+        android:outlineAmbientShadowColor="@color/color_shadow"
+        android:outlineSpotShadowColor="@color/color_shadow">
 
         <ImageView
             android:id="@+id/ivImage"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:contentDescription="@null"
+            android:importantForAccessibility="no"
             android:scaleType="centerCrop" />
 
         <TextView
             android:id="@+id/tvNumber"
-            android:layout_width="@dimen/_18sdp"
-            android:layout_height="@dimen/_18sdp"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
             android:layout_margin="@dimen/_6sdp"
-            android:fontFamily="@font/nunito_700"
+            android:background="@drawable/bg_circle_variant"
+            android:backgroundTint="@color/color_surface_card"
+            android:fontFamily="@font/nunito_800"
             android:gravity="center"
-            android:textSize="@dimen/_9sdp"
-            tools:text="1"
-            android:background="@drawable/bg_ink_r9sdp"
-            android:textColor="@color/on_primary" />
+            android:textColor="@color/text_primary"
+            android:textSize="@dimen/_10sdp"
+            tools:text="1" />
 
         <ImageView
             android:id="@+id/btnRemove"
             android:layout_width="@dimen/_20sdp"
             android:layout_height="@dimen/_20sdp"
             android:layout_gravity="end"
-            android:layout_margin="@dimen/_5sdp"
-            android:contentDescription="@string/scanner_close"
+            android:layout_margin="@dimen/_6sdp"
+            android:background="@drawable/bg_circle_variant"
+            android:backgroundTint="@color/color_surface_card"
+            android:contentDescription="@string/fo_remove_photo"
             android:padding="@dimen/_5sdp"
-            android:src="@drawable/ic_app_close"
-            app:tint="@color/color_ink"
-            android:background="@drawable/bg_xe6ffffff_r10sdp"
-            android:clipToOutline="true" />
+            android:src="@drawable/ic_fo_close"
+            app:tint="@color/text_primary" />
 
-        <!-- The last tile: add more images -->
+        <!-- The last tile: add more photos -->
         <TextView
             android:id="@+id/btnAdd"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@drawable/bg_add_tile"
             android:drawablePadding="@dimen/_5sdp"
-            android:fontFamily="@font/nunito_700"
-            android:gravity="center"
-            android:paddingVertical="@dimen/_30sdp"
-            android:text="@string/convert_add"
-            android:textSize="@dimen/_9sdp"
+            android:fontFamily="@font/nunito_800"
+            android:gravity="center_horizontal|top"
+            android:paddingTop="@dimen/_30sdp"
+            android:text="@string/fo_add_more"
+            android:textColor="@color/text_on_selected"
+            android:textSize="@dimen/_11sdp"
             android:visibility="gone"
             app:drawableTint="@color/text_on_selected"
-            android:background="@drawable/bg_bg_app_r11sdp_st2sdp_checkbox_stroke_dash"
-            android:textColor="@color/text_on_selected"
-            app:drawableTopCompat="@drawable/ic_app_plus_17sdp" />
+            app:drawableTopCompat="@drawable/ic_fo_plus_17sdp" />
     </FrameLayout>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

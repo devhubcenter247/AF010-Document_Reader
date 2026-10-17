@@ -5,6 +5,9 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.af010.creator.docreader.ui.main.scan.detection.ScanFilter
 import java.io.File
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 import org.opencv.core.Point
 
 /**
@@ -35,6 +38,9 @@ class ScanSessionViewModel : ViewModel() {
     var pendingCrop: PendingCrop? = null
 
     var retakeIndex: Int? = null
+
+    /** The name the PDF will get; shown on the filters screen, which can change it. */
+    var name: String = "Scan " + SimpleDateFormat("d MMM HH.mm", Locale.getDefault()).format(Date())
 
     val pageList: List<ScanPage> get() = _pages.value.orEmpty()
 

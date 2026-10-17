@@ -11,94 +11,148 @@
 
     <LinearLayout
         android:layout_width="match_parent"
+        android:layout_height="@dimen/_46sdp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvTool"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nunito_800"
+            android:textColor="@color/text_primary"
+            android:textSize="@dimen/_14sdp"
+            tools:text="Merge PDF" />
+
+        <TextView
+            android:id="@+id/tvStepCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nunito_600"
+            android:textColor="@color/text_secondary"
+            android:textSize="@dimen/_10sdp"
+            tools:text="Step 3 of 3" />
+    </LinearLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:paddingHorizontal="@dimen/_25sdp">
+        android:overScrollMode="never">
 
-        <ImageView
-            android:id="@+id/ivTool"
-            android:layout_width="@dimen/_49sdp"
-            android:layout_height="@dimen/_49sdp"
-            android:contentDescription="@null"
-            tools:src="@drawable/ic_app_tool_compress_pdf" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-        <FrameLayout
-            android:layout_width="@dimen/_139sdp"
-            android:layout_height="@dimen/_139sdp"
-            android:layout_marginTop="@dimen/_15sdp">
+            <!-- The mascot inside the progress ring -->
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_223sdp">
 
-            <com.google.android.material.progressindicator.CircularProgressIndicator
-                android:id="@+id/progress"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:indeterminate="true"
-                app:indicatorColor="@color/primary"
-                app:indicatorInset="0dp"
-                app:indicatorSize="@dimen/_139sdp"
-                app:trackColor="@color/color_surface_track"
-                app:trackCornerRadius="@dimen/_5sdp"
-                app:trackThickness="@dimen/_9sdp" />
+                <ImageView
+                    android:layout_width="@dimen/_200sdp"
+                    android:layout_height="@dimen/_200sdp"
+                    android:layout_gravity="center"
+                    android:importantForAccessibility="no"
+                    android:src="@drawable/ic_blob"
+                    app:tint="@color/color_bg_selected" />
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:gravity="center_horizontal"
-                android:orientation="vertical">
+                <com.google.android.material.progressindicator.CircularProgressIndicator
+                    android:id="@+id/progress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:indeterminate="true"
+                    app:indicatorColor="@color/primary"
+                    app:indicatorSize="@dimen/_170sdp"
+                    app:trackColor="@color/color_surface_card"
+                    app:trackCornerRadius="@dimen/_6sdp"
+                    app:trackThickness="@dimen/_11sdp" />
+
+                <ImageView
+                    android:layout_width="@dimen/_54sdp"
+                    android:layout_height="@dimen/_67sdp"
+                    android:layout_gravity="center"
+                    android:importantForAccessibility="no"
+                    android:src="@drawable/ic_mascot_smile" />
 
                 <TextView
                     android:id="@+id/tvPercent"
+                    style="@style/FloatingCard"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="@dimen/_31sdp"
+                    android:layout_gravity="top|end"
+                    android:layout_marginTop="@dimen/_31sdp"
+                    android:layout_marginEnd="@dimen/_54sdp"
+                    android:background="@drawable/bg_pill_card"
                     android:fontFamily="@font/nunito_800"
-                    android:textColor="@color/text_primary"
-                    android:textSize="@dimen/_30sdp"
-                    tools:text="64%" />
+                    android:gravity="center"
+                    android:paddingHorizontal="@dimen/_11sdp"
+                    android:textColor="@color/text_on_selected"
+                    android:textSize="@dimen/_15sdp"
+                    android:visibility="invisible"
+                    tools:text="68%"
+                    tools:visibility="visible" />
+            </FrameLayout>
 
-                <TextView
-                    android:id="@+id/tvCount"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/nunito_600"
-                    android:textColor="@color/text_secondary"
-                    android:textSize="@dimen/_10sdp"
-                    tools:text="26 / 40" />
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunito_800"
+                android:gravity="center"
+                android:paddingHorizontal="@dimen/_23sdp"
+                android:textColor="@color/text_primary"
+                android:textSize="@dimen/_19sdp"
+                tools:text="Stitching your pages together…" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:fontFamily="@font/nunito_600"
+                android:gravity="center"
+                android:lineSpacingMultiplier="1.15"
+                android:paddingHorizontal="@dimen/_23sdp"
+                android:text="@string/processing_subtitle"
+                android:textColor="@color/text_secondary"
+                android:textSize="@dimen/_11sdp" />
+
+            <LinearLayout
+                style="@style/FloatingCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_14sdp"
+                android:layout_marginBottom="@dimen/_6sdp"
+                android:background="@drawable/bg_rounded_panel"
+                android:backgroundTint="@color/color_surface_card"
+                android:orientation="vertical"
+                android:paddingHorizontal="@dimen/_12sdp"
+                android:paddingVertical="@dimen/_6sdp">
+
+                <include
+                    android:id="@+id/stepRead"
+                    layout="@layout/layout_process_step" />
+
+                <include
+                    android:id="@+id/stepWork"
+                    layout="@layout/layout_process_step" />
+
+                <include
+                    android:id="@+id/stepSave"
+                    layout="@layout/layout_process_step" />
             </LinearLayout>
-        </FrameLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
 
-        <TextView
-            android:id="@+id/tvTitle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_15sdp"
-            android:fontFamily="@font/nunito_700"
-            android:gravity="center"
-            android:textColor="@color/text_primary"
-            android:textSize="@dimen/_13sdp"
-            tools:text="Compressing PDF…" />
-
-        <TextView
-            android:id="@+id/tvSubtitle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_5sdp"
-            android:fontFamily="@font/nunito_600"
-            android:gravity="center"
-            android:text="@string/processing_subtitle"
-            android:textColor="@color/text_secondary"
-            android:textSize="@dimen/_9sdp" />
-
-        <TextView
-            android:id="@+id/btnCancel"
-            style="@style/ButtonOutlineStyle"
-            android:layout_width="wrap_content"
-            android:layout_marginTop="@dimen/_15sdp"
-            android:paddingHorizontal="@dimen/_25sdp"
-            android:text="@string/file_action_cancel"
-            android:background="@drawable/bg_surface_card_r18sdp_st1sdp_stroke"
-            android:textColor="@color/text_primary" />
-    </LinearLayout>
+    <TextView
+        android:id="@+id/btnCancel"
+        style="@style/GhostButton"
+        android:layout_width="match_parent"
+        android:layout_marginHorizontal="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_6sdp"
+        android:layout_marginBottom="@dimen/_17sdp"
+        android:text="@string/file_action_cancel" />
 </LinearLayout>

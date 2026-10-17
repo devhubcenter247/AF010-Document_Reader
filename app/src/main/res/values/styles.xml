@@ -342,4 +342,147 @@
         <item name="android:textColor">@color/text_secondary</item>
         <item name="android:textSize">@dimen/_10sdp</item>
     </style>
+    <!-- A tool screen's text field: the label above it, and the EditText inside a bg_field box. -->
+    <style name="FieldLabel">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingBottom">@dimen/_6sdp</item>
+        <item name="android:fontFamily">@font/nunito_800</item>
+        <item name="android:textColor">@color/text_secondary</item>
+        <item name="android:textSize">@dimen/_10sdp</item>
+    </style>
+    <style name="FieldInput">
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@null</item>
+        <item name="android:fontFamily">@font/nunito_700</item>
+        <item name="android:importantForAutofill">no</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textColorHint">@color/text_secondary</item>
+        <item name="android:textSize">@dimen/_12sdp</item>
+    </style>
+    <!-- A file card in the ZIP picture: a white page with its type in a coloured pill near the top. -->
+    <style name="ZipHeroCard">
+        <item name="android:layout_width">@dimen/_38sdp</item>
+        <item name="android:layout_height">@dimen/_48sdp</item>
+        <item name="android:background">@drawable/bg_zip_card</item>
+        <item name="android:elevation">@dimen/_3sdp</item>
+        <item name="android:outlineSpotShadowColor">@color/color_shadow</item>
+        <item name="android:outlineAmbientShadowColor">@color/color_shadow</item>
+    </style>
+    <style name="ZipHeroPill">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">@dimen/_14sdp</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:layout_marginTop">@dimen/_6sdp</item>
+        <item name="android:background">@drawable/bg_badge</item>
+        <item name="android:fontFamily">@font/nunito_800</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingHorizontal">@dimen/_4sdp</item>
+        <item name="android:textSize">@dimen/_9sdp</item>
+    </style>
+    <!-- Translate: one end of the From / To card. -->
+    <style name="LanguagePick">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">?attr/selectableItemBackground</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:paddingStart">@dimen/_12sdp</item>
+        <item name="android:paddingEnd">@dimen/_60sdp</item>
+        <item name="android:paddingVertical">@dimen/_11sdp</item>
+    </style>
+    <style name="LanguagePickLabel">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/nunito_800</item>
+        <item name="android:textColor">@color/text_secondary</item>
+        <item name="android:textSize">@dimen/_10sdp</item>
+    </style>
+    <style name="LanguagePickValue">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/_1sdp</item>
+        <item name="android:drawablePadding">@dimen/_5sdp</item>
+        <item name="android:drawableEnd">@drawable/ic_fo_chevron_down_15sdp</item>
+        <item name="android:drawableTint">@color/text_primary</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:fontFamily">@font/nunito_800</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textSize">@dimen/_14sdp</item>
+    </style>
+    <!-- The name above a set of choices in a tool screen ("Page size"). -->
+    <style name="OptionHeading">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingBottom">@dimen/_6sdp</item>
+        <item name="android:fontFamily">@font/nunito_800</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textSize">@dimen/_11sdp</item>
+    </style>
+    <!-- The tag in a corner of OCR's before / after pictures. -->
+    <style name="OcrTag">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">@dimen/_20sdp</item>
+        <item name="android:layout_gravity">bottom|start</item>
+        <item name="android:layout_margin">@dimen/_9sdp</item>
+        <item name="android:fontFamily">@font/nunito_800</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingHorizontal">@dimen/_8sdp</item>
+        <item name="android:textSize">@dimen/_9sdp</item>
+    </style>
+    <!-- The name at the start of a row of choices ("Colour", "Opacity"). -->
+    <style name="RowLabel">
+        <item name="android:layout_width">@dimen/_48sdp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/nunito_800</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textSize">@dimen/_11sdp</item>
+    </style>
+    <!-- Previous / next page over a page preview. -->
+    <style name="PageArrow">
+        <item name="android:layout_width">@dimen/_28sdp</item>
+        <item name="android:layout_height">@dimen/_28sdp</item>
+        <item name="android:background">@drawable/bg_circle_variant</item>
+        <item name="android:backgroundTint">@color/color_surface_card</item>
+        <item name="android:elevation">@dimen/_3sdp</item>
+        <item name="android:outlineSpotShadowColor">@color/color_shadow</item>
+        <item name="android:outlineAmbientShadowColor">@color/color_shadow</item>
+        <item name="android:padding">@dimen/_7sdp</item>
+        <item name="tint">@color/text_primary</item>
+    </style>
+    <!-- A secondary action next to a primary pill: grey pill, dark text, optional icon. -->
+    <style name="SoftPillButton">
+        <item name="android:layout_height">@dimen/_37sdp</item>
+        <item name="android:background">@drawable/bg_soft_pill</item>
+        <item name="android:backgroundTint">@color/color_surface_variant</item>
+        <item name="backgroundTint">@null</item>
+        <item name="android:fontFamily">@font/nunito_800</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:letterSpacing">0</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:minHeight">0dp</item>
+        <item name="android:minWidth">0dp</item>
+        <item name="android:paddingHorizontal">@dimen/_6sdp</item>
+        <item name="android:stateListAnimator">@null</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textSize">@dimen/_12sdp</item>
+        <item name="iconGravity">textStart</item>
+        <item name="iconPadding">@dimen/_5sdp</item>
+        <item name="iconSize">@dimen/_14sdp</item>
+        <item name="iconTint">@color/text_primary</item>
+    </style>
+    <!-- An option on a see-through track over the camera (Auto / Manual). -->
+    <style name="GlassOption">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">@dimen/_28sdp</item>
+        <item name="android:background">@drawable/bg_glass_option</item>
+        <item name="android:fontFamily">@font/nunito_800</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingHorizontal">@dimen/_12sdp</item>
+        <item name="android:textColor">@color/text_glass_option</item>
+        <item name="android:textSize">@dimen/_11sdp</item>
+    </style>
 </resources>

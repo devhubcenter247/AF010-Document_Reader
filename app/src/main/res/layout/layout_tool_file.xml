@@ -1,30 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<!-- The file a tool works on: type tile, name, a line about it, and "Change" when it can be swapped. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    style="@style/CardAppStyle"
+    style="@style/FloatingCard"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:gravity="center_vertical"
+    android:minHeight="@dimen/_55sdp"
     android:orientation="horizontal"
     android:paddingHorizontal="@dimen/_11sdp"
-    android:paddingVertical="@dimen/_9sdp"
-    android:background="@drawable/bg_surface_card_r10sdp"
-    android:foreground="@drawable/stroke_r10sdp_st1sdp_stroke"
-    android:clipToOutline="true">
+    android:paddingVertical="@dimen/_9sdp">
 
-    <ImageView
-        android:id="@+id/ivType"
-        android:layout_width="@dimen/_23sdp"
-        android:layout_height="@dimen/_28sdp"
-        android:contentDescription="@null"
-        tools:src="@drawable/ic_file_pdf" />
+    <TextView
+        android:id="@+id/tvType"
+        android:layout_width="@dimen/_34sdp"
+        android:layout_height="@dimen/_34sdp"
+        android:background="@drawable/bg_file_tile"
+        android:fontFamily="@font/nunito_800"
+        android:gravity="center"
+        android:importantForAccessibility="no"
+        android:maxLines="1"
+        android:textColor="@color/on_primary"
+        android:textSize="@dimen/_9sdp"
+        tools:backgroundTint="@color/color_file_pdf"
+        tools:text="PDF" />
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_9sdp"
+        android:layout_marginHorizontal="@dimen/_9sdp"
+        android:layout_weight="1"
         android:orientation="vertical">
 
         <TextView
@@ -32,21 +37,34 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ellipsize="middle"
-            android:fontFamily="@font/nunito_700"
+            android:fontFamily="@font/nunito_800"
             android:maxLines="1"
             android:textColor="@color/text_primary"
-            android:textSize="@dimen/_11sdp"
-            tools:text="Annual-report.pdf" />
+            android:textSize="@dimen/_12sdp"
+            tools:text="Insurance policy.pdf" />
 
         <TextView
             android:id="@+id/tvMeta"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_3sdp"
+            android:layout_marginTop="@dimen/_1sdp"
             android:fontFamily="@font/nunito_600"
             android:textColor="@color/text_secondary"
-            android:textSize="@dimen/_9sdp"
-            tools:text="40 pages · 6.8 MB" />
+            android:textSize="@dimen/_10sdp"
+            tools:text="22 pages · 4.0 MB" />
     </LinearLayout>
 
+    <TextView
+        android:id="@+id/btnChange"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/_31sdp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:fontFamily="@font/nunito_800"
+        android:gravity="center"
+        android:paddingHorizontal="@dimen/_5sdp"
+        android:text="@string/fo_change"
+        android:textColor="@color/primary"
+        android:textSize="@dimen/_11sdp"
+        android:visibility="gone"
+        tools:visibility="visible" />
 </LinearLayout>

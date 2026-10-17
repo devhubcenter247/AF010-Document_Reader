@@ -1,20 +1,23 @@
 package com.af010.creator.docreader.ui.main.tools.pick
 
+import android.content.res.ColorStateList
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
+import androidx.core.view.isVisible
 import com.af010.creator.docreader.R
 import com.af010.creator.docreader.databinding.ItemPickFileBinding
 import com.af010.creator.docreader.model.RecentUi
+import com.af010.creator.docreader.utils.extensions.colorRes
 import com.af010.creator.docreader.utils.extensions.dateText
-import com.af010.creator.docreader.utils.extensions.iconRes
+import com.af010.creator.docreader.utils.extensions.extensionLabel
 import com.af010.creator.docreader.utils.extensions.name
-import com.af010.creator.docreader.utils.extensions.setFillColor
-import com.af010.creator.docreader.utils.extensions.setStroke
 import com.af010.creator.docreader.utils.extensions.sizeText
+import com.af010.creator.docreader.utils.extensions.softColorRes
 import com.ui.baselib.base.DiffAdapter
 
-class PickFileAdapter : DiffAdapter<RecentUi, ItemPickFileBinding>(
+/** Files to pick from; with [numbered], a picked row shows its place in the order. */
+class PickFileAdapter(private val numbered: Boolean) : DiffAdapter<RecentUi, ItemPickFileBinding>(
     areItemsTheSame = { old, new -> old.document.mediaId == new.document.mediaId },
     areContentsTheSame = { old, new -> old.sameContent(new) }
 ) {
@@ -29,7 +32,7 @@ class PickFileAdapter : DiffAdapter<RecentUi, ItemPickFileBinding>(
         onItemClick = listener
     }
 
-    /** Paths in the order they were picked; a picked row shows its place in that order. */
+    /** Paths in the order they were picked. */
     var selectedPaths: List<String> = emptyList()
         set(value) {
             field = value
@@ -40,26 +43,14 @@ class PickFileAdapter : DiffAdapter<RecentUi, ItemPickFileBinding>(
         val context = root.context
         val doc = item.document
         val order = selectedPaths.indexOf(doc.path)
-        ivType.setImageResource(doc.type.iconRes)
+        tvType.text = doc.extensionLabel
+        tvType.backgroundTintList = ColorStateList.valueOf(ContextCompat.getColor(context, doc.type.softColorRes))
+        tvType.setTextColor(ContextCompat.getColor(context, doc.type.colorRes))
         tvName.text = doc.name
         tvMeta.text = context.getString(R.string.document_meta, doc.sizeText(context), doc.dateText(context))
-
-        root.setBackgroundColor(
-            ContextCompat.getColor(
-                context,
-                if (order >= 0) R.color.color_bg_selected else android.R.color.transparent
-            )
-        )
+        root.isSelected = order >= 0
+        tvOrder.isVisible = numbered
         tvOrder.text = if (order >= 0) (order + 1).toString() else ""
-        tvOrder.setFillColor(ContextCompat.getColor(
-            context,
-            if (order >= 0) R.color.primary else android.R.color.transparent
-        ))
-        tvOrder.setStroke(
-            context.resources.getDimensionPixelSize(com.intuit.sdp.R.dimen._2sdp),
-            ContextCompat.getColor(context, if (order >= 0) R.color.primary else R.color.color_checkbox_stroke)
-        )
-        tvOrder.invalidate()
         root.setOnClickListener { onItemClick.invoke(item) }
     }
 }

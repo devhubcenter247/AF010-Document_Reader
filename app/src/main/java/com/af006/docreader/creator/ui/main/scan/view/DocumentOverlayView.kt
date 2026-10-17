@@ -24,11 +24,11 @@ class DocumentOverlayView @JvmOverloads constructor(
     private val borderPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
         color = EDGE_COLOR
         style = Paint.Style.STROKE
-        strokeWidth = resources.displayMetrics.density * 2.5f
+        strokeWidth = resources.displayMetrics.density * 3.5f
         strokeJoin = Paint.Join.ROUND
     }
     private val fillPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-        color = Color.argb(30, 255, 120, 79)
+        color = Color.argb(36, 244, 183, 64)
         style = Paint.Style.FILL
     }
 
@@ -72,6 +72,6 @@ class DocumentOverlayView @JvmOverloads constructor(
 
     private companion object {
         const val TRACKING_ANIMATION_MS = 60L
-        val EDGE_COLOR = Color.rgb(255, 120, 79)
+        val EDGE_COLOR = Color.rgb(244, 183, 64)
     }
 }

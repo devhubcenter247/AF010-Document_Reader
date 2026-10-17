@@ -5,10 +5,11 @@ import androidx.annotation.StringRes
 import com.af010.creator.docreader.R
 import kotlinx.parcelize.Parcelize
 
-enum class CompressLevel(@StringRes val title: Int, @StringRes val desc: Int) {
-    Low(R.string.compress_low, R.string.compress_low_desc),
-    Medium(R.string.compress_medium, R.string.compress_medium_desc),
-    High(R.string.compress_high, R.string.compress_high_desc)
+/** [keeps] is a rough share of the size left afterwards, in percent, for the estimate on screen. */
+enum class CompressLevel(@StringRes val title: Int, @StringRes val desc: Int, val keeps: Int) {
+    Low(R.string.compress_low, R.string.compress_low_desc, 80),
+    Medium(R.string.compress_medium, R.string.compress_medium_desc, 45),
+    High(R.string.compress_high, R.string.compress_high_desc, 25)
 }
 
 /** Sizes are in PDF points (1/72 inch); [Fit] makes each page as tall as its image needs. */

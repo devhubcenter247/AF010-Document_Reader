@@ -170,6 +170,12 @@
             android:screenOrientation="portrait"
             tools:ignore="DiscouragedApi,LockedOrientationActivity" />
         <activity
+            android:name=".ui.main.tools.ocr.OcrActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize"
+            tools:ignore="DiscouragedApi,LockedOrientationActivity" />
+        <activity
             android:name=".ui.main.tools.protect.ProtectActivity"
             android:exported="false"
             android:screenOrientation="portrait"

@@ -2,8 +2,10 @@ package com.af010.creator.docreader.ui.main.tools.redact
 
 import android.graphics.Bitmap
 import android.graphics.RectF
-import androidx.core.view.updatePadding
+import androidx.core.view.isVisible
 import com.af010.creator.docreader.R
+import com.af010.creator.docreader.model.Tool
+import com.af010.creator.docreader.ui.main.tools.show
 import com.af010.creator.docreader.base.BaseAppActivity
 import com.af010.creator.docreader.databinding.ActivityRedactBinding
 import com.af010.creator.docreader.model.RedactArea
@@ -12,19 +14,14 @@ import com.af010.creator.docreader.pdf.PdfToolbox
 import com.af010.creator.docreader.ui.dialog.TextInputDialog
 import com.af010.creator.docreader.ui.main.tools.EXTRA_PATHS
 import com.af010.creator.docreader.ui.main.tools.result.ProcessingActivity
-import com.af010.creator.docreader.utils.extensions.setFillColor
 import com.ui.baselib.extensions.click
 import com.ui.baselib.extensions.clickSingle
-import com.ui.baselib.extensions.visible
 import com.ui.baselib.extensions.visibleOrInvisible
 import java.io.File
 import org.koin.android.ext.android.inject
 
 /** Mark areas to black out, page by page, by dragging boxes or by finding text. */
 class RedactActivity : BaseAppActivity<ActivityRedactBinding>(ActivityRedactBinding::inflate) {
-    override val fullStatus: Boolean
-        get() = true
-
     private val toolbox: PdfToolbox by inject()
     private val source: File by lazy { File(intent.getStringArrayListExtra(EXTRA_PATHS).orEmpty().first()) }
 
@@ -44,15 +41,14 @@ class RedactActivity : BaseAppActivity<ActivityRedactBinding>(ActivityRedactBind
     }
 
     override fun ActivityRedactBinding.setData() {
-        toolbar.root.updatePadding(top = statusBarHeight)
-        toolbar.btnBack.setImageResource(R.drawable.ic_app_close)
-        toolbar.tvTitle.setText(R.string.tool_redact)
-        toolbar.tvSubtitle.visible()
-        toolbar.btnExtra.setImageResource(R.drawable.ic_app_undo)
-        toolbar.btnExtra.visible()
-        toolbar.btnAction.setText(R.string.apply)
-        toolbar.btnAction.setFillColor(getColor(R.color.color_ink))
-        toolbar.btnAction.visible()
+        topBar.show(Tool.Redact, R.string.tool_redact, " ")
+        topBar.btnSecond.setImageResource(R.drawable.ic_fo_search)
+        topBar.btnSecond.contentDescription = getString(R.string.redact_find_text)
+        topBar.btnSecond.isVisible = true
+        topBar.btnFirst.setImageResource(R.drawable.ic_fo_undo)
+        topBar.btnFirst.contentDescription = getString(R.string.undo)
+        topBar.btnFirst.isVisible = true
+        action.show(getString(R.string.fo_hide_for_good), R.drawable.ic_fo_lines)
 
         launchMain {
             pageCount = runCatching { toolbox.pageCount(source) }.getOrDefault(0)
@@ -67,8 +63,8 @@ class RedactActivity : BaseAppActivity<ActivityRedactBinding>(ActivityRedactBind
     }
 
     override fun ActivityRedactBinding.onClick() {
-        toolbar.btnBack.clickSingle { finish() }
-        toolbar.btnExtra.click {
+        topBar.btnBack.clickSingle { finish() }
+        topBar.btnFirst.click {
             areas = areas.dropLast(1)
             render()
         }
@@ -78,12 +74,12 @@ class RedactActivity : BaseAppActivity<ActivityRedactBinding>(ActivityRedactBind
             areas = areas + RedactArea(pageIndex, box.left, box.top, box.right, box.bottom)
             render()
         }
-        btnFindText.clickSingle {
+        topBar.btnSecond.clickSingle {
             TextInputDialog(
                 this@RedactActivity, R.string.redact_find_text, R.string.redact_find_hint, R.string.redact_find
             ) { query -> redactText(query) }.show()
         }
-        toolbar.btnAction.clickSingle {
+        action.btnAction.clickSingle {
             if (areas.isEmpty()) return@clickSingle
             ProcessingActivity.start(this@RedactActivity, ToolRequest.Redact(source.path, areas))
             finish()
@@ -123,15 +119,21 @@ class RedactActivity : BaseAppActivity<ActivityRedactBinding>(ActivityRedactBind
     }
 
     private fun render() = with(binding) {
-        toolbar.tvSubtitle.text = getString(R.string.page_of, pageIndex + 1, pageCount.coerceAtLeast(1))
+        topBar.tvSubtitle.text = getString(
+            R.string.fo_redact_subtitle, areas.size,
+            getString(R.string.fo_page_x_of_y, pageIndex + 1, pageCount.coerceAtLeast(1))
+        )
         pageView.setPage(
             pageBitmap,
             areas.filter { it.page == pageIndex }.map { RectF(it.left, it.top, it.right, it.bottom) }
         )
         btnPrevious.visibleOrInvisible(pageIndex > 0)
         btnNext.visibleOrInvisible(pageIndex < pageCount - 1)
-        toolbar.btnExtra.alpha = if (areas.isEmpty()) 0.4f else 1f
-        toolbar.btnAction.alpha = if (areas.isEmpty()) 0.5f else 1f
+        topBar.btnFirst.isEnabled = areas.isNotEmpty()
+        topBar.btnFirst.alpha = if (areas.isEmpty()) 0.4f else 1f
+        // The hint goes once the first box is drawn.
+        tvHint.isVisible = areas.isEmpty()
+        action.btnAction.isEnabled = areas.isNotEmpty()
     }
 
     private companion object {

@@ -11,7 +11,7 @@
 
     <include
         android:id="@+id/topBar"
-        layout="@layout/layout_tool_topbar" />
+        layout="@layout/layout_screen_bar" />
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -23,151 +23,179 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingHorizontal="@dimen/_12sdp"
+            android:paddingHorizontal="@dimen/_15sdp"
+            android:paddingTop="@dimen/_6sdp"
             android:paddingBottom="@dimen/_10sdp">
-
-            <include
-                android:id="@+id/header"
-                layout="@layout/layout_tool_header" />
 
             <include
                 android:id="@+id/file"
                 layout="@layout/layout_tool_file"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_13sdp" />
+                android:layout_height="wrap_content" />
 
-            <LinearLayout
+            <!-- From / To, with the swap button over the line between them -->
+            <FrameLayout
+                style="@style/FloatingCard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_13sdp"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
-
-                <LinearLayout
-                    android:id="@+id/btnFrom"
-                    style="@style/CardAppStyle"
-                    android:layout_width="0dp"
-                    android:layout_height="@dimen/_43sdp"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:orientation="vertical"
-                    android:paddingHorizontal="@dimen/_11sdp"
-                    android:background="@drawable/bg_surface_card_r13sdp"
-                    android:foreground="@drawable/stroke_r13sdp_st1sdp_stroke"
-                    android:clipToOutline="true">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/nunito_600"
-                        android:text="@string/translate_from"
-                        android:textColor="@color/text_secondary"
-                        android:textSize="@dimen/_9sdp" />
-
-                    <TextView
-                        android:id="@+id/tvFrom"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:ellipsize="end"
-                        android:fontFamily="@font/nunito_800"
-                        android:maxLines="1"
-                        android:textSize="@dimen/_11sdp"
-                        app:drawableTint="@color/text_secondary"
-                        tools:text="Spanish"
-                        android:textColor="@color/text_primary"
-                        app:drawableEndCompat="@drawable/ic_app_chevd_12sdp" />
-                </LinearLayout>
-
-                <ImageView
-                    android:layout_width="@dimen/_28sdp"
-                    android:layout_height="@dimen/_28sdp"
-                    android:layout_marginHorizontal="@dimen/_6sdp"
-                    android:contentDescription="@null"
-                    android:padding="@dimen/_7sdp"
-                    android:src="@drawable/ic_app_arrowr"
-                    app:tint="@color/text_on_selected"
-                    android:background="@drawable/bg_bg_selected_r14sdp"
-                    android:clipToOutline="true" />
-
-                <LinearLayout
-                    android:id="@+id/btnTo"
-                    style="@style/CardAppStyle"
-                    android:layout_width="0dp"
-                    android:layout_height="@dimen/_43sdp"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:orientation="vertical"
-                    android:paddingHorizontal="@dimen/_11sdp"
-                    android:background="@drawable/bg_surface_card_r13sdp"
-                    android:foreground="@drawable/stroke_r13sdp_st1sdp_stroke"
-                    android:clipToOutline="true">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/nunito_600"
-                        android:text="@string/translate_to_short"
-                        android:textColor="@color/text_secondary"
-                        android:textSize="@dimen/_9sdp" />
-
-                    <TextView
-                        android:id="@+id/tvTo"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:ellipsize="end"
-                        android:fontFamily="@font/nunito_800"
-                        android:maxLines="1"
-                        android:textSize="@dimen/_11sdp"
-                        app:drawableTint="@color/text_secondary"
-                        tools:text="Spanish"
-                        android:textColor="@color/text_primary"
-                        app:drawableEndCompat="@drawable/ic_app_chevd_12sdp" />
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
-                style="@style/CardAppStyle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_13sdp"
-                android:orientation="horizontal"
-                android:padding="@dimen/_11sdp"
-                android:background="@drawable/bg_surface_card_r13sdp"
-                android:foreground="@drawable/stroke_r13sdp_st1sdp_stroke"
-                android:clipToOutline="true">
-
-                <ImageView
-                    android:layout_width="@dimen/_17sdp"
-                    android:layout_height="@dimen/_17sdp"
-                    android:contentDescription="@null"
-                    android:src="@drawable/ic_app_download"
-                    app:tint="@color/text_on_selected" />
+                android:layout_marginTop="@dimen/_11sdp"
+                android:background="@drawable/bg_rounded_panel"
+                android:backgroundTint="@color/color_surface_card">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_9sdp"
                     android:orientation="vertical">
 
-                    <TextView
+                    <LinearLayout
+                        android:id="@+id/btnFrom"
+                        style="@style/LanguagePick">
+
+                        <TextView
+                            style="@style/LanguagePickLabel"
+                            android:text="@string/translate_from" />
+
+                        <TextView
+                            android:id="@+id/tvFrom"
+                            style="@style/LanguagePickValue"
+                            tools:text="English" />
+                    </LinearLayout>
+
+                    <View
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/nunito_800"
-                        android:text="@string/language_pack_title"
-                        android:textColor="@color/text_primary"
-                        android:textSize="@dimen/_10sdp" />
+                        android:layout_height="@dimen/_1sdp"
+                        android:layout_marginHorizontal="@dimen/_12sdp"
+                        android:background="@color/color_stroke" />
+
+                    <LinearLayout
+                        android:id="@+id/btnTo"
+                        style="@style/LanguagePick">
+
+                        <TextView
+                            style="@style/LanguagePickLabel"
+                            android:text="@string/translate_to_short" />
+
+                        <TextView
+                            android:id="@+id/tvTo"
+                            style="@style/LanguagePickValue"
+                            tools:text="Vietnamese" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/btnSwap"
+                    android:layout_width="@dimen/_37sdp"
+                    android:layout_height="@dimen/_37sdp"
+                    android:layout_gravity="end|center_vertical"
+                    android:layout_marginEnd="@dimen/_12sdp"
+                    android:background="@drawable/bg_circle_variant"
+                    android:backgroundTint="@color/color_bg_selected"
+                    android:contentDescription="@string/fo_swap_languages"
+                    android:foreground="?attr/selectableItemBackgroundBorderless"
+                    android:padding="@dimen/_10sdp"
+                    android:src="@drawable/ic_fo_swap"
+                    app:tint="@color/text_on_selected" />
+            </FrameLayout>
+
+            <LinearLayout
+                android:id="@+id/layoutRecent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone"
+                tools:visibility="visible">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:fontFamily="@font/nunito_800"
+                    android:text="@string/fo_used_lately"
+                    android:textColor="@color/text_primary"
+                    android:textSize="@dimen/_11sdp" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rcvRecent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_6sdp"
+                    android:clipToPadding="false"
+                    android:orientation="horizontal"
+                    android:overScrollMode="never"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/item_filter_chip" />
+            </LinearLayout>
+
+            <!-- Free plan: how much of the file gets translated -->
+            <LinearLayout
+                android:id="@+id/layoutQuota"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:background="@drawable/bg_rounded_panel"
+                android:backgroundTint="@color/color_pro_bg"
+                android:orientation="vertical"
+                android:padding="@dimen/_12sdp"
+                android:visibility="gone"
+                tools:visibility="visible">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
 
                     <TextView
-                        android:layout_width="match_parent"
+                        android:id="@+id/tvQuota"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_3sdp"
-                        android:fontFamily="@font/nunito_600"
-                        android:text="@string/language_pack_desc"
-                        android:textColor="@color/text_secondary"
-                        android:textSize="@dimen/_9sdp" />
+                        android:layout_weight="1"
+                        android:fontFamily="@font/nunito_800"
+                        android:textColor="@color/text_primary"
+                        android:textSize="@dimen/_11sdp"
+                        tools:text="Free plan: first 3 pages" />
+
+                    <TextView
+                        android:id="@+id/tvQuotaCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/nunito_800"
+                        android:textColor="@color/color_warning"
+                        android:textSize="@dimen/_11sdp"
+                        tools:text="3 of 38" />
                 </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:background="@drawable/bg_badge"
+                    android:backgroundTint="@color/warning_track"
+                    android:orientation="horizontal"
+                    android:weightSum="100">
+
+                    <View
+                        android:id="@+id/viewQuotaFill"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="8"
+                        android:background="@drawable/bg_badge"
+                        android:backgroundTint="@color/color_pro" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/btnPro"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_29sdp"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:background="?attr/selectableItemBackground"
+                    android:drawablePadding="@dimen/_5sdp"
+                    android:fontFamily="@font/nunito_800"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/color_warning"
+                    android:textSize="@dimen/_11sdp"
+                    app:drawableStartCompat="@drawable/ic_fo_crown_13sdp"
+                    app:drawableTint="@color/color_warning"
+                    tools:text="Translate all 38 pages with Pro" />
             </LinearLayout>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
@@ -175,5 +203,4 @@
     <include
         android:id="@+id/action"
         layout="@layout/layout_tool_action" />
-
 </LinearLayout>

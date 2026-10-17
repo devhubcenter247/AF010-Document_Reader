@@ -350,12 +350,12 @@
     <string name="version_info">%1$s · Version %2$s</string>
 
     <!-- Tools: shared -->
-    <string name="compress_low">Low</string>
-    <string name="compress_low_desc">Keeps print quality</string>
-    <string name="compress_medium">Medium</string>
-    <string name="compress_medium_desc">Recommended for email</string>
-    <string name="compress_high">High</string>
-    <string name="compress_high_desc">Smallest, softer images</string>
+    <string name="compress_low">Light</string>
+    <string name="compress_low_desc">Best quality, a little smaller</string>
+    <string name="compress_medium">Recommended</string>
+    <string name="compress_medium_desc">Looks great, easy to email</string>
+    <string name="compress_high">Strong</string>
+    <string name="compress_high_desc">Smallest file, softer images</string>
     <string name="page_size_a4" translatable="false">A4</string>
     <string name="page_size_letter">Letter</string>
     <string name="page_size_fit">Fit image</string>
@@ -386,18 +386,21 @@
     <string name="new_file_name">New file name</string>
     <string name="merge_action">Merge %1$s · %2$s</string>
     <string name="split_subtitle">Break a PDF into smaller files</string>
-    <string name="split_by_range">By page range</string>
-    <string name="split_by_range_desc">Each range becomes a file</string>
-    <string name="split_each_page">One file per page</string>
-    <plurals name="split_creates_files">
-        <item quantity="one">Creates %d file</item>
-        <item quantity="other">Creates %d files</item>
+    <string name="split_each_page">Every page</string>
+    <string name="split_each_page_desc">Turn each page into its own PDF</string>
+    <string name="split_by_range">Custom ranges</string>
+    <string name="split_by_range_desc">Choose the pages for each file</string>
+    <string name="split_pick_pages">Extract pages</string>
+    <string name="split_pick_pages_desc">Keep just the pages you pick</string>
+    <string name="split_ranges_label">Which pages go together?</string>
+    <string name="split_pages_label">Which pages to keep?</string>
+    <string name="split_ranges_hint">e.g. 1-4, 5-12</string>
+    <plurals name="split_youll_get">
+        <item quantity="one">You’ll get %d file</item>
+        <item quantity="other">You’ll get %d files</item>
     </plurals>
-    <string name="split_pick_pages">Pick pages to extract</string>
-    <string name="split_pick_pages_desc">Tap page thumbnails</string>
-    <string name="pages">Pages</string>
-    <string name="range_to">to</string>
-    <string name="add_range">Add range</string>
+    <string name="split_check_pages">Check the pages: this PDF has %d</string>
+    <string name="split_extract_action">Extract these pages</string>
     <plurals name="split_action">
         <item quantity="one">Split into %d file</item>
         <item quantity="other">Split into %d files</item>
@@ -407,7 +410,7 @@
     <string name="protect_pdf">Protect PDF</string>
     <string name="protect_subtitle">Only people with the password can open it</string>
     <string name="confirm_password">Confirm password</string>
-    <string name="protect_warning">A forgotten password can’t be recovered. Keep it somewhere safe.</string>
+    <string name="protect_warning">Heads up: a lost password can’t be recovered, so keep it somewhere safe.</string>
     <string name="lock_file">Lock file</string>
     <string name="password_empty">Please enter a password</string>
     <string name="password_mismatch">The passwords don’t match</string>
@@ -423,7 +426,7 @@
     <string name="margins">Margins</string>
     <string name="create_pdf_action">Create PDF · %1$s</string>
     <string name="watermark_text">Watermark text</string>
-    <string name="watermark_default" translatable="false">DRAFT</string>
+    <string name="watermark_default" translatable="false">CONFIDENTIAL</string>
     <string name="opacity">Opacity</string>
     <string name="rotation">Rotation</string>
     <string name="degrees" translatable="false">%1$s°</string>
@@ -438,11 +441,11 @@
     </plurals>
     <string name="page_of">Page %1$d / %2$d</string>
     <string name="page_number">Page %d</string>
-    <string name="translate_subtitle">Runs on your device, works offline</string>
+    <string name="translate_subtitle">Works offline, right on your phone</string>
     <string name="translate_from">From</string>
     <string name="translate_to_short">To</string>
     <string name="translate_detect">Detect language</string>
-    <string name="translate_detected">%1$s · %2$s detected</string>
+    <string name="translate_detected">%1$s · looks like %2$s</string>
     <string name="language_pack_title">One-time language pack · about 30 MB</string>
     <string name="language_pack_desc">After that, translation runs on your device with no internet.</string>
     <plurals name="translate_free_note">
@@ -464,17 +467,17 @@
     <string name="unlock">Unlock</string>
 
     <!-- Tools: processing and result -->
-    <string name="processing_subtitle">You can switch apps. The work keeps running.</string>
+    <string name="processing_subtitle">Feel free to leave. We’ll keep working on it in the meantime.</string>
     <string name="processing_generic">Working…</string>
-    <string name="processing_merge">Merging PDF…</string>
-    <string name="processing_split">Splitting PDF…</string>
-    <string name="processing_compress">Compressing PDF…</string>
-    <string name="processing_protect">Locking PDF…</string>
-    <string name="processing_watermark">Adding watermark…</string>
-    <string name="processing_redact">Redacting PDF…</string>
-    <string name="processing_ocr">Recognizing text…</string>
-    <string name="processing_zip">Creating ZIP…</string>
-    <string name="processing_images">Creating PDF…</string>
+    <string name="processing_merge">Stitching your pages together…</string>
+    <string name="processing_split">Cutting your PDF apart…</string>
+    <string name="processing_compress">Squeezing your PDF…</string>
+    <string name="processing_protect">Locking your PDF…</string>
+    <string name="processing_watermark">Stamping your pages…</string>
+    <string name="processing_redact">Hiding what you marked…</string>
+    <string name="processing_ocr">Reading the words…</string>
+    <string name="processing_zip">Packing your ZIP…</string>
+    <string name="processing_images">Making your PDF…</string>
     <string name="saved_title">Saved!</string>
     <string name="saved_subtitle">Your file is ready to open or share</string>
     <string name="percent_smaller">%d%% smaller</string>
@@ -482,7 +485,7 @@
     <string name="keep_working">Keep working on this file</string>
 
     <!-- Scan -->
-    <string name="scan_edges_found">Edges found · hold still</string>
+    <string name="scan_edges_found">Hold still, we’ll snap it for you</string>
     <string name="scan_mode_auto">Auto</string>
     <string name="scan_mode_manual">Manual</string>
     <string name="adjust_corners">Adjust corners</string>
@@ -894,4 +897,153 @@
     <string name="fo_text">Text</string>
     <string name="fo_nothing_here">Nothing here yet</string>
     <string name="fo_nothing_here_desc">Try another type, or tap + on the Files tab to make something new.</string>
+    <string name="fo_change">Change</string>
+    <string name="fo_step_pick_files">Pick your files</string>
+    <string name="fo_step_set_order">Set the order</string>
+    <string name="fo_step_how_small">How small?</string>
+    <string name="fo_step_choose_how">Choose how</string>
+    <string name="fo_step_pick_password">Pick a password</string>
+    <string name="fo_step_find_words">Find the words</string>
+    <string name="fo_right_now">Right now</string>
+    <string name="fo_after_about">After, about</string>
+    <string name="fo_make_it_smaller">Make it smaller</string>
+    <string name="fo_protect_hero">Anyone opening it will need this password.</string>
+    <string name="fo_type_once_more">Type it once more</string>
+    <string name="fo_show_password">Show password</string>
+    <string name="fo_hide_password">Hide password</string>
+    <string name="fo_lock_this_file">Lock this file</string>
+    <string name="fo_pw_weak">Easy to guess</string>
+    <string name="fo_pw_okay">Okay</string>
+    <string name="fo_pw_good">Good</string>
+    <string name="fo_pw_strong">Nice and strong</string>
+    <string name="fo_ext_pdf" translatable="false">PDF</string>
+    <string name="fo_ext_docx" translatable="false">DOCX</string>
+    <string name="fo_ext_xlsx" translatable="false">XLSX</string>
+    <string name="fo_ext_jpg" translatable="false">JPG</string>
+    <string name="fo_ext_zip" translatable="false">ZIP</string>
+    <string name="fo_order_note">The top file comes first</string>
+    <plurals name="fo_pages_total">
+        <item quantity="one">%d page in total</item>
+        <item quantity="other">%d pages in total</item>
+    </plurals>
+    <string name="fo_add_another_file">Add another file</string>
+    <string name="fo_add_more_files">Add more files</string>
+    <string name="fo_name_new_file">Name your new file</string>
+    <string name="fo_name_zip">Name your ZIP</string>
+    <plurals name="fo_merge_files">
+        <item quantity="one">Merge %d file</item>
+        <item quantity="other">Merge %d files</item>
+    </plurals>
+    <string name="fo_create_zip">Create ZIP</string>
+    <string name="fo_zip_summary">%1$s · about %2$s</string>
+    <string name="fo_bundle_zip">Bundle into a ZIP</string>
+    <string name="fo_move_up">Move up</string>
+    <string name="fo_drag_to_reorder">Drag to reorder</string>
+    <string name="fo_remove_file">Remove %s</string>
+    <string name="fo_used_lately">Used lately</string>
+    <string name="fo_swap_languages">Swap languages</string>
+    <plurals name="fo_free_first_pages">
+        <item quantity="one">Free plan: first page</item>
+        <item quantity="other">Free plan: first %d pages</item>
+    </plurals>
+    <string name="fo_x_of_y">%1$d of %2$d</string>
+    <plurals name="fo_translate_all_pro">
+        <item quantity="one">Translate all %d page with Pro</item>
+        <item quantity="other">Translate all %d pages with Pro</item>
+    </plurals>
+    <string name="fo_pack_note">The %s pack downloads once, then works offline.</string>
+    <plurals name="fo_translate_pages">
+        <item quantity="one">Translate %d page</item>
+        <item quantity="other">Translate %d pages</item>
+    </plurals>
+    <string name="fo_browse_folders">Browse folders</string>
+    <string name="fo_search_your_pdfs">Search your PDFs</string>
+    <string name="fo_search_your_files">Search your files</string>
+    <plurals name="fo_pdfs_on_phone">
+        <item quantity="one">%d PDF on this phone</item>
+        <item quantity="other">%d PDFs on this phone</item>
+    </plurals>
+    <plurals name="fo_files_on_phone">
+        <item quantity="one">%d file on this phone</item>
+        <item quantity="other">%d files on this phone</item>
+    </plurals>
+    <plurals name="fo_files_picked">
+        <item quantity="one">%d file picked</item>
+        <item quantity="other">%d files picked</item>
+    </plurals>
+    <string name="fo_merge_order_hint">Numbers show the merge order</string>
+    <string name="fo_merge_need_two">Pick at least 2 to merge</string>
+    <string name="fo_zip_hint">They all go into one ZIP</string>
+    <string name="fo_zip_need_one">Pick the files to bundle</string>
+    <string name="fo_page_size">Page size</string>
+    <string name="fo_orientation">Orientation</string>
+    <string name="fo_margins">Margins</string>
+    <string name="fo_add_more">Add more</string>
+    <string name="fo_remove_photo">Remove photo</string>
+    <string name="fo_create_my_pdf">Create my PDF</string>
+    <plurals name="fo_photos_reorder">
+        <item quantity="one">%d photo · hold and drag to reorder</item>
+        <item quantity="other">%d photos · hold and drag to reorder</item>
+    </plurals>
+    <string name="fo_ocr_title">Scan to text (OCR)</string>
+    <string name="fo_ocr_just_picture">Just a picture</string>
+    <string name="fo_ocr_searchable">Searchable</string>
+    <string name="fo_ocr_option">New searchable PDF</string>
+    <string name="fo_ocr_option_desc">Looks the same, but now you can select and search the words</string>
+    <string name="fo_find_the_text">Find the text</string>
+    <string name="fo_colour">Colour</string>
+    <string name="fo_opacity">Opacity</string>
+    <string name="fo_diagonal">Diagonal</string>
+    <string name="fo_flat">Flat</string>
+    <plurals name="fo_stamp_pages">
+        <item quantity="one">Stamp %d page</item>
+        <item quantity="other">Stamp all %d pages</item>
+    </plurals>
+    <string name="fo_color_terracotta">Terracotta</string>
+    <string name="fo_color_blue">Blue</string>
+    <string name="fo_color_ink">Ink</string>
+    <string name="fo_color_stone">Stone</string>
+    <string name="fo_redact_subtitle">%1$d hidden · %2$s</string>
+    <string name="fo_page_x_of_y">Page %1$d of %2$d</string>
+    <string name="fo_drag_to_hide">Drag over anything to hide it</string>
+    <string name="fo_redact_note">Hidden text is removed from the new file for good. Your original stays as it is.</string>
+    <string name="fo_hide_for_good">Hide for good</string>
+    <string name="fo_previous_page">Previous page</string>
+    <string name="fo_next_page">Next page</string>
+    <plurals name="fo_step_read_files">
+        <item quantity="one">Read %d file</item>
+        <item quantity="other">Read %d files</item>
+    </plurals>
+    <string name="fo_step_save">Save to Download › Folio</string>
+    <string name="fo_step_working">Work through the pages</string>
+    <string name="fo_all_done">All done!</string>
+    <string name="fo_done_merge">Your files are now one tidy PDF.</string>
+    <plurals name="fo_done_split">
+        <item quantity="one">Your PDF is now %d file.</item>
+        <item quantity="other">Your PDF is now %d files.</item>
+    </plurals>
+    <string name="fo_done_compress">Your PDF is %d%% smaller.</string>
+    <string name="fo_done_protect">Only people with the password can open it.</string>
+    <string name="fo_done_zip">Everything is packed in one ZIP.</string>
+    <string name="fo_done_ocr">Now you can select and search the words.</string>
+    <string name="fo_done_generic">Your new file is saved.</string>
+    <string name="fo_keep_going">Keep going with this file</string>
+    <string name="fo_open">Open</string>
+    <string name="fo_rename">Rename</string>
+    <string name="fo_saved_place">Download › Folio</string>
+    <string name="fo_your_translation">Your translation</string>
+    <string name="fo_translation_route">%1$s → %2$s · %3$s</string>
+    <string name="fo_save_as_pdf">Save as PDF</string>
+    <plurals name="fo_more_pages">
+        <item quantity="one">%d more page</item>
+        <item quantity="other">%d more pages</item>
+    </plurals>
+    <string name="fo_adjust_corners">Adjust the corners</string>
+    <string name="fo_drag_the_dots">Drag the dots to the edges of your page.</string>
+    <string name="fo_retake">Retake</string>
+    <string name="fo_looks_good">Looks good</string>
+    <string name="fo_pick_a_look">Pick a look you like</string>
+    <string name="fo_save_pdf_pages">Save as PDF · %s</string>
+    <string name="fo_scan_name">Scan name</string>
+    <string name="fo_page_no_text">No text found on this page.</string>
 </resources>

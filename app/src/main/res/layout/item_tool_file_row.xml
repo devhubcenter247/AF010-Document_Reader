@@ -1,41 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<!-- A file in the Merge or ZIP list. Merge shows its place, a move-up button and the drag handle;
+     ZIP shows its type tile and a remove button. FileRowAdapter picks the pieces. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    style="@style/CardAppStyle"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="@dimen/_6sdp"
+    android:layout_marginBottom="@dimen/_8sdp"
+    android:background="@drawable/bg_card"
+    android:elevation="@dimen/_3sdp"
     android:gravity="center_vertical"
+    android:minHeight="@dimen/_52sdp"
     android:orientation="horizontal"
-    android:paddingStart="@dimen/_8sdp"
-    android:paddingEnd="@dimen/_3sdp"
-    android:paddingVertical="@dimen/_8sdp"
-    android:background="@drawable/bg_surface_card_r10sdp"
-    android:foreground="@drawable/stroke_r10sdp_st1sdp_stroke"
-    android:clipToOutline="true">
+    android:outlineAmbientShadowColor="@color/color_shadow"
+    android:outlineSpotShadowColor="@color/color_shadow"
+    android:paddingVertical="@dimen/_6sdp"
+    android:paddingStart="@dimen/_10sdp"
+    android:paddingEnd="@dimen/_5sdp">
 
-    <ImageView
-        android:id="@+id/ivDrag"
-        android:layout_width="@dimen/_15sdp"
+    <TextView
+        android:id="@+id/tvNumber"
+        android:layout_width="@dimen/_25sdp"
         android:layout_height="@dimen/_25sdp"
-        android:layout_marginEnd="@dimen/_6sdp"
-        android:contentDescription="@null"
-        android:src="@drawable/ic_app_grip"
-        app:tint="@color/color_icon_muted" />
+        android:background="@drawable/bg_circle_variant"
+        android:backgroundTint="@color/primary"
+        android:fontFamily="@font/nunito_800"
+        android:gravity="center"
+        android:textColor="@color/on_primary"
+        android:textSize="@dimen/_11sdp"
+        android:visibility="gone"
+        tools:text="1"
+        tools:visibility="visible" />
 
-    <ImageView
-        android:id="@+id/ivType"
-        android:layout_width="@dimen/_23sdp"
-        android:layout_height="@dimen/_28sdp"
-        android:contentDescription="@null"
-        tools:src="@drawable/ic_file_pdf" />
+    <TextView
+        android:id="@+id/tvType"
+        android:layout_width="@dimen/_31sdp"
+        android:layout_height="@dimen/_31sdp"
+        android:background="@drawable/bg_file_tile"
+        android:fontFamily="@font/nunito_800"
+        android:gravity="center"
+        android:importantForAccessibility="no"
+        android:maxLines="1"
+        android:textColor="@color/on_primary"
+        android:textSize="@dimen/_9sdp"
+        android:visibility="gone"
+        tools:backgroundTint="@color/color_file_pdf"
+        tools:text="PDF" />
 
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_8sdp"
+        android:layout_marginHorizontal="@dimen/_9sdp"
         android:layout_weight="1"
         android:orientation="vertical">
 
@@ -44,31 +59,55 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ellipsize="middle"
-            android:fontFamily="@font/nunito_700"
+            android:fontFamily="@font/nunito_800"
             android:maxLines="1"
             android:textColor="@color/text_primary"
             android:textSize="@dimen/_11sdp"
-            tools:text="Lease-agreement.pdf" />
+            tools:text="Lease_Agreement_2026.pdf" />
 
         <TextView
             android:id="@+id/tvMeta"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_2sdp"
+            android:layout_marginTop="@dimen/_1sdp"
             android:fontFamily="@font/nunito_600"
             android:textColor="@color/text_secondary"
-            android:textSize="@dimen/_9sdp"
-            tools:text="1.1 MB · 12 pages" />
+            android:textSize="@dimen/_10sdp"
+            tools:text="2.4 MB · 38 pages" />
     </LinearLayout>
 
     <ImageView
-        android:id="@+id/btnRemove"
-        android:layout_width="@dimen/_27sdp"
-        android:layout_height="@dimen/_27sdp"
-        android:background="?attr/selectableItemBackgroundBorderless"
-        android:contentDescription="@string/scanner_close"
-        android:padding="@dimen/_7sdp"
-        android:src="@drawable/ic_app_close"
-        app:tint="@color/text_secondary" />
+        android:id="@+id/btnUp"
+        android:layout_width="@dimen/_31sdp"
+        android:layout_height="@dimen/_31sdp"
+        android:background="@drawable/bg_circle_variant"
+        android:contentDescription="@string/fo_move_up"
+        android:padding="@dimen/_8sdp"
+        android:rotation="90"
+        android:src="@drawable/ic_fo_back"
+        android:visibility="gone"
+        app:tint="@color/text_primary"
+        tools:visibility="visible" />
 
+    <ImageView
+        android:id="@+id/ivDrag"
+        android:layout_width="@dimen/_25sdp"
+        android:layout_height="@dimen/_34sdp"
+        android:contentDescription="@string/fo_drag_to_reorder"
+        android:paddingHorizontal="@dimen/_4sdp"
+        android:paddingVertical="@dimen/_8sdp"
+        android:src="@drawable/ic_fo_drag"
+        android:visibility="gone"
+        app:tint="@color/text_secondary"
+        tools:visibility="visible" />
+
+    <ImageView
+        android:id="@+id/btnRemove"
+        android:layout_width="@dimen/_34sdp"
+        android:layout_height="@dimen/_34sdp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:padding="@dimen/_10sdp"
+        android:src="@drawable/ic_fo_close"
+        android:visibility="gone"
+        app:tint="@color/text_secondary" />
 </LinearLayout>

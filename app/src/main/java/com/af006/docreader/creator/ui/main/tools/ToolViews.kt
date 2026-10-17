@@ -1,20 +1,26 @@
 package com.af010.creator.docreader.ui.main.tools
 
 import android.content.Context
+import androidx.activity.ComponentActivity
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
+import com.af010.creator.docreader.ui.main.tools.pick.PickFileActivity
 import android.text.format.Formatter
 import androidx.annotation.StringRes
-import androidx.core.content.ContextCompat
+import androidx.annotation.DrawableRes
+import androidx.core.view.isVisible
 import com.af010.creator.docreader.R
+import com.af010.creator.docreader.app.remote.remoteConfig
 import com.af010.creator.docreader.databinding.LayoutOptionBinding
 import com.af010.creator.docreader.databinding.LayoutToolFileBinding
-import com.af010.creator.docreader.databinding.LayoutToolHeaderBinding
+import com.af010.creator.docreader.databinding.LayoutScreenBarBinding
+import com.af010.creator.docreader.databinding.LayoutStepProgressBinding
+import com.af010.creator.docreader.databinding.LayoutToolActionBinding
 import com.af010.creator.docreader.model.Tool
-import com.af010.creator.docreader.ui.common.showToolTile
+import com.af010.creator.docreader.ui.common.show
+import com.af010.creator.docreader.ui.common.showTypeTile
 import com.af010.creator.docreader.utils.AppUtils
 import com.af010.creator.docreader.utils.extensions.iconRes
-import com.af010.creator.docreader.utils.extensions.setFillColor
-import com.af010.creator.docreader.utils.extensions.setStroke
-import com.ui.baselib.utils.dpToPx
 import java.io.File
 
 /** Intent extra carrying the absolute paths of the files a tool screen works on. */
@@ -37,33 +43,55 @@ fun File.sizeText(context: Context): String = Formatter.formatShortFileSize(cont
 fun Context.pageCountText(count: Int): String =
     resources.getQuantityString(R.plurals.translate_page_count, count, count)
 
-fun LayoutToolHeaderBinding.show(tool: Tool, @StringRes title: Int, @StringRes subtitle: Int) {
-    ivIcon.showToolTile(tool)
+/**
+ * The top bar of a tool: its name, an optional line under it, and the Pro chip when the
+ * tool is a Premium one and the paywall is on.
+ */
+fun LayoutScreenBarBinding.show(tool: Tool, @StringRes title: Int = tool.title, subtitle: CharSequence? = null) {
     tvTitle.setText(title)
-    tvSubtitle.setText(subtitle)
+    tvSubtitle.text = subtitle
+    tvSubtitle.isVisible = !subtitle.isNullOrEmpty()
+    tvPro.isVisible = tool.isPremium && remoteConfig.paywallEnabled
 }
 
+/** "Step 2 of 3 · [detail]": every setup screen is the middle step between picking and the result. */
+fun LayoutStepProgressBinding.showSetupStep(@StringRes detail: Int) =
+    show(SETUP_STEP, TOOL_STEPS, root.context.getString(detail))
+
+const val TOOL_STEPS = 3
+const val SETUP_STEP = 2
+
 fun LayoutToolFileBinding.show(file: File, meta: String) {
-    ivType.setImageResource(file.typeIcon)
+    tvType.showTypeTile(file)
     tvName.text = file.name
     tvMeta.text = meta
 }
 
-fun LayoutOptionBinding.show(@StringRes title: Int, desc: String) {
+fun LayoutOptionBinding.show(@StringRes title: Int, desc: String, badge: String? = null) {
     tvTitle.setText(title)
     tvDesc.text = desc
+    tvBadge.text = badge
+    tvBadge.isVisible = badge != null
 }
 
 fun LayoutOptionBinding.setChecked(checked: Boolean) {
-    val context = root.context
-    ivRadio.setImageResource(if (checked) R.drawable.ic_app_radio_on else R.drawable.ic_app_radio_off)
-    root.setFillColor(ContextCompat.getColor(
-        context,
-        if (checked) R.color.color_bg_selected else R.color.color_surface_card
-    ))
-    root.setStroke(context.dpToPx(if (checked) 2 else 1), ContextCompat.getColor(
-        context,
-        if (checked) R.color.primary else R.color.color_stroke
-    ))
-    root.invalidate()
+    root.isSelected = checked
+}
+
+fun LayoutToolActionBinding.show(text: CharSequence, @DrawableRes icon: Int) {
+    btnAction.text = text
+    btnAction.setIconResource(icon)
+}
+
+/**
+ * "Change" on a one-file tool: opens the picker for [tool] again and hands the new file to
+ * [onPicked]. Register it as a property, before the activity starts.
+ */
+class FileChanger(private val activity: ComponentActivity, private val tool: Tool, onPicked: (File) -> Unit) {
+    private val launcher: ActivityResultLauncher<android.content.Intent> =
+        activity.registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+            result.data?.getStringArrayListExtra(EXTRA_PATHS)?.firstOrNull()?.let { onPicked(File(it)) }
+        }
+
+    fun launch() = launcher.launch(PickFileActivity.intent(activity, tool, forResult = true))
 }

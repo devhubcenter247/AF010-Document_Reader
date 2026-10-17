@@ -10,16 +10,19 @@ import java.io.File
 
 class ZipActivity : FilesToolActivity() {
     override val tool = Tool.Zip
-    override val titleRes = R.string.create_zip
-    override val subtitleRes = R.string.zip_subtitle
-    override val nameLabelRes = R.string.archive_name
+    override val titleRes = R.string.fo_bundle_zip
+    override val nameLabelRes = R.string.fo_name_zip
+    override val addFilesRes = R.string.fo_add_more_files
+    override val actionIcon = R.drawable.ic_fo_box
     override val extension = "zip"
     override val minimumFiles = 1
 
     override fun metaOf(file: File): String = file.sizeText(this)
 
-    override fun actionText(files: List<File>): String = getString(
-        R.string.zip_action,
+    override fun actionText(files: List<File>): String = getString(R.string.fo_create_zip)
+
+    override fun summary(files: List<File>): String = getString(
+        R.string.fo_zip_summary,
         resources.getQuantityString(R.plurals.file_count, files.size, files.size),
         Formatter.formatShortFileSize(this, files.sumOf { it.length() })
     )

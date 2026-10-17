@@ -1,6 +1,10 @@
 package com.af010.creator.docreader.ui.main.common
 
+import android.widget.LinearLayout
+import android.widget.TextView
 import androidx.annotation.StringRes
+import androidx.core.view.children
+import com.af010.creator.docreader.R
 import com.af010.creator.docreader.databinding.LayoutSegmentBinding
 import com.ui.baselib.extensions.click
 import com.ui.baselib.extensions.visibleOrGone
@@ -27,4 +31,25 @@ fun LayoutSegmentBinding.setLabels(@StringRes first: Int, @StringRes second: Int
 
 fun LayoutSegmentBinding.select(index: Int) {
     listOf(tvFirst, tvSecond, tvThird).forEachIndexed { i, view -> view.isSelected = i == index }
+}
+
+/**
+ * The same control built in code inside a bg_segment_track row, for lists longer than
+ * layout_segment holds (opacity steps).
+ */
+fun LinearLayout.fillSegment(labels: List<CharSequence>, onSelected: (index: Int) -> Unit) {
+    removeAllViews()
+    val height = resources.getDimensionPixelSize(com.intuit.sdp.R.dimen._31sdp)
+    labels.forEachIndexed { index, label ->
+        addView(TextView(context, null, 0, R.style.SegmentItem).apply {
+            text = label
+            setPadding(0, 0, 0, 0)
+            layoutParams = LinearLayout.LayoutParams(0, height, 1f)
+            setOnClickListener { onSelected(index) }
+        })
+    }
+}
+
+fun LinearLayout.selectSegment(index: Int) {
+    children.forEachIndexed { i, view -> view.isSelected = i == index }
 }

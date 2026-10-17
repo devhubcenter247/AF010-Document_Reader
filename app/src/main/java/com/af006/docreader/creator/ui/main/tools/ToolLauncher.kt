@@ -11,6 +11,7 @@ import com.af010.creator.docreader.ui.main.scan.ScanActivity
 import com.af010.creator.docreader.ui.main.tools.compress.CompressActivity
 import com.af010.creator.docreader.ui.main.tools.images.ImageToPdfActivity
 import com.af010.creator.docreader.ui.main.tools.merge.MergeActivity
+import com.af010.creator.docreader.ui.main.tools.ocr.OcrActivity
 import com.af010.creator.docreader.ui.main.tools.pick.PickFileActivity
 import com.af010.creator.docreader.ui.main.tools.protect.ProtectActivity
 import com.af010.creator.docreader.ui.main.tools.redact.RedactActivity
@@ -29,6 +30,7 @@ private val Tool.setupActivity: Class<out Activity>?
         Tool.Protect -> ProtectActivity::class.java
         Tool.Watermark -> WatermarkActivity::class.java
         Tool.Redact -> RedactActivity::class.java
+        Tool.Ocr -> OcrActivity::class.java
         Tool.Translate -> TranslateActivity::class.java
         Tool.Zip -> ZipActivity::class.java
         else -> null
@@ -51,7 +53,7 @@ fun Activity.openTool(tool: Tool, paths: List<String> = emptyList()) {
             PdfReaderActivity.start(this, paths.first(), tool)
         tool == Tool.Organize -> startActivity(PdfOrganizeActivity.intent(this, paths.first()))
         tool == Tool.PdfToImages -> ProcessingActivity.start(this, ToolRequest.PdfToImages(paths.first()))
-        setup == null -> ProcessingActivity.start(this, ToolRequest.Ocr(paths.first()))
+        setup == null -> return
         else -> startActivity(Intent(this, setup).putStringArrayListExtra(EXTRA_PATHS, ArrayList(paths)))
     }
 }

@@ -9,158 +9,130 @@
     tools:context=".ui.main.scan.fragment.ScanFiltersFragment">
 
     <include
-        android:id="@+id/toolbar"
-        layout="@layout/layout_toolbar" />
+        android:id="@+id/topBar"
+        layout="@layout/layout_screen_bar" />
 
+    <!-- The page with its look -->
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginHorizontal="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_3sdp"
         android:layout_weight="1"
-        android:background="@color/color_surface_track">
+        android:background="@drawable/bg_rounded_panel"
+        android:backgroundTint="@color/color_surface_variant">
 
         <ImageView
             android:id="@+id/ivPage"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginHorizontal="@dimen/_46sdp"
-            android:layout_marginVertical="@dimen/_15sdp"
-            android:contentDescription="@null"
+            android:importantForAccessibility="no"
+            android:padding="@dimen/_17sdp"
             android:scaleType="fitCenter" />
 
         <ImageView
             android:id="@+id/btnPrevious"
-            android:layout_width="@dimen/_28sdp"
-            android:layout_height="@dimen/_28sdp"
+            style="@style/PageArrow"
             android:layout_gravity="center_vertical|start"
-            android:layout_marginStart="@dimen/_11sdp"
-            android:contentDescription="@null"
-            android:padding="@dimen/_7sdp"
-            android:src="@drawable/ic_app_chevl"
-            android:background="@drawable/bg_surface_card_r14sdp"
-            android:clipToOutline="true" />
+            android:layout_marginStart="@dimen/_8sdp"
+            android:contentDescription="@string/fo_previous_page"
+            android:src="@drawable/ic_fo_back" />
 
         <ImageView
             android:id="@+id/btnNext"
-            android:layout_width="@dimen/_28sdp"
-            android:layout_height="@dimen/_28sdp"
+            style="@style/PageArrow"
             android:layout_gravity="center_vertical|end"
-            android:layout_marginEnd="@dimen/_11sdp"
-            android:contentDescription="@null"
-            android:padding="@dimen/_7sdp"
-            android:src="@drawable/ic_app_chev"
-            android:background="@drawable/bg_surface_card_r14sdp"
-            android:clipToOutline="true" />
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:contentDescription="@string/fo_next_page"
+            android:rotation="180"
+            android:src="@drawable/ic_fo_back" />
+
+        <TextView
+            android:id="@+id/tvPage"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_23sdp"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="@dimen/_11sdp"
+            android:background="@drawable/bg_badge"
+            android:backgroundTint="@color/ocr_tag_dark"
+            android:fontFamily="@font/nunito_800"
+            android:gravity="center"
+            android:paddingHorizontal="@dimen/_9sdp"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_10sdp"
+            tools:text="2 of 2" />
 
         <ProgressBar
             android:id="@+id/progress"
-            android:layout_width="@dimen/_28sdp"
-            android:layout_height="@dimen/_28sdp"
+            android:layout_width="@dimen/_34sdp"
+            android:layout_height="@dimen/_34sdp"
             android:layout_gravity="center"
-            android:indeterminateTint="@color/primary"
             android:visibility="gone" />
     </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipToPadding="false"
+        android:orientation="horizontal"
+        android:paddingHorizontal="@dimen/_15sdp"
+        android:paddingTop="@dimen/_11sdp">
+
+        <TextView
+            android:id="@+id/btnAddPage"
+            style="@style/ActionTile"
+            android:layout_height="@dimen/_49sdp"
+            android:paddingTop="@dimen/_8sdp"
+            android:paddingBottom="@dimen/_6sdp"
+            android:text="@string/scanner_add_page"
+            app:drawableTopCompat="@drawable/ic_fo_plus_17sdp" />
+
+        <TextView
+            android:id="@+id/btnCleanUp"
+            style="@style/ActionTile"
+            android:layout_height="@dimen/_49sdp"
+            android:layout_marginStart="@dimen/_6sdp"
+            android:paddingTop="@dimen/_8sdp"
+            android:paddingBottom="@dimen/_6sdp"
+            android:text="@string/scan_clean_up"
+            app:drawableTopCompat="@drawable/ic_fo_eraser_17sdp" />
+
+        <TextView
+            android:id="@+id/btnCrop"
+            style="@style/ActionTile"
+            android:layout_height="@dimen/_49sdp"
+            android:layout_marginStart="@dimen/_6sdp"
+            android:paddingTop="@dimen/_8sdp"
+            android:paddingBottom="@dimen/_6sdp"
+            android:text="@string/scan_crop"
+            app:drawableTopCompat="@drawable/ic_fo_scan_17sdp" />
+
+        <TextView
+            android:id="@+id/btnDelete"
+            style="@style/ActionTile"
+            android:layout_height="@dimen/_49sdp"
+            android:layout_marginStart="@dimen/_6sdp"
+            android:paddingTop="@dimen/_8sdp"
+            android:paddingBottom="@dimen/_6sdp"
+            android:text="@string/file_action_delete"
+            android:textColor="@color/color_file_pdf"
+            app:drawableTint="@color/color_file_pdf"
+            app:drawableTopCompat="@drawable/ic_fo_trash_17sdp" />
+    </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcvFilters"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/color_surface_card"
         android:clipToPadding="false"
         android:orientation="horizontal"
         android:overScrollMode="never"
-        android:paddingHorizontal="@dimen/_8sdp"
+        android:paddingHorizontal="@dimen/_12sdp"
         android:paddingTop="@dimen/_11sdp"
-        android:paddingBottom="@dimen/_9sdp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:listitem="@layout/item_scan_filter" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingBottom="@dimen/_3sdp"
-        android:background="@drawable/bg_surface_card_line_top_1sdp_stroke">
-
-        <TextView
-            android:id="@+id/btnCrop"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:drawablePadding="@dimen/_3sdp"
-            android:fontFamily="@font/nunito_700"
-            android:gravity="center"
-            android:paddingVertical="@dimen/_11sdp"
-            android:text="@string/scan_crop"
-            android:textSize="@dimen/_9sdp"
-            app:drawableTint="@color/text_primary"
-            android:textColor="@color/text_primary"
-            app:drawableTopCompat="@drawable/ic_app_crop_17sdp" />
-
-        <TextView
-            android:id="@+id/btnRotate"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:drawablePadding="@dimen/_3sdp"
-            android:fontFamily="@font/nunito_700"
-            android:gravity="center"
-            android:paddingVertical="@dimen/_11sdp"
-            android:text="@string/scanner_rotate"
-            android:textSize="@dimen/_9sdp"
-            app:drawableTint="@color/text_primary"
-            android:textColor="@color/text_primary"
-            app:drawableTopCompat="@drawable/ic_app_rotate_17sdp" />
-
-        <TextView
-            android:id="@+id/btnCleanUp"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:drawablePadding="@dimen/_3sdp"
-            android:fontFamily="@font/nunito_700"
-            android:gravity="center"
-            android:paddingVertical="@dimen/_11sdp"
-            android:text="@string/scan_clean_up"
-            android:textSize="@dimen/_9sdp"
-            app:drawableTint="@color/text_primary"
-            android:textColor="@color/text_primary"
-            app:drawableTopCompat="@drawable/ic_app_eraser_17sdp" />
-
-        <TextView
-            android:id="@+id/btnAddPage"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:drawablePadding="@dimen/_3sdp"
-            android:fontFamily="@font/nunito_700"
-            android:gravity="center"
-            android:paddingVertical="@dimen/_11sdp"
-            android:text="@string/scanner_add_page"
-            android:textSize="@dimen/_9sdp"
-            app:drawableTint="@color/text_primary"
-            android:textColor="@color/text_primary"
-            app:drawableTopCompat="@drawable/ic_app_plus_17sdp" />
-
-        <TextView
-            android:id="@+id/btnDelete"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:drawablePadding="@dimen/_3sdp"
-            android:fontFamily="@font/nunito_700"
-            android:gravity="center"
-            android:paddingVertical="@dimen/_11sdp"
-            android:text="@string/file_action_delete"
-            android:textSize="@dimen/_9sdp"
-            app:drawableTint="@color/color_error"
-            android:textColor="@color/color_error"
-            app:drawableTopCompat="@drawable/ic_app_trash_17sdp" />
-
-    </LinearLayout>
-
+    <include
+        android:id="@+id/action"
+        layout="@layout/layout_tool_action" />
 </LinearLayout>

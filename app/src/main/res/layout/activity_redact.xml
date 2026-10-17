@@ -10,97 +10,86 @@
     tools:context=".ui.main.tools.redact.RedactActivity">
 
     <include
-        android:id="@+id/toolbar"
-        layout="@layout/layout_toolbar" />
+        android:id="@+id/topBar"
+        layout="@layout/layout_screen_bar" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:drawablePadding="@dimen/_8sdp"
-        android:fontFamily="@font/nunito_600"
-        android:paddingHorizontal="@dimen/_13sdp"
-        android:paddingVertical="@dimen/_8sdp"
-        android:text="@string/redact_warning"
-        android:textSize="@dimen/_10sdp"
-        app:drawableTint="@color/color_warning"
-        android:background="@drawable/bg_warning_bg"
-        android:textColor="@color/color_on_warning"
-        app:drawableStartCompat="@drawable/ic_app_alert_13sdp" />
-
+    <!-- The page to mark, on a grey board -->
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginHorizontal="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_3sdp"
         android:layout_weight="1"
-        android:background="@color/color_surface_track">
+        android:background="@drawable/bg_rounded_panel"
+        android:backgroundTint="@color/color_surface_variant"
+        android:padding="@dimen/_12sdp">
 
         <com.af010.creator.docreader.ui.main.tools.redact.RedactPageView
             android:id="@+id/pageView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="@dimen/_13sdp" />
+            android:layout_height="match_parent" />
 
         <ImageView
             android:id="@+id/btnPrevious"
-            android:layout_width="@dimen/_28sdp"
-            android:layout_height="@dimen/_28sdp"
+            style="@style/PageArrow"
             android:layout_gravity="center_vertical|start"
-            android:layout_marginStart="@dimen/_8sdp"
-            android:contentDescription="@string/scanner_back"
-            android:padding="@dimen/_7sdp"
-            android:src="@drawable/ic_app_chevl"
-            android:background="@drawable/bg_surface_card_r14sdp"
-            android:clipToOutline="true" />
+            android:contentDescription="@string/fo_previous_page"
+            android:src="@drawable/ic_fo_back" />
 
         <ImageView
             android:id="@+id/btnNext"
-            android:layout_width="@dimen/_28sdp"
-            android:layout_height="@dimen/_28sdp"
+            style="@style/PageArrow"
             android:layout_gravity="center_vertical|end"
-            android:layout_marginEnd="@dimen/_8sdp"
-            android:contentDescription="@string/next"
-            android:padding="@dimen/_7sdp"
-            android:src="@drawable/ic_app_chev"
-            android:background="@drawable/bg_surface_card_r14sdp"
-            android:clipToOutline="true" />
+            android:contentDescription="@string/fo_next_page"
+            android:rotation="180"
+            android:src="@drawable/ic_fo_back" />
+
+        <TextView
+            android:id="@+id/tvHint"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_28sdp"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_marginBottom="@dimen/_8sdp"
+            android:background="@drawable/bg_ink_pill"
+            android:drawablePadding="@dimen/_5sdp"
+            android:elevation="@dimen/_4sdp"
+            android:fontFamily="@font/nunito_800"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="@dimen/_11sdp"
+            android:text="@string/fo_drag_to_hide"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_10sdp"
+            app:drawableStartCompat="@drawable/ic_fo_hand_14sdp"
+            app:drawableTint="@color/white" />
     </FrameLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:paddingHorizontal="@dimen/_13sdp"
-        android:paddingTop="@dimen/_9sdp"
-        android:paddingBottom="@dimen/_10sdp"
-        android:background="@drawable/bg_surface_card_line_top_1sdp_stroke">
+        android:paddingHorizontal="@dimen/_15sdp"
+        android:paddingTop="@dimen/_10sdp">
+
+        <ImageView
+            android:layout_width="@dimen/_17sdp"
+            android:layout_height="@dimen/_17sdp"
+            android:importantForAccessibility="no"
+            android:src="@drawable/ic_fo_shield"
+            app:tint="@color/color_file_excel" />
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/_27sdp"
-            android:drawablePadding="@dimen/_4sdp"
-            android:fontFamily="@font/nunito_700"
-            android:gravity="center"
-            android:paddingHorizontal="@dimen/_11sdp"
-            android:text="@string/redact_drag"
-            android:textSize="@dimen/_10sdp"
-            app:drawableTint="@color/text_on_selected"
-            android:background="@drawable/bg_bg_selected_r13sdp_st1sdp_primary"
-            android:textColor="@color/text_on_selected"
-            app:drawableStartCompat="@drawable/ic_app_hand_12sdp" />
-
-        <TextView
-            android:id="@+id/btnFindText"
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/_27sdp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_8sdp"
-            android:drawablePadding="@dimen/_4sdp"
-            android:fontFamily="@font/nunito_700"
-            android:gravity="center"
-            android:paddingHorizontal="@dimen/_11sdp"
-            android:text="@string/redact_find_text"
-            android:textSize="@dimen/_10sdp"
-            android:background="@drawable/bg_surface_card_r13sdp_st1sdp_stroke"
-            android:textColor="@color/text_primary"
-            app:drawableStartCompat="@drawable/ic_app_search_12sdp" />
+            android:layout_weight="1"
+            android:fontFamily="@font/nunito_600"
+            android:lineSpacingMultiplier="1.15"
+            android:text="@string/fo_redact_note"
+            android:textColor="@color/text_tertiary"
+            android:textSize="@dimen/_10sdp" />
     </LinearLayout>
 
+    <include
+        android:id="@+id/action"
+        layout="@layout/layout_tool_action" />
 </LinearLayout>

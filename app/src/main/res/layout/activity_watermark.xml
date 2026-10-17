@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
@@ -10,182 +9,136 @@
     tools:context=".ui.main.tools.watermark.WatermarkActivity">
 
     <include
-        android:id="@+id/toolbar"
-        layout="@layout/layout_toolbar" />
+        android:id="@+id/topBar"
+        layout="@layout/layout_screen_bar" />
 
-    <FrameLayout
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:background="@color/color_surface_track"
-        android:padding="@dimen/_13sdp">
-
-        <FrameLayout
-            android:id="@+id/layoutPage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center">
-
-            <ImageView
-                android:id="@+id/ivPage"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:adjustViewBounds="true"
-                android:background="@android:color/white"
-                android:contentDescription="@null" />
-
-            <TextView
-                android:id="@+id/tvWatermark"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:includeFontPadding="false"
-                android:maxLines="1"
-                tools:text="DRAFT" />
-        </FrameLayout>
-    </FrameLayout>
-
-    <LinearLayout
-        style="@style/BottomSheetAppStyle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingHorizontal="@dimen/_15sdp"
-        android:paddingTop="@dimen/_13sdp"
-        android:paddingBottom="@dimen/_13sdp"
-        android:background="@drawable/bg_surface_card_r18sdp_18sdp_0_0"
-        android:clipToOutline="true">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/nunito_700"
-            android:text="@string/watermark_text"
-            android:textColor="@color/text_secondary"
-            android:textSize="@dimen/_10sdp" />
+        android:overScrollMode="never">
 
         <LinearLayout
-            style="@style/CardAppStyle"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_37sdp"
-            android:layout_marginTop="@dimen/_5sdp"
-            android:paddingHorizontal="@dimen/_11sdp"
-            android:background="@drawable/bg_surface_card_r11sdp"
-            android:foreground="@drawable/stroke_r11sdp_st1sdp_stroke"
-            android:clipToOutline="true">
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="@dimen/_15sdp"
+            android:paddingBottom="@dimen/_10sdp">
 
-            <EditText
-                android:id="@+id/edtText"
+            <!-- The first page with the stamp on it -->
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@null"
-                android:fontFamily="@font/nunito_600"
-                android:hint="@string/watermark_text"
-                android:imeOptions="actionDone"
-                android:importantForAutofill="no"
-                android:inputType="textCapCharacters"
-                android:maxLength="40"
-                android:maxLines="1"
-                android:textColor="@color/text_primary"
-                android:textColorHint="@color/text_secondary"
-                android:textSize="@dimen/_12sdp" />
-        </LinearLayout>
+                android:layout_height="@dimen/_231sdp"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:background="@drawable/bg_rounded_panel"
+                android:backgroundTint="@color/color_surface_variant">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_11sdp"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
+                <FrameLayout
+                    android:id="@+id/layoutPage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@drawable/bg_page_sheet"
+                    android:clipToOutline="true"
+                    android:elevation="@dimen/_8sdp"
+                    android:outlineAmbientShadowColor="@color/color_shadow"
+                    android:outlineSpotShadowColor="@color/color_shadow">
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:fontFamily="@font/nunito_700"
-                android:text="@string/pdf_edit_color"
-                android:textColor="@color/text_secondary"
-                android:textSize="@dimen/_10sdp" />
+                    <ImageView
+                        android:id="@+id/ivPage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:adjustViewBounds="true"
+                        android:importantForAccessibility="no"
+                        android:maxWidth="@dimen/_240sdp"
+                        android:maxHeight="@dimen/_205sdp"
+                        android:scaleType="fitCenter" />
+
+                    <TextView
+                        android:id="@+id/tvWatermark"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/nunito_800"
+                        android:letterSpacing="0.08"
+                        android:maxLines="1"
+                        tools:text="CONFIDENTIAL" />
+                </FrameLayout>
+            </FrameLayout>
 
             <LinearLayout
-                android:id="@+id/layoutColors"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_42sdp"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:addStatesFromChildren="true"
+                android:background="@drawable/bg_field"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="@dimen/_12sdp">
+
+                <EditText
+                    android:id="@+id/edtText"
+                    style="@style/FieldInput"
+                    android:layout_width="match_parent"
+                    android:fontFamily="@font/nunito_800"
+                    android:hint="@string/watermark_text"
+                    android:imeOptions="actionDone"
+                    android:inputType="textCapCharacters"
+                    android:letterSpacing="0.06" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal" />
+                android:layout_marginTop="@dimen/_11sdp"
+                android:baselineAligned="false"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/RowLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_marginEnd="@dimen/_9sdp"
+                    android:text="@string/fo_colour" />
+
+                <LinearLayout
+                    android:id="@+id/layoutColors"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" />
+
+                <include
+                    android:id="@+id/segmentAngle"
+                    layout="@layout/layout_segment"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_11sdp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/RowLabel"
+                    android:text="@string/fo_opacity" />
+
+                <LinearLayout
+                    android:id="@+id/layoutOpacity"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_segment_track"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/_3sdp" />
+            </LinearLayout>
         </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_11sdp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:fontFamily="@font/nunito_700"
-                android:text="@string/opacity"
-                android:textColor="@color/text_primary"
-                android:textSize="@dimen/_10sdp" />
-
-            <TextView
-                android:id="@+id/tvOpacity"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/nunito_600"
-                android:textColor="@color/text_secondary"
-                android:textSize="@dimen/_10sdp"
-                tools:text="22%" />
-        </LinearLayout>
-
-        <SeekBar
-            android:id="@+id/seekOpacity"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_3sdp"
-            android:max="100"
-            android:paddingHorizontal="@dimen/_8sdp"
-            android:progressBackgroundTint="@color/color_checkbox_stroke"
-            android:progressTint="@color/primary"
-            android:thumbTint="@color/primary" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_11sdp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:fontFamily="@font/nunito_700"
-                android:text="@string/rotation"
-                android:textColor="@color/text_primary"
-                android:textSize="@dimen/_10sdp" />
-
-            <TextView
-                android:id="@+id/tvRotation"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/nunito_600"
-                android:textColor="@color/text_secondary"
-                android:textSize="@dimen/_10sdp"
-                tools:text="22%" />
-        </LinearLayout>
-
-        <SeekBar
-            android:id="@+id/seekRotation"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_3sdp"
-            android:max="180"
-            android:paddingHorizontal="@dimen/_8sdp"
-            android:progressBackgroundTint="@color/color_checkbox_stroke"
-            android:progressTint="@color/primary"
-            android:thumbTint="@color/primary" />
-
-    </LinearLayout>
-
+    <include
+        android:id="@+id/action"
+        layout="@layout/layout_tool_action" />
 </LinearLayout>

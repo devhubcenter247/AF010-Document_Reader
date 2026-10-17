@@ -43,16 +43,23 @@ class TranslatedPage(
     val translated: List<String>
 )
 
-/** The outcome of translating some pages of [sourcePath], which has [totalPages] pages. */
+/**
+ * The outcome of translating some pages of [sourcePath], which has [totalPages] pages, from
+ * [from] into [to] (ML Kit tags; empty in files saved before they were kept).
+ */
 class TranslatedDocument(
     val sourcePath: String,
     val totalPages: Int,
-    val pages: List<TranslatedPage>
+    val pages: List<TranslatedPage>,
+    val from: String = "",
+    val to: String = ""
 ) {
     fun save(file: File) {
         val json = JSONObject()
             .put(KEY_SOURCE, sourcePath)
             .put(KEY_TOTAL, totalPages)
+            .put(KEY_FROM, from)
+            .put(KEY_TO, to)
             .put(KEY_PAGES, JSONArray(pages.map { page ->
                 JSONObject()
                     .put(KEY_WIDTH, page.width.toDouble())
@@ -67,6 +74,8 @@ class TranslatedDocument(
     companion object {
         private const val KEY_SOURCE = "source"
         private const val KEY_TOTAL = "total"
+        private const val KEY_FROM = "from"
+        private const val KEY_TO = "to"
         private const val KEY_PAGES = "pages"
         private const val KEY_WIDTH = "width"
         private const val KEY_HEIGHT = "height"
@@ -87,7 +96,9 @@ class TranslatedDocument(
                         page.getJSONArray(KEY_ORIGINAL).strings(),
                         page.getJSONArray(KEY_TRANSLATED).strings()
                     )
-                }
+                },
+                json.optString(KEY_FROM),
+                json.optString(KEY_TO)
             )
         }
 
@@ -140,7 +151,7 @@ class PdfTranslator(private val toolbox: PdfToolbox) {
 
         val from = sourceLanguage ?: identify(all.joinToString(" "))
         if (from == targetLanguage) {
-            return TranslatedDocument(file.path, totalPages, read.map { TranslatedPage(it.first, it.second, it.third, it.third) })
+            return TranslatedDocument(file.path, totalPages, read.map { TranslatedPage(it.first, it.second, it.third, it.third) }, from, targetLanguage)
         }
 
         val options = TranslatorOptions.Builder()
@@ -171,7 +182,7 @@ class PdfTranslator(private val toolbox: PdfToolbox) {
                     }
                 })
             }
-            return TranslatedDocument(file.path, totalPages, translated)
+            return TranslatedDocument(file.path, totalPages, translated, from, targetLanguage)
         } finally {
             translator.close()
         }

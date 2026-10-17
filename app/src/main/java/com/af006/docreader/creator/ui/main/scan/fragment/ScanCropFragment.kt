@@ -40,6 +40,10 @@ class ScanCropFragment : BaseAppFragment<FragmentScanCropBinding>(FragmentScanCr
             return
         }
         show(pending)
+        // A retaken page keeps its place; a new one goes after the pages already scanned.
+        val count = viewModel.pages.value.orEmpty().size
+        val number = viewModel.retakeIndex?.plus(1) ?: (count + 1)
+        tvPage.text = getString(R.string.fo_page_x_of_y, number, maxOf(count, number))
     }
 
     override fun FragmentScanCropBinding.onClick() {
@@ -51,6 +55,7 @@ class ScanCropFragment : BaseAppFragment<FragmentScanCropBinding>(FragmentScanCr
             show(pending.copy(corners = fullPage))
         }
         btnNext.click { apply() }
+        btnRetake.click { leave() }
     }
 
     override fun onBackPressed(): Boolean {

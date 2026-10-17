@@ -13,11 +13,13 @@ import java.io.File
 class MergeActivity : FilesToolActivity() {
     override val tool = Tool.Merge
     override val titleRes = R.string.merge_pdf
-    override val subtitleRes = R.string.merge_subtitle
-    override val nameLabelRes = R.string.new_file_name
+    override val nameLabelRes = R.string.fo_name_new_file
+    override val addFilesRes = R.string.fo_add_another_file
+    override val actionIcon = R.drawable.ic_fo_merge
+    override val stepDetail = R.string.fo_step_set_order
     override val extension = "pdf"
     override val minimumFiles = 2
-    override val reorderable = true
+    override val ordered = true
 
     private val toolbox: PdfToolbox by inject()
 
@@ -31,13 +33,13 @@ class MergeActivity : FilesToolActivity() {
 
     override fun defaultName(first: File): String = "${first.nameWithoutExtension}-merged"
 
-    override fun actionText(files: List<File>): String {
+    override fun actionText(files: List<File>): String =
+        resources.getQuantityString(R.plurals.fo_merge_files, files.size, files.size)
+
+    override fun totalText(files: List<File>): String? {
+        if (files.any { it.path !in pageCounts }) return null
         val pages = files.sumOf { pageCounts[it.path] ?: 0 }
-        return getString(
-            R.string.merge_action,
-            resources.getQuantityString(R.plurals.file_count, files.size, files.size),
-            pageCountText(pages)
-        )
+        return resources.getQuantityString(R.plurals.fo_pages_total, pages, pages)
     }
 
     override fun request(files: List<File>, name: String) =

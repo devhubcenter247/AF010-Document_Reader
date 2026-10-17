@@ -19,6 +19,8 @@ class PreferenceHelper(preference: SharedPreference) {
     var sortOrder by preference.enum("sort_order", SortOrder.Decrease)
     var useCases by preference.json("use_cases", listOf(UseCase.Work.id))
     var recentSearches by preference.json("recent_searches", emptyList<String>())
+    /** ML Kit tags of the languages translated into lately, newest first. */
+    var recentTranslateTargets by preference.json("recent_translate_targets", emptyList<String>())
     fun isUfo(): Boolean = countSessionApp == 0
 
 }

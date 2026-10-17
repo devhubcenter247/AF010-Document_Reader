@@ -2,6 +2,15 @@ package com.af010.creator.docreader.ui.main.tools.result
 
 import android.content.Context
 import android.content.Intent
+import android.content.res.ColorStateList
+import android.media.MediaScannerConnection
+import androidx.core.view.isVisible
+import com.af010.creator.docreader.model.RecentDocument
+import com.af010.creator.docreader.ui.dialog.RenameDialog
+import com.af010.creator.docreader.utils.AppUtils
+import com.af010.creator.docreader.utils.extensions.colorRes
+import com.af010.creator.docreader.utils.extensions.softColorRes
+import java.util.Locale
 import android.text.format.Formatter
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -18,15 +27,10 @@ import com.af010.creator.docreader.ui.main.reader.office.OfficeActivity
 import com.af010.creator.docreader.ui.main.reader.pdf.PdfReaderActivity
 import com.af010.creator.docreader.ui.main.tools.isImage
 import com.af010.creator.docreader.ui.main.tools.openTool
-import com.af010.creator.docreader.ui.main.tools.typeIcon
 import com.bumptech.glide.Glide
-import com.bumptech.glide.load.resource.bitmap.CenterCrop
-import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.d010.pdf.reader.base.openFileWith
 import com.ui.baselib.base.BaseAdapter
 import com.ui.baselib.extensions.clickSingle
-import com.ui.baselib.extensions.visibleOrGone
-import com.ui.baselib.utils.dpToPx
 import java.io.File
 
 /** "Saved!": the file(s) a tool wrote, with open / share and the tools to continue with. */
@@ -35,7 +39,8 @@ class SuccessActivity : BaseAppActivity<ActivitySuccessBinding>(ActivitySuccessB
     private val result: ToolResult? by lazy {
         IntentCompat.getParcelableExtra(intent, EXTRA_RESULT, ToolResult::class.java)
     }
-    private val outputs: List<File> get() = result?.outputs.orEmpty().map(::File)
+    /** The written files; a rename here replaces the first one. */
+    private var outputs: List<File> = emptyList()
 
     private val nextToolAdapter by lazy { NextToolAdapter() }
 
@@ -44,45 +49,17 @@ class SuccessActivity : BaseAppActivity<ActivitySuccessBinding>(ActivitySuccessB
     }
 
     override fun initialize() {
-
+        outputs = result?.outputs.orEmpty().map(::File)
     }
 
     override fun ActivitySuccessBinding.setData() {
-        val first = outputs.firstOrNull() ?: return finish()
-        val totalSize = outputs.sumOf { it.length() }
-        val sizeText = Formatter.formatShortFileSize(this@SuccessActivity, totalSize)
-        // A picture shows itself rather than the generic image tile.
-        if (first.isImage) {
-            Glide.with(this@SuccessActivity).load(first)
-                .transform(CenterCrop(), RoundedCorners(dpToPx(6)))
-                .into(ivType)
-        } else {
-            ivType.setImageResource(first.typeIcon)
-        }
-        tvName.text = first.name
-        tvMeta.text = if (outputs.size > 1) {
-            getString(
-                R.string.document_meta,
-                resources.getQuantityString(R.plurals.file_count, outputs.size, outputs.size),
-                sizeText
-            )
-        } else {
-            sizeText
-        }
-
-        // Compress: how much smaller the file became.
-        val sourceSize = result?.sourceSize ?: 0L
-        val saved = if (sourceSize > 0) ((sourceSize - totalSize) * 100 / sourceSize).toInt() else 0
-        tvSaving.visibleOrGone(saved > 0)
-        if (saved > 0) {
-            tvMeta.text = getString(R.string.document_meta, sizeText, getString(R.string.percent_smaller, saved))
-            tvSaving.text = getString(R.string.percent_saved, saved)
-        }
-
-        val isPdf = first.extension.equals("pdf", ignoreCase = true)
-        layoutNextTools.visibleOrGone(isPdf)
+        if (outputs.isEmpty()) return finish()
+        showFile()
+        tvMessage.text = message()
+        val isPdf = outputs.first().extension.equals("pdf", ignoreCase = true)
+        layoutNextTools.isVisible = isPdf
         rcvNextTools.adapter = nextToolAdapter
-        nextToolAdapter.submitList(listOf(Tool.Sign, Tool.Annotate, Tool.Protect, Tool.Merge))
+        nextToolAdapter.submitList(NEXT_TOOLS.filter { it != result?.tool }.take(3))
     }
 
     override fun ActivitySuccessBinding.onClick() {
@@ -96,9 +73,57 @@ class SuccessActivity : BaseAppActivity<ActivitySuccessBinding>(ActivitySuccessB
             }
         }
         btnShare.clickSingle { share() }
+        btnRename.clickSingle { rename() }
         nextToolAdapter.onToolClick { tool ->
             openTool(tool, outputs.take(1).map { it.path })
         }
+    }
+
+    private fun ActivitySuccessBinding.showFile() {
+        val first = outputs.first()
+        val sizeText = Formatter.formatShortFileSize(this@SuccessActivity, outputs.sumOf { it.length() })
+        // A picture shows itself rather than a tile.
+        ivThumb.isVisible = first.isImage
+        if (first.isImage) Glide.with(this@SuccessActivity).load(first).into(ivThumb)
+        val type = AppUtils.documentTypeOf(first)
+        tvType.text = first.extension.uppercase(Locale.ROOT).take(4)
+        tvType.backgroundTintList = ColorStateList.valueOf(getColor(type?.softColorRes ?: R.color.color_file_zip_bg))
+        tvType.setTextColor(getColor(type?.colorRes ?: R.color.color_file_zip))
+        tvName.text = if (outputs.size > 1) resources.getQuantityString(R.plurals.file_count, outputs.size, outputs.size) else first.name
+        tvMeta.text = getString(R.string.document_meta, sizeText, getString(R.string.fo_saved_place))
+        // Several files cannot be renamed as one.
+        btnRename.isVisible = outputs.size == 1
+    }
+
+    private fun message(): String {
+        val sourceSize = result?.sourceSize ?: 0L
+        val total = outputs.sumOf { it.length() }
+        return when (result?.tool) {
+            Tool.Merge -> getString(R.string.fo_done_merge)
+            Tool.Split -> resources.getQuantityString(R.plurals.fo_done_split, outputs.size, outputs.size)
+            Tool.Compress -> if (sourceSize > total && sourceSize > 0) {
+                getString(R.string.fo_done_compress, ((sourceSize - total) * 100 / sourceSize).toInt())
+            } else getString(R.string.fo_done_generic)
+            Tool.Protect -> getString(R.string.fo_done_protect)
+            Tool.Zip -> getString(R.string.fo_done_zip)
+            Tool.Ocr -> getString(R.string.fo_done_ocr)
+            else -> getString(R.string.fo_done_generic)
+        }
+    }
+
+    /** Renames the one new file in place and tells MediaStore, so the lists pick the new name up. */
+    private fun rename() {
+        val file = outputs.singleOrNull() ?: return
+        RenameDialog(this, RecentDocument(path = file.path)) { newName ->
+            val target = File(file.parentFile, "$newName.${file.extension}")
+            if (target.exists() || !file.renameTo(target)) {
+                toast(R.string.file_rename_failed)
+                return@RenameDialog
+            }
+            outputs = listOf(target)
+            MediaScannerConnection.scanFile(this, arrayOf(file.path, target.path), null, null)
+            binding.showFile()
+        }.show()
     }
 
     private fun share() {
@@ -128,12 +153,15 @@ class SuccessActivity : BaseAppActivity<ActivitySuccessBinding>(ActivitySuccessB
         override fun ItemNextToolBinding.bind(item: Tool, position: Int) {
             ivIcon.showToolTile(item)
             tvTitle.setText(item.title)
-            root.setOnClickListener { onItemClick.invoke(item) }
+            card.setOnClickListener { onItemClick.invoke(item) }
         }
     }
 
     companion object {
         private const val EXTRA_RESULT = "EXTRA_RESULT"
+
+        /** Offered after a PDF is made; the tool that just ran is left out. */
+        private val NEXT_TOOLS = listOf(Tool.Compress, Tool.Sign, Tool.Protect, Tool.Merge)
 
         fun start(context: Context, result: ToolResult) {
             context.startActivity(

@@ -47,7 +47,7 @@ class CornerAdjustView @JvmOverloads constructor(
         strokeWidth = density * 2f
     }
     private val fillPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-        color = Color.argb(30, 255, 120, 79)
+        color = Color.argb(30, 31, 111, 235)
         style = Paint.Style.FILL
     }
     private val handlePaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
@@ -213,7 +213,7 @@ class CornerAdjustView @JvmOverloads constructor(
     }
 
     private companion object {
-        val BORDER_COLOR = Color.rgb(255, 120, 79)
+        val BORDER_COLOR = Color.rgb(31, 111, 235)
         const val HANDLE_RADIUS_DP = 13f
         const val TOUCH_RADIUS_DP = 40f
         const val MAGNIFIER_RADIUS_DP = 46f

@@ -1,65 +1,179 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/color_bg_app"
-    android:orientation="vertical"
     tools:context=".ui.main.tools.pick.PickFileActivity">
 
-    <include
-        android:id="@+id/toolbar"
-        layout="@layout/layout_toolbar" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rcvSources"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_11sdp"
-        android:clipToPadding="false"
-        android:orientation="horizontal"
-        android:overScrollMode="never"
-        android:paddingHorizontal="@dimen/_13sdp"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:listitem="@layout/item_filter_chip" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
+        <include
+            android:id="@+id/topBar"
+            layout="@layout/layout_screen_bar" />
 
-        <FrameLayout
-            android:id="@+id/layoutDocuments"
-            style="@style/CardAppStyle"
+        <include
+            android:id="@+id/steps"
+            layout="@layout/layout_step_progress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/_13sdp"
-            android:layout_marginVertical="@dimen/_9sdp"
-            android:background="@drawable/bg_card"
-            android:clipToOutline="true">
+            android:layout_marginHorizontal="@dimen/_15sdp" />
+
+        <LinearLayout
+            style="@style/FloatingCard"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_38sdp"
+            android:layout_marginHorizontal="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:background="@drawable/bg_pill_card"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="@dimen/_12sdp">
+
+            <ImageView
+                android:layout_width="@dimen/_15sdp"
+                android:layout_height="@dimen/_15sdp"
+                android:importantForAccessibility="no"
+                android:src="@drawable/ic_fo_search"
+                app:tint="@color/text_secondary" />
+
+            <EditText
+                android:id="@+id/edtSearch"
+                style="@style/FieldInput"
+                android:layout_width="0dp"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_weight="1"
+                android:fontFamily="@font/nunito_600"
+                android:imeOptions="actionSearch"
+                android:inputType="text"
+                tools:hint="Search your PDFs" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutCount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="@dimen/_15sdp"
+            android:paddingTop="@dimen/_10sdp"
+            android:paddingBottom="@dimen/_4sdp">
+
+            <TextView
+                android:id="@+id/tvCount"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:fontFamily="@font/nunito_800"
+                android:maxLines="1"
+                android:textColor="@color/text_primary"
+                android:textSize="@dimen/_12sdp"
+                tools:text="24 PDFs on this phone" />
+
+            <TextView
+                android:id="@+id/btnBrowse"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_29sdp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:fontFamily="@font/nunito_800"
+                android:gravity="center"
+                android:paddingHorizontal="@dimen/_3sdp"
+                android:text="@string/fo_browse_folders"
+                android:textColor="@color/primary"
+                android:textSize="@dimen/_11sdp" />
+        </LinearLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rcvDocuments"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:overScrollMode="never"
+                android:layout_height="match_parent"
+                android:clipToPadding="false"
+                android:paddingHorizontal="@dimen/_15sdp"
+                android:paddingTop="@dimen/_4sdp"
+                android:paddingBottom="@dimen/_100sdp"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 tools:listitem="@layout/item_pick_file" />
+
+            <include
+                android:id="@+id/emptyState"
+                layout="@layout/layout_empty_state"
+                android:visibility="gone" />
         </FrameLayout>
+    </LinearLayout>
 
-        <include
-            android:id="@+id/emptyState"
-            layout="@layout/layout_empty_state"
-            android:layout_width="match_parent"
+    <!-- Several files: how many are picked, and Next -->
+    <View
+        android:id="@+id/viewFade"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_108sdp"
+        android:layout_gravity="bottom"
+        android:background="@drawable/bg_bottom_fade"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:id="@+id/layoutPicked"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_58sdp"
+        android:layout_gravity="bottom"
+        android:layout_marginHorizontal="@dimen/_12sdp"
+        android:layout_marginBottom="@dimen/_18sdp"
+        android:background="@drawable/bg_ink_bar"
+        android:elevation="@dimen/_10sdp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:outlineAmbientShadowColor="@color/color_shadow"
+        android:outlineSpotShadowColor="@color/color_shadow"
+        android:paddingStart="@dimen/_17sdp"
+        android:paddingEnd="@dimen/_8sdp"
+        android:visibility="gone"
+        tools:visibility="visible">
+
+        <LinearLayout
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/_13sdp"
-            android:layout_marginVertical="@dimen/_9sdp" />
-    </FrameLayout>
+            android:layout_weight="1"
+            android:orientation="vertical">
 
-    <include
-        android:id="@+id/action"
-        layout="@layout/layout_tool_action" />
+            <TextView
+                android:id="@+id/tvPicked"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunito_800"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_12sdp"
+                tools:text="3 files picked" />
 
-</LinearLayout>
+            <TextView
+                android:id="@+id/tvPickedHint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunito_600"
+                android:textColor="@color/ink_text_soft"
+                android:textSize="@dimen/_10sdp"
+                tools:text="Numbers show the merge order" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/btnNext"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_43sdp"
+            android:background="@drawable/bg_ink_next"
+            android:fontFamily="@font/nunito_800"
+            android:gravity="center"
+            android:paddingHorizontal="@dimen/_20sdp"
+            android:text="@string/next"
+            android:textColor="@color/ink_next_text"
+            android:textSize="@dimen/_12sdp" />
+    </LinearLayout>
+</FrameLayout>

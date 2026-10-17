@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The page behind the latest scan in the camera tray. -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="#D5D9E3" />
+    <corners android:radius="@dimen/_8sdp" />
+</shape>

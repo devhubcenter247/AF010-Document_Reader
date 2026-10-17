@@ -6,26 +6,25 @@ import android.content.Intent
 import android.net.Uri
 import android.provider.OpenableColumns
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.core.view.updatePadding
+import androidx.core.view.isVisible
 import com.af010.creator.docreader.R
 import com.af010.creator.docreader.base.BaseAppActivity
 import com.af010.creator.docreader.databinding.ActivityPickFileBinding
 import com.af010.creator.docreader.model.DocumentType
 import com.af010.creator.docreader.model.Tool
-import com.af010.creator.docreader.ui.main.common.FilterChip
-import com.af010.creator.docreader.ui.main.common.FilterChipAdapter
 import com.af010.creator.docreader.ui.main.common.isNoAccess
 import com.af010.creator.docreader.ui.main.common.show
 import com.af010.creator.docreader.ui.main.common.showNoAccess
 import com.af010.creator.docreader.ui.main.files.DocumentsViewModel
+import com.af010.creator.docreader.ui.main.files.SearchScope
+import com.af010.creator.docreader.ui.main.tools.TOOL_STEPS
+import com.af010.creator.docreader.ui.common.show
+import com.ui.baselib.extensions.afterTextChanged
 import com.af010.creator.docreader.ui.main.tools.EXTRA_PATHS
 import com.af010.creator.docreader.ui.main.tools.openTool
 import com.af010.creator.docreader.utils.StoragePermissionRequester
 import com.d010.pdf.reader.viewmodel.DataResponse
 import com.ui.baselib.extensions.clickSingle
-import com.ui.baselib.extensions.gone
-import com.ui.baselib.extensions.visible
-import com.ui.baselib.extensions.visibleOrGone
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.io.File
 
@@ -35,19 +34,8 @@ import java.io.File
  * hands the paths back to the caller in [EXTRA_PATHS].
  */
 class PickFileActivity : BaseAppActivity<ActivityPickFileBinding>(ActivityPickFileBinding::inflate) {
-    override val fullStatus: Boolean
-        get() = true
-
-    /** A chip above the list: every folder, one folder, or the system picker. */
-    private sealed interface Source {
-        data object Recent : Source
-        data class Folder(val name: String) : Source
-        data object Browse : Source
-    }
-
     private val viewModel: DocumentsViewModel by viewModel()
-    private val sourceAdapter by lazy { FilterChipAdapter<Source>() }
-    private val fileAdapter by lazy { PickFileAdapter() }
+    private val fileAdapter by lazy { PickFileAdapter(numbered = multiple) }
 
     private val tool: Tool by lazy {
         val name = intent.getStringExtra(EXTRA_TOOL)
@@ -91,38 +79,12 @@ class PickFileActivity : BaseAppActivity<ActivityPickFileBinding>(ActivityPickFi
     }
 
     override fun ActivityPickFileBinding.setData() {
-        toolbar.root.updatePadding(top = statusBarHeight)
-        toolbar.btnBack.setImageResource(R.drawable.ic_app_close)
-        toolbar.tvTitle.setText(
-            when {
-                officeOnly -> R.string.choose_office_files
-                pdfOnly -> R.string.choose_pdf_files
-                else -> R.string.choose_files
-            }
-        )
-        toolbar.tvSubtitle.visible()
-        toolbar.tvSubtitle.text = getString(
-            when {
-                !multiple -> R.string.pick_one
-                minimum > 1 -> R.string.pick_two_or_more
-                else -> R.string.pick_one_or_more
-            },
-            getString(tool.title)
-        )
-        rcvSources.adapter = sourceAdapter
+        topBar.tvTitle.setText(tool.title)
+        steps.show(1, TOOL_STEPS, getString(R.string.fo_step_pick_files))
+        edtSearch.setHint(if (pdfOnly) R.string.fo_search_your_pdfs else R.string.fo_search_your_files)
+        viewModel.setSearchScope(SearchScope.FileName)
         rcvDocuments.adapter = fileAdapter
 
-        viewModel.folders.mainCollect { folders ->
-            // Keep the chip the user is on; the folder list only changes when files do.
-            val current = sourceAdapter.currentItems.firstOrNull { it.isSelected }?.value ?: Source.Recent
-            sourceAdapter.submitList(
-                listOf(FilterChip<Source>(Source.Recent, R.string.recent, 0, current == Source.Recent)) +
-                        folders.take(MAX_FOLDER_CHIPS).map { (name, _) ->
-                            FilterChip<Source>(Source.Folder(name), 0, 0, current == Source.Folder(name), name)
-                        } +
-                        FilterChip<Source>(Source.Browse, R.string.browse_files, R.drawable.ic_app_folder)
-            )
-        }
         viewModel.documents.mainCollect { response ->
             noAccess = response.isNoAccess
             val files = (response as? DataResponse.DataSuccess)?.data?.let { all ->
@@ -130,7 +92,13 @@ class PickFileActivity : BaseAppActivity<ActivityPickFileBinding>(ActivityPickFi
                 else all
             }
             if (files != null) fileAdapter.submitList(files)
-            layoutDocuments.visibleOrGone(!files.isNullOrEmpty())
+            rcvDocuments.isVisible = !files.isNullOrEmpty()
+            layoutCount.isVisible = !noAccess
+            files?.let {
+                tvCount.text = resources.getQuantityString(
+                    if (pdfOnly) R.plurals.fo_pdfs_on_phone else R.plurals.fo_files_on_phone, it.size, it.size
+                )
+            }
             when {
                 noAccess -> emptyState.showNoAccess(R.string.pick_no_access_desc, R.string.browse_files)
                 files?.isEmpty() == true -> emptyState.show(
@@ -139,32 +107,21 @@ class PickFileActivity : BaseAppActivity<ActivityPickFileBinding>(ActivityPickFi
                     R.string.pick_empty_desc,
                     R.string.browse_files
                 )
-                else -> emptyState.root.gone()
+                else -> emptyState.root.isVisible = false
             }
         }
         render()
     }
 
     override fun ActivityPickFileBinding.onClick() {
-        toolbar.btnBack.clickSingle { finish() }
+        topBar.btnBack.clickSingle { finish() }
         // Browsing works without storage access: the system picker hands the files over.
         emptyState.btnPrimary.clickSingle {
             if (noAccess) permissionRequester.request(this@PickFileActivity) else browse()
         }
         emptyState.btnSecondary.clickSingle { browse() }
-        sourceAdapter.onChipClick { source ->
-            when (source) {
-                Source.Browse -> browse()
-                Source.Recent -> {
-                    sourceAdapter.select(source)
-                    viewModel.setScope(scopeType, null)
-                }
-                is Source.Folder -> {
-                    sourceAdapter.select(source)
-                    viewModel.setScope(scopeType, source.name)
-                }
-            }
-        }
+        btnBrowse.clickSingle { browse() }
+        edtSearch.afterTextChanged { viewModel.setQuery(it) }
         fileAdapter.onFileClick {
             val path = it.document.path
             if (!multiple) {
@@ -174,7 +131,7 @@ class PickFileActivity : BaseAppActivity<ActivityPickFileBinding>(ActivityPickFi
                 render()
             }
         }
-        action.btnAction.clickSingle { proceed(selected) }
+        btnNext.clickSingle { proceed(selected) }
     }
 
     private fun browse() {
@@ -189,12 +146,17 @@ class PickFileActivity : BaseAppActivity<ActivityPickFileBinding>(ActivityPickFi
 
     private fun ActivityPickFileBinding.render() {
         fileAdapter.selectedPaths = selected
-        action.root.visibleOrGone(multiple)
-        action.btnAction.text = resources.getQuantityString(
-            R.plurals.continue_with_files, selected.size, selected.size
+        layoutPicked.isVisible = multiple
+        viewFade.isVisible = multiple
+        val ready = selected.size >= minimum
+        tvPicked.text = resources.getQuantityString(R.plurals.fo_files_picked, selected.size, selected.size)
+        tvPickedHint.setText(
+            when {
+                tool == Tool.Merge -> if (ready) R.string.fo_merge_order_hint else R.string.fo_merge_need_two
+                else -> if (ready) R.string.fo_zip_hint else R.string.fo_zip_need_one
+            }
         )
-        action.btnAction.isEnabled = selected.size >= minimum
-        action.btnAction.alpha = if (selected.size >= minimum) 1f else 0.5f
+        btnNext.isEnabled = ready
     }
 
     /** Copies files chosen in the system picker into the cache so the tools can read them as files. */
@@ -234,7 +196,6 @@ class PickFileActivity : BaseAppActivity<ActivityPickFileBinding>(ActivityPickFi
     companion object {
         const val EXTRA_TOOL = "EXTRA_TOOL"
         const val EXTRA_FOR_RESULT = "EXTRA_FOR_RESULT"
-        private const val MAX_FOLDER_CHIPS = 3
         private const val IMPORT_DIR = "picked_files"
         private val OFFICE_TYPES = arrayOf(
             "application/msword",

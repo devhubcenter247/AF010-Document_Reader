@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- "Ready" dot in the scan hint. -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+    <size android:width="@dimen/_8sdp" android:height="@dimen/_8sdp" />
+    <solid android:color="@color/color_file_excel" />
+</shape>

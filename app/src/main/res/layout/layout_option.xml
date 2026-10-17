@@ -1,30 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<!-- One choice of a tool: radio, title, a line under it, and an optional badge at the end.
+     Picked = selected state (bg_option_card, bg_radio). -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    style="@style/CardAppStyle"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@drawable/bg_option_card"
+    android:elevation="@dimen/_3sdp"
     android:gravity="center_vertical"
+    android:minHeight="@dimen/_52sdp"
     android:orientation="horizontal"
-    android:paddingHorizontal="@dimen/_10sdp"
-    android:paddingVertical="@dimen/_8sdp"
-    android:background="@drawable/bg_surface_card_r13sdp"
-    android:foreground="@drawable/stroke_r13sdp_st1sdp_stroke"
-    android:clipToOutline="true">
+    android:outlineAmbientShadowColor="@color/color_shadow"
+    android:outlineSpotShadowColor="@color/color_shadow"
+    android:paddingHorizontal="@dimen/_12sdp"
+    android:paddingVertical="@dimen/_9sdp">
 
-    <ImageView
-        android:id="@+id/ivRadio"
+    <View
         android:layout_width="@dimen/_17sdp"
         android:layout_height="@dimen/_17sdp"
-        android:contentDescription="@null"
-        android:src="@drawable/ic_app_radio_off" />
+        android:background="@drawable/bg_radio"
+        android:duplicateParentState="true" />
 
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/_9sdp"
+        android:layout_marginHorizontal="@dimen/_11sdp"
         android:layout_weight="1"
         android:orientation="vertical">
 
@@ -32,20 +32,34 @@
             android:id="@+id/tvTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/nunito_700"
+            android:fontFamily="@font/nunito_800"
             android:textColor="@color/text_primary"
-            android:textSize="@dimen/_11sdp"
-            tools:text="By page range" />
+            android:textSize="@dimen/_12sdp"
+            tools:text="Custom ranges" />
 
         <TextView
             android:id="@+id/tvDesc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_2sdp"
+            android:layout_marginTop="@dimen/_1sdp"
             android:fontFamily="@font/nunito_600"
             android:textColor="@color/text_secondary"
-            android:textSize="@dimen/_9sdp"
-            tools:text="Each range becomes a file" />
+            android:textSize="@dimen/_10sdp"
+            tools:text="Choose the pages for each file" />
     </LinearLayout>
 
+    <TextView
+        android:id="@+id/tvBadge"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/_23sdp"
+        android:background="@drawable/bg_badge"
+        android:backgroundTint="@color/color_file_excel_bg"
+        android:fontFamily="@font/nunito_800"
+        android:gravity="center"
+        android:paddingHorizontal="@dimen/_8sdp"
+        android:textColor="@color/color_file_excel"
+        android:textSize="@dimen/_10sdp"
+        android:visibility="gone"
+        tools:text="−55%"
+        tools:visibility="visible" />
 </LinearLayout>
