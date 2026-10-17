@@ -1,59 +1,253 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<!-- The reader's "More": how the pages look and move, reading aids, the tools that make a new file
+     from this one, and what can be done with the file itself. -->
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    style="@style/BottomSheetAppStyle"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:paddingBottom="@dimen/_10sdp"
-    tools:context=".ui.main.reader.pdf.sheet.PdfToolsBottomSheet"
     android:background="@drawable/bg_sheet"
-    android:clipToOutline="true">
+    tools:context=".ui.main.reader.pdf.sheet.PdfToolsBottomSheet">
 
-    <include
-        android:id="@+id/header"
-        layout="@layout/layout_sheet_header" />
-
-    <TextView
-        style="@style/TextSectionCaps"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingBottom="@dimen/_8sdp"
+        android:clipToPadding="false"
+        android:orientation="vertical"
         android:paddingHorizontal="@dimen/_15sdp"
-        android:paddingTop="@dimen/_6sdp"
-        android:text="@string/tool_group_edit_sign" />
+        android:paddingBottom="@dimen/_20sdp">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rcvEdit"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:overScrollMode="never"
-        android:paddingHorizontal="@dimen/_8sdp"
-        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-        app:spanCount="4"
-        tools:itemCount="4"
-        tools:listitem="@layout/item_sheet_tool" />
+        <include
+            android:id="@+id/header"
+            layout="@layout/layout_sheet_header" />
 
-    <TextView
-        style="@style/TextSectionCaps"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingBottom="@dimen/_8sdp"
-        android:paddingHorizontal="@dimen/_15sdp"
-        android:paddingTop="@dimen/_6sdp"
-        android:text="@string/pages_and_file" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:baselineAligned="false"
+            android:clipToPadding="false"
+            android:orientation="horizontal"
+            android:paddingVertical="@dimen/_2sdp">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rcvFile"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:overScrollMode="never"
-        android:paddingHorizontal="@dimen/_8sdp"
-        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-        app:spanCount="4"
-        tools:itemCount="4"
-        tools:listitem="@layout/item_sheet_tool" />
+            <LinearLayout
+                android:id="@+id/cardNormal"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_42sdp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_option_card"
+                android:elevation="@dimen/_2sdp"
+                android:foreground="?attr/selectableItemBackground"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:outlineAmbientShadowColor="@color/color_shadow"
+                android:outlineSpotShadowColor="@color/color_shadow">
 
-</LinearLayout>
+                <TextView
+                    android:layout_width="@dimen/_22sdp"
+                    android:layout_height="@dimen/_22sdp"
+                    android:background="@drawable/bg_theme_chip"
+                    android:backgroundTint="@color/white"
+                    android:fontFamily="@font/nunito_800"
+                    android:gravity="center"
+                    android:importantForAccessibility="no"
+                    android:text="@string/fo_aa"
+                    android:textColor="@color/ink_bar_text"
+                    android:textSize="@dimen/_9sdp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_6sdp"
+                    android:fontFamily="@font/nunito_800"
+                    android:text="@string/fo_theme_day"
+                    android:textColor="@color/text_primary"
+                    android:textSize="@dimen/_11sdp" />
+            </LinearLayout>
+
+            <Space
+                android:layout_width="@dimen/_6sdp"
+                android:layout_height="0dp" />
+
+            <LinearLayout
+                android:id="@+id/cardSepia"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_42sdp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_option_card"
+                android:elevation="@dimen/_2sdp"
+                android:foreground="?attr/selectableItemBackground"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:outlineAmbientShadowColor="@color/color_shadow"
+                android:outlineSpotShadowColor="@color/color_shadow">
+
+                <TextView
+                    android:layout_width="@dimen/_22sdp"
+                    android:layout_height="@dimen/_22sdp"
+                    android:background="@drawable/bg_theme_chip"
+                    android:backgroundTint="@color/sepia_page"
+                    android:fontFamily="@font/nunito_800"
+                    android:gravity="center"
+                    android:importantForAccessibility="no"
+                    android:text="@string/fo_aa"
+                    android:textColor="@color/sepia_ink"
+                    android:textSize="@dimen/_9sdp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_6sdp"
+                    android:fontFamily="@font/nunito_800"
+                    android:text="@string/theme_sepia"
+                    android:textColor="@color/text_primary"
+                    android:textSize="@dimen/_11sdp" />
+            </LinearLayout>
+
+            <Space
+                android:layout_width="@dimen/_6sdp"
+                android:layout_height="0dp" />
+
+            <LinearLayout
+                android:id="@+id/cardNight"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_42sdp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_option_card"
+                android:elevation="@dimen/_2sdp"
+                android:foreground="?attr/selectableItemBackground"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:outlineAmbientShadowColor="@color/color_shadow"
+                android:outlineSpotShadowColor="@color/color_shadow">
+
+                <TextView
+                    android:layout_width="@dimen/_22sdp"
+                    android:layout_height="@dimen/_22sdp"
+                    android:background="@drawable/bg_theme_chip"
+                    android:backgroundTint="@color/night_page"
+                    android:fontFamily="@font/nunito_800"
+                    android:gravity="center"
+                    android:importantForAccessibility="no"
+                    android:text="@string/fo_aa"
+                    android:textColor="@color/night_ink"
+                    android:textSize="@dimen/_9sdp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_6sdp"
+                    android:fontFamily="@font/nunito_800"
+                    android:text="@string/theme_night"
+                    android:textColor="@color/text_primary"
+                    android:textSize="@dimen/_11sdp" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <include
+            android:id="@+id/segmentLayout"
+            layout="@layout/layout_segment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_9sdp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_9sdp"
+            android:clipToPadding="false"
+            android:orientation="horizontal"
+            android:paddingVertical="@dimen/_2sdp">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnTextView"
+            style="@style/SoftPillButton"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_38sdp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/color_surface_card"
+            android:elevation="@dimen/_2sdp"
+            android:text="@string/fo_text_view"
+            android:textSize="@dimen/_11sdp"
+            app:icon="@drawable/ic_fo_book"
+            app:iconTint="@color/primary" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnReadAloud"
+            style="@style/SoftPillButton"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_38sdp"
+            android:layout_marginStart="@dimen/_6sdp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/color_surface_card"
+            android:elevation="@dimen/_2sdp"
+            android:text="@string/fo_read_aloud"
+            android:textSize="@dimen/_11sdp"
+            app:icon="@drawable/ic_fo_volume"
+            app:iconTint="@color/primary" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnAutoScroll"
+            style="@style/SoftPillButton"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_38sdp"
+            android:layout_marginStart="@dimen/_6sdp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/color_surface_card"
+            android:elevation="@dimen/_2sdp"
+            android:text="@string/fo_auto_scroll"
+            android:textSize="@dimen/_11sdp"
+            app:icon="@drawable/ic_fo_download"
+            app:iconTint="@color/primary" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nunito_800"
+            android:paddingHorizontal="@dimen/_3sdp"
+            android:paddingTop="@dimen/_12sdp"
+            android:paddingBottom="@dimen/_6sdp"
+            android:text="@string/fo_make_new_file"
+            android:textColor="@color/text_secondary"
+            android:textSize="@dimen/_10sdp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rcvTools"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_minus3sdp"
+            android:clipToPadding="false"
+            android:nestedScrollingEnabled="false"
+            android:overScrollMode="never"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:spanCount="4"
+            tools:itemCount="8"
+            tools:listitem="@layout/item_sheet_tool" />
+
+        <com.ui.baselib.widget.flexbox.FlexboxLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_9sdp"
+            app:uiFlexWrap="wrap">
+
+            <TextView
+                android:id="@+id/chipShare"
+                style="@style/OutlineChip"
+                android:text="@string/file_action_share" />
+            <TextView
+                android:id="@+id/chipRename"
+                style="@style/OutlineChip"
+                android:text="@string/fo_rename" />
+            <TextView
+                android:id="@+id/chipInfo"
+                style="@style/OutlineChip"
+                android:text="@string/fo_file_info" />
+            <TextView
+                android:id="@+id/chipOrganize"
+                style="@style/OutlineChip"
+                android:text="@string/fo_organize_pages" />
+        </com.ui.baselib.widget.flexbox.FlexboxLayout>
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

@@ -1046,4 +1046,59 @@
     <string name="fo_save_pdf_pages">Save as PDF · %s</string>
     <string name="fo_scan_name">Scan name</string>
     <string name="fo_page_no_text">No text found on this page.</string>
+    <string name="fo_more">More</string>
+    <string name="fo_bookmark_page">Bookmark this page</string>
+    <string name="fo_remove_bookmark">Remove bookmark</string>
+    <string name="fo_search_in_file">Search in file</string>
+    <string name="fo_previous_match">Previous match</string>
+    <string name="fo_next_match">Next match</string>
+    <string name="fo_go_to_page">Go to page</string>
+    <string name="fo_smaller">Smaller</string>
+    <string name="fo_bigger">Bigger</string>
+    <string name="fo_text_size_pt">%d pt</string>
+    <string name="fo_tap_to_add">Tap the page to add</string>
+    <string name="fo_size">Size</string>
+    <string name="fo_sign_hint">Tap the page to place it, drag to move</string>
+    <string name="fo_previous_field">Previous field</string>
+    <string name="fo_next_field">Next field</string>
+    <string name="fo_field_x_of_y">Field %1$d of %2$d</string>
+    <string name="fo_pause">Pause</string>
+    <string name="fo_play">Play</string>
+    <plurals name="fo_matches">
+        <item quantity="one">%d match</item>
+        <item quantity="other">%d matches</item>
+    </plurals>
+    <plurals name="fo_on_pages">
+        <item quantity="one">on %d page</item>
+        <item quantity="other">on %d pages</item>
+    </plurals>
+    <string name="fo_fill_form_title">Fill in the form</string>
+    <string name="fo_fields_filled">%1$d of %2$d filled</string>
+    <string name="fo_mark_it_up">Mark it up</string>
+    <string name="fo_annotate_hint">%1$s · %2$s</string>
+    <string name="fo_hint_select">tap to pick, drag to move</string>
+    <string name="fo_hint_pen">draw freely</string>
+    <string name="fo_hint_highlight">drag over the words</string>
+    <string name="fo_hint_text">tap where the words go</string>
+    <string name="fo_hint_note">tap to pin a note</string>
+    <string name="fo_hint_shapes">tap to place, drag to resize</string>
+    <string name="fo_hint_image">pick a picture to place</string>
+    <string name="fo_hint_eraser">tap a mark to remove it</string>
+    <string name="fo_outline">Outline</string>
+    <string name="fo_bookmarks">Bookmarks</string>
+    <string name="fo_reading_comfort">Reading comfort</string>
+    <string name="fo_aa" translatable="false">Aa</string>
+    <string name="fo_theme_day">Day</string>
+    <string name="fo_scroll_down">Scroll down</string>
+    <string name="fo_swipe_pages">Swipe pages</string>
+    <string name="fo_text_view">Text view</string>
+    <string name="fo_read_aloud">Read aloud</string>
+    <string name="fo_auto_scroll">Auto-scroll</string>
+    <string name="fo_make_new_file">Make a new file from this one</string>
+    <string name="fo_file_info">File info</string>
+    <string name="fo_organize_pages">Organize pages</string>
+    <string name="fo_to_images">To images</string>
+    <string name="fo_letter_a" translatable="false">A</string>
+    <string name="fo_smaller_text">Smaller text</string>
+    <string name="fo_bigger_text">Bigger text</string>
 </resources>

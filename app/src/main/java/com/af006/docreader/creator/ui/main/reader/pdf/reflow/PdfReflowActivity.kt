@@ -2,6 +2,7 @@ package com.af010.creator.docreader.ui.main.reader.pdf.reflow
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.Typeface
 import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -18,6 +19,7 @@ import com.af010.creator.docreader.ui.main.reader.pdf.edit.PdfReadingPrefs
 import com.af010.creator.docreader.ui.main.reader.pdf.onProgress
 import com.reader.pdfviewer.pdfium.PdfPageText
 import com.ui.baselib.base.BaseAdapter
+import com.ui.baselib.extensions.click
 import com.ui.baselib.extensions.clickSingle
 import com.ui.baselib.extensions.gone
 import com.ui.baselib.extensions.visible
@@ -48,24 +50,32 @@ class PdfReflowActivity : BaseAppActivity<ActivityPdfReflowBinding>(ActivityPdfR
     }
 
     override fun ActivityPdfReflowBinding.setData() {
-        toolbar.root.updatePadding(top = statusBarHeight)
-        toolbar.tvTitle.setText(R.string.text_view)
-        toolbar.tvSubtitle.setText(R.string.text_view_subtitle)
-        toolbar.tvSubtitle.visible()
+        topBar.updatePadding(top = statusBarHeight)
 
         adapter.sizeSp = prefs.reflowSize
         rcvText.adapter = adapter
-        seekSize.progress = ((prefs.reflowSize - MIN_SIZE) / SIZE_STEP).toInt()
+        renderSize()
         read()
     }
 
     override fun ActivityPdfReflowBinding.onClick() {
-        toolbar.btnBack.clickSingle { finish() }
-        seekSize.onProgress { progress ->
-            val size = MIN_SIZE + progress * SIZE_STEP
-            prefs.reflowSize = size
-            adapter.sizeSp = size
-        }
+        btnBack.clickSingle { finish() }
+        btnSmaller.click { setSize(prefs.reflowSize - SIZE_STEP) }
+        btnBigger.click { setSize(prefs.reflowSize + SIZE_STEP) }
+    }
+
+    private fun setSize(size: Float) {
+        val value = size.coerceIn(MIN_SIZE, MAX_SIZE)
+        prefs.reflowSize = value
+        adapter.sizeSp = value
+        renderSize()
+    }
+
+    private fun renderSize() = with(binding) {
+        btnSmaller.isEnabled = prefs.reflowSize > MIN_SIZE
+        btnSmaller.alpha = if (btnSmaller.isEnabled) 1f else 0.4f
+        btnBigger.isEnabled = prefs.reflowSize < MAX_SIZE
+        btnBigger.alpha = if (btnBigger.isEnabled) 1f else 0.4f
     }
 
     /** Pages are added as they are read; the page the reader was on is scrolled to. */
@@ -97,6 +107,7 @@ class PdfReflowActivity : BaseAppActivity<ActivityPdfReflowBinding>(ActivityPdfR
         private const val EXTRA_PAGE = "extra_page"
         private const val MIN_SIZE = 12f
         private const val SIZE_STEP = 1.5f
+        private const val MAX_SIZE = MIN_SIZE + 12 * SIZE_STEP
 
         fun intent(context: Context, path: String, password: String?, page: Int): Intent =
             Intent(context, PdfReflowActivity::class.java)
@@ -157,7 +168,8 @@ class ReflowAdapter : BaseAdapter<ReflowBlock, ItemReflowTextBinding>() {
     override fun ItemReflowTextBinding.bind(item: ReflowBlock, position: Int) {
         val context = root.context
         tvText.text = item.text
-        tvText.typeface = ResourcesCompat.getFont(context, if (item.isPage) R.font.nunito_900 else R.font.nunito_600)
+        // Paragraphs read as a book (serif); the page labels between them stay in the app's font.
+        tvText.typeface = if (item.isPage) ResourcesCompat.getFont(context, R.font.nunito_800) else Typeface.SERIF
         tvText.setTextSize(TypedValue.COMPLEX_UNIT_SP, if (item.isPage) PAGE_LABEL_SP else sizeSp)
         tvText.setTextColor(
             ContextCompat.getColor(context, if (item.isPage) R.color.text_secondary else R.color.text_primary)

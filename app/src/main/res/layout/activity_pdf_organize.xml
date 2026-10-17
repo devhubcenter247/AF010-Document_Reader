@@ -1,86 +1,148 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/color_surface_track"
-    android:orientation="vertical"
+    android:background="@color/color_bg_app"
     tools:context=".ui.main.reader.pdf.organize.PdfOrganizeActivity">
 
-    <include
-        android:id="@+id/toolbar"
-        layout="@layout/layout_toolbar" />
-
-    <FrameLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rcvPages"
+        <LinearLayout
+            android:id="@+id/topBar"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:clipToPadding="false"
-            android:overScrollMode="never"
-            android:paddingHorizontal="@dimen/_6sdp"
-            android:paddingVertical="@dimen/_11sdp"
-            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-            app:spanCount="3"
-            tools:listitem="@layout/item_organize_page" />
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:minHeight="@dimen/_46sdp"
+            android:orientation="horizontal"
+            android:paddingHorizontal="@dimen/_12sdp">
 
-        <ProgressBar
-            android:id="@+id/progress"
-            android:layout_width="@dimen/_28sdp"
-            android:layout_height="@dimen/_28sdp"
-            android:layout_gravity="center"
-            android:indeterminateTint="@color/primary" />
-    </FrameLayout>
+            <ImageView
+                android:id="@+id/btnBack"
+                style="@style/RoundIconButton"
+                android:layout_width="@dimen/_32sdp"
+                android:layout_height="@dimen/_32sdp"
+                android:contentDescription="@string/back"
+                android:src="@drawable/ic_fo_back" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_9sdp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/nunito_800"
+                    android:maxLines="1"
+                    android:text="@string/organize_pages"
+                    android:textColor="@color/text_primary"
+                    android:textSize="@dimen/_14sdp" />
+
+                <TextView
+                    android:id="@+id/tvSubtitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/nunito_600"
+                    android:maxLines="1"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="@dimen/_10sdp"
+                    tools:text="38 pages · 2 picked" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/btnSave"
+                style="@style/ReaderSave"
+                android:text="@string/file_action_save" />
+        </LinearLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rcvPages"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="false"
+                android:overScrollMode="never"
+                android:paddingHorizontal="@dimen/_11sdp"
+                android:paddingTop="@dimen/_4sdp"
+                android:paddingBottom="@dimen/_90sdp"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:spanCount="3"
+                tools:listitem="@layout/item_organize_page" />
+
+            <ProgressBar
+                android:id="@+id/progress"
+                android:layout_width="@dimen/_28sdp"
+                android:layout_height="@dimen/_28sdp"
+                android:layout_gravity="center"
+                android:indeterminateTint="@color/primary" />
+        </FrameLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_100sdp"
+        android:layout_gravity="bottom"
+        android:background="@drawable/bg_bottom_fade" />
 
     <LinearLayout
         android:id="@+id/layoutActions"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/_55sdp"
+        android:layout_gravity="bottom"
+        android:layout_marginHorizontal="@dimen/_12sdp"
+        android:layout_marginBottom="@dimen/_17sdp"
+        android:background="@drawable/bg_ink_bar"
+        android:elevation="@dimen/_10sdp"
+        android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:paddingBottom="@dimen/_3sdp"
-        android:background="@drawable/bg_surface_card_line_top_1sdp_stroke">
+        android:outlineAmbientShadowColor="@color/color_shadow"
+        android:outlineSpotShadowColor="@color/color_shadow"
+        android:paddingHorizontal="@dimen/_6sdp">
 
         <TextView
             android:id="@+id/btnRotate"
-            style="@style/ReaderActionStyle"
+            style="@style/InkBarAction"
             android:text="@string/scanner_rotate"
-            android:textColor="@color/text_primary"
-            app:drawableTopCompat="@drawable/ic_app_rotate_17sdp" />
+            app:drawableTopCompat="@drawable/ic_fo_rotate_17sdp" />
 
         <TextView
             android:id="@+id/btnDuplicate"
-            style="@style/ReaderActionStyle"
+            style="@style/InkBarAction"
             android:text="@string/duplicate"
-            android:textColor="@color/text_primary"
-            app:drawableTopCompat="@drawable/ic_app_duplicate_17sdp" />
+            app:drawableTopCompat="@drawable/ic_fo_copy_17sdp" />
 
         <TextView
             android:id="@+id/btnAddPage"
-            style="@style/ReaderActionStyle"
+            style="@style/InkBarAction"
             android:text="@string/add_page"
-            android:textColor="@color/text_primary"
-            app:drawableTopCompat="@drawable/ic_app_plus_17sdp" />
+            app:drawableTopCompat="@drawable/ic_fo_plus_17sdp" />
 
         <TextView
             android:id="@+id/btnToImages"
-            style="@style/ReaderActionStyle"
-            android:text="@string/tool_to_images"
-            android:textColor="@color/text_primary"
-            app:drawableTopCompat="@drawable/ic_app_photos_17sdp" />
+            style="@style/InkBarAction"
+            android:text="@string/fo_to_images"
+            app:drawableTopCompat="@drawable/ic_fo_pdf_images_17sdp" />
 
         <TextView
             android:id="@+id/btnDelete"
-            style="@style/ReaderActionStyle"
+            style="@style/InkBarAction"
             android:text="@string/file_action_delete"
-            app:drawableTint="@color/color_error"
-            android:textColor="@color/color_error"
-            app:drawableTopCompat="@drawable/ic_app_trash_17sdp" />
+            android:textColor="@color/ink_bar_danger"
+            app:drawableTint="@color/ink_bar_danger"
+            app:drawableTopCompat="@drawable/ic_fo_trash_17sdp" />
     </LinearLayout>
-
-</LinearLayout>
+</FrameLayout>

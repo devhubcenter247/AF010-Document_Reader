@@ -32,7 +32,7 @@ internal class PdfContentsPanel(
     private var tab = Tab.Contents
 
     init {
-        binding.segment.setUp(R.string.contents, R.string.contents, R.string.tool_pages) { index ->
+        binding.segment.setUp(R.string.fo_outline, R.string.fo_bookmarks, R.string.tool_pages) { index ->
             tab = Tab.entries[index]
             render()
         }
@@ -62,7 +62,6 @@ internal class PdfContentsPanel(
     fun render() = with(binding) {
         val marks = prefs.bookmarks(path)
         val page = pdfView.currentPage
-        segment.tvSecond.text = context.getString(R.string.bookmarks_count, marks.size)
         segment.select(tab.ordinal)
         btnAddBookmark.visibleOrGone(tab == Tab.Bookmarks)
         btnAddBookmark.text = context.getString(R.string.bookmark_add, page + 1)

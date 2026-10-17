@@ -3,13 +3,9 @@ package com.af010.creator.docreader.ui.main.reader.pdf.organize
 import android.graphics.Bitmap
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
-import com.af010.creator.docreader.R
 import com.af010.creator.docreader.databinding.ItemOrganizePageBinding
-import com.af010.creator.docreader.utils.extensions.setStroke
 import com.ui.baselib.base.BaseAdapter
 import com.ui.baselib.extensions.visibleOrGone
-import com.ui.baselib.utils.dpToPx
 
 /**
  * A page of the document being organized: page [source] of the file (negative: a new blank
@@ -38,14 +34,10 @@ class OrganizePageAdapter(
         }
 
     override fun ItemOrganizePageBinding.bind(item: OrganizePage, position: Int) {
-        val context = root.context
         val selected = item.id in selectedIds
         tvNumber.text = (position + 1).toString()
         ivCheck.visibleOrGone(selected)
-        card.setStroke(context.dpToPx(if (selected) 2 else 1), ContextCompat.getColor(
-            context, if (selected) R.color.primary else R.color.color_stroke
-        ))
-        card.invalidate()
+        root.isSelected = selected
 
         // A page on its side has to fit the upright card.
         val sideways = item.quarterTurns % 2 != 0

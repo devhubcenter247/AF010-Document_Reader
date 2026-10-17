@@ -207,4 +207,10 @@
     <color name="glass_text_soft">#D9DDE8</color>
     <color name="ink_bar_text">#1F2433</color>
     <color name="scan_board">#3B404E</color>
+    <color name="reader_bg">#E9ECF2</color>
+    <!-- Page colour samples of the reading themes (same in both app themes) -->
+    <color name="sepia_page">#F1E5CC</color>
+    <color name="sepia_ink">#4A3720</color>
+    <color name="night_page">#1F222B</color>
+    <color name="night_ink">#F2F4F8</color>
 </resources>

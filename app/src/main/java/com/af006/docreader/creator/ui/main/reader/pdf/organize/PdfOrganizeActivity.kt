@@ -57,12 +57,7 @@ class PdfOrganizeActivity : BaseAppActivity<ActivityPdfOrganizeBinding>(Activity
     }
 
     override fun ActivityPdfOrganizeBinding.setData() {
-        toolbar.root.updatePadding(top = statusBarHeight)
-        toolbar.btnBack.setImageResource(R.drawable.ic_app_close)
-        toolbar.tvTitle.setText(R.string.organize_pages)
-        toolbar.tvSubtitle.visible()
-        toolbar.btnAction.setText(R.string.file_action_save)
-        toolbar.btnAction.visible()
+        topBar.updatePadding(top = statusBarHeight)
         rcvPages.adapter = adapter
         ItemTouchHelper(dragCallback).attachToRecyclerView(rcvPages)
         render()
@@ -80,8 +75,8 @@ class PdfOrganizeActivity : BaseAppActivity<ActivityPdfOrganizeBinding>(Activity
     }
 
     override fun ActivityPdfOrganizeBinding.onClick() {
-        toolbar.btnBack.clickSingle { backPressed() }
-        toolbar.btnAction.clickSingle { save() }
+        btnBack.clickSingle { backPressed() }
+        btnSave.clickSingle { save() }
         adapter.onPageClick { page ->
             selected = if (page.id in selected) selected - page.id else selected + page.id
             adapter.selectedIds = selected
@@ -150,7 +145,7 @@ class PdfOrganizeActivity : BaseAppActivity<ActivityPdfOrganizeBinding>(Activity
     }
 
     private fun ActivityPdfOrganizeBinding.render() {
-        toolbar.tvSubtitle.text = if (selected.isEmpty()) getString(R.string.organize_drag)
+        tvSubtitle.text = if (selected.isEmpty()) getString(R.string.organize_drag)
         else getString(R.string.organize_selected, selected.size)
     }
 

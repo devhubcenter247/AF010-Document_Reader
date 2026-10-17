@@ -9,6 +9,9 @@ import android.os.Bundle
 import android.view.Choreographer
 import android.view.MotionEvent
 import android.view.WindowManager
+import android.widget.SeekBar
+import android.view.ViewGroup
+import androidx.core.view.updateLayoutParams
 import android.view.inputmethod.EditorInfo
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.StringRes
@@ -29,13 +32,18 @@ import com.af010.creator.docreader.ui.dialog.TextInputDialog
 import com.af010.creator.docreader.ui.main.reader.pdf.edit.AnnotateMode
 import com.af010.creator.docreader.ui.main.reader.pdf.edit.FormMode
 import com.af010.creator.docreader.ui.main.reader.pdf.edit.PdfOverlayView
+import com.af010.creator.docreader.ui.main.reader.pdf.edit.PdfBookmark
 import com.af010.creator.docreader.ui.main.reader.pdf.edit.PdfReadingPrefs
 import com.af010.creator.docreader.ui.main.reader.pdf.organize.PdfOrganizeActivity
 import com.af010.creator.docreader.ui.main.reader.pdf.reflow.PdfReflowActivity
-import com.af010.creator.docreader.ui.main.reader.pdf.sheet.PdfSheetTool
+import com.af010.creator.docreader.ui.main.reader.pdf.sheet.ReaderAction
 import com.af010.creator.docreader.ui.main.reader.pdf.sheet.PdfToolsBottomSheet
-import com.af010.creator.docreader.ui.main.reader.pdf.sheet.ReadingAction
-import com.af010.creator.docreader.ui.main.reader.pdf.sheet.ReadingModeBottomSheet
+import com.af010.creator.docreader.ui.dialog.RenameDialog
+import com.af010.creator.docreader.ui.main.files.sheet.FileInfoBottomSheet
+import com.af010.creator.docreader.model.RecentDocument
+import com.af010.creator.docreader.model.DocumentType
+import com.d010.pdf.reader.viewmodel.DataResponse
+import com.d010.pdf.reader.base.shareFile
 import com.af010.creator.docreader.ui.main.reader.pdf.sheet.SignatureBottomSheet
 import com.af010.creator.docreader.ui.main.tools.openTool
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -115,6 +123,7 @@ class PdfReaderActivity : BaseAppActivity<ActivityPdfReaderBinding>(ActivityPdfR
 
     private val thumbnails = HashMap<Int, Bitmap>()
     private val toolAdapter by lazy { AnnotateToolAdapter() }
+    private val matchAdapter by lazy { SearchMatchAdapter() }
     private val overlay by lazy { PdfOverlayView(this, binding.pdfView) }
     private val contents by lazy {
         PdfContentsPanel(binding.contents, binding.pdfView, prefs, file.path, ::loadThumbnail) { page ->
@@ -195,6 +204,9 @@ class PdfReaderActivity : BaseAppActivity<ActivityPdfReaderBinding>(ActivityPdfR
         tvName.text = file.name
         layoutOverlay.addView(overlay)
         rcvAnnotateTools.adapter = toolAdapter
+        rcvMatches.adapter = matchAdapter
+        // The signature to place is the picked one; the tile shows it ringed in blue.
+        btnAddSignature.isSelected = true
         toolAdapter.submitList(AnnotateTool.entries)
         layoutTextColors.addColorDots(TEXT_COLORS) { color ->
             textColor = color
@@ -215,14 +227,29 @@ class PdfReaderActivity : BaseAppActivity<ActivityPdfReaderBinding>(ActivityPdfR
         btnBack.clickSingle { finish() }
         btnSearch.click { setMode(Mode.Search) }
         btnContents.click { setMode(Mode.Contents) }
+        btnBookmark.click { toggleBookmark() }
+        seekPage.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+            override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
+                if (fromUser) tvPagePill.text = getString(R.string.page_count_short, progress + 1, pdfView.pageCount)
+            }
+
+            override fun onStartTrackingTouch(seekBar: SeekBar) = Unit
+            override fun onStopTrackingTouch(seekBar: SeekBar) {
+                if (loaded) pdfView.jumpTo(seekBar.progress, false)
+            }
+        })
+        matchAdapter.onMatchClick { index ->
+            resultIndex = index
+            pdfView.jumpToSearchResult(results[index].page, query)
+            render()
+        }
         btnNormal.click { setReadingTheme(PdfReadingPrefs.THEME_NORMAL) }
-        btnMore.clickSingle { showReadingSheet() }
+        btnMore.clickSingle { showMoreSheet() }
 
         btnEdit.click { setMode(Mode.Text) }
         btnAnnotate.click { setMode(Mode.Annotate) }
         btnSign.click { startSigning() }
         btnFill.click { startForm() }
-        btnTools.clickSingle { PdfToolsBottomSheet(this@PdfReaderActivity, ::openSheetTool).show() }
 
         btnModeClose.click { closeMode() }
         btnModeAction.clickSingle { saveEdits { setMode(Mode.Read) } }
@@ -762,6 +789,19 @@ class PdfReaderActivity : BaseAppActivity<ActivityPdfReaderBinding>(ActivityPdfR
         }
     }
 
+    /** The star in the top bar: the page goes into the bookmarks, or out again. */
+    private fun toggleBookmark() {
+        if (!loaded) return
+        val page = binding.pdfView.currentPage
+        val marks = prefs.bookmarks(file.path)
+        prefs.setBookmarks(
+            file.path,
+            if (marks.any { it.page == page }) marks.filter { it.page != page }
+            else (marks + PdfBookmark(page, getString(R.string.page_number, page + 1))).sortedBy { it.page }
+        )
+        renderPage()
+    }
+
     private fun moveResult(by: Int) {
         if (results.isEmpty()) return
         resultIndex = (resultIndex + by).mod(results.size)
@@ -779,27 +819,9 @@ class PdfReaderActivity : BaseAppActivity<ActivityPdfReaderBinding>(ActivityPdfR
 
     // ---- tools and reading sheet ----
 
-    private fun openSheetTool(tool: PdfSheetTool) {
+    private fun showMoreSheet() {
         if (!loaded) return
-        when (tool) {
-            PdfSheetTool.Annotate -> setMode(Mode.Annotate)
-            PdfSheetTool.AddText -> setMode(Mode.Text)
-            PdfSheetTool.Sign -> startSigning()
-            PdfSheetTool.FillForm -> startForm()
-            PdfSheetTool.Pages -> organizeLauncher.launch(PdfOrganizeActivity.intent(this, file.path, password))
-            PdfSheetTool.Compress -> openTool(Tool.Compress, listOf(file.path))
-            PdfSheetTool.Password -> openTool(Tool.Protect, listOf(file.path))
-            PdfSheetTool.Watermark -> openTool(Tool.Watermark, listOf(file.path))
-            PdfSheetTool.Ocr -> openTool(Tool.Ocr, listOf(file.path))
-            PdfSheetTool.Redact -> openTool(Tool.Redact, listOf(file.path))
-            PdfSheetTool.Translate -> openTool(Tool.Translate, listOf(file.path))
-            PdfSheetTool.ToImages -> openTool(Tool.PdfToImages, listOf(file.path))
-        }
-    }
-
-    private fun showReadingSheet() {
-        if (!loaded) return
-        ReadingModeBottomSheet(
+        PdfToolsBottomSheet(
             this, prefs.theme, prefs.horizontal,
             onTheme = ::setReadingTheme,
             onLayout = { horizontal ->
@@ -808,14 +830,41 @@ class PdfReaderActivity : BaseAppActivity<ActivityPdfReaderBinding>(ActivityPdfR
             },
             onAction = { action ->
                 when (action) {
-                    ReadingAction.TextView -> startActivity(
+                    ReaderAction.TextView -> startActivity(
                         PdfReflowActivity.intent(this, file.path, password, binding.pdfView.currentPage)
                     )
-                    ReadingAction.ReadAloud -> startReadAloud()
-                    ReadingAction.AutoScroll -> startAutoScroll()
+                    ReaderAction.ReadAloud -> startReadAloud()
+                    ReaderAction.AutoScroll -> startAutoScroll()
+                    ReaderAction.Share -> if (!shareFile(file.path)) toast(R.string.file_share_failed)
+                    ReaderAction.Rename -> renameFile()
+                    ReaderAction.Info -> FileInfoBottomSheet(this, document()).show()
+                    ReaderAction.Organize ->
+                        organizeLauncher.launch(PdfOrganizeActivity.intent(this, file.path, password))
                 }
-            }
+            },
+            onTool = { tool -> openTool(tool, listOf(file.path)) }
         ).show()
+    }
+
+    /** The open file as the lists know it, or a stand-in when it is not in MediaStore (opened from another app). */
+    private fun document(): RecentDocument =
+        (repository.documents.value as? DataResponse.DataSuccess)?.data?.firstOrNull { it.path == file.path }
+            ?: RecentDocument(path = file.path, lastModified = file.lastModified(), size = file.length(), type = DocumentType.Pdf)
+
+    /** Renames the file through the repository, then reopens it under its new name. */
+    private fun renameFile() {
+        val doc = document()
+        RenameDialog(this, doc) { newName ->
+            launchMain {
+                repository.rename(doc, newName)
+                    .onSuccess { renamed ->
+                        prefs.moved(file.path, renamed.path)
+                        start(this@PdfReaderActivity, renamed.path)
+                        finish()
+                    }
+                    .onFailure { toast(R.string.file_rename_failed) }
+            }
+        }.show()
     }
 
     private fun setReadingTheme(theme: Int) {
@@ -962,10 +1011,14 @@ class PdfReaderActivity : BaseAppActivity<ActivityPdfReaderBinding>(ActivityPdfR
 
         val pageCount = pdfView.pageCount
         val (title, subtitle) = when (mode) {
-            Mode.Text -> getString(R.string.add_text) to getString(R.string.add_text_hint)
-            Mode.Annotate -> getString(R.string.tool_annotate) to ""
-            Mode.Sign -> getString(R.string.place_signature) to getString(R.string.place_signature_hint)
-            Mode.Form -> file.name to getString(R.string.form_fields_filled, fields.size, fields.count { it.isFilled })
+            Mode.Text -> getString(R.string.add_text) to file.name
+            Mode.Annotate -> getString(R.string.tool_annotate) to getString(R.string.fo_mark_it_up)
+            Mode.Sign -> getString(R.string.tool_sign) to
+                getString(R.string.fo_page_x_of_y, pdfView.currentPage + 1, pageCount)
+            Mode.Form -> getString(R.string.fo_fill_form_title) to
+                getString(R.string.fo_fields_filled, fields.count { it.isFilled }, fields.size)
+            Mode.Contents -> getString(R.string.contents) to
+                getString(R.string.document_meta, file.nameWithoutExtension, getString(R.string.pages_count, pageCount))
             else -> file.name to getString(R.string.pages_count, pageCount)
         }
         tvModeTitle.text = title
@@ -982,8 +1035,9 @@ class PdfReaderActivity : BaseAppActivity<ActivityPdfReaderBinding>(ActivityPdfR
         // Auto-scroll turns previous/next into slower/faster around the speed.
         val scrolling = playback == Playback.AutoScroll
         tvPlaySpeed.visibleOrGone(scrolling)
-        btnPlayPrevious.setImageResource(if (scrolling) R.drawable.ic_app_minus else R.drawable.ic_app_chevl)
-        btnPlayNext.setImageResource(if (scrolling) R.drawable.ic_app_plus else R.drawable.ic_app_chev)
+        btnPlayPrevious.setImageResource(if (scrolling) R.drawable.ic_fo_minus else R.drawable.ic_fo_back)
+        btnPlayNext.setImageResource(if (scrolling) R.drawable.ic_fo_plus else R.drawable.ic_fo_back)
+        btnPlayNext.rotation = if (scrolling) 0f else 180f
         if (scrolling) showScrollSpeed() else {
             btnPlayPrevious.isEnabled = true
             btnPlayNext.isEnabled = true
@@ -991,16 +1045,32 @@ class PdfReaderActivity : BaseAppActivity<ActivityPdfReaderBinding>(ActivityPdfR
             btnPlayNext.alpha = 1f
         }
 
-        tvTextSize.text = textSize.toInt().toString()
+        tvTextSize.text = getString(R.string.fo_text_size_pt, textSize.toInt())
+        tvAnnotateHint.text = getString(R.string.fo_annotate_hint, getString(annotateTool.title), getString(annotateTool.hint))
+        ivSignature.setImageBitmap(lastSignature)
+        ivSignature.visibleOrGone(lastSignature != null)
+        tvAddSignature.visibleOrGone(lastSignature == null)
         layoutTextColors.selectColorDot(textColor)
         layoutInkColors.selectColorDot(inkColor)
 
         val field = fields.getOrNull(fieldIndex)
-        tvField.text = if (field == null) getString(R.string.form_hint) else getString(
-            R.string.form_field_of, fieldIndex + 1, fields.size,
-            field.name.ifBlank { getString(R.string.form_field_default) }
-        )
+        tvFieldCount.visibleOrGone(field != null)
+        tvFieldCount.text = getString(R.string.fo_field_x_of_y, fieldIndex + 1, fields.size)
+        tvField.text = field?.name?.ifBlank { getString(R.string.form_field_default) } ?: getString(R.string.form_hint)
         tvSearchCount.text = if (results.isEmpty()) "" else getString(R.string.search_count, resultIndex + 1, results.size)
+        bottomSearch.visibleOrGone(mode == Mode.Search && results.isNotEmpty())
+        if (mode == Mode.Search && results.isNotEmpty()) {
+            tvMatches.text = resources.getQuantityString(R.plurals.fo_matches, results.size, results.size)
+            val pages = results.distinctBy { it.page }.size
+            tvMatchPages.text = resources.getQuantityString(R.plurals.fo_on_pages, pages, pages)
+            matchAdapter.show(results, query, resultIndex)
+            // A few rows, then the list scrolls: the page stays in sight.
+            val row = resources.getDimensionPixelSize(com.intuit.sdp.R.dimen._37sdp)
+            rcvMatches.updateLayoutParams {
+                height = if (results.size > MATCH_ROWS) row * MATCH_ROWS + row / 2 else ViewGroup.LayoutParams.WRAP_CONTENT
+            }
+            rcvMatches.scrollToPosition(resultIndex)
+        }
 
         renderEditButtons()
         renderMarkup()
@@ -1033,7 +1103,7 @@ class PdfReaderActivity : BaseAppActivity<ActivityPdfReaderBinding>(ActivityPdfR
     private fun renderPage() = with(binding) {
         val count = pdfView.pageCount
         val page = (pdfView.currentPage + 1).coerceAtMost(count.coerceAtLeast(1))
-        val text = getString(R.string.page_of, page, count)
+        val text = getString(R.string.fo_page_x_of_y, page, count)
         tvPage.text = when (prefs.theme) {
             PdfReadingPrefs.THEME_NIGHT -> getString(R.string.page_theme_suffix, text, getString(R.string.theme_night))
             PdfReadingPrefs.THEME_SEPIA -> getString(R.string.page_theme_suffix, text, getString(R.string.theme_sepia))
@@ -1041,6 +1111,13 @@ class PdfReaderActivity : BaseAppActivity<ActivityPdfReaderBinding>(ActivityPdfR
         }
         tvPagePill.text = getString(R.string.page_count_short, page, count)
         tvPagePill.visibleOrGone(loaded && count > 0 && mode != Mode.Contents)
+        // Sign names the page the signature will land on.
+        if (mode == Mode.Sign) tvModeSubtitle.text = getString(R.string.fo_page_x_of_y, page, count)
+        seekPage.max = (count - 1).coerceAtLeast(0)
+        if (!seekPage.isPressed) seekPage.progress = page - 1
+        val marked = prefs.bookmarks(file.path).any { it.page == page - 1 }
+        btnBookmark.setImageResource(if (marked) R.drawable.ic_fo_star_filled else R.drawable.ic_fo_star)
+        btnBookmark.contentDescription = getString(if (marked) R.string.fo_remove_bookmark else R.string.fo_bookmark_page)
     }
 
     override fun onStop() {
@@ -1058,6 +1135,8 @@ class PdfReaderActivity : BaseAppActivity<ActivityPdfReaderBinding>(ActivityPdfR
     }
 
     companion object {
+        /** Matches listed before the search list scrolls. */
+        private const val MATCH_ROWS = 3
         private const val EXTRA_PATH = "extra_path"
         private const val EXTRA_TOOL = "extra_tool"
         private const val STATE_PASSWORD = "state_password"

@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- The reader's contents: the outline, the bookmarks, or the pages as thumbnails. -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/color_surface_card"
+    android:background="@color/reader_bg"
     android:clickable="true"
     android:focusable="true"
     android:orientation="vertical">
@@ -14,26 +15,23 @@
         layout="@layout/layout_segment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/_6sdp"
-        android:layout_marginHorizontal="@dimen/_13sdp"
-        android:layout_marginTop="@dimen/_11sdp" />
+        android:layout_marginHorizontal="@dimen/_15sdp"
+        android:layout_marginBottom="@dimen/_9sdp" />
 
-    <TextView
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btnAddBookmark"
+        style="@style/SoftPillButton"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_31sdp"
-        android:background="?attr/selectableItemBackground"
-        android:drawablePadding="@dimen/_8sdp"
-        android:fontFamily="@font/nunito_700"
-        android:gravity="center_vertical"
-        android:paddingHorizontal="@dimen/_15sdp"
-        android:textSize="@dimen/_10sdp"
+        android:layout_height="@dimen/_37sdp"
+        android:layout_marginHorizontal="@dimen/_15sdp"
+        android:layout_marginBottom="@dimen/_8sdp"
+        android:backgroundTint="@color/color_pro_bg"
+        android:textColor="@color/color_warning"
         android:visibility="gone"
-        app:drawableTint="@color/text_on_selected"
+        app:icon="@drawable/ic_fo_star"
+        app:iconTint="@color/color_premium_gold"
         tools:text="Bookmark page 3"
-        tools:visibility="visible"
-        android:textColor="@color/text_on_selected"
-        app:drawableStartCompat="@drawable/ic_app_bookmark_15sdp" />
+        tools:visibility="visible" />
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -45,20 +43,20 @@
             android:layout_height="match_parent"
             android:clipToPadding="false"
             android:overScrollMode="never"
-            android:paddingBottom="@dimen/_11sdp" />
+            android:paddingHorizontal="@dimen/_12sdp"
+            android:paddingBottom="@dimen/_15sdp" />
 
         <TextView
             android:id="@+id/tvContentsEmpty"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_50sdp"
-            android:fontFamily="@font/nunito_600"
+            android:fontFamily="@font/nunito_700"
             android:gravity="center"
-            android:paddingHorizontal="@dimen/_18sdp"
+            android:paddingHorizontal="@dimen/_23sdp"
             android:textColor="@color/text_secondary"
-            android:textSize="@dimen/_10sdp"
+            android:textSize="@dimen/_11sdp"
             android:visibility="gone"
             tools:text="This PDF has no table of contents" />
     </FrameLayout>
-
 </LinearLayout>

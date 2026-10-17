@@ -53,4 +53,5 @@
     <color name="ocr_tag_dark">#BF000000</color>
     <color name="ocr_highlight">#806B4E00</color>
     <color name="scan_board">#2A2E38</color>
+    <color name="reader_bg">#101217</color>
 </resources>

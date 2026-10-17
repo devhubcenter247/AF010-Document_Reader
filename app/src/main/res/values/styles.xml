@@ -119,10 +119,10 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">@dimen/_26sdp</item>
         <item name="android:gravity">center</item>
-        <item name="android:paddingHorizontal">@dimen/_8sdp</item>
+        <item name="android:paddingHorizontal">@dimen/_9sdp</item>
         <item name="android:textColor">@color/on_primary</item>
-        <item name="android:textSize">@dimen/_9sdp</item>
-        <item name="fontFamily">@font/nunito_700</item>
+        <item name="android:textSize">@dimen/_10sdp</item>
+        <item name="fontFamily">@font/nunito_800</item>
         <item name="android:background">?attr/selectableItemBackground</item>
     </style>
 
@@ -484,5 +484,106 @@
         <item name="android:paddingHorizontal">@dimen/_12sdp</item>
         <item name="android:textColor">@color/text_glass_option</item>
         <item name="android:textSize">@dimen/_11sdp</item>
+    </style>
+    <!-- The PDF reader: its floating bars, their icon buttons and the mode tabs. -->
+    <style name="FloatBar">
+        <item name="android:background">@drawable/bg_float_card</item>
+        <item name="android:elevation">@dimen/_8sdp</item>
+        <item name="android:outlineSpotShadowColor">@color/color_shadow</item>
+        <item name="android:outlineAmbientShadowColor">@color/color_shadow</item>
+    </style>
+    <style name="ReaderBarIcon">
+        <item name="android:layout_width">@dimen/_34sdp</item>
+        <item name="android:layout_height">@dimen/_34sdp</item>
+        <item name="android:background">?attr/selectableItemBackgroundBorderless</item>
+        <item name="android:padding">@dimen/_9sdp</item>
+        <item name="tint">@color/text_primary</item>
+    </style>
+    <style name="ReaderBarClose" parent="ReaderBarIcon">
+        <item name="android:background">@drawable/bg_circle_variant</item>
+        <item name="android:foreground">?attr/selectableItemBackgroundBorderless</item>
+    </style>
+    <style name="ReaderSave">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">@dimen/_34sdp</item>
+        <item name="android:layout_marginStart">@dimen/_3sdp</item>
+        <item name="android:background">@drawable/bg_button_primary</item>
+        <item name="android:fontFamily">@font/nunito_800</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingHorizontal">@dimen/_15sdp</item>
+        <item name="android:textColor">@color/on_primary</item>
+        <item name="android:textSize">@dimen/_12sdp</item>
+    </style>
+    <style name="ReaderTab">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">@dimen/_46sdp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:background">?attr/selectableItemBackgroundBorderless</item>
+        <item name="android:gravity">center</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+    <style name="ReaderTabIcon">
+        <item name="android:layout_width">@dimen/_28sdp</item>
+        <item name="android:layout_height">@dimen/_23sdp</item>
+        <item name="android:background">@drawable/bg_reader_tab_icon</item>
+        <item name="android:importantForAccessibility">no</item>
+        <item name="android:paddingVertical">@dimen/_5sdp</item>
+        <item name="tint">@color/text_on_selected</item>
+    </style>
+    <style name="ReaderTabLabel">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/_3sdp</item>
+        <item name="android:fontFamily">@font/nunito_800</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textSize">@dimen/_9sdp</item>
+    </style>
+    <style name="SoftTile">
+        <item name="android:layout_height">@dimen/_46sdp</item>
+        <item name="android:background">@drawable/bg_soft_pill</item>
+        <item name="android:backgroundTint">@color/color_surface_variant</item>
+        <item name="android:foreground">?attr/selectableItemBackground</item>
+        <item name="android:drawablePadding">@dimen/_5sdp</item>
+        <item name="android:fontFamily">@font/nunito_800</item>
+        <item name="android:gravity">center</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:paddingHorizontal">@dimen/_8sdp</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textSize">@dimen/_11sdp</item>
+        <item name="drawableTint">@color/text_primary</item>
+    </style>
+    <style name="ReaderHint">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/nunito_700</item>
+        <item name="android:textColor">@color/text_secondary</item>
+        <item name="android:textSize">@dimen/_10sdp</item>
+    </style>
+    <!-- A plain action chip (Share, Rename…), white with a thin grey ring. -->
+    <style name="OutlineChip">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">@dimen/_28sdp</item>
+        <item name="android:layout_marginEnd">@dimen/_6sdp</item>
+        <item name="android:layout_marginBottom">@dimen/_6sdp</item>
+        <item name="android:background">@drawable/bg_outline_chip</item>
+        <item name="android:foreground">?attr/selectableItemBackground</item>
+        <item name="android:fontFamily">@font/nunito_800</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingHorizontal">@dimen/_12sdp</item>
+        <item name="android:textColor">@color/text_tertiary</item>
+        <item name="android:textSize">@dimen/_11sdp</item>
+    </style>
+    <!-- "A" buttons that make the text smaller or bigger. -->
+    <style name="SizeButton">
+        <item name="android:layout_width">@dimen/_34sdp</item>
+        <item name="android:layout_height">@dimen/_34sdp</item>
+        <item name="android:background">@drawable/bg_circle_variant</item>
+        <item name="android:backgroundTint">@color/color_surface_card</item>
+        <item name="android:foreground">?attr/selectableItemBackgroundBorderless</item>
+        <item name="android:fontFamily">serif</item>
+        <item name="android:gravity">center</item>
+        <item name="android:text">@string/fo_letter_a</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textStyle">bold</item>
     </style>
 </resources>
