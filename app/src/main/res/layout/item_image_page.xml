@@ -1,18 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="@dimen/_4sdp">
 
-    <com.ui.baselib.widget.layout.UiFrameLayout
+    <FrameLayout
         android:id="@+id/card"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="0dp"
-        app:uiBackgroundColor="@color/color_surface_card"
-        app:uiCornerRadius="@dimen/_11sdp"
-        app:uiDimensionRatio="3:4">
+        android:background="@drawable/bg_surface_card_r11sdp"
+        android:clipToOutline="true"
+        app:layout_constraintDimensionRatio="3:4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:id="@+id/ivImage"
@@ -21,7 +24,7 @@
             android:contentDescription="@null"
             android:scaleType="centerCrop" />
 
-        <com.ui.baselib.widget.view.UiTextView
+        <TextView
             android:id="@+id/tvNumber"
             android:layout_width="@dimen/_18sdp"
             android:layout_height="@dimen/_18sdp"
@@ -29,12 +32,11 @@
             android:fontFamily="@font/nt_500"
             android:gravity="center"
             android:textSize="@dimen/_9sdp"
-            app:uiBackgroundColor="@color/color_ink"
-            app:uiCornerRadius="@dimen/_9sdp"
-            app:uiTextColor="@color/on_primary"
-            tools:text="1" />
+            tools:text="1"
+            android:background="@drawable/bg_ink_r9sdp"
+            android:textColor="@color/on_primary" />
 
-        <com.ui.baselib.widget.view.UiImageView
+        <ImageView
             android:id="@+id/btnRemove"
             android:layout_width="@dimen/_20sdp"
             android:layout_height="@dimen/_20sdp"
@@ -44,11 +46,11 @@
             android:padding="@dimen/_5sdp"
             android:src="@drawable/ic_app_close"
             app:tint="@color/color_ink"
-            app:uiBackgroundColor="#E6FFFFFF"
-            app:uiCornerRadius="@dimen/_10sdp" />
+            android:background="@drawable/bg_xe6ffffff_r10sdp"
+            android:clipToOutline="true" />
 
         <!-- The last tile: add more images -->
-        <com.ui.baselib.widget.view.UiTextView
+        <TextView
             android:id="@+id/btnAdd"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -60,15 +62,9 @@
             android:textSize="@dimen/_9sdp"
             android:visibility="gone"
             app:drawableTint="@color/text_on_selected"
-            app:drawableTopCompat="@drawable/ic_app_plus"
-            app:uiBackgroundColor="@color/color_bg_app"
-            app:uiCornerRadius="@dimen/_11sdp"
-            app:uiDrawableSize="@dimen/_17sdp"
-            app:uiStrokeColor="@color/color_checkbox_stroke"
-            app:uiStrokeDashGap="@dimen/_3sdp"
-            app:uiStrokeDashed="true"
-            app:uiStrokeWidth="@dimen/_2sdp"
-            app:uiTextColor="@color/text_on_selected" />
-    </com.ui.baselib.widget.layout.UiFrameLayout>
+            android:background="@drawable/bg_bg_app_r11sdp_st2sdp_checkbox_stroke_dash"
+            android:textColor="@color/text_on_selected"
+            app:drawableTopCompat="@drawable/ic_app_plus_17sdp" />
+    </FrameLayout>
 
-</FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

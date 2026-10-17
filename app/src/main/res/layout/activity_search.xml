@@ -9,16 +9,13 @@
     android:orientation="vertical"
     tools:context=".ui.main.search.SearchActivity">
 
-    <com.ui.baselib.widget.layout.UiLinearLayout
+    <LinearLayout
         android:id="@+id/layoutTop"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:uiBackgroundColor="@color/color_surface_card"
-        app:uiStrokeColor="@color/color_stroke"
-        app:uiStrokeSides="bottom"
         android:paddingBottom="@dimen/_4sdp"
-        app:uiStrokeWidth="@dimen/_1sdp">
+        android:background="@drawable/bg_surface_card_line_bottom_1sdp_stroke">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -27,13 +24,15 @@
             android:orientation="horizontal"
             android:paddingHorizontal="@dimen/_9sdp">
 
-            <com.ui.baselib.widget.view.UiImageView
+            <ImageView
                 android:id="@+id/btnBack"
                 style="@style/IconButtonStyle"
                 android:contentDescription="@string/scanner_back"
-                android:src="@drawable/ic_app_back" />
+                android:src="@drawable/ic_app_back"
+                android:background="@drawable/bg_surface_variant_r17sdp"
+                android:clipToOutline="true" />
 
-            <com.ui.baselib.widget.layout.UiLinearLayout
+            <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="@dimen/_34sdp"
                 android:layout_marginStart="@dimen/_6sdp"
@@ -41,9 +40,9 @@
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
                 android:paddingStart="@dimen/_9sdp"
-                app:uiCornerRadius="@dimen/_11sdp"
-                app:uiStrokeColor="@color/primary"
-                app:uiStrokeWidth="@dimen/_1sdp">
+                android:background="@drawable/bg_r11sdp"
+                android:foreground="@drawable/stroke_r11sdp_st1sdp_primary"
+                android:clipToOutline="true">
 
                 <EditText
                     android:id="@+id/edtSearch"
@@ -72,9 +71,9 @@
                     android:visibility="gone"
                     app:tint="@color/text_secondary"
                     tools:visibility="visible" />
-            </com.ui.baselib.widget.layout.UiLinearLayout>
+            </LinearLayout>
         </LinearLayout>
-    </com.ui.baselib.widget.layout.UiLinearLayout>
+    </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcvFilters"
@@ -116,13 +115,16 @@
             android:textSize="@dimen/_10sdp"
             tools:text="3 results" />
 
-        <com.ui.baselib.widget.layout.UiFrameLayout
+        <FrameLayout
             android:id="@+id/layoutDocuments"
             style="@style/CardAppStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/_13sdp"
-            android:layout_marginBottom="@dimen/_11sdp">
+            android:layout_marginBottom="@dimen/_11sdp"
+            android:background="@drawable/bg_surface_card_r15sdp"
+            android:foreground="@drawable/stroke_r15sdp_st1sdp_stroke"
+            android:clipToOutline="true">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rcvDocuments"
@@ -131,7 +133,7 @@
                 android:overScrollMode="never"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 tools:listitem="@layout/item_document" />
-        </com.ui.baselib.widget.layout.UiFrameLayout>
+        </FrameLayout>
     </LinearLayout>
 
     <!-- Recent searches -->

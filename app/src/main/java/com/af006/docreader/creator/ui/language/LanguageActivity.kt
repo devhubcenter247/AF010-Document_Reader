@@ -8,7 +8,6 @@ import com.af010.creator.docreader.databinding.ActivityLanguageBinding
 import com.af010.creator.docreader.ui.main.MainActivity
 import com.af010.creator.docreader.ui.onboarding.OnboardingActivity
 import com.ui.baselib.extensions.clickSingle
-import com.ui.baselib.widget.layout.isBackgroundGradient
 
 class LanguageActivity :
     BaseAppActivity<ActivityLanguageBinding>(ActivityLanguageBinding::inflate) {
@@ -29,14 +28,12 @@ class LanguageActivity :
         val savedCode =
             preferenceHelper.languageSelected.takeIf { preferenceHelper.isFinishFirstFlow }
         val deviceLocale = Resources.getSystem().configuration.locales[0]
-        languageAdapter.onLanguageSelected {
-            btnContinue.isBackgroundGradient(true)
-        }.submitList(listLanguage.toUiModels(savedCode, deviceLocale))
+        languageAdapter.submitList(listLanguage.toUiModels(savedCode, deviceLocale))
     }
 
     override fun ActivityLanguageBinding.onClick() {
 
-        btnContinue.isBackgroundGradient(true).clickSingle {
+        btnContinue.clickSingle {
             val selected = languageAdapter.selectedItem ?: return@clickSingle
             preferenceHelper.languageSelected = selected.item.code
             if (!preferenceHelper.isFinishFirstFlow) {

@@ -47,12 +47,15 @@
                 android:paddingBottom="@dimen/_7sdp"
                 android:text="@string/folders" />
 
-            <com.ui.baselib.widget.layout.UiFrameLayout
+            <FrameLayout
                 android:id="@+id/layoutFolders"
                 style="@style/CardAppStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/_13sdp">
+                android:layout_marginHorizontal="@dimen/_13sdp"
+                android:background="@drawable/bg_surface_card_r15sdp"
+                android:foreground="@drawable/stroke_r15sdp_st1sdp_stroke"
+                android:clipToOutline="true">
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rcvFolders"
@@ -62,7 +65,7 @@
                     android:overScrollMode="never"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     tools:listitem="@layout/item_folder" />
-            </com.ui.baselib.widget.layout.UiFrameLayout>
+            </FrameLayout>
 
             <TextView
                 style="@style/TextSectionTitle"
@@ -73,7 +76,7 @@
                 android:paddingBottom="@dimen/_7sdp"
                 android:text="@string/other_types" />
 
-            <com.ui.baselib.widget.view.UiTextView
+            <TextView
                 android:id="@+id/btnTxt"
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/_27sdp"
@@ -82,12 +85,9 @@
                 android:gravity="center"
                 android:paddingHorizontal="@dimen/_11sdp"
                 android:textSize="@dimen/_10sdp"
-                app:uiBackgroundColor="@color/color_surface_card"
-                app:uiCornerRadius="@dimen/_13sdp"
-                app:uiStrokeColor="@color/color_stroke"
-                app:uiStrokeWidth="@dimen/_1sdp"
-                app:uiTextColor="@color/text_primary"
-                tools:text="TXT  7" />
+                tools:text="TXT  7"
+                android:background="@drawable/bg_surface_card_r13sdp_st1sdp_stroke"
+                android:textColor="@color/text_primary" />
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 

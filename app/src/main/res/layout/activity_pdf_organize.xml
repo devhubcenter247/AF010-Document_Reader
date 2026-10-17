@@ -38,48 +38,49 @@
             android:indeterminateTint="@color/primary" />
     </FrameLayout>
 
-    <com.ui.baselib.widget.layout.UiLinearLayout
+    <LinearLayout
         android:id="@+id/layoutActions"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:paddingBottom="@dimen/_3sdp"
-        app:uiBackgroundColor="@color/color_surface_card"
-        app:uiStrokeColor="@color/color_stroke"
-        app:uiStrokeSides="top"
-        app:uiStrokeWidth="@dimen/_1sdp">
+        android:background="@drawable/bg_surface_card_line_top_1sdp_stroke">
 
-        <com.ui.baselib.widget.view.UiTextView
+        <TextView
             android:id="@+id/btnRotate"
             style="@style/ReaderActionStyle"
             android:text="@string/scanner_rotate"
-            app:drawableTopCompat="@drawable/ic_app_rotate" />
+            android:textColor="@color/text_primary"
+            app:drawableTopCompat="@drawable/ic_app_rotate_17sdp" />
 
-        <com.ui.baselib.widget.view.UiTextView
+        <TextView
             android:id="@+id/btnDuplicate"
             style="@style/ReaderActionStyle"
             android:text="@string/duplicate"
-            app:drawableTopCompat="@drawable/ic_app_duplicate" />
+            android:textColor="@color/text_primary"
+            app:drawableTopCompat="@drawable/ic_app_duplicate_17sdp" />
 
-        <com.ui.baselib.widget.view.UiTextView
+        <TextView
             android:id="@+id/btnAddPage"
             style="@style/ReaderActionStyle"
             android:text="@string/add_page"
-            app:drawableTopCompat="@drawable/ic_app_plus" />
+            android:textColor="@color/text_primary"
+            app:drawableTopCompat="@drawable/ic_app_plus_17sdp" />
 
-        <com.ui.baselib.widget.view.UiTextView
+        <TextView
             android:id="@+id/btnToImages"
             style="@style/ReaderActionStyle"
             android:text="@string/tool_to_images"
-            app:drawableTopCompat="@drawable/ic_app_photos" />
+            android:textColor="@color/text_primary"
+            app:drawableTopCompat="@drawable/ic_app_photos_17sdp" />
 
-        <com.ui.baselib.widget.view.UiTextView
+        <TextView
             android:id="@+id/btnDelete"
             style="@style/ReaderActionStyle"
             android:text="@string/file_action_delete"
             app:drawableTint="@color/color_error"
-            app:drawableTopCompat="@drawable/ic_app_trash"
-            app:uiTextColor="@color/color_error" />
-    </com.ui.baselib.widget.layout.UiLinearLayout>
+            android:textColor="@color/color_error"
+            app:drawableTopCompat="@drawable/ic_app_trash_17sdp" />
+    </LinearLayout>
 
 </LinearLayout>

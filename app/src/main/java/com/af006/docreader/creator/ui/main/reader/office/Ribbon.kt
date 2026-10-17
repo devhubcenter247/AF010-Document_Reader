@@ -13,6 +13,7 @@ import androidx.core.view.updatePadding
 import androidx.core.widget.ImageViewCompat
 import com.af010.creator.docreader.R
 import com.af010.creator.docreader.databinding.ItemRibbonBinding
+import com.af010.creator.docreader.utils.extensions.setFillColor
 import com.editor.docsdk.DocumentEditor
 import com.editor.docsdk.DocumentType
 import com.editor.docsdk.EditAction
@@ -219,9 +220,9 @@ class RibbonAdapter : BaseAdapter<RibbonItem, ItemRibbonBinding>() {
         }
         val side = if (chip) res.getDimensionPixelSize(com.intuit.sdp.R.dimen._9sdp) else 0
         this.item.updatePadding(left = side, right = side)
-        this.item.helper.bgColor = ContextCompat.getColor(
+        this.item.setFillColor(ContextCompat.getColor(
             context, if (active) R.color.color_bg_selected else R.color.color_surface_variant
-        )
+        ))
         this.item.invalidate()
 
         val tint = ContextCompat.getColor(

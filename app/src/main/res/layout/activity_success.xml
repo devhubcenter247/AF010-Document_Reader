@@ -15,14 +15,16 @@
         android:gravity="center_vertical"
         android:paddingHorizontal="@dimen/_9sdp">
 
-        <com.ui.baselib.widget.view.UiImageView
+        <ImageView
             android:id="@+id/btnClose"
             style="@style/IconButtonStyle"
             android:contentDescription="@string/scanner_close"
-            android:src="@drawable/ic_app_close" />
+            android:src="@drawable/ic_app_close"
+            android:background="@drawable/bg_surface_variant_r17sdp"
+            android:clipToOutline="true" />
     </LinearLayout>
 
-    <com.ui.baselib.widget.view.UiImageView
+    <ImageView
         android:layout_width="@dimen/_74sdp"
         android:layout_height="@dimen/_74sdp"
         android:layout_gravity="center_horizontal"
@@ -30,8 +32,8 @@
         android:contentDescription="@null"
         android:padding="@dimen/_13sdp"
         android:src="@drawable/ic_check_success"
-        app:uiBackgroundColor="@color/color_success_bg"
-        app:uiCornerRadius="@dimen/_37sdp" />
+        android:background="@drawable/bg_success_bg_r37sdp"
+        android:clipToOutline="true" />
 
     <TextView
         android:layout_width="match_parent"
@@ -53,7 +55,7 @@
         android:textColor="@color/text_secondary"
         android:textSize="@dimen/_10sdp" />
 
-    <com.ui.baselib.widget.layout.UiLinearLayout
+    <LinearLayout
         style="@style/CardAppStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -63,7 +65,9 @@
         android:orientation="horizontal"
         android:paddingHorizontal="@dimen/_11sdp"
         android:paddingVertical="@dimen/_9sdp"
-        app:uiCornerRadius="@dimen/_10sdp">
+        android:background="@drawable/bg_surface_card_r10sdp"
+        android:foreground="@drawable/stroke_r10sdp_st1sdp_stroke"
+        android:clipToOutline="true">
 
         <ImageView
             android:id="@+id/ivType"
@@ -101,7 +105,7 @@
                 tools:text="2.4 MB · 65% smaller" />
         </LinearLayout>
 
-        <com.ui.baselib.widget.view.UiTextView
+        <TextView
             android:id="@+id/tvSaving"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/_20sdp"
@@ -110,12 +114,11 @@
             android:paddingHorizontal="@dimen/_8sdp"
             android:textSize="@dimen/_9sdp"
             android:visibility="gone"
-            app:uiBackgroundColor="@color/color_success_bg"
-            app:uiCornerRadius="@dimen/_10sdp"
-            app:uiTextColor="@color/color_success"
             tools:text="−65%"
-            tools:visibility="visible" />
-    </com.ui.baselib.widget.layout.UiLinearLayout>
+            tools:visibility="visible"
+            android:background="@drawable/bg_success_bg_r10sdp"
+            android:textColor="@color/color_success" />
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -123,36 +126,62 @@
         android:gravity="center"
         android:orientation="horizontal">
 
-        <com.ui.baselib.widget.view.UiTextView
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btnOpen"
             android:layout_marginStart="@dimen/_12sdp"
             style="@style/ButtonAppStyle"
             android:layout_width="0dp"
             android:layout_marginEnd="@dimen/_4sdp"
             android:layout_weight="1"
-            android:drawablePadding="@dimen/_6sdp"
             android:text="@string/open"
             android:layout_marginVertical="@dimen/_8sdp"
-            app:drawableStartCompat="@drawable/ic_app_eye"
-            app:drawableTint="@color/on_primary"
-            app:uiDrawableAlign="text"
-            app:uiDrawableSize="@dimen/_15sdp"
-            app:uiShadowClipParent="force"
-            app:uiShadowColor="@color/primary_30" />
+            android:background="@drawable/bg_grad_gradient_start_gradient_end_270_r10sdp"
+            android:elevation="@dimen/_5sdp"
+            android:outlineSpotShadowColor="@color/primary_30"
+            android:outlineAmbientShadowColor="@color/primary_20"
+            android:textColor="@color/white"
+            app:icon="@drawable/ic_app_eye"
+            app:iconGravity="textStart"
+            app:iconPadding="@dimen/_6sdp"
+            app:iconSize="@dimen/_15sdp"
+            app:iconTint="@color/on_primary"
+            app:backgroundTint="@null"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:textAllCaps="false"
+            android:letterSpacing="0"
+            android:stateListAnimator="@null"
+            android:paddingHorizontal="0dp"
+            android:paddingVertical="0dp" />
 
-        <com.ui.baselib.widget.view.UiTextView
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btnShare"
             style="@style/ButtonOutlineStyle"
             android:layout_width="0dp"
             android:layout_marginStart="@dimen/_4sdp"
             android:layout_marginEnd="@dimen/_12sdp"
             android:layout_weight="1"
-            android:drawablePadding="@dimen/_6sdp"
             android:text="@string/file_action_share"
-            app:drawableStartCompat="@drawable/ic_app_share"
-            app:drawableTint="@color/text_primary"
-            app:uiDrawableAlign="text"
-            app:uiDrawableSize="@dimen/_15sdp" />
+            android:background="@drawable/bg_surface_card_r10sdp_st1sdp_stroke"
+            android:textColor="@color/text_primary"
+            app:icon="@drawable/ic_app_share"
+            app:iconGravity="textStart"
+            app:iconPadding="@dimen/_6sdp"
+            app:iconSize="@dimen/_15sdp"
+            app:iconTint="@color/text_primary"
+            app:backgroundTint="@null"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:textAllCaps="false"
+            android:letterSpacing="0"
+            android:stateListAnimator="@null"
+            android:paddingHorizontal="0dp"
+            android:paddingVertical="0dp"
+            android:elevation="0dp" />
 
     </LinearLayout>
 

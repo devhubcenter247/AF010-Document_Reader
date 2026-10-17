@@ -25,7 +25,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-        <com.ui.baselib.widget.layout.UiLinearLayout
+        <LinearLayout
             android:id="@+id/cardWord"
             style="@style/CardAppStyle"
             android:layout_width="0dp"
@@ -34,7 +34,9 @@
             android:layout_weight="1"
             android:gravity="center"
             android:orientation="vertical"
-            app:uiCornerRadius="@dimen/_13sdp">
+            android:background="@drawable/bg_surface_card_r13sdp"
+            android:foreground="@drawable/stroke_r13sdp_st1sdp_stroke"
+            android:clipToOutline="true">
 
             <ImageView
                 android:layout_width="@dimen/_25sdp"
@@ -53,9 +55,9 @@
                 android:text="@string/tab_word"
                 android:textColor="@color/text_primary"
                 android:textSize="@dimen/_10sdp" />
-        </com.ui.baselib.widget.layout.UiLinearLayout>
+        </LinearLayout>
 
-        <com.ui.baselib.widget.layout.UiLinearLayout
+        <LinearLayout
             android:id="@+id/cardExcel"
             style="@style/CardAppStyle"
             android:layout_width="0dp"
@@ -65,7 +67,9 @@
             android:layout_weight="1"
             android:gravity="center"
             android:orientation="vertical"
-            app:uiCornerRadius="@dimen/_13sdp">
+            android:background="@drawable/bg_surface_card_r13sdp"
+            android:foreground="@drawable/stroke_r13sdp_st1sdp_stroke"
+            android:clipToOutline="true">
 
             <ImageView
                 android:layout_width="@dimen/_25sdp"
@@ -84,9 +88,9 @@
                 android:text="@string/tab_excel"
                 android:textColor="@color/text_primary"
                 android:textSize="@dimen/_10sdp" />
-        </com.ui.baselib.widget.layout.UiLinearLayout>
+        </LinearLayout>
 
-        <com.ui.baselib.widget.layout.UiLinearLayout
+        <LinearLayout
             android:id="@+id/cardPpt"
             style="@style/CardAppStyle"
             android:layout_width="0dp"
@@ -95,7 +99,9 @@
             android:layout_weight="1"
             android:gravity="center"
             android:orientation="vertical"
-            app:uiCornerRadius="@dimen/_13sdp">
+            android:background="@drawable/bg_surface_card_r13sdp"
+            android:foreground="@drawable/stroke_r13sdp_st1sdp_stroke"
+            android:clipToOutline="true">
 
             <ImageView
                 android:layout_width="@dimen/_25sdp"
@@ -114,7 +120,7 @@
                 android:text="@string/powerpoint"
                 android:textColor="@color/text_primary"
                 android:textSize="@dimen/_10sdp" />
-        </com.ui.baselib.widget.layout.UiLinearLayout>
+        </LinearLayout>
 
         </LinearLayout>
 
@@ -127,17 +133,16 @@
             android:textColor="@color/text_secondary"
             android:textSize="@dimen/_10sdp" />
 
-        <com.ui.baselib.widget.layout.UiLinearLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/_37sdp"
             android:layout_marginTop="@dimen/_5sdp"
             android:gravity="center_vertical"
             android:orientation="horizontal"
             android:paddingHorizontal="@dimen/_11sdp"
-            app:uiBackgroundColor="@color/color_surface_card"
-            app:uiCornerRadius="@dimen/_11sdp"
-            app:uiStrokeColor="@color/primary"
-            app:uiStrokeWidth="@dimen/_1sdp">
+            android:background="@drawable/bg_surface_card_r11sdp"
+            android:foreground="@drawable/stroke_r11sdp_st1sdp_primary"
+            android:clipToOutline="true">
 
             <EditText
                 android:id="@+id/edtName"
@@ -164,7 +169,7 @@
                 android:textColor="@color/text_secondary"
                 android:textSize="@dimen/_12sdp"
                 tools:text=".docx" />
-        </com.ui.baselib.widget.layout.UiLinearLayout>
+        </LinearLayout>
 
         <TextView
             android:layout_width="match_parent"
@@ -175,7 +180,7 @@
             android:textColor="@color/text_secondary"
             android:textSize="@dimen/_10sdp" />
 
-        <com.ui.baselib.widget.view.UiTextView
+        <TextView
             android:id="@+id/tvSaveTo"
             style="@style/CardAppStyle"
             android:layout_width="match_parent"
@@ -188,21 +193,23 @@
             android:maxLines="1"
             android:paddingHorizontal="@dimen/_11sdp"
             android:textSize="@dimen/_12sdp"
-            app:drawableStartCompat="@drawable/ic_app_folder"
             app:drawableTint="@color/text_on_selected"
-            app:uiCornerRadius="@dimen/_11sdp"
-            app:uiDrawableSize="@dimen/_15sdp"
-            app:uiTextColor="@color/text_primary"
-            tools:text="Download / Pdf Reader" />
+            tools:text="Download / Pdf Reader"
+            android:background="@drawable/bg_surface_card_r11sdp_st1sdp_stroke"
+            android:textColor="@color/text_primary"
+            app:drawableStartCompat="@drawable/ic_app_folder_15sdp" />
 
-        <com.ui.baselib.widget.layout.UiLinearLayout
+        <LinearLayout
             style="@style/CardAppStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_17sdp"
             android:gravity="center_vertical"
             android:orientation="horizontal"
-            android:padding="@dimen/_13sdp">
+            android:padding="@dimen/_13sdp"
+            android:background="@drawable/bg_surface_card_r15sdp"
+            android:foreground="@drawable/stroke_r15sdp_st1sdp_stroke"
+            android:clipToOutline="true">
 
             <ImageView
                 android:id="@+id/ivPreview"
@@ -235,33 +242,42 @@
                     android:textColor="@color/text_secondary"
                     android:textSize="@dimen/_9sdp" />
             </LinearLayout>
-        </com.ui.baselib.widget.layout.UiLinearLayout>
+        </LinearLayout>
     </LinearLayout>
 
-    <com.ui.baselib.widget.layout.UiFrameLayout
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/bg_surface_card_line_top_1sdp_stroke">
 
-        app:uiBackgroundColor="@color/color_surface_card"
-        app:uiStrokeColor="@color/color_stroke"
-        app:uiStrokeSides="top"
-        app:uiStrokeWidth="@dimen/_1sdp">
-
-        <com.ui.baselib.widget.view.UiTextView
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btnCreate"
             style="@style/ButtonAppStyle"
             android:layout_marginTop="@dimen/_9sdp"
             android:layout_width="match_parent"
-            android:drawablePadding="@dimen/_6sdp"
             android:layout_marginHorizontal="@dimen/_15sdp"
             android:text="@string/create_and_start_editing"
-            app:drawableStartCompat="@drawable/ic_app_pen"
-            app:drawableTint="@color/on_primary"
-            app:uiDrawableAlign="text"
             android:layout_marginBottom="@dimen/_10sdp"
-            app:uiDrawableSize="@dimen/_15sdp"
-            app:uiShadowClipParent="force"
-            app:uiShadowColor="@color/primary_30" />
-    </com.ui.baselib.widget.layout.UiFrameLayout>
+            android:background="@drawable/bg_grad_gradient_start_gradient_end_270_r10sdp"
+            android:elevation="@dimen/_5sdp"
+            android:outlineSpotShadowColor="@color/primary_30"
+            android:outlineAmbientShadowColor="@color/primary_20"
+            android:textColor="@color/white"
+            app:icon="@drawable/ic_app_pen"
+            app:iconGravity="textStart"
+            app:iconPadding="@dimen/_6sdp"
+            app:iconSize="@dimen/_15sdp"
+            app:iconTint="@color/on_primary"
+            app:backgroundTint="@null"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:textAllCaps="false"
+            android:letterSpacing="0"
+            android:stateListAnimator="@null"
+            android:paddingHorizontal="0dp"
+            android:paddingVertical="0dp" />
+    </FrameLayout>
 
 </LinearLayout>

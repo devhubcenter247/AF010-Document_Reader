@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.ui.baselib.widget.layout.UiLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
@@ -9,19 +10,21 @@
     android:orientation="horizontal"
     android:paddingStart="@dimen/_3sdp"
     android:paddingEnd="@dimen/_8sdp"
-    app:uiCornerRadius="@dimen/_16sdp"
-    tools:uiBackgroundColor="@color/color_f2eafe">
+    tools:uiBackgroundColor="@color/color_f2eafe"
+    android:background="@drawable/bg_r16sdp"
+    android:clipToOutline="true">
 
-    <com.ui.baselib.widget.view.UiImageView
+    <ImageView
         android:id="@+id/ivIcon"
         android:layout_width="@dimen/_20sdp"
         android:layout_height="@dimen/_20sdp"
         android:contentDescription="@null"
         android:padding="@dimen/_5sdp"
         app:tint="@color/on_primary"
-        app:uiCornerRadius="@dimen/_12sdp"
         tools:src="@drawable/ic_app_sign"
-        tools:uiBackgroundColor="@color/color_9254e8" />
+        tools:uiBackgroundColor="@color/color_9254e8"
+        android:background="@drawable/bg_r12sdp"
+        android:clipToOutline="true" />
 
     <TextView
         android:id="@+id/tvTitle"
@@ -34,4 +37,4 @@
         android:textSize="@dimen/_10sdp"
         tools:text="Sign" />
 
-</com.ui.baselib.widget.layout.UiLinearLayout>
+</LinearLayout>

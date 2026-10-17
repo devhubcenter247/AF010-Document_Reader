@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.ui.baselib.widget.layout.UiConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,12 +9,11 @@
     android:clickable="true"
     android:focusable="true"
     android:padding="@dimen/_10sdp"
-    app:uiBackgroundColor="@color/color_surface_card"
-    app:uiCornerRadius="@dimen/_10sdp"
-    app:uiStrokeColor="@color/color_stroke"
-    app:uiStrokeWidth="@dimen/_1sdp">
+    android:background="@drawable/bg_surface_card_r10sdp"
+    android:foreground="@drawable/stroke_r10sdp_st1sdp_stroke"
+    android:clipToOutline="true">
 
-    <com.ui.baselib.widget.view.UiImageView
+    <ImageView
         android:id="@+id/ivIcon"
         android:layout_width="@dimen/_27sdp"
         android:layout_height="@dimen/_27sdp"
@@ -23,8 +23,8 @@
         android:src="@drawable/ic_use_case_work"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:uiBackgroundColor="#3582FF"
-        app:uiCornerRadius="@dimen/_8sdp" />
+        android:background="@drawable/bg_x3582ff_r8sdp"
+        android:clipToOutline="true" />
 
     <ImageView
         android:id="@+id/ivCheck"
@@ -61,4 +61,4 @@
         app:layout_constraintTop_toBottomOf="@+id/tvTitle"
         tools:text="Contracts, reports, signing" />
 
-</com.ui.baselib.widget.layout.UiConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,23 +8,23 @@
     android:orientation="vertical"
     android:paddingHorizontal="@dimen/_5sdp">
 
-    <com.ui.baselib.widget.layout.UiFrameLayout
+    <FrameLayout
         android:id="@+id/card"
         android:layout_width="@dimen/_49sdp"
         android:layout_height="@dimen/_62sdp"
         android:padding="@dimen/_3sdp"
-        app:uiCornerRadius="@dimen/_9sdp"
-        app:uiStrokeColor="@color/primary">
+        android:background="@drawable/bg_r9sdp"
+        android:clipToOutline="true">
 
-        <com.ui.baselib.widget.view.UiImageView
+        <ImageView
             android:id="@+id/ivPreview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:contentDescription="@null"
             android:scaleType="centerCrop"
-            app:uiBackgroundColor="@color/color_surface_track"
-            app:uiCornerRadius="@dimen/_7sdp" />
-    </com.ui.baselib.widget.layout.UiFrameLayout>
+            android:background="@drawable/bg_surface_track_r7sdp"
+            android:clipToOutline="true" />
+    </FrameLayout>
 
     <TextView
         android:id="@+id/tvLabel"

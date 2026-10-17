@@ -44,7 +44,7 @@
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
-                <com.ui.baselib.widget.layout.UiLinearLayout
+                <LinearLayout
                     android:id="@+id/btnFrom"
                     style="@style/CardAppStyle"
                     android:layout_width="0dp"
@@ -53,7 +53,9 @@
                     android:gravity="center_vertical"
                     android:orientation="vertical"
                     android:paddingHorizontal="@dimen/_11sdp"
-                    app:uiCornerRadius="@dimen/_13sdp">
+                    android:background="@drawable/bg_surface_card_r13sdp"
+                    android:foreground="@drawable/stroke_r13sdp_st1sdp_stroke"
+                    android:clipToOutline="true">
 
                     <TextView
                         android:layout_width="match_parent"
@@ -63,7 +65,7 @@
                         android:textColor="@color/text_secondary"
                         android:textSize="@dimen/_9sdp" />
 
-                    <com.ui.baselib.widget.view.UiTextView
+                    <TextView
                         android:id="@+id/tvFrom"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -71,14 +73,13 @@
                         android:fontFamily="@font/nt_600"
                         android:maxLines="1"
                         android:textSize="@dimen/_11sdp"
-                        app:drawableEndCompat="@drawable/ic_app_chevd"
                         app:drawableTint="@color/text_secondary"
-                        app:uiDrawableSize="@dimen/_12sdp"
-                        app:uiTextColor="@color/text_primary"
-                        tools:text="Spanish" />
-                </com.ui.baselib.widget.layout.UiLinearLayout>
+                        tools:text="Spanish"
+                        android:textColor="@color/text_primary"
+                        app:drawableEndCompat="@drawable/ic_app_chevd_12sdp" />
+                </LinearLayout>
 
-                <com.ui.baselib.widget.view.UiImageView
+                <ImageView
                     android:layout_width="@dimen/_28sdp"
                     android:layout_height="@dimen/_28sdp"
                     android:layout_marginHorizontal="@dimen/_6sdp"
@@ -86,10 +87,10 @@
                     android:padding="@dimen/_7sdp"
                     android:src="@drawable/ic_app_arrowr"
                     app:tint="@color/text_on_selected"
-                    app:uiBackgroundColor="@color/color_bg_selected"
-                    app:uiCornerRadius="@dimen/_14sdp" />
+                    android:background="@drawable/bg_bg_selected_r14sdp"
+                    android:clipToOutline="true" />
 
-                <com.ui.baselib.widget.layout.UiLinearLayout
+                <LinearLayout
                     android:id="@+id/btnTo"
                     style="@style/CardAppStyle"
                     android:layout_width="0dp"
@@ -98,7 +99,9 @@
                     android:gravity="center_vertical"
                     android:orientation="vertical"
                     android:paddingHorizontal="@dimen/_11sdp"
-                    app:uiCornerRadius="@dimen/_13sdp">
+                    android:background="@drawable/bg_surface_card_r13sdp"
+                    android:foreground="@drawable/stroke_r13sdp_st1sdp_stroke"
+                    android:clipToOutline="true">
 
                     <TextView
                         android:layout_width="match_parent"
@@ -108,7 +111,7 @@
                         android:textColor="@color/text_secondary"
                         android:textSize="@dimen/_9sdp" />
 
-                    <com.ui.baselib.widget.view.UiTextView
+                    <TextView
                         android:id="@+id/tvTo"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -116,23 +119,24 @@
                         android:fontFamily="@font/nt_600"
                         android:maxLines="1"
                         android:textSize="@dimen/_11sdp"
-                        app:drawableEndCompat="@drawable/ic_app_chevd"
                         app:drawableTint="@color/text_secondary"
-                        app:uiDrawableSize="@dimen/_12sdp"
-                        app:uiTextColor="@color/text_primary"
-                        tools:text="Spanish" />
-                </com.ui.baselib.widget.layout.UiLinearLayout>
+                        tools:text="Spanish"
+                        android:textColor="@color/text_primary"
+                        app:drawableEndCompat="@drawable/ic_app_chevd_12sdp" />
+                </LinearLayout>
 
             </LinearLayout>
 
-            <com.ui.baselib.widget.layout.UiLinearLayout
+            <LinearLayout
                 style="@style/CardAppStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_13sdp"
                 android:orientation="horizontal"
                 android:padding="@dimen/_11sdp"
-                app:uiCornerRadius="@dimen/_13sdp">
+                android:background="@drawable/bg_surface_card_r13sdp"
+                android:foreground="@drawable/stroke_r13sdp_st1sdp_stroke"
+                android:clipToOutline="true">
 
                 <ImageView
                     android:layout_width="@dimen/_17sdp"
@@ -164,7 +168,7 @@
                         android:textColor="@color/text_secondary"
                         android:textSize="@dimen/_9sdp" />
                 </LinearLayout>
-            </com.ui.baselib.widget.layout.UiLinearLayout>
+            </LinearLayout>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 

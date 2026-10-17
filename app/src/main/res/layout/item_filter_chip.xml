@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.ui.baselib.widget.view.UiTextView xmlns:android="http://schemas.android.com/apk/res/android"
+<TextView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/tvChip"
@@ -11,10 +12,6 @@
     android:gravity="center"
     android:paddingHorizontal="@dimen/_11sdp"
     android:textSize="@dimen/_10sdp"
-    app:uiBackgroundColor="@color/color_surface_card"
-    app:uiCornerRadius="@dimen/_15sdp"
-    app:uiDrawableSize="@dimen/_12sdp"
-    app:uiStrokeColor="@color/color_stroke"
-    app:uiStrokeWidth="@dimen/_1sdp"
-    app:uiTextColor="@color/text_primary"
-    tools:text="Convert" />
+    tools:text="Convert"
+    android:background="@drawable/bg_surface_card_r15sdp_st1sdp_stroke"
+    android:textColor="@color/text_primary" />

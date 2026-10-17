@@ -8,7 +8,7 @@
     android:clipToPadding="false"
     android:paddingTop="@dimen/_9sdp">
 
-    <com.ui.baselib.widget.layout.UiLinearLayout
+    <LinearLayout
         android:id="@+id/card"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -16,10 +16,9 @@
         android:orientation="horizontal"
         android:paddingHorizontal="@dimen/_13sdp"
         android:paddingVertical="@dimen/_11sdp"
-        app:uiBackgroundColor="@color/color_surface_card"
-        app:uiCornerRadius="@dimen/_14sdp"
-        app:uiStrokeColor="@color/color_stroke"
-        app:uiStrokeWidth="@dimen/_1sdp">
+        android:background="@drawable/bg_surface_card_r14sdp"
+        android:foreground="@drawable/stroke_r14sdp_st1sdp_stroke"
+        android:clipToOutline="true">
 
         <ImageView
             android:id="@+id/ivRadio"
@@ -88,9 +87,9 @@
                 android:textSize="@dimen/_9sdp"
                 tools:text="per year" />
         </LinearLayout>
-    </com.ui.baselib.widget.layout.UiLinearLayout>
+    </LinearLayout>
 
-    <com.ui.baselib.widget.view.UiTextView
+    <TextView
         android:id="@+id/tvBadge"
         android:layout_width="wrap_content"
         android:layout_height="@dimen/_17sdp"
@@ -102,10 +101,9 @@
         android:paddingHorizontal="@dimen/_8sdp"
         android:textSize="@dimen/_9sdp"
         android:visibility="gone"
-        app:uiBackgroundColor="@color/accent"
-        app:uiCornerRadius="@dimen/_8sdp"
-        app:uiTextColor="@color/on_accent"
         tools:text="Save 58%"
-        tools:visibility="visible" />
+        tools:visibility="visible"
+        android:background="@drawable/bg_accent_r8sdp"
+        android:textColor="@color/on_accent" />
 
 </FrameLayout>

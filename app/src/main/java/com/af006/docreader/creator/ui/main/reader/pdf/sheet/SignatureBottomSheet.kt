@@ -21,6 +21,9 @@ import com.af010.creator.docreader.ui.main.reader.pdf.edit.SignaturePad
 import com.af010.creator.docreader.ui.main.reader.pdf.edit.SignatureStore
 import com.af010.creator.docreader.ui.main.reader.pdf.loadPicture
 import com.af010.creator.docreader.ui.main.reader.pdf.selectColorDot
+import com.af010.creator.docreader.utils.extensions.setCompoundDrawablesSized
+import com.af010.creator.docreader.utils.extensions.setFillColor
+import com.af010.creator.docreader.utils.extensions.setStroke
 import com.d010.pdf.reader.base.toastShort
 import com.ui.baselib.base.BaseAdapter
 import com.ui.baselib.base.BaseBottomSheet
@@ -29,8 +32,8 @@ import com.ui.baselib.extensions.click
 import com.ui.baselib.extensions.clickSingle
 import com.ui.baselib.extensions.visibleOrGone
 import com.ui.baselib.utils.dpToPx
-import kotlinx.coroutines.launch
 import java.io.File
+import kotlinx.coroutines.launch
 
 /** Makes a signature (drawn, typed, from a picture or a saved one) and hands it over as a bitmap. */
 class SignatureBottomSheet(
@@ -111,9 +114,9 @@ class SignatureBottomSheet(
     private fun SheetSignatureBinding.render() {
         listOf(tabDraw, tabType, tabImage, tabSaved).forEachIndexed { index, view ->
             val selected = index == tab.ordinal
-            view.helper.bgColor = ContextCompat.getColor(
+            view.setFillColor(ContextCompat.getColor(
                 activity, if (selected) R.color.color_surface_card else android.R.color.transparent
-            )
+            ))
             view.setTextColor(
                 ContextCompat.getColor(activity, if (selected) R.color.text_primary else R.color.text_secondary)
             )
@@ -134,8 +137,9 @@ class SignatureBottomSheet(
         layoutColors.visibleOrGone(tab == Tab.Draw || tab == Tab.Type)
         btnSaveNext.visibleOrGone(tab != Tab.Saved)
         ivSignature.setImageBitmap(picture)
-        btnSaveNext.setCompoundDrawablesRelativeWithIntrinsicBounds(
-            if (saveNext) R.drawable.ic_app_checkbox_on else R.drawable.ic_app_checkbox_off, 0, 0, 0
+        btnSaveNext.setCompoundDrawablesSized(
+            com.intuit.sdp.R.dimen._17sdp,
+            start = if (saveNext) R.drawable.ic_app_checkbox_on else R.drawable.ic_app_checkbox_off
         )
     }
 
@@ -231,10 +235,9 @@ class SavedSignatureAdapter : BaseAdapter<File, ItemSignatureBinding>() {
         val context = root.context
         val isSelected = item == selected
         ivSignature.setImageBitmap(BitmapFactory.decodeFile(item.path))
-        card.helper.stColor = ContextCompat.getColor(
+        card.setStroke(context.dpToPx(if (isSelected) 2 else 1), ContextCompat.getColor(
             context, if (isSelected) R.color.primary else R.color.color_stroke
-        )
-        card.helper.stWidth = context.dpToPx(if (isSelected) 2 else 1).toFloat()
+        ))
         card.invalidate()
         root.setOnClickListener { onItemClick.invoke(item) }
         btnRemove.setOnClickListener { onRemove.invoke(item) }

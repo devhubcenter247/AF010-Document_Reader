@@ -11,7 +11,6 @@ Gradle modules:
 - `:app` — `com.af010.creator.docreader`, the application.
 - `:pdfview` — `com.reader.pdfviewer`, the PDF viewer widget (`PDFView`: rendering, text selection, search, ink, annotations, forms, undo/redo, save). Source copied from the earlier app because the document SDK only exposes PDF as view-only; it sits on the SDK's pdfium classes. `SdkInternals.java` is a Java shim that reaches the SDK members Kotlin cannot (`internal`, name-mangled or obfuscated) — it is the first thing to break when the SDK version changes.
 - `:opencv` — a slim local OpenCV 4.12 build (core, imgproc, imgcodecs; prebuilt `.so` only) used by the scanner. `opencv/README.md` has the rebuild steps. It relies on `libc++_shared.so` from the document SDK.
-- `:lib` — `com.ui.baselib`, an in-repo UI base library (base classes, extensions, custom widgets). It declares its own dependency versions inline rather than through `gradle/libs.versions.toml`.
 
 ## Commands
 
@@ -24,27 +23,26 @@ The app has a `version` flavor dimension (`dev`, `product`), so every variant ta
 ./gradlew :app:testDevDebugUnitTest        # JVM unit tests
 ./gradlew :app:testDevDebugUnitTest --tests "com.af010.creator.docreader.ExampleUnitTest"   # single test class (append .method for one test)
 ./gradlew :app:connectedDevDebugAndroidTest   # instrumented tests (device required)
-./gradlew :lib:assembleDebug               # the library alone (no flavors)
 ```
 
 Build prerequisites that are not in the repo:
 
 - `com.editor:docsdk:1.0.0` is resolved from a private GitHub Packages Maven repo (`settings.gradle.kts`). It needs `gpr.user` and `gpr.key` Gradle properties, normally in `~/.gradle/gradle.properties`. Without them dependency resolution fails.
 - Release builds reference `keystore/lionmen.jks` and `app/proguard-rules.pro`, neither of which exists in the working tree. Only debug variants build as-is.
-- Toolchain: Gradle 9.6 wrapper, AGP 9.1, Kotlin 2.4, daemon JVM 25 (auto-provisioned through foojay), Java/Kotlin target 17. Configuration cache is on. `compileSdk`/`targetSdk` 37, `minSdk` 26 (`:lib` is 24). Only the `arm64-v8a` and `armeabi-v7a` ABIs are packaged (`abiFilters` in `app/build.gradle.kts`), so the app has no native x86/x86_64 build. The document SDK ships x86 and x86_64 libraries but `:opencv` does not: adding those ABIs means rebuilding OpenCV for them first (`opencv/README.md`). ABI splitting is on for the bundle only: an APK carries both ABIs.
+- Toolchain: Gradle 9.6 wrapper, AGP 9.1, Kotlin 2.4, daemon JVM 25 (auto-provisioned through foojay), Java/Kotlin target 17. Configuration cache is on. `compileSdk`/`targetSdk` 37, `minSdk` 26. Only the `arm64-v8a` and `armeabi-v7a` ABIs are packaged (`abiFilters` in `app/build.gradle.kts`), so the app has no native x86/x86_64 build. The document SDK ships x86 and x86_64 libraries but `:opencv` does not: adding those ABIs means rebuilding OpenCV for them first (`opencv/README.md`). ABI splitting is on for the bundle only: an APK carries both ABIs.
 
 Each flavor has its own `google-services.json` under `app/src/<flavor>/`; `product` also changes the `applicationId` to `com.editdocument.pdfreader.viewer`.
 
-R8 keep rules for the app live in `app/src/main/keepRules/rules.keep` (AGP merges that folder). `:lib` ships `consumer-rules.pro`.
+R8 keep rules for the app live in `app/src/main/keepRules/rules.keep` (AGP merges that folder), including the rule that keeps `BaseFragment.onBackPressed` by name.
 
 ## Architecture
 
-### Screen base classes (`:lib` → `:app`)
+### Screen base classes (`com.ui.baselib` → app)
 
-Every screen extends a `:lib` base class through an app-level subclass:
+Every screen extends a `com.ui.baselib` base class through an app-level subclass:
 
-`BaseActivity<VB>` (lib) → `BaseAppActivity<VB>` (app) → concrete activity
-`BaseFragment<VB>` (lib) → `BaseAppFragment<VB>` (app) → concrete fragment
+`BaseActivity<VB>` (baselib) → `BaseAppActivity<VB>` (app) → concrete activity
+`BaseFragment<VB>` (baselib) → `BaseAppFragment<VB>` (app) → concrete fragment
 
 Pass the binding inflater to the constructor (`BaseAppActivity<ActivityFooBinding>(ActivityFooBinding::inflate)`) and implement the template methods instead of overriding `onCreate`:
 
@@ -54,16 +52,16 @@ Pass the binding inflater to the constructor (`BaseAppActivity<ActivityFooBindin
 What the base classes already do, so screens should not redo it:
 
 - Edge-to-edge and immersive mode with hidden system bars. The root view gets status-bar top padding unless the activity sets `fullStatus = true` (fragment: `isFullSc = true`). A fragment skips its own padding when its host activity already pads.
-- `BaseHost` (`lib/.../base/HostInterfaces.kt`) is mixed into both and provides `launchIO/launchMain`, `Flow.collect { }` / `mainCollect` bound to the right lifecycle (fragments collect on the view lifecycle, at `RESUMED`; activities at `STARTED`), `toast`, keyboard helpers, and `post/postDelayed`.
+- `BaseHost` (`com/ui/baselib/base/HostInterfaces.kt`) is mixed into both and provides `launchIO/launchMain`, `Flow.collect { }` / `mainCollect` bound to the right lifecycle (fragments collect on the view lifecycle, at `RESUMED`; activities at `STARTED`), `toast`, keyboard helpers, and `post/postDelayed`.
 - `launchActivity<T>("key" to value)`, `launchAndFinish<T>()`, and `launcherForResult<T> { result -> }` for activity navigation with extras.
 - Tapping outside a focused `EditText` hides the keyboard.
 - `BaseAppActivity`/`BaseAppFragment` add the no-internet dialog (shown and dismissed automatically on connectivity changes), `internetClick`/`internetSingleClick`/`runWithInternet`, the Koin-injected `preferenceHelper`, and the locale wrapping in `attachBaseContext`.
 
-`BaseFragment` detects by reflection whether a subclass overrides `onBackPressed()` to decide if it registers a back callback; `consumer-rules.pro` keeps that method name, so do not rename it.
+`BaseFragment` detects by reflection whether a subclass overrides `onBackPressed()` to decide if it registers a back callback; `rules.keep` keeps that method name, so do not rename it.
 
 ### Fragment navigation
 
-Navigation between fragments uses a custom route system in `HostInterfaces.kt`, not Jetpack Navigation XML graphs (there is no `res/navigation`). An activity overrides `fragmentContainerId` and `navGraph` (a `NavGraph` built with `addDestination(name, isStartDestination) { args -> Fragment }`); routes are registered in the global `RouteRegistry`. Fragments then call `navigateTo(routeName, "key" to value)`, `popBackTo`, `popToRoot`, `navigatePopUpTo`. The `NavController` helpers in `lib/.../extensions/NavigationExtensions.kt` are a separate, currently unused path.
+Navigation between fragments uses a custom route system in `HostInterfaces.kt`, not Jetpack Navigation XML graphs (there is no `res/navigation`). An activity overrides `fragmentContainerId` and `navGraph` (a `NavGraph` built with `addDestination(name, isStartDestination) { args -> Fragment }`); routes are registered in the global `RouteRegistry`. Fragments then call `navigateTo(routeName, "key" to value)`, `popBackTo`, `popToRoot`, `navigatePopUpTo`. The `NavController` helpers in `com/ui/baselib/extensions/NavigationExtensions.kt` are a separate, currently unused path.
 
 ### Main screens
 
@@ -142,17 +140,19 @@ Language is applied per activity in `BaseAppActivity.attachBaseContext` through 
 - Preferences: add new keys as delegated properties in `PreferenceHelper` (`preference.boolean/int/string(...)`, or `preference.observable(...)` for a value exposing `flow`/`liveData`). `SharedPreference` stores non-primitive values as Gson JSON.
 - `data/AppDataRepo.kt` is an older in-memory holder that is not registered in Koin; prefer `DocumentRepository`.
 
-### `:lib` contents
+### `com.ui.baselib` (former `:lib` module)
 
-Besides the base classes: `BaseAdapter` / `DiffAdapter` (ViewBinding RecyclerView adapters — implement `createBinding` and `VB.bind(item, position)`), `BaseDialog`, `BaseBottomSheet`, popup builders, click helpers (`click`, `clickSingle` for debounced taps), safe Bundle/Intent helpers (`safeBundleOf`, `getData<T>(key)`), lifecycle/coroutine extensions, network observer, bitmap/file/URI utilities, and custom widgets (`UiTextView`, `UiEditText`, `UiConstraintLayout` and friends with rounded-corner/stroke attributes, a vendored Flexbox, `UiNavigationBar`, `IndicatorView`). Check here before adding a helper to `:app`.
+The old `:lib` module now lives as plain source in `:app` under `app/src/main/java/com/ui/baselib` (package names kept, so imports did not change; its resources use the app's `R`). Besides the base classes: `BaseAdapter` / `DiffAdapter` (ViewBinding RecyclerView adapters — implement `createBinding` and `VB.bind(item, position)`), `BaseDialog`, `BaseBottomSheet`, popup builders, click helpers (`click`, `clickSingle` for debounced taps), safe Bundle/Intent helpers (`safeBundleOf`, `getData<T>(key)`), lifecycle/coroutine extensions, network observer, bitmap/file/URI utilities, and the widgets with real behaviour (a vendored Flexbox, `UiNavigationBar` + `NavItem` on top of `UiLinearLayout`/`UiLayoutHelper`, `IndicatorView`, `UiLinearProgressIndicator`). Check here before adding a helper.
+
+Layouts use platform views (`TextView`, `LinearLayout`, `ImageView`…) with XML drawables in `res/drawable` instead of styling views: `bg_*` shapes for fill/corners, `stroke_*` shapes as `android:foreground` for the border of layouts and pictures (drawn over the content), `line_*` layer-lists for one-sided borders, `<icon>_<size>` layer-lists for sized compound drawables, and `android:clipToOutline="true"` to round a layout's content. A button whose icon must sit next to centred text is a `MaterialButton` (`app:icon`, `app:iconGravity="textStart"`, `app:backgroundTint="@null"`). Colours that change at runtime go through `utils/extensions/Shape.kt` (`setFillColor`, `setStroke`, `setCircle`, which mutate the view's own copy of the shape); icons set from code at a fixed size use `TextView.setCompoundDrawablesSized`.
 
 ## Repo quirks
 
 - Two files declare packages left over from the project this was forked from, which do not match their directories: `base/Aso.kt` is `com.d010.pdf.reader.base` and `data/DataResponse.kt` is `com.d010.pdf.reader.viewmodel`. Import them under those names (as `DocumentRepositoryImpl` does). The APK base name (`D010-PDF-Reader-…`) comes from the same origin.
-- `:lib` helpers to avoid in `:app`: `getData<String>(key)` throws when the extra was put as null (read optional extras with `intent.getStringExtra`), and `shareFile`/`shareFiles` in `com.ui.baselib.file` use the authority `<package>.provider` while the app's provider is `<package>.fileprovider` (use the ones in `Aso.kt` or `DocumentRepository.shareUri`).
+- `com.ui.baselib` helpers to avoid: `getData<String>(key)` throws when the extra was put as null (read optional extras with `intent.getStringExtra`), and `shareFile`/`shareFiles` in `com.ui.baselib.file` use the authority `<package>.provider` while the app's provider is `<package>.fileprovider` (use the ones in `Aso.kt` or `DocumentRepository.shareUri`).
 - A `StateFlow` must be collected with `mainCollect { }` from `BaseHost`; a bare `collect { }` resolves to the suspending member instead.
 - Any `ViewGroup` with padding clips its children to the padding box; decorations placed with negative margins need `android:clipToPadding="false"`.
-- Several helpers exist in both modules (`setFullScreen`, `hideSystemBar`, `parcelable`, `isInternetAvailable`, `statusBarHeight`). Prefer the `:lib` versions; watch for ambiguous imports.
+- Several helpers exist both in `com.ui.baselib` and in the app packages (`setFullScreen`, `hideSystemBar`, `parcelable`, `isInternetAvailable`, `statusBarHeight`). Prefer the `com.ui.baselib` versions; watch for ambiguous imports.
 - Layout dimensions use the `sdp`/`ssp` scalable-size libraries (`@dimen/_16sdp`, `@dimen/_14ssp`).
-- Comments and some error messages in `:lib` are in Vietnamese.
+- Comments and some error messages in `com.ui.baselib` are in Vietnamese.
 - The directory is not a git repository.

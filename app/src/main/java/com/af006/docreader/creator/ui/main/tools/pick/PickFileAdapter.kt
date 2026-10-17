@@ -9,6 +9,8 @@ import com.af010.creator.docreader.model.RecentUi
 import com.af010.creator.docreader.utils.extensions.dateText
 import com.af010.creator.docreader.utils.extensions.iconRes
 import com.af010.creator.docreader.utils.extensions.name
+import com.af010.creator.docreader.utils.extensions.setFillColor
+import com.af010.creator.docreader.utils.extensions.setStroke
 import com.af010.creator.docreader.utils.extensions.sizeText
 import com.ui.baselib.base.DiffAdapter
 
@@ -49,13 +51,13 @@ class PickFileAdapter : DiffAdapter<RecentUi, ItemPickFileBinding>(
             )
         )
         tvOrder.text = if (order >= 0) (order + 1).toString() else ""
-        tvOrder.helper.bgColor = ContextCompat.getColor(
+        tvOrder.setFillColor(ContextCompat.getColor(
             context,
             if (order >= 0) R.color.primary else android.R.color.transparent
-        )
-        tvOrder.helper.stColor = ContextCompat.getColor(
-            context,
-            if (order >= 0) R.color.primary else R.color.color_checkbox_stroke
+        ))
+        tvOrder.setStroke(
+            context.resources.getDimensionPixelSize(com.intuit.sdp.R.dimen._2sdp),
+            ContextCompat.getColor(context, if (order >= 0) R.color.primary else R.color.color_checkbox_stroke)
         )
         tvOrder.invalidate()
         root.setOnClickListener { onItemClick.invoke(item) }

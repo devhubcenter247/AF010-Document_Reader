@@ -25,27 +25,24 @@
             android:paddingHorizontal="@dimen/_13sdp"
             android:paddingVertical="@dimen/_15sdp">
 
-            <com.ui.baselib.widget.layout.UiLinearLayout
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
                 android:padding="@dimen/_13sdp"
-                app:uiBackgroundGradientEnabled="true"
-                app:uiBackgroundGradientEnd="@color/gradient_end"
-                app:uiBackgroundGradientOrientation="tl_br"
-                app:uiBackgroundGradientStart="@color/gradient_start"
-                app:uiCornerRadius="@dimen/_17sdp">
+                android:background="@drawable/bg_grad_gradient_start_gradient_end_315_r17sdp"
+                android:clipToOutline="true">
 
-                <com.ui.baselib.widget.view.UiImageView
+                <ImageView
                     android:layout_width="@dimen/_37sdp"
                     android:layout_height="@dimen/_37sdp"
                     android:contentDescription="@null"
                     android:padding="@dimen/_10sdp"
                     android:src="@drawable/ic_app_crown"
                     app:tint="@color/on_primary"
-                    app:uiBackgroundColor="@color/color_white_16"
-                    app:uiCornerRadius="@dimen/_13sdp" />
+                    android:background="@drawable/bg_white_16_r13sdp"
+                    android:clipToOutline="true" />
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -72,15 +69,17 @@
                         android:textSize="@dimen/_9sdp"
                         tools:text="No active subscription" />
                 </LinearLayout>
-            </com.ui.baselib.widget.layout.UiLinearLayout>
+            </LinearLayout>
 
-            <com.ui.baselib.widget.layout.UiLinearLayout
+            <LinearLayout
                 style="@style/CardAppStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_13sdp"
                 android:orientation="vertical"
-                app:uiCornerRadius="@dimen/_15sdp">
+                android:background="@drawable/bg_surface_card_r15sdp"
+                android:foreground="@drawable/stroke_r15sdp_st1sdp_stroke"
+                android:clipToOutline="true">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -204,9 +203,9 @@
                         android:textSize="@dimen/_10sdp"
                         tools:text="Google Play" />
                 </LinearLayout>
-            </com.ui.baselib.widget.layout.UiLinearLayout>
+            </LinearLayout>
 
-            <com.ui.baselib.widget.view.UiTextView
+            <TextView
                 android:id="@+id/tvNotice"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -218,28 +217,31 @@
                 android:paddingVertical="@dimen/_9sdp"
                 android:text="@string/subscription_none_notice"
                 android:textSize="@dimen/_9sdp"
-                app:drawableStartCompat="@drawable/ic_app_info"
                 app:drawableTint="@color/color_warning"
-                app:uiBackgroundColor="@color/color_warning_bg"
-                app:uiCornerRadius="@dimen/_11sdp"
-                app:uiDrawableSize="@dimen/_13sdp"
-                app:uiTextColor="@color/color_on_warning" />
+                android:background="@drawable/bg_warning_bg_r11sdp"
+                android:textColor="@color/color_on_warning"
+                app:drawableStartCompat="@drawable/ic_app_info_13sdp" />
 
-            <com.ui.baselib.widget.view.UiTextView
+            <TextView
                 android:id="@+id/btnPrimary"
                 style="@style/ButtonAppStyle"
                 android:layout_width="match_parent"
                 android:layout_marginTop="@dimen/_13sdp"
-                app:uiShadowClipParent="force"
-                app:uiShadowColor="@color/primary_30"
-                tools:text="See Premium plans" />
+                tools:text="See Premium plans"
+                android:background="@drawable/bg_grad_gradient_start_gradient_end_270_r10sdp"
+                android:elevation="@dimen/_5sdp"
+                android:outlineSpotShadowColor="@color/primary_30"
+                android:outlineAmbientShadowColor="@color/primary_20"
+                android:textColor="@color/white" />
 
-            <com.ui.baselib.widget.view.UiTextView
+            <TextView
                 android:id="@+id/btnGooglePlay"
                 style="@style/ButtonOutlineStyle"
                 android:layout_width="match_parent"
                 android:layout_marginTop="@dimen/_8sdp"
-                android:text="@string/manage_in_google_play" />
+                android:text="@string/manage_in_google_play"
+                android:background="@drawable/bg_surface_card_r10sdp_st1sdp_stroke"
+                android:textColor="@color/text_primary" />
 
             <TextView
                 android:layout_width="match_parent"

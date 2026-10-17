@@ -8,16 +8,16 @@
     android:gravity="center_vertical"
     android:orientation="horizontal">
 
-    <com.ui.baselib.widget.view.UiImageView
+    <ImageView
         android:id="@+id/ivIcon"
         android:layout_width="@dimen/_25sdp"
         android:layout_height="@dimen/_25sdp"
         android:contentDescription="@null"
         android:padding="@dimen/_6sdp"
         app:tint="@color/on_primary"
-        app:uiBackgroundColor="@color/color_white_16"
-        app:uiCornerRadius="@dimen/_8sdp"
-        tools:src="@drawable/ic_app_eyeoff" />
+        tools:src="@drawable/ic_app_eyeoff"
+        android:background="@drawable/bg_white_16_r8sdp"
+        android:clipToOutline="true" />
 
     <TextView
         android:id="@+id/tvText"

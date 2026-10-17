@@ -22,6 +22,7 @@ import com.af010.creator.docreader.ui.main.scan.ScanSessionViewModel
 import com.af010.creator.docreader.ui.main.scan.detection.DocumentImageProcessor
 import com.af010.creator.docreader.ui.main.scan.detection.ScanFilter
 import com.af010.creator.docreader.ui.main.tools.result.ProcessingActivity
+import com.af010.creator.docreader.utils.extensions.setStroke
 import com.bumptech.glide.Glide
 import com.ui.baselib.base.BaseAdapter
 import com.ui.baselib.extensions.click
@@ -29,14 +30,14 @@ import com.ui.baselib.extensions.clickSingle
 import com.ui.baselib.extensions.visible
 import com.ui.baselib.extensions.visibleOrInvisible
 import com.ui.baselib.utils.dpToPx
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.koin.androidx.viewmodel.ext.android.activityViewModel
-import java.text.SimpleDateFormat
-import java.util.Date
-import java.util.Locale
 
 /** Review the scanned pages: pick a filter per page, rotate, crop again, delete, then save as PDF. */
 class ScanFiltersFragment :
@@ -236,7 +237,7 @@ class ScanFiltersFragment :
             tvLabel.setTextColor(
                 ContextCompat.getColor(context, if (isSelected) R.color.text_on_selected else R.color.text_primary)
             )
-            card.helper.stWidth = if (isSelected) context.dpToPx(3).toFloat() else 0f
+            card.setStroke(if (isSelected) context.dpToPx(3) else 0, ContextCompat.getColor(context, R.color.primary))
             card.invalidate()
             ivPreview.setImageBitmap(item.bitmap)
             root.setOnClickListener { onItemClick.invoke(item.filter) }

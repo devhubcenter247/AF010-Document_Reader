@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import com.af010.creator.docreader.R
+import com.af010.creator.docreader.app.remote.remoteConfig
 import com.af010.creator.docreader.base.BaseAppFragment
 import com.af010.creator.docreader.databinding.FragmentToolsBinding
 import com.af010.creator.docreader.databinding.ItemToolSectionBinding
@@ -11,8 +12,8 @@ import com.af010.creator.docreader.model.Tool
 import com.af010.creator.docreader.model.ToolGroup
 import com.af010.creator.docreader.ui.main.common.FilterChip
 import com.af010.creator.docreader.ui.main.common.FilterChipAdapter
-import com.af010.creator.docreader.app.remote.remoteConfig
 import com.af010.creator.docreader.ui.main.premium.PaywallActivity
+import com.af010.creator.docreader.utils.extensions.setFillColor
 import com.ui.baselib.extensions.afterTextChanged
 import com.ui.baselib.extensions.clickSingle
 import com.ui.baselib.extensions.visibleOrGone
@@ -66,8 +67,7 @@ class ToolsFragment : BaseAppFragment<FragmentToolsBinding>(FragmentToolsBinding
                 if (tools.isEmpty()) return@forEach
 
                 val section = ItemToolSectionBinding.inflate(inflater, layoutSections, true)
-                section.viewColor.helper.bgColor =
-                    ContextCompat.getColor(section.root.context, toolGroup.color)
+                section.viewColor.setFillColor(ContextCompat.getColor(section.root.context, toolGroup.color))
                 section.tvTitle.setText(toolGroup.title)
                 section.tvCount.text =
                     resources.getQuantityString(R.plurals.tool_count, tools.size, tools.size)

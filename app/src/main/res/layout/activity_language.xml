@@ -48,30 +48,40 @@
 
     <LinearLayout
         android:id="@+id/lnButtonStyle"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintWidth_percent="0.5"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent">
 
-        <com.ui.baselib.widget.view.UiTextView
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btnContinue"
             style="@style/ButtonAppStyle"
-            android:layout_width="0dp"
-            app:uiWidthPercent="50"
+            android:layout_width="match_parent"
             android:layout_marginHorizontal="@dimen/_13sdp"
             android:layout_marginVertical="@dimen/_10sdp"
-            android:drawableEnd="@drawable/ic_app_arrowr"
-            android:elevation="@dimen/_10sdp"
             android:paddingHorizontal="@dimen/_13sdp"
             android:text="@string/txt_continues"
-            app:uiBackgroundGradientEnabled="false"
-            app:uiDrawableAlign="text"
-            app:uiDrawablePadding="@dimen/_7sdp"
-            app:uiDrawableSize="@dimen/_17sdp"
-            app:uiDrawableTint="@color/white"
-            app:uiStrokeGradient="false" />
+            android:background="@drawable/bg_grad_gradient_start_gradient_end_270_r10sdp"
+            android:elevation="@dimen/_5sdp"
+            android:outlineSpotShadowColor="@color/primary_30"
+            android:outlineAmbientShadowColor="@color/primary_20"
+            android:textColor="@color/white"
+            app:icon="@drawable/ic_app_arrowr"
+            app:iconGravity="textEnd"
+            app:iconPadding="@dimen/_7sdp"
+            app:iconSize="@dimen/_17sdp"
+            app:iconTint="@color/white"
+            app:backgroundTint="@null"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:textAllCaps="false"
+            android:letterSpacing="0"
+            android:stateListAnimator="@null"
+            android:paddingVertical="0dp" />
     </LinearLayout>
 
 

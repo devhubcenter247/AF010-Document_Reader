@@ -6,14 +6,13 @@
     android:layout_height="wrap_content"
     android:padding="@dimen/_3sdp">
 
-    <com.ui.baselib.widget.layout.UiFrameLayout
+    <FrameLayout
         android:id="@+id/card"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_80sdp"
-        app:uiBackgroundColor="@color/color_surface_card"
-        app:uiCornerRadius="@dimen/_8sdp"
-        app:uiStrokeColor="@color/color_stroke"
-        app:uiStrokeWidth="@dimen/_1sdp">
+        android:background="@drawable/bg_surface_card_r8sdp"
+        android:foreground="@drawable/stroke_r8sdp_st1sdp_stroke"
+        android:clipToOutline="true">
 
         <ImageView
             android:id="@+id/ivPage"
@@ -23,7 +22,7 @@
             android:contentDescription="@null"
             android:scaleType="fitCenter" />
 
-        <com.ui.baselib.widget.view.UiTextView
+        <TextView
             android:id="@+id/tvNumber"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/_15sdp"
@@ -34,10 +33,9 @@
             android:minWidth="@dimen/_15sdp"
             android:paddingHorizontal="@dimen/_4sdp"
             android:textSize="@dimen/_9sdp"
-            app:uiBackgroundColor="@color/color_ink"
-            app:uiCornerRadius="@dimen/_8sdp"
-            app:uiTextColor="@color/on_primary"
-            tools:text="1" />
-    </com.ui.baselib.widget.layout.UiFrameLayout>
+            tools:text="1"
+            android:background="@drawable/bg_ink_r8sdp"
+            android:textColor="@color/on_primary" />
+    </FrameLayout>
 
 </FrameLayout>

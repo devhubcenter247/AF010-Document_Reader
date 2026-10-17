@@ -17,13 +17,14 @@
         android:orientation="horizontal"
         android:paddingHorizontal="@dimen/_9sdp">
 
-        <com.ui.baselib.widget.view.UiImageView
+        <ImageView
             android:id="@+id/btnBack"
             style="@style/IconButtonStyle"
             android:contentDescription="@string/scanner_back"
             android:src="@drawable/ic_app_back"
             app:tint="@color/on_primary"
-            app:uiBackgroundColor="@color/color_white_12" />
+            android:background="@drawable/bg_white_12_r17sdp"
+            android:clipToOutline="true" />
 
         <LinearLayout
             android:layout_width="0dp"
@@ -52,7 +53,7 @@
                 android:textSize="@dimen/_9sdp" />
         </LinearLayout>
 
-        <com.ui.baselib.widget.view.UiTextView
+        <TextView
             android:id="@+id/btnDone"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/_23sdp"
@@ -61,9 +62,8 @@
             android:paddingHorizontal="@dimen/_10sdp"
             android:text="@string/done"
             android:textSize="@dimen/_10sdp"
-            app:uiBackgroundColor="@color/accent"
-            app:uiCornerRadius="@dimen/_12sdp"
-            app:uiTextColor="@color/on_accent" />
+            android:background="@drawable/bg_accent_r12sdp"
+            android:textColor="@color/on_accent" />
     </LinearLayout>
 
     <FrameLayout
@@ -113,13 +113,14 @@
             android:progressTint="@color/accent"
             android:thumbTint="@color/accent" />
 
-        <com.ui.baselib.widget.view.UiImageView
+        <ImageView
             android:id="@+id/btnUndo"
             style="@style/IconButtonStyle"
             android:contentDescription="@string/undo"
             android:src="@drawable/ic_app_undo"
             app:tint="@color/on_primary"
-            app:uiBackgroundColor="@color/color_white_12" />
+            android:background="@drawable/bg_white_12_r17sdp"
+            android:clipToOutline="true" />
     </LinearLayout>
 
 </LinearLayout>

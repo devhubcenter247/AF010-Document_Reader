@@ -6,14 +6,13 @@
     android:layout_height="match_parent"
     android:padding="@dimen/_3sdp">
 
-    <com.ui.baselib.widget.layout.UiFrameLayout
+    <FrameLayout
         android:id="@+id/card"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:uiBackgroundColor="@color/white"
-        app:uiCornerRadius="@dimen/_9sdp"
-        app:uiStrokeColor="@color/color_stroke"
-        app:uiStrokeWidth="@dimen/_1sdp">
+        android:background="@drawable/bg_white_r9sdp"
+        android:foreground="@drawable/stroke_r9sdp_st1sdp_stroke"
+        android:clipToOutline="true">
 
         <ImageView
             android:id="@+id/ivSignature"
@@ -33,6 +32,6 @@
             android:padding="@dimen/_5sdp"
             android:src="@drawable/ic_app_close"
             app:tint="#6B7186" />
-    </com.ui.baselib.widget.layout.UiFrameLayout>
+    </FrameLayout>
 
 </FrameLayout>

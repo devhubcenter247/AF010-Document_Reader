@@ -9,17 +9,14 @@
     android:orientation="vertical"
     tools:context=".ui.main.reader.pdf.PdfReaderActivity">
 
-    <com.ui.baselib.widget.layout.UiLinearLayout
+    <LinearLayout
         android:id="@+id/layoutTop"
         android:layout_gravity="center_vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:paddingBottom="@dimen/_4sdp"
-        app:uiBackgroundColor="@color/color_surface_card"
-        app:uiStrokeColor="@color/color_stroke"
-        app:uiStrokeSides="bottom"
-        app:uiStrokeWidth="@dimen/_1sdp">
+        android:background="@drawable/bg_surface_card_line_bottom_1sdp_stroke">
 
         <LinearLayout
             android:id="@+id/barReader"
@@ -30,11 +27,13 @@
             android:paddingEnd="@dimen/_4sdp"
             android:paddingStart="@dimen/_9sdp">
 
-            <com.ui.baselib.widget.view.UiImageView
+            <ImageView
                 android:id="@+id/btnBack"
                 style="@style/IconButtonStyle"
                 android:contentDescription="@string/scanner_back"
-                android:src="@drawable/ic_app_back" />
+                android:src="@drawable/ic_app_back"
+                android:background="@drawable/bg_surface_variant_r17sdp"
+                android:clipToOutline="true" />
 
             <ImageView
                 android:layout_width="@dimen/_20sdp"
@@ -121,11 +120,13 @@
             android:paddingStart="@dimen/_9sdp"
             android:visibility="gone">
 
-            <com.ui.baselib.widget.view.UiImageView
+            <ImageView
                 android:id="@+id/btnModeClose"
                 style="@style/IconButtonStyle"
                 android:contentDescription="@string/scanner_close"
-                android:src="@drawable/ic_app_close" />
+                android:src="@drawable/ic_app_close"
+                android:background="@drawable/bg_surface_variant_r17sdp"
+                android:clipToOutline="true" />
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -177,7 +178,7 @@
                 android:padding="@dimen/_5sdp"
                 android:src="@drawable/ic_app_redo" />
 
-            <com.ui.baselib.widget.view.UiTextView
+            <TextView
                 android:id="@+id/btnModeAction"
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/_23sdp"
@@ -187,9 +188,8 @@
                 android:paddingHorizontal="@dimen/_10sdp"
                 android:text="@string/file_action_save"
                 android:textSize="@dimen/_10sdp"
-                app:uiBackgroundColor="@color/primary"
-                app:uiCornerRadius="@dimen/_12sdp"
-                app:uiTextColor="@color/on_primary" />
+                android:background="@drawable/bg_primary_r12sdp"
+                android:textColor="@color/on_primary" />
         </LinearLayout>
 
         <LinearLayout
@@ -202,13 +202,15 @@
             android:paddingStart="@dimen/_9sdp"
             android:visibility="gone">
 
-            <com.ui.baselib.widget.view.UiImageView
+            <ImageView
                 android:id="@+id/btnSearchClose"
                 style="@style/IconButtonStyle"
                 android:contentDescription="@string/scanner_close"
-                android:src="@drawable/ic_app_close" />
+                android:src="@drawable/ic_app_close"
+                android:background="@drawable/bg_surface_variant_r17sdp"
+                android:clipToOutline="true" />
 
-            <com.ui.baselib.widget.layout.UiLinearLayout
+            <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="@dimen/_34sdp"
                 android:layout_marginStart="@dimen/_5sdp"
@@ -216,9 +218,9 @@
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
                 android:paddingHorizontal="@dimen/_9sdp"
-                app:uiCornerRadius="@dimen/_11sdp"
-                app:uiStrokeColor="@color/primary"
-                app:uiStrokeWidth="@dimen/_1sdp">
+                android:background="@drawable/bg_r11sdp"
+                android:foreground="@drawable/stroke_r11sdp_st1sdp_primary"
+                android:clipToOutline="true">
 
                 <EditText
                     android:id="@+id/edtSearch"
@@ -244,7 +246,7 @@
                     android:textColor="@color/text_secondary"
                     android:textSize="@dimen/_10sdp"
                     tools:text="1/17" />
-            </com.ui.baselib.widget.layout.UiLinearLayout>
+            </LinearLayout>
 
             <ImageView
                 android:id="@+id/btnSearchPrevious"
@@ -265,9 +267,9 @@
                 android:padding="@dimen/_5sdp"
                 android:src="@drawable/ic_app_chevd" />
         </LinearLayout>
-    </com.ui.baselib.widget.layout.UiLinearLayout>
+    </LinearLayout>
 
-    <com.ui.baselib.widget.view.UiTextView
+    <TextView
         android:id="@+id/tvBanner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -278,12 +280,11 @@
         android:text="@string/form_hint"
         android:textSize="@dimen/_10sdp"
         android:visibility="gone"
-        app:drawableStartCompat="@drawable/ic_app_info"
         app:drawableTint="@color/color_info"
-        app:uiBackgroundColor="@color/color_info_bg"
-        app:uiDrawableSize="@dimen/_13sdp"
-        app:uiTextColor="@color/color_on_info"
-        tools:visibility="visible" />
+        tools:visibility="visible"
+        android:background="@drawable/bg_info_bg"
+        android:textColor="@color/color_on_info"
+        app:drawableStartCompat="@drawable/ic_app_info_13sdp" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layoutContent"
@@ -310,7 +311,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <com.ui.baselib.widget.view.UiTextView
+        <TextView
             android:id="@+id/tvPagePill"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/_23sdp"
@@ -322,13 +323,12 @@
             android:textSize="@dimen/_9sdp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:uiBackgroundColor="@color/color_pill_dark"
-            app:uiCornerRadius="@dimen/_12sdp"
-            app:uiTextColor="@color/on_primary"
-            tools:text="1 / 12" />
+            tools:text="1 / 12"
+            android:background="@drawable/bg_pill_dark_r12sdp"
+            android:textColor="@color/on_primary" />
 
         <!-- Actions on the selected text (markup) or the selected object (duplicate, delete) -->
-        <com.ui.baselib.widget.layout.UiLinearLayout
+        <LinearLayout
             android:id="@+id/layoutMarkup"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/_31sdp"
@@ -340,9 +340,9 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:uiBackgroundColor="@color/color_ink"
-            app:uiCornerRadius="@dimen/_9sdp"
-            tools:visibility="visible">
+            tools:visibility="visible"
+            android:background="@drawable/bg_ink_r9sdp"
+            android:clipToOutline="true">
 
             <TextView
                 android:id="@+id/btnMarkHighlight"
@@ -368,7 +368,7 @@
                 android:id="@+id/btnMarkDelete"
                 style="@style/MarkupActionStyle"
                 android:text="@string/file_action_delete" />
-        </com.ui.baselib.widget.layout.UiLinearLayout>
+        </LinearLayout>
 
         <ProgressBar
             android:id="@+id/progress"
@@ -397,17 +397,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <com.ui.baselib.widget.layout.UiLinearLayout
+        <LinearLayout
             android:id="@+id/bottomReader"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_54sdp"
             android:orientation="horizontal"
             android:paddingBottom="@dimen/_3sdp"
             android:paddingHorizontal="@dimen/_6sdp"
-            app:uiBackgroundColor="@color/color_surface_card"
-            app:uiStrokeColor="@color/color_stroke"
-            app:uiStrokeSides="top"
-            app:uiStrokeWidth="@dimen/_1sdp">
+            android:background="@drawable/bg_surface_card_line_top_1sdp_stroke">
 
             <LinearLayout
                 android:id="@+id/btnEdit"
@@ -548,10 +545,10 @@
                     android:textColor="@color/sl_reader_item"
                     android:textSize="@dimen/_9sdp" />
             </LinearLayout>
-        </com.ui.baselib.widget.layout.UiLinearLayout>
+        </LinearLayout>
 
         <!-- Add text: size and colour of the next text -->
-        <com.ui.baselib.widget.layout.UiLinearLayout
+        <LinearLayout
             android:id="@+id/bottomText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -561,10 +558,7 @@
             android:paddingHorizontal="@dimen/_13sdp"
             android:paddingTop="@dimen/_9sdp"
             android:visibility="gone"
-            app:uiBackgroundColor="@color/color_surface_card"
-            app:uiStrokeColor="@color/color_stroke"
-            app:uiStrokeSides="top"
-            app:uiStrokeWidth="@dimen/_1sdp">
+            android:background="@drawable/bg_surface_card_line_top_1sdp_stroke">
 
             <TextView
                 android:layout_width="0dp"
@@ -575,14 +569,16 @@
                 android:textColor="@color/text_secondary"
                 android:textSize="@dimen/_10sdp" />
 
-            <com.ui.baselib.widget.layout.UiLinearLayout
+            <LinearLayout
                 style="@style/CardAppStyle"
                 android:layout_width="@dimen/_77sdp"
                 android:layout_height="@dimen/_33sdp"
                 android:layout_marginEnd="@dimen/_11sdp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
-                app:uiCornerRadius="@dimen/_9sdp">
+                android:background="@drawable/bg_surface_card_r9sdp"
+                android:foreground="@drawable/stroke_r9sdp_st1sdp_stroke"
+                android:clipToOutline="true">
 
                 <ImageView
                     android:id="@+id/btnTextSmaller"
@@ -610,26 +606,23 @@
                     android:contentDescription="@null"
                     android:padding="@dimen/_6sdp"
                     android:src="@drawable/ic_app_plus" />
-            </com.ui.baselib.widget.layout.UiLinearLayout>
+            </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/layoutTextColors"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal" />
-        </com.ui.baselib.widget.layout.UiLinearLayout>
+        </LinearLayout>
 
         <!-- Annotate: colours, width, tools -->
-        <com.ui.baselib.widget.layout.UiLinearLayout
+        <LinearLayout
             android:id="@+id/bottomAnnotate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:visibility="gone"
-            app:uiBackgroundColor="@color/color_surface_card"
-            app:uiStrokeColor="@color/color_stroke"
-            app:uiStrokeSides="top"
-            app:uiStrokeWidth="@dimen/_1sdp">
+            android:background="@drawable/bg_surface_card_line_top_1sdp_stroke">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -674,42 +667,42 @@
                 android:paddingTop="@dimen/_8sdp"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 tools:listitem="@layout/item_annotate_tool" />
-        </com.ui.baselib.widget.layout.UiLinearLayout>
+        </LinearLayout>
 
         <!-- Place signature -->
-        <com.ui.baselib.widget.layout.UiLinearLayout
+        <LinearLayout
             android:id="@+id/bottomSign"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:paddingBottom="@dimen/_3sdp"
             android:visibility="gone"
-            app:uiBackgroundColor="@color/color_surface_card"
-            app:uiStrokeColor="@color/color_stroke"
-            app:uiStrokeSides="top"
-            app:uiStrokeWidth="@dimen/_1sdp">
+            android:background="@drawable/bg_surface_card_line_top_1sdp_stroke">
 
-            <com.ui.baselib.widget.view.UiTextView
+            <TextView
                 android:id="@+id/btnAddSignature"
                 style="@style/ReaderActionStyle"
                 android:text="@string/add_signature"
-                app:drawableTopCompat="@drawable/ic_app_sign" />
+                android:textColor="@color/text_primary"
+                app:drawableTopCompat="@drawable/ic_app_sign_17sdp" />
 
-            <com.ui.baselib.widget.view.UiTextView
+            <TextView
                 android:id="@+id/btnSignDate"
                 style="@style/ReaderActionStyle"
                 android:text="@string/sign_date"
-                app:drawableTopCompat="@drawable/ic_app_calendar" />
+                android:textColor="@color/text_primary"
+                app:drawableTopCompat="@drawable/ic_app_calendar_17sdp" />
 
-            <com.ui.baselib.widget.view.UiTextView
+            <TextView
                 android:id="@+id/btnSignInitials"
                 style="@style/ReaderActionStyle"
                 android:text="@string/sign_initials"
-                app:drawableTopCompat="@drawable/ic_app_text" />
-        </com.ui.baselib.widget.layout.UiLinearLayout>
+                android:textColor="@color/text_primary"
+                app:drawableTopCompat="@drawable/ic_app_text_17sdp" />
+        </LinearLayout>
 
         <!-- Fill form -->
-        <com.ui.baselib.widget.layout.UiLinearLayout
+        <LinearLayout
             android:id="@+id/bottomForm"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -719,26 +712,27 @@
             android:paddingHorizontal="@dimen/_9sdp"
             android:paddingTop="@dimen/_8sdp"
             android:visibility="gone"
-            app:uiBackgroundColor="@color/color_surface_card"
-            app:uiStrokeColor="@color/color_stroke"
-            app:uiStrokeSides="top"
-            app:uiStrokeWidth="@dimen/_1sdp">
+            android:background="@drawable/bg_surface_card_line_top_1sdp_stroke">
 
-            <com.ui.baselib.widget.view.UiImageView
+            <ImageView
                 android:id="@+id/btnFieldPrevious"
                 style="@style/IconButtonStyle"
                 android:contentDescription="@string/scanner_back"
-                android:src="@drawable/ic_app_chevl" />
+                android:src="@drawable/ic_app_chevl"
+                android:background="@drawable/bg_surface_variant_r17sdp"
+                android:clipToOutline="true" />
 
             <Space
                 android:layout_width="@dimen/_6sdp"
                 android:layout_height="0dp" />
 
-            <com.ui.baselib.widget.view.UiImageView
+            <ImageView
                 android:id="@+id/btnFieldNext"
                 style="@style/IconButtonStyle"
                 android:contentDescription="@string/next"
-                android:src="@drawable/ic_app_chev" />
+                android:src="@drawable/ic_app_chev"
+                android:background="@drawable/bg_surface_variant_r17sdp"
+                android:clipToOutline="true" />
 
             <TextView
                 android:id="@+id/tvField"
@@ -754,7 +748,7 @@
                 android:textSize="@dimen/_10sdp"
                 tools:text="Field 3 of 6 · Email" />
 
-            <com.ui.baselib.widget.view.UiTextView
+            <TextView
                 android:id="@+id/btnFormDone"
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/_23sdp"
@@ -764,13 +758,12 @@
                 android:paddingHorizontal="@dimen/_10sdp"
                 android:text="@string/done"
                 android:textSize="@dimen/_10sdp"
-                app:uiBackgroundColor="@color/primary"
-                app:uiCornerRadius="@dimen/_12sdp"
-                app:uiTextColor="@color/on_primary" />
-        </com.ui.baselib.widget.layout.UiLinearLayout>
+                android:background="@drawable/bg_primary_r12sdp"
+                android:textColor="@color/on_primary" />
+        </LinearLayout>
 
         <!-- Read aloud and auto-scroll controls -->
-        <com.ui.baselib.widget.layout.UiLinearLayout
+        <LinearLayout
             android:id="@+id/bottomPlay"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -781,10 +774,7 @@
             android:paddingStart="@dimen/_13sdp"
             android:paddingTop="@dimen/_6sdp"
             android:visibility="gone"
-            app:uiBackgroundColor="@color/color_surface_card"
-            app:uiStrokeColor="@color/color_stroke"
-            app:uiStrokeSides="top"
-            app:uiStrokeWidth="@dimen/_1sdp">
+            android:background="@drawable/bg_surface_card_line_top_1sdp_stroke">
 
             <TextView
                 android:id="@+id/tvPlayTitle"
@@ -846,7 +836,7 @@
                 android:contentDescription="@string/scanner_close"
                 android:padding="@dimen/_5sdp"
                 android:src="@drawable/ic_app_close" />
-        </com.ui.baselib.widget.layout.UiLinearLayout>
+        </LinearLayout>
     </FrameLayout>
 
 </LinearLayout>

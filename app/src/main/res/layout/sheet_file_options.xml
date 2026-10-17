@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.ui.baselib.widget.layout.UiLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/BottomSheetAppStyle"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:paddingBottom="@dimen/_10sdp">
+    android:paddingBottom="@dimen/_10sdp"
+    android:background="@drawable/bg_surface_card_r22sdp_22sdp_0_0"
+    android:clipToOutline="true">
 
-    <com.ui.baselib.widget.layout.UiView
+    <View
         android:layout_width="@dimen/_31sdp"
         android:layout_height="@dimen/_4sdp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="@dimen/_8sdp"
-        app:uiBackgroundColor="@color/color_handle"
-        app:uiCornerRadius="@dimen/_3sdp" />
+        android:background="@drawable/bg_handle_r3sdp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -67,7 +69,7 @@
         android:layout_marginBottom="@dimen/_8sdp"
         android:orientation="horizontal">
 
-        <com.ui.baselib.widget.view.UiTextView
+        <TextView
             android:id="@+id/btnShare"
             style="@style/CardAppStyle"
             android:layout_width="0dp"
@@ -80,12 +82,11 @@
             android:paddingVertical="@dimen/_9sdp"
             android:text="@string/file_action_share"
             android:textSize="@dimen/_9sdp"
-            app:drawableTopCompat="@drawable/ic_app_share"
-            app:uiCornerRadius="@dimen/_13sdp"
-            app:uiDrawableSize="@dimen/_17sdp"
-            app:uiTextColor="@color/text_primary" />
+            android:background="@drawable/bg_surface_card_r13sdp_st1sdp_stroke"
+            android:textColor="@color/text_primary"
+            app:drawableTopCompat="@drawable/ic_app_share_17sdp" />
 
-        <com.ui.baselib.widget.view.UiTextView
+        <TextView
             android:id="@+id/btnFavorite"
             style="@style/CardAppStyle"
             android:layout_width="0dp"
@@ -99,13 +100,12 @@
             android:paddingVertical="@dimen/_9sdp"
             android:text="@string/file_action_favorite"
             android:textSize="@dimen/_9sdp"
-            app:drawableTopCompat="@drawable/ic_app_star"
             app:drawableTint="@color/color_e4a11b"
-            app:uiCornerRadius="@dimen/_13sdp"
-            app:uiDrawableSize="@dimen/_17sdp"
-            app:uiTextColor="@color/text_primary" />
+            android:background="@drawable/bg_surface_card_r13sdp_st1sdp_stroke"
+            android:textColor="@color/text_primary"
+            app:drawableTopCompat="@drawable/ic_app_star_17sdp" />
 
-        <com.ui.baselib.widget.view.UiTextView
+        <TextView
             android:id="@+id/btnToPdf"
             style="@style/CardAppStyle"
             android:layout_width="0dp"
@@ -118,11 +118,10 @@
             android:paddingVertical="@dimen/_9sdp"
             android:text="@string/to_pdf"
             android:textSize="@dimen/_9sdp"
-            app:drawableTopCompat="@drawable/ic_app_download"
             app:drawableTint="@color/color_file_pdf"
-            app:uiCornerRadius="@dimen/_13sdp"
-            app:uiDrawableSize="@dimen/_17sdp"
-            app:uiTextColor="@color/text_primary" />
+            android:background="@drawable/bg_surface_card_r13sdp_st1sdp_stroke"
+            android:textColor="@color/text_primary"
+            app:drawableTopCompat="@drawable/ic_app_download_17sdp" />
 
     </LinearLayout>
 
@@ -232,4 +231,4 @@
             android:textColor="@color/color_error" />
     </LinearLayout>
 
-</com.ui.baselib.widget.layout.UiLinearLayout>
+</LinearLayout>

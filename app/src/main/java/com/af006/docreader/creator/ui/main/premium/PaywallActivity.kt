@@ -7,7 +7,6 @@ import androidx.annotation.StringRes
 import androidx.core.content.ContextCompat
 import androidx.core.view.updatePadding
 import com.af010.creator.docreader.R
-import com.d010.pdf.reader.base.Aso
 import com.af010.creator.docreader.app.remote.remoteConfig
 import com.af010.creator.docreader.base.BaseAppActivity
 import com.af010.creator.docreader.databinding.ActivityPaywallBinding
@@ -16,6 +15,9 @@ import com.af010.creator.docreader.databinding.LayoutPlanBinding
 import com.af010.creator.docreader.databinding.LayoutTrialStepBinding
 import com.af010.creator.docreader.model.PremiumPlan
 import com.af010.creator.docreader.model.Tool
+import com.af010.creator.docreader.utils.extensions.setFillColor
+import com.af010.creator.docreader.utils.extensions.setStroke
+import com.d010.pdf.reader.base.Aso
 import com.d010.pdf.reader.base.openUrl
 import com.ui.baselib.extensions.click
 import com.ui.baselib.extensions.clickSingle
@@ -140,7 +142,7 @@ class PaywallActivity : BaseAppActivity<ActivityPaywallBinding>(ActivityPaywallB
 
     private fun LayoutTrialStepBinding.show(@DrawableRes icon: Int, color: Int, title: String, desc: String) {
         ivIcon.setImageResource(icon)
-        ivIcon.helper.bgColor = ContextCompat.getColor(this@PaywallActivity, color)
+        ivIcon.setFillColor(ContextCompat.getColor(this@PaywallActivity, color))
         ivIcon.invalidate()
         tvTitle.text = title
         tvDesc.text = desc
@@ -150,13 +152,12 @@ class PaywallActivity : BaseAppActivity<ActivityPaywallBinding>(ActivityPaywallB
         plans().forEach { (binding, binds) ->
             val selected = binds == plan
             binding.ivRadio.setImageResource(if (selected) R.drawable.ic_app_radio_on else R.drawable.ic_app_radio_off)
-            binding.card.helper.stColor = ContextCompat.getColor(
+            binding.card.setStroke(dpToPx(if (selected) 2 else 1), ContextCompat.getColor(
                 this@PaywallActivity, if (selected) R.color.primary else R.color.color_stroke
-            )
-            binding.card.helper.stWidth = dpToPx(if (selected) 2 else 1).toFloat()
-            binding.card.helper.bgColor = ContextCompat.getColor(
+            ))
+            binding.card.setFillColor(ContextCompat.getColor(
                 this@PaywallActivity, if (selected) R.color.color_plan_selected else R.color.color_surface_card
-            )
+            ))
             binding.card.invalidate()
         }
         cardTrial.visibleOrGone(plan == PremiumPlan.Yearly)

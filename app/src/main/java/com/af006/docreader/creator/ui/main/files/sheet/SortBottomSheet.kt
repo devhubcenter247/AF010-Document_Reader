@@ -10,6 +10,7 @@ import com.af010.creator.docreader.model.SortOrder
 import com.af010.creator.docreader.ui.main.common.select
 import com.af010.creator.docreader.ui.main.common.setLabels
 import com.af010.creator.docreader.ui.main.common.setUp
+import com.af010.creator.docreader.utils.extensions.setCompoundDrawablesSized
 import com.ui.baselib.base.BaseBottomSheet
 import com.ui.baselib.extensions.click
 import com.ui.baselib.extensions.clickSingle
@@ -78,9 +79,9 @@ class SortBottomSheet(
 
     private fun SheetSortBinding.render() {
         listOf(tvSortDate, tvSortName, tvSortSize, tvSortType).forEachIndexed { index, row ->
-            row.setCompoundDrawablesRelativeWithIntrinsicBounds(
-                if (Choice.entries[index] == choice) R.drawable.ic_app_radio_on else R.drawable.ic_app_radio_off,
-                0, 0, 0
+            row.setCompoundDrawablesSized(
+                com.intuit.sdp.R.dimen._15sdp,
+                start = if (Choice.entries[index] == choice) R.drawable.ic_app_radio_on else R.drawable.ic_app_radio_off
             )
         }
         segmentOrder.setLabels(choice.first, choice.second)

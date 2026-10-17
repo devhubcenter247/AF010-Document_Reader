@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- What a list shows in place of its rows: no file access, no files, no results. -->
-<com.ui.baselib.widget.layout.UiLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/CardAppStyle"
@@ -10,10 +11,12 @@
     android:orientation="vertical"
     android:paddingVertical="@dimen/_15sdp"
     android:visibility="gone"
-    app:uiCornerRadius="@dimen/_15sdp"
-    tools:visibility="visible">
+    tools:visibility="visible"
+    android:background="@drawable/bg_surface_card_r15sdp"
+    android:foreground="@drawable/stroke_r15sdp_st1sdp_stroke"
+    android:clipToOutline="true">
 
-    <com.ui.baselib.widget.view.UiImageView
+    <ImageView
         android:id="@+id/ivIcon"
         android:layout_width="@dimen/_49sdp"
         android:layout_height="@dimen/_49sdp"
@@ -21,8 +24,8 @@
         android:padding="@dimen/_13sdp"
         android:src="@drawable/ic_app_folder"
         app:tint="@color/text_on_selected"
-        app:uiBackgroundColor="@color/color_bg_selected"
-        app:uiCornerRadius="@dimen/_17sdp" />
+        android:background="@drawable/bg_bg_selected_r17sdp"
+        android:clipToOutline="true" />
 
     <TextView
         android:id="@+id/tvTitle"
@@ -54,7 +57,7 @@
         android:gravity="center"
         android:orientation="horizontal">
 
-        <com.ui.baselib.widget.view.UiTextView
+        <TextView
             android:id="@+id/btnPrimary"
             android:layout_marginStart="@dimen/_12sdp"
             android:layout_marginTop="@dimen/_10sdp"
@@ -62,11 +65,14 @@
             style="@style/ButtonAppStyle"
             android:layout_width="0dp"
             android:layout_weight="1"
-            app:uiShadowClipParent="force"
-            app:uiShadowColor="@color/primary_30"
-            tools:text="@string/allow_access" />
+            tools:text="@string/allow_access"
+            android:background="@drawable/bg_grad_gradient_start_gradient_end_270_r10sdp"
+            android:elevation="@dimen/_5sdp"
+            android:outlineSpotShadowColor="@color/primary_30"
+            android:outlineAmbientShadowColor="@color/primary_20"
+            android:textColor="@color/white" />
 
-        <com.ui.baselib.widget.view.UiTextView
+        <TextView
             android:id="@+id/btnSecondary"
             android:layout_marginEnd="@dimen/_12sdp"
             android:layout_marginTop="@dimen/_10sdp"
@@ -75,6 +81,8 @@
             android:layout_width="0dp"
             android:layout_marginStart="@dimen/_8sdp"
             android:layout_weight="1"
-            tools:text="@string/browse_files" />
+            tools:text="@string/browse_files"
+            android:background="@drawable/bg_surface_card_r10sdp_st1sdp_stroke"
+            android:textColor="@color/text_primary" />
     </LinearLayout>
-</com.ui.baselib.widget.layout.UiLinearLayout>
+</LinearLayout>

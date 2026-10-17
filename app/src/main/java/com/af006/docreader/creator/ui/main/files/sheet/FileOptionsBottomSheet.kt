@@ -9,6 +9,7 @@ import com.af010.creator.docreader.model.RecentUi
 import com.af010.creator.docreader.utils.extensions.dateText
 import com.af010.creator.docreader.utils.extensions.iconRes
 import com.af010.creator.docreader.utils.extensions.name
+import com.af010.creator.docreader.utils.extensions.setCompoundDrawablesSized
 import com.af010.creator.docreader.utils.extensions.sizeText
 import com.ui.baselib.base.BaseBottomSheet
 import com.ui.baselib.extensions.clickSingle
@@ -35,9 +36,7 @@ class FileOptionsBottomSheet(
         if (item.isFavorite) {
             // The layout's outline star is tinted; the filled one carries its own color.
             TextViewCompat.setCompoundDrawableTintList(btnFavorite, null)
-            btnFavorite.setCompoundDrawablesRelativeWithIntrinsicBounds(
-                0, R.drawable.ic_app_star_filled, 0, 0
-            )
+            btnFavorite.setCompoundDrawablesSized(com.intuit.sdp.R.dimen._17sdp, top = R.drawable.ic_app_star_filled)
         }
         // Word and PowerPoint only: the SDK cannot draw a sheet as a page.
         btnToPdf.visibleOrGone(doc.type == DocumentType.Doc || doc.type == DocumentType.Ppt)

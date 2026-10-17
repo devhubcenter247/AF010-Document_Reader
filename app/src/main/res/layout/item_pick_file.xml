@@ -46,18 +46,15 @@
             tools:text="1.1 MB · Today" />
     </LinearLayout>
 
-    <com.ui.baselib.widget.view.UiTextView
+    <TextView
         android:id="@+id/tvOrder"
         android:layout_width="@dimen/_18sdp"
         android:layout_height="@dimen/_18sdp"
         android:fontFamily="@font/nt_600"
-        app:uiDrawableSize="@dimen/_10sdp"
         android:gravity="center"
         android:textSize="@dimen/_10sdp"
-        app:uiCornerRadius="@dimen/_10sdp"
-        app:uiStrokeColor="@color/color_checkbox_stroke"
-        app:uiStrokeWidth="@dimen/_2sdp"
-        app:uiTextColor="@color/on_primary"
-        tools:text="1" />
+        tools:text="1"
+        android:background="@drawable/stroke_r10sdp_st2sdp_checkbox_stroke"
+        android:textColor="@color/on_primary" />
 
 </LinearLayout>

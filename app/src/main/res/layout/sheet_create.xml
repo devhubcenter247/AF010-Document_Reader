@@ -1,18 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.ui.baselib.widget.layout.UiLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/BottomSheetAppStyle"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:paddingBottom="@dimen/_10sdp">
+    android:paddingBottom="@dimen/_10sdp"
+    android:background="@drawable/bg_surface_card_r22sdp_22sdp_0_0"
+    android:clipToOutline="true">
 
     <include
         android:id="@+id/header"
         layout="@layout/layout_sheet_header" />
 
-    <com.ui.baselib.widget.layout.UiLinearLayout
+    <LinearLayout
         android:id="@+id/cardScan"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -21,18 +24,18 @@
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:padding="@dimen/_13sdp"
-        app:uiBackgroundColor="@color/accent"
-        app:uiCornerRadius="@dimen/_15sdp">
+        android:background="@drawable/bg_accent_r15sdp"
+        android:clipToOutline="true">
 
-        <com.ui.baselib.widget.view.UiImageView
+        <ImageView
             android:layout_width="@dimen/_35sdp"
             android:layout_height="@dimen/_35sdp"
             android:contentDescription="@null"
             android:padding="@dimen/_8sdp"
             android:src="@drawable/ic_app_scan"
             app:tint="@color/on_accent"
-            app:uiBackgroundColor="@color/color_white_28"
-            app:uiCornerRadius="@dimen/_13sdp" />
+            android:background="@drawable/bg_white_28_r13sdp"
+            android:clipToOutline="true" />
 
         <LinearLayout
             android:layout_width="0dp"
@@ -64,9 +67,9 @@
             android:contentDescription="@null"
             android:src="@drawable/ic_app_arrowr"
             app:tint="@color/on_accent" />
-    </com.ui.baselib.widget.layout.UiLinearLayout>
+    </LinearLayout>
 
-    <com.ui.baselib.widget.layout.UiLinearLayout
+    <LinearLayout
         android:id="@+id/cardImages"
         style="@style/CardAppStyle"
         android:layout_width="match_parent"
@@ -76,7 +79,10 @@
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:paddingHorizontal="@dimen/_13sdp"
-        android:paddingVertical="@dimen/_9sdp">
+        android:paddingVertical="@dimen/_9sdp"
+        android:background="@drawable/bg_surface_card_r15sdp"
+        android:foreground="@drawable/stroke_r15sdp_st1sdp_stroke"
+        android:clipToOutline="true">
 
         <ImageView
             android:layout_width="@dimen/_33sdp"
@@ -109,7 +115,7 @@
         </LinearLayout>
 
         <ImageView style="@style/RowChevronStyle" android:contentDescription="@null" />
-    </com.ui.baselib.widget.layout.UiLinearLayout>
+    </LinearLayout>
 
     <TextView
         style="@style/TextSectionCaps"
@@ -126,7 +132,7 @@
         android:layout_marginTop="@dimen/_11sdp"
         android:orientation="horizontal">
 
-        <com.ui.baselib.widget.layout.UiLinearLayout
+        <LinearLayout
             android:id="@+id/cardWord"
             style="@style/CardAppStyle"
             android:layout_width="0dp"
@@ -137,7 +143,9 @@
             android:orientation="vertical"
             android:paddingHorizontal="@dimen/_3sdp"
             android:paddingVertical="@dimen/_11sdp"
-            app:uiCornerRadius="@dimen/_13sdp">
+            android:background="@drawable/bg_surface_card_r13sdp"
+            android:foreground="@drawable/stroke_r13sdp_st1sdp_stroke"
+            android:clipToOutline="true">
 
             <ImageView
                 android:layout_width="@dimen/_28sdp"
@@ -168,9 +176,9 @@
                 android:text="@string/word_desc"
                 android:textColor="@color/text_secondary"
                 android:textSize="@dimen/_9sdp" />
-        </com.ui.baselib.widget.layout.UiLinearLayout>
+        </LinearLayout>
 
-        <com.ui.baselib.widget.layout.UiLinearLayout
+        <LinearLayout
             android:id="@+id/cardExcel"
             style="@style/CardAppStyle"
             android:layout_width="0dp"
@@ -182,7 +190,9 @@
             android:orientation="vertical"
             android:paddingHorizontal="@dimen/_3sdp"
             android:paddingVertical="@dimen/_11sdp"
-            app:uiCornerRadius="@dimen/_13sdp">
+            android:background="@drawable/bg_surface_card_r13sdp"
+            android:foreground="@drawable/stroke_r13sdp_st1sdp_stroke"
+            android:clipToOutline="true">
 
             <ImageView
                 android:layout_width="@dimen/_28sdp"
@@ -213,9 +223,9 @@
                 android:text="@string/excel_desc"
                 android:textColor="@color/text_secondary"
                 android:textSize="@dimen/_9sdp" />
-        </com.ui.baselib.widget.layout.UiLinearLayout>
+        </LinearLayout>
 
-        <com.ui.baselib.widget.layout.UiLinearLayout
+        <LinearLayout
             android:id="@+id/cardPpt"
             style="@style/CardAppStyle"
             android:layout_width="0dp"
@@ -226,7 +236,9 @@
             android:orientation="vertical"
             android:paddingHorizontal="@dimen/_3sdp"
             android:paddingVertical="@dimen/_11sdp"
-            app:uiCornerRadius="@dimen/_13sdp">
+            android:background="@drawable/bg_surface_card_r13sdp"
+            android:foreground="@drawable/stroke_r13sdp_st1sdp_stroke"
+            android:clipToOutline="true">
 
             <ImageView
                 android:layout_width="@dimen/_28sdp"
@@ -257,8 +269,8 @@
                 android:text="@string/powerpoint_desc"
                 android:textColor="@color/text_secondary"
                 android:textSize="@dimen/_9sdp" />
-        </com.ui.baselib.widget.layout.UiLinearLayout>
+        </LinearLayout>
 
     </LinearLayout>
 
-</com.ui.baselib.widget.layout.UiLinearLayout>
+</LinearLayout>

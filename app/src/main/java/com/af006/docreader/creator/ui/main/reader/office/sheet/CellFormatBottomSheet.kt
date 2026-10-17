@@ -9,6 +9,8 @@ import com.af010.creator.docreader.databinding.SheetCellFormatBinding
 import com.af010.creator.docreader.ui.main.reader.office.runSafely
 import com.af010.creator.docreader.ui.main.reader.pdf.addColorDots
 import com.af010.creator.docreader.ui.main.reader.pdf.selectColorDot
+import com.af010.creator.docreader.utils.extensions.setCompoundDrawablesSized
+import com.af010.creator.docreader.utils.extensions.setFillColor
 import com.editor.docsdk.DocumentEditor
 import com.editor.docsdk.EditAction
 import com.ui.baselib.base.BaseBottomSheet
@@ -77,9 +79,9 @@ class CellFormatBottomSheet(
         layoutFillColors.selectColorDot(fill ?: NO_COLOR)
         aligns().forEach { (view, action) ->
             val selected = action == align
-            view.helper.bgColor = ContextCompat.getColor(
+            view.setFillColor(ContextCompat.getColor(
                 activity, if (selected) R.color.color_bg_selected else R.color.color_surface_variant
-            )
+            ))
             ImageViewCompat.setImageTintList(
                 view,
                 ColorStateList.valueOf(
@@ -88,8 +90,9 @@ class CellFormatBottomSheet(
             )
             view.invalidate()
         }
-        btnWrap.setCompoundDrawablesRelativeWithIntrinsicBounds(
-            if (wrap) R.drawable.ic_app_checkbox_on else R.drawable.ic_app_checkbox_off, 0, 0, 0
+        btnWrap.setCompoundDrawablesSized(
+            com.intuit.sdp.R.dimen._17sdp,
+            start = if (wrap) R.drawable.ic_app_checkbox_on else R.drawable.ic_app_checkbox_off
         )
     }
 

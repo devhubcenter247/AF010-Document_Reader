@@ -8,7 +8,7 @@
     android:gravity="center_vertical"
     android:orientation="horizontal">
 
-    <com.ui.baselib.widget.layout.UiLinearLayout
+    <LinearLayout
         style="@style/CardAppStyle"
         android:layout_width="0dp"
         android:layout_height="@dimen/_35sdp"
@@ -16,7 +16,9 @@
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:paddingHorizontal="@dimen/_9sdp"
-        app:uiCornerRadius="@dimen/_9sdp">
+        android:background="@drawable/bg_surface_card_r9sdp"
+        android:foreground="@drawable/stroke_r9sdp_st1sdp_stroke"
+        android:clipToOutline="true">
 
         <TextView
             android:layout_width="wrap_content"
@@ -68,9 +70,9 @@
             tools:ignore="LabelFor"
             tools:text="12" />
 
-    </com.ui.baselib.widget.layout.UiLinearLayout>
+    </LinearLayout>
 
-    <com.ui.baselib.widget.view.UiImageView
+    <ImageView
         android:id="@+id/btnRemove"
         style="@style/IconButtonStyle"
         android:layout_width="@dimen/_23sdp"
@@ -78,6 +80,8 @@
         android:layout_marginStart="@dimen/_6sdp"
         android:contentDescription="@string/scanner_close"
         android:src="@drawable/ic_app_close"
-        app:tint="@color/text_secondary" />
+        app:tint="@color/text_secondary"
+        android:background="@drawable/bg_surface_variant_r17sdp"
+        android:clipToOutline="true" />
 
 </LinearLayout>

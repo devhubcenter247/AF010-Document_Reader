@@ -45,7 +45,7 @@
         </FrameLayout>
     </FrameLayout>
 
-    <com.ui.baselib.widget.layout.UiLinearLayout
+    <LinearLayout
         style="@style/BottomSheetAppStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -53,8 +53,8 @@
         android:paddingHorizontal="@dimen/_15sdp"
         android:paddingTop="@dimen/_13sdp"
         android:paddingBottom="@dimen/_13sdp"
-        app:uiCornerTopLeft="@dimen/_18sdp"
-        app:uiCornerTopRight="@dimen/_18sdp">
+        android:background="@drawable/bg_surface_card_r18sdp_18sdp_0_0"
+        android:clipToOutline="true">
 
         <TextView
             android:layout_width="match_parent"
@@ -64,13 +64,15 @@
             android:textColor="@color/text_secondary"
             android:textSize="@dimen/_10sdp" />
 
-        <com.ui.baselib.widget.layout.UiLinearLayout
+        <LinearLayout
             style="@style/CardAppStyle"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_37sdp"
             android:layout_marginTop="@dimen/_5sdp"
             android:paddingHorizontal="@dimen/_11sdp"
-            app:uiCornerRadius="@dimen/_11sdp">
+            android:background="@drawable/bg_surface_card_r11sdp"
+            android:foreground="@drawable/stroke_r11sdp_st1sdp_stroke"
+            android:clipToOutline="true">
 
             <EditText
                 android:id="@+id/edtText"
@@ -87,7 +89,7 @@
                 android:textColor="@color/text_primary"
                 android:textColorHint="@color/text_secondary"
                 android:textSize="@dimen/_12sdp" />
-        </com.ui.baselib.widget.layout.UiLinearLayout>
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -184,6 +186,6 @@
             android:progressTint="@color/primary"
             android:thumbTint="@color/primary" />
 
-    </com.ui.baselib.widget.layout.UiLinearLayout>
+    </LinearLayout>
 
 </LinearLayout>

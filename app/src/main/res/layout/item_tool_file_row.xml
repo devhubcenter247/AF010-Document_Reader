@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.ui.baselib.widget.layout.UiLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/CardAppStyle"
@@ -11,7 +12,9 @@
     android:paddingStart="@dimen/_8sdp"
     android:paddingEnd="@dimen/_3sdp"
     android:paddingVertical="@dimen/_8sdp"
-    app:uiCornerRadius="@dimen/_10sdp">
+    android:background="@drawable/bg_surface_card_r10sdp"
+    android:foreground="@drawable/stroke_r10sdp_st1sdp_stroke"
+    android:clipToOutline="true">
 
     <ImageView
         android:id="@+id/ivDrag"
@@ -68,4 +71,4 @@
         android:src="@drawable/ic_app_close"
         app:tint="@color/text_secondary" />
 
-</com.ui.baselib.widget.layout.UiLinearLayout>
+</LinearLayout>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.ui.baselib.widget.layout.UiLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/DialogAppStyle"
@@ -9,19 +10,21 @@
     android:layout_height="wrap_content"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    tools:context=".ui.dialog.DialogNoInternet">
+    tools:context=".ui.dialog.DialogNoInternet"
+    android:background="@drawable/bg_surface_card_r18sdp"
+    android:clipToOutline="true">
 
 
-    <com.ui.baselib.widget.view.UiImageView
+    <ImageView
         android:layout_width="@dimen/_38sdp"
         android:layout_height="@dimen/_38sdp"
         android:padding="@dimen/_7sdp"
         android:src="@drawable/ic_app_wifioff"
         android:tint="@color/primary"
-        app:uiBackgroundColor="@color/color_efebff"
-        app:uiCornerRadius="@dimen/_20sdp" />
+        android:background="@drawable/bg_efebff_r20sdp"
+        android:clipToOutline="true" />
 
-    <com.ui.baselib.widget.view.UiTextView
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="@font/nt_600"
@@ -33,7 +36,7 @@
         android:textSize="@dimen/_13sdp" />
 
 
-    <com.ui.baselib.widget.view.UiTextView
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="@font/nt_400"
@@ -45,7 +48,7 @@
         android:textColor="@color/text_secondary"
         android:textSize="@dimen/_9sdp" />
 
-    <com.ui.baselib.widget.view.UiTextView
+    <TextView
         android:id="@+id/btnTryAgain"
         style="@style/ButtonAppStyle"
         android:layout_marginHorizontal="@dimen/_13sdp"
@@ -53,6 +56,9 @@
         android:layout_marginTop="@dimen/_10sdp"
         android:layout_marginBottom="@dimen/_5sdp"
         android:text="@string/try_again"
-        app:uiShadowClipParent="force"
-        app:uiShadowColor="@color/primary_30" />
-</com.ui.baselib.widget.layout.UiLinearLayout>
+        android:background="@drawable/bg_grad_gradient_start_gradient_end_270_r10sdp"
+        android:elevation="@dimen/_5sdp"
+        android:outlineSpotShadowColor="@color/primary_30"
+        android:outlineAmbientShadowColor="@color/primary_20"
+        android:textColor="@color/white" />
+</LinearLayout>

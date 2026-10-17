@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <com.ui.baselib.widget.layout.UiLinearLayout
+    <LinearLayout
         android:id="@+id/layoutShowControls"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -22,8 +22,8 @@
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:padding="@dimen/_4sdp"
-        app:uiBackgroundColor="@color/color_pill_dark"
-        app:uiCornerRadius="@dimen/_20sdp">
+        android:background="@drawable/bg_pill_dark_r20sdp"
+        android:clipToOutline="true">
 
         <ImageView
             android:id="@+id/btnShowExit"
@@ -79,5 +79,5 @@
             android:padding="@dimen/_8sdp"
             android:src="@drawable/ic_app_chev"
             app:tint="@color/on_primary" />
-    </com.ui.baselib.widget.layout.UiLinearLayout>
+    </LinearLayout>
 </FrameLayout>

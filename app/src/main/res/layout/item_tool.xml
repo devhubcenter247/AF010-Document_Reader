@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.ui.baselib.widget.layout.UiConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/CardAppStyle"
-    app:uiCornerRadius="@dimen/_10sdp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="@dimen/_3sdp"
     android:clipToPadding="false"
     android:paddingHorizontal="@dimen/_10sdp"
-    android:paddingVertical="@dimen/_8sdp">
+    android:paddingVertical="@dimen/_8sdp"
+    android:background="@drawable/bg_surface_card_r10sdp"
+    android:foreground="@drawable/stroke_r10sdp_st1sdp_stroke"
+    android:clipToOutline="true">
 
     <ImageView
         android:id="@+id/ivIcon"
@@ -69,4 +72,4 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:visibility="visible" />
 
-</com.ui.baselib.widget.layout.UiConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

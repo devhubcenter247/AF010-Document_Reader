@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import com.af010.creator.docreader.R
 import com.af010.creator.docreader.databinding.ItemOrganizePageBinding
+import com.af010.creator.docreader.utils.extensions.setStroke
 import com.ui.baselib.base.BaseAdapter
 import com.ui.baselib.extensions.visibleOrGone
 import com.ui.baselib.utils.dpToPx
@@ -41,10 +42,9 @@ class OrganizePageAdapter(
         val selected = item.id in selectedIds
         tvNumber.text = (position + 1).toString()
         ivCheck.visibleOrGone(selected)
-        card.helper.stColor = ContextCompat.getColor(
+        card.setStroke(context.dpToPx(if (selected) 2 else 1), ContextCompat.getColor(
             context, if (selected) R.color.primary else R.color.color_stroke
-        )
-        card.helper.stWidth = context.dpToPx(if (selected) 2 else 1).toFloat()
+        ))
         card.invalidate()
 
         // A page on its side has to fit the upright card.

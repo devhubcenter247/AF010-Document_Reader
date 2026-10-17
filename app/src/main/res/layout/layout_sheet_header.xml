@@ -7,12 +7,11 @@
     android:gravity="center_horizontal"
     android:orientation="vertical">
 
-    <com.ui.baselib.widget.layout.UiView
+    <View
         android:layout_width="@dimen/_31sdp"
         android:layout_height="@dimen/_4sdp"
         android:layout_marginTop="@dimen/_8sdp"
-        app:uiBackgroundColor="@color/color_handle"
-        app:uiCornerRadius="@dimen/_3sdp" />
+        android:background="@drawable/bg_handle_r3sdp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -33,13 +32,15 @@
             android:textSize="@dimen/_12sdp"
             tools:text="Create new" />
 
-        <com.ui.baselib.widget.view.UiImageView
+        <ImageView
             android:id="@+id/btnClose"
             style="@style/IconButtonStyle"
             android:layout_width="@dimen/_23sdp"
             android:layout_height="@dimen/_23sdp"
             android:contentDescription="@string/scanner_close"
-            android:src="@drawable/ic_app_close" />
+            android:src="@drawable/ic_app_close"
+            android:background="@drawable/bg_surface_variant_r17sdp"
+            android:clipToOutline="true" />
     </LinearLayout>
 
 </LinearLayout>

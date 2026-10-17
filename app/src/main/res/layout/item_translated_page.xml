@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.ui.baselib.widget.layout.UiLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,8 +8,8 @@
     android:layout_marginTop="@dimen/_6sdp"
     android:orientation="vertical"
     android:padding="@dimen/_13sdp"
-    app:uiBackgroundColor="@color/color_surface_card"
-    app:uiCornerRadius="@dimen/_5sdp">
+    android:background="@drawable/bg_surface_card_r5sdp"
+    android:clipToOutline="true">
 
     <TextView
         android:id="@+id/tvPage"
@@ -54,4 +55,4 @@
 
     </LinearLayout>
 
-</com.ui.baselib.widget.layout.UiLinearLayout>
+</LinearLayout>

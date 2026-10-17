@@ -60,7 +60,7 @@
                     tools:itemCount="2"
                     tools:listitem="@layout/item_split_range" />
 
-                <com.ui.baselib.widget.view.UiTextView
+                <TextView
                     android:id="@+id/btnAddRange"
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/_27sdp"
@@ -69,10 +69,9 @@
                     android:gravity="center_vertical"
                     android:text="@string/add_range"
                     android:textSize="@dimen/_10sdp"
-                    app:drawableStartCompat="@drawable/ic_app_plus"
                     app:drawableTint="@color/text_on_selected"
-                    app:uiDrawableSize="@dimen/_12sdp"
-                    app:uiTextColor="@color/text_on_selected" />
+                    android:textColor="@color/text_on_selected"
+                    app:drawableStartCompat="@drawable/ic_app_plus_12sdp" />
             </LinearLayout>
 
             <include

@@ -48,9 +48,12 @@
                     android:textSize="@dimen/_15sdp" />
             </LinearLayout>
 
-            <com.ui.baselib.widget.view.UiTextView
+            <TextView
                 android:id="@+id/btnPro"
-                style="@style/ProBadgeStyle" />
+                style="@style/ProBadgeStyle"
+                android:background="@drawable/bg_grad_gradient_start_gradient_end_315_r14sdp"
+                android:textColor="@color/on_primary"
+                app:drawableStartCompat="@drawable/ic_app_crown_13sdp" />
         </LinearLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -68,7 +71,7 @@
             android:paddingBottom="@dimen/_15sdp">
 
             <!-- Search -->
-            <com.ui.baselib.widget.layout.UiLinearLayout
+            <LinearLayout
                 style="@style/CardAppStyle"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_37sdp"
@@ -76,7 +79,9 @@
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
                 android:paddingHorizontal="@dimen/_11sdp"
-                app:uiCornerRadius="@dimen/_13sdp">
+                android:background="@drawable/bg_surface_card_r13sdp"
+                android:foreground="@drawable/stroke_r13sdp_st1sdp_stroke"
+                android:clipToOutline="true">
 
                 <ImageView
                     android:layout_width="@dimen/_15sdp"
@@ -100,7 +105,7 @@
                     android:textColor="@color/text_primary"
                     android:textColorHint="@color/text_secondary"
                     android:textSize="@dimen/_11sdp" />
-            </com.ui.baselib.widget.layout.UiLinearLayout>
+            </LinearLayout>
 
             <!-- Highlights -->
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -110,7 +115,7 @@
                 android:layout_marginHorizontal="@dimen/_13sdp"
                 android:layout_marginTop="@dimen/_11sdp">
 
-                <com.ui.baselib.widget.layout.UiConstraintLayout
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/cardScan"
                     android:layout_width="0dp"
                     android:layout_height="@dimen/_100sdp"
@@ -120,8 +125,8 @@
                     app:layout_constraintEnd_toStartOf="@+id/cardSign"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:uiBackgroundColor="@color/accent"
-                    app:uiCornerRadius="@dimen/_18sdp">
+                    android:background="@drawable/bg_accent_r18sdp"
+                    android:clipToOutline="true">
 
                     <View
                         android:layout_width="@dimen/_125sdp"
@@ -166,28 +171,37 @@
                         app:layout_constraintBottom_toTopOf="@+id/tvScanNow"
                         app:layout_constraintStart_toStartOf="parent" />
 
-                    <com.ui.baselib.widget.view.UiTextView
+                    <com.google.android.material.button.MaterialButton
                         android:id="@+id/tvScanNow"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/_23sdp"
-                        android:drawablePadding="@dimen/_5sdp"
                         android:fontFamily="@font/nt_500"
                         android:gravity="center"
                         android:paddingHorizontal="@dimen/_9sdp"
                         android:text="@string/scan_now"
                         android:textSize="@dimen/_10sdp"
-                        app:drawableStartCompat="@drawable/ic_app_camera"
-                        app:drawableTint="@color/on_primary"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:uiBackgroundColor="@color/color_ink"
-                        app:uiCornerRadius="@dimen/_13sdp"
-                        app:uiDrawableAlign="text"
-                        app:uiDrawableSize="@dimen/_12sdp"
-                        app:uiTextColor="@color/on_primary" />
-                </com.ui.baselib.widget.layout.UiConstraintLayout>
+                        android:background="@drawable/bg_ink_r13sdp"
+                        android:textColor="@color/on_primary"
+                        app:icon="@drawable/ic_app_camera"
+                        app:iconGravity="textStart"
+                        app:iconPadding="@dimen/_5sdp"
+                        app:iconSize="@dimen/_12sdp"
+                        app:iconTint="@color/on_primary"
+                        app:backgroundTint="@null"
+                        android:insetTop="0dp"
+                        android:insetBottom="0dp"
+                        android:minWidth="0dp"
+                        android:minHeight="0dp"
+                        android:textAllCaps="false"
+                        android:letterSpacing="0"
+                        android:stateListAnimator="@null"
+                        android:paddingVertical="0dp"
+                        android:elevation="0dp" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <com.ui.baselib.widget.layout.UiLinearLayout
+                <LinearLayout
                     android:id="@+id/cardSign"
                     android:layout_width="0dp"
                     android:layout_height="@dimen/_48sdp"
@@ -198,21 +212,18 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/cardScan"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:uiBackgroundGradientEnabled="true"
-                    app:uiBackgroundGradientEnd="@color/gradient_end"
-                    app:uiBackgroundGradientOrientation="tl_br"
-                    app:uiBackgroundGradientStart="@color/gradient_start"
-                    app:uiCornerRadius="@dimen/_15sdp">
+                    android:background="@drawable/bg_grad_gradient_start_gradient_end_315_r15sdp"
+                    android:clipToOutline="true">
 
-                    <com.ui.baselib.widget.view.UiImageView
+                    <ImageView
                         android:layout_width="@dimen/_26sdp"
                         android:layout_height="@dimen/_26sdp"
                         android:contentDescription="@null"
                         android:padding="@dimen/_5sdp"
                         android:src="@drawable/ic_app_sign"
                         app:tint="@color/on_primary"
-                        app:uiBackgroundColor="@color/color_white_16"
-                        app:uiCornerRadius="@dimen/_9sdp" />
+                        android:background="@drawable/bg_white_16_r9sdp"
+                        android:clipToOutline="true" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -242,9 +253,9 @@
                             android:textColor="@color/color_on_gradient_secondary"
                             android:textSize="@dimen/_9sdp" />
                     </LinearLayout>
-                </com.ui.baselib.widget.layout.UiLinearLayout>
+                </LinearLayout>
 
-                <com.ui.baselib.widget.layout.UiLinearLayout
+                <LinearLayout
                     android:id="@+id/cardCompress"
                     android:layout_width="0dp"
                     android:layout_height="@dimen/_48sdp"
@@ -254,18 +265,18 @@
                     app:layout_constraintBottom_toBottomOf="@+id/cardScan"
                     app:layout_constraintEnd_toEndOf="@+id/cardSign"
                     app:layout_constraintStart_toStartOf="@+id/cardSign"
-                    app:uiBackgroundColor="@color/color_e0f8f3"
-                    app:uiCornerRadius="@dimen/_15sdp">
+                    android:background="@drawable/bg_e0f8f3_r15sdp"
+                    android:clipToOutline="true">
 
-                    <com.ui.baselib.widget.view.UiImageView
+                    <ImageView
                         android:layout_width="@dimen/_26sdp"
                         android:layout_height="@dimen/_26sdp"
                         android:contentDescription="@null"
                         android:padding="@dimen/_5sdp"
                         android:src="@drawable/ic_app_compress"
                         app:tint="@color/on_primary"
-                        app:uiBackgroundColor="@color/color_14b8a6"
-                        app:uiCornerRadius="@dimen/_9sdp" />
+                        android:background="@drawable/bg_14b8a6_r9sdp"
+                        android:clipToOutline="true" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -295,7 +306,7 @@
                             android:textColor="@color/color_on_teal_secondary"
                             android:textSize="@dimen/_9sdp" />
                     </LinearLayout>
-                </com.ui.baselib.widget.layout.UiLinearLayout>
+                </LinearLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <!-- Group filter -->

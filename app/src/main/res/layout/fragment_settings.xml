@@ -48,29 +48,26 @@
             android:paddingBottom="@dimen/_15sdp">
 
             <!-- Premium -->
-            <com.ui.baselib.widget.layout.UiConstraintLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/cardPremium"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/_13sdp"
                 android:clipToPadding="false"
                 android:padding="@dimen/_10sdp"
-                app:uiBackgroundGradientEnabled="true"
-                app:uiBackgroundGradientEnd="@color/gradient_end"
-                app:uiBackgroundGradientOrientation="tl_br"
-                app:uiBackgroundGradientStart="@color/gradient_start"
-                app:uiCornerRadius="@dimen/_18sdp">
+                android:background="@drawable/bg_grad_gradient_start_gradient_end_315_r18sdp"
+                android:clipToOutline="true">
 
-                <com.ui.baselib.widget.layout.UiFrameLayout
+                <FrameLayout
                     android:layout_width="@dimen/_54sdp"
                     android:layout_height="@dimen/_54sdp"
                     android:rotation="10"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:uiBackgroundColor="@color/color_white_16"
-                    app:uiCornerRadius="@dimen/_18sdp">
+                    android:background="@drawable/bg_white_16_r18sdp"
+                    android:clipToOutline="true">
 
-                    <com.ui.baselib.widget.view.UiImageView
+                    <ImageView
                         android:layout_width="@dimen/_35sdp"
                         android:layout_height="@dimen/_35sdp"
                         android:layout_gravity="center"
@@ -79,12 +76,9 @@
                         android:rotation="-10"
                         android:src="@drawable/ic_app_crown"
                         app:tint="#5A3300"
-                        app:uiBackgroundGradientEnabled="true"
-                        app:uiBackgroundGradientEnd="@color/color_premium_gold"
-                        app:uiBackgroundGradientOrientation="tl_br"
-                        app:uiBackgroundGradientStart="#FFE08A"
-                        app:uiCornerRadius="@dimen/_13sdp" />
-                </com.ui.baselib.widget.layout.UiFrameLayout>
+                        android:background="@drawable/bg_grad_xffe08a_premium_gold_315_r13sdp"
+                        android:clipToOutline="true" />
+                </FrameLayout>
 
                 <TextView
                     android:id="@+id/tvPlan"
@@ -123,7 +117,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/tvPremiumTitle"
                     app:uiFlexWrap="wrap">
 
-                    <com.ui.baselib.widget.view.UiTextView
+                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="@dimen/_22sdp"
                         android:layout_marginTop="@dimen/_4sdp"
@@ -134,14 +128,12 @@
                         android:paddingHorizontal="@dimen/_5sdp"
                         android:text="@string/no_ads"
                         android:textSize="@dimen/_9sdp"
-                        app:drawableStartCompat="@drawable/ic_app_eyeoff"
                         app:drawableTint="@color/on_primary"
-                        app:uiBackgroundColor="@color/color_white_16"
-                        app:uiCornerRadius="@dimen/_12sdp"
-                        app:uiDrawableSize="@dimen/_11sdp"
-                        app:uiTextColor="@color/on_primary" />
+                        android:background="@drawable/bg_white_16_r12sdp"
+                        android:textColor="@color/on_primary"
+                        app:drawableStartCompat="@drawable/ic_app_eyeoff_11sdp" />
 
-                    <com.ui.baselib.widget.view.UiTextView
+                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="@dimen/_22sdp"
                         android:layout_marginTop="@dimen/_4sdp"
@@ -152,14 +144,12 @@
                         android:paddingHorizontal="@dimen/_5sdp"
                         android:text="@string/unlimited_tools"
                         android:textSize="@dimen/_9sdp"
-                        app:drawableStartCompat="@drawable/ic_app_sparkle"
                         app:drawableTint="@color/on_primary"
-                        app:uiBackgroundColor="@color/color_white_16"
-                        app:uiCornerRadius="@dimen/_12sdp"
-                        app:uiDrawableSize="@dimen/_11sdp"
-                        app:uiTextColor="@color/on_primary" />
+                        android:background="@drawable/bg_white_16_r12sdp"
+                        android:textColor="@color/on_primary"
+                        app:drawableStartCompat="@drawable/ic_app_sparkle_11sdp" />
 
-                    <com.ui.baselib.widget.view.UiTextView
+                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="@dimen/_22sdp"
                         android:layout_marginTop="@dimen/_4sdp"
@@ -170,36 +160,44 @@
                         android:paddingHorizontal="@dimen/_5sdp"
                         android:text="@string/tool_ocr"
                         android:textSize="@dimen/_9sdp"
-                        app:drawableStartCompat="@drawable/ic_app_ocr"
                         app:drawableTint="@color/on_primary"
-                        app:uiBackgroundColor="@color/color_white_16"
-                        app:uiCornerRadius="@dimen/_12sdp"
-                        app:uiDrawableSize="@dimen/_11sdp"
-                        app:uiTextColor="@color/on_primary" />
+                        android:background="@drawable/bg_white_16_r12sdp"
+                        android:textColor="@color/on_primary"
+                        app:drawableStartCompat="@drawable/ic_app_ocr_11sdp" />
 
                 </com.ui.baselib.widget.flexbox.FlexboxLayout>
 
-                <com.ui.baselib.widget.view.UiTextView
+                <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnTrial"
                     android:layout_width="0dp"
                     android:layout_height="@dimen/_33sdp"
                     android:layout_marginTop="@dimen/_13sdp"
-                    android:drawablePadding="@dimen/_6sdp"
                     android:fontFamily="@font/nt_600"
                     android:gravity="center"
                     android:text="@string/start_free_trial"
                     android:textSize="@dimen/_11sdp"
-                    app:drawableEndCompat="@drawable/ic_app_arrowr"
-                    app:drawableTint="@color/primary_dark"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/layoutBenefits"
-                    app:uiBackgroundColor="@color/on_primary"
-                    app:uiCornerRadius="@dimen/_13sdp"
-                    app:uiDrawableAlign="text"
-                    app:uiDrawableSize="@dimen/_13sdp"
-                    app:uiTextColor="@color/primary_dark" />
-            </com.ui.baselib.widget.layout.UiConstraintLayout>
+                    android:background="@drawable/bg_on_primary_r13sdp"
+                    android:textColor="@color/primary_dark"
+                    app:icon="@drawable/ic_app_arrowr"
+                    app:iconGravity="textEnd"
+                    app:iconPadding="@dimen/_6sdp"
+                    app:iconSize="@dimen/_13sdp"
+                    app:iconTint="@color/primary_dark"
+                    app:backgroundTint="@null"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:textAllCaps="false"
+                    android:letterSpacing="0"
+                    android:stateListAnimator="@null"
+                    android:paddingHorizontal="0dp"
+                    android:paddingVertical="0dp"
+                    android:elevation="0dp" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <TextView
                 style="@style/TextSectionCaps"
@@ -216,7 +214,7 @@
                 android:layout_marginHorizontal="@dimen/_13sdp"
                 android:orientation="horizontal">
 
-                <com.ui.baselib.widget.layout.UiLinearLayout
+                <LinearLayout
                     android:id="@+id/cardLanguage"
                     style="@style/CardAppStyle"
                     android:layout_width="0dp"
@@ -225,19 +223,21 @@
                     android:layout_weight="1"
                     android:orientation="vertical"
                     android:paddingHorizontal="@dimen/_9sdp"
-                    android:paddingVertical="@dimen/_11sdp">
+                    android:paddingVertical="@dimen/_11sdp"
+                    android:background="@drawable/bg_surface_card_r15sdp"
+                    android:foreground="@drawable/stroke_r15sdp_st1sdp_stroke"
+                    android:clipToOutline="true">
 
                     <FrameLayout
                         android:layout_width="@dimen/_31sdp"
                         android:layout_height="@dimen/_31sdp">
 
-                        <com.ui.baselib.widget.layout.UiView
+                        <View
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            app:uiBackgroundColor="@color/color_eaf2ff"
-                            app:uiCornerRadius="@dimen/_10sdp" />
+                            android:background="@drawable/bg_eaf2ff_r10sdp" />
 
-                        <com.ui.baselib.widget.view.UiImageView
+                        <ImageView
                             android:layout_width="@dimen/_20sdp"
                             android:layout_height="@dimen/_20sdp"
                             android:layout_gravity="center"
@@ -245,8 +245,8 @@
                             android:padding="@dimen/_4sdp"
                             android:src="@drawable/ic_app_globe"
                             app:tint="@color/on_primary"
-                            app:uiBackgroundColor="@color/color_3984ff"
-                            app:uiCornerRadius="@dimen/_7sdp" />
+                            android:background="@drawable/bg_3984ff_r7sdp"
+                            android:clipToOutline="true" />
                     </FrameLayout>
 
                     <TextView
@@ -260,7 +260,7 @@
                         android:textColor="@color/text_secondary"
                         android:textSize="@dimen/_9sdp" />
 
-                    <com.ui.baselib.widget.view.UiTextView
+                    <TextView
                         android:id="@+id/tvLanguage"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -269,14 +269,13 @@
                         android:fontFamily="@font/nt_500"
                         android:maxLines="1"
                         android:textSize="@dimen/_10sdp"
-                        app:drawableEndCompat="@drawable/ic_app_chev"
                         app:drawableTint="@color/color_icon_muted"
-                        app:uiDrawableSize="@dimen/_11sdp"
-                        app:uiTextColor="@color/text_primary"
-                        tools:text="English" />
-                </com.ui.baselib.widget.layout.UiLinearLayout>
+                        tools:text="English"
+                        android:textColor="@color/text_primary"
+                        app:drawableEndCompat="@drawable/ic_app_chev_11sdp" />
+                </LinearLayout>
 
-                <com.ui.baselib.widget.layout.UiLinearLayout
+                <LinearLayout
                     android:id="@+id/cardTheme"
                     style="@style/CardAppStyle"
                     android:layout_width="0dp"
@@ -286,19 +285,21 @@
                     android:layout_weight="1"
                     android:orientation="vertical"
                     android:paddingHorizontal="@dimen/_9sdp"
-                    android:paddingVertical="@dimen/_11sdp">
+                    android:paddingVertical="@dimen/_11sdp"
+                    android:background="@drawable/bg_surface_card_r15sdp"
+                    android:foreground="@drawable/stroke_r15sdp_st1sdp_stroke"
+                    android:clipToOutline="true">
 
                     <FrameLayout
                         android:layout_width="@dimen/_31sdp"
                         android:layout_height="@dimen/_31sdp">
 
-                        <com.ui.baselib.widget.layout.UiView
+                        <View
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            app:uiBackgroundColor="@color/color_fdebf5"
-                            app:uiCornerRadius="@dimen/_10sdp" />
+                            android:background="@drawable/bg_fdebf5_r10sdp" />
 
-                        <com.ui.baselib.widget.view.UiImageView
+                        <ImageView
                             android:layout_width="@dimen/_20sdp"
                             android:layout_height="@dimen/_20sdp"
                             android:layout_gravity="center"
@@ -306,8 +307,8 @@
                             android:padding="@dimen/_4sdp"
                             android:src="@drawable/ic_app_palette"
                             app:tint="@color/on_primary"
-                            app:uiBackgroundColor="@color/color_ef4da8"
-                            app:uiCornerRadius="@dimen/_7sdp" />
+                            android:background="@drawable/bg_ef4da8_r7sdp"
+                            android:clipToOutline="true" />
                     </FrameLayout>
 
                     <TextView
@@ -321,7 +322,7 @@
                         android:textColor="@color/text_secondary"
                         android:textSize="@dimen/_9sdp" />
 
-                    <com.ui.baselib.widget.view.UiTextView
+                    <TextView
                         android:id="@+id/tvTheme"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -330,12 +331,11 @@
                         android:fontFamily="@font/nt_500"
                         android:maxLines="1"
                         android:textSize="@dimen/_10sdp"
-                        app:drawableEndCompat="@drawable/ic_app_chev"
                         app:drawableTint="@color/color_icon_muted"
-                        app:uiDrawableSize="@dimen/_11sdp"
-                        app:uiTextColor="@color/text_primary"
-                        tools:text="English" />
-                </com.ui.baselib.widget.layout.UiLinearLayout>
+                        tools:text="English"
+                        android:textColor="@color/text_primary"
+                        app:drawableEndCompat="@drawable/ic_app_chev_11sdp" />
+                </LinearLayout>
 
             </LinearLayout>
 
@@ -348,14 +348,16 @@
                 android:paddingBottom="@dimen/_7sdp"
                 android:text="@string/support" />
 
-            <com.ui.baselib.widget.layout.UiLinearLayout
+            <LinearLayout
                 style="@style/CardAppStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/_13sdp"
                 android:orientation="vertical"
                 android:padding="@dimen/_13sdp"
-                app:uiCornerRadius="@dimen/_15sdp">
+                android:background="@drawable/bg_surface_card_r15sdp"
+                android:foreground="@drawable/stroke_r15sdp_st1sdp_stroke"
+                android:clipToOutline="true">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -380,7 +382,7 @@
                     android:layout_marginTop="@dimen/_9sdp"
                     android:orientation="horizontal">
 
-                    <com.ui.baselib.widget.view.UiImageView
+                    <ImageView
                         android:id="@+id/btnStar1"
                         android:layout_width="@dimen/_33sdp"
                         android:layout_height="@dimen/_33sdp"
@@ -388,15 +390,15 @@
                         android:padding="@dimen/_8sdp"
                         android:src="@drawable/ic_app_star"
                         app:tint="@color/color_e4a11b"
-                        app:uiBackgroundColor="@color/color_fff6da"
-                        app:uiCornerRadius="@dimen/_11sdp" />
+                        android:background="@drawable/bg_fff6da_r11sdp"
+                        android:clipToOutline="true" />
 
                     <Space
                         android:layout_width="0dp"
                         android:layout_height="0dp"
                         android:layout_weight="1" />
 
-                    <com.ui.baselib.widget.view.UiImageView
+                    <ImageView
                         android:id="@+id/btnStar2"
                         android:layout_width="@dimen/_33sdp"
                         android:layout_height="@dimen/_33sdp"
@@ -404,15 +406,15 @@
                         android:padding="@dimen/_8sdp"
                         android:src="@drawable/ic_app_star"
                         app:tint="@color/color_e4a11b"
-                        app:uiBackgroundColor="@color/color_fff6da"
-                        app:uiCornerRadius="@dimen/_11sdp" />
+                        android:background="@drawable/bg_fff6da_r11sdp"
+                        android:clipToOutline="true" />
 
                     <Space
                         android:layout_width="0dp"
                         android:layout_height="0dp"
                         android:layout_weight="1" />
 
-                    <com.ui.baselib.widget.view.UiImageView
+                    <ImageView
                         android:id="@+id/btnStar3"
                         android:layout_width="@dimen/_33sdp"
                         android:layout_height="@dimen/_33sdp"
@@ -420,15 +422,15 @@
                         android:padding="@dimen/_8sdp"
                         android:src="@drawable/ic_app_star"
                         app:tint="@color/color_e4a11b"
-                        app:uiBackgroundColor="@color/color_fff6da"
-                        app:uiCornerRadius="@dimen/_11sdp" />
+                        android:background="@drawable/bg_fff6da_r11sdp"
+                        android:clipToOutline="true" />
 
                     <Space
                         android:layout_width="0dp"
                         android:layout_height="0dp"
                         android:layout_weight="1" />
 
-                    <com.ui.baselib.widget.view.UiImageView
+                    <ImageView
                         android:id="@+id/btnStar4"
                         android:layout_width="@dimen/_33sdp"
                         android:layout_height="@dimen/_33sdp"
@@ -436,15 +438,15 @@
                         android:padding="@dimen/_8sdp"
                         android:src="@drawable/ic_app_star"
                         app:tint="@color/color_e4a11b"
-                        app:uiBackgroundColor="@color/color_fff6da"
-                        app:uiCornerRadius="@dimen/_11sdp" />
+                        android:background="@drawable/bg_fff6da_r11sdp"
+                        android:clipToOutline="true" />
 
                     <Space
                         android:layout_width="0dp"
                         android:layout_height="0dp"
                         android:layout_weight="1" />
 
-                    <com.ui.baselib.widget.view.UiImageView
+                    <ImageView
                         android:id="@+id/btnStar5"
                         android:layout_width="@dimen/_33sdp"
                         android:layout_height="@dimen/_33sdp"
@@ -452,34 +454,37 @@
                         android:padding="@dimen/_8sdp"
                         android:src="@drawable/ic_app_star"
                         app:tint="@color/color_e4a11b"
-                        app:uiBackgroundColor="@color/color_fff6da"
-                        app:uiCornerRadius="@dimen/_11sdp" />
+                        android:background="@drawable/bg_fff6da_r11sdp"
+                        android:clipToOutline="true" />
 
                 </LinearLayout>
-            </com.ui.baselib.widget.layout.UiLinearLayout>
+            </LinearLayout>
 
             <Space
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_8sdp" />
 
-            <com.ui.baselib.widget.layout.UiLinearLayout
+            <LinearLayout
                 style="@style/CardAppStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/_13sdp"
                 android:orientation="vertical"
-                app:uiCornerRadius="@dimen/_15sdp">
+                android:background="@drawable/bg_surface_card_r15sdp"
+                android:foreground="@drawable/stroke_r15sdp_st1sdp_stroke"
+                android:clipToOutline="true">
 
                 <LinearLayout
                     android:id="@+id/rowShare"
                     style="@style/SettingRowStyle">
 
-                    <com.ui.baselib.widget.view.UiImageView
+                    <ImageView
                         style="@style/SettingRowIconStyle"
                         android:contentDescription="@null"
                         android:src="@drawable/ic_app_share"
                         app:tint="@color/color_3984ff"
-                        app:uiBackgroundColor="@color/color_eaf2ff" />
+                        android:background="@drawable/bg_eaf2ff_r9sdp"
+                        android:clipToOutline="true" />
 
                     <TextView
                         style="@style/RowLabelStyle"
@@ -494,12 +499,13 @@
                     android:id="@+id/rowFeedback"
                     style="@style/SettingRowStyle">
 
-                    <com.ui.baselib.widget.view.UiImageView
+                    <ImageView
                         style="@style/SettingRowIconStyle"
                         android:contentDescription="@null"
                         android:src="@drawable/ic_app_chat"
                         app:tint="@color/color_14b8a6"
-                        app:uiBackgroundColor="@color/color_e0f8f3" />
+                        android:background="@drawable/bg_e0f8f3_r9sdp"
+                        android:clipToOutline="true" />
 
                     <TextView
                         style="@style/RowLabelStyle"
@@ -509,7 +515,7 @@
                         style="@style/RowChevronStyle"
                         android:contentDescription="@null" />
                 </LinearLayout>
-            </com.ui.baselib.widget.layout.UiLinearLayout>
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/tvPremiumSection"
@@ -521,25 +527,28 @@
                 android:paddingBottom="@dimen/_7sdp"
                 android:text="@string/premium" />
 
-            <com.ui.baselib.widget.layout.UiLinearLayout
+            <LinearLayout
                 android:id="@+id/cardPremiumRows"
                 style="@style/CardAppStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/_13sdp"
                 android:orientation="vertical"
-                app:uiCornerRadius="@dimen/_15sdp">
+                android:background="@drawable/bg_surface_card_r15sdp"
+                android:foreground="@drawable/stroke_r15sdp_st1sdp_stroke"
+                android:clipToOutline="true">
 
                 <LinearLayout
                     android:id="@+id/rowRestore"
                     style="@style/SettingRowStyle">
 
-                    <com.ui.baselib.widget.view.UiImageView
+                    <ImageView
                         style="@style/SettingRowIconStyle"
                         android:contentDescription="@null"
                         android:src="@drawable/ic_app_restore"
                         app:tint="@color/color_35ac71"
-                        app:uiBackgroundColor="@color/color_e7f7ed" />
+                        android:background="@drawable/bg_e7f7ed_r9sdp"
+                        android:clipToOutline="true" />
 
                     <TextView
                         style="@style/RowLabelStyle"
@@ -554,12 +563,13 @@
                     android:id="@+id/rowSubscription"
                     style="@style/SettingRowStyle">
 
-                    <com.ui.baselib.widget.view.UiImageView
+                    <ImageView
                         style="@style/SettingRowIconStyle"
                         android:contentDescription="@null"
                         android:src="@drawable/ic_app_crown"
                         app:tint="@color/text_on_selected"
-                        app:uiBackgroundColor="@color/color_bg_selected" />
+                        android:background="@drawable/bg_bg_selected_r9sdp"
+                        android:clipToOutline="true" />
 
                     <TextView
                         style="@style/RowLabelStyle"
@@ -569,7 +579,7 @@
                         style="@style/RowChevronStyle"
                         android:contentDescription="@null" />
                 </LinearLayout>
-            </com.ui.baselib.widget.layout.UiLinearLayout>
+            </LinearLayout>
 
             <TextView
                 style="@style/TextSectionCaps"
@@ -580,24 +590,27 @@
                 android:paddingBottom="@dimen/_7sdp"
                 android:text="@string/about" />
 
-            <com.ui.baselib.widget.layout.UiLinearLayout
+            <LinearLayout
                 style="@style/CardAppStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/_13sdp"
                 android:orientation="vertical"
-                app:uiCornerRadius="@dimen/_15sdp">
+                android:background="@drawable/bg_surface_card_r15sdp"
+                android:foreground="@drawable/stroke_r15sdp_st1sdp_stroke"
+                android:clipToOutline="true">
 
                 <LinearLayout
                     android:id="@+id/rowPrivacy"
                     style="@style/SettingRowStyle">
 
-                    <com.ui.baselib.widget.view.UiImageView
+                    <ImageView
                         style="@style/SettingRowIconStyle"
                         android:contentDescription="@null"
                         android:src="@drawable/ic_app_shield"
                         app:tint="@color/text_secondary"
-                        app:uiBackgroundColor="@color/color_surface_variant" />
+                        android:background="@drawable/bg_surface_variant_r9sdp"
+                        android:clipToOutline="true" />
 
                     <TextView
                         style="@style/RowLabelStyle"
@@ -612,12 +625,13 @@
                     android:id="@+id/rowTerms"
                     style="@style/SettingRowStyle">
 
-                    <com.ui.baselib.widget.view.UiImageView
+                    <ImageView
                         style="@style/SettingRowIconStyle"
                         android:contentDescription="@null"
                         android:src="@drawable/ic_app_file"
                         app:tint="@color/text_secondary"
-                        app:uiBackgroundColor="@color/color_surface_variant" />
+                        android:background="@drawable/bg_surface_variant_r9sdp"
+                        android:clipToOutline="true" />
 
                     <TextView
                         style="@style/RowLabelStyle"
@@ -627,7 +641,7 @@
                         style="@style/RowChevronStyle"
                         android:contentDescription="@null" />
                 </LinearLayout>
-            </com.ui.baselib.widget.layout.UiLinearLayout>
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/tvVersion"

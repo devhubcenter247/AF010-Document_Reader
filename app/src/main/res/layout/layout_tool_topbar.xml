@@ -9,10 +9,12 @@
     android:paddingStart="@dimen/_9sdp"
     android:paddingEnd="@dimen/_8sdp">
 
-    <com.ui.baselib.widget.view.UiImageView
+    <ImageView
         android:id="@+id/btnBack"
         style="@style/IconButtonStyle"
         android:contentDescription="@string/scanner_back"
-        android:src="@drawable/ic_app_back" />
+        android:src="@drawable/ic_app_back"
+        android:background="@drawable/bg_surface_variant_r17sdp"
+        android:clipToOutline="true" />
 
 </LinearLayout>

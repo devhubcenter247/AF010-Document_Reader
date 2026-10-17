@@ -8,14 +8,13 @@
     android:orientation="vertical"
     android:padding="@dimen/_3sdp">
 
-    <com.ui.baselib.widget.layout.UiFrameLayout
+    <FrameLayout
         android:id="@+id/card"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_105sdp"
-        app:uiBackgroundColor="@color/white"
-        app:uiCornerRadius="@dimen/_5sdp"
-        app:uiStrokeColor="@color/color_stroke"
-        app:uiStrokeWidth="@dimen/_1sdp">
+        android:background="@drawable/bg_white_r5sdp"
+        android:foreground="@drawable/stroke_r5sdp_st1sdp_stroke"
+        android:clipToOutline="true">
 
         <ImageView
             android:id="@+id/ivPage"
@@ -35,7 +34,7 @@
             android:src="@drawable/ic_app_checkbox_on"
             android:visibility="gone"
             tools:visibility="visible" />
-    </com.ui.baselib.widget.layout.UiFrameLayout>
+    </FrameLayout>
 
     <TextView
         android:id="@+id/tvNumber"

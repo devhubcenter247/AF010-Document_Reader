@@ -8,7 +8,7 @@
     android:background="@color/color_bg_app"
     tools:context=".ui.splash.SplashActivity">
 
-    <com.ui.baselib.widget.view.UiImageView
+    <ImageView
         android:id="@+id/uiImageView"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -20,15 +20,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.302"
-        app:uiCornerRadius="@dimen/_23sdp"
-        app:uiDimensionRatio="1:1"
-        app:uiShadowColor="@color/primary_40"
-        app:uiShadowElevation="@dimen/_13sdp"
-        app:uiShadowRadius="@dimen/_27sdp"
-        app:uiShadowClipParent="force"
-        app:uiWidthPercent="0.35" />
+        android:background="@drawable/bg_r23sdp"
+        android:clipToOutline="true"
+        android:elevation="@dimen/_27sdp"
+        android:outlineSpotShadowColor="@color/primary_40"
+        android:outlineAmbientShadowColor="@color/primary_40"
+        app:layout_constraintWidth_percent="0.35"
+        app:layout_constraintDimensionRatio="1:1" />
 
-    <com.ui.baselib.widget.view.UiTextView
+    <TextView
         android:id="@+id/tvAppName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -41,7 +41,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/uiImageView" />
 
-    <com.ui.baselib.widget.view.UiTextView
+    <TextView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:fontFamily="@font/nt_400"
@@ -54,7 +54,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvAppName" />
 
-    <com.ui.baselib.widget.view.UiTextView
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/_7sdp"

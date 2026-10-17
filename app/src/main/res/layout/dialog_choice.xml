@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.ui.baselib.widget.layout.UiLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/DialogAppStyle"
@@ -10,18 +11,20 @@
     android:gravity="center_horizontal"
     android:orientation="vertical"
     android:padding="@dimen/_17sdp"
-    tools:context=".ui.dialog.ChoiceDialog">
+    tools:context=".ui.dialog.ChoiceDialog"
+    android:background="@drawable/bg_surface_card_r18sdp"
+    android:clipToOutline="true">
 
-    <com.ui.baselib.widget.view.UiImageView
+    <ImageView
         android:id="@+id/ivIcon"
         android:layout_width="@dimen/_55sdp"
         android:layout_height="@dimen/_55sdp"
         android:contentDescription="@null"
         android:padding="@dimen/_15sdp"
         app:tint="@color/primary"
-        app:uiBackgroundColor="@color/color_bg_selected"
-        app:uiCornerRadius="@dimen/_28sdp"
-        tools:src="@drawable/ic_app_save" />
+        tools:src="@drawable/ic_app_save"
+        android:background="@drawable/bg_bg_selected_r28sdp"
+        android:clipToOutline="true" />
 
     <TextView
         android:id="@+id/tvTitle"
@@ -46,21 +49,26 @@
         android:textSize="@dimen/_9sdp"
         tools:text="Your changes aren’t saved to the original file." />
 
-    <com.ui.baselib.widget.view.UiTextView
+    <TextView
         android:id="@+id/btnPrimary"
         style="@style/ButtonAppStyle"
         android:layout_width="match_parent"
         android:layout_marginTop="@dimen/_13sdp"
-        app:uiShadowClipParent="force"
-        app:uiShadowColor="@color/primary_30"
-        tools:text="Save" />
+        tools:text="Save"
+        android:background="@drawable/bg_grad_gradient_start_gradient_end_270_r10sdp"
+        android:elevation="@dimen/_5sdp"
+        android:outlineSpotShadowColor="@color/primary_30"
+        android:outlineAmbientShadowColor="@color/primary_20"
+        android:textColor="@color/white" />
 
-    <com.ui.baselib.widget.view.UiTextView
+    <TextView
         android:id="@+id/btnSecondary"
         style="@style/ButtonOutlineStyle"
         android:layout_width="match_parent"
         android:layout_marginTop="@dimen/_6sdp"
-        tools:text="Don’t save" />
+        tools:text="Don’t save"
+        android:background="@drawable/bg_surface_card_r10sdp_st1sdp_stroke"
+        android:textColor="@color/text_primary" />
 
     <TextView
         android:id="@+id/btnTertiary"
@@ -76,4 +84,4 @@
         tools:text="Keep editing"
         tools:visibility="visible" />
 
-</com.ui.baselib.widget.layout.UiLinearLayout>
+</LinearLayout>

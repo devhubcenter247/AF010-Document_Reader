@@ -7,6 +7,7 @@ import androidx.fragment.app.FragmentActivity
 import com.af010.creator.docreader.R
 import com.af010.creator.docreader.databinding.ItemLanguageOptionBinding
 import com.af010.creator.docreader.databinding.SheetLanguageBinding
+import com.af010.creator.docreader.utils.extensions.setCompoundDrawablesSized
 import com.ui.baselib.base.BaseAdapter
 import com.ui.baselib.base.BaseBottomSheet
 import com.ui.baselib.extensions.click
@@ -42,9 +43,9 @@ class LanguageBottomSheet(
 
         override fun ItemLanguageOptionBinding.bind(item: Pair<String, String>, position: Int) {
             tvLanguage.text = item.second
-            tvLanguage.setCompoundDrawablesRelativeWithIntrinsicBounds(
-                if (item.first == selected) R.drawable.ic_app_radio_on else R.drawable.ic_app_radio_off,
-                0, 0, 0
+            tvLanguage.setCompoundDrawablesSized(
+                com.intuit.sdp.R.dimen._17sdp,
+                start = if (item.first == selected) R.drawable.ic_app_radio_on else R.drawable.ic_app_radio_off
             )
             root.setOnClickListener { onItemClick.invoke(item.first) }
         }

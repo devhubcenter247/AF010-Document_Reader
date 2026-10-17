@@ -12,12 +12,13 @@ import com.af010.creator.docreader.pdf.PdfToolbox
 import com.af010.creator.docreader.ui.dialog.TextInputDialog
 import com.af010.creator.docreader.ui.main.tools.EXTRA_PATHS
 import com.af010.creator.docreader.ui.main.tools.result.ProcessingActivity
+import com.af010.creator.docreader.utils.extensions.setFillColor
 import com.ui.baselib.extensions.click
 import com.ui.baselib.extensions.clickSingle
 import com.ui.baselib.extensions.visible
 import com.ui.baselib.extensions.visibleOrInvisible
-import org.koin.android.ext.android.inject
 import java.io.File
+import org.koin.android.ext.android.inject
 
 /** Mark areas to black out, page by page, by dragging boxes or by finding text. */
 class RedactActivity : BaseAppActivity<ActivityRedactBinding>(ActivityRedactBinding::inflate) {
@@ -50,7 +51,7 @@ class RedactActivity : BaseAppActivity<ActivityRedactBinding>(ActivityRedactBind
         toolbar.btnExtra.setImageResource(R.drawable.ic_app_undo)
         toolbar.btnExtra.visible()
         toolbar.btnAction.setText(R.string.apply)
-        toolbar.btnAction.helper.bgColor = getColor(R.color.color_ink)
+        toolbar.btnAction.setFillColor(getColor(R.color.color_ink))
         toolbar.btnAction.visible()
 
         launchMain {

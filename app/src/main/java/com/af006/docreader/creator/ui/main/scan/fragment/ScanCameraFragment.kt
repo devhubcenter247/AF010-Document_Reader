@@ -8,6 +8,7 @@ import android.os.SystemClock
 import android.provider.Settings
 import android.util.Log
 import android.view.Surface
+import android.widget.TextView
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.OptIn
@@ -41,18 +42,19 @@ import com.af010.creator.docreader.ui.main.scan.detection.DocumentEdgeDetector
 import com.af010.creator.docreader.ui.main.scan.detection.DocumentImageProcessor
 import com.af010.creator.docreader.ui.main.scan.detection.YPlaneMatConverter
 import com.af010.creator.docreader.utils.PermissionSettingsWatcher
+import com.af010.creator.docreader.utils.extensions.setCompoundDrawablesSized
+import com.af010.creator.docreader.utils.extensions.setFillColor
 import com.bumptech.glide.Glide
 import com.ui.baselib.extensions.click
-import com.ui.baselib.widget.view.UiTextView
+import java.io.File
+import java.util.concurrent.ExecutorService
+import java.util.concurrent.Executors
+import java.util.concurrent.atomic.AtomicBoolean
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.koin.androidx.viewmodel.ext.android.activityViewModel
 import org.opencv.core.Point
-import java.io.File
-import java.util.concurrent.ExecutorService
-import java.util.concurrent.Executors
-import java.util.concurrent.atomic.AtomicBoolean
 
 /**
  * Live camera with the document's edges drawn over the preview. In Auto mode the photo is taken
@@ -219,8 +221,8 @@ class ScanCameraFragment :
         binding.btnManual.setModeSelected(!enabled)
     }
 
-    private fun UiTextView.setModeSelected(selected: Boolean) {
-        helper.bgColor = if (selected) ContextCompat.getColor(context, R.color.on_primary) else 0
+    private fun TextView.setModeSelected(selected: Boolean) {
+        setFillColor(if (selected) ContextCompat.getColor(context, R.color.on_primary) else 0)
         setTextColor(ContextCompat.getColor(context, if (selected) R.color.color_ink else R.color.color_icon_muted))
         invalidate()
     }
@@ -236,11 +238,11 @@ class ScanCameraFragment :
                 else -> R.string.scanner_hint_searching
             }
         )
-        hint.helper.bgColor = ContextCompat.getColor(
+        hint.setFillColor(ContextCompat.getColor(
             context, if (holding) R.color.accent else R.color.color_white_12
-        )
+        ))
         hint.setTextColor(ContextCompat.getColor(context, if (holding) R.color.on_accent else R.color.on_primary))
-        hint.setCompoundDrawablesRelativeWithIntrinsicBounds(if (holding) R.drawable.ic_app_check else 0, 0, 0, 0)
+        hint.setCompoundDrawablesSized(com.intuit.sdp.R.dimen._12sdp, start = if (holding) R.drawable.ic_app_check else 0)
         hint.invalidate()
     }
 

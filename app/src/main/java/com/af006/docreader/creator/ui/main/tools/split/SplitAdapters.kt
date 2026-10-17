@@ -8,6 +8,8 @@ import androidx.core.widget.doAfterTextChanged
 import com.af010.creator.docreader.R
 import com.af010.creator.docreader.databinding.ItemPageThumbBinding
 import com.af010.creator.docreader.databinding.ItemSplitRangeBinding
+import com.af010.creator.docreader.utils.extensions.setFillColor
+import com.af010.creator.docreader.utils.extensions.setStroke
 import com.ui.baselib.base.BaseAdapter
 import com.ui.baselib.utils.dpToPx
 
@@ -77,14 +79,13 @@ class PageThumbAdapter(
         val context = root.context
         val selected = item in selectedPages
         tvNumber.text = (item + 1).toString()
-        tvNumber.helper.bgColor = ContextCompat.getColor(
+        tvNumber.setFillColor(ContextCompat.getColor(
             context, if (selected) R.color.primary else R.color.color_ink
-        )
+        ))
         tvNumber.invalidate()
-        card.helper.stColor = ContextCompat.getColor(
+        card.setStroke(context.dpToPx(if (selected) 2 else 1), ContextCompat.getColor(
             context, if (selected) R.color.primary else R.color.color_stroke
-        )
-        card.helper.stWidth = context.dpToPx(if (selected) 2 else 1).toFloat()
+        ))
         card.invalidate()
 
         ivPage.tag = item

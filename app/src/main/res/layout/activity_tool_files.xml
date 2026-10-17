@@ -41,26 +41,33 @@
                 tools:itemCount="3"
                 tools:listitem="@layout/item_tool_file_row" />
 
-            <com.ui.baselib.widget.view.UiTextView
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnAddFiles"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_37sdp"
                 android:layout_marginTop="@dimen/_8sdp"
-                android:drawablePadding="@dimen/_6sdp"
                 android:fontFamily="@font/nt_600"
                 android:gravity="center"
                 android:text="@string/add_files"
                 android:textSize="@dimen/_11sdp"
-                app:drawableStartCompat="@drawable/ic_app_plus"
-                app:drawableTint="@color/text_on_selected"
-                app:uiCornerRadius="@dimen/_11sdp"
-                app:uiDrawableAlign="text"
-                app:uiDrawableSize="@dimen/_13sdp"
-                app:uiStrokeColor="@color/color_checkbox_stroke"
-                app:uiStrokeDashGap="@dimen/_3sdp"
-                app:uiStrokeDashed="true"
-                app:uiStrokeWidth="2dp"
-                app:uiTextColor="@color/text_on_selected" />
+                android:background="@drawable/stroke_r11sdp_st2dp_checkbox_stroke_dash"
+                android:textColor="@color/text_on_selected"
+                app:icon="@drawable/ic_app_plus"
+                app:iconGravity="textStart"
+                app:iconPadding="@dimen/_6sdp"
+                app:iconSize="@dimen/_13sdp"
+                app:iconTint="@color/text_on_selected"
+                app:backgroundTint="@null"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:textAllCaps="false"
+                android:letterSpacing="0"
+                android:stateListAnimator="@null"
+                android:paddingHorizontal="0dp"
+                android:paddingVertical="0dp"
+                android:elevation="0dp" />
 
             <TextView
                 android:id="@+id/tvNameLabel"
@@ -72,7 +79,7 @@
                 android:textColor="@color/text_secondary"
                 android:textSize="@dimen/_10sdp" />
 
-            <com.ui.baselib.widget.layout.UiLinearLayout
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_37sdp"
                 android:layout_marginTop="@dimen/_5sdp"
@@ -80,10 +87,9 @@
                 android:orientation="horizontal"
                 android:paddingStart="@dimen/_11sdp"
                 android:paddingEnd="@dimen/_11sdp"
-                app:uiBackgroundColor="@color/color_surface_card"
-                app:uiCornerRadius="@dimen/_11sdp"
-                app:uiStrokeColor="@color/color_stroke"
-                app:uiStrokeWidth="@dimen/_1sdp">
+                android:background="@drawable/bg_surface_card_r11sdp"
+                android:foreground="@drawable/stroke_r11sdp_st1sdp_stroke"
+                android:clipToOutline="true">
 
                 <EditText
                     android:id="@+id/edtName"
@@ -110,7 +116,7 @@
                     android:textColor="@color/text_secondary"
                     android:textSize="@dimen/_12sdp"
                     tools:text=".pdf" />
-            </com.ui.baselib.widget.layout.UiLinearLayout>
+            </LinearLayout>
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.ui.baselib.widget.layout.UiLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:padding="@dimen/_3sdp"
-    app:uiBackgroundColor="@color/color_surface_track"
-    app:uiCornerRadius="@dimen/_9sdp">
+    android:background="@drawable/bg_surface_track_r9sdp"
+    android:clipToOutline="true">
 
-    <com.ui.baselib.widget.view.UiTextView
+    <TextView
         android:id="@+id/tvFirst"
         android:layout_width="0dp"
         android:layout_height="@dimen/_25sdp"
@@ -18,10 +19,9 @@
         android:gravity="center"
         android:paddingHorizontal="@dimen/_11sdp"
         android:textSize="@dimen/_10sdp"
-        app:uiCornerRadius="@dimen/_8sdp"
         tools:text="Recent" />
 
-    <com.ui.baselib.widget.view.UiTextView
+    <TextView
         android:id="@+id/tvSecond"
         android:layout_width="0dp"
         android:layout_height="@dimen/_25sdp"
@@ -30,10 +30,9 @@
         android:gravity="center"
         android:paddingHorizontal="@dimen/_11sdp"
         android:textSize="@dimen/_10sdp"
-        app:uiCornerRadius="@dimen/_8sdp"
         tools:text="Favorites" />
 
-    <com.ui.baselib.widget.view.UiTextView
+    <TextView
         android:id="@+id/tvThird"
         android:layout_width="0dp"
         android:layout_height="@dimen/_25sdp"
@@ -42,8 +41,7 @@
         android:gravity="center"
         android:paddingHorizontal="@dimen/_11sdp"
         android:textSize="@dimen/_10sdp"
-        app:uiCornerRadius="@dimen/_8sdp"
         android:visibility="gone"
         tools:text="Side by side" />
 
-</com.ui.baselib.widget.layout.UiLinearLayout>
+</LinearLayout>

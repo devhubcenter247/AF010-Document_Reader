@@ -1,31 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.ui.baselib.widget.layout.UiLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:gravity="center"
-    app:uiBackgroundColor="@color/color_surface_card"
-    app:uiCornerRadius="@dimen/_10sdp"
-    app:uiStrokeWidth="@dimen/_1sdp"
-    app:uiStrokeColor="@color/transparent"
-    app:uiStrokeGradient="false"
-    app:uiStrokeGradientStart="@color/gradient_start"
-    app:uiStrokeGradientEnd="@color/gradient_end"
     android:layout_marginVertical="@dimen/_5sdp"
-    android:padding="@dimen/_8sdp">
+    android:padding="@dimen/_8sdp"
+    android:background="@drawable/bg_language_item"
+    android:clipToOutline="true">
 
-    <com.ui.baselib.widget.view.UiImageView
+    <ImageView
         android:id="@+id/itemLanguage"
         android:layout_width="@dimen/_23sdp"
-        app:uiStrokeWidth="@dimen/_1sdp"
         android:layout_height="@dimen/_23sdp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:uiCornerRadius="@dimen/_10sdp"
-        app:uiStrokeColor="@color/color_stroke"
-        tools:src="@tools:sample/avatars" />
+        tools:src="@tools:sample/avatars"
+        android:background="@drawable/bg_r10sdp"
+        android:foreground="@drawable/stroke_r10sdp_st1sdp_stroke"
+        android:clipToOutline="true" />
 
     <LinearLayout
         android:orientation="vertical"
@@ -60,4 +56,4 @@
         android:layout_height="@dimen/_17sdp"
         android:padding="@dimen/_1sdp"
         android:src="@drawable/ic_state_language" />
-</com.ui.baselib.widget.layout.UiLinearLayout>
+</LinearLayout>

@@ -11,6 +11,8 @@ import com.af010.creator.docreader.databinding.LayoutToolHeaderBinding
 import com.af010.creator.docreader.model.Tool
 import com.af010.creator.docreader.utils.AppUtils
 import com.af010.creator.docreader.utils.extensions.iconRes
+import com.af010.creator.docreader.utils.extensions.setFillColor
+import com.af010.creator.docreader.utils.extensions.setStroke
 import com.ui.baselib.utils.dpToPx
 import java.io.File
 
@@ -54,14 +56,13 @@ fun LayoutOptionBinding.show(@StringRes title: Int, desc: String) {
 fun LayoutOptionBinding.setChecked(checked: Boolean) {
     val context = root.context
     ivRadio.setImageResource(if (checked) R.drawable.ic_app_radio_on else R.drawable.ic_app_radio_off)
-    root.helper.bgColor = ContextCompat.getColor(
+    root.setFillColor(ContextCompat.getColor(
         context,
         if (checked) R.color.color_bg_selected else R.color.color_surface_card
-    )
-    root.helper.stColor = ContextCompat.getColor(
+    ))
+    root.setStroke(context.dpToPx(if (checked) 2 else 1), ContextCompat.getColor(
         context,
         if (checked) R.color.primary else R.color.color_stroke
-    )
-    root.helper.stWidth = context.dpToPx(if (checked) 2 else 1).toFloat()
+    ))
     root.invalidate()
 }

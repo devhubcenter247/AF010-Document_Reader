@@ -17,13 +17,14 @@
         android:orientation="horizontal"
         android:paddingHorizontal="@dimen/_9sdp">
 
-        <com.ui.baselib.widget.view.UiImageView
+        <ImageView
             android:id="@+id/btnBack"
             style="@style/IconButtonStyle"
             android:contentDescription="@string/scanner_back"
             android:src="@drawable/ic_app_back"
             app:tint="@color/on_primary"
-            app:uiBackgroundColor="@color/color_white_12" />
+            android:background="@drawable/bg_white_12_r17sdp"
+            android:clipToOutline="true" />
 
         <TextView
             android:layout_width="0dp"
@@ -35,7 +36,7 @@
             android:textColor="@color/on_primary"
             android:textSize="@dimen/_12sdp" />
 
-        <com.ui.baselib.widget.view.UiTextView
+        <TextView
             android:id="@+id/btnNext"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/_23sdp"
@@ -44,9 +45,8 @@
             android:paddingHorizontal="@dimen/_10sdp"
             android:text="@string/next"
             android:textSize="@dimen/_10sdp"
-            app:uiBackgroundColor="@color/accent"
-            app:uiCornerRadius="@dimen/_12sdp"
-            app:uiTextColor="@color/on_accent" />
+            android:background="@drawable/bg_accent_r12sdp"
+            android:textColor="@color/on_accent" />
     </LinearLayout>
 
     <FrameLayout
@@ -75,7 +75,7 @@
         android:orientation="horizontal"
         android:paddingBottom="@dimen/_7sdp">
 
-        <com.ui.baselib.widget.view.UiTextView
+        <TextView
             android:id="@+id/btnRotate"
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -88,11 +88,10 @@
             android:text="@string/scanner_rotate"
             android:textSize="@dimen/_9sdp"
             app:drawableTint="@color/on_primary"
-            app:drawableTopCompat="@drawable/ic_app_rotate"
-            app:uiDrawableSize="@dimen/_17sdp"
-            app:uiTextColor="@color/on_primary" />
+            android:textColor="@color/on_primary"
+            app:drawableTopCompat="@drawable/ic_app_rotate_17sdp" />
 
-        <com.ui.baselib.widget.view.UiTextView
+        <TextView
             android:id="@+id/btnAutoDetect"
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -105,11 +104,10 @@
             android:text="@string/scan_auto_detect"
             android:textSize="@dimen/_9sdp"
             app:drawableTint="@color/on_primary"
-            app:drawableTopCompat="@drawable/ic_app_sparkle"
-            app:uiDrawableSize="@dimen/_17sdp"
-            app:uiTextColor="@color/on_primary" />
+            android:textColor="@color/on_primary"
+            app:drawableTopCompat="@drawable/ic_app_sparkle_17sdp" />
 
-        <com.ui.baselib.widget.view.UiTextView
+        <TextView
             android:id="@+id/btnFullPage"
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -122,9 +120,8 @@
             android:text="@string/scan_full_page"
             android:textSize="@dimen/_9sdp"
             app:drawableTint="@color/on_primary"
-            app:drawableTopCompat="@drawable/ic_app_crop"
-            app:uiDrawableSize="@dimen/_17sdp"
-            app:uiTextColor="@color/on_primary" />
+            android:textColor="@color/on_primary"
+            app:drawableTopCompat="@drawable/ic_app_crop_17sdp" />
 
     </LinearLayout>
 

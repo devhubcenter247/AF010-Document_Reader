@@ -18,7 +18,7 @@
         android:layout_marginHorizontal="@dimen/_13sdp"
         android:layout_marginTop="@dimen/_11sdp" />
 
-    <com.ui.baselib.widget.view.UiTextView
+    <TextView
         android:id="@+id/btnAddBookmark"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_31sdp"
@@ -29,12 +29,11 @@
         android:paddingHorizontal="@dimen/_15sdp"
         android:textSize="@dimen/_10sdp"
         android:visibility="gone"
-        app:drawableStartCompat="@drawable/ic_app_bookmark"
         app:drawableTint="@color/text_on_selected"
-        app:uiDrawableSize="@dimen/_15sdp"
-        app:uiTextColor="@color/text_on_selected"
         tools:text="Bookmark page 3"
-        tools:visibility="visible" />
+        tools:visibility="visible"
+        android:textColor="@color/text_on_selected"
+        app:drawableStartCompat="@drawable/ic_app_bookmark_15sdp" />
 
     <FrameLayout
         android:layout_width="match_parent"

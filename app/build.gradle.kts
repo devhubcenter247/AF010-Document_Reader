@@ -35,9 +35,9 @@ android {
     signingConfigs {
         create("release") {
             storeFile = rootProject.file("keystore/keystore.jks")
-            storePassword = "blueleft"
-            keyAlias = "af006"
-            keyPassword = "blueleft"
+            storePassword = "test"
+            keyAlias = "af010"
+            keyPassword = "test"
         }
     }
 
@@ -81,7 +81,7 @@ android {
         }
 
         create("product") {
-            applicationId = "com.alldocs.reader.pdf.editor"
+            applicationId = "com.af010.creator.docreader"
             manifestPlaceholders["ad_app_id"] = "ca-app-pub-3940256099942544~3347511713"
             buildConfigField("boolean", "build_debug", "false")
         }
@@ -145,12 +145,13 @@ dependencies {
     implementation(libs.adlib)
     implementation(libs.inappupdate)
 
-    implementation(project(":lib"))
-    // Slim OpenCV build (core, imgproc, imgcodecs) for the document scanner.
+    implementation(libs.androidx.lifecycle.runtime.ktx)
+    implementation(libs.androidx.recyclerview)
+    implementation(libs.kotlinx.coroutines.core)
+    implementation(libs.kotlinx.coroutines.android)
+
     implementation(project(":opencv"))
-    // The PDF view (zoom, text selection, annotations, forms) on top of the document SDK's pdfium.
-   // implementation(project(":pdfview"))
-    implementation(libs.docsdk)
+     implementation(libs.docsdk)
     implementation(libs.androidx.viewpager2)
     implementation(libs.mlkit.translate)
     implementation(libs.mlkit.language.id)

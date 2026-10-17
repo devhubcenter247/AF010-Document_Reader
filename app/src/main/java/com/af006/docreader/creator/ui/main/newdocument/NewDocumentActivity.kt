@@ -4,22 +4,24 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.updatePadding
 import com.af010.creator.docreader.R
 import com.af010.creator.docreader.base.BaseAppActivity
-import com.af010.creator.docreader.databinding.ActivityNewDocumentBinding
 import com.af010.creator.docreader.database.DocumentRepository
+import com.af010.creator.docreader.databinding.ActivityNewDocumentBinding
 import com.af010.creator.docreader.model.DocumentType
 import com.af010.creator.docreader.pdf.PdfToolbox
+import com.af010.creator.docreader.ui.main.reader.office.OfficeActivity
 import com.af010.creator.docreader.utils.AppUtils
 import com.af010.creator.docreader.utils.extensions.iconRes
-import com.af010.creator.docreader.ui.main.reader.office.OfficeActivity
+import com.af010.creator.docreader.utils.extensions.setFillColor
+import com.af010.creator.docreader.utils.extensions.setStroke
 import com.editor.docsdk.DocumentType as SdkDocumentType
 import com.ui.baselib.extensions.click
 import com.ui.baselib.extensions.clickSingle
 import com.ui.baselib.utils.dpToPx
-import org.koin.android.ext.android.inject
 import java.io.File
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
+import org.koin.android.ext.android.inject
 
 /** Name and location of a new blank Word / Excel / PowerPoint file; [EXTRA_TYPE] preselects the type. */
 class NewDocumentActivity :
@@ -91,15 +93,14 @@ class NewDocumentActivity :
             cardPpt to DocumentType.Ppt
         ).forEach { (card, cardType) ->
             val selected = cardType == type
-            card.helper.bgColor = ContextCompat.getColor(
+            card.setFillColor(ContextCompat.getColor(
                 context,
                 if (selected) R.color.color_bg_selected else R.color.color_surface_card
-            )
-            card.helper.stColor = ContextCompat.getColor(
+            ))
+            card.setStroke(context.dpToPx(if (selected) 2 else 1), ContextCompat.getColor(
                 context,
                 if (selected) R.color.primary else R.color.color_stroke
-            )
-            card.helper.stWidth = context.dpToPx(if (selected) 2 else 1).toFloat()
+            ))
             card.invalidate()
         }
         tvExtension.text = ".".plus(type.extension)

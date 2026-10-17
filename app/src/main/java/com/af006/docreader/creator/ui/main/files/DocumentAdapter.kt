@@ -13,6 +13,7 @@ import com.af010.creator.docreader.utils.extensions.dateText
 import com.af010.creator.docreader.utils.extensions.folderName
 import com.af010.creator.docreader.utils.extensions.iconRes
 import com.af010.creator.docreader.utils.extensions.name
+import com.af010.creator.docreader.utils.extensions.setCompoundDrawablesSized
 import com.af010.creator.docreader.utils.extensions.sizeText
 import com.ui.baselib.base.DiffAdapter
 import com.ui.baselib.extensions.visibleOrGone
@@ -57,8 +58,9 @@ class DocumentAdapter : DiffAdapter<RecentUi, ItemDocumentBinding>(
         val doc = item.document
         ivType.setImageResource(doc.type.iconRes)
         tvName.text = highlighted(doc.name, ContextCompat.getColor(context, R.color.color_search_highlight))
-        tvName.setCompoundDrawablesRelativeWithIntrinsicBounds(
-            0, 0, if (item.isFavorite && !selectionMode) R.drawable.ic_app_star_filled else 0, 0
+        tvName.setCompoundDrawablesSized(
+            com.intuit.sdp.R.dimen._10sdp,
+            end = if (item.isFavorite && !selectionMode) R.drawable.ic_app_star_filled else 0
         )
         tvMeta.text = context.getString(
             R.string.document_meta,

@@ -7,6 +7,9 @@ import androidx.annotation.StringRes
 import androidx.core.content.ContextCompat
 import com.af010.creator.docreader.R
 import com.af010.creator.docreader.databinding.ItemFilterChipBinding
+import com.af010.creator.docreader.utils.extensions.setCompoundDrawablesSized
+import com.af010.creator.docreader.utils.extensions.setFillColor
+import com.af010.creator.docreader.utils.extensions.setStroke
 import com.ui.baselib.base.BaseAdapter
 
 /** [label] replaces [title] for chips named by data (a folder); [icon] is shown before the text. */
@@ -34,20 +37,20 @@ class FilterChipAdapter<T> : BaseAdapter<FilterChip<T>, ItemFilterChipBinding>()
     override fun ItemFilterChipBinding.bind(item: FilterChip<T>, position: Int) {
         val context = root.context
         tvChip.text = item.label ?: context.getString(item.title)
-        tvChip.setCompoundDrawablesRelativeWithIntrinsicBounds(item.icon, 0, 0, 0)
+        tvChip.setCompoundDrawablesSized(com.intuit.sdp.R.dimen._12sdp, start = item.icon)
         tvChip.setTextColor(
             ContextCompat.getColor(
                 context,
                 if (item.isSelected) R.color.text_on_selected else R.color.text_primary
             )
         )
-        tvChip.helper.bgColor = ContextCompat.getColor(
+        tvChip.setFillColor(ContextCompat.getColor(
             context,
             if (item.isSelected) R.color.color_bg_selected else R.color.color_surface_card
-        )
-        tvChip.helper.stColor = ContextCompat.getColor(
-            context,
-            if (item.isSelected) R.color.primary else R.color.color_stroke
+        ))
+        tvChip.setStroke(
+            context.resources.getDimensionPixelSize(com.intuit.sdp.R.dimen._1sdp),
+            ContextCompat.getColor(context, if (item.isSelected) R.color.primary else R.color.color_stroke)
         )
         tvChip.invalidate()
         root.setOnClickListener { onItemClick.invoke(item.value) }

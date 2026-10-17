@@ -75,10 +75,10 @@ class OnboardingActivity : BaseAppActivity<ActivityOnboardingBinding>(ActivityOn
 
         if (position == 3) {
             binding.btnNext.text = getString(R.string.get_started)
-            binding.btnNext.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, 0, 0)
+            binding.btnNext.icon = null
         } else {
             binding.btnNext.text = getString(R.string.next)
-            binding.btnNext.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, R.drawable.ic_app_arrowr, 0)
+            binding.btnNext.setIconResource(R.drawable.ic_app_arrowr)
         }
     }
 

@@ -12,13 +12,12 @@ import com.af010.creator.docreader.databinding.SheetWordFormatBinding
 import com.af010.creator.docreader.ui.main.reader.office.runSafely
 import com.af010.creator.docreader.ui.main.reader.pdf.addColorDots
 import com.af010.creator.docreader.ui.main.reader.pdf.selectColorDot
+import com.af010.creator.docreader.utils.extensions.setFillColor
 import com.editor.docsdk.DocumentEditor
 import com.editor.docsdk.EditAction
 import com.ui.baselib.base.BaseBottomSheet
 import com.ui.baselib.extensions.click
 import com.ui.baselib.extensions.visibleOrGone
-import com.ui.baselib.widget.view.UiImageView
-import com.ui.baselib.widget.view.UiTextView
 
 /**
  * Character and paragraph formatting of the selection in a Word document. Every tap is applied
@@ -85,17 +84,11 @@ class WordFormatBottomSheet(
                 activity, if (active) R.color.color_bg_selected else R.color.color_surface_variant
             )
             val tint = ContextCompat.getColor(activity, if (active) R.color.text_on_selected else R.color.text_primary)
+            view.setFillColor(background)
             when (view) {
-                is UiImageView -> {
-                    view.helper.bgColor = background
-                    ImageViewCompat.setImageTintList(view, ColorStateList.valueOf(tint))
-                }
-                is UiTextView -> {
-                    view.helper.bgColor = background
-                    (view as TextView).setTextColor(tint)
-                }
+                is ImageView -> ImageViewCompat.setImageTintList(view, ColorStateList.valueOf(tint))
+                is TextView -> view.setTextColor(tint)
             }
-            view.invalidate()
         }
     }
 

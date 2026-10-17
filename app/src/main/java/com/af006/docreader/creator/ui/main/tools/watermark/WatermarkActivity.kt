@@ -2,6 +2,7 @@ package com.af010.creator.docreader.ui.main.tools.watermark
 
 import android.graphics.Color
 import android.util.TypedValue
+import android.view.View
 import android.widget.LinearLayout
 import android.widget.SeekBar
 import androidx.core.graphics.ColorUtils
@@ -13,13 +14,14 @@ import com.af010.creator.docreader.model.ToolRequest
 import com.af010.creator.docreader.pdf.PdfToolbox
 import com.af010.creator.docreader.ui.main.tools.EXTRA_PATHS
 import com.af010.creator.docreader.ui.main.tools.result.ProcessingActivity
+import com.af010.creator.docreader.utils.extensions.setCircle
+import com.af010.creator.docreader.utils.extensions.setStroke
 import com.ui.baselib.extensions.afterTextChanged
 import com.ui.baselib.extensions.clickSingle
 import com.ui.baselib.extensions.visible
 import com.ui.baselib.utils.dpToPx
-import com.ui.baselib.widget.layout.UiView
-import org.koin.android.ext.android.inject
 import java.io.File
+import org.koin.android.ext.android.inject
 
 /** Text watermark across every page: the first page previews the text, colour, opacity and angle. */
 class WatermarkActivity : BaseAppActivity<ActivityWatermarkBinding>(ActivityWatermarkBinding::inflate) {
@@ -101,10 +103,9 @@ class WatermarkActivity : BaseAppActivity<ActivityWatermarkBinding>(ActivityWate
         val size = resources.getDimensionPixelSize(com.intuit.sdp.R.dimen._23sdp)
         val gap = resources.getDimensionPixelSize(com.intuit.sdp.R.dimen._9sdp)
         COLORS.forEach { dotColor ->
-            val dot = UiView(this@WatermarkActivity).apply {
+            val dot = View(this@WatermarkActivity).apply {
                 layoutParams = LinearLayout.LayoutParams(size, size).apply { marginStart = gap }
-                helper.cornerRadius = size / 2f
-                helper.bgColor = dotColor
+                setCircle(dotColor)
                 tag = dotColor
                 setOnClickListener {
                     color = dotColor
@@ -121,10 +122,9 @@ class WatermarkActivity : BaseAppActivity<ActivityWatermarkBinding>(ActivityWate
 
         // The selected colour gets a ring.
         for (index in 0 until layoutColors.childCount) {
-            val dot = layoutColors.getChildAt(index) as UiView
+            val dot = layoutColors.getChildAt(index)
             val selected = dot.tag == color
-            dot.helper.stColor = if (selected) getColor(R.color.text_primary) else Color.TRANSPARENT
-            dot.helper.stWidth = if (selected) dpToPx(2).toFloat() else 0f
+            dot.setStroke(if (selected) dpToPx(2) else 0, if (selected) getColor(R.color.text_primary) else Color.TRANSPARENT)
             dot.invalidate()
         }
 

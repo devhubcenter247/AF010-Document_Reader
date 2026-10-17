@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.ui.baselib.widget.layout.UiLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/BottomSheetAppStyle"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    tools:context=".ui.main.reader.office.sheet.CellFormatBottomSheet">
+    tools:context=".ui.main.reader.office.sheet.CellFormatBottomSheet"
+    android:background="@drawable/bg_surface_card_r22sdp_22sdp_0_0"
+    android:clipToOutline="true">
 
     <include
         android:id="@+id/header"
@@ -49,37 +52,37 @@
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
-            <com.ui.baselib.widget.view.UiImageView
+            <ImageView
                 android:id="@+id/btnAlignLeft"
                 android:layout_width="@dimen/_36sdp"
                 android:layout_height="@dimen/_36sdp"
                 android:layout_marginEnd="@dimen/_6sdp"
                 android:contentDescription="@null"
                 android:padding="@dimen/_10sdp"
-                app:uiBackgroundColor="@color/color_surface_variant"
-                app:uiCornerRadius="@dimen/_11sdp" />
+                android:background="@drawable/bg_surface_variant_r11sdp"
+                android:clipToOutline="true" />
 
-            <com.ui.baselib.widget.view.UiImageView
+            <ImageView
                 android:id="@+id/btnAlignCenter"
                 android:layout_width="@dimen/_36sdp"
                 android:layout_height="@dimen/_36sdp"
                 android:layout_marginEnd="@dimen/_6sdp"
                 android:contentDescription="@null"
                 android:padding="@dimen/_10sdp"
-                app:uiBackgroundColor="@color/color_surface_variant"
-                app:uiCornerRadius="@dimen/_11sdp" />
+                android:background="@drawable/bg_surface_variant_r11sdp"
+                android:clipToOutline="true" />
 
-            <com.ui.baselib.widget.view.UiImageView
+            <ImageView
                 android:id="@+id/btnAlignRight"
                 android:layout_width="@dimen/_36sdp"
                 android:layout_height="@dimen/_36sdp"
                 android:layout_marginEnd="@dimen/_6sdp"
                 android:contentDescription="@null"
                 android:padding="@dimen/_10sdp"
-                app:uiBackgroundColor="@color/color_surface_variant"
-                app:uiCornerRadius="@dimen/_11sdp" />
+                android:background="@drawable/bg_surface_variant_r11sdp"
+                android:clipToOutline="true" />
 
-            <com.ui.baselib.widget.view.UiTextView
+            <TextView
                 android:id="@+id/btnWrap"
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/_36sdp"
@@ -89,21 +92,23 @@
                 android:gravity="center_vertical"
                 android:text="@string/wrap_text"
                 android:textSize="@dimen/_12sdp"
-                app:drawableStartCompat="@drawable/ic_app_checkbox_off"
-                app:uiDrawableSize="@dimen/_17sdp"
-                app:uiTextColor="@color/text_primary" />
+                android:textColor="@color/text_primary"
+                app:drawableStartCompat="@drawable/ic_app_checkbox_off_17sdp" />
         </LinearLayout>
 
-        <com.ui.baselib.widget.view.UiTextView
+        <TextView
             android:id="@+id/btnApply"
             android:layout_marginHorizontal="@dimen/_14sdp"
             style="@style/ButtonAppStyle"
             android:layout_marginBottom="@dimen/_10sdp"
             android:layout_width="match_parent"
             android:layout_marginTop="@dimen/_13sdp"
-            app:uiShadowClipParent="force"
-            app:uiShadowColor="@color/primary_30"
-            tools:text="Apply to 9 cells" />
+            tools:text="Apply to 9 cells"
+            android:background="@drawable/bg_grad_gradient_start_gradient_end_270_r10sdp"
+            android:elevation="@dimen/_5sdp"
+            android:outlineSpotShadowColor="@color/primary_30"
+            android:outlineAmbientShadowColor="@color/primary_20"
+            android:textColor="@color/white" />
     </LinearLayout>
 
-</com.ui.baselib.widget.layout.UiLinearLayout>
+</LinearLayout>

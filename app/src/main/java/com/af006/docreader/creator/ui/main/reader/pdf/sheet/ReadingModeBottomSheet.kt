@@ -5,6 +5,7 @@ import androidx.fragment.app.FragmentActivity
 import com.af010.creator.docreader.R
 import com.af010.creator.docreader.databinding.SheetReadingModeBinding
 import com.af010.creator.docreader.ui.main.reader.pdf.edit.PdfReadingPrefs
+import com.af010.creator.docreader.utils.extensions.setStroke
 import com.ui.baselib.base.BaseBottomSheet
 import com.ui.baselib.extensions.click
 import com.ui.baselib.utils.dpToPx
@@ -59,10 +60,9 @@ class ReadingModeBottomSheet(
     private fun SheetReadingModeBinding.render() {
         listOf(cardNormal, cardNight, cardSepia).forEachIndexed { index, card ->
             val selected = index == theme
-            card.helper.stColor = ContextCompat.getColor(
+            card.setStroke(activity.dpToPx(if (selected) 2 else 1), ContextCompat.getColor(
                 activity, if (selected) R.color.primary else R.color.color_stroke
-            )
-            card.helper.stWidth = activity.dpToPx(if (selected) 2 else 1).toFloat()
+            ))
             card.invalidate()
         }
         tvLayout.setText(if (horizontal) R.string.layout_horizontal else R.string.layout_vertical)

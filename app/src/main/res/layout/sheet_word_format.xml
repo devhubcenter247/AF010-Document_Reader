@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.ui.baselib.widget.layout.UiLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/BottomSheetAppStyle"
@@ -7,7 +8,9 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:paddingBottom="@dimen/_10sdp"
-    tools:context=".ui.main.reader.office.sheet.WordFormatBottomSheet">
+    tools:context=".ui.main.reader.office.sheet.WordFormatBottomSheet"
+    android:background="@drawable/bg_surface_card_r22sdp_22sdp_0_0"
+    android:clipToOutline="true">
 
     <include
         android:id="@+id/header"
@@ -26,7 +29,7 @@
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
-            <com.ui.baselib.widget.view.UiTextView
+            <TextView
                 android:id="@+id/btnFont"
                 android:layout_width="0dp"
                 android:layout_height="@dimen/_36sdp"
@@ -39,15 +42,13 @@
                 android:maxLines="1"
                 android:paddingHorizontal="@dimen/_9sdp"
                 android:textSize="@dimen/_12sdp"
-                app:drawableEndCompat="@drawable/ic_app_chevd"
                 app:drawableTint="@color/text_secondary"
-                app:uiBackgroundColor="@color/color_surface_variant"
-                app:uiCornerRadius="@dimen/_11sdp"
-                app:uiDrawableSize="@dimen/_13sdp"
-                app:uiTextColor="@color/text_primary"
-                tools:text="Times New Roman" />
+                tools:text="Times New Roman"
+                android:background="@drawable/bg_surface_variant_r11sdp"
+                android:textColor="@color/text_primary"
+                app:drawableEndCompat="@drawable/ic_app_chevd_13sdp" />
 
-            <com.ui.baselib.widget.view.UiTextView
+            <TextView
                 android:id="@+id/btnSize"
                 android:layout_width="0dp"
                 android:layout_height="@dimen/_36sdp"
@@ -60,13 +61,11 @@
                 android:maxLines="1"
                 android:paddingHorizontal="@dimen/_9sdp"
                 android:textSize="@dimen/_12sdp"
-                app:drawableEndCompat="@drawable/ic_app_chevd"
                 app:drawableTint="@color/text_secondary"
-                app:uiBackgroundColor="@color/color_surface_variant"
-                app:uiCornerRadius="@dimen/_11sdp"
-                app:uiDrawableSize="@dimen/_13sdp"
-                app:uiTextColor="@color/text_primary"
-                tools:text="13" />
+                tools:text="13"
+                android:background="@drawable/bg_surface_variant_r11sdp"
+                android:textColor="@color/text_primary"
+                app:drawableEndCompat="@drawable/ic_app_chevd_13sdp" />
         </LinearLayout>
 
         <LinearLayout
@@ -76,7 +75,7 @@
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
-            <com.ui.baselib.widget.view.UiImageView
+            <ImageView
                 android:id="@+id/btnBold"
                 android:layout_width="@dimen/_36sdp"
                 android:layout_height="@dimen/_36sdp"
@@ -84,10 +83,10 @@
                 android:contentDescription="@null"
                 android:padding="@dimen/_10sdp"
                 android:src="@drawable/ic_app_bold"
-                app:uiBackgroundColor="@color/color_surface_variant"
-                app:uiCornerRadius="@dimen/_11sdp" />
+                android:background="@drawable/bg_surface_variant_r11sdp"
+                android:clipToOutline="true" />
 
-            <com.ui.baselib.widget.view.UiImageView
+            <ImageView
                 android:id="@+id/btnItalic"
                 android:layout_width="@dimen/_36sdp"
                 android:layout_height="@dimen/_36sdp"
@@ -95,10 +94,10 @@
                 android:contentDescription="@null"
                 android:padding="@dimen/_10sdp"
                 android:src="@drawable/ic_app_italic"
-                app:uiBackgroundColor="@color/color_surface_variant"
-                app:uiCornerRadius="@dimen/_11sdp" />
+                android:background="@drawable/bg_surface_variant_r11sdp"
+                android:clipToOutline="true" />
 
-            <com.ui.baselib.widget.view.UiImageView
+            <ImageView
                 android:id="@+id/btnUnderline"
                 android:layout_width="@dimen/_36sdp"
                 android:layout_height="@dimen/_36sdp"
@@ -106,10 +105,10 @@
                 android:contentDescription="@null"
                 android:padding="@dimen/_10sdp"
                 android:src="@drawable/ic_app_underline"
-                app:uiBackgroundColor="@color/color_surface_variant"
-                app:uiCornerRadius="@dimen/_11sdp" />
+                android:background="@drawable/bg_surface_variant_r11sdp"
+                android:clipToOutline="true" />
 
-            <com.ui.baselib.widget.view.UiTextView
+            <TextView
                 android:id="@+id/btnStrike"
                 android:layout_width="@dimen/_36sdp"
                 android:layout_height="@dimen/_36sdp"
@@ -118,11 +117,10 @@
                 android:gravity="center"
                 android:text="@string/format_strike_sample"
                 android:textSize="@dimen/_14sdp"
-                app:uiBackgroundColor="@color/color_surface_variant"
-                app:uiCornerRadius="@dimen/_11sdp"
-                app:uiTextColor="@color/text_primary" />
+                android:background="@drawable/bg_surface_variant_r11sdp"
+                android:textColor="@color/text_primary" />
 
-            <com.ui.baselib.widget.view.UiTextView
+            <TextView
                 android:id="@+id/btnSuperscript"
                 android:layout_width="@dimen/_36sdp"
                 android:layout_height="@dimen/_36sdp"
@@ -131,11 +129,10 @@
                 android:gravity="center"
                 android:text="@string/format_superscript_sample"
                 android:textSize="@dimen/_14sdp"
-                app:uiBackgroundColor="@color/color_surface_variant"
-                app:uiCornerRadius="@dimen/_11sdp"
-                app:uiTextColor="@color/text_primary" />
+                android:background="@drawable/bg_surface_variant_r11sdp"
+                android:textColor="@color/text_primary" />
 
-            <com.ui.baselib.widget.view.UiTextView
+            <TextView
                 android:id="@+id/btnSubscript"
                 android:layout_width="@dimen/_36sdp"
                 android:layout_height="@dimen/_36sdp"
@@ -144,9 +141,8 @@
                 android:gravity="center"
                 android:text="@string/format_subscript_sample"
                 android:textSize="@dimen/_14sdp"
-                app:uiBackgroundColor="@color/color_surface_variant"
-                app:uiCornerRadius="@dimen/_11sdp"
-                app:uiTextColor="@color/text_primary" />
+                android:background="@drawable/bg_surface_variant_r11sdp"
+                android:textColor="@color/text_primary" />
         </LinearLayout>
 
         <TextView
@@ -191,65 +187,65 @@
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
-            <com.ui.baselib.widget.view.UiImageView
+            <ImageView
                 android:id="@+id/btnAlignLeft"
                 android:layout_width="@dimen/_36sdp"
                 android:layout_height="@dimen/_36sdp"
                 android:layout_marginEnd="@dimen/_6sdp"
                 android:contentDescription="@null"
                 android:padding="@dimen/_10sdp"
-                app:uiBackgroundColor="@color/color_surface_variant"
-                app:uiCornerRadius="@dimen/_11sdp" />
+                android:background="@drawable/bg_surface_variant_r11sdp"
+                android:clipToOutline="true" />
 
-            <com.ui.baselib.widget.view.UiImageView
+            <ImageView
                 android:id="@+id/btnAlignCenter"
                 android:layout_width="@dimen/_36sdp"
                 android:layout_height="@dimen/_36sdp"
                 android:layout_marginEnd="@dimen/_6sdp"
                 android:contentDescription="@null"
                 android:padding="@dimen/_10sdp"
-                app:uiBackgroundColor="@color/color_surface_variant"
-                app:uiCornerRadius="@dimen/_11sdp" />
+                android:background="@drawable/bg_surface_variant_r11sdp"
+                android:clipToOutline="true" />
 
-            <com.ui.baselib.widget.view.UiImageView
+            <ImageView
                 android:id="@+id/btnAlignRight"
                 android:layout_width="@dimen/_36sdp"
                 android:layout_height="@dimen/_36sdp"
                 android:layout_marginEnd="@dimen/_6sdp"
                 android:contentDescription="@null"
                 android:padding="@dimen/_10sdp"
-                app:uiBackgroundColor="@color/color_surface_variant"
-                app:uiCornerRadius="@dimen/_11sdp" />
+                android:background="@drawable/bg_surface_variant_r11sdp"
+                android:clipToOutline="true" />
 
-            <com.ui.baselib.widget.view.UiImageView
+            <ImageView
                 android:id="@+id/btnAlignJustify"
                 android:layout_width="@dimen/_36sdp"
                 android:layout_height="@dimen/_36sdp"
                 android:layout_marginEnd="@dimen/_6sdp"
                 android:contentDescription="@null"
                 android:padding="@dimen/_10sdp"
-                app:uiBackgroundColor="@color/color_surface_variant"
-                app:uiCornerRadius="@dimen/_11sdp" />
+                android:background="@drawable/bg_surface_variant_r11sdp"
+                android:clipToOutline="true" />
 
-            <com.ui.baselib.widget.view.UiImageView
+            <ImageView
                 android:id="@+id/btnBullets"
                 android:layout_width="@dimen/_36sdp"
                 android:layout_height="@dimen/_36sdp"
                 android:layout_marginEnd="@dimen/_6sdp"
                 android:contentDescription="@null"
                 android:padding="@dimen/_10sdp"
-                app:uiBackgroundColor="@color/color_surface_variant"
-                app:uiCornerRadius="@dimen/_11sdp" />
+                android:background="@drawable/bg_surface_variant_r11sdp"
+                android:clipToOutline="true" />
 
-            <com.ui.baselib.widget.view.UiImageView
+            <ImageView
                 android:id="@+id/btnNumbering"
                 android:layout_width="@dimen/_36sdp"
                 android:layout_height="@dimen/_36sdp"
                 android:layout_marginEnd="@dimen/_6sdp"
                 android:contentDescription="@null"
                 android:padding="@dimen/_10sdp"
-                app:uiBackgroundColor="@color/color_surface_variant"
-                app:uiCornerRadius="@dimen/_11sdp" />
+                android:background="@drawable/bg_surface_variant_r11sdp"
+                android:clipToOutline="true" />
         </LinearLayout>
 
         <LinearLayout
@@ -259,7 +255,7 @@
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
-            <com.ui.baselib.widget.view.UiTextView
+            <TextView
                 android:id="@+id/btnSpacing"
                 android:layout_width="0dp"
                 android:layout_height="@dimen/_36sdp"
@@ -273,14 +269,12 @@
                 android:paddingHorizontal="@dimen/_9sdp"
                 android:text="@string/line_spacing"
                 android:textSize="@dimen/_12sdp"
-                app:drawableEndCompat="@drawable/ic_app_chevd"
                 app:drawableTint="@color/text_secondary"
-                app:uiBackgroundColor="@color/color_surface_variant"
-                app:uiCornerRadius="@dimen/_11sdp"
-                app:uiDrawableSize="@dimen/_13sdp"
-                app:uiTextColor="@color/text_primary"
-                tools:text="Line spacing" />
+                tools:text="Line spacing"
+                android:background="@drawable/bg_surface_variant_r11sdp"
+                android:textColor="@color/text_primary"
+                app:drawableEndCompat="@drawable/ic_app_chevd_13sdp" />
         </LinearLayout>
     </LinearLayout>
 
-</com.ui.baselib.widget.layout.UiLinearLayout>
+</LinearLayout>

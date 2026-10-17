@@ -4,8 +4,6 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.af010.creator.docreader.databinding.ItemViewLanguageBinding
 import com.ui.baselib.base.BaseAdapter
-import com.ui.baselib.widget.layout.strokeAll
-import com.ui.baselib.widget.layout.strokeGradient
 
 class LanguageAdapter : BaseAdapter<LanguageUiModel, ItemViewLanguageBinding>() {
     override fun createBinding(
@@ -14,11 +12,6 @@ class LanguageAdapter : BaseAdapter<LanguageUiModel, ItemViewLanguageBinding>() 
         viewType: Int
     ) = ItemViewLanguageBinding.inflate(inflater, parent, false)
 
-    private var onItemClick: ((LanguageUiModel) -> Unit) = {}
-    fun onLanguageSelected(listener: (LanguageUiModel) -> Unit) = apply {
-        onItemClick = listener
-    }
-
     override fun ItemViewLanguageBinding.bind(
         item: LanguageUiModel,
         position: Int
@@ -26,11 +19,10 @@ class LanguageAdapter : BaseAdapter<LanguageUiModel, ItemViewLanguageBinding>() 
         itemLanguage.setImageResource(item.item.flagId)
         languageName.text = item.title
         locateName.text = item.subtitle
-        root.strokeGradient(item.isSelected)
+        root.isSelected = item.isSelected
         root.setOnClickListener {
             if (item.isSelected) return@setOnClickListener
             select(item.item.code)
-            onItemClick.invoke(item.copy(isSelected = true))
         }
     }
 

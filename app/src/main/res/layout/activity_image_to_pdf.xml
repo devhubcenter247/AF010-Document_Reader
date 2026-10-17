@@ -25,18 +25,15 @@
         app:spanCount="3"
         tools:listitem="@layout/item_image_page" />
 
-    <com.ui.baselib.widget.layout.UiLinearLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:paddingHorizontal="@dimen/_12sdp"
         android:paddingTop="@dimen/_9sdp"
-        app:uiBackgroundColor="@color/color_surface_card"
-        app:uiStrokeColor="@color/color_stroke"
-        app:uiStrokeSides="top"
-        app:uiStrokeWidth="@dimen/_1sdp">
+        android:background="@drawable/bg_surface_card_line_top_1sdp_stroke">
 
-        <com.ui.baselib.widget.layout.UiLinearLayout
+        <LinearLayout
             android:id="@+id/btnPageSize"
             style="@style/CardAppStyle"
             android:layout_width="0dp"
@@ -45,7 +42,9 @@
             android:layout_weight="1"
             android:gravity="center"
             android:orientation="vertical"
-            app:uiCornerRadius="@dimen/_11sdp">
+            android:background="@drawable/bg_surface_card_r11sdp"
+            android:foreground="@drawable/stroke_r11sdp_st1sdp_stroke"
+            android:clipToOutline="true">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -64,9 +63,9 @@
                 android:textColor="@color/text_primary"
                 android:textSize="@dimen/_10sdp"
                 tools:text="A4" />
-        </com.ui.baselib.widget.layout.UiLinearLayout>
+        </LinearLayout>
 
-        <com.ui.baselib.widget.layout.UiLinearLayout
+        <LinearLayout
             android:id="@+id/btnOrientation"
             style="@style/CardAppStyle"
             android:layout_width="0dp"
@@ -76,7 +75,9 @@
             android:layout_weight="1"
             android:gravity="center"
             android:orientation="vertical"
-            app:uiCornerRadius="@dimen/_11sdp">
+            android:background="@drawable/bg_surface_card_r11sdp"
+            android:foreground="@drawable/stroke_r11sdp_st1sdp_stroke"
+            android:clipToOutline="true">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -95,9 +96,9 @@
                 android:textColor="@color/text_primary"
                 android:textSize="@dimen/_10sdp"
                 tools:text="A4" />
-        </com.ui.baselib.widget.layout.UiLinearLayout>
+        </LinearLayout>
 
-        <com.ui.baselib.widget.layout.UiLinearLayout
+        <LinearLayout
             android:id="@+id/btnMargins"
             style="@style/CardAppStyle"
             android:layout_width="0dp"
@@ -106,7 +107,9 @@
             android:layout_weight="1"
             android:gravity="center"
             android:orientation="vertical"
-            app:uiCornerRadius="@dimen/_11sdp">
+            android:background="@drawable/bg_surface_card_r11sdp"
+            android:foreground="@drawable/stroke_r11sdp_st1sdp_stroke"
+            android:clipToOutline="true">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -125,9 +128,9 @@
                 android:textColor="@color/text_primary"
                 android:textSize="@dimen/_10sdp"
                 tools:text="A4" />
-        </com.ui.baselib.widget.layout.UiLinearLayout>
+        </LinearLayout>
 
-    </com.ui.baselib.widget.layout.UiLinearLayout>
+    </LinearLayout>
 
     <include
         android:id="@+id/action"

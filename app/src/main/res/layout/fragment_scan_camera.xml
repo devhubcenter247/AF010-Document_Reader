@@ -50,7 +50,7 @@
             android:textColor="@color/on_primary"
             android:textSize="@dimen/_11sdp" />
 
-        <com.ui.baselib.widget.view.UiTextView
+        <TextView
             android:id="@+id/btnAllowCamera"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/_34sdp"
@@ -60,9 +60,8 @@
             android:paddingHorizontal="@dimen/_18sdp"
             android:text="@string/allow_access"
             android:textSize="@dimen/_11sdp"
-            app:uiBackgroundColor="@color/accent"
-            app:uiCornerRadius="@dimen/_17sdp"
-            app:uiTextColor="@color/on_accent" />
+            android:background="@drawable/bg_accent_r17sdp"
+            android:textColor="@color/on_accent" />
     </LinearLayout>
 
     <LinearLayout
@@ -75,13 +74,14 @@
         android:paddingHorizontal="@dimen/_9sdp"
         app:layout_constraintTop_toTopOf="parent">
 
-        <com.ui.baselib.widget.view.UiImageView
+        <ImageView
             android:id="@+id/btnClose"
             style="@style/IconButtonStyle"
             android:contentDescription="@string/scanner_close"
             android:src="@drawable/ic_app_close"
             app:tint="@color/on_primary"
-            app:uiBackgroundColor="@color/color_white_12" />
+            android:background="@drawable/bg_white_12_r17sdp"
+            android:clipToOutline="true" />
 
         <!-- The hint keeps its own width and sits in the middle of the space between the buttons -->
         <FrameLayout
@@ -90,7 +90,7 @@
             android:layout_marginHorizontal="@dimen/_6sdp"
             android:layout_weight="1">
 
-            <com.ui.baselib.widget.view.UiTextView
+            <TextView
                 android:id="@+id/scanHint"
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/_23sdp"
@@ -103,19 +103,18 @@
                 android:paddingHorizontal="@dimen/_9sdp"
                 android:text="@string/scanner_hint_searching"
                 android:textSize="@dimen/_9sdp"
-                app:uiBackgroundColor="@color/color_white_12"
-                app:uiCornerRadius="@dimen/_12sdp"
-                app:uiDrawableSize="@dimen/_12sdp"
-                app:uiTextColor="@color/on_primary" />
+                android:background="@drawable/bg_white_12_r12sdp"
+                android:textColor="@color/on_primary" />
         </FrameLayout>
 
-        <com.ui.baselib.widget.view.UiImageView
+        <ImageView
             android:id="@+id/btnFlash"
             style="@style/IconButtonStyle"
             android:contentDescription="@string/scanner_flash"
             android:src="@drawable/ic_app_no_flash"
             app:tint="@color/on_primary"
-            app:uiBackgroundColor="@color/color_white_12" />
+            android:background="@drawable/bg_white_12_r17sdp"
+            android:clipToOutline="true" />
 
     </LinearLayout>
 
@@ -129,7 +128,7 @@
         android:paddingBottom="@dimen/_5sdp"
         app:layout_constraintBottom_toTopOf="@+id/bottomPanel">
 
-        <com.ui.baselib.widget.view.UiTextView
+        <TextView
             android:id="@+id/btnAuto"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/_23sdp"
@@ -138,10 +137,9 @@
             android:gravity="center"
             android:paddingHorizontal="@dimen/_11sdp"
             android:text="@string/scan_mode_auto"
-            android:textSize="@dimen/_10sdp"
-            app:uiCornerRadius="@dimen/_12sdp" />
+            android:textSize="@dimen/_10sdp" />
 
-        <com.ui.baselib.widget.view.UiTextView
+        <TextView
             android:id="@+id/btnManual"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/_23sdp"
@@ -150,8 +148,7 @@
             android:gravity="center"
             android:paddingHorizontal="@dimen/_11sdp"
             android:text="@string/scan_mode_manual"
-            android:textSize="@dimen/_10sdp"
-            app:uiCornerRadius="@dimen/_12sdp" />
+            android:textSize="@dimen/_10sdp" />
 
     </LinearLayout>
 
@@ -162,7 +159,7 @@
         android:paddingHorizontal="@dimen/_15sdp"
         app:layout_constraintBottom_toBottomOf="parent">
 
-        <com.ui.baselib.widget.view.UiImageView
+        <ImageView
             android:id="@+id/btnGallery"
             android:layout_width="@dimen/_40sdp"
             android:layout_height="@dimen/_40sdp"
@@ -173,10 +170,10 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:tint="@color/on_primary"
-            app:uiBackgroundColor="@color/color_white_12"
-            app:uiCornerRadius="@dimen/_11sdp" />
+            android:background="@drawable/bg_white_12_r11sdp"
+            android:clipToOutline="true" />
 
-        <com.ui.baselib.widget.layout.UiFrameLayout
+        <FrameLayout
             android:id="@+id/captureButton"
             android:layout_width="@dimen/_48sdp"
             android:layout_height="@dimen/_48sdp"
@@ -186,17 +183,16 @@
             app:layout_constraintVertical_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:uiCornerRadius="@dimen/_33sdp"
-            app:uiStrokeColor="@color/on_primary"
-            app:uiStrokeWidth="@dimen/_3sdp">
+            android:background="@drawable/bg_r33sdp"
+            android:foreground="@drawable/stroke_r33sdp_st3sdp_on_primary"
+            android:clipToOutline="true">
 
-            <com.ui.baselib.widget.layout.UiView
+            <View
                 android:layout_width="@dimen/_38sdp"
                 android:layout_height="@dimen/_38sdp"
                 android:layout_gravity="center"
-                app:uiBackgroundColor="@color/accent"
-                app:uiCornerRadius="@dimen/_25sdp" />
-        </com.ui.baselib.widget.layout.UiFrameLayout>
+                android:background="@drawable/bg_accent_r25sdp" />
+        </FrameLayout>
 
         <FrameLayout
             android:id="@+id/thumbnailContainer"
@@ -208,18 +204,18 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:visibility="visible">
 
-            <com.ui.baselib.widget.view.UiImageView
+            <ImageView
                 android:id="@+id/ivThumbnail"
                 android:layout_width="@dimen/_40sdp"
                 android:layout_height="@dimen/_49sdp"
                 android:layout_gravity="bottom|start"
                 android:contentDescription="@string/scanner_scanned_pages"
                 android:scaleType="centerCrop"
-                app:uiCornerRadius="@dimen/_6sdp"
-                app:uiStrokeColor="@color/on_primary"
-                app:uiStrokeWidth="@dimen/_1sdp" />
+                android:background="@drawable/bg_r6sdp"
+                android:foreground="@drawable/stroke_r6sdp_st1sdp_on_primary"
+                android:clipToOutline="true" />
 
-            <com.ui.baselib.widget.view.UiTextView
+            <TextView
                 android:id="@+id/tvPageCount"
                 android:layout_width="@dimen/_20sdp"
                 android:layout_height="@dimen/_20sdp"
@@ -227,10 +223,9 @@
                 android:fontFamily="@font/nt_600"
                 android:gravity="center"
                 android:textSize="@dimen/_10sdp"
-                app:uiBackgroundColor="@color/accent"
-                app:uiCornerRadius="@dimen/_10sdp"
-                app:uiTextColor="@color/on_accent"
-                tools:text="3" />
+                tools:text="3"
+                android:background="@drawable/bg_accent_r10sdp"
+                android:textColor="@color/on_accent" />
         </FrameLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 

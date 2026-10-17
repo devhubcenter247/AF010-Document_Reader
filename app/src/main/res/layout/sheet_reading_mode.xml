@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.ui.baselib.widget.layout.UiLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/BottomSheetAppStyle"
@@ -7,7 +8,9 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:paddingBottom="@dimen/_10sdp"
-    tools:context=".ui.main.reader.pdf.sheet.ReadingModeBottomSheet">
+    tools:context=".ui.main.reader.pdf.sheet.ReadingModeBottomSheet"
+    android:background="@drawable/bg_surface_card_r22sdp_22sdp_0_0"
+    android:clipToOutline="true">
 
     <include
         android:id="@+id/header"
@@ -20,17 +23,16 @@
         android:layout_marginHorizontal="@dimen/_15sdp"
         android:orientation="horizontal">
 
-        <com.ui.baselib.widget.layout.UiLinearLayout
+        <LinearLayout
             android:id="@+id/cardNormal"
             android:layout_width="0dp"
             android:layout_height="@dimen/_68sdp"
             android:layout_weight="1"
             android:gravity="center"
             android:orientation="vertical"
-            app:uiBackgroundColor="#FFFFFF"
-            app:uiCornerRadius="@dimen/_13sdp"
-            app:uiStrokeColor="@color/color_stroke"
-            app:uiStrokeWidth="@dimen/_1sdp">
+            android:background="@drawable/bg_xffffff_r13sdp"
+            android:foreground="@drawable/stroke_r13sdp_st1sdp_stroke"
+            android:clipToOutline="true">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -49,9 +51,9 @@
                 android:text="@string/theme_normal"
                 android:textColor="#20243A"
                 android:textSize="@dimen/_10sdp" />
-        </com.ui.baselib.widget.layout.UiLinearLayout>
+        </LinearLayout>
 
-        <com.ui.baselib.widget.layout.UiLinearLayout
+        <LinearLayout
             android:id="@+id/cardNight"
             android:layout_width="0dp"
             android:layout_height="@dimen/_68sdp"
@@ -59,10 +61,9 @@
             android:layout_weight="1"
             android:gravity="center"
             android:orientation="vertical"
-            app:uiBackgroundColor="#1B1D2A"
-            app:uiCornerRadius="@dimen/_13sdp"
-            app:uiStrokeColor="@color/color_stroke"
-            app:uiStrokeWidth="@dimen/_1sdp">
+            android:background="@drawable/bg_x1b1d2a_r13sdp"
+            android:foreground="@drawable/stroke_r13sdp_st1sdp_stroke"
+            android:clipToOutline="true">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -81,9 +82,9 @@
                 android:text="@string/theme_night"
                 android:textColor="#D9DBE6"
                 android:textSize="@dimen/_10sdp" />
-        </com.ui.baselib.widget.layout.UiLinearLayout>
+        </LinearLayout>
 
-        <com.ui.baselib.widget.layout.UiLinearLayout
+        <LinearLayout
             android:id="@+id/cardSepia"
             android:layout_width="0dp"
             android:layout_height="@dimen/_68sdp"
@@ -91,10 +92,9 @@
             android:layout_weight="1"
             android:gravity="center"
             android:orientation="vertical"
-            app:uiBackgroundColor="#F5ECD9"
-            app:uiCornerRadius="@dimen/_13sdp"
-            app:uiStrokeColor="@color/color_stroke"
-            app:uiStrokeWidth="@dimen/_1sdp">
+            android:background="@drawable/bg_xf5ecd9_r13sdp"
+            android:foreground="@drawable/stroke_r13sdp_st1sdp_stroke"
+            android:clipToOutline="true">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -113,19 +113,20 @@
                 android:text="@string/theme_sepia"
                 android:textColor="#5B4636"
                 android:textSize="@dimen/_10sdp" />
-        </com.ui.baselib.widget.layout.UiLinearLayout>
+        </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/rowTextView"
         style="@style/SettingRowStyle">
 
-        <com.ui.baselib.widget.view.UiImageView
+        <ImageView
             style="@style/SettingRowIconStyle"
             android:contentDescription="@null"
             android:src="@drawable/ic_app_reading"
             app:tint="@color/color_3984ff"
-            app:uiBackgroundColor="@color/color_eaf2ff" />
+            android:background="@drawable/bg_eaf2ff_r9sdp"
+            android:clipToOutline="true" />
 
         <TextView
             style="@style/RowLabelStyle"
@@ -149,12 +150,13 @@
         android:id="@+id/rowReadAloud"
         style="@style/SettingRowStyle">
 
-        <com.ui.baselib.widget.view.UiImageView
+        <ImageView
             style="@style/SettingRowIconStyle"
             android:contentDescription="@null"
             android:src="@drawable/ic_app_volume"
             app:tint="@color/color_9254e8"
-            app:uiBackgroundColor="@color/color_f2eafe" />
+            android:background="@drawable/bg_f2eafe_r9sdp"
+            android:clipToOutline="true" />
 
         <TextView
             style="@style/RowLabelStyle"
@@ -169,12 +171,13 @@
         android:id="@+id/rowAutoScroll"
         style="@style/SettingRowStyle">
 
-        <com.ui.baselib.widget.view.UiImageView
+        <ImageView
             style="@style/SettingRowIconStyle"
             android:contentDescription="@null"
             android:src="@drawable/ic_app_arrowr"
             app:tint="@color/color_35ac71"
-            app:uiBackgroundColor="@color/color_e7f7ed" />
+            android:background="@drawable/bg_e7f7ed_r9sdp"
+            android:clipToOutline="true" />
 
         <TextView
             style="@style/RowLabelStyle"
@@ -189,12 +192,13 @@
         android:id="@+id/rowLayout"
         style="@style/SettingRowStyle">
 
-        <com.ui.baselib.widget.view.UiImageView
+        <ImageView
             style="@style/SettingRowIconStyle"
             android:contentDescription="@null"
             android:src="@drawable/ic_app_pages"
             app:tint="@color/color_ff784f"
-            app:uiBackgroundColor="@color/color_fff0e9" />
+            android:background="@drawable/bg_fff0e9_r9sdp"
+            android:clipToOutline="true" />
 
         <TextView
             style="@style/RowLabelStyle"
@@ -215,4 +219,4 @@
             android:contentDescription="@null" />
     </LinearLayout>
 
-</com.ui.baselib.widget.layout.UiLinearLayout>
+</LinearLayout>

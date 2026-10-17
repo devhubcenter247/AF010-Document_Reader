@@ -6,6 +6,8 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import com.af010.creator.docreader.R
 import com.af010.creator.docreader.databinding.ItemUseCaseBinding
+import com.af010.creator.docreader.utils.extensions.setFillColor
+import com.af010.creator.docreader.utils.extensions.setStroke
 import com.ui.baselib.base.BaseAdapter
 import com.ui.baselib.utils.dpToPx
 
@@ -28,7 +30,7 @@ class UseCaseAdapter : BaseAdapter<UseCaseItem, ItemUseCaseBinding>() {
         tvTitle.setText(item.titleRes)
         tvDesc.setText(item.descRes)
         ivIcon.setImageResource(item.iconRes)
-        ivIcon.helper.bgColor = item.iconBgColor
+        ivIcon.setFillColor(item.iconBgColor)
         ivIcon.invalidate()
 
         val selectedBg = ContextCompat.getColor(context, R.color.color_bg_selected)
@@ -37,14 +39,12 @@ class UseCaseAdapter : BaseAdapter<UseCaseItem, ItemUseCaseBinding>() {
         val unselectedStroke = ContextCompat.getColor(context, R.color.color_stroke)
 
         if (item.isSelected) {
-            root.helper.bgColor = selectedBg
-            root.helper.stColor = selectedStroke
-            root.helper.stWidth = context.dpToPx(2).toFloat()
+            root.setFillColor(selectedBg)
+            root.setStroke(context.dpToPx(2), selectedStroke)
             ivCheck.visibility = View.VISIBLE
         } else {
-            root.helper.bgColor = unselectedBg
-            root.helper.stColor = unselectedStroke
-            root.helper.stWidth = context.dpToPx(1).toFloat()
+            root.setFillColor(unselectedBg)
+            root.setStroke(context.dpToPx(1), unselectedStroke)
             ivCheck.visibility = View.GONE
         }
         root.invalidate()

@@ -47,9 +47,12 @@
                     android:textSize="@dimen/_15sdp" />
             </LinearLayout>
 
-            <com.ui.baselib.widget.view.UiTextView
+            <TextView
                 android:id="@+id/btnPro"
-                style="@style/ProBadgeStyle" />
+                style="@style/ProBadgeStyle"
+                android:background="@drawable/bg_grad_gradient_start_gradient_end_315_r14sdp"
+                android:textColor="@color/on_primary"
+                app:drawableStartCompat="@drawable/ic_app_crown_13sdp" />
         </LinearLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -71,7 +74,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <com.ui.baselib.widget.view.UiTextView
+            <TextView
                 android:id="@+id/btnSearch"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_37sdp"
@@ -82,14 +85,10 @@
                 android:paddingHorizontal="@dimen/_11sdp"
                 android:text="@string/search_files"
                 android:textSize="@dimen/_11sdp"
-                app:drawableStartCompat="@drawable/ic_app_search"
                 app:drawableTint="@color/text_secondary"
-                app:uiBackgroundColor="@color/color_surface_card"
-                app:uiCornerRadius="@dimen/_13sdp"
-                app:uiDrawableSize="@dimen/_15sdp"
-                app:uiStrokeColor="@color/color_stroke"
-                app:uiStrokeWidth="@dimen/_1sdp"
-                app:uiTextColor="@color/text_secondary" />
+                android:background="@drawable/bg_surface_card_r13sdp_st1sdp_stroke"
+                android:textColor="@color/text_secondary"
+                app:drawableStartCompat="@drawable/ic_app_search_15sdp" />
 
             <!-- Quick actions -->
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -98,7 +97,7 @@
                 android:layout_marginHorizontal="@dimen/_13sdp"
                 android:layout_marginTop="@dimen/_11sdp">
 
-                <com.ui.baselib.widget.layout.UiConstraintLayout
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/cardScan"
                     android:layout_width="0dp"
                     android:layout_height="@dimen/_100sdp"
@@ -108,8 +107,8 @@
                     app:layout_constraintEnd_toStartOf="@+id/cardPhotos"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:uiBackgroundColor="@color/accent"
-                    app:uiCornerRadius="@dimen/_18sdp">
+                    android:background="@drawable/bg_accent_r18sdp"
+                    android:clipToOutline="true">
 
                     <View
                         android:layout_width="@dimen/_125sdp"
@@ -153,28 +152,37 @@
                         app:layout_constraintBottom_toTopOf="@+id/tvScanStart"
                         app:layout_constraintStart_toStartOf="parent" />
 
-                    <com.ui.baselib.widget.view.UiTextView
+                    <com.google.android.material.button.MaterialButton
                         android:id="@+id/tvScanStart"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/_23sdp"
-                        android:drawablePadding="@dimen/_5sdp"
                         android:fontFamily="@font/nt_500"
                         android:gravity="center"
                         android:paddingHorizontal="@dimen/_9sdp"
                         android:text="@string/start"
                         android:textSize="@dimen/_10sdp"
-                        app:drawableStartCompat="@drawable/ic_app_camera"
-                        app:drawableTint="@color/on_primary"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:uiBackgroundColor="@color/color_ink"
-                        app:uiCornerRadius="@dimen/_13sdp"
-                        app:uiDrawableAlign="text"
-                        app:uiDrawableSize="@dimen/_12sdp"
-                        app:uiTextColor="@color/on_primary" />
-                </com.ui.baselib.widget.layout.UiConstraintLayout>
+                        android:background="@drawable/bg_ink_r13sdp"
+                        android:textColor="@color/on_primary"
+                        app:icon="@drawable/ic_app_camera"
+                        app:iconGravity="textStart"
+                        app:iconPadding="@dimen/_5sdp"
+                        app:iconSize="@dimen/_12sdp"
+                        app:iconTint="@color/on_primary"
+                        app:backgroundTint="@null"
+                        android:insetTop="0dp"
+                        android:insetBottom="0dp"
+                        android:minWidth="0dp"
+                        android:minHeight="0dp"
+                        android:textAllCaps="false"
+                        android:letterSpacing="0"
+                        android:stateListAnimator="@null"
+                        android:paddingVertical="0dp"
+                        android:elevation="0dp" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <com.ui.baselib.widget.layout.UiLinearLayout
+                <LinearLayout
                     android:id="@+id/cardPhotos"
                     style="@style/CardAppStyle"
                     android:layout_width="0dp"
@@ -185,7 +193,10 @@
                     android:paddingHorizontal="@dimen/_6sdp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/cardScan"
-                    app:layout_constraintTop_toTopOf="parent">
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:background="@drawable/bg_surface_card_r15sdp"
+                    android:foreground="@drawable/stroke_r15sdp_st1sdp_stroke"
+                    android:clipToOutline="true">
 
                     <ImageView
                         android:layout_width="@dimen/_26sdp"
@@ -220,9 +231,9 @@
                             android:textColor="@color/text_secondary"
                             android:textSize="@dimen/_9sdp" />
                     </LinearLayout>
-                </com.ui.baselib.widget.layout.UiLinearLayout>
+                </LinearLayout>
 
-                <com.ui.baselib.widget.layout.UiLinearLayout
+                <LinearLayout
                     android:id="@+id/cardNewFile"
                     style="@style/CardAppStyle"
                     android:layout_width="0dp"
@@ -232,19 +243,21 @@
                     android:paddingHorizontal="@dimen/_6sdp"
                     app:layout_constraintBottom_toBottomOf="@+id/cardScan"
                     app:layout_constraintEnd_toEndOf="@+id/cardPhotos"
-                    app:layout_constraintStart_toStartOf="@+id/cardPhotos">
+                    app:layout_constraintStart_toStartOf="@+id/cardPhotos"
+                    android:background="@drawable/bg_surface_card_r15sdp"
+                    android:foreground="@drawable/stroke_r15sdp_st1sdp_stroke"
+                    android:clipToOutline="true">
 
                     <FrameLayout
                         android:layout_width="@dimen/_26sdp"
                         android:layout_height="@dimen/_26sdp">
 
-                        <com.ui.baselib.widget.layout.UiView
+                        <View
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            app:uiBackgroundColor="@color/color_efebff"
-                            app:uiCornerRadius="@dimen/_9sdp" />
+                            android:background="@drawable/bg_efebff_r9sdp" />
 
-                        <com.ui.baselib.widget.view.UiImageView
+                        <ImageView
                             android:layout_width="@dimen/_18sdp"
                             android:layout_height="@dimen/_18sdp"
                             android:layout_gravity="center"
@@ -252,11 +265,8 @@
                             android:padding="@dimen/_3sdp"
                             android:src="@drawable/ic_app_plus"
                             app:tint="@color/on_primary"
-                            app:uiBackgroundGradientEnabled="true"
-                            app:uiBackgroundGradientEnd="@color/gradient_end"
-                            app:uiBackgroundGradientOrientation="tl_br"
-                            app:uiBackgroundGradientStart="@color/gradient_start"
-                            app:uiCornerRadius="@dimen/_7sdp" />
+                            android:background="@drawable/bg_grad_gradient_start_gradient_end_315_r7sdp"
+                            android:clipToOutline="true" />
                     </FrameLayout>
 
                     <LinearLayout
@@ -286,7 +296,7 @@
                             android:textColor="@color/text_secondary"
                             android:textSize="@dimen/_9sdp" />
                     </LinearLayout>
-                </com.ui.baselib.widget.layout.UiLinearLayout>
+                </LinearLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <!-- Suggested tools -->
@@ -313,15 +323,15 @@
                     tools:listitem="@layout/item_tool_chip"
                     tools:ignore="RtlSymmetry" />
 
-                <com.ui.baselib.widget.view.UiImageView
+                <ImageView
                     android:id="@+id/btnAllTools"
                     android:layout_width="@dimen/_31sdp"
                     android:layout_height="@dimen/_31sdp"
                     android:contentDescription="@string/all_tools"
                     android:padding="@dimen/_8sdp"
                     android:src="@drawable/ic_app_chev"
-                    app:uiBackgroundColor="@color/color_surface_track"
-                    app:uiCornerRadius="@dimen/_16sdp" />
+                    android:background="@drawable/bg_surface_track_r16sdp"
+                    android:clipToOutline="true" />
             </LinearLayout>
 
             <!-- No file access -->
@@ -438,7 +448,7 @@
                     app:tint="@color/text_secondary" />
             </LinearLayout>
 
-            <com.ui.baselib.widget.layout.UiFrameLayout
+            <FrameLayout
                 android:id="@+id/layoutDocuments"
                 style="@style/CardAppStyle"
                 android:layout_width="match_parent"
@@ -446,7 +456,10 @@
                 android:layout_marginHorizontal="@dimen/_13sdp"
                 android:layout_marginBottom="@dimen/_8sdp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/lnFilterOption">
+                app:layout_constraintTop_toBottomOf="@id/lnFilterOption"
+                android:background="@drawable/bg_surface_card_r15sdp"
+                android:foreground="@drawable/stroke_r15sdp_st1sdp_stroke"
+                android:clipToOutline="true">
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rcvDocuments"
@@ -470,12 +483,12 @@
                     android:textColor="@color/text_secondary"
                     android:textSize="@dimen/_10sdp"
                     android:visibility="gone" />
-            </com.ui.baselib.widget.layout.UiFrameLayout>
+            </FrameLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.motion.widget.MotionLayout>
 
 
-    <com.ui.baselib.widget.view.UiImageView
+    <ImageView
         android:id="@+id/btnCreate"
         android:layout_width="@dimen/_42sdp"
         android:layout_height="@dimen/_42sdp"
@@ -488,12 +501,10 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:tint="@color/on_primary"
-        app:uiBackgroundGradientEnabled="true"
-        app:uiBackgroundGradientEnd="@color/gradient_end"
-        app:uiBackgroundGradientOrientation="tl_br"
-        app:uiBackgroundGradientStart="@color/gradient_start"
-        app:uiCornerRadius="@dimen/_32sdp"
-        app:uiShadowColor="#6B3238F4"
-        app:uiShadowElevation="@dimen/_8sdp" />
+        android:background="@drawable/bg_grad_gradient_start_gradient_end_315_r32sdp"
+        android:clipToOutline="true"
+        android:elevation="@dimen/_8sdp"
+        android:outlineSpotShadowColor="#6B3238F4"
+        android:outlineAmbientShadowColor="#6B3238F4" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

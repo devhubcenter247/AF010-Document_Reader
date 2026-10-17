@@ -12,16 +12,16 @@
         android:gravity="center_horizontal"
         android:orientation="vertical">
 
-        <com.ui.baselib.widget.view.UiImageView
+        <ImageView
             android:id="@+id/ivIcon"
             android:layout_width="@dimen/_22sdp"
             android:layout_height="@dimen/_22sdp"
             android:contentDescription="@null"
             android:padding="@dimen/_5sdp"
             app:tint="@color/on_primary"
-            app:uiBackgroundColor="@color/primary"
-            app:uiCornerRadius="@dimen/_11sdp"
-            tools:src="@drawable/ic_app_crown" />
+            tools:src="@drawable/ic_app_crown"
+            android:background="@drawable/bg_primary_r11sdp"
+            android:clipToOutline="true" />
 
         <View
             android:id="@+id/line"

@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.ui.baselib.widget.layout.UiLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:paddingTop="@dimen/_9sdp"
-    app:uiBackgroundColor="@color/color_surface_card">
+    android:background="@drawable/bg_surface_card">
 
     <TextView
         android:id="@+id/tvNote"
@@ -20,14 +21,17 @@
         android:textSize="@dimen/_10sdp"
         android:visibility="gone" />
 
-    <com.ui.baselib.widget.view.UiTextView
+    <TextView
         android:id="@+id/btnAction"
         style="@style/ButtonAppStyle"
         android:layout_marginHorizontal="@dimen/_12sdp"
         android:layout_marginBottom="@dimen/_10sdp"
         android:layout_width="match_parent"
-        app:uiShadowClipParent="force"
-        app:uiShadowColor="@color/primary_30"
-        tools:text="Merge 3 files · 16 pages" />
+        tools:text="Merge 3 files · 16 pages"
+        android:background="@drawable/bg_grad_gradient_start_gradient_end_270_r10sdp"
+        android:elevation="@dimen/_5sdp"
+        android:outlineSpotShadowColor="@color/primary_30"
+        android:outlineAmbientShadowColor="@color/primary_20"
+        android:textColor="@color/white" />
 
-</com.ui.baselib.widget.layout.UiLinearLayout>
+</LinearLayout>

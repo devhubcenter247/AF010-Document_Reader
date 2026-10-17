@@ -9,8 +9,9 @@ import android.widget.LinearLayout
 import android.widget.SeekBar
 import androidx.core.content.ContextCompat
 import com.af010.creator.docreader.R
+import com.af010.creator.docreader.utils.extensions.setCircle
+import com.af010.creator.docreader.utils.extensions.setStroke
 import com.ui.baselib.utils.dpToPx
-import com.ui.baselib.widget.layout.UiView
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
@@ -35,10 +36,9 @@ internal fun LinearLayout.addColorDots(
     val size = resources.getDimensionPixelSize(sizeRes)
     val gap = resources.getDimensionPixelSize(com.intuit.sdp.R.dimen._8sdp)
     colors.forEachIndexed { index, dotColor ->
-        val dot = UiView(context).apply {
+        val dot = View(context).apply {
             layoutParams = LinearLayout.LayoutParams(size, size).apply { if (index > 0) marginStart = gap }
-            helper.cornerRadius = size / 2f
-            helper.bgColor = dotColor
+            setCircle(dotColor)
             tag = dotColor
             setOnClickListener { onPick(dotColor) }
         }
@@ -49,10 +49,9 @@ internal fun LinearLayout.addColorDots(
 /** The dot of [color] gets a ring. */
 internal fun LinearLayout.selectColorDot(color: Int) {
     for (index in 0 until childCount) {
-        val dot = getChildAt(index) as? UiView ?: continue
+        val dot = getChildAt(index) as? View ?: continue
         val selected = dot.tag == color
-        dot.helper.stColor = ContextCompat.getColor(context, if (selected) R.color.primary else R.color.color_checkbox_stroke)
-        dot.helper.stWidth = context.dpToPx(if (selected) 3 else 1).toFloat()
+        dot.setStroke(context.dpToPx(if (selected) 3 else 1), ContextCompat.getColor(context, if (selected) R.color.primary else R.color.color_checkbox_stroke))
         dot.invalidate()
     }
 }

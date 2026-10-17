@@ -4,12 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/SettingRowStyle">
 
-    <com.ui.baselib.widget.view.UiImageView
+    <ImageView
         style="@style/SettingRowIconStyle"
         android:contentDescription="@null"
         android:src="@drawable/ic_app_folder"
         app:tint="@color/text_on_selected"
-        app:uiBackgroundColor="@color/color_bg_selected" />
+        android:background="@drawable/bg_bg_selected_r9sdp"
+        android:clipToOutline="true" />
 
     <TextView
         android:id="@+id/tvName"

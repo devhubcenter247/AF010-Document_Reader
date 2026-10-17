@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.ui.baselib.widget.layout.UiLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/DialogAppStyle"
@@ -10,17 +11,19 @@
     android:gravity="center_horizontal"
     android:orientation="vertical"
     android:padding="@dimen/_17sdp"
-    tools:context=".ui.dialog.DeleteDialog">
+    tools:context=".ui.dialog.DeleteDialog"
+    android:background="@drawable/bg_surface_card_r18sdp"
+    android:clipToOutline="true">
 
-    <com.ui.baselib.widget.view.UiImageView
+    <ImageView
         android:layout_width="@dimen/_55sdp"
         android:layout_height="@dimen/_55sdp"
         android:contentDescription="@null"
         android:padding="@dimen/_15sdp"
         android:src="@drawable/ic_app_trash"
         app:tint="@color/color_error"
-        app:uiBackgroundColor="@color/color_error_bg"
-        app:uiCornerRadius="@dimen/_28sdp" />
+        android:background="@drawable/bg_error_bg_r28sdp"
+        android:clipToOutline="true" />
 
     <TextView
         android:id="@+id/tvTitle"
@@ -50,24 +53,25 @@
         android:layout_marginTop="@dimen/_13sdp"
         android:orientation="horizontal">
 
-        <com.ui.baselib.widget.view.UiTextView
+        <TextView
             android:id="@+id/btnCancel"
             style="@style/ButtonOutlineStyle"
             android:layout_width="0dp"
             android:layout_marginEnd="@dimen/_4sdp"
             android:layout_weight="1"
-            android:text="@string/file_action_cancel" />
+            android:text="@string/file_action_cancel"
+            android:background="@drawable/bg_surface_card_r10sdp_st1sdp_stroke"
+            android:textColor="@color/text_primary" />
 
-        <com.ui.baselib.widget.view.UiTextView
+        <TextView
             android:id="@+id/btnConfirm"
             style="@style/ButtonAppStyle"
             android:layout_width="0dp"
             android:layout_marginStart="@dimen/_4sdp"
             android:layout_weight="1"
             android:text="@string/file_action_delete"
-            app:uiBackgroundColor="@color/color_error"
-            app:uiShadowElevation="0dp"
-            app:uiShadowRadius="0dp" />
+            android:background="@drawable/bg_grad_gradient_start_gradient_end_270_r10sdp"
+            android:textColor="@color/white" />
     </LinearLayout>
 
-</com.ui.baselib.widget.layout.UiLinearLayout>
+</LinearLayout>

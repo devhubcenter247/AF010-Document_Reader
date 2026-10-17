@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.ui.baselib.widget.layout.UiLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    app:uiBackgroundColor="@color/color_surface_card"
-    app:uiStrokeColor="@color/color_stroke"
-    app:uiStrokeSides="bottom"
-    app:uiStrokeWidth="@dimen/_1sdp">
+    android:background="@drawable/bg_surface_card_line_bottom_1sdp_stroke">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -18,12 +16,14 @@
         android:paddingStart="@dimen/_9sdp"
         android:paddingEnd="@dimen/_8sdp">
 
-        <com.ui.baselib.widget.view.UiImageView
+        <ImageView
             android:id="@+id/btnBack"
             android:layout_marginVertical="@dimen/_6sdp"
             style="@style/IconButtonStyle"
             android:contentDescription="@string/scanner_back"
-            android:src="@drawable/ic_app_back" />
+            android:src="@drawable/ic_app_back"
+            android:background="@drawable/bg_surface_variant_r17sdp"
+            android:clipToOutline="true" />
 
         <LinearLayout
             android:layout_width="0dp"
@@ -85,7 +85,7 @@
             android:padding="@dimen/_5sdp"
             android:visibility="gone" />
 
-        <com.ui.baselib.widget.view.UiTextView
+        <TextView
             android:id="@+id/btnAction"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/_23sdp"
@@ -96,10 +96,9 @@
             android:paddingHorizontal="@dimen/_10sdp"
             android:textSize="@dimen/_10sdp"
             android:visibility="gone"
-            app:uiBackgroundColor="@color/primary"
-            app:uiCornerRadius="@dimen/_12sdp"
-            app:uiTextColor="@color/on_primary"
-            tools:text="Apply" />
+            tools:text="Apply"
+            android:background="@drawable/bg_primary_r12sdp"
+            android:textColor="@color/on_primary" />
     </LinearLayout>
 
-</com.ui.baselib.widget.layout.UiLinearLayout>
+</LinearLayout>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.ui.baselib.widget.layout.UiLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/CardAppStyle"
@@ -9,7 +10,9 @@
     android:orientation="horizontal"
     android:paddingHorizontal="@dimen/_10sdp"
     android:paddingVertical="@dimen/_8sdp"
-    app:uiCornerRadius="@dimen/_13sdp">
+    android:background="@drawable/bg_surface_card_r13sdp"
+    android:foreground="@drawable/stroke_r13sdp_st1sdp_stroke"
+    android:clipToOutline="true">
 
     <ImageView
         android:id="@+id/ivRadio"
@@ -45,4 +48,4 @@
             tools:text="Each range becomes a file" />
     </LinearLayout>
 
-</com.ui.baselib.widget.layout.UiLinearLayout>
+</LinearLayout>

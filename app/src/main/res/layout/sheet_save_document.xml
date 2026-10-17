@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.ui.baselib.widget.layout.UiLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/BottomSheetAppStyle"
@@ -7,7 +8,9 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:paddingBottom="@dimen/_10sdp"
-    tools:context=".ui.main.reader.office.sheet.SaveDocumentBottomSheet">
+    tools:context=".ui.main.reader.office.sheet.SaveDocumentBottomSheet"
+    android:background="@drawable/bg_surface_card_r22sdp_22sdp_0_0"
+    android:clipToOutline="true">
 
     <include
         android:id="@+id/header"
@@ -18,12 +21,13 @@
         style="@style/SettingRowStyle"
         android:layout_height="@dimen/_49sdp">
 
-        <com.ui.baselib.widget.view.UiImageView
+        <ImageView
             style="@style/SettingRowIconStyle"
             android:contentDescription="@null"
             android:src="@drawable/ic_app_save"
             app:tint="@color/color_3984ff"
-            app:uiBackgroundColor="@color/color_eaf2ff" />
+            android:background="@drawable/bg_eaf2ff_r9sdp"
+            android:clipToOutline="true" />
 
         <LinearLayout
             android:layout_width="0dp"
@@ -59,12 +63,13 @@
         style="@style/SettingRowStyle"
         android:layout_height="@dimen/_49sdp">
 
-        <com.ui.baselib.widget.view.UiImageView
+        <ImageView
             style="@style/SettingRowIconStyle"
             android:contentDescription="@null"
             android:src="@drawable/ic_app_copy"
             app:tint="@color/color_9254e8"
-            app:uiBackgroundColor="@color/color_f2eafe" />
+            android:background="@drawable/bg_f2eafe_r9sdp"
+            android:clipToOutline="true" />
 
         <LinearLayout
             android:layout_width="0dp"
@@ -99,12 +104,13 @@
         style="@style/SettingRowStyle"
         android:layout_height="@dimen/_49sdp">
 
-        <com.ui.baselib.widget.view.UiImageView
+        <ImageView
             style="@style/SettingRowIconStyle"
             android:contentDescription="@null"
             android:src="@drawable/ic_app_file"
             app:tint="@color/color_ff784f"
-            app:uiBackgroundColor="@color/color_fff0e9" />
+            android:background="@drawable/bg_fff0e9_r9sdp"
+            android:clipToOutline="true" />
 
         <LinearLayout
             android:layout_width="0dp"
@@ -139,12 +145,13 @@
         style="@style/SettingRowStyle"
         android:layout_height="@dimen/_49sdp">
 
-        <com.ui.baselib.widget.view.UiImageView
+        <ImageView
             style="@style/SettingRowIconStyle"
             android:contentDescription="@null"
             android:src="@drawable/ic_app_share"
             app:tint="@color/color_35ac71"
-            app:uiBackgroundColor="@color/color_e7f7ed" />
+            android:background="@drawable/bg_e7f7ed_r9sdp"
+            android:clipToOutline="true" />
 
         <LinearLayout
             android:layout_width="0dp"
@@ -174,4 +181,4 @@
         </LinearLayout>
     </LinearLayout>
 
-</com.ui.baselib.widget.layout.UiLinearLayout>
+</LinearLayout>

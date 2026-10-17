@@ -46,7 +46,7 @@
                 android:textColor="@color/text_secondary"
                 android:textSize="@dimen/_10sdp" />
 
-            <com.ui.baselib.widget.layout.UiLinearLayout
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_37sdp"
                 android:layout_marginTop="@dimen/_5sdp"
@@ -54,10 +54,9 @@
                 android:orientation="horizontal"
                 android:paddingStart="@dimen/_11sdp"
                 android:paddingEnd="@dimen/_3sdp"
-                app:uiBackgroundColor="@color/color_surface_card"
-                app:uiCornerRadius="@dimen/_11sdp"
-                app:uiStrokeColor="@color/primary"
-                app:uiStrokeWidth="@dimen/_1sdp">
+                android:background="@drawable/bg_surface_card_r11sdp"
+                android:foreground="@drawable/stroke_r11sdp_st1sdp_primary"
+                android:clipToOutline="true">
 
                 <EditText
                     android:id="@+id/edtPassword"
@@ -84,7 +83,7 @@
                     android:padding="@dimen/_8sdp"
                     android:src="@drawable/ic_app_eye"
                     app:tint="@color/text_secondary" />
-            </com.ui.baselib.widget.layout.UiLinearLayout>
+            </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
@@ -95,7 +94,7 @@
                 android:textColor="@color/text_secondary"
                 android:textSize="@dimen/_10sdp" />
 
-            <com.ui.baselib.widget.layout.UiLinearLayout
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_37sdp"
                 android:layout_marginTop="@dimen/_5sdp"
@@ -103,10 +102,9 @@
                 android:orientation="horizontal"
                 android:paddingStart="@dimen/_11sdp"
                 android:paddingEnd="@dimen/_11sdp"
-                app:uiBackgroundColor="@color/color_surface_card"
-                app:uiCornerRadius="@dimen/_11sdp"
-                app:uiStrokeColor="@color/color_stroke"
-                app:uiStrokeWidth="@dimen/_1sdp">
+                android:background="@drawable/bg_surface_card_r11sdp"
+                android:foreground="@drawable/stroke_r11sdp_st1sdp_stroke"
+                android:clipToOutline="true">
 
                 <EditText
                     android:id="@+id/edtConfirm"
@@ -123,9 +121,9 @@
                     android:textColor="@color/text_primary"
                     android:textColorHint="@color/text_secondary"
                     android:textSize="@dimen/_12sdp" />
-            </com.ui.baselib.widget.layout.UiLinearLayout>
+            </LinearLayout>
 
-            <com.ui.baselib.widget.view.UiTextView
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_13sdp"
@@ -135,12 +133,10 @@
                 android:paddingVertical="@dimen/_9sdp"
                 android:text="@string/protect_warning"
                 android:textSize="@dimen/_9sdp"
-                app:drawableStartCompat="@drawable/ic_app_alert"
                 app:drawableTint="@color/color_warning"
-                app:uiBackgroundColor="@color/color_warning_bg"
-                app:uiCornerRadius="@dimen/_11sdp"
-                app:uiDrawableSize="@dimen/_13sdp"
-                app:uiTextColor="@color/color_on_warning" />
+                android:background="@drawable/bg_warning_bg_r11sdp"
+                android:textColor="@color/color_on_warning"
+                app:drawableStartCompat="@drawable/ic_app_alert_13sdp" />
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

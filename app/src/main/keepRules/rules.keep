@@ -10,3 +10,11 @@
 #-keepclassmembers class fqcn.of.javascript.interface.for.webview {
 #   public *;
 #}
+# BaseFragment checks by name whether a fragment overrides onBackPressed() to decide if it
+# needs a back callback; keep the name so R8 renaming can't make every lookup miss.
+-keepclassmembers class com.ui.baselib.base.BaseFragment {
+    public boolean onBackPressed();
+}
+-keepclassmembers class * extends com.ui.baselib.base.BaseFragment {
+    public boolean onBackPressed();
+}

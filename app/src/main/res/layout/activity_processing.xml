@@ -91,13 +91,14 @@
             android:textColor="@color/text_secondary"
             android:textSize="@dimen/_9sdp" />
 
-        <com.ui.baselib.widget.view.UiTextView
+        <TextView
             android:id="@+id/btnCancel"
             style="@style/ButtonOutlineStyle"
             android:layout_width="wrap_content"
             android:layout_marginTop="@dimen/_15sdp"
             android:paddingHorizontal="@dimen/_25sdp"
             android:text="@string/file_action_cancel"
-            app:uiCornerRadius="@dimen/_18sdp" />
+            android:background="@drawable/bg_surface_card_r18sdp_st1sdp_stroke"
+            android:textColor="@color/text_primary" />
     </LinearLayout>
 </LinearLayout>
