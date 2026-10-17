@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/_6sdp"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+
+    <com.ui.baselib.widget.layout.UiLinearLayout
+        style="@style/CardAppStyle"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_35sdp"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="@dimen/_9sdp"
+        app:uiCornerRadius="@dimen/_9sdp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nt_400"
+            android:text="@string/pages"
+            android:textColor="@color/text_secondary"
+            android:textSize="@dimen/_11sdp" />
+
+        <EditText
+            android:id="@+id/edtFrom"
+            android:layout_width="@dimen/_37sdp"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:fontFamily="@font/nt_600"
+            android:gravity="center"
+            android:imeOptions="actionDone"
+            android:importantForAutofill="no"
+            android:inputType="number"
+            android:maxLength="5"
+            android:selectAllOnFocus="true"
+            android:textColor="@color/text_primary"
+            android:textSize="@dimen/_11sdp"
+            tools:ignore="LabelFor"
+            tools:text="12" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nt_400"
+            android:text="@string/range_to"
+            android:textColor="@color/text_secondary"
+            android:textSize="@dimen/_11sdp" />
+
+        <EditText
+            android:id="@+id/edtTo"
+            android:layout_width="@dimen/_37sdp"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:fontFamily="@font/nt_600"
+            android:gravity="center"
+            android:imeOptions="actionDone"
+            android:importantForAutofill="no"
+            android:inputType="number"
+            android:maxLength="5"
+            android:selectAllOnFocus="true"
+            android:textColor="@color/text_primary"
+            android:textSize="@dimen/_11sdp"
+            tools:ignore="LabelFor"
+            tools:text="12" />
+
+    </com.ui.baselib.widget.layout.UiLinearLayout>
+
+    <com.ui.baselib.widget.view.UiImageView
+        android:id="@+id/btnRemove"
+        style="@style/IconButtonStyle"
+        android:layout_width="@dimen/_23sdp"
+        android:layout_height="@dimen/_23sdp"
+        android:layout_marginStart="@dimen/_6sdp"
+        android:contentDescription="@string/scanner_close"
+        android:src="@drawable/ic_app_close"
+        app:tint="@color/text_secondary" />
+
+</LinearLayout>

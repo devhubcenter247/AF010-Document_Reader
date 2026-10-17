@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ui.baselib.widget.layout.UiLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/_6sdp"
+    android:orientation="vertical"
+    android:padding="@dimen/_13sdp"
+    app:uiBackgroundColor="@color/color_surface_card"
+    app:uiCornerRadius="@dimen/_5sdp">
+
+    <TextView
+        android:id="@+id/tvPage"
+        style="@style/TextSectionCaps"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_6sdp"
+        tools:text="Page 1" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tvOriginal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/nt_400"
+            android:lineSpacingMultiplier="1.3"
+            android:textColor="@color/text_primary"
+            android:textIsSelectable="true"
+            android:textSize="@dimen/_10sdp"
+            tools:text="Modern document storage systems must balance access speed against cost." />
+
+        <Space
+            android:id="@+id/spaceBetween"
+            android:layout_width="@dimen/_9sdp"
+            android:layout_height="0dp" />
+
+        <TextView
+            android:id="@+id/tvTranslated"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/nt_400"
+            android:lineSpacingMultiplier="1.3"
+            android:textColor="@color/text_primary"
+            android:textIsSelectable="true"
+            android:textSize="@dimen/_10sdp"
+            tools:text="Modern document storage systems must balance access speed against cost." />
+
+    </LinearLayout>
+
+</com.ui.baselib.widget.layout.UiLinearLayout>

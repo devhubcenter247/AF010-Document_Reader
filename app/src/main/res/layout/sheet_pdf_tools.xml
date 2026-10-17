@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ui.baselib.widget.layout.UiLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/BottomSheetAppStyle"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/_10sdp"
+    tools:context=".ui.main.reader.pdf.sheet.PdfToolsBottomSheet">
+
+    <include
+        android:id="@+id/header"
+        layout="@layout/layout_sheet_header" />
+
+    <TextView
+        style="@style/TextSectionCaps"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/_8sdp"
+        android:paddingHorizontal="@dimen/_15sdp"
+        android:paddingTop="@dimen/_6sdp"
+        android:text="@string/tool_group_edit_sign" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcvEdit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:overScrollMode="never"
+        android:paddingHorizontal="@dimen/_8sdp"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:spanCount="4"
+        tools:itemCount="4"
+        tools:listitem="@layout/item_sheet_tool" />
+
+    <TextView
+        style="@style/TextSectionCaps"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/_8sdp"
+        android:paddingHorizontal="@dimen/_15sdp"
+        android:paddingTop="@dimen/_6sdp"
+        android:text="@string/pages_and_file" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcvFile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:overScrollMode="never"
+        android:paddingHorizontal="@dimen/_8sdp"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:spanCount="4"
+        tools:itemCount="4"
+        tools:listitem="@layout/item_sheet_tool" />
+
+</com.ui.baselib.widget.layout.UiLinearLayout>

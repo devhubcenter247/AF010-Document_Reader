@@ -1,0 +1,8 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.DocumentReader" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textSize">@dimen/_9sdp</item>
+    </style>
+</resources>

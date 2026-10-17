@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_bg_app"
+    android:orientation="vertical"
+    tools:context=".ui.main.tools.compress.CompressActivity">
+
+    <include
+        android:id="@+id/topBar"
+        layout="@layout/layout_tool_topbar" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:overScrollMode="never">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="@dimen/_12sdp"
+            android:paddingBottom="@dimen/_10sdp">
+
+            <include
+                android:id="@+id/header"
+                layout="@layout/layout_tool_header" />
+
+            <include
+                android:id="@+id/file"
+                layout="@layout/layout_tool_file"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_13sdp" />
+
+            <include
+                android:id="@+id/optionLow"
+                layout="@layout/layout_option"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_13sdp" />
+
+            <include
+                android:id="@+id/optionMedium"
+                layout="@layout/layout_option"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp" />
+
+            <include
+                android:id="@+id/optionHigh"
+                layout="@layout/layout_option"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <include
+        android:id="@+id/action"
+        layout="@layout/layout_tool_action" />
+
+</LinearLayout>

@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ui.baselib.widget.layout.UiLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/BottomSheetAppStyle"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/_10sdp">
+
+    <include
+        android:id="@+id/header"
+        layout="@layout/layout_sheet_header" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:orientation="horizontal">
+
+        <com.ui.baselib.widget.layout.UiLinearLayout
+            android:id="@+id/cardLight"
+            style="@style/CardAppStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_4sdp"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="@dimen/_6sdp"
+            app:uiCornerRadius="@dimen/_13sdp">
+
+            <com.ui.baselib.widget.layout.UiFrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_84sdp"
+                app:uiCornerRadius="@dimen/_11sdp"
+                app:uiStrokeColor="@color/color_stroke"
+                app:uiStrokeWidth="@dimen/_1sdp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="#F7F8FC" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="#F7F8FC" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_8sdp">
+
+                    <com.ui.baselib.widget.layout.UiView
+                        android:layout_width="@dimen/_31sdp"
+                        android:layout_height="@dimen/_5sdp"
+                        app:uiBackgroundColor="#20243A"
+                        app:uiCornerRadius="@dimen/_3sdp" />
+
+                    <com.ui.baselib.widget.layout.UiView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_20sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        app:uiBackgroundColor="@color/accent"
+                        app:uiCornerRadius="@dimen/_6sdp" />
+
+                    <com.ui.baselib.widget.layout.UiView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_13sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        app:uiBackgroundColor="#FFFFFF"
+                        app:uiCornerRadius="@dimen/_5sdp" />
+
+                    <com.ui.baselib.widget.layout.UiView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_13sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        app:uiBackgroundColor="#FFFFFF"
+                        app:uiCornerRadius="@dimen/_5sdp" />
+                </LinearLayout>
+            </com.ui.baselib.widget.layout.UiFrameLayout>
+
+            <com.ui.baselib.widget.view.UiTextView
+                android:id="@+id/tvLight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:drawablePadding="@dimen/_4sdp"
+                android:fontFamily="@font/nt_500"
+                android:gravity="center_vertical"
+                android:maxLines="1"
+                android:textSize="@dimen/_10sdp"
+                app:uiDrawableSize="@dimen/_15sdp"
+                app:uiTextColor="@color/text_primary"
+                tools:drawableStartCompat="@drawable/ic_app_radio_off"
+                tools:text="Light" />
+        </com.ui.baselib.widget.layout.UiLinearLayout>
+
+        <com.ui.baselib.widget.layout.UiLinearLayout
+            android:id="@+id/cardDark"
+            style="@style/CardAppStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_4sdp"
+            android:layout_marginEnd="@dimen/_4sdp"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="@dimen/_6sdp"
+            app:uiCornerRadius="@dimen/_13sdp">
+
+            <com.ui.baselib.widget.layout.UiFrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_84sdp"
+                app:uiCornerRadius="@dimen/_11sdp"
+                app:uiStrokeColor="@color/color_stroke"
+                app:uiStrokeWidth="@dimen/_1sdp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="#0F1120" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="#0F1120" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_8sdp">
+
+                    <com.ui.baselib.widget.layout.UiView
+                        android:layout_width="@dimen/_31sdp"
+                        android:layout_height="@dimen/_5sdp"
+                        app:uiBackgroundColor="#F2F3F8"
+                        app:uiCornerRadius="@dimen/_3sdp" />
+
+                    <com.ui.baselib.widget.layout.UiView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_20sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        app:uiBackgroundColor="@color/accent"
+                        app:uiCornerRadius="@dimen/_6sdp" />
+
+                    <com.ui.baselib.widget.layout.UiView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_13sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        app:uiBackgroundColor="#1A1D2E"
+                        app:uiCornerRadius="@dimen/_5sdp" />
+
+                    <com.ui.baselib.widget.layout.UiView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_13sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        app:uiBackgroundColor="#1A1D2E"
+                        app:uiCornerRadius="@dimen/_5sdp" />
+                </LinearLayout>
+            </com.ui.baselib.widget.layout.UiFrameLayout>
+
+            <com.ui.baselib.widget.view.UiTextView
+                android:id="@+id/tvDark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:drawablePadding="@dimen/_4sdp"
+                android:fontFamily="@font/nt_500"
+                android:gravity="center_vertical"
+                android:maxLines="1"
+                android:textSize="@dimen/_10sdp"
+                app:uiDrawableSize="@dimen/_15sdp"
+                app:uiTextColor="@color/text_primary"
+                tools:drawableStartCompat="@drawable/ic_app_radio_off"
+                tools:text="Light" />
+        </com.ui.baselib.widget.layout.UiLinearLayout>
+
+        <com.ui.baselib.widget.layout.UiLinearLayout
+            android:id="@+id/cardSystem"
+            style="@style/CardAppStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_4sdp"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="@dimen/_6sdp"
+            app:uiCornerRadius="@dimen/_13sdp">
+
+            <com.ui.baselib.widget.layout.UiFrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_84sdp"
+                app:uiCornerRadius="@dimen/_11sdp"
+                app:uiStrokeColor="@color/color_stroke"
+                app:uiStrokeWidth="@dimen/_1sdp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="#F7F8FC" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="#0F1120" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_8sdp">
+
+                    <com.ui.baselib.widget.layout.UiView
+                        android:layout_width="@dimen/_31sdp"
+                        android:layout_height="@dimen/_5sdp"
+                        app:uiBackgroundColor="#9AA1B8"
+                        app:uiCornerRadius="@dimen/_3sdp" />
+
+                    <com.ui.baselib.widget.layout.UiView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_20sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        app:uiBackgroundColor="@color/accent"
+                        app:uiCornerRadius="@dimen/_6sdp" />
+
+                    <com.ui.baselib.widget.layout.UiView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_13sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        app:uiBackgroundColor="#C9CCE0"
+                        app:uiCornerRadius="@dimen/_5sdp" />
+
+                    <com.ui.baselib.widget.layout.UiView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_13sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        app:uiBackgroundColor="#C9CCE0"
+                        app:uiCornerRadius="@dimen/_5sdp" />
+                </LinearLayout>
+            </com.ui.baselib.widget.layout.UiFrameLayout>
+
+            <com.ui.baselib.widget.view.UiTextView
+                android:id="@+id/tvSystem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:drawablePadding="@dimen/_4sdp"
+                android:fontFamily="@font/nt_500"
+                android:gravity="center_vertical"
+                android:maxLines="1"
+                android:textSize="@dimen/_10sdp"
+                app:uiDrawableSize="@dimen/_15sdp"
+                app:uiTextColor="@color/text_primary"
+                tools:drawableStartCompat="@drawable/ic_app_radio_off"
+                tools:text="Light" />
+        </com.ui.baselib.widget.layout.UiLinearLayout>
+
+    </LinearLayout>
+
+    <com.ui.baselib.widget.view.UiTextView
+        android:id="@+id/btnDone"
+        style="@style/ButtonAppStyle"
+        android:layout_width="match_parent"
+        android:layout_marginHorizontal="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_13sdp"
+        android:text="@string/done"
+        app:uiShadowClipParent="force"
+        app:uiShadowColor="@color/primary_30" />
+
+</com.ui.baselib.widget.layout.UiLinearLayout>

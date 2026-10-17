@@ -1,0 +1,50 @@
+# Gradle
+.gradle/
+build/
+!gradle-wrapper.jar
+.gradle/
+**/build/
+
+# Local configuration file (sdk path, etc)
+local.properties
+
+# Log files
+*.log
+
+# Android Studio
+.idea/
+*.iml
+*.ipr
+*.iws
+.DS_Store
+
+# Generated files
+captures/
+outputs/
+navigation.json
+
+
+# NDK / CMake
+.cxx/
+
+# Others
+*.apk
+*.ap_
+*.aab
+*.dex
+*.class
+.gradle
+/local.properties
+/.idea/caches
+/.idea/libraries
+/.idea/modules.xml
+/.idea/workspace.xml
+/.idea/navEditor.xml
+/.idea/assetWizardSettings.xml
+/build
+/captures
+.externalNativeBuild
+.cxx
+/.idea
+.cursor
+/instruction

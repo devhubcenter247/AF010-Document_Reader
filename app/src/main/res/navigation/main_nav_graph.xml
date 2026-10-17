@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainNavGraph"
+    app:startDestination="@id/filesFragment">
+
+    <fragment
+        android:id="@+id/filesFragment"
+        android:name="com.af010.creator.docreader.ui.main.files.FilesFragment"
+        android:label="@string/files"
+        tools:layout="@layout/fragment_files" />
+
+    <fragment
+        android:id="@+id/toolsFragment"
+        android:name="com.af010.creator.docreader.ui.main.tools.ToolsFragment"
+        android:label="@string/tools"
+        tools:layout="@layout/fragment_tools" />
+
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.af010.creator.docreader.ui.main.settings.SettingsFragment"
+        android:label="@string/settings"
+        tools:layout="@layout/fragment_settings" />
+</navigation>

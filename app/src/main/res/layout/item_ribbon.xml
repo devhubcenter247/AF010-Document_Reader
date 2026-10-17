@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ui.baselib.widget.layout.UiLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/item"
+    android:layout_width="wrap_content"
+    android:layout_height="@dimen/_33sdp"
+    android:layout_marginEnd="@dimen/_5sdp"
+    android:gravity="center"
+    android:minWidth="@dimen/_33sdp"
+    android:orientation="horizontal"
+    app:uiBackgroundColor="@color/color_surface_variant"
+    app:uiCornerRadius="@dimen/_9sdp">
+
+    <ImageView
+        android:id="@+id/ivIcon"
+        android:layout_width="@dimen/_16sdp"
+        android:layout_height="@dimen/_16sdp"
+        android:contentDescription="@null"
+        tools:src="@drawable/ic_app_bold" />
+
+    <TextView
+        android:id="@+id/tvLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:fontFamily="@font/nt_500"
+        android:maxLines="1"
+        android:textColor="@color/text_primary"
+        android:textSize="@dimen/_10sdp"
+        android:visibility="gone"
+        tools:text="Table" />
+
+    <ImageView
+        android:id="@+id/ivChevron"
+        android:layout_width="@dimen/_11sdp"
+        android:layout_height="@dimen/_11sdp"
+        android:layout_marginStart="@dimen/_5sdp"
+        android:contentDescription="@null"
+        android:src="@drawable/ic_app_chevd"
+        android:visibility="gone"
+        app:tint="@color/text_secondary" />
+
+</com.ui.baselib.widget.layout.UiLinearLayout>

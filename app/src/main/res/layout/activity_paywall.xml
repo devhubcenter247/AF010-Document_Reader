@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_bg_app"
+    android:fillViewport="true"
+    android:overScrollMode="never"
+    tools:context=".ui.main.premium.PaywallActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.ui.baselib.widget.layout.UiLinearLayout
+            android:id="@+id/layoutHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/_10sdp"
+            android:paddingHorizontal="@dimen/_17sdp"
+            app:uiBackgroundGradientEnabled="true"
+            app:uiBackgroundGradientEnd="@color/gradient_end"
+            app:uiBackgroundGradientOrientation="tl_br"
+            app:uiBackgroundGradientStart="@color/gradient_start"
+            app:uiCornerBottomLeft="@dimen/_24sdp"
+            app:uiCornerBottomRight="@dimen/_24sdp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <com.ui.baselib.widget.view.UiTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_22sdp"
+                    android:drawablePadding="@dimen/_5sdp"
+                    android:fontFamily="@font/nt_600"
+                    android:gravity="center"
+                    android:letterSpacing="0.08"
+                    android:paddingHorizontal="@dimen/_9sdp"
+                    android:text="@string/premium"
+                    android:textAllCaps="true"
+                    android:textSize="@dimen/_9sdp"
+                    app:drawableStartCompat="@drawable/ic_app_crown"
+                    app:drawableTint="@color/on_primary"
+                    app:uiBackgroundColor="@color/color_white_16"
+                    app:uiCornerRadius="@dimen/_11sdp"
+                    app:uiDrawableSize="@dimen/_11sdp"
+                    app:uiTextColor="@color/on_primary" />
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+
+                <com.ui.baselib.widget.view.UiImageView
+                    android:id="@+id/btnClose"
+                    android:layout_width="@dimen/_27sdp"
+                    android:layout_height="@dimen/_27sdp"
+                    android:contentDescription="@string/scanner_close"
+                    android:padding="@dimen/_5sdp"
+                    android:src="@drawable/ic_app_close"
+                    app:tint="@color/on_primary"
+                    app:uiBackgroundColor="@color/color_white_16"
+                    app:uiCornerRadius="@dimen/_13sdp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_13sdp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <com.ui.baselib.widget.view.UiImageView
+                    android:id="@+id/ivFeature"
+                    android:layout_width="@dimen/_44sdp"
+                    android:layout_height="@dimen/_44sdp"
+                    android:contentDescription="@null"
+                    android:padding="@dimen/_11sdp"
+                    app:tint="@color/on_primary"
+                    app:uiBackgroundColor="@color/color_white_16"
+                    app:uiCornerRadius="@dimen/_14sdp"
+                    tools:src="@drawable/ic_app_ocr" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_11sdp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tvTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/nt_600"
+                        android:lineSpacingMultiplier="0.95"
+                        android:textColor="@color/on_primary"
+                        android:textSize="@dimen/_15sdp"
+                        tools:text="OCR is a Premium feature" />
+
+                    <TextView
+                        android:id="@+id/tvSubtitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_3sdp"
+                        android:fontFamily="@font/nt_400"
+                        android:textColor="@color/color_on_brand_secondary"
+                        android:textSize="@dimen/_10sdp"
+                        tools:text="Turn scanned pages into text you can search and copy." />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layoutBenefits"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:orientation="vertical" />
+        </com.ui.baselib.widget.layout.UiLinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/_22sdp"
+            android:paddingHorizontal="@dimen/_15sdp"
+            android:paddingTop="@dimen/_17sdp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_3sdp"
+                android:fontFamily="@font/nt_600"
+                android:text="@string/choose_plan"
+                android:textColor="@color/text_primary"
+                android:textSize="@dimen/_12sdp" />
+
+            <include
+                android:id="@+id/planYearly"
+                layout="@layout/layout_plan" />
+
+            <include
+                android:id="@+id/planMonthly"
+                layout="@layout/layout_plan" />
+
+            <include
+                android:id="@+id/planLifetime"
+                layout="@layout/layout_plan" />
+
+            <com.ui.baselib.widget.layout.UiLinearLayout
+                android:id="@+id/cardTrial"
+                style="@style/CardAppStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_11sdp"
+                android:orientation="vertical"
+                android:padding="@dimen/_13sdp"
+                app:uiCornerRadius="@dimen/_15sdp">
+
+                <TextView
+                    style="@style/TextSectionCaps"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_11sdp"
+                    android:text="@string/trial_how_it_works" />
+
+                <include
+                    android:id="@+id/stepToday"
+                    layout="@layout/layout_trial_step" />
+
+                <include
+                    android:id="@+id/stepEnd"
+                    layout="@layout/layout_trial_step" />
+
+                <include
+                    android:id="@+id/stepRenew"
+                    layout="@layout/layout_trial_step" />
+            </com.ui.baselib.widget.layout.UiLinearLayout>
+
+            <com.ui.baselib.widget.view.UiTextView
+                android:id="@+id/btnPurchase"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginTop="@dimen/_13sdp"
+                android:fontFamily="@font/nt_600"
+                android:gravity="center"
+                android:textSize="@dimen/_12sdp"
+                app:uiBackgroundGradientEnabled="true"
+                app:uiBackgroundGradientEnd="@color/gradient_end"
+                app:uiBackgroundGradientOrientation="tl_br"
+                app:uiBackgroundGradientStart="@color/gradient_start"
+                app:uiCornerRadius="@dimen/_13sdp"
+                app:uiShadowClipParent="force"
+                app:uiShadowColor="#523238F4"
+                app:uiShadowElevation="@dimen/_2sdp"
+                app:uiShadowRadius="@dimen/_3sdp"
+                app:uiTextColor="@color/on_primary"
+                tools:text="Start 3-day free trial" />
+
+            <TextView
+                android:id="@+id/tvPriceNote"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:fontFamily="@font/nt_400"
+                android:gravity="center"
+                android:textColor="@color/text_secondary"
+                android:textSize="@dimen/_9sdp"
+                tools:text="$0.00 today, then $29.99 / year from Oct 3, 2026" />
+
+            <TextView
+                android:id="@+id/tvLegal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_6sdp"
+                android:fontFamily="@font/nt_400"
+                android:lineSpacingMultiplier="1.2"
+                android:textColor="@color/text_secondary"
+                android:textSize="@dimen/_9sdp"
+                tools:text="Your Google Play account will be charged…" />
+
+            <com.ui.baselib.widget.flexbox.FlexboxLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp"
+                app:uiFlexWrap="wrap"
+                app:uiJustifyContent="center">
+
+                <TextView
+                    android:id="@+id/btnRestore"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_25sdp"
+                    android:background="?attr/selectableItemBackground"
+                    android:fontFamily="@font/nt_500"
+                    android:gravity="center"
+                    android:paddingHorizontal="@dimen/_7sdp"
+                    android:text="@string/restore_purchases"
+                    android:textColor="@color/text_on_selected"
+                    android:textSize="@dimen/_9sdp" />
+
+                <TextView
+                    android:id="@+id/btnManage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_25sdp"
+                    android:background="?attr/selectableItemBackground"
+                    android:fontFamily="@font/nt_500"
+                    android:gravity="center"
+                    android:paddingHorizontal="@dimen/_7sdp"
+                    android:text="@string/manage_subscription"
+                    android:textColor="@color/text_on_selected"
+                    android:textSize="@dimen/_9sdp" />
+
+                <TextView
+                    android:id="@+id/btnTerms"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_25sdp"
+                    android:background="?attr/selectableItemBackground"
+                    android:fontFamily="@font/nt_500"
+                    android:gravity="center"
+                    android:paddingHorizontal="@dimen/_7sdp"
+                    android:text="@string/terms_of_use"
+                    android:textColor="@color/text_on_selected"
+                    android:textSize="@dimen/_9sdp" />
+
+                <TextView
+                    android:id="@+id/btnPrivacy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_25sdp"
+                    android:background="?attr/selectableItemBackground"
+                    android:fontFamily="@font/nt_500"
+                    android:gravity="center"
+                    android:paddingHorizontal="@dimen/_7sdp"
+                    android:text="@string/privacy_policy"
+                    android:textColor="@color/text_on_selected"
+                    android:textSize="@dimen/_9sdp" />
+            </com.ui.baselib.widget.flexbox.FlexboxLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>

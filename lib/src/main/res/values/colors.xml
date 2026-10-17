@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="color_indicator_default">#E5E6EB</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="transparent">#00000000</color>
+    <color name="primary">#FFFFFF</color>
+    <color name="switch_track_off">#B5CAD6</color>
+    <color name="switch_thumb_off">#A9BFD4</color>
+</resources>

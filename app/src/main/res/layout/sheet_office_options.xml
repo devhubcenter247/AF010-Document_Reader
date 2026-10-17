@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ui.baselib.widget.layout.UiLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/BottomSheetAppStyle"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/_10sdp"
+    tools:context=".ui.main.reader.office.sheet.OfficeOptionsBottomSheet">
+
+    <include
+        android:id="@+id/header"
+        layout="@layout/layout_sheet_header" />
+
+    <LinearLayout
+        android:id="@+id/rowSlideshow"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40sdp"
+        android:background="?attr/selectableItemBackground"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="@dimen/_15sdp">
+
+        <ImageView
+            android:layout_width="@dimen/_17sdp"
+            android:layout_height="@dimen/_17sdp"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_app_play" />
+
+        <TextView
+            style="@style/RowLabelStyle"
+            android:text="@string/slideshow"
+            android:textColor="@color/text_primary" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/rowGoTo"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40sdp"
+        android:background="?attr/selectableItemBackground"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="@dimen/_15sdp">
+
+        <ImageView
+            android:layout_width="@dimen/_17sdp"
+            android:layout_height="@dimen/_17sdp"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_app_pages" />
+
+        <TextView
+            android:id="@+id/tvGoTo"
+            style="@style/RowLabelStyle"
+            android:text="@string/go_to_page"
+            android:textColor="@color/text_primary" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/rowToPdf"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40sdp"
+        android:background="?attr/selectableItemBackground"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="@dimen/_15sdp">
+
+        <ImageView
+            android:layout_width="@dimen/_17sdp"
+            android:layout_height="@dimen/_17sdp"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_app_convert" />
+
+        <TextView
+            style="@style/RowLabelStyle"
+            android:text="@string/convert_to_pdf"
+            android:textColor="@color/text_primary" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/rowFavorite"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40sdp"
+        android:background="?attr/selectableItemBackground"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="@dimen/_15sdp">
+
+        <ImageView
+            android:id="@+id/ivFavorite"
+            android:layout_width="@dimen/_17sdp"
+            android:layout_height="@dimen/_17sdp"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_app_star" />
+
+        <TextView
+            style="@style/RowLabelStyle"
+            android:text="@string/file_action_favorite"
+            android:textColor="@color/text_primary" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/rowInfo"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40sdp"
+        android:background="?attr/selectableItemBackground"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="@dimen/_15sdp">
+
+        <ImageView
+            android:layout_width="@dimen/_17sdp"
+            android:layout_height="@dimen/_17sdp"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_app_info" />
+
+        <TextView
+            style="@style/RowLabelStyle"
+            android:text="@string/file_info"
+            android:textColor="@color/text_primary" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/rowOpenWith"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40sdp"
+        android:background="?attr/selectableItemBackground"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="@dimen/_15sdp">
+
+        <ImageView
+            android:layout_width="@dimen/_17sdp"
+            android:layout_height="@dimen/_17sdp"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_app_share" />
+
+        <TextView
+            style="@style/RowLabelStyle"
+            android:text="@string/open_with_other_app"
+            android:textColor="@color/text_primary" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/rowDelete"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40sdp"
+        android:background="?attr/selectableItemBackground"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="@dimen/_15sdp">
+
+        <ImageView
+            android:layout_width="@dimen/_17sdp"
+            android:layout_height="@dimen/_17sdp"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_app_trash"
+            app:tint="@color/color_error" />
+
+        <TextView
+            style="@style/RowLabelStyle"
+            android:text="@string/file_action_delete"
+            android:textColor="@color/color_error" />
+    </LinearLayout>
+
+</com.ui.baselib.widget.layout.UiLinearLayout>

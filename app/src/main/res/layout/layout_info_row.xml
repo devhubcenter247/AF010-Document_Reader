@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingHorizontal="@dimen/_15sdp"
+    android:paddingVertical="@dimen/_7sdp">
+
+    <TextView
+        android:id="@+id/tvLabel"
+        android:layout_width="@dimen/_80sdp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/nt_400"
+        android:textColor="@color/text_secondary"
+        android:textSize="@dimen/_11sdp"
+        tools:text="Location" />
+
+    <TextView
+        android:id="@+id/tvValue"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:fontFamily="@font/nt_500"
+        android:textColor="@color/text_primary"
+        android:textIsSelectable="true"
+        android:textSize="@dimen/_11sdp"
+        tools:text="/storage/emulated/0/Documents" />
+</LinearLayout>

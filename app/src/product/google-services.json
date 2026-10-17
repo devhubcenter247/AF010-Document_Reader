@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "31510932108",
+    "project_id": "af006-document-editor",
+    "storage_bucket": "af006-document-editor.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:31510932108:android:715905f8fcd755998ca9a9",
+        "android_client_info": {
+          "package_name": "com.alldocs.reader.pdf.editor"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZLNIkHkRiPzmCS1uv-hEIyIp5wIofbfg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

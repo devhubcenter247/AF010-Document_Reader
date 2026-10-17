@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_surface_card"
+    android:orientation="vertical"
+    tools:context=".ui.main.reader.pdf.reflow.PdfReflowActivity">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/layout_toolbar" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rcvText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:overScrollMode="never"
+            android:paddingHorizontal="@dimen/_15sdp"
+            android:paddingVertical="@dimen/_11sdp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/item_reflow_text" />
+
+        <ProgressBar
+            android:id="@+id/progress"
+            android:layout_width="@dimen/_28sdp"
+            android:layout_height="@dimen/_28sdp"
+            android:layout_gravity="center"
+            android:indeterminateTint="@color/primary" />
+
+        <TextView
+            android:id="@+id/tvEmpty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/nt_400"
+            android:text="@string/reflow_no_text"
+            android:textColor="@color/text_secondary"
+            android:textSize="@dimen/_10sdp"
+            android:visibility="gone" />
+    </FrameLayout>
+
+    <com.ui.baselib.widget.layout.UiLinearLayout
+        android:id="@+id/layoutSize"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/_10sdp"
+        android:paddingHorizontal="@dimen/_13sdp"
+        android:paddingTop="@dimen/_9sdp"
+        app:uiBackgroundColor="@color/color_surface_card"
+        app:uiStrokeColor="@color/color_stroke"
+        app:uiStrokeSides="top"
+        app:uiStrokeWidth="@dimen/_1sdp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nt_600"
+            android:text="@string/text_size_sample"
+            android:textColor="@color/text_primary"
+            android:textSize="@dimen/_10sdp" />
+
+        <SeekBar
+            android:id="@+id/seekSize"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_6sdp"
+            android:layout_weight="1"
+            android:max="12"
+            android:progressBackgroundTint="@color/color_checkbox_stroke"
+            android:progressTint="@color/primary"
+            android:thumbTint="@color/primary" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nt_600"
+            android:text="@string/text_size_sample"
+            android:textColor="@color/text_primary"
+            android:textSize="@dimen/_15sdp" />
+    </com.ui.baselib.widget.layout.UiLinearLayout>
+
+</LinearLayout>

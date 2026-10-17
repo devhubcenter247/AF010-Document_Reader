@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_43sdp"
+    android:background="?attr/selectableItemBackground"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingStart="@dimen/_10sdp"
+    android:paddingEnd="@dimen/_3sdp">
+
+    <ImageView
+        android:id="@+id/ivCheck"
+        android:layout_width="@dimen/_18sdp"
+        android:layout_height="@dimen/_18sdp"
+        android:padding="@dimen/_3sdp"
+        android:layout_marginEnd="@dimen/_9sdp"
+        android:contentDescription="@null"
+        android:src="@drawable/ic_app_checkbox_off"
+        android:visibility="gone"
+        tools:visibility="visible" />
+
+    <ImageView
+        android:id="@+id/ivType"
+        android:layout_width="@dimen/_23sdp"
+        android:layout_height="@dimen/_23sdp"
+        android:contentDescription="@null"
+        tools:src="@drawable/ic_file_pdf" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_9sdp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <com.ui.baselib.widget.view.UiTextView
+            android:id="@+id/tvName"
+            android:singleLine="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawablePadding="@dimen/_4sdp"
+            android:ellipsize="end"
+            android:fontFamily="@font/nt_500"
+            android:maxLines="1"
+            android:textColor="@color/text_primary"
+            android:textSize="@dimen/_10sdp"
+            app:uiDrawableSize="@dimen/_10sdp"
+            tools:text="Lease-agreement.pdf" />
+
+        <TextView
+            android:id="@+id/tvMeta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_3sdp"
+            android:ellipsize="end"
+            android:fontFamily="@font/nt_400"
+            android:maxLines="1"
+            android:textColor="@color/text_secondary"
+            android:textSize="@dimen/_9sdp"
+            tools:text="Today · 1.1 MB" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/btnMore"
+        android:layout_width="@dimen/_27sdp"
+        android:layout_height="@dimen/_27sdp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@null"
+        android:padding="@dimen/_5sdp"
+        android:src="@drawable/ic_app_more"
+        app:tint="@color/text_secondary" />
+
+</LinearLayout>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- What a list shows in place of its rows: no file access, no files, no results. -->
+<com.ui.baselib.widget.layout.UiLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/CardAppStyle"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:paddingVertical="@dimen/_15sdp"
+    android:visibility="gone"
+    app:uiCornerRadius="@dimen/_15sdp"
+    tools:visibility="visible">
+
+    <com.ui.baselib.widget.view.UiImageView
+        android:id="@+id/ivIcon"
+        android:layout_width="@dimen/_49sdp"
+        android:layout_height="@dimen/_49sdp"
+        android:contentDescription="@null"
+        android:padding="@dimen/_13sdp"
+        android:src="@drawable/ic_app_folder"
+        app:tint="@color/text_on_selected"
+        app:uiBackgroundColor="@color/color_bg_selected"
+        app:uiCornerRadius="@dimen/_17sdp" />
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_11sdp"
+        android:fontFamily="@font/nt_600"
+        android:gravity="center"
+        android:textColor="@color/text_primary"
+        android:textSize="@dimen/_12sdp"
+        tools:text="@string/no_access_title" />
+
+    <TextView
+        android:id="@+id/tvMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_3sdp"
+        android:fontFamily="@font/nt_400"
+        android:gravity="center"
+        android:textColor="@color/text_secondary"
+        android:textSize="@dimen/_9sdp"
+        tools:text="@string/no_access_desc" />
+
+    <LinearLayout
+
+        android:id="@+id/layoutButtons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <com.ui.baselib.widget.view.UiTextView
+            android:id="@+id/btnPrimary"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_8sdp"
+            style="@style/ButtonAppStyle"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            app:uiShadowClipParent="force"
+            app:uiShadowColor="@color/primary_30"
+            tools:text="@string/allow_access" />
+
+        <com.ui.baselib.widget.view.UiTextView
+            android:id="@+id/btnSecondary"
+            android:layout_marginEnd="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_8sdp"
+            style="@style/ButtonOutlineStyle"
+            android:layout_width="0dp"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_weight="1"
+            tools:text="@string/browse_files" />
+    </LinearLayout>
+</com.ui.baselib.widget.layout.UiLinearLayout>

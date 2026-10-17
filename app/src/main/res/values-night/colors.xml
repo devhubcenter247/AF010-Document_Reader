@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="icon_default">#F2F3F8</color>
+
+    <!-- Surfaces -->
+    <color name="color_bg_app">#0F1120</color>
+    <color name="color_surface_card">#1A1D2E</color>
+    <color name="color_surface_variant">#24283C</color>
+    <color name="color_surface_track">#24283C</color>
+    <color name="color_bg_selected">#2D2860</color>
+    <color name="color_stroke">#2B2F46</color>
+    <color name="color_handle">#3A3F5A</color>
+    <color name="color_checkbox_stroke">#4A4F6A</color>
+
+    <!-- Text -->
+    <color name="text_primary">#F2F3F8</color>
+    <color name="text_secondary">#A3A8BD</color>
+    <color name="text_on_selected">#C4BBFF</color>
+    <color name="color_plan_selected">#262A45</color>
+</resources>

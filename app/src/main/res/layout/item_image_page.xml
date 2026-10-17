@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/_4sdp">
+
+    <com.ui.baselib.widget.layout.UiFrameLayout
+        android:id="@+id/card"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:uiBackgroundColor="@color/color_surface_card"
+        app:uiCornerRadius="@dimen/_11sdp"
+        app:uiDimensionRatio="3:4">
+
+        <ImageView
+            android:id="@+id/ivImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@null"
+            android:scaleType="centerCrop" />
+
+        <com.ui.baselib.widget.view.UiTextView
+            android:id="@+id/tvNumber"
+            android:layout_width="@dimen/_18sdp"
+            android:layout_height="@dimen/_18sdp"
+            android:layout_margin="@dimen/_6sdp"
+            android:fontFamily="@font/nt_500"
+            android:gravity="center"
+            android:textSize="@dimen/_9sdp"
+            app:uiBackgroundColor="@color/color_ink"
+            app:uiCornerRadius="@dimen/_9sdp"
+            app:uiTextColor="@color/on_primary"
+            tools:text="1" />
+
+        <com.ui.baselib.widget.view.UiImageView
+            android:id="@+id/btnRemove"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_gravity="end"
+            android:layout_margin="@dimen/_5sdp"
+            android:contentDescription="@string/scanner_close"
+            android:padding="@dimen/_5sdp"
+            android:src="@drawable/ic_app_close"
+            app:tint="@color/color_ink"
+            app:uiBackgroundColor="#E6FFFFFF"
+            app:uiCornerRadius="@dimen/_10sdp" />
+
+        <!-- The last tile: add more images -->
+        <com.ui.baselib.widget.view.UiTextView
+            android:id="@+id/btnAdd"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:drawablePadding="@dimen/_5sdp"
+            android:fontFamily="@font/nt_500"
+            android:gravity="center"
+            android:paddingVertical="@dimen/_30sdp"
+            android:text="@string/convert_add"
+            android:textSize="@dimen/_9sdp"
+            android:visibility="gone"
+            app:drawableTint="@color/text_on_selected"
+            app:drawableTopCompat="@drawable/ic_app_plus"
+            app:uiBackgroundColor="@color/color_bg_app"
+            app:uiCornerRadius="@dimen/_11sdp"
+            app:uiDrawableSize="@dimen/_17sdp"
+            app:uiStrokeColor="@color/color_checkbox_stroke"
+            app:uiStrokeDashGap="@dimen/_3sdp"
+            app:uiStrokeDashed="true"
+            app:uiStrokeWidth="@dimen/_2sdp"
+            app:uiTextColor="@color/text_on_selected" />
+    </com.ui.baselib.widget.layout.UiFrameLayout>
+
+</FrameLayout>

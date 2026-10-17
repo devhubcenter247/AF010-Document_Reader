@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ui.baselib.widget.layout.UiLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/DialogAppStyle"
+    android:clipChildren="false"
+    android:clipToPadding="false"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:padding="@dimen/_17sdp"
+    tools:context=".ui.dialog.ChoiceDialog">
+
+    <com.ui.baselib.widget.view.UiImageView
+        android:id="@+id/ivIcon"
+        android:layout_width="@dimen/_55sdp"
+        android:layout_height="@dimen/_55sdp"
+        android:contentDescription="@null"
+        android:padding="@dimen/_15sdp"
+        app:tint="@color/primary"
+        app:uiBackgroundColor="@color/color_bg_selected"
+        app:uiCornerRadius="@dimen/_28sdp"
+        tools:src="@drawable/ic_app_save" />
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_11sdp"
+        android:fontFamily="@font/nt_600"
+        android:gravity="center"
+        android:textColor="@color/text_primary"
+        android:textSize="@dimen/_13sdp"
+        tools:text="Save changes before leaving?" />
+
+    <TextView
+        android:id="@+id/tvMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_6sdp"
+        android:fontFamily="@font/nt_400"
+        android:gravity="center"
+        android:lineSpacingMultiplier="1.2"
+        android:textColor="@color/text_secondary"
+        android:textSize="@dimen/_9sdp"
+        tools:text="Your changes aren’t saved to the original file." />
+
+    <com.ui.baselib.widget.view.UiTextView
+        android:id="@+id/btnPrimary"
+        style="@style/ButtonAppStyle"
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/_13sdp"
+        app:uiShadowClipParent="force"
+        app:uiShadowColor="@color/primary_30"
+        tools:text="Save" />
+
+    <com.ui.baselib.widget.view.UiTextView
+        android:id="@+id/btnSecondary"
+        style="@style/ButtonOutlineStyle"
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/_6sdp"
+        tools:text="Don’t save" />
+
+    <TextView
+        android:id="@+id/btnTertiary"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_33sdp"
+        android:layout_marginTop="@dimen/_3sdp"
+        android:background="?attr/selectableItemBackground"
+        android:fontFamily="@font/nt_500"
+        android:gravity="center"
+        android:textColor="@color/text_secondary"
+        android:textSize="@dimen/_11sdp"
+        android:visibility="gone"
+        tools:text="Keep editing"
+        tools:visibility="visible" />
+
+</com.ui.baselib.widget.layout.UiLinearLayout>

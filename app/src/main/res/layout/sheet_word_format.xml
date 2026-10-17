@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ui.baselib.widget.layout.UiLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/BottomSheetAppStyle"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/_10sdp"
+    tools:context=".ui.main.reader.office.sheet.WordFormatBottomSheet">
+
+    <include
+        android:id="@+id/header"
+        layout="@layout/layout_sheet_header" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="@dimen/_15sdp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_3sdp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <com.ui.baselib.widget.view.UiTextView
+                android:id="@+id/btnFont"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_36sdp"
+                android:layout_marginEnd="@dimen/_6sdp"
+                android:layout_weight="2"
+                android:drawablePadding="@dimen/_5sdp"
+                android:ellipsize="end"
+                android:fontFamily="@font/nt_400"
+                android:gravity="center_vertical"
+                android:maxLines="1"
+                android:paddingHorizontal="@dimen/_9sdp"
+                android:textSize="@dimen/_12sdp"
+                app:drawableEndCompat="@drawable/ic_app_chevd"
+                app:drawableTint="@color/text_secondary"
+                app:uiBackgroundColor="@color/color_surface_variant"
+                app:uiCornerRadius="@dimen/_11sdp"
+                app:uiDrawableSize="@dimen/_13sdp"
+                app:uiTextColor="@color/text_primary"
+                tools:text="Times New Roman" />
+
+            <com.ui.baselib.widget.view.UiTextView
+                android:id="@+id/btnSize"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_36sdp"
+                android:layout_marginEnd="0dp"
+                android:layout_weight="1"
+                android:drawablePadding="@dimen/_5sdp"
+                android:ellipsize="end"
+                android:fontFamily="@font/nt_500"
+                android:gravity="center_vertical"
+                android:maxLines="1"
+                android:paddingHorizontal="@dimen/_9sdp"
+                android:textSize="@dimen/_12sdp"
+                app:drawableEndCompat="@drawable/ic_app_chevd"
+                app:drawableTint="@color/text_secondary"
+                app:uiBackgroundColor="@color/color_surface_variant"
+                app:uiCornerRadius="@dimen/_11sdp"
+                app:uiDrawableSize="@dimen/_13sdp"
+                app:uiTextColor="@color/text_primary"
+                tools:text="13" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <com.ui.baselib.widget.view.UiImageView
+                android:id="@+id/btnBold"
+                android:layout_width="@dimen/_36sdp"
+                android:layout_height="@dimen/_36sdp"
+                android:layout_marginEnd="@dimen/_6sdp"
+                android:contentDescription="@null"
+                android:padding="@dimen/_10sdp"
+                android:src="@drawable/ic_app_bold"
+                app:uiBackgroundColor="@color/color_surface_variant"
+                app:uiCornerRadius="@dimen/_11sdp" />
+
+            <com.ui.baselib.widget.view.UiImageView
+                android:id="@+id/btnItalic"
+                android:layout_width="@dimen/_36sdp"
+                android:layout_height="@dimen/_36sdp"
+                android:layout_marginEnd="@dimen/_6sdp"
+                android:contentDescription="@null"
+                android:padding="@dimen/_10sdp"
+                android:src="@drawable/ic_app_italic"
+                app:uiBackgroundColor="@color/color_surface_variant"
+                app:uiCornerRadius="@dimen/_11sdp" />
+
+            <com.ui.baselib.widget.view.UiImageView
+                android:id="@+id/btnUnderline"
+                android:layout_width="@dimen/_36sdp"
+                android:layout_height="@dimen/_36sdp"
+                android:layout_marginEnd="@dimen/_6sdp"
+                android:contentDescription="@null"
+                android:padding="@dimen/_10sdp"
+                android:src="@drawable/ic_app_underline"
+                app:uiBackgroundColor="@color/color_surface_variant"
+                app:uiCornerRadius="@dimen/_11sdp" />
+
+            <com.ui.baselib.widget.view.UiTextView
+                android:id="@+id/btnStrike"
+                android:layout_width="@dimen/_36sdp"
+                android:layout_height="@dimen/_36sdp"
+                android:layout_marginEnd="@dimen/_6sdp"
+                android:fontFamily="@font/nt_600"
+                android:gravity="center"
+                android:text="@string/format_strike_sample"
+                android:textSize="@dimen/_14sdp"
+                app:uiBackgroundColor="@color/color_surface_variant"
+                app:uiCornerRadius="@dimen/_11sdp"
+                app:uiTextColor="@color/text_primary" />
+
+            <com.ui.baselib.widget.view.UiTextView
+                android:id="@+id/btnSuperscript"
+                android:layout_width="@dimen/_36sdp"
+                android:layout_height="@dimen/_36sdp"
+                android:layout_marginEnd="@dimen/_6sdp"
+                android:fontFamily="@font/nt_600"
+                android:gravity="center"
+                android:text="@string/format_superscript_sample"
+                android:textSize="@dimen/_14sdp"
+                app:uiBackgroundColor="@color/color_surface_variant"
+                app:uiCornerRadius="@dimen/_11sdp"
+                app:uiTextColor="@color/text_primary" />
+
+            <com.ui.baselib.widget.view.UiTextView
+                android:id="@+id/btnSubscript"
+                android:layout_width="@dimen/_36sdp"
+                android:layout_height="@dimen/_36sdp"
+                android:layout_marginEnd="@dimen/_6sdp"
+                android:fontFamily="@font/nt_600"
+                android:gravity="center"
+                android:text="@string/format_subscript_sample"
+                android:textSize="@dimen/_14sdp"
+                app:uiBackgroundColor="@color/color_surface_variant"
+                app:uiCornerRadius="@dimen/_11sdp"
+                app:uiTextColor="@color/text_primary" />
+        </LinearLayout>
+
+        <TextView
+            style="@style/TextSectionCaps"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_6sdp"
+            android:layout_marginTop="@dimen/_11sdp"
+            android:text="@string/text_color" />
+
+        <LinearLayout
+            android:id="@+id/layoutTextColors"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" />
+
+        <TextView
+            style="@style/TextSectionCaps"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_6sdp"
+            android:layout_marginTop="@dimen/_11sdp"
+            android:text="@string/annot_highlight" />
+
+        <LinearLayout
+            android:id="@+id/layoutHighlights"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" />
+
+        <TextView
+            style="@style/TextSectionCaps"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_6sdp"
+            android:layout_marginTop="@dimen/_11sdp"
+            android:text="@string/paragraph" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <com.ui.baselib.widget.view.UiImageView
+                android:id="@+id/btnAlignLeft"
+                android:layout_width="@dimen/_36sdp"
+                android:layout_height="@dimen/_36sdp"
+                android:layout_marginEnd="@dimen/_6sdp"
+                android:contentDescription="@null"
+                android:padding="@dimen/_10sdp"
+                app:uiBackgroundColor="@color/color_surface_variant"
+                app:uiCornerRadius="@dimen/_11sdp" />
+
+            <com.ui.baselib.widget.view.UiImageView
+                android:id="@+id/btnAlignCenter"
+                android:layout_width="@dimen/_36sdp"
+                android:layout_height="@dimen/_36sdp"
+                android:layout_marginEnd="@dimen/_6sdp"
+                android:contentDescription="@null"
+                android:padding="@dimen/_10sdp"
+                app:uiBackgroundColor="@color/color_surface_variant"
+                app:uiCornerRadius="@dimen/_11sdp" />
+
+            <com.ui.baselib.widget.view.UiImageView
+                android:id="@+id/btnAlignRight"
+                android:layout_width="@dimen/_36sdp"
+                android:layout_height="@dimen/_36sdp"
+                android:layout_marginEnd="@dimen/_6sdp"
+                android:contentDescription="@null"
+                android:padding="@dimen/_10sdp"
+                app:uiBackgroundColor="@color/color_surface_variant"
+                app:uiCornerRadius="@dimen/_11sdp" />
+
+            <com.ui.baselib.widget.view.UiImageView
+                android:id="@+id/btnAlignJustify"
+                android:layout_width="@dimen/_36sdp"
+                android:layout_height="@dimen/_36sdp"
+                android:layout_marginEnd="@dimen/_6sdp"
+                android:contentDescription="@null"
+                android:padding="@dimen/_10sdp"
+                app:uiBackgroundColor="@color/color_surface_variant"
+                app:uiCornerRadius="@dimen/_11sdp" />
+
+            <com.ui.baselib.widget.view.UiImageView
+                android:id="@+id/btnBullets"
+                android:layout_width="@dimen/_36sdp"
+                android:layout_height="@dimen/_36sdp"
+                android:layout_marginEnd="@dimen/_6sdp"
+                android:contentDescription="@null"
+                android:padding="@dimen/_10sdp"
+                app:uiBackgroundColor="@color/color_surface_variant"
+                app:uiCornerRadius="@dimen/_11sdp" />
+
+            <com.ui.baselib.widget.view.UiImageView
+                android:id="@+id/btnNumbering"
+                android:layout_width="@dimen/_36sdp"
+                android:layout_height="@dimen/_36sdp"
+                android:layout_marginEnd="@dimen/_6sdp"
+                android:contentDescription="@null"
+                android:padding="@dimen/_10sdp"
+                app:uiBackgroundColor="@color/color_surface_variant"
+                app:uiCornerRadius="@dimen/_11sdp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <com.ui.baselib.widget.view.UiTextView
+                android:id="@+id/btnSpacing"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_36sdp"
+                android:layout_marginEnd="0dp"
+                android:layout_weight="1"
+                android:drawablePadding="@dimen/_5sdp"
+                android:ellipsize="end"
+                android:fontFamily="@font/nt_500"
+                android:gravity="center_vertical"
+                android:maxLines="1"
+                android:paddingHorizontal="@dimen/_9sdp"
+                android:text="@string/line_spacing"
+                android:textSize="@dimen/_12sdp"
+                app:drawableEndCompat="@drawable/ic_app_chevd"
+                app:drawableTint="@color/text_secondary"
+                app:uiBackgroundColor="@color/color_surface_variant"
+                app:uiCornerRadius="@dimen/_11sdp"
+                app:uiDrawableSize="@dimen/_13sdp"
+                app:uiTextColor="@color/text_primary"
+                tools:text="Line spacing" />
+        </LinearLayout>
+    </LinearLayout>
+
+</com.ui.baselib.widget.layout.UiLinearLayout>

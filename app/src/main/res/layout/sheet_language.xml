@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ui.baselib.widget.layout.UiLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/BottomSheetAppStyle"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/_10sdp">
+
+    <include
+        android:id="@+id/header"
+        layout="@layout/layout_sheet_header" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcvLanguages"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_276sdp"
+        android:overScrollMode="never"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/item_language_option" />
+
+</com.ui.baselib.widget.layout.UiLinearLayout>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ui.baselib.widget.layout.UiLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingTop="@dimen/_9sdp"
+    app:uiBackgroundColor="@color/color_surface_card">
+
+    <TextView
+        android:id="@+id/tvNote"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_12sdp"
+        android:layout_marginBottom="@dimen/_8sdp"
+        android:fontFamily="@font/nt_600"
+        android:gravity="center"
+        android:textColor="@color/text_on_selected"
+        android:textSize="@dimen/_10sdp"
+        android:visibility="gone" />
+
+    <com.ui.baselib.widget.view.UiTextView
+        android:id="@+id/btnAction"
+        style="@style/ButtonAppStyle"
+        android:layout_marginHorizontal="@dimen/_12sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:layout_width="match_parent"
+        app:uiShadowClipParent="force"
+        app:uiShadowColor="@color/primary_30"
+        tools:text="Merge 3 files · 16 pages" />
+
+</com.ui.baselib.widget.layout.UiLinearLayout>

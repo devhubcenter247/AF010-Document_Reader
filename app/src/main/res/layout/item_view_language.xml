@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ui.baselib.widget.layout.UiLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    app:uiBackgroundColor="@color/color_surface_card"
+    app:uiCornerRadius="@dimen/_10sdp"
+    app:uiStrokeWidth="@dimen/_1sdp"
+    app:uiStrokeColor="@color/transparent"
+    app:uiStrokeGradient="false"
+    app:uiStrokeGradientStart="@color/gradient_start"
+    app:uiStrokeGradientEnd="@color/gradient_end"
+    android:layout_marginVertical="@dimen/_5sdp"
+    android:padding="@dimen/_8sdp">
+
+    <com.ui.baselib.widget.view.UiImageView
+        android:id="@+id/itemLanguage"
+        android:layout_width="@dimen/_23sdp"
+        app:uiStrokeWidth="@dimen/_1sdp"
+        android:layout_height="@dimen/_23sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:uiCornerRadius="@dimen/_10sdp"
+        app:uiStrokeColor="@color/color_stroke"
+        tools:src="@tools:sample/avatars" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_width="0dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginHorizontal="@dimen/_10sdp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+        <TextView
+            tools:text="@tools:sample/lorem"
+            android:layout_width="match_parent"
+            android:id="@+id/languageName"
+            android:fontFamily="@font/nt_500"
+            android:singleLine="true"
+            android:textSize="@dimen/_11sdp"
+            android:layout_height="match_parent"/>
+        <TextView
+            tools:text="@tools:sample/lorem"
+            android:layout_width="match_parent"
+            android:id="@+id/locateName"
+            android:singleLine="true"
+            android:textColor="@color/text_secondary"
+            android:fontFamily="@font/nt_400"
+            android:textSize="@dimen/_9sdp"
+            android:layout_height="match_parent"/>
+
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="@dimen/_17sdp"
+        android:layout_height="@dimen/_17sdp"
+        android:padding="@dimen/_1sdp"
+        android:src="@drawable/ic_state_language" />
+</com.ui.baselib.widget.layout.UiLinearLayout>

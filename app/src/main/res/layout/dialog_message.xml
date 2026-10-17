@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ui.baselib.widget.layout.UiLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/DialogAppStyle"
+    android:clipChildren="false"
+    android:clipToPadding="false"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="@dimen/_17sdp"
+    tools:context=".ui.dialog.MessageDialog">
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/nt_600"
+        android:textColor="@color/text_primary"
+        android:textSize="@dimen/_13sdp"
+        tools:text="Can’t open file" />
+
+    <TextView
+        android:id="@+id/tvMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_6sdp"
+        android:fontFamily="@font/nt_400"
+        android:lineSpacingMultiplier="1.2"
+        android:textColor="@color/text_secondary"
+        android:textSize="@dimen/_9sdp"
+        tools:text="The file may be damaged or not fully downloaded. Download it again and retry." />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_13sdp"
+        android:orientation="horizontal">
+
+        <com.ui.baselib.widget.view.UiTextView
+            android:id="@+id/btnCancel"
+            style="@style/ButtonOutlineStyle"
+            android:layout_width="0dp"
+            android:layout_marginEnd="@dimen/_4sdp"
+            android:layout_weight="1"
+            android:text="@string/file_action_cancel" />
+
+        <com.ui.baselib.widget.view.UiTextView
+            android:id="@+id/btnConfirm"
+            style="@style/ButtonAppStyle"
+            android:layout_width="0dp"
+            android:layout_marginStart="@dimen/_4sdp"
+            android:layout_weight="1"
+            android:text="@string/got_it"
+            app:uiShadowClipParent="force"
+            app:uiShadowColor="@color/primary_30" />
+    </LinearLayout>
+
+</com.ui.baselib.widget.layout.UiLinearLayout>

@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_bg_app"
+    android:orientation="vertical"
+    tools:context=".ui.main.premium.SubscriptionActivity">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/layout_toolbar" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:overScrollMode="never">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="@dimen/_13sdp"
+            android:paddingVertical="@dimen/_15sdp">
+
+            <com.ui.baselib.widget.layout.UiLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="@dimen/_13sdp"
+                app:uiBackgroundGradientEnabled="true"
+                app:uiBackgroundGradientEnd="@color/gradient_end"
+                app:uiBackgroundGradientOrientation="tl_br"
+                app:uiBackgroundGradientStart="@color/gradient_start"
+                app:uiCornerRadius="@dimen/_17sdp">
+
+                <com.ui.baselib.widget.view.UiImageView
+                    android:layout_width="@dimen/_37sdp"
+                    android:layout_height="@dimen/_37sdp"
+                    android:contentDescription="@null"
+                    android:padding="@dimen/_10sdp"
+                    android:src="@drawable/ic_app_crown"
+                    app:tint="@color/on_primary"
+                    app:uiBackgroundColor="@color/color_white_16"
+                    app:uiCornerRadius="@dimen/_13sdp" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_11sdp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tvPlan"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/nt_600"
+                        android:textColor="@color/on_primary"
+                        android:textSize="@dimen/_13sdp"
+                        tools:text="Free plan" />
+
+                    <TextView
+                        android:id="@+id/tvPlanState"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/nt_400"
+                        android:textColor="@color/color_on_brand_secondary"
+                        android:textSize="@dimen/_9sdp"
+                        tools:text="No active subscription" />
+                </LinearLayout>
+            </com.ui.baselib.widget.layout.UiLinearLayout>
+
+            <com.ui.baselib.widget.layout.UiLinearLayout
+                style="@style/CardAppStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_13sdp"
+                android:orientation="vertical"
+                app:uiCornerRadius="@dimen/_15sdp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/_13sdp"
+                    android:paddingVertical="@dimen/_11sdp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/nt_400"
+                        android:text="@string/subscription_status"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="@dimen/_10sdp" />
+
+                    <TextView
+                        android:id="@+id/tvStatus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/nt_500"
+                        android:textColor="@color/text_primary"
+                        android:textSize="@dimen/_10sdp"
+                        tools:text="Google Play" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="@color/color_stroke" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/_13sdp"
+                    android:paddingVertical="@dimen/_11sdp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/nt_400"
+                        android:text="@string/subscription_amount"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="@dimen/_10sdp" />
+
+                    <TextView
+                        android:id="@+id/tvAmount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/nt_500"
+                        android:textColor="@color/text_primary"
+                        android:textSize="@dimen/_10sdp"
+                        tools:text="Google Play" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="@color/color_stroke" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/_13sdp"
+                    android:paddingVertical="@dimen/_11sdp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/nt_400"
+                        android:text="@string/subscription_renews"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="@dimen/_10sdp" />
+
+                    <TextView
+                        android:id="@+id/tvRenews"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/nt_500"
+                        android:textColor="@color/text_primary"
+                        android:textSize="@dimen/_10sdp"
+                        tools:text="Google Play" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="@color/color_stroke" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/_13sdp"
+                    android:paddingVertical="@dimen/_11sdp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/nt_400"
+                        android:text="@string/subscription_billed_through"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="@dimen/_10sdp" />
+
+                    <TextView
+                        android:id="@+id/tvBilledThrough"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/nt_500"
+                        android:textColor="@color/text_primary"
+                        android:textSize="@dimen/_10sdp"
+                        tools:text="Google Play" />
+                </LinearLayout>
+            </com.ui.baselib.widget.layout.UiLinearLayout>
+
+            <com.ui.baselib.widget.view.UiTextView
+                android:id="@+id/tvNotice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_13sdp"
+                android:drawablePadding="@dimen/_8sdp"
+                android:fontFamily="@font/nt_400"
+                android:lineSpacingMultiplier="1.2"
+                android:paddingHorizontal="@dimen/_11sdp"
+                android:paddingVertical="@dimen/_9sdp"
+                android:text="@string/subscription_none_notice"
+                android:textSize="@dimen/_9sdp"
+                app:drawableStartCompat="@drawable/ic_app_info"
+                app:drawableTint="@color/color_warning"
+                app:uiBackgroundColor="@color/color_warning_bg"
+                app:uiCornerRadius="@dimen/_11sdp"
+                app:uiDrawableSize="@dimen/_13sdp"
+                app:uiTextColor="@color/color_on_warning" />
+
+            <com.ui.baselib.widget.view.UiTextView
+                android:id="@+id/btnPrimary"
+                style="@style/ButtonAppStyle"
+                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/_13sdp"
+                app:uiShadowClipParent="force"
+                app:uiShadowColor="@color/primary_30"
+                tools:text="See Premium plans" />
+
+            <com.ui.baselib.widget.view.UiTextView
+                android:id="@+id/btnGooglePlay"
+                style="@style/ButtonOutlineStyle"
+                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:text="@string/manage_in_google_play" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_13sdp"
+                android:fontFamily="@font/nt_400"
+                android:lineSpacingMultiplier="1.2"
+                android:text="@string/how_to_cancel"
+                android:textColor="@color/text_secondary"
+                android:textSize="@dimen/_9sdp" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

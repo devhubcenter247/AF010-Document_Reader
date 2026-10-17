@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ui.baselib.widget.layout.UiLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/DialogAppStyle"
+    android:clipChildren="false"
+    android:clipToPadding="false"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:padding="@dimen/_17sdp"
+    tools:context=".ui.dialog.DeleteDialog">
+
+    <com.ui.baselib.widget.view.UiImageView
+        android:layout_width="@dimen/_55sdp"
+        android:layout_height="@dimen/_55sdp"
+        android:contentDescription="@null"
+        android:padding="@dimen/_15sdp"
+        android:src="@drawable/ic_app_trash"
+        app:tint="@color/color_error"
+        app:uiBackgroundColor="@color/color_error_bg"
+        app:uiCornerRadius="@dimen/_28sdp" />
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_11sdp"
+        android:fontFamily="@font/nt_600"
+        android:gravity="center"
+        android:textColor="@color/text_primary"
+        android:textSize="@dimen/_13sdp"
+        tools:text="Delete 3 files?" />
+
+    <TextView
+        android:id="@+id/tvMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:fontFamily="@font/nt_400"
+        android:gravity="center"
+        android:textColor="@color/text_secondary"
+        android:textSize="@dimen/_9sdp"
+        tools:text="The files will be deleted from this device and can’t be recovered." />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_13sdp"
+        android:orientation="horizontal">
+
+        <com.ui.baselib.widget.view.UiTextView
+            android:id="@+id/btnCancel"
+            style="@style/ButtonOutlineStyle"
+            android:layout_width="0dp"
+            android:layout_marginEnd="@dimen/_4sdp"
+            android:layout_weight="1"
+            android:text="@string/file_action_cancel" />
+
+        <com.ui.baselib.widget.view.UiTextView
+            android:id="@+id/btnConfirm"
+            style="@style/ButtonAppStyle"
+            android:layout_width="0dp"
+            android:layout_marginStart="@dimen/_4sdp"
+            android:layout_weight="1"
+            android:text="@string/file_action_delete"
+            app:uiBackgroundColor="@color/color_error"
+            app:uiShadowElevation="0dp"
+            app:uiShadowRadius="0dp" />
+    </LinearLayout>
+
+</com.ui.baselib.widget.layout.UiLinearLayout>

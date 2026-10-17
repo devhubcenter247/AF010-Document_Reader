@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_bg_app"
+    android:orientation="vertical"
+    tools:context=".ui.main.tools.result.ProcessingActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingHorizontal="@dimen/_25sdp">
+
+        <ImageView
+            android:id="@+id/ivTool"
+            android:layout_width="@dimen/_49sdp"
+            android:layout_height="@dimen/_49sdp"
+            android:contentDescription="@null"
+            tools:src="@drawable/ic_app_tool_compress_pdf" />
+
+        <FrameLayout
+            android:layout_width="@dimen/_139sdp"
+            android:layout_height="@dimen/_139sdp"
+            android:layout_marginTop="@dimen/_15sdp">
+
+            <com.google.android.material.progressindicator.CircularProgressIndicator
+                android:id="@+id/progress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:indeterminate="true"
+                app:indicatorColor="@color/primary"
+                app:indicatorInset="0dp"
+                app:indicatorSize="@dimen/_139sdp"
+                app:trackColor="@color/color_surface_track"
+                app:trackCornerRadius="@dimen/_5sdp"
+                app:trackThickness="@dimen/_9sdp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvPercent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nt_600"
+                    android:textColor="@color/text_primary"
+                    android:textSize="@dimen/_30sdp"
+                    tools:text="64%" />
+
+                <TextView
+                    android:id="@+id/tvCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nt_400"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="@dimen/_10sdp"
+                    tools:text="26 / 40" />
+            </LinearLayout>
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:fontFamily="@font/nt_500"
+            android:gravity="center"
+            android:textColor="@color/text_primary"
+            android:textSize="@dimen/_13sdp"
+            tools:text="Compressing PDF…" />
+
+        <TextView
+            android:id="@+id/tvSubtitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:fontFamily="@font/nt_400"
+            android:gravity="center"
+            android:text="@string/processing_subtitle"
+            android:textColor="@color/text_secondary"
+            android:textSize="@dimen/_9sdp" />
+
+        <com.ui.baselib.widget.view.UiTextView
+            android:id="@+id/btnCancel"
+            style="@style/ButtonOutlineStyle"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:paddingHorizontal="@dimen/_25sdp"
+            android:text="@string/file_action_cancel"
+            app:uiCornerRadius="@dimen/_18sdp" />
+    </LinearLayout>
+</LinearLayout>

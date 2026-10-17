@@ -1,0 +1,852 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_surface_track"
+    android:orientation="vertical"
+    tools:context=".ui.main.reader.pdf.PdfReaderActivity">
+
+    <com.ui.baselib.widget.layout.UiLinearLayout
+        android:id="@+id/layoutTop"
+        android:layout_gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/_4sdp"
+        app:uiBackgroundColor="@color/color_surface_card"
+        app:uiStrokeColor="@color/color_stroke"
+        app:uiStrokeSides="bottom"
+        app:uiStrokeWidth="@dimen/_1sdp">
+
+        <LinearLayout
+            android:id="@+id/barReader"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_37sdp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingEnd="@dimen/_4sdp"
+            android:paddingStart="@dimen/_9sdp">
+
+            <com.ui.baselib.widget.view.UiImageView
+                android:id="@+id/btnBack"
+                style="@style/IconButtonStyle"
+                android:contentDescription="@string/scanner_back"
+                android:src="@drawable/ic_app_back" />
+
+            <ImageView
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_25sdp"
+                android:layout_marginStart="@dimen/_6sdp"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_file_pdf" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_6sdp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/nt_500"
+                    android:maxLines="1"
+                    android:textColor="@color/text_primary"
+                    android:textSize="@dimen/_12sdp"
+                    tools:text="Lease-agreement.pdf" />
+
+                <TextView
+                    android:id="@+id/tvPage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/nt_400"
+                    android:maxLines="1"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="@dimen/_9sdp"
+                    tools:text="Page 1 / 12" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/btnSearch"
+                android:layout_width="@dimen/_27sdp"
+                android:layout_height="@dimen/_27sdp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/search_in_file"
+                android:padding="@dimen/_5sdp"
+                android:src="@drawable/ic_app_search" />
+
+            <ImageView
+                android:id="@+id/btnContents"
+                android:layout_width="@dimen/_27sdp"
+                android:layout_height="@dimen/_27sdp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/contents"
+                android:padding="@dimen/_5sdp"
+                android:src="@drawable/ic_app_list" />
+
+            <ImageView
+                android:id="@+id/btnNormal"
+                android:layout_width="@dimen/_27sdp"
+                android:layout_height="@dimen/_27sdp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/theme_normal"
+                android:padding="@dimen/_5sdp"
+                android:src="@drawable/ic_app_sun"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/btnMore"
+                android:layout_width="@dimen/_27sdp"
+                android:layout_height="@dimen/_27sdp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/reading_mode"
+                android:padding="@dimen/_5sdp"
+                android:src="@drawable/ic_app_more" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/barMode"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_37sdp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingEnd="@dimen/_4sdp"
+            android:paddingStart="@dimen/_9sdp"
+            android:visibility="gone">
+
+            <com.ui.baselib.widget.view.UiImageView
+                android:id="@+id/btnModeClose"
+                style="@style/IconButtonStyle"
+                android:contentDescription="@string/scanner_close"
+                android:src="@drawable/ic_app_close" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_6sdp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvModeTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/nt_500"
+                    android:maxLines="1"
+                    android:textColor="@color/text_primary"
+                    android:textSize="@dimen/_12sdp"
+                    tools:text="Annotate" />
+
+                <TextView
+                    android:id="@+id/tvModeSubtitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/nt_400"
+                    android:maxLines="1"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="@dimen/_9sdp"
+                    android:visibility="gone"
+                    tools:text="Drag to move"
+                    tools:visibility="visible" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/btnUndo"
+                android:layout_width="@dimen/_27sdp"
+                android:layout_height="@dimen/_27sdp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/undo"
+                android:padding="@dimen/_5sdp"
+                android:src="@drawable/ic_app_undo" />
+
+            <ImageView
+                android:id="@+id/btnRedo"
+                android:layout_width="@dimen/_27sdp"
+                android:layout_height="@dimen/_27sdp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/redo"
+                android:padding="@dimen/_5sdp"
+                android:src="@drawable/ic_app_redo" />
+
+            <com.ui.baselib.widget.view.UiTextView
+                android:id="@+id/btnModeAction"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_23sdp"
+                android:layout_marginHorizontal="@dimen/_3sdp"
+                android:fontFamily="@font/nt_600"
+                android:gravity="center"
+                android:paddingHorizontal="@dimen/_10sdp"
+                android:text="@string/file_action_save"
+                android:textSize="@dimen/_10sdp"
+                app:uiBackgroundColor="@color/primary"
+                app:uiCornerRadius="@dimen/_12sdp"
+                app:uiTextColor="@color/on_primary" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/barSearch"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_37sdp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingEnd="@dimen/_4sdp"
+            android:paddingStart="@dimen/_9sdp"
+            android:visibility="gone">
+
+            <com.ui.baselib.widget.view.UiImageView
+                android:id="@+id/btnSearchClose"
+                style="@style/IconButtonStyle"
+                android:contentDescription="@string/scanner_close"
+                android:src="@drawable/ic_app_close" />
+
+            <com.ui.baselib.widget.layout.UiLinearLayout
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_34sdp"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingHorizontal="@dimen/_9sdp"
+                app:uiCornerRadius="@dimen/_11sdp"
+                app:uiStrokeColor="@color/primary"
+                app:uiStrokeWidth="@dimen/_1sdp">
+
+                <EditText
+                    android:id="@+id/edtSearch"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:fontFamily="@font/nt_400"
+                    android:hint="@string/search_in_file"
+                    android:imeOptions="actionSearch"
+                    android:importantForAutofill="no"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:textColor="@color/text_primary"
+                    android:textColorHint="@color/text_secondary"
+                    android:textSize="@dimen/_11sdp" />
+
+                <TextView
+                    android:id="@+id/tvSearchCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nt_400"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="@dimen/_10sdp"
+                    tools:text="1/17" />
+            </com.ui.baselib.widget.layout.UiLinearLayout>
+
+            <ImageView
+                android:id="@+id/btnSearchPrevious"
+                android:layout_width="@dimen/_27sdp"
+                android:layout_height="@dimen/_27sdp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/scanner_back"
+                android:padding="@dimen/_5sdp"
+                android:rotation="180"
+                android:src="@drawable/ic_app_chevd" />
+
+            <ImageView
+                android:id="@+id/btnSearchNext"
+                android:layout_width="@dimen/_27sdp"
+                android:layout_height="@dimen/_27sdp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/next"
+                android:padding="@dimen/_5sdp"
+                android:src="@drawable/ic_app_chevd" />
+        </LinearLayout>
+    </com.ui.baselib.widget.layout.UiLinearLayout>
+
+    <com.ui.baselib.widget.view.UiTextView
+        android:id="@+id/tvBanner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawablePadding="@dimen/_6sdp"
+        android:fontFamily="@font/nt_400"
+        android:paddingHorizontal="@dimen/_13sdp"
+        android:paddingVertical="@dimen/_8sdp"
+        android:text="@string/form_hint"
+        android:textSize="@dimen/_10sdp"
+        android:visibility="gone"
+        app:drawableStartCompat="@drawable/ic_app_info"
+        app:drawableTint="@color/color_info"
+        app:uiBackgroundColor="@color/color_info_bg"
+        app:uiDrawableSize="@dimen/_13sdp"
+        app:uiTextColor="@color/color_on_info"
+        tools:visibility="visible" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layoutContent"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <com.reader.pdfviewer.PDFView
+            android:id="@+id/pdfView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- PdfOverlayView goes here: it draws and takes the touches of the edit modes -->
+        <FrameLayout
+            android:id="@+id/layoutOverlay"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.ui.baselib.widget.view.UiTextView
+            android:id="@+id/tvPagePill"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_23sdp"
+            android:layout_marginBottom="@dimen/_11sdp"
+            android:layout_marginStart="@dimen/_13sdp"
+            android:fontFamily="@font/nt_600"
+            android:gravity="center"
+            android:paddingHorizontal="@dimen/_9sdp"
+            android:textSize="@dimen/_9sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:uiBackgroundColor="@color/color_pill_dark"
+            app:uiCornerRadius="@dimen/_12sdp"
+            app:uiTextColor="@color/on_primary"
+            tools:text="1 / 12" />
+
+        <!-- Actions on the selected text (markup) or the selected object (duplicate, delete) -->
+        <com.ui.baselib.widget.layout.UiLinearLayout
+            android:id="@+id/layoutMarkup"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_31sdp"
+            android:layout_marginBottom="@dimen/_9sdp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="@dimen/_3sdp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:uiBackgroundColor="@color/color_ink"
+            app:uiCornerRadius="@dimen/_9sdp"
+            tools:visibility="visible">
+
+            <TextView
+                android:id="@+id/btnMarkHighlight"
+                style="@style/MarkupActionStyle"
+                android:text="@string/annot_highlight" />
+
+            <TextView
+                android:id="@+id/btnMarkUnderline"
+                style="@style/MarkupActionStyle"
+                android:text="@string/pdf_edit_underline" />
+
+            <TextView
+                android:id="@+id/btnMarkStrike"
+                style="@style/MarkupActionStyle"
+                android:text="@string/pdf_edit_strikethrough" />
+
+            <TextView
+                android:id="@+id/btnMarkDuplicate"
+                style="@style/MarkupActionStyle"
+                android:text="@string/duplicate" />
+
+            <TextView
+                android:id="@+id/btnMarkDelete"
+                style="@style/MarkupActionStyle"
+                android:text="@string/file_action_delete" />
+        </com.ui.baselib.widget.layout.UiLinearLayout>
+
+        <ProgressBar
+            android:id="@+id/progress"
+            android:layout_width="@dimen/_28sdp"
+            android:layout_height="@dimen/_28sdp"
+            android:indeterminateTint="@color/primary"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <include
+            android:id="@+id/contents"
+            layout="@layout/layout_pdf_contents"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <FrameLayout
+        android:id="@+id/layoutBottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.ui.baselib.widget.layout.UiLinearLayout
+            android:id="@+id/bottomReader"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_54sdp"
+            android:orientation="horizontal"
+            android:paddingBottom="@dimen/_3sdp"
+            android:paddingHorizontal="@dimen/_6sdp"
+            app:uiBackgroundColor="@color/color_surface_card"
+            app:uiStrokeColor="@color/color_stroke"
+            app:uiStrokeSides="top"
+            app:uiStrokeWidth="@dimen/_1sdp">
+
+            <LinearLayout
+                android:id="@+id/btnEdit"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="@dimen/_37sdp"
+                    android:layout_height="@dimen/_26sdp"
+                    android:background="@drawable/bg_nav_pill"
+                    android:contentDescription="@null"
+                    android:paddingVertical="@dimen/_5sdp"
+                    android:src="@drawable/ic_app_text"
+                    app:tint="@color/sl_reader_item" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_3sdp"
+                    android:fontFamily="@font/nt_500"
+                    android:text="@string/reader_edit"
+                    android:textColor="@color/sl_reader_item"
+                    android:textSize="@dimen/_9sdp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/btnAnnotate"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="@dimen/_37sdp"
+                    android:layout_height="@dimen/_26sdp"
+                    android:background="@drawable/bg_nav_pill"
+                    android:contentDescription="@null"
+                    android:paddingVertical="@dimen/_5sdp"
+                    android:src="@drawable/ic_app_highlight"
+                    app:tint="@color/sl_reader_item" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_3sdp"
+                    android:fontFamily="@font/nt_500"
+                    android:text="@string/tool_annotate"
+                    android:textColor="@color/sl_reader_item"
+                    android:textSize="@dimen/_9sdp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/btnSign"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="@dimen/_37sdp"
+                    android:layout_height="@dimen/_26sdp"
+                    android:background="@drawable/bg_nav_pill"
+                    android:contentDescription="@null"
+                    android:paddingVertical="@dimen/_5sdp"
+                    android:src="@drawable/ic_app_sign"
+                    app:tint="@color/sl_reader_item" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_3sdp"
+                    android:fontFamily="@font/nt_500"
+                    android:text="@string/tool_sign"
+                    android:textColor="@color/sl_reader_item"
+                    android:textSize="@dimen/_9sdp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/btnFill"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="@dimen/_37sdp"
+                    android:layout_height="@dimen/_26sdp"
+                    android:background="@drawable/bg_nav_pill"
+                    android:contentDescription="@null"
+                    android:paddingVertical="@dimen/_5sdp"
+                    android:src="@drawable/ic_app_form"
+                    app:tint="@color/sl_reader_item" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_3sdp"
+                    android:fontFamily="@font/nt_500"
+                    android:text="@string/reader_fill"
+                    android:textColor="@color/sl_reader_item"
+                    android:textSize="@dimen/_9sdp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/btnTools"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="@dimen/_37sdp"
+                    android:layout_height="@dimen/_26sdp"
+                    android:background="@drawable/bg_nav_pill"
+                    android:contentDescription="@null"
+                    android:paddingVertical="@dimen/_5sdp"
+                    android:src="@drawable/ic_app_grid"
+                    app:tint="@color/sl_reader_item" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_3sdp"
+                    android:fontFamily="@font/nt_500"
+                    android:text="@string/tools"
+                    android:textColor="@color/sl_reader_item"
+                    android:textSize="@dimen/_9sdp" />
+            </LinearLayout>
+        </com.ui.baselib.widget.layout.UiLinearLayout>
+
+        <!-- Add text: size and colour of the next text -->
+        <com.ui.baselib.widget.layout.UiLinearLayout
+            android:id="@+id/bottomText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingBottom="@dimen/_10sdp"
+            android:paddingHorizontal="@dimen/_13sdp"
+            android:paddingTop="@dimen/_9sdp"
+            android:visibility="gone"
+            app:uiBackgroundColor="@color/color_surface_card"
+            app:uiStrokeColor="@color/color_stroke"
+            app:uiStrokeSides="top"
+            app:uiStrokeWidth="@dimen/_1sdp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/nt_500"
+                android:text="@string/text_size"
+                android:textColor="@color/text_secondary"
+                android:textSize="@dimen/_10sdp" />
+
+            <com.ui.baselib.widget.layout.UiLinearLayout
+                style="@style/CardAppStyle"
+                android:layout_width="@dimen/_77sdp"
+                android:layout_height="@dimen/_33sdp"
+                android:layout_marginEnd="@dimen/_11sdp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                app:uiCornerRadius="@dimen/_9sdp">
+
+                <ImageView
+                    android:id="@+id/btnTextSmaller"
+                    android:layout_width="@dimen/_25sdp"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@null"
+                    android:padding="@dimen/_6sdp"
+                    android:src="@drawable/ic_app_minus" />
+
+                <TextView
+                    android:id="@+id/tvTextSize"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/nt_600"
+                    android:gravity="center"
+                    android:textColor="@color/text_primary"
+                    android:textSize="@dimen/_11sdp"
+                    tools:text="13" />
+
+                <ImageView
+                    android:id="@+id/btnTextLarger"
+                    android:layout_width="@dimen/_25sdp"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@null"
+                    android:padding="@dimen/_6sdp"
+                    android:src="@drawable/ic_app_plus" />
+            </com.ui.baselib.widget.layout.UiLinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layoutTextColors"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" />
+        </com.ui.baselib.widget.layout.UiLinearLayout>
+
+        <!-- Annotate: colours, width, tools -->
+        <com.ui.baselib.widget.layout.UiLinearLayout
+            android:id="@+id/bottomAnnotate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone"
+            app:uiBackgroundColor="@color/color_surface_card"
+            app:uiStrokeColor="@color/color_stroke"
+            app:uiStrokeSides="top"
+            app:uiStrokeWidth="@dimen/_1sdp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingHorizontal="@dimen/_13sdp"
+                android:paddingVertical="@dimen/_8sdp">
+
+                <LinearLayout
+                    android:id="@+id/layoutInkColors"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:orientation="horizontal" />
+
+                <SeekBar
+                    android:id="@+id/seekInkWidth"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:max="7"
+                    android:progressBackgroundTint="@color/color_checkbox_stroke"
+                    android:progressTint="@color/primary"
+                    android:thumbTint="@color/primary" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_1sdp"
+                android:background="@color/color_stroke" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rcvAnnotateTools"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:orientation="horizontal"
+                android:overScrollMode="never"
+                android:paddingBottom="@dimen/_10sdp"
+                android:paddingHorizontal="@dimen/_3sdp"
+                android:paddingTop="@dimen/_8sdp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/item_annotate_tool" />
+        </com.ui.baselib.widget.layout.UiLinearLayout>
+
+        <!-- Place signature -->
+        <com.ui.baselib.widget.layout.UiLinearLayout
+            android:id="@+id/bottomSign"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="@dimen/_3sdp"
+            android:visibility="gone"
+            app:uiBackgroundColor="@color/color_surface_card"
+            app:uiStrokeColor="@color/color_stroke"
+            app:uiStrokeSides="top"
+            app:uiStrokeWidth="@dimen/_1sdp">
+
+            <com.ui.baselib.widget.view.UiTextView
+                android:id="@+id/btnAddSignature"
+                style="@style/ReaderActionStyle"
+                android:text="@string/add_signature"
+                app:drawableTopCompat="@drawable/ic_app_sign" />
+
+            <com.ui.baselib.widget.view.UiTextView
+                android:id="@+id/btnSignDate"
+                style="@style/ReaderActionStyle"
+                android:text="@string/sign_date"
+                app:drawableTopCompat="@drawable/ic_app_calendar" />
+
+            <com.ui.baselib.widget.view.UiTextView
+                android:id="@+id/btnSignInitials"
+                style="@style/ReaderActionStyle"
+                android:text="@string/sign_initials"
+                app:drawableTopCompat="@drawable/ic_app_text" />
+        </com.ui.baselib.widget.layout.UiLinearLayout>
+
+        <!-- Fill form -->
+        <com.ui.baselib.widget.layout.UiLinearLayout
+            android:id="@+id/bottomForm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingBottom="@dimen/_10sdp"
+            android:paddingHorizontal="@dimen/_9sdp"
+            android:paddingTop="@dimen/_8sdp"
+            android:visibility="gone"
+            app:uiBackgroundColor="@color/color_surface_card"
+            app:uiStrokeColor="@color/color_stroke"
+            app:uiStrokeSides="top"
+            app:uiStrokeWidth="@dimen/_1sdp">
+
+            <com.ui.baselib.widget.view.UiImageView
+                android:id="@+id/btnFieldPrevious"
+                style="@style/IconButtonStyle"
+                android:contentDescription="@string/scanner_back"
+                android:src="@drawable/ic_app_chevl" />
+
+            <Space
+                android:layout_width="@dimen/_6sdp"
+                android:layout_height="0dp" />
+
+            <com.ui.baselib.widget.view.UiImageView
+                android:id="@+id/btnFieldNext"
+                style="@style/IconButtonStyle"
+                android:contentDescription="@string/next"
+                android:src="@drawable/ic_app_chev" />
+
+            <TextView
+                android:id="@+id/tvField"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_6sdp"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:fontFamily="@font/nt_400"
+                android:gravity="center"
+                android:maxLines="1"
+                android:textColor="@color/text_secondary"
+                android:textSize="@dimen/_10sdp"
+                tools:text="Field 3 of 6 · Email" />
+
+            <com.ui.baselib.widget.view.UiTextView
+                android:id="@+id/btnFormDone"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_23sdp"
+                android:layout_marginHorizontal="@dimen/_3sdp"
+                android:fontFamily="@font/nt_600"
+                android:gravity="center"
+                android:paddingHorizontal="@dimen/_10sdp"
+                android:text="@string/done"
+                android:textSize="@dimen/_10sdp"
+                app:uiBackgroundColor="@color/primary"
+                app:uiCornerRadius="@dimen/_12sdp"
+                app:uiTextColor="@color/on_primary" />
+        </com.ui.baselib.widget.layout.UiLinearLayout>
+
+        <!-- Read aloud and auto-scroll controls -->
+        <com.ui.baselib.widget.layout.UiLinearLayout
+            android:id="@+id/bottomPlay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingBottom="@dimen/_10sdp"
+            android:paddingEnd="@dimen/_4sdp"
+            android:paddingStart="@dimen/_13sdp"
+            android:paddingTop="@dimen/_6sdp"
+            android:visibility="gone"
+            app:uiBackgroundColor="@color/color_surface_card"
+            app:uiStrokeColor="@color/color_stroke"
+            app:uiStrokeSides="top"
+            app:uiStrokeWidth="@dimen/_1sdp">
+
+            <TextView
+                android:id="@+id/tvPlayTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:fontFamily="@font/nt_500"
+                android:maxLines="1"
+                android:textColor="@color/text_primary"
+                android:textSize="@dimen/_11sdp"
+                tools:text="Reading page 3" />
+
+            <ImageView
+                android:id="@+id/btnPlayPrevious"
+                android:layout_width="@dimen/_27sdp"
+                android:layout_height="@dimen/_27sdp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@null"
+                android:padding="@dimen/_5sdp"
+                android:src="@drawable/ic_app_chevl" />
+
+            <ImageView
+                android:id="@+id/btnPlayToggle"
+                android:layout_width="@dimen/_27sdp"
+                android:layout_height="@dimen/_27sdp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@null"
+                android:padding="@dimen/_5sdp"
+                android:src="@drawable/ic_app_pause" />
+
+            <!-- Auto-scroll: the speed, between the slower and faster buttons -->
+            <TextView
+                android:id="@+id/tvPlaySpeed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nt_600"
+                android:gravity="center"
+                android:minWidth="@dimen/_23sdp"
+                android:textColor="@color/text_primary"
+                android:textSize="@dimen/_12sdp"
+                android:visibility="gone"
+                tools:text="10" />
+
+            <ImageView
+                android:id="@+id/btnPlayNext"
+                android:layout_width="@dimen/_27sdp"
+                android:layout_height="@dimen/_27sdp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@null"
+                android:padding="@dimen/_5sdp"
+                android:src="@drawable/ic_app_chev" />
+
+            <ImageView
+                android:id="@+id/btnPlayClose"
+                android:layout_width="@dimen/_27sdp"
+                android:layout_height="@dimen/_27sdp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/scanner_close"
+                android:padding="@dimen/_5sdp"
+                android:src="@drawable/ic_app_close" />
+        </com.ui.baselib.widget.layout.UiLinearLayout>
+    </FrameLayout>
+
+</LinearLayout>

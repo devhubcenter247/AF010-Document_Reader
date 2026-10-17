@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="@dimen/_117sdp"
+    android:layout_height="match_parent"
+    android:padding="@dimen/_3sdp">
+
+    <com.ui.baselib.widget.layout.UiFrameLayout
+        android:id="@+id/card"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:uiBackgroundColor="@color/white"
+        app:uiCornerRadius="@dimen/_9sdp"
+        app:uiStrokeColor="@color/color_stroke"
+        app:uiStrokeWidth="@dimen/_1sdp">
+
+        <ImageView
+            android:id="@+id/ivSignature"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@null"
+            android:padding="@dimen/_9sdp"
+            android:scaleType="fitCenter" />
+
+        <ImageView
+            android:id="@+id/btnRemove"
+            android:layout_width="@dimen/_22sdp"
+            android:layout_height="@dimen/_22sdp"
+            android:layout_gravity="top|end"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/file_action_delete"
+            android:padding="@dimen/_5sdp"
+            android:src="@drawable/ic_app_close"
+            app:tint="#6B7186" />
+    </com.ui.baselib.widget.layout.UiFrameLayout>
+
+</FrameLayout>

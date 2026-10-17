@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "553786641507",
+    "project_id": "af006-document-reader",
+    "storage_bucket": "af006-document-reader.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:553786641507:android:55fff0f5ad61ada7b5bc56",
+        "android_client_info": {
+          "package_name": "com.af010.creator.docreader"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAFZ78ESChthKb96FW9_MsjWaAoRsaHorg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

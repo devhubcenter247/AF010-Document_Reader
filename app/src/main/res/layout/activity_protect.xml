@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_bg_app"
+    android:orientation="vertical"
+    tools:context=".ui.main.tools.protect.ProtectActivity">
+
+    <include
+        android:id="@+id/topBar"
+        layout="@layout/layout_tool_topbar" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:overScrollMode="never">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="@dimen/_12sdp"
+            android:paddingBottom="@dimen/_10sdp">
+
+            <include
+                android:id="@+id/header"
+                layout="@layout/layout_tool_header" />
+
+            <include
+                android:id="@+id/file"
+                layout="@layout/layout_tool_file"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_13sdp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_13sdp"
+                android:fontFamily="@font/nt_500"
+                android:text="@string/password_hint"
+                android:textColor="@color/text_secondary"
+                android:textSize="@dimen/_10sdp" />
+
+            <com.ui.baselib.widget.layout.UiLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_37sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingStart="@dimen/_11sdp"
+                android:paddingEnd="@dimen/_3sdp"
+                app:uiBackgroundColor="@color/color_surface_card"
+                app:uiCornerRadius="@dimen/_11sdp"
+                app:uiStrokeColor="@color/primary"
+                app:uiStrokeWidth="@dimen/_1sdp">
+
+                <EditText
+                    android:id="@+id/edtPassword"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:fontFamily="@font/nt_400"
+                    android:hint="@string/password_hint"
+                    android:imeOptions="actionDone"
+                    android:importantForAutofill="no"
+                    android:inputType="textPassword"
+                    android:maxLines="1"
+                    android:textColor="@color/text_primary"
+                    android:textColorHint="@color/text_secondary"
+                    android:textSize="@dimen/_12sdp" />
+
+                <ImageView
+                    android:id="@+id/btnShowPassword"
+                    android:layout_width="@dimen/_31sdp"
+                    android:layout_height="match_parent"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="@null"
+                    android:padding="@dimen/_8sdp"
+                    android:src="@drawable/ic_app_eye"
+                    app:tint="@color/text_secondary" />
+            </com.ui.baselib.widget.layout.UiLinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:fontFamily="@font/nt_500"
+                android:text="@string/confirm_password"
+                android:textColor="@color/text_secondary"
+                android:textSize="@dimen/_10sdp" />
+
+            <com.ui.baselib.widget.layout.UiLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_37sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingStart="@dimen/_11sdp"
+                android:paddingEnd="@dimen/_11sdp"
+                app:uiBackgroundColor="@color/color_surface_card"
+                app:uiCornerRadius="@dimen/_11sdp"
+                app:uiStrokeColor="@color/color_stroke"
+                app:uiStrokeWidth="@dimen/_1sdp">
+
+                <EditText
+                    android:id="@+id/edtConfirm"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:fontFamily="@font/nt_400"
+                    android:hint="@string/confirm_password"
+                    android:imeOptions="actionDone"
+                    android:importantForAutofill="no"
+                    android:inputType="textPassword"
+                    android:maxLines="1"
+                    android:textColor="@color/text_primary"
+                    android:textColorHint="@color/text_secondary"
+                    android:textSize="@dimen/_12sdp" />
+            </com.ui.baselib.widget.layout.UiLinearLayout>
+
+            <com.ui.baselib.widget.view.UiTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_13sdp"
+                android:drawablePadding="@dimen/_8sdp"
+                android:fontFamily="@font/nt_400"
+                android:paddingHorizontal="@dimen/_11sdp"
+                android:paddingVertical="@dimen/_9sdp"
+                android:text="@string/protect_warning"
+                android:textSize="@dimen/_9sdp"
+                app:drawableStartCompat="@drawable/ic_app_alert"
+                app:drawableTint="@color/color_warning"
+                app:uiBackgroundColor="@color/color_warning_bg"
+                app:uiCornerRadius="@dimen/_11sdp"
+                app:uiDrawableSize="@dimen/_13sdp"
+                app:uiTextColor="@color/color_on_warning" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <include
+        android:id="@+id/action"
+        layout="@layout/layout_tool_action" />
+
+</LinearLayout>

@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_bg_app"
+    android:orientation="vertical"
+    tools:context=".ui.main.search.SearchActivity">
+
+    <com.ui.baselib.widget.layout.UiLinearLayout
+        android:id="@+id/layoutTop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:uiBackgroundColor="@color/color_surface_card"
+        app:uiStrokeColor="@color/color_stroke"
+        app:uiStrokeSides="bottom"
+        android:paddingBottom="@dimen/_4sdp"
+        app:uiStrokeWidth="@dimen/_1sdp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_37sdp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="@dimen/_9sdp">
+
+            <com.ui.baselib.widget.view.UiImageView
+                android:id="@+id/btnBack"
+                style="@style/IconButtonStyle"
+                android:contentDescription="@string/scanner_back"
+                android:src="@drawable/ic_app_back" />
+
+            <com.ui.baselib.widget.layout.UiLinearLayout
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_34sdp"
+                android:layout_marginStart="@dimen/_6sdp"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingStart="@dimen/_9sdp"
+                app:uiCornerRadius="@dimen/_11sdp"
+                app:uiStrokeColor="@color/primary"
+                app:uiStrokeWidth="@dimen/_1sdp">
+
+                <EditText
+                    android:id="@+id/edtSearch"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:fontFamily="@font/nt_400"
+                    android:hint="@string/search_files"
+                    android:imeOptions="actionSearch"
+                    android:importantForAutofill="no"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:textColor="@color/text_primary"
+                    android:textColorHint="@color/text_secondary"
+                    android:textSize="@dimen/_11sdp" />
+
+                <ImageView
+                    android:id="@+id/btnClear"
+                    android:layout_width="@dimen/_27sdp"
+                    android:layout_height="match_parent"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="@string/scanner_close"
+                    android:padding="@dimen/_7sdp"
+                    android:src="@drawable/ic_app_close"
+                    android:visibility="gone"
+                    app:tint="@color/text_secondary"
+                    tools:visibility="visible" />
+            </com.ui.baselib.widget.layout.UiLinearLayout>
+        </LinearLayout>
+    </com.ui.baselib.widget.layout.UiLinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcvFilters"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_11sdp"
+        android:clipToPadding="false"
+        android:orientation="horizontal"
+        android:overScrollMode="never"
+        android:paddingHorizontal="@dimen/_13sdp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/item_filter_chip" />
+
+    <include
+        android:id="@+id/emptyState"
+        layout="@layout/layout_empty_state"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_13sdp"
+        android:layout_marginTop="@dimen/_11sdp" />
+
+    <!-- Results -->
+    <LinearLayout
+        android:id="@+id/layoutResults"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/tvResultCount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nt_400"
+            android:paddingHorizontal="@dimen/_15sdp"
+            android:paddingTop="@dimen/_13sdp"
+            android:paddingBottom="@dimen/_6sdp"
+            android:textColor="@color/text_secondary"
+            android:textSize="@dimen/_10sdp"
+            tools:text="3 results" />
+
+        <com.ui.baselib.widget.layout.UiFrameLayout
+            android:id="@+id/layoutDocuments"
+            style="@style/CardAppStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_13sdp"
+            android:layout_marginBottom="@dimen/_11sdp">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rcvDocuments"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:overScrollMode="never"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/item_document" />
+        </com.ui.baselib.widget.layout.UiFrameLayout>
+    </LinearLayout>
+
+    <!-- Recent searches -->
+    <LinearLayout
+        android:id="@+id/layoutRecent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/TextSectionCaps"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="@dimen/_15sdp"
+            android:paddingTop="@dimen/_13sdp"
+            android:paddingBottom="@dimen/_3sdp"
+            android:text="@string/recent_searches" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rcvRecent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:overScrollMode="never"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/item_recent_search" />
+    </LinearLayout>
+
+</LinearLayout>

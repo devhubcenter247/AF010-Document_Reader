@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ui.baselib.widget.layout.UiLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/DialogAppStyle"
+    android:clipChildren="false"
+    android:clipToPadding="false"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context=".ui.dialog.DialogNoInternet">
+
+
+    <com.ui.baselib.widget.view.UiImageView
+        android:layout_width="@dimen/_38sdp"
+        android:layout_height="@dimen/_38sdp"
+        android:padding="@dimen/_7sdp"
+        android:src="@drawable/ic_app_wifioff"
+        android:tint="@color/primary"
+        app:uiBackgroundColor="@color/color_efebff"
+        app:uiCornerRadius="@dimen/_20sdp" />
+
+    <com.ui.baselib.widget.view.UiTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/nt_600"
+        android:textColor="@color/text_primary"
+        android:includeFontPadding="false"
+        android:layout_marginTop="@dimen/_10ssp"
+        android:text="@string/no_internet_connection"
+        android:textAlignment="center"
+        android:textSize="@dimen/_13sdp" />
+
+
+    <com.ui.baselib.widget.view.UiTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/nt_400"
+        android:layout_marginHorizontal="@dimen/_13sdp"
+        android:layout_marginTop="@dimen/_13sdp"
+        android:includeFontPadding="false"
+        android:text="@string/your_first_translation_needs_a_language_pack_reading_and_editing_still_work_offline"
+        android:textAlignment="center"
+        android:textColor="@color/text_secondary"
+        android:textSize="@dimen/_9sdp" />
+
+    <com.ui.baselib.widget.view.UiTextView
+        android:id="@+id/btnTryAgain"
+        style="@style/ButtonAppStyle"
+        android:layout_marginHorizontal="@dimen/_13sdp"
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/_5sdp"
+        android:text="@string/try_again"
+        app:uiShadowClipParent="force"
+        app:uiShadowColor="@color/primary_30" />
+</com.ui.baselib.widget.layout.UiLinearLayout>

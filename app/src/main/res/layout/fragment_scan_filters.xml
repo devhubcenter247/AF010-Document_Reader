@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_bg_app"
+    android:orientation="vertical"
+    tools:context=".ui.main.scan.fragment.ScanFiltersFragment">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/layout_toolbar" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/color_surface_track">
+
+        <ImageView
+            android:id="@+id/ivPage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="@dimen/_46sdp"
+            android:layout_marginVertical="@dimen/_15sdp"
+            android:contentDescription="@null"
+            android:scaleType="fitCenter" />
+
+        <com.ui.baselib.widget.view.UiImageView
+            android:id="@+id/btnPrevious"
+            android:layout_width="@dimen/_28sdp"
+            android:layout_height="@dimen/_28sdp"
+            android:layout_gravity="center_vertical|start"
+            android:layout_marginStart="@dimen/_11sdp"
+            android:contentDescription="@null"
+            android:padding="@dimen/_7sdp"
+            android:src="@drawable/ic_app_chevl"
+            app:uiBackgroundColor="@color/color_surface_card"
+            app:uiCornerRadius="@dimen/_14sdp" />
+
+        <com.ui.baselib.widget.view.UiImageView
+            android:id="@+id/btnNext"
+            android:layout_width="@dimen/_28sdp"
+            android:layout_height="@dimen/_28sdp"
+            android:layout_gravity="center_vertical|end"
+            android:layout_marginEnd="@dimen/_11sdp"
+            android:contentDescription="@null"
+            android:padding="@dimen/_7sdp"
+            android:src="@drawable/ic_app_chev"
+            app:uiBackgroundColor="@color/color_surface_card"
+            app:uiCornerRadius="@dimen/_14sdp" />
+
+        <ProgressBar
+            android:id="@+id/progress"
+            android:layout_width="@dimen/_28sdp"
+            android:layout_height="@dimen/_28sdp"
+            android:layout_gravity="center"
+            android:indeterminateTint="@color/primary"
+            android:visibility="gone" />
+    </FrameLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcvFilters"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/color_surface_card"
+        android:clipToPadding="false"
+        android:orientation="horizontal"
+        android:overScrollMode="never"
+        android:paddingHorizontal="@dimen/_8sdp"
+        android:paddingTop="@dimen/_11sdp"
+        android:paddingBottom="@dimen/_9sdp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/item_scan_filter" />
+
+    <com.ui.baselib.widget.layout.UiLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/_3sdp"
+        app:uiBackgroundColor="@color/color_surface_card"
+        app:uiStrokeColor="@color/color_stroke"
+        app:uiStrokeSides="top"
+        app:uiStrokeWidth="@dimen/_1sdp">
+
+        <com.ui.baselib.widget.view.UiTextView
+            android:id="@+id/btnCrop"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:drawablePadding="@dimen/_3sdp"
+            android:fontFamily="@font/nt_500"
+            android:gravity="center"
+            android:paddingVertical="@dimen/_11sdp"
+            android:text="@string/scan_crop"
+            android:textSize="@dimen/_9sdp"
+            app:drawableTint="@color/text_primary"
+            app:drawableTopCompat="@drawable/ic_app_crop"
+            app:uiDrawableSize="@dimen/_17sdp"
+            app:uiTextColor="@color/text_primary" />
+
+        <com.ui.baselib.widget.view.UiTextView
+            android:id="@+id/btnRotate"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:drawablePadding="@dimen/_3sdp"
+            android:fontFamily="@font/nt_500"
+            android:gravity="center"
+            android:paddingVertical="@dimen/_11sdp"
+            android:text="@string/scanner_rotate"
+            android:textSize="@dimen/_9sdp"
+            app:drawableTint="@color/text_primary"
+            app:drawableTopCompat="@drawable/ic_app_rotate"
+            app:uiDrawableSize="@dimen/_17sdp"
+            app:uiTextColor="@color/text_primary" />
+
+        <com.ui.baselib.widget.view.UiTextView
+            android:id="@+id/btnCleanUp"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:drawablePadding="@dimen/_3sdp"
+            android:fontFamily="@font/nt_500"
+            android:gravity="center"
+            android:paddingVertical="@dimen/_11sdp"
+            android:text="@string/scan_clean_up"
+            android:textSize="@dimen/_9sdp"
+            app:drawableTint="@color/text_primary"
+            app:drawableTopCompat="@drawable/ic_app_eraser"
+            app:uiDrawableSize="@dimen/_17sdp"
+            app:uiTextColor="@color/text_primary" />
+
+        <com.ui.baselib.widget.view.UiTextView
+            android:id="@+id/btnAddPage"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:drawablePadding="@dimen/_3sdp"
+            android:fontFamily="@font/nt_500"
+            android:gravity="center"
+            android:paddingVertical="@dimen/_11sdp"
+            android:text="@string/scanner_add_page"
+            android:textSize="@dimen/_9sdp"
+            app:drawableTint="@color/text_primary"
+            app:drawableTopCompat="@drawable/ic_app_plus"
+            app:uiDrawableSize="@dimen/_17sdp"
+            app:uiTextColor="@color/text_primary" />
+
+        <com.ui.baselib.widget.view.UiTextView
+            android:id="@+id/btnDelete"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:drawablePadding="@dimen/_3sdp"
+            android:fontFamily="@font/nt_500"
+            android:gravity="center"
+            android:paddingVertical="@dimen/_11sdp"
+            android:text="@string/file_action_delete"
+            android:textSize="@dimen/_9sdp"
+            app:drawableTint="@color/color_error"
+            app:drawableTopCompat="@drawable/ic_app_trash"
+            app:uiDrawableSize="@dimen/_17sdp"
+            app:uiTextColor="@color/color_error" />
+
+    </com.ui.baselib.widget.layout.UiLinearLayout>
+
+</LinearLayout>

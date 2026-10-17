@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ui.baselib.widget.layout.UiLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/CardAppStyle"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingHorizontal="@dimen/_10sdp"
+    android:paddingVertical="@dimen/_8sdp"
+    app:uiCornerRadius="@dimen/_13sdp">
+
+    <ImageView
+        android:id="@+id/ivRadio"
+        android:layout_width="@dimen/_17sdp"
+        android:layout_height="@dimen/_17sdp"
+        android:contentDescription="@null"
+        android:src="@drawable/ic_app_radio_off" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_9sdp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nt_500"
+            android:textColor="@color/text_primary"
+            android:textSize="@dimen/_11sdp"
+            tools:text="By page range" />
+
+        <TextView
+            android:id="@+id/tvDesc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:fontFamily="@font/nt_400"
+            android:textColor="@color/text_secondary"
+            android:textSize="@dimen/_9sdp"
+            tools:text="Each range becomes a file" />
+    </LinearLayout>
+
+</com.ui.baselib.widget.layout.UiLinearLayout>

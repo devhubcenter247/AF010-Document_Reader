@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_surface_track"
+    android:orientation="vertical"
+    tools:context=".ui.main.reader.pdf.organize.PdfOrganizeActivity">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/layout_toolbar" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rcvPages"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:overScrollMode="never"
+            android:paddingHorizontal="@dimen/_6sdp"
+            android:paddingVertical="@dimen/_11sdp"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:spanCount="3"
+            tools:listitem="@layout/item_organize_page" />
+
+        <ProgressBar
+            android:id="@+id/progress"
+            android:layout_width="@dimen/_28sdp"
+            android:layout_height="@dimen/_28sdp"
+            android:layout_gravity="center"
+            android:indeterminateTint="@color/primary" />
+    </FrameLayout>
+
+    <com.ui.baselib.widget.layout.UiLinearLayout
+        android:id="@+id/layoutActions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/_3sdp"
+        app:uiBackgroundColor="@color/color_surface_card"
+        app:uiStrokeColor="@color/color_stroke"
+        app:uiStrokeSides="top"
+        app:uiStrokeWidth="@dimen/_1sdp">
+
+        <com.ui.baselib.widget.view.UiTextView
+            android:id="@+id/btnRotate"
+            style="@style/ReaderActionStyle"
+            android:text="@string/scanner_rotate"
+            app:drawableTopCompat="@drawable/ic_app_rotate" />
+
+        <com.ui.baselib.widget.view.UiTextView
+            android:id="@+id/btnDuplicate"
+            style="@style/ReaderActionStyle"
+            android:text="@string/duplicate"
+            app:drawableTopCompat="@drawable/ic_app_duplicate" />
+
+        <com.ui.baselib.widget.view.UiTextView
+            android:id="@+id/btnAddPage"
+            style="@style/ReaderActionStyle"
+            android:text="@string/add_page"
+            app:drawableTopCompat="@drawable/ic_app_plus" />
+
+        <com.ui.baselib.widget.view.UiTextView
+            android:id="@+id/btnToImages"
+            style="@style/ReaderActionStyle"
+            android:text="@string/tool_to_images"
+            app:drawableTopCompat="@drawable/ic_app_photos" />
+
+        <com.ui.baselib.widget.view.UiTextView
+            android:id="@+id/btnDelete"
+            style="@style/ReaderActionStyle"
+            android:text="@string/file_action_delete"
+            app:drawableTint="@color/color_error"
+            app:drawableTopCompat="@drawable/ic_app_trash"
+            app:uiTextColor="@color/color_error" />
+    </com.ui.baselib.widget.layout.UiLinearLayout>
+
+</LinearLayout>

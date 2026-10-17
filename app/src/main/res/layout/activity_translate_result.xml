@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_bg_app"
+    android:orientation="vertical"
+    tools:context=".ui.main.tools.translate.TranslateResultActivity">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/layout_toolbar" />
+
+    <include
+        android:id="@+id/segmentMode"
+        layout="@layout/layout_segment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_13sdp"
+        android:layout_marginTop="@dimen/_9sdp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcvPages"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:overScrollMode="never"
+        android:paddingHorizontal="@dimen/_13sdp"
+        android:paddingTop="@dimen/_6sdp"
+        android:paddingBottom="@dimen/_11sdp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/item_translated_page" />
+
+    <!-- Pages left untranslated in the free version -->
+    <com.ui.baselib.widget.layout.UiLinearLayout
+        android:id="@+id/cardUnlock"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_13sdp"
+        android:layout_marginBottom="@dimen/_13sdp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/_13sdp"
+        android:visibility="gone"
+        app:uiBackgroundGradientEnabled="true"
+        app:uiBackgroundGradientEnd="@color/gradient_end"
+        app:uiBackgroundGradientOrientation="tl_br"
+        app:uiBackgroundGradientStart="@color/gradient_start"
+        app:uiCornerRadius="@dimen/_15sdp"
+        tools:visibility="visible">
+
+        <com.ui.baselib.widget.view.UiImageView
+            android:layout_width="@dimen/_33sdp"
+            android:layout_height="@dimen/_33sdp"
+            android:contentDescription="@null"
+            android:padding="@dimen/_8sdp"
+            android:src="@drawable/ic_app_lock"
+            app:tint="@color/on_primary"
+            app:uiBackgroundColor="@color/color_white_16"
+            app:uiCornerRadius="@dimen/_11sdp" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_9sdp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvUnlockTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nt_600"
+                android:textColor="@color/on_primary"
+                android:textSize="@dimen/_11sdp"
+                tools:text="Translate the other 15 pages" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nt_400"
+                android:text="@string/translate_unlock_desc"
+                android:textColor="@color/color_on_gradient_secondary"
+                android:textSize="@dimen/_9sdp" />
+        </LinearLayout>
+
+        <com.ui.baselib.widget.view.UiTextView
+            android:id="@+id/btnUnlock"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_23sdp"
+            android:fontFamily="@font/nt_500"
+            android:gravity="center"
+            android:paddingHorizontal="@dimen/_11sdp"
+            android:text="@string/unlock"
+            android:textSize="@dimen/_10sdp"
+            app:uiBackgroundColor="@color/on_primary"
+            app:uiCornerRadius="@dimen/_12sdp"
+            app:uiTextColor="@color/primary_dark" />
+    </com.ui.baselib.widget.layout.UiLinearLayout>
+
+</LinearLayout>

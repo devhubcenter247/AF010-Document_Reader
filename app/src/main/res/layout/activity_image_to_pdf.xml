@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_bg_app"
+    android:orientation="vertical"
+    tools:context=".ui.main.tools.images.ImageToPdfActivity">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/layout_toolbar" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcvImages"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:overScrollMode="never"
+        android:padding="@dimen/_8sdp"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:spanCount="3"
+        tools:listitem="@layout/item_image_page" />
+
+    <com.ui.baselib.widget.layout.UiLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingHorizontal="@dimen/_12sdp"
+        android:paddingTop="@dimen/_9sdp"
+        app:uiBackgroundColor="@color/color_surface_card"
+        app:uiStrokeColor="@color/color_stroke"
+        app:uiStrokeSides="top"
+        app:uiStrokeWidth="@dimen/_1sdp">
+
+        <com.ui.baselib.widget.layout.UiLinearLayout
+            android:id="@+id/btnPageSize"
+            style="@style/CardAppStyle"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginEnd="@dimen/_3sdp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:uiCornerRadius="@dimen/_11sdp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nt_400"
+                android:text="@string/page_size"
+                android:textColor="@color/text_secondary"
+                android:textSize="@dimen/_9sdp" />
+
+            <TextView
+                android:id="@+id/tvPageSize"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_2sdp"
+                android:fontFamily="@font/nt_600"
+                android:textColor="@color/text_primary"
+                android:textSize="@dimen/_10sdp"
+                tools:text="A4" />
+        </com.ui.baselib.widget.layout.UiLinearLayout>
+
+        <com.ui.baselib.widget.layout.UiLinearLayout
+            android:id="@+id/btnOrientation"
+            style="@style/CardAppStyle"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginStart="@dimen/_3sdp"
+            android:layout_marginEnd="@dimen/_3sdp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:uiCornerRadius="@dimen/_11sdp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nt_400"
+                android:text="@string/orientation"
+                android:textColor="@color/text_secondary"
+                android:textSize="@dimen/_9sdp" />
+
+            <TextView
+                android:id="@+id/tvOrientation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_2sdp"
+                android:fontFamily="@font/nt_600"
+                android:textColor="@color/text_primary"
+                android:textSize="@dimen/_10sdp"
+                tools:text="A4" />
+        </com.ui.baselib.widget.layout.UiLinearLayout>
+
+        <com.ui.baselib.widget.layout.UiLinearLayout
+            android:id="@+id/btnMargins"
+            style="@style/CardAppStyle"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginStart="@dimen/_3sdp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:uiCornerRadius="@dimen/_11sdp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nt_400"
+                android:text="@string/margins"
+                android:textColor="@color/text_secondary"
+                android:textSize="@dimen/_9sdp" />
+
+            <TextView
+                android:id="@+id/tvMargins"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_2sdp"
+                android:fontFamily="@font/nt_600"
+                android:textColor="@color/text_primary"
+                android:textSize="@dimen/_10sdp"
+                tools:text="A4" />
+        </com.ui.baselib.widget.layout.UiLinearLayout>
+
+    </com.ui.baselib.widget.layout.UiLinearLayout>
+
+    <include
+        android:id="@+id/action"
+        layout="@layout/layout_tool_action_plain" />
+
+</LinearLayout>

@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_bg_app"
+    android:orientation="vertical"
+    tools:context=".ui.main.select.MultiSelectActivity">
+
+    <LinearLayout
+        android:id="@+id/layoutTop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/color_bg_selected"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_31sdp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="@dimen/_9sdp">
+
+            <com.ui.baselib.widget.view.UiImageView
+                android:id="@+id/btnClose"
+                style="@style/IconButtonStyle"
+                android:contentDescription="@string/scanner_close"
+                android:src="@drawable/ic_app_close"
+                app:uiBackgroundColor="@color/color_surface_card" />
+
+            <TextView
+                android:id="@+id/tvSelected"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_6sdp"
+                android:layout_weight="1"
+                android:fontFamily="@font/nt_500"
+                android:textColor="@color/text_primary"
+                android:textSize="@dimen/_13sdp"
+                tools:text="3 selected" />
+
+            <com.ui.baselib.widget.view.UiTextView
+                android:id="@+id/btnSelectAll"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_23sdp"
+                android:fontFamily="@font/nt_600"
+                android:gravity="center"
+                android:paddingHorizontal="@dimen/_10sdp"
+                android:text="@string/select_all"
+                android:textSize="@dimen/_10sdp"
+                app:uiBackgroundColor="@color/color_surface_card"
+                app:uiCornerRadius="@dimen/_12sdp"
+                app:uiTextColor="@color/text_on_selected" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <com.ui.baselib.widget.layout.UiFrameLayout
+            style="@style/CardAppStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_13sdp"
+            android:layout_marginVertical="@dimen/_5sdp">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rcvDocuments"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:overScrollMode="never"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/item_document" />
+        </com.ui.baselib.widget.layout.UiFrameLayout>
+    </FrameLayout>
+
+    <com.ui.baselib.widget.layout.UiLinearLayout
+        android:id="@+id/layoutActions"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_54sdp"
+        android:layout_marginHorizontal="@dimen/_9sdp"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_marginBottom="@dimen/_13sdp"
+        android:orientation="horizontal"
+        app:uiBackgroundColor="@color/color_surface_card"
+        app:uiCornerRadius="@dimen/_15sdp"
+        app:uiStrokeColor="@color/color_stroke"
+        app:uiStrokeWidth="@dimen/_1sdp">
+
+        <com.ui.baselib.widget.view.UiTextView
+            android:id="@+id/btnShare"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:drawablePadding="@dimen/_5sdp"
+            android:fontFamily="@font/nt_500"
+            android:gravity="center"
+            android:paddingVertical="@dimen/_9sdp"
+            android:text="@string/file_action_share"
+            android:textSize="@dimen/_9sdp"
+            app:drawableTint="@color/text_primary"
+            app:drawableTopCompat="@drawable/ic_app_share"
+            app:uiDrawableSize="@dimen/_17sdp"
+            app:uiTextColor="@color/text_primary" />
+
+        <com.ui.baselib.widget.view.UiTextView
+            android:id="@+id/btnMerge"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:drawablePadding="@dimen/_5sdp"
+            android:fontFamily="@font/nt_500"
+            android:gravity="center"
+            android:paddingVertical="@dimen/_9sdp"
+            android:text="@string/merge_pdf"
+            android:textSize="@dimen/_9sdp"
+            app:drawableTint="@color/text_primary"
+            app:drawableTopCompat="@drawable/ic_app_merge"
+            app:uiDrawableSize="@dimen/_17sdp"
+            app:uiTextColor="@color/text_primary" />
+
+        <com.ui.baselib.widget.view.UiTextView
+            android:id="@+id/btnZip"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:drawablePadding="@dimen/_5sdp"
+            android:fontFamily="@font/nt_500"
+            android:gravity="center"
+            android:paddingVertical="@dimen/_9sdp"
+            android:text="@string/zip"
+            android:textSize="@dimen/_9sdp"
+            app:drawableTint="@color/text_primary"
+            app:drawableTopCompat="@drawable/ic_app_zip"
+            app:uiDrawableSize="@dimen/_17sdp"
+            app:uiTextColor="@color/text_primary" />
+
+        <com.ui.baselib.widget.view.UiTextView
+            android:id="@+id/btnDelete"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:drawablePadding="@dimen/_5sdp"
+            android:fontFamily="@font/nt_500"
+            android:gravity="center"
+            android:paddingVertical="@dimen/_9sdp"
+            android:text="@string/file_action_delete"
+            android:textSize="@dimen/_9sdp"
+            app:drawableTint="@color/color_error"
+            app:drawableTopCompat="@drawable/ic_app_trash"
+            app:uiDrawableSize="@dimen/_17sdp"
+            app:uiTextColor="@color/color_error" />
+
+    </com.ui.baselib.widget.layout.UiLinearLayout>
+
+</LinearLayout>

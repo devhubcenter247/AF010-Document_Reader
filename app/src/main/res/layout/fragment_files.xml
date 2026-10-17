@@ -1,0 +1,499 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_bg_app"
+    tools:context=".ui.main.files.FilesFragment">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        app:elevation="0dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:liftOnScroll="false">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingVertical="@dimen/_5sdp"
+            android:paddingStart="@dimen/_15sdp"
+            android:paddingEnd="@dimen/_13sdp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nt_400"
+                    android:text="@string/home_subtitle"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="@dimen/_9sdp" />
+
+                <TextView
+                    style="@style/TextScreenTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/my_files"
+                    android:textSize="@dimen/_15sdp" />
+            </LinearLayout>
+
+            <com.ui.baselib.widget.view.UiTextView
+                android:id="@+id/btnPro"
+                style="@style/ProBadgeStyle" />
+        </LinearLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+    <androidx.constraintlayout.motion.widget.MotionLayout
+        android:id="@+id/motionRoot"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layoutDescription="@xml/scene_home"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/appBar">
+
+        <LinearLayout
+            android:id="@+id/headerBlock"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.ui.baselib.widget.view.UiTextView
+                android:id="@+id/btnSearch"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_37sdp"
+                android:layout_marginHorizontal="@dimen/_13sdp"
+                android:drawablePadding="@dimen/_8sdp"
+                android:fontFamily="@font/nt_400"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="@dimen/_11sdp"
+                android:text="@string/search_files"
+                android:textSize="@dimen/_11sdp"
+                app:drawableStartCompat="@drawable/ic_app_search"
+                app:drawableTint="@color/text_secondary"
+                app:uiBackgroundColor="@color/color_surface_card"
+                app:uiCornerRadius="@dimen/_13sdp"
+                app:uiDrawableSize="@dimen/_15sdp"
+                app:uiStrokeColor="@color/color_stroke"
+                app:uiStrokeWidth="@dimen/_1sdp"
+                app:uiTextColor="@color/text_secondary" />
+
+            <!-- Quick actions -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_13sdp"
+                android:layout_marginTop="@dimen/_11sdp">
+
+                <com.ui.baselib.widget.layout.UiConstraintLayout
+                    android:id="@+id/cardScan"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_100sdp"
+                    android:layout_marginEnd="@dimen/_4sdp"
+                    android:clipToPadding="false"
+                    android:padding="@dimen/_10sdp"
+                    app:layout_constraintEnd_toStartOf="@+id/cardPhotos"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:uiBackgroundColor="@color/accent"
+                    app:uiCornerRadius="@dimen/_18sdp">
+
+                    <View
+                        android:layout_width="@dimen/_125sdp"
+                        android:layout_height="@dimen/_125sdp"
+                        android:layout_marginStart="@dimen/_minus38sdp"
+                        android:layout_marginBottom="@dimen/_minus50sdp"
+                        android:background="@drawable/bg_circle_white_14"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                    <ImageView
+                        android:layout_width="@dimen/_43sdp"
+                        android:layout_height="@dimen/_43sdp"
+                        android:layout_marginTop="@dimen/_minus5sdp"
+                        android:layout_marginEnd="@dimen/_minus5sdp"
+                        android:contentDescription="@null"
+                        android:src="@drawable/img_scan_paper"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tvScanTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/nt_600"
+                        android:text="@string/scan"
+                        android:textColor="@color/color_ink"
+                        android:textSize="@dimen/_11sdp"
+                        app:layout_constraintBottom_toTopOf="@+id/tvScanDesc"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tvScanDesc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_8sdp"
+                        android:fontFamily="@font/nt_400"
+                        android:text="@string/paper_to_pdf"
+                        android:textColor="@color/color_on_accent_secondary"
+                        android:textSize="@dimen/_9sdp"
+                        app:layout_constraintBottom_toTopOf="@+id/tvScanStart"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                    <com.ui.baselib.widget.view.UiTextView
+                        android:id="@+id/tvScanStart"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_23sdp"
+                        android:drawablePadding="@dimen/_5sdp"
+                        android:fontFamily="@font/nt_500"
+                        android:gravity="center"
+                        android:paddingHorizontal="@dimen/_9sdp"
+                        android:text="@string/start"
+                        android:textSize="@dimen/_10sdp"
+                        app:drawableStartCompat="@drawable/ic_app_camera"
+                        app:drawableTint="@color/on_primary"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:uiBackgroundColor="@color/color_ink"
+                        app:uiCornerRadius="@dimen/_13sdp"
+                        app:uiDrawableAlign="text"
+                        app:uiDrawableSize="@dimen/_12sdp"
+                        app:uiTextColor="@color/on_primary" />
+                </com.ui.baselib.widget.layout.UiConstraintLayout>
+
+                <com.ui.baselib.widget.layout.UiLinearLayout
+                    android:id="@+id/cardPhotos"
+                    style="@style/CardAppStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_48sdp"
+                    android:layout_marginStart="@dimen/_4sdp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/_6sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/cardScan"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:layout_width="@dimen/_26sdp"
+                        android:layout_height="@dimen/_26sdp"
+                        android:contentDescription="@null"
+                        android:src="@drawable/ic_app_tool_images_to_pdf" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="end"
+                            android:fontFamily="@font/nt_600"
+                            android:maxLines="1"
+                            android:text="@string/photos_to_pdf"
+                            android:textColor="@color/text_primary"
+                            android:textSize="@dimen/_9sdp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="end"
+                            android:fontFamily="@font/nt_400"
+                            android:maxLines="1"
+                            android:singleLine="true"
+                            android:text="@string/from_gallery"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="@dimen/_9sdp" />
+                    </LinearLayout>
+                </com.ui.baselib.widget.layout.UiLinearLayout>
+
+                <com.ui.baselib.widget.layout.UiLinearLayout
+                    android:id="@+id/cardNewFile"
+                    style="@style/CardAppStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_48sdp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/_6sdp"
+                    app:layout_constraintBottom_toBottomOf="@+id/cardScan"
+                    app:layout_constraintEnd_toEndOf="@+id/cardPhotos"
+                    app:layout_constraintStart_toStartOf="@+id/cardPhotos">
+
+                    <FrameLayout
+                        android:layout_width="@dimen/_26sdp"
+                        android:layout_height="@dimen/_26sdp">
+
+                        <com.ui.baselib.widget.layout.UiView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            app:uiBackgroundColor="@color/color_efebff"
+                            app:uiCornerRadius="@dimen/_9sdp" />
+
+                        <com.ui.baselib.widget.view.UiImageView
+                            android:layout_width="@dimen/_18sdp"
+                            android:layout_height="@dimen/_18sdp"
+                            android:layout_gravity="center"
+                            android:contentDescription="@null"
+                            android:padding="@dimen/_3sdp"
+                            android:src="@drawable/ic_app_plus"
+                            app:tint="@color/on_primary"
+                            app:uiBackgroundGradientEnabled="true"
+                            app:uiBackgroundGradientEnd="@color/gradient_end"
+                            app:uiBackgroundGradientOrientation="tl_br"
+                            app:uiBackgroundGradientStart="@color/gradient_start"
+                            app:uiCornerRadius="@dimen/_7sdp" />
+                    </FrameLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="end"
+                            android:fontFamily="@font/nt_600"
+                            android:maxLines="1"
+                            android:text="@string/new_file"
+                            android:textColor="@color/text_primary"
+                            android:textSize="@dimen/_9sdp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="end"
+                            android:fontFamily="@font/nt_400"
+                            android:maxLines="1"
+                            android:singleLine="true"
+                            android:text="@string/new_file_desc"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="@dimen/_9sdp" />
+                    </LinearLayout>
+                </com.ui.baselib.widget.layout.UiLinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!-- Suggested tools -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_11sdp"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:orientation="horizontal"
+                android:paddingHorizontal="@dimen/_13sdp">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rcvToolChips"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_minus15sdp"
+                    android:layout_weight="1"
+                    android:clipToPadding="false"
+                    android:orientation="horizontal"
+                    android:overScrollMode="never"
+                    android:paddingEnd="@dimen/_33sdp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/item_tool_chip"
+                    tools:ignore="RtlSymmetry" />
+
+                <com.ui.baselib.widget.view.UiImageView
+                    android:id="@+id/btnAllTools"
+                    android:layout_width="@dimen/_31sdp"
+                    android:layout_height="@dimen/_31sdp"
+                    android:contentDescription="@string/all_tools"
+                    android:padding="@dimen/_8sdp"
+                    android:src="@drawable/ic_app_chev"
+                    app:uiBackgroundColor="@color/color_surface_track"
+                    app:uiCornerRadius="@dimen/_16sdp" />
+            </LinearLayout>
+
+            <!-- No file access -->
+            <include
+                android:id="@+id/layoutNoAccess"
+                layout="@layout/layout_empty_state"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_13sdp" />
+        </LinearLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/contentBlock"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/headerBlock">
+
+            <LinearLayout
+                android:id="@+id/layoutBrowse"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingStart="@dimen/_15sdp"
+                    android:paddingEnd="@dimen/_7sdp"
+                    android:paddingBottom="@dimen/_2sdp">
+
+                    <TextView
+                        style="@style/TextSectionTitle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/nt_500"
+                        android:text="@string/browse"
+                        android:textSize="@dimen/_10sdp" />
+
+                    <TextView
+                        android:id="@+id/btnAllFiles"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:fontFamily="@font/nt_500"
+                        android:padding="@dimen/_6sdp"
+                        android:text="@string/all_file"
+                        android:textColor="@color/text_on_selected"
+                        android:textSize="@dimen/_10sdp" />
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rcvBrowse"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_9sdp"
+                    android:nestedScrollingEnabled="false"
+                    android:overScrollMode="never"
+                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                    app:spanCount="4"
+                    tools:itemCount="4"
+                    tools:listitem="@layout/item_browse_type" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lnFilterOption"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingStart="@dimen/_15sdp"
+                android:paddingTop="@dimen/_10sdp"
+                android:paddingEnd="@dimen/_13sdp"
+                android:paddingBottom="@dimen/_3sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/layoutBrowse">
+
+                <include
+                    android:id="@+id/segmentTab"
+                    layout="@layout/layout_segment"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content" />
+
+                <Space
+                    android:layout_width="@dimen/_15sdp"
+                    android:layout_height="0dp" />
+
+                <ImageView
+                    android:id="@+id/btnSort"
+                    android:layout_width="@dimen/_23sdp"
+                    android:layout_height="@dimen/_23sdp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="@string/sort"
+                    android:padding="@dimen/_3sdp"
+                    android:src="@drawable/ic_app_sort"
+                    app:tint="@color/text_secondary" />
+
+                <ImageView
+                    android:id="@+id/btnSelect"
+                    android:layout_width="@dimen/_23sdp"
+                    android:layout_height="@dimen/_23sdp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="@string/select_files"
+                    android:padding="@dimen/_3sdp"
+                    android:src="@drawable/ic_app_check"
+                    app:tint="@color/text_secondary" />
+            </LinearLayout>
+
+            <com.ui.baselib.widget.layout.UiFrameLayout
+                android:id="@+id/layoutDocuments"
+                style="@style/CardAppStyle"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginHorizontal="@dimen/_13sdp"
+                android:layout_marginBottom="@dimen/_8sdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/lnFilterOption">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rcvDocuments"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:clipToPadding="false"
+                    android:overScrollMode="never"
+                    android:paddingBottom="@dimen/_54sdp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/item_document" />
+
+                <TextView
+                    android:id="@+id/tvEmpty"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/nt_400"
+                    android:gravity="center"
+                    android:paddingVertical="@dimen/_25sdp"
+                    android:text="@string/no_files_yet"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="@dimen/_10sdp"
+                    android:visibility="gone" />
+            </com.ui.baselib.widget.layout.UiFrameLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.motion.widget.MotionLayout>
+
+
+    <com.ui.baselib.widget.view.UiImageView
+        android:id="@+id/btnCreate"
+        android:layout_width="@dimen/_42sdp"
+        android:layout_height="@dimen/_42sdp"
+        android:layout_gravity="bottom|end"
+        android:contentDescription="@string/create_new"
+        android:padding="@dimen/_10sdp"
+        android:layout_marginEnd="@dimen/_16sdp"
+        android:layout_marginBottom="@dimen/_12sdp"
+        android:src="@drawable/ic_app_plus"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:tint="@color/on_primary"
+        app:uiBackgroundGradientEnabled="true"
+        app:uiBackgroundGradientEnd="@color/gradient_end"
+        app:uiBackgroundGradientOrientation="tl_br"
+        app:uiBackgroundGradientStart="@color/gradient_start"
+        app:uiCornerRadius="@dimen/_32sdp"
+        app:uiShadowColor="#6B3238F4"
+        app:uiShadowElevation="@dimen/_8sdp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

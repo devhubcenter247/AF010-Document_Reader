@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_37sdp"
+    android:background="?attr/selectableItemBackground"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingStart="@dimen/_15sdp"
+    android:paddingEnd="@dimen/_6sdp">
+
+    <ImageView
+        android:layout_width="@dimen/_13sdp"
+        android:layout_height="@dimen/_13sdp"
+        android:contentDescription="@null"
+        android:src="@drawable/ic_app_clock"
+        app:tint="@color/text_secondary" />
+
+    <TextView
+        android:id="@+id/tvQuery"
+        style="@style/RowLabelStyle"
+        android:layout_marginStart="@dimen/_9sdp"
+        android:ellipsize="end"
+        android:fontFamily="@font/nt_400"
+        android:maxLines="1"
+        tools:text="report" />
+
+    <ImageView
+        android:id="@+id/btnRemove"
+        android:layout_width="@dimen/_23sdp"
+        android:layout_height="@dimen/_23sdp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/scanner_close"
+        android:padding="@dimen/_6sdp"
+        android:src="@drawable/ic_app_close"
+        app:tint="@color/text_secondary" />
+
+</LinearLayout>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/_3sdp">
+
+    <com.ui.baselib.widget.layout.UiFrameLayout
+        android:id="@+id/card"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_80sdp"
+        app:uiBackgroundColor="@color/color_surface_card"
+        app:uiCornerRadius="@dimen/_8sdp"
+        app:uiStrokeColor="@color/color_stroke"
+        app:uiStrokeWidth="@dimen/_1sdp">
+
+        <ImageView
+            android:id="@+id/ivPage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/_2sdp"
+            android:contentDescription="@null"
+            android:scaleType="fitCenter" />
+
+        <com.ui.baselib.widget.view.UiTextView
+            android:id="@+id/tvNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_15sdp"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_marginBottom="@dimen/_3sdp"
+            android:fontFamily="@font/nt_400"
+            android:gravity="center"
+            android:minWidth="@dimen/_15sdp"
+            android:paddingHorizontal="@dimen/_4sdp"
+            android:textSize="@dimen/_9sdp"
+            app:uiBackgroundColor="@color/color_ink"
+            app:uiCornerRadius="@dimen/_8sdp"
+            app:uiTextColor="@color/on_primary"
+            tools:text="1" />
+    </com.ui.baselib.widget.layout.UiFrameLayout>
+
+</FrameLayout>

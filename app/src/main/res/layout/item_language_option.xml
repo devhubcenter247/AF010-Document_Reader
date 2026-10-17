@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ui.baselib.widget.view.UiTextView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/tvLanguage"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_37sdp"
+    android:background="?attr/selectableItemBackground"
+    android:drawablePadding="@dimen/_11sdp"
+    android:fontFamily="@font/nt_400"
+    android:gravity="center_vertical"
+    android:paddingHorizontal="@dimen/_15sdp"
+    android:textColor="@color/text_primary"
+    android:textSize="@dimen/_12sdp"
+    app:uiDrawableSize="@dimen/_17sdp"
+    tools:drawableStartCompat="@drawable/ic_app_radio_off"
+    tools:text="English" />

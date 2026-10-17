@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ui.baselib.widget.layout.UiLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/BottomSheetAppStyle"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/_10sdp"
+    tools:context=".ui.main.reader.office.sheet.SaveDocumentBottomSheet">
+
+    <include
+        android:id="@+id/header"
+        layout="@layout/layout_sheet_header" />
+
+    <LinearLayout
+        android:id="@+id/rowSave"
+        style="@style/SettingRowStyle"
+        android:layout_height="@dimen/_49sdp">
+
+        <com.ui.baselib.widget.view.UiImageView
+            style="@style/SettingRowIconStyle"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_app_save"
+            app:tint="@color/color_3984ff"
+            app:uiBackgroundColor="@color/color_eaf2ff" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_11sdp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nt_500"
+                android:text="@string/save_to_original"
+                android:textColor="@color/text_primary"
+                android:textSize="@dimen/_11sdp" />
+
+            <TextView
+                android:id="@+id/tvSaveDesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_2sdp"
+                android:ellipsize="end"
+                android:fontFamily="@font/nt_400"
+                android:maxLines="1"
+                android:textColor="@color/text_secondary"
+                android:textSize="@dimen/_9sdp"
+                tools:text="Replaces Service-agreement.docx" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/rowSaveCopy"
+        style="@style/SettingRowStyle"
+        android:layout_height="@dimen/_49sdp">
+
+        <com.ui.baselib.widget.view.UiImageView
+            style="@style/SettingRowIconStyle"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_app_copy"
+            app:tint="@color/color_9254e8"
+            app:uiBackgroundColor="@color/color_f2eafe" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_11sdp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nt_500"
+                android:text="@string/save_as_copy"
+                android:textColor="@color/text_primary"
+                android:textSize="@dimen/_11sdp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_2sdp"
+                android:ellipsize="end"
+                android:fontFamily="@font/nt_400"
+                android:maxLines="1"
+                android:text="@string/save_as_copy_desc"
+                android:textColor="@color/text_secondary"
+                android:textSize="@dimen/_9sdp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/rowExportPdf"
+        style="@style/SettingRowStyle"
+        android:layout_height="@dimen/_49sdp">
+
+        <com.ui.baselib.widget.view.UiImageView
+            style="@style/SettingRowIconStyle"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_app_file"
+            app:tint="@color/color_ff784f"
+            app:uiBackgroundColor="@color/color_fff0e9" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_11sdp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nt_500"
+                android:text="@string/export_to_pdf"
+                android:textColor="@color/text_primary"
+                android:textSize="@dimen/_11sdp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_2sdp"
+                android:ellipsize="end"
+                android:fontFamily="@font/nt_400"
+                android:maxLines="1"
+                android:text="@string/export_to_pdf_desc"
+                android:textColor="@color/text_secondary"
+                android:textSize="@dimen/_9sdp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/rowShare"
+        style="@style/SettingRowStyle"
+        android:layout_height="@dimen/_49sdp">
+
+        <com.ui.baselib.widget.view.UiImageView
+            style="@style/SettingRowIconStyle"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_app_share"
+            app:tint="@color/color_35ac71"
+            app:uiBackgroundColor="@color/color_e7f7ed" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_11sdp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nt_500"
+                android:text="@string/file_action_share"
+                android:textColor="@color/text_primary"
+                android:textSize="@dimen/_11sdp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_2sdp"
+                android:ellipsize="end"
+                android:fontFamily="@font/nt_400"
+                android:maxLines="1"
+                android:text="@string/share_desc"
+                android:textColor="@color/text_secondary"
+                android:textSize="@dimen/_9sdp" />
+        </LinearLayout>
+    </LinearLayout>
+
+</com.ui.baselib.widget.layout.UiLinearLayout>

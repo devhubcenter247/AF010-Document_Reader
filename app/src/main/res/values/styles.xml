@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="DialogAppStyle">
+        <item name="uiBackgroundColor">@color/color_surface_card</item>
+        <item name="uiCornerRadius">@dimen/_18sdp</item>
+        <item name="android:fontFamily">@font/nt_400</item>
+        <item name="android:padding">@dimen/_7sdp</item>
+    </style>
+
+    <style name="ButtonAppStyle">
+        <item name="android:layout_height">@dimen/_35sdp</item>
+        <item name="uiBackgroundColor">@color/color_stroke</item>
+        <item name="uiBackgroundGradientStart">@color/gradient_start</item>
+        <item name="uiBackgroundGradientEnabled">true</item>
+        <item name="uiBackgroundGradientEnd">@color/gradient_end</item>
+        <item name="uiCornerRadius">@dimen/_10sdp</item>
+        <item name="uiShadowColor">@color/primary_30</item>
+        <item name="uiShadowElevation">0dp</item>
+        <item name="uiShadowRadius">@dimen/_5sdp</item>
+        <item name="uiShadowDy">@dimen/_3sdp</item>
+        <item name="uiShadowClipParent">force</item>
+        <item name="uiShadowAmbientColor">@color/primary_20</item>
+        <item name="uiShadowAmbientRadius">@dimen/_10sdp</item>
+        <item name="android:textSize">@dimen/_11sdp</item>
+        <item name="uiTextColor">@color/white</item>
+        <item name="android:fontFamily">@font/nt_500</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="TextHeadLine">
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textSize">@dimen/_13sdp</item>
+        <item name="fontFamily">@font/nt_600</item>
+    </style>
+
+    <style name="TextSubContent">
+        <item name="android:textColor">@color/text_secondary</item>
+        <item name="android:textSize">@dimen/_9sdp</item>
+        <item name="fontFamily">@font/nt_400</item>
+    </style>
+    <!-- Tiêu đề lớn của tab: My files, Tools, Settings -->
+    <style name="TextScreenTitle">
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textSize">@dimen/_13sdp</item>
+        <item name="android:letterSpacing">-0.02</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="fontFamily">@font/nt_600</item>
+    </style>
+
+    <style name="TextSectionTitle">
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textSize">@dimen/_12sdp</item>
+        <item name="fontFamily">@font/nt_600</item>
+    </style>
+
+    <!-- Nhãn nhóm viết hoa: PREFERENCES, RECENT SEARCHES -->
+    <style name="TextSectionCaps">
+        <item name="android:textColor">@color/text_secondary</item>
+        <item name="android:textSize">@dimen/_11sdp</item>
+        <item name="android:letterSpacing">0.03</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="fontFamily">@font/nt_500</item>
+    </style>
+
+    <style name="CardAppStyle">
+        <item name="uiBackgroundColor">@color/color_surface_card</item>
+        <item name="uiCornerRadius">@dimen/_15sdp</item>
+        <item name="uiStrokeColor">@color/color_stroke</item>
+        <item name="uiStrokeWidth">@dimen/_1sdp</item>
+    </style>
+
+    <!-- Nút tròn 40 chứa icon: back, close, search -->
+    <style name="IconButtonStyle">
+        <item name="android:layout_width">@dimen/_27sdp</item>
+        <item name="android:layout_height">@dimen/_27sdp</item>
+        <item name="android:padding">@dimen/_5sdp</item>
+        <item name="uiCornerRadius">@dimen/_17sdp</item>
+        <item name="uiBackgroundColor">@color/color_surface_variant</item>
+    </style>
+
+    <style name="ButtonOutlineStyle" parent="ButtonAppStyle">
+        <item name="uiBackgroundGradientEnabled">false</item>
+        <item name="uiBackgroundColor">@color/color_surface_card</item>
+        <item name="uiTextColor">@color/text_primary</item>
+        <item name="uiStrokeColor">@color/color_stroke</item>
+        <item name="uiStrokeWidth">@dimen/_1sdp</item>
+        <item name="uiShadowElevation">0dp</item>
+        <item name="uiShadowRadius">0dp</item>
+        <item name="uiShadowDy">0dp</item>
+        <item name="uiShadowAmbientRadius">0dp</item>
+    </style>
+
+    <style name="BottomSheetAppStyle">
+        <item name="uiBackgroundColor">@color/color_surface_card</item>
+        <item name="uiCornerTopLeft">@dimen/_22sdp</item>
+        <item name="uiCornerTopRight">@dimen/_22sdp</item>
+    </style>
+
+    <!-- Dòng trong sheet / Settings: icon + nhãn -->
+    <style name="RowLabelStyle">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_marginStart">@dimen/_10sdp</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textSize">@dimen/_10sdp</item>
+        <item name="fontFamily">@font/nt_500</item>
+    </style>
+
+    <style name="SettingRowStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/_43sdp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:paddingHorizontal">@dimen/_13sdp</item>
+        <item name="android:background">?attr/selectableItemBackground</item>
+    </style>
+
+    <style name="SettingRowIconStyle">
+        <item name="android:layout_width">@dimen/_28sdp</item>
+        <item name="android:layout_height">@dimen/_28sdp</item>
+        <item name="android:padding">@dimen/_6sdp</item>
+        <item name="uiCornerRadius">@dimen/_9sdp</item>
+    </style>
+
+    <style name="RowChevronStyle">
+        <item name="android:layout_width">@dimen/_13sdp</item>
+        <item name="android:layout_height">@dimen/_13sdp</item>
+        <item name="android:src">@drawable/ic_app_chev</item>
+        <item name="tint">@color/color_icon_muted</item>
+    </style>
+
+    <!-- Nút PRO gradient ở góc header -->
+    <style name="ProBadgeStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">@dimen/_23sdp</item>
+        <item name="android:drawablePadding">@dimen/_5sdp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingHorizontal">@dimen/_11sdp</item>
+        <item name="android:text">@string/pro</item>
+        <item name="android:textSize">@dimen/_10sdp</item>
+        <item name="fontFamily">@font/nt_600</item>
+        <item name="drawableStartCompat">@drawable/ic_app_crown</item>
+        <item name="drawableTint">@color/on_primary</item>
+        <item name="uiBackgroundGradientEnabled">true</item>
+        <item name="uiBackgroundGradientStart">@color/gradient_start</item>
+        <item name="uiBackgroundGradientEnd">@color/gradient_end</item>
+        <item name="uiBackgroundGradientOrientation">tl_br</item>
+        <item name="uiCornerRadius">@dimen/_14sdp</item>
+        <item name="uiDrawableSize">@dimen/_13sdp</item>
+        <item name="uiTextColor">@color/on_primary</item>
+    </style>
+
+    <!-- Nút trong thanh nổi tối trên trang PDF -->
+    <style name="MarkupActionStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">@dimen/_26sdp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingHorizontal">@dimen/_8sdp</item>
+        <item name="android:textColor">@color/on_primary</item>
+        <item name="android:textSize">@dimen/_9sdp</item>
+        <item name="fontFamily">@font/nt_500</item>
+        <item name="android:background">?attr/selectableItemBackground</item>
+    </style>
+
+    <!-- Nút icon + nhãn trong thanh dưới của trình đọc -->
+    <style name="ReaderActionStyle">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:background">?attr/selectableItemBackgroundBorderless</item>
+        <item name="android:drawablePadding">@dimen/_3sdp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingVertical">@dimen/_11sdp</item>
+        <item name="android:textSize">@dimen/_9sdp</item>
+        <item name="fontFamily">@font/nt_500</item>
+        <item name="uiDrawableSize">@dimen/_17sdp</item>
+        <item name="uiTextColor">@color/text_primary</item>
+    </style>
+</resources>

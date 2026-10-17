@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_scan_bg"
+    tools:context=".ui.main.scan.fragment.ScanCameraFragment">
+
+    <androidx.camera.view.PreviewView
+        android:id="@+id/previewView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/layoutModes"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topBar"
+        app:scaleType="fitCenter" />
+
+    <com.af010.creator.docreader.ui.main.scan.view.DocumentOverlayView
+        android:id="@+id/documentOverlay"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/previewView"
+        app:layout_constraintEnd_toEndOf="@+id/previewView"
+        app:layout_constraintStart_toStartOf="@+id/previewView"
+        app:layout_constraintTop_toTopOf="@+id/previewView" />
+
+    <!-- Shown instead of the preview while the camera permission is missing -->
+    <LinearLayout
+        android:id="@+id/layoutPermission"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingHorizontal="@dimen/_31sdp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/previewView"
+        app:layout_constraintEnd_toEndOf="@+id/previewView"
+        app:layout_constraintStart_toStartOf="@+id/previewView"
+        app:layout_constraintTop_toTopOf="@+id/previewView"
+        tools:visibility="visible">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nt_400"
+            android:gravity="center"
+            android:text="@string/camera_permission_required"
+            android:textColor="@color/on_primary"
+            android:textSize="@dimen/_11sdp" />
+
+        <com.ui.baselib.widget.view.UiTextView
+            android:id="@+id/btnAllowCamera"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_34sdp"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:fontFamily="@font/nt_600"
+            android:gravity="center"
+            android:paddingHorizontal="@dimen/_18sdp"
+            android:text="@string/allow_access"
+            android:textSize="@dimen/_11sdp"
+            app:uiBackgroundColor="@color/accent"
+            app:uiCornerRadius="@dimen/_17sdp"
+            app:uiTextColor="@color/on_accent" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/topBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:minHeight="@dimen/_46sdp"
+        android:orientation="horizontal"
+        android:paddingHorizontal="@dimen/_9sdp"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.ui.baselib.widget.view.UiImageView
+            android:id="@+id/btnClose"
+            style="@style/IconButtonStyle"
+            android:contentDescription="@string/scanner_close"
+            android:src="@drawable/ic_app_close"
+            app:tint="@color/on_primary"
+            app:uiBackgroundColor="@color/color_white_12" />
+
+        <!-- The hint keeps its own width and sits in the middle of the space between the buttons -->
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_6sdp"
+            android:layout_weight="1">
+
+            <com.ui.baselib.widget.view.UiTextView
+                android:id="@+id/scanHint"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_23sdp"
+                android:layout_gravity="center"
+                android:drawablePadding="@dimen/_5sdp"
+                android:ellipsize="end"
+                android:fontFamily="@font/nt_400"
+                android:gravity="center"
+                android:maxLines="1"
+                android:paddingHorizontal="@dimen/_9sdp"
+                android:text="@string/scanner_hint_searching"
+                android:textSize="@dimen/_9sdp"
+                app:uiBackgroundColor="@color/color_white_12"
+                app:uiCornerRadius="@dimen/_12sdp"
+                app:uiDrawableSize="@dimen/_12sdp"
+                app:uiTextColor="@color/on_primary" />
+        </FrameLayout>
+
+        <com.ui.baselib.widget.view.UiImageView
+            android:id="@+id/btnFlash"
+            style="@style/IconButtonStyle"
+            android:contentDescription="@string/scanner_flash"
+            android:src="@drawable/ic_app_no_flash"
+            app:tint="@color/on_primary"
+            app:uiBackgroundColor="@color/color_white_12" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layoutModes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingTop="@dimen/_5sdp"
+        android:paddingBottom="@dimen/_5sdp"
+        app:layout_constraintBottom_toTopOf="@+id/bottomPanel">
+
+        <com.ui.baselib.widget.view.UiTextView
+            android:id="@+id/btnAuto"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_23sdp"
+            android:layout_marginHorizontal="@dimen/_2sdp"
+            android:fontFamily="@font/nt_600"
+            android:gravity="center"
+            android:paddingHorizontal="@dimen/_11sdp"
+            android:text="@string/scan_mode_auto"
+            android:textSize="@dimen/_10sdp"
+            app:uiCornerRadius="@dimen/_12sdp" />
+
+        <com.ui.baselib.widget.view.UiTextView
+            android:id="@+id/btnManual"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_23sdp"
+            android:layout_marginHorizontal="@dimen/_2sdp"
+            android:fontFamily="@font/nt_600"
+            android:gravity="center"
+            android:paddingHorizontal="@dimen/_11sdp"
+            android:text="@string/scan_mode_manual"
+            android:textSize="@dimen/_10sdp"
+            app:uiCornerRadius="@dimen/_12sdp" />
+
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/bottomPanel"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_77sdp"
+        android:paddingHorizontal="@dimen/_15sdp"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <com.ui.baselib.widget.view.UiImageView
+            android:id="@+id/btnGallery"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:contentDescription="@string/scanner_gallery"
+            android:padding="@dimen/_11sdp"
+            android:src="@drawable/ic_app_image"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/on_primary"
+            app:uiBackgroundColor="@color/color_white_12"
+            app:uiCornerRadius="@dimen/_11sdp" />
+
+        <com.ui.baselib.widget.layout.UiFrameLayout
+            android:id="@+id/captureButton"
+            android:layout_width="@dimen/_48sdp"
+            android:layout_height="@dimen/_48sdp"
+            android:contentDescription="@string/capture"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintVertical_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:uiCornerRadius="@dimen/_33sdp"
+            app:uiStrokeColor="@color/on_primary"
+            app:uiStrokeWidth="@dimen/_3sdp">
+
+            <com.ui.baselib.widget.layout.UiView
+                android:layout_width="@dimen/_38sdp"
+                android:layout_height="@dimen/_38sdp"
+                android:layout_gravity="center"
+                app:uiBackgroundColor="@color/accent"
+                app:uiCornerRadius="@dimen/_25sdp" />
+        </com.ui.baselib.widget.layout.UiFrameLayout>
+
+        <FrameLayout
+            android:id="@+id/thumbnailContainer"
+            android:layout_width="@dimen/_48sdp"
+            android:layout_height="@dimen/_59sdp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="visible">
+
+            <com.ui.baselib.widget.view.UiImageView
+                android:id="@+id/ivThumbnail"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_49sdp"
+                android:layout_gravity="bottom|start"
+                android:contentDescription="@string/scanner_scanned_pages"
+                android:scaleType="centerCrop"
+                app:uiCornerRadius="@dimen/_6sdp"
+                app:uiStrokeColor="@color/on_primary"
+                app:uiStrokeWidth="@dimen/_1sdp" />
+
+            <com.ui.baselib.widget.view.UiTextView
+                android:id="@+id/tvPageCount"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_gravity="top|end"
+                android:fontFamily="@font/nt_600"
+                android:gravity="center"
+                android:textSize="@dimen/_10sdp"
+                app:uiBackgroundColor="@color/accent"
+                app:uiCornerRadius="@dimen/_10sdp"
+                app:uiTextColor="@color/on_accent"
+                tools:text="3" />
+        </FrameLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

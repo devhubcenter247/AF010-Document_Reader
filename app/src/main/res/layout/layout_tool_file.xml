@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ui.baselib.widget.layout.UiLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/CardAppStyle"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingHorizontal="@dimen/_11sdp"
+    android:paddingVertical="@dimen/_9sdp"
+    app:uiCornerRadius="@dimen/_10sdp">
+
+    <ImageView
+        android:id="@+id/ivType"
+        android:layout_width="@dimen/_23sdp"
+        android:layout_height="@dimen/_28sdp"
+        android:contentDescription="@null"
+        tools:src="@drawable/ic_file_pdf" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_9sdp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="middle"
+            android:fontFamily="@font/nt_500"
+            android:maxLines="1"
+            android:textColor="@color/text_primary"
+            android:textSize="@dimen/_11sdp"
+            tools:text="Annual-report.pdf" />
+
+        <TextView
+            android:id="@+id/tvMeta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_3sdp"
+            android:fontFamily="@font/nt_400"
+            android:textColor="@color/text_secondary"
+            android:textSize="@dimen/_9sdp"
+            tools:text="40 pages · 6.8 MB" />
+    </LinearLayout>
+
+</com.ui.baselib.widget.layout.UiLinearLayout>

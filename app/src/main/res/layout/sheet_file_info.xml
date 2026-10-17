@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ui.baselib.widget.layout.UiLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/BottomSheetAppStyle"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/_10sdp"
+    tools:context=".ui.main.files.sheet.FileInfoBottomSheet">
+
+    <include
+        android:id="@+id/header"
+        layout="@layout/layout_sheet_header" />
+
+    <include
+        android:id="@+id/rowName"
+        layout="@layout/layout_info_row" />
+
+    <include
+        android:id="@+id/rowType"
+        layout="@layout/layout_info_row" />
+
+    <include
+        android:id="@+id/rowSize"
+        layout="@layout/layout_info_row" />
+
+    <include
+        android:id="@+id/rowPages"
+        layout="@layout/layout_info_row" />
+
+    <include
+        android:id="@+id/rowLocation"
+        layout="@layout/layout_info_row" />
+
+    <include
+        android:id="@+id/rowModified"
+        layout="@layout/layout_info_row" />
+
+</com.ui.baselib.widget.layout.UiLinearLayout>

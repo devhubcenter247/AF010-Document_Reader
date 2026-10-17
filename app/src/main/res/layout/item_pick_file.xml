@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingVertical="@dimen/_8sdp"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingHorizontal="@dimen/_13sdp">
+
+    <ImageView
+        android:id="@+id/ivType"
+        android:layout_width="@dimen/_23sdp"
+        android:layout_height="@dimen/_28sdp"
+        android:contentDescription="@null"
+        tools:src="@drawable/ic_file_pdf" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_9sdp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="middle"
+            android:fontFamily="@font/nt_500"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:textColor="@color/text_primary"
+            android:textSize="@dimen/_10sdp"
+            tools:text="Lease-agreement.pdf" />
+
+        <TextView
+            android:id="@+id/tvMeta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_3sdp"
+            android:fontFamily="@font/nt_400"
+            android:textColor="@color/text_secondary"
+            android:textSize="@dimen/_9sdp"
+            tools:text="1.1 MB · Today" />
+    </LinearLayout>
+
+    <com.ui.baselib.widget.view.UiTextView
+        android:id="@+id/tvOrder"
+        android:layout_width="@dimen/_18sdp"
+        android:layout_height="@dimen/_18sdp"
+        android:fontFamily="@font/nt_600"
+        app:uiDrawableSize="@dimen/_10sdp"
+        android:gravity="center"
+        android:textSize="@dimen/_10sdp"
+        app:uiCornerRadius="@dimen/_10sdp"
+        app:uiStrokeColor="@color/color_checkbox_stroke"
+        app:uiStrokeWidth="@dimen/_2sdp"
+        app:uiTextColor="@color/on_primary"
+        tools:text="1" />
+
+</LinearLayout>

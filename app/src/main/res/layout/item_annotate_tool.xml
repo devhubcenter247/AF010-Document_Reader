@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="@dimen/_46sdp"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/ivIcon"
+        android:layout_width="@dimen/_33sdp"
+        android:layout_height="@dimen/_26sdp"
+        android:background="@drawable/bg_nav_pill"
+        android:contentDescription="@null"
+        android:paddingVertical="@dimen/_5sdp"
+        app:tint="@color/sl_reader_item"
+        tools:src="@drawable/ic_app_pen" />
+
+    <TextView
+        android:id="@+id/tvLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_3sdp"
+        android:fontFamily="@font/nt_500"
+        android:maxLines="1"
+        android:textColor="@color/sl_reader_item"
+        android:textSize="@dimen/_9sdp"
+        tools:text="Pen" />
+
+</LinearLayout>

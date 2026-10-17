@@ -1,0 +1,1011 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--
+        Custom attributes of the baselib widgets.
+
+        Naming: every attr is "ui" + camelCase (layout params: "layout_ui" + camelCase), so
+        none can collide with Material/AppCompat/Navigation attrs of the same name; enum and flag
+        values are snake_case. Attrs shared by several widgets are declared once below with their
+        format, and each declare-styleable only references them.
+    -->
+
+    <!-- Corners -->
+    <attr name="uiCornerRadius" format="dimension" />
+    <attr name="uiCornerTopLeft" format="dimension" />
+    <attr name="uiCornerTopRight" format="dimension" />
+    <attr name="uiCornerBottomLeft" format="dimension" />
+    <attr name="uiCornerBottomRight" format="dimension" />
+
+    <!-- Background: a solid color, or a gradient from start/center/end or a color list -->
+    <attr name="uiBackgroundColor" format="color" />
+    <attr name="uiBackgroundGradientEnabled" format="boolean" />
+    <attr name="uiBackgroundGradientStart" format="color" />
+    <attr name="uiBackgroundGradientCenter" format="color" />
+    <attr name="uiBackgroundGradientEnd" format="color" />
+    <!-- "#F00 #0F0 #00F" or an @array/ of colors; overrides start/center/end -->
+    <attr name="uiBackgroundGradientColors" format="string|reference" />
+    <attr name="uiBackgroundGradientType" format="enum">
+        <enum name="linear" value="0" />
+        <enum name="radial" value="1" />
+        <enum name="sweep" value="2" />
+    </attr>
+    <attr name="uiBackgroundGradientOrientation" format="enum">
+        <enum name="top_bottom" value="0" />
+        <enum name="tr_bl" value="1" />
+        <enum name="right_left" value="2" />
+        <enum name="br_tl" value="3" />
+        <enum name="bottom_top" value="4" />
+        <enum name="bl_tr" value="5" />
+        <enum name="left_right" value="6" />
+        <enum name="tl_br" value="7" />
+    </attr>
+    <!-- Radial/sweep center as a fraction of the view size (0.0 - 1.0) -->
+    <attr name="uiBackgroundGradientCenterX" format="float" />
+    <attr name="uiBackgroundGradientCenterY" format="float" />
+    <!-- Radial radius; 0 = half of the larger side -->
+    <attr name="uiBackgroundGradientRadius" format="dimension" />
+
+    <!-- Stroke -->
+    <attr name="uiStrokeWidth" format="dimension" />
+    <!-- Per-side widths "top left bottom right" (e.g. "2dp 0 0 4dp"); one value = all sides -->
+    <attr name="uiStrokeWidths" format="string" />
+    <attr name="uiStrokeColor" format="color" />
+    <!-- Explicitly enable/disable stroke gradient; omitted keeps legacy auto-detection. -->
+    <attr name="uiStrokeGradient" format="boolean" />
+    <attr name="uiStrokeGradientStart" format="color" />
+    <attr name="uiStrokeGradientCenter" format="color" />
+    <attr name="uiStrokeGradientEnd" format="color" />
+    <!-- "#F00 #0F0 #00F" or an @array/ of colors; overrides start/center/end -->
+    <attr name="uiStrokeGradientColors" format="string|reference" />
+    <attr name="uiStrokeGradientOrientation" format="enum">
+        <enum name="top_bottom" value="0" />
+        <enum name="tr_bl" value="1" />
+        <enum name="right_left" value="2" />
+        <enum name="br_tl" value="3" />
+        <enum name="bottom_top" value="4" />
+        <enum name="bl_tr" value="5" />
+        <enum name="left_right" value="6" />
+        <enum name="tl_br" value="7" />
+    </attr>
+    <attr name="uiStrokeDashed" format="boolean" />
+    <!-- Length of each dash and of each gap between dashes -->
+    <attr name="uiStrokeDashGap" format="dimension" />
+    <!-- Which sides get a stroke -->
+    <attr name="uiStrokeSides" format="flags">
+        <flag name="none" value="0" />
+        <flag name="top" value="1" />
+        <flag name="left" value="2" />
+        <flag name="bottom" value="4" />
+        <flag name="right" value="8" />
+        <flag name="horizontal" value="5" />
+        <flag name="vertical" value="10" />
+        <flag name="top_left" value="3" />
+        <flag name="top_right" value="9" />
+        <flag name="bottom_left" value="6" />
+        <flag name="bottom_right" value="12" />
+        <flag name="all" value="15" />
+    </attr>
+    <attr name="uiStrokeCap" format="enum">
+        <enum name="butt" value="0" />
+        <enum name="round" value="1" />
+        <enum name="square" value="2" />
+    </attr>
+
+    <!--
+        Shadow. By default it is the platform elevation shadow (uiShadowElevation; the color
+        needs API 28+). Setting uiShadowRadius > 0 switches to a custom blurred shadow drawn
+        with uiShadowColor / uiShadowDx / uiShadowDy on every API level; it is drawn outside
+        the view bounds, so the parent needs room via margin/padding and must not clip
+        children (see uiShadowClipParent). Under it sits a wider, fainter ambient layer with
+        no offset, by default 2.5x uiShadowRadius at half the alpha; set uiShadowAmbientColor to
+        transparent to turn it off.
+    -->
+    <attr name="uiShadowColor" format="color" />
+    <attr name="uiShadowElevation" format="dimension" />
+    <attr name="uiShadowRadius" format="dimension" />
+    <attr name="uiShadowDx" format="dimension" />
+    <attr name="uiShadowDy" format="dimension" />
+    <attr name="uiShadowAmbientColor" format="color" />
+    <attr name="uiShadowAmbientRadius" format="dimension" />
+    <!--
+        Whether the custom shadow turns off its parent's clipChildren so it can draw outside
+        the view bounds. clipChildren=false un-clips every child of that parent, so a
+        RecyclerView / ScrollView sibling would draw its scrolled content over other views.
+        auto (default): only when the view is its parent's only child, i.e. wrap the view in
+        its own container (with padding for the shadow); otherwise the shadow is clipped and
+        a warning is logged in debuggable apps. force: always (only for parents with no
+        scrolling or overflowing children). never: leave the parent alone.
+    -->
+    <attr name="uiShadowClipParent" format="enum">
+        <enum name="auto" value="0" />
+        <enum name="force" value="1" />
+        <enum name="never" value="2" />
+    </attr>
+
+    <!-- Sizing relative to the parent -->
+    <!-- "16:9", "1.78", or with the computed side first: "W,16:9" / "H,16:9" -->
+    <attr name="uiDimensionRatio" format="string" />
+    <attr name="uiWidthPercent" format="fraction|float" />
+    <attr name="uiHeightPercent" format="fraction|float" />
+    <attr name="uiMaxWidthPercent" format="fraction|float" />
+    <attr name="uiMaxHeightPercent" format="fraction|float" />
+    <attr name="uiMinWidthPercent" format="fraction|float" />
+    <attr name="uiMinHeightPercent" format="fraction|float" />
+
+    <!-- Text -->
+    <attr name="uiTextColor" format="color" />
+    <attr name="uiTextColorHint" format="color" />
+    <attr name="uiTextGradientEnabled" format="boolean" />
+    <attr name="uiTextGradientStart" format="color" />
+    <attr name="uiTextGradientCenter" format="color" />
+    <attr name="uiTextGradientEnd" format="color" />
+    <attr name="uiTextGradientOrientation" format="enum">
+        <enum name="top_bottom" value="0" />
+        <enum name="tr_bl" value="1" />
+        <enum name="right_left" value="2" />
+        <enum name="br_tl" value="3" />
+        <enum name="bottom_top" value="4" />
+        <enum name="bl_tr" value="5" />
+        <enum name="left_right" value="6" />
+        <enum name="tl_br" value="7" />
+    </attr>
+    <attr name="uiTextDecoration" format="enum">
+        <enum name="none" value="0" />
+        <enum name="overline" value="1" />
+        <enum name="underline" value="2" />
+        <enum name="strikethrough" value="3" />
+    </attr>
+    <attr name="uiDrawableSize" format="dimension" />
+    <!-- Per-axis compound drawable size; override uiDrawableSize. Setting only one keeps the aspect ratio. -->
+    <attr name="uiDrawableWidth" format="dimension" />
+    <attr name="uiDrawableHeight" format="dimension" />
+    <!--
+        Where horizontal compound drawables sit. edge (default, TextView behavior): at the view
+        edges, inside the padding. text: next to the text, moving with it per the horizontal
+        gravity (e.g. a centered "Continue →" group in a match_parent button).
+    -->
+    <attr name="uiDrawableAlign" format="enum">
+        <enum name="edge" value="0" />
+        <enum name="text" value="1" />
+    </attr>
+
+    <declare-styleable name="UiView">
+        <attr name="uiCornerRadius" />
+        <attr name="uiCornerTopLeft" />
+        <attr name="uiCornerTopRight" />
+        <attr name="uiCornerBottomLeft" />
+        <attr name="uiCornerBottomRight" />
+        <attr name="uiBackgroundColor" />
+        <attr name="uiBackgroundGradientEnabled" />
+        <attr name="uiBackgroundGradientStart" />
+        <attr name="uiBackgroundGradientCenter" />
+        <attr name="uiBackgroundGradientEnd" />
+        <attr name="uiBackgroundGradientColors" />
+        <attr name="uiBackgroundGradientType" />
+        <attr name="uiBackgroundGradientOrientation" />
+        <attr name="uiBackgroundGradientCenterX" />
+        <attr name="uiBackgroundGradientCenterY" />
+        <attr name="uiBackgroundGradientRadius" />
+        <attr name="uiStrokeWidth" />
+        <attr name="uiStrokeWidths" />
+        <attr name="uiStrokeColor" />
+        <attr name="uiStrokeGradient" />
+        <attr name="uiStrokeGradientStart" />
+        <attr name="uiStrokeGradientCenter" />
+        <attr name="uiStrokeGradientEnd" />
+        <attr name="uiStrokeGradientColors" />
+        <attr name="uiStrokeGradientOrientation" />
+        <attr name="uiStrokeDashed" />
+        <attr name="uiStrokeDashGap" />
+        <attr name="uiStrokeSides" />
+        <attr name="uiStrokeCap" />
+        <attr name="uiShadowColor" />
+        <attr name="uiShadowElevation" />
+        <attr name="uiShadowRadius" />
+        <attr name="uiShadowDx" />
+        <attr name="uiShadowDy" />
+        <attr name="uiShadowAmbientColor" />
+        <attr name="uiShadowAmbientRadius" />
+        <attr name="uiShadowClipParent" />
+        <attr name="uiDimensionRatio" />
+        <attr name="uiWidthPercent" />
+        <attr name="uiHeightPercent" />
+        <attr name="uiMaxWidthPercent" />
+        <attr name="uiMaxHeightPercent" />
+        <attr name="uiMinWidthPercent" />
+        <attr name="uiMinHeightPercent" />
+    </declare-styleable>
+
+    <declare-styleable name="UiLinearLayout">
+        <attr name="uiCornerRadius" />
+        <attr name="uiCornerTopLeft" />
+        <attr name="uiCornerTopRight" />
+        <attr name="uiCornerBottomLeft" />
+        <attr name="uiCornerBottomRight" />
+        <attr name="uiBackgroundColor" />
+        <attr name="uiBackgroundGradientEnabled" />
+        <attr name="uiBackgroundGradientStart" />
+        <attr name="uiBackgroundGradientCenter" />
+        <attr name="uiBackgroundGradientEnd" />
+        <attr name="uiBackgroundGradientColors" />
+        <attr name="uiBackgroundGradientType" />
+        <attr name="uiBackgroundGradientOrientation" />
+        <attr name="uiBackgroundGradientCenterX" />
+        <attr name="uiBackgroundGradientCenterY" />
+        <attr name="uiBackgroundGradientRadius" />
+        <attr name="uiStrokeWidth" />
+        <attr name="uiStrokeWidths" />
+        <attr name="uiStrokeColor" />
+        <attr name="uiStrokeGradient" />
+        <attr name="uiStrokeGradientStart" />
+        <attr name="uiStrokeGradientCenter" />
+        <attr name="uiStrokeGradientEnd" />
+        <attr name="uiStrokeGradientColors" />
+        <attr name="uiStrokeGradientOrientation" />
+        <attr name="uiStrokeDashed" />
+        <attr name="uiStrokeDashGap" />
+        <attr name="uiStrokeSides" />
+        <attr name="uiStrokeCap" />
+        <attr name="uiShadowColor" />
+        <attr name="uiShadowElevation" />
+        <attr name="uiShadowRadius" />
+        <attr name="uiShadowDx" />
+        <attr name="uiShadowDy" />
+        <attr name="uiShadowAmbientColor" />
+        <attr name="uiShadowAmbientRadius" />
+        <attr name="uiShadowClipParent" />
+
+
+        <attr name="uiDimensionRatio" />
+        <attr name="uiWidthPercent" />
+        <attr name="uiHeightPercent" />
+        <attr name="uiMaxWidthPercent" />
+        <attr name="uiMaxHeightPercent" />
+        <attr name="uiMinWidthPercent" />
+        <attr name="uiMinHeightPercent" />
+    </declare-styleable>
+
+    <declare-styleable name="UiFrameLayout">
+        <attr name="uiCornerRadius" />
+        <attr name="uiCornerTopLeft" />
+        <attr name="uiCornerTopRight" />
+        <attr name="uiCornerBottomLeft" />
+        <attr name="uiCornerBottomRight" />
+        <attr name="uiBackgroundColor" />
+        <attr name="uiBackgroundGradientEnabled" />
+        <attr name="uiBackgroundGradientStart" />
+        <attr name="uiBackgroundGradientCenter" />
+        <attr name="uiBackgroundGradientEnd" />
+        <attr name="uiBackgroundGradientColors" />
+        <attr name="uiBackgroundGradientType" />
+        <attr name="uiBackgroundGradientOrientation" />
+        <attr name="uiBackgroundGradientCenterX" />
+        <attr name="uiBackgroundGradientCenterY" />
+        <attr name="uiBackgroundGradientRadius" />
+        <attr name="uiStrokeWidth" />
+        <attr name="uiStrokeWidths" />
+        <attr name="uiStrokeColor" />
+        <attr name="uiStrokeGradient" />
+        <attr name="uiStrokeGradientStart" />
+        <attr name="uiStrokeGradientCenter" />
+        <attr name="uiStrokeGradientEnd" />
+        <attr name="uiStrokeGradientColors" />
+        <attr name="uiStrokeGradientOrientation" />
+        <attr name="uiStrokeDashed" />
+        <attr name="uiStrokeDashGap" />
+        <attr name="uiStrokeSides" />
+        <attr name="uiStrokeCap" />
+        <attr name="uiShadowColor" />
+        <attr name="uiShadowElevation" />
+        <attr name="uiShadowRadius" />
+        <attr name="uiShadowDx" />
+        <attr name="uiShadowDy" />
+        <attr name="uiShadowAmbientColor" />
+        <attr name="uiShadowAmbientRadius" />
+        <attr name="uiShadowClipParent" />
+
+
+        <attr name="uiDimensionRatio" />
+        <attr name="uiWidthPercent" />
+        <attr name="uiHeightPercent" />
+        <attr name="uiMaxWidthPercent" />
+        <attr name="uiMaxHeightPercent" />
+        <attr name="uiMinWidthPercent" />
+        <attr name="uiMinHeightPercent" />
+    </declare-styleable>
+
+    <declare-styleable name="UiRelativeLayout">
+        <attr name="uiCornerRadius" />
+        <attr name="uiCornerTopLeft" />
+        <attr name="uiCornerTopRight" />
+        <attr name="uiCornerBottomLeft" />
+        <attr name="uiCornerBottomRight" />
+        <attr name="uiBackgroundColor" />
+        <attr name="uiBackgroundGradientEnabled" />
+        <attr name="uiBackgroundGradientStart" />
+        <attr name="uiBackgroundGradientCenter" />
+        <attr name="uiBackgroundGradientEnd" />
+        <attr name="uiBackgroundGradientColors" />
+        <attr name="uiBackgroundGradientType" />
+        <attr name="uiBackgroundGradientOrientation" />
+        <attr name="uiBackgroundGradientCenterX" />
+        <attr name="uiBackgroundGradientCenterY" />
+        <attr name="uiBackgroundGradientRadius" />
+        <attr name="uiStrokeWidth" />
+        <attr name="uiStrokeWidths" />
+        <attr name="uiStrokeColor" />
+        <attr name="uiStrokeGradient" />
+        <attr name="uiStrokeGradientStart" />
+        <attr name="uiStrokeGradientCenter" />
+        <attr name="uiStrokeGradientEnd" />
+        <attr name="uiStrokeGradientColors" />
+        <attr name="uiStrokeGradientOrientation" />
+        <attr name="uiStrokeDashed" />
+        <attr name="uiStrokeDashGap" />
+        <attr name="uiStrokeSides" />
+        <attr name="uiStrokeCap" />
+        <attr name="uiShadowColor" />
+        <attr name="uiShadowElevation" />
+        <attr name="uiShadowRadius" />
+        <attr name="uiShadowDx" />
+        <attr name="uiShadowDy" />
+        <attr name="uiShadowAmbientColor" />
+        <attr name="uiShadowAmbientRadius" />
+        <attr name="uiShadowClipParent" />
+
+
+        <attr name="uiDimensionRatio" />
+        <attr name="uiWidthPercent" />
+        <attr name="uiHeightPercent" />
+        <attr name="uiMaxWidthPercent" />
+        <attr name="uiMaxHeightPercent" />
+        <attr name="uiMinWidthPercent" />
+        <attr name="uiMinHeightPercent" />
+    </declare-styleable>
+
+    <declare-styleable name="UiConstraintLayout">
+        <attr name="uiCornerRadius" />
+        <attr name="uiCornerTopLeft" />
+        <attr name="uiCornerTopRight" />
+        <attr name="uiCornerBottomLeft" />
+        <attr name="uiCornerBottomRight" />
+        <attr name="uiBackgroundColor" />
+        <attr name="uiBackgroundGradientEnabled" />
+        <attr name="uiBackgroundGradientStart" />
+        <attr name="uiBackgroundGradientCenter" />
+        <attr name="uiBackgroundGradientEnd" />
+        <attr name="uiBackgroundGradientColors" />
+        <attr name="uiBackgroundGradientType" />
+        <attr name="uiBackgroundGradientOrientation" />
+        <attr name="uiBackgroundGradientCenterX" />
+        <attr name="uiBackgroundGradientCenterY" />
+        <attr name="uiBackgroundGradientRadius" />
+        <attr name="uiStrokeWidth" />
+        <attr name="uiStrokeWidths" />
+        <attr name="uiStrokeColor" />
+        <attr name="uiStrokeGradient" />
+        <attr name="uiStrokeGradientStart" />
+        <attr name="uiStrokeGradientCenter" />
+        <attr name="uiStrokeGradientEnd" />
+        <attr name="uiStrokeGradientColors" />
+        <attr name="uiStrokeGradientOrientation" />
+        <attr name="uiStrokeDashed" />
+        <attr name="uiStrokeDashGap" />
+        <attr name="uiStrokeSides" />
+        <attr name="uiStrokeCap" />
+        <attr name="uiShadowColor" />
+        <attr name="uiShadowElevation" />
+        <attr name="uiShadowRadius" />
+        <attr name="uiShadowDx" />
+        <attr name="uiShadowDy" />
+        <attr name="uiShadowAmbientColor" />
+        <attr name="uiShadowAmbientRadius" />
+        <attr name="uiShadowClipParent" />
+
+
+        <attr name="uiDimensionRatio" />
+        <attr name="uiWidthPercent" />
+        <attr name="uiHeightPercent" />
+        <attr name="uiMaxWidthPercent" />
+        <attr name="uiMaxHeightPercent" />
+        <attr name="uiMinWidthPercent" />
+        <attr name="uiMinHeightPercent" />
+    </declare-styleable>
+
+    <declare-styleable name="UiRowLayout">
+        <attr name="uiCornerRadius" />
+        <attr name="uiCornerTopLeft" />
+        <attr name="uiCornerTopRight" />
+        <attr name="uiCornerBottomLeft" />
+        <attr name="uiCornerBottomRight" />
+        <attr name="uiBackgroundColor" />
+        <attr name="uiBackgroundGradientEnabled" />
+        <attr name="uiBackgroundGradientStart" />
+        <attr name="uiBackgroundGradientCenter" />
+        <attr name="uiBackgroundGradientEnd" />
+        <attr name="uiBackgroundGradientColors" />
+        <attr name="uiBackgroundGradientType" />
+        <attr name="uiBackgroundGradientOrientation" />
+        <attr name="uiBackgroundGradientCenterX" />
+        <attr name="uiBackgroundGradientCenterY" />
+        <attr name="uiBackgroundGradientRadius" />
+        <attr name="uiStrokeWidth" />
+        <attr name="uiStrokeWidths" />
+        <attr name="uiStrokeColor" />
+        <attr name="uiStrokeGradient" />
+        <attr name="uiStrokeGradientStart" />
+        <attr name="uiStrokeGradientCenter" />
+        <attr name="uiStrokeGradientEnd" />
+        <attr name="uiStrokeGradientColors" />
+        <attr name="uiStrokeGradientOrientation" />
+        <attr name="uiStrokeDashed" />
+        <attr name="uiStrokeDashGap" />
+        <attr name="uiStrokeSides" />
+        <attr name="uiStrokeCap" />
+        <attr name="uiShadowColor" />
+        <attr name="uiShadowElevation" />
+        <attr name="uiShadowRadius" />
+        <attr name="uiShadowDx" />
+        <attr name="uiShadowDy" />
+        <attr name="uiShadowAmbientColor" />
+        <attr name="uiShadowAmbientRadius" />
+        <attr name="uiShadowClipParent" />
+
+
+        <attr name="uiDimensionRatio" />
+        <attr name="uiWidthPercent" />
+        <attr name="uiHeightPercent" />
+        <attr name="uiMaxWidthPercent" />
+        <attr name="uiMaxHeightPercent" />
+        <attr name="uiMinWidthPercent" />
+        <attr name="uiMinHeightPercent" />
+        <attr name="uiRowJustifyContent" format="enum">
+            <enum name="flex_start" value="0" />
+            <enum name="center" value="1" />
+            <enum name="flex_end" value="2" />
+            <enum name="space_between" value="3" />
+            <enum name="space_around" value="4" />
+            <enum name="space_evenly" value="5" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="UiTextView">
+        <attr name="uiCornerRadius" />
+        <attr name="uiCornerTopLeft" />
+        <attr name="uiCornerTopRight" />
+        <attr name="uiCornerBottomLeft" />
+        <attr name="uiCornerBottomRight" />
+        <attr name="uiBackgroundColor" />
+        <attr name="uiBackgroundGradientEnabled" />
+        <attr name="uiBackgroundGradientStart" />
+        <attr name="uiBackgroundGradientCenter" />
+        <attr name="uiBackgroundGradientEnd" />
+        <attr name="uiBackgroundGradientColors" />
+        <attr name="uiBackgroundGradientType" />
+        <attr name="uiBackgroundGradientOrientation" />
+        <attr name="uiBackgroundGradientCenterX" />
+        <attr name="uiBackgroundGradientCenterY" />
+        <attr name="uiBackgroundGradientRadius" />
+        <attr name="uiStrokeWidth" />
+        <attr name="uiStrokeWidths" />
+        <attr name="uiStrokeColor" />
+        <attr name="uiStrokeGradient" />
+        <attr name="uiStrokeGradientStart" />
+        <attr name="uiStrokeGradientCenter" />
+        <attr name="uiStrokeGradientEnd" />
+        <attr name="uiStrokeGradientColors" />
+        <attr name="uiStrokeGradientOrientation" />
+        <attr name="uiStrokeDashed" />
+        <attr name="uiStrokeDashGap" />
+        <attr name="uiStrokeSides" />
+        <attr name="uiShadowColor" />
+        <attr name="uiShadowElevation" />
+        <attr name="uiShadowRadius" />
+        <attr name="uiShadowDx" />
+        <attr name="uiShadowDy" />
+        <attr name="uiShadowAmbientColor" />
+        <attr name="uiShadowAmbientRadius" />
+        <attr name="uiShadowClipParent" />
+
+
+        <attr name="uiDimensionRatio" />
+        <attr name="uiWidthPercent" />
+        <attr name="uiHeightPercent" />
+        <attr name="uiMaxWidthPercent" />
+        <attr name="uiMaxHeightPercent" />
+        <attr name="uiMinWidthPercent" />
+        <attr name="uiMinHeightPercent" />
+        <attr name="uiTextColor" />
+        <attr name="uiTextColorHint" />
+        <attr name="uiTextGradientEnabled" />
+        <attr name="uiTextGradientStart" />
+        <attr name="uiTextGradientCenter" />
+        <attr name="uiTextGradientEnd" />
+        <attr name="uiTextGradientOrientation" />
+        <attr name="uiTextDecoration" />
+        <attr name="uiDrawableSize" />
+        <attr name="uiDrawableWidth" />
+        <attr name="uiDrawableHeight" />
+        <!-- Color or color state list (pressed/disabled/selected); applies to every compound drawable. -->
+        <attr name="uiDrawableTint" />
+        <attr name="uiDrawablePadding" />
+        <attr name="uiDrawableAlign" />
+        <attr name="uiSingleLine" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="UiImageView">
+        <attr name="uiCornerRadius" />
+        <attr name="uiCornerTopLeft" />
+        <attr name="uiCornerTopRight" />
+        <attr name="uiCornerBottomLeft" />
+        <attr name="uiCornerBottomRight" />
+        <attr name="uiBackgroundColor" />
+        <attr name="uiBackgroundGradientEnabled" />
+        <attr name="uiBackgroundGradientStart" />
+        <attr name="uiBackgroundGradientCenter" />
+        <attr name="uiBackgroundGradientEnd" />
+        <attr name="uiBackgroundGradientColors" />
+        <attr name="uiBackgroundGradientType" />
+        <attr name="uiBackgroundGradientOrientation" />
+        <attr name="uiBackgroundGradientCenterX" />
+        <attr name="uiBackgroundGradientCenterY" />
+        <attr name="uiBackgroundGradientRadius" />
+        <attr name="uiStrokeWidth" />
+        <attr name="uiStrokeWidths" />
+        <attr name="uiStrokeColor" />
+        <attr name="uiStrokeGradient" />
+        <attr name="uiStrokeGradientStart" />
+        <attr name="uiStrokeGradientCenter" />
+        <attr name="uiStrokeGradientEnd" />
+        <attr name="uiStrokeGradientColors" />
+        <attr name="uiStrokeGradientOrientation" />
+        <attr name="uiStrokeDashed" />
+        <attr name="uiStrokeDashGap" />
+        <attr name="uiStrokeSides" />
+        <attr name="uiShadowColor" />
+        <attr name="uiShadowElevation" />
+        <attr name="uiShadowRadius" />
+        <attr name="uiShadowDx" />
+        <attr name="uiShadowDy" />
+        <attr name="uiShadowAmbientColor" />
+        <attr name="uiShadowAmbientRadius" />
+        <attr name="uiShadowClipParent" />
+        <attr name="uiDimensionRatio" />
+        <attr name="uiWidthPercent" />
+        <attr name="uiHeightPercent" />
+        <attr name="uiMaxWidthPercent" />
+        <attr name="uiMaxHeightPercent" />
+        <attr name="uiMinWidthPercent" />
+        <attr name="uiMinHeightPercent" />
+        <!-- Tints the image with a gradient: "#F00 #0F0" or an @array/ of colors -->
+        <attr name="uiIconGradientColors" format="string|reference" />
+        <attr name="uiIconGradientOrientation" format="enum">
+            <enum name="top_bottom" value="0" />
+            <enum name="tr_bl" value="1" />
+            <enum name="right_left" value="2" />
+            <enum name="br_tl" value="3" />
+            <enum name="bottom_top" value="4" />
+            <enum name="bl_tr" value="5" />
+            <enum name="left_right" value="6" />
+            <enum name="tl_br" value="7" />
+        </attr>
+        <attr name="android:src" />
+        <attr name="android:padding" />
+        <attr name="android:adjustViewBounds" />
+    </declare-styleable>
+
+    <declare-styleable name="UiEditText">
+        <attr name="uiCornerRadius" />
+        <attr name="uiBackgroundColor" />
+        <attr name="uiBackgroundGradientEnabled" />
+        <attr name="uiBackgroundGradientStart" />
+        <attr name="uiBackgroundGradientCenter" />
+        <attr name="uiBackgroundGradientEnd" />
+        <attr name="uiBackgroundGradientColors" />
+        <attr name="uiBackgroundGradientType" />
+        <attr name="uiBackgroundGradientOrientation" />
+        <attr name="uiBackgroundGradientCenterX" />
+        <attr name="uiBackgroundGradientCenterY" />
+        <attr name="uiBackgroundGradientRadius" />
+        <attr name="uiStrokeWidth" />
+        <attr name="uiStrokeColor" />
+        <attr name="uiStrokeGradient" />
+        <attr name="uiStrokeGradientStart" />
+        <attr name="uiStrokeGradientCenter" />
+        <attr name="uiStrokeGradientEnd" />
+        <attr name="uiStrokeGradientColors" />
+        <attr name="uiStrokeGradientOrientation" />
+        <attr name="uiStrokeDashed" />
+        <attr name="uiStrokeDashGap" />
+        <attr name="uiTextColor" />
+        <attr name="uiTextColorHint" />
+        <attr name="uiTextGradientEnabled" />
+        <attr name="uiTextGradientStart" />
+        <attr name="uiTextGradientEnd" />
+        <attr name="uiTextGradientOrientation" />
+        <attr name="uiTextDecoration" />
+        <attr name="uiDrawableSize" />
+        <!-- Background/stroke while focused -->
+        <attr name="uiFocusedBackgroundColor" format="color" />
+        <attr name="uiFocusedBackgroundGradientEnabled" format="boolean" />
+        <attr name="uiFocusedBackgroundGradientStart" format="color" />
+        <attr name="uiFocusedBackgroundGradientCenter" format="color" />
+        <attr name="uiFocusedBackgroundGradientEnd" format="color" />
+        <attr name="uiFocusedBackgroundGradientType" format="enum">
+            <enum name="linear" value="0" />
+            <enum name="radial" value="1" />
+            <enum name="sweep" value="2" />
+        </attr>
+        <attr name="uiFocusedBackgroundGradientCenterX" format="float" />
+        <attr name="uiFocusedBackgroundGradientCenterY" format="float" />
+        <attr name="uiFocusedBackgroundGradientRadius" format="dimension" />
+        <attr name="uiFocusedStrokeWidth" format="dimension" />
+        <attr name="uiFocusedStrokeColor" format="color" />
+        <attr name="uiFocusedStrokeGradientColors" format="string|reference" />
+        <attr name="uiFocusedStrokeDashed" format="boolean" />
+        <attr name="uiFocusedStrokeDashGap" format="dimension" />
+        <!-- Trailing icon that switches between the empty and non-empty states -->
+        <attr name="uiDrawableEmpty" format="reference" />
+        <attr name="uiDrawableNotEmpty" format="reference" />
+        <attr name="uiDrawablePosition" format="enum">
+            <enum name="start" value="0" />
+            <enum name="end" value="1" />
+            <enum name="top" value="2" />
+            <enum name="bottom" value="3" />
+        </attr>
+        <attr name="uiDrawablePadding" format="dimension" />
+        <attr name="uiDrawableTint" format="color" />
+        <attr name="uiDrawableEmptyTint" format="color" />
+        <attr name="uiDrawableNotEmptyTint" format="color" />
+        <attr name="uiDrawableEmptyVisible" format="boolean" />
+        <attr name="uiDrawableNotEmptyVisible" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="StrokeTextView">
+        <!-- Outline -->
+        <attr name="uiTextStrokeWidth" format="dimension" />
+        <attr name="uiTextStrokeColor" format="color" />
+        <attr name="uiTextStrokeGradientColors" format="string|reference" />
+        <attr name="uiTextStrokeGradientOrientation" format="enum">
+            <enum name="top_bottom" value="0" />
+            <enum name="tr_bl" value="1" />
+            <enum name="right_left" value="2" />
+            <enum name="br_tl" value="3" />
+            <enum name="bottom_top" value="4" />
+            <enum name="bl_tr" value="5" />
+            <enum name="left_right" value="6" />
+            <enum name="tl_br" value="7" />
+        </attr>
+        <!-- Fill -->
+        <attr name="uiTextFillColor" format="color" />
+        <attr name="uiTextFillGradientColors" format="string|reference" />
+        <attr name="uiTextFillGradientOrientation" format="enum">
+            <enum name="top_bottom" value="0" />
+            <enum name="tr_bl" value="1" />
+            <enum name="right_left" value="2" />
+            <enum name="br_tl" value="3" />
+            <enum name="bottom_top" value="4" />
+            <enum name="bl_tr" value="5" />
+            <enum name="left_right" value="6" />
+            <enum name="tl_br" value="7" />
+        </attr>
+        <!-- Shadow -->
+        <attr name="uiTextShadowRadius" format="dimension" />
+        <attr name="uiTextShadowDx" format="dimension" />
+        <attr name="uiTextShadowDy" format="dimension" />
+        <attr name="uiTextShadowColor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="UiLinearProgressIndicator">
+        <attr name="uiProgress" format="integer" />
+        <attr name="uiProgressMax" format="integer" />
+        <attr name="uiProgressIndeterminate" format="boolean" />
+        <!-- Milliseconds -->
+        <attr name="uiProgressAnimationDuration" format="integer" />
+        <attr name="uiProgressTrackColor" format="color" />
+        <attr name="uiProgressTrackThickness" format="dimension" />
+        <attr name="uiProgressTrackCornerRadius" format="dimension" />
+        <attr name="uiProgressGradientStart" format="color" />
+        <attr name="uiProgressGradientEnd" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="CustomSwitch">
+        <attr name="uiSwitchChecked" format="boolean" />
+        <attr name="uiSwitchWidth" format="dimension" />
+        <attr name="uiSwitchHeight" format="dimension" />
+        <!-- Milliseconds -->
+        <attr name="uiSwitchAnimationDuration" format="integer" />
+        <!-- Track -->
+        <attr name="uiSwitchTrackColorOff" format="color" />
+        <attr name="uiSwitchTrackColorOn" format="color" />
+        <attr name="uiSwitchTrackStrokeWidth" format="dimension" />
+        <attr name="uiSwitchTrackStrokeColorOff" format="color" />
+        <attr name="uiSwitchTrackStrokeColorOn" format="color" />
+        <attr name="uiSwitchTrackCornerRadius" format="dimension" />
+        <!-- Thumb -->
+        <attr name="uiSwitchThumbColorOff" format="color" />
+        <attr name="uiSwitchThumbColorOn" format="color" />
+        <attr name="uiSwitchThumbStrokeWidth" format="dimension" />
+        <attr name="uiSwitchThumbStrokeColorOff" format="color" />
+        <attr name="uiSwitchThumbStrokeColorOn" format="color" />
+        <attr name="uiSwitchThumbRadius" format="dimension" />
+        <attr name="uiSwitchThumbPadding" format="dimension" />
+        <attr name="uiSwitchThumbElevation" format="dimension" />
+        <attr name="uiSwitchThumbShadowColor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="UISeekbar">
+        <attr name="uiSeekbarMin" format="integer" />
+        <attr name="uiSeekbarMax" format="integer" />
+        <attr name="uiSeekbarProgress" format="integer" />
+        <attr name="uiSeekbarTrackColor" format="color" />
+        <attr name="uiSeekbarTrackHeight" format="dimension" />
+        <attr name="uiSeekbarTrackCornerRadius" format="dimension" />
+        <attr name="uiSeekbarTrackGradientStart" format="color" />
+        <attr name="uiSeekbarTrackGradientEnd" format="color" />
+        <attr name="uiSeekbarProgressColor" format="color" />
+        <attr name="uiSeekbarProgressGradientStart" format="color" />
+        <attr name="uiSeekbarProgressGradientEnd" format="color" />
+        <attr name="uiSeekbarThumbColor" format="color" />
+        <attr name="uiSeekbarThumbRadius" format="dimension" />
+        <attr name="uiSeekbarThumbStrokeWidth" format="dimension" />
+        <attr name="uiSeekbarThumbStrokeColor" format="color" />
+        <attr name="uiSeekbarThumbElevation" format="dimension" />
+        <attr name="uiSeekbarThumbShadowColor" format="color" />
+        <attr name="uiSeekbarThumbDrawable" format="reference" />
+        <attr name="uiSeekbarStepSize" format="integer" />
+        <attr name="uiSeekbarShowTicks" format="boolean" />
+        <attr name="uiSeekbarTickColor" format="color" />
+        <attr name="uiSeekbarTickRadius" format="dimension" />
+        <attr name="uiSeekbarShowValueLabel" format="boolean" />
+        <attr name="uiSeekbarValueLabelAlwaysVisible" format="boolean" />
+        <attr name="uiSeekbarValueLabelBackgroundColor" format="color" />
+        <attr name="uiSeekbarValueLabelTextColor" format="color" />
+        <attr name="uiSeekbarValueLabelTextSize" format="dimension" />
+        <attr name="uiSeekbarValueLabelPadding" format="dimension" />
+        <attr name="uiSeekbarValueLabelCornerRadius" format="dimension" />
+        <attr name="uiSeekbarValueLabelMinWidth" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="RatingBar">
+        <attr name="uiRating" format="integer" />
+        <attr name="uiRatingMax" format="integer" />
+        <attr name="uiRatingSpacing" format="dimension" />
+        <attr name="uiRatingEmptyDrawable" format="reference" />
+        <attr name="uiRatingFilledDrawable" format="reference" />
+        <!-- Optional different drawables for the last star -->
+        <attr name="uiRatingEmptyLastDrawable" format="reference" />
+        <attr name="uiRatingFilledLastDrawable" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="IndicatorView">
+        <attr name="uiIndicatorCount" format="integer" />
+        <!-- Selected index; the highlighted dot is uiIndicatorSelected * uiIndicatorStep -->
+        <attr name="uiIndicatorSelected" format="integer" />
+        <attr name="uiIndicatorStep" format="integer" />
+        <attr name="uiIndicatorSpacing" format="dimension" />
+        <attr name="uiIndicatorRadius" format="dimension" />
+        <attr name="uiIndicatorColor" format="color" />
+        <attr name="uiIndicatorSelectedColor" format="color" />
+        <!-- Width of the selected dot relative to the others -->
+        <attr name="uiIndicatorSelectedWidthRatio" format="float" />
+        <!-- Same idea for IndicatorCustomView -->
+        <attr name="uiIndicatorSelectedWidthMultiplier" format="float" />
+        <attr name="uiIndicatorGradientEnabled" format="boolean" />
+        <attr name="uiIndicatorGradientStart" format="color" />
+        <attr name="uiIndicatorGradientEnd" format="color" />
+        <attr name="uiIndicatorGradientOrientation" format="enum">
+            <enum name="left_right" value="0" />
+            <enum name="top_bottom" value="1" />
+            <enum name="tl_br" value="2" />
+            <enum name="tr_bl" value="3" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="UiNavigationBar">
+        <attr name="uiNavGraph" format="reference" />
+        <!-- Selection indicator -->
+        <attr name="uiNavIndicatorStyle" format="enum">
+            <enum name="none" value="0" />
+            <enum name="bottom_bar" value="1" />
+            <enum name="background" value="2" />
+            <enum name="pill" value="3" />
+        </attr>
+        <attr name="uiNavIndicatorColor" format="color" />
+        <attr name="uiNavIndicatorWidth" format="dimension|fraction" />
+        <attr name="uiNavIndicatorHeight" format="dimension" />
+        <attr name="uiNavIndicatorRadius" format="dimension" />
+        <!-- Inset around the background/pill indicator fill -->
+        <attr name="uiNavIndicatorPadding" format="dimension" />
+        <!-- Opacity (0.0 - 1.0) of the background/pill indicator fill -->
+        <attr name="uiNavIndicatorAlpha" format="float" />
+        <attr name="uiNavIndicatorAnimated" format="boolean" />
+        <attr name="uiNavIndicatorAnimationDuration" format="integer" />
+        <attr name="uiNavIndicatorGradientEnabled" format="boolean" />
+        <attr name="uiNavIndicatorGradientStart" format="color" />
+        <attr name="uiNavIndicatorGradientCenter" format="color" />
+        <attr name="uiNavIndicatorGradientEnd" format="color" />
+        <attr name="uiNavIndicatorGradientOrientation" format="enum">
+            <enum name="horizontal" value="0" />
+            <enum name="vertical" value="1" />
+        </attr>
+        <!-- Items -->
+        <attr name="uiNavItemLayout" format="enum">
+            <enum name="horizontal" value="0" />
+            <enum name="vertical" value="1" />
+        </attr>
+        <attr name="uiNavItemPadding" format="dimension" />
+        <attr name="uiNavItemAnimation" format="enum">
+            <enum name="none" value="0" />
+            <enum name="scale" value="1" />
+            <enum name="fade" value="2" />
+            <enum name="slide" value="3" />
+            <enum name="bounce" value="4" />
+        </attr>
+        <attr name="uiNavItemAnimationDuration" format="integer" />
+        <attr name="uiNavIconSize" format="dimension" />
+        <attr name="uiNavIconTextSpacing" format="dimension" />
+        <attr name="uiNavIconTintSelected" format="color" />
+        <attr name="uiNavIconTintUnselected" format="color" />
+        <attr name="uiNavTextSize" format="dimension" />
+        <attr name="uiNavTextColorSelected" format="color" />
+        <attr name="uiNavTextColorUnselected" format="color" />
+        <attr name="uiNavTextSingleLine" format="boolean" />
+        <attr name="uiNavLabelFontFamily" format="reference" />
+        <attr name="uiNavLabelVisibility" format="enum">
+            <enum name="always" value="0" />
+            <enum name="selected" value="1" />
+            <enum name="never" value="2" />
+        </attr>
+        <attr name="uiNavTextGradientEnabled" format="boolean" />
+        <attr name="uiNavTextGradientStart" format="color" />
+        <attr name="uiNavTextGradientCenter" format="color" />
+        <attr name="uiNavTextGradientEnd" format="color" />
+        <attr name="uiNavTextGradientOrientation" format="enum">
+            <enum name="horizontal" value="0" />
+            <enum name="vertical" value="1" />
+        </attr>
+        <attr name="uiNavBadgeColor" format="color" />
+        <attr name="uiNavBadgeTextColor" format="color" />
+        <attr name="uiNavRippleEnabled" format="boolean" />
+        <attr name="uiNavRippleColor" format="color" />
+        <!-- Fragment transition when switching destinations -->
+        <attr name="uiNavTransitionEnabled" format="boolean" />
+        <attr name="uiNavEnterAnim" format="reference" />
+        <attr name="uiNavExitAnim" format="reference" />
+        <attr name="uiNavPopEnterAnim" format="reference" />
+        <attr name="uiNavPopExitAnim" format="reference" />
+        <!-- Shape attrs read by UiLinearLayout -->
+        <attr name="uiCornerRadius" />
+        <attr name="uiCornerTopLeft" />
+        <attr name="uiCornerTopRight" />
+        <attr name="uiCornerBottomLeft" />
+        <attr name="uiCornerBottomRight" />
+        <attr name="uiBackgroundColor" />
+        <attr name="uiBackgroundGradientEnabled" />
+        <attr name="uiBackgroundGradientStart" />
+        <attr name="uiBackgroundGradientCenter" />
+        <attr name="uiBackgroundGradientEnd" />
+        <attr name="uiBackgroundGradientColors" />
+        <attr name="uiBackgroundGradientType" />
+        <attr name="uiBackgroundGradientOrientation" />
+        <attr name="uiBackgroundGradientCenterX" />
+        <attr name="uiBackgroundGradientCenterY" />
+        <attr name="uiBackgroundGradientRadius" />
+        <attr name="uiStrokeWidth" />
+        <attr name="uiStrokeWidths" />
+        <attr name="uiStrokeColor" />
+        <attr name="uiStrokeGradient" />
+        <attr name="uiStrokeGradientStart" />
+        <attr name="uiStrokeGradientCenter" />
+        <attr name="uiStrokeGradientEnd" />
+        <attr name="uiStrokeGradientColors" />
+        <attr name="uiStrokeGradientOrientation" />
+        <attr name="uiStrokeDashed" />
+        <attr name="uiStrokeDashGap" />
+        <attr name="uiStrokeSides" />
+        <attr name="uiStrokeCap" />
+        <attr name="uiShadowColor" />
+        <attr name="uiShadowElevation" />
+        <attr name="uiDimensionRatio" />
+        <attr name="uiWidthPercent" />
+        <attr name="uiHeightPercent" />
+        <attr name="uiMaxWidthPercent" />
+        <attr name="uiMaxHeightPercent" />
+        <attr name="uiMinWidthPercent" />
+        <attr name="uiMinHeightPercent" />
+    </declare-styleable>
+
+    <declare-styleable name="NavItem">
+        <attr name="uiNavDestination" format="reference" />
+        <attr name="uiNavIcon" format="reference" />
+        <attr name="uiNavIconSelected" format="reference" />
+        <attr name="uiNavTitle" format="string" />
+    </declare-styleable>
+
+    <!-- Port of google/flexbox-layout with ui-prefixed attrs -->
+    <declare-styleable name="FlexboxLayout">
+        <attr name="uiFlexDirection" format="enum">
+            <enum name="row" value="0" />
+            <enum name="row_reverse" value="1" />
+            <enum name="column" value="2" />
+            <enum name="column_reverse" value="3" />
+        </attr>
+        <attr name="uiFlexWrap" format="enum">
+            <enum name="nowrap" value="0" />
+            <enum name="wrap" value="1" />
+            <enum name="wrap_reverse" value="2" />
+        </attr>
+        <attr name="uiJustifyContent" format="enum">
+            <enum name="flex_start" value="0" />
+            <enum name="flex_end" value="1" />
+            <enum name="center" value="2" />
+            <enum name="space_between" value="3" />
+            <enum name="space_around" value="4" />
+            <enum name="space_evenly" value="5" />
+        </attr>
+        <attr name="uiAlignItems" format="enum">
+            <enum name="flex_start" value="0" />
+            <enum name="flex_end" value="1" />
+            <enum name="center" value="2" />
+            <enum name="baseline" value="3" />
+            <enum name="stretch" value="4" />
+        </attr>
+        <attr name="uiAlignContent" format="enum">
+            <enum name="flex_start" value="0" />
+            <enum name="flex_end" value="1" />
+            <enum name="center" value="2" />
+            <enum name="space_between" value="3" />
+            <enum name="space_around" value="4" />
+            <enum name="stretch" value="5" />
+            <enum name="space_evenly" value="6" />
+        </attr>
+        <attr name="uiDividerDrawable" format="reference" />
+        <attr name="uiDividerDrawableHorizontal" format="reference" />
+        <attr name="uiDividerDrawableVertical" format="reference" />
+        <attr name="uiShowDivider" format="flags">
+            <flag name="none" value="0" />
+            <flag name="beginning" value="1" />
+            <flag name="middle" value="2" />
+            <flag name="end" value="4" />
+        </attr>
+        <attr name="uiShowDividerHorizontal" format="flags">
+            <flag name="none" value="0" />
+            <flag name="beginning" value="1" />
+            <flag name="middle" value="2" />
+            <flag name="end" value="4" />
+        </attr>
+        <attr name="uiShowDividerVertical" format="flags">
+            <flag name="none" value="0" />
+            <flag name="beginning" value="1" />
+            <flag name="middle" value="2" />
+            <flag name="end" value="4" />
+        </attr>
+        <!-- Maximum number of flex lines; only with uiFlexWrap="wrap" or "wrap_reverse" -->
+        <attr name="uiMaxLine" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="FlexboxLayout_Layout">
+        <attr name="layout_uiOrder" format="integer" />
+        <!-- Negative numbers are invalid -->
+        <attr name="layout_uiFlexGrow" format="float" />
+        <attr name="layout_uiFlexShrink" format="float" />
+        <!-- Initial main-axis size as a fraction of the parent (CSS flex-basis) -->
+        <attr name="layout_uiFlexBasisPercent" format="fraction" />
+        <!-- Values match uiAlignItems, plus auto (use the parent's) -->
+        <attr name="layout_uiAlignSelf" format="enum">
+            <enum name="auto" value="-1" />
+            <enum name="flex_start" value="0" />
+            <enum name="flex_end" value="1" />
+            <enum name="center" value="2" />
+            <enum name="baseline" value="3" />
+            <enum name="stretch" value="4" />
+        </attr>
+        <attr name="layout_uiMinWidth" format="dimension" />
+        <attr name="layout_uiMinHeight" format="dimension" />
+        <attr name="layout_uiMaxWidth" format="dimension" />
+        <attr name="layout_uiMaxHeight" format="dimension" />
+        <!-- Start a new flex line at this item (ignored with uiFlexWrap="nowrap") -->
+        <attr name="layout_uiWrapBefore" format="boolean" />
+    </declare-styleable>
+</resources>
