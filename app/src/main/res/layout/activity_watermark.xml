@@ -59,7 +59,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/nt_500"
+            android:fontFamily="@font/nunito_700"
             android:text="@string/watermark_text"
             android:textColor="@color/text_secondary"
             android:textSize="@dimen/_10sdp" />
@@ -79,7 +79,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@null"
-                android:fontFamily="@font/nt_400"
+                android:fontFamily="@font/nunito_600"
                 android:hint="@string/watermark_text"
                 android:imeOptions="actionDone"
                 android:importantForAutofill="no"
@@ -102,7 +102,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:fontFamily="@font/nt_500"
+                android:fontFamily="@font/nunito_700"
                 android:text="@string/pdf_edit_color"
                 android:textColor="@color/text_secondary"
                 android:textSize="@dimen/_10sdp" />
@@ -124,7 +124,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:fontFamily="@font/nt_500"
+                android:fontFamily="@font/nunito_700"
                 android:text="@string/opacity"
                 android:textColor="@color/text_primary"
                 android:textSize="@dimen/_10sdp" />
@@ -133,7 +133,7 @@
                 android:id="@+id/tvOpacity"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/nt_400"
+                android:fontFamily="@font/nunito_600"
                 android:textColor="@color/text_secondary"
                 android:textSize="@dimen/_10sdp"
                 tools:text="22%" />
@@ -160,7 +160,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:fontFamily="@font/nt_500"
+                android:fontFamily="@font/nunito_700"
                 android:text="@string/rotation"
                 android:textColor="@color/text_primary"
                 android:textSize="@dimen/_10sdp" />
@@ -169,7 +169,7 @@
                 android:id="@+id/tvRotation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/nt_400"
+                android:fontFamily="@font/nunito_600"
                 android:textColor="@color/text_secondary"
                 android:textSize="@dimen/_10sdp"
                 tools:text="22%" />

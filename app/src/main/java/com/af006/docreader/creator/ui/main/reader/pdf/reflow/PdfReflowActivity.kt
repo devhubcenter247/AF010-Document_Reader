@@ -157,7 +157,7 @@ class ReflowAdapter : BaseAdapter<ReflowBlock, ItemReflowTextBinding>() {
     override fun ItemReflowTextBinding.bind(item: ReflowBlock, position: Int) {
         val context = root.context
         tvText.text = item.text
-        tvText.typeface = ResourcesCompat.getFont(context, if (item.isPage) R.font.nt_700 else R.font.nt_400)
+        tvText.typeface = ResourcesCompat.getFont(context, if (item.isPage) R.font.nunito_900 else R.font.nunito_600)
         tvText.setTextSize(TypedValue.COMPLEX_UNIT_SP, if (item.isPage) PAGE_LABEL_SP else sizeSp)
         tvText.setTextColor(
             ContextCompat.getColor(context, if (item.isPage) R.color.text_secondary else R.color.text_primary)

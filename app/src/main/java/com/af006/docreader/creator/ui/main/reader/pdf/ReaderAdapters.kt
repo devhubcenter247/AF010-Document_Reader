@@ -85,7 +85,7 @@ class TocAdapter : BaseAdapter<TocRow, ItemTocRowBinding>() {
         val top = item.depth == 0
         val indent = context.resources.getDimensionPixelSize(com.intuit.sdp.R.dimen._15sdp)
         tvTitle.text = item.title
-        tvTitle.typeface = ResourcesCompat.getFont(context, if (top) R.font.nt_700 else R.font.nt_500)
+        tvTitle.typeface = ResourcesCompat.getFont(context, if (top) R.font.nunito_900 else R.font.nunito_700)
         tvTitle.setTextColor(
             ContextCompat.getColor(context, if (top) R.color.text_primary else R.color.text_secondary)
         )

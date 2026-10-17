@@ -38,7 +38,7 @@
                 android:id="@+id/tvName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/nt_600"
+                android:fontFamily="@font/nunito_800"
                 android:textColor="@color/text_primary"
                 android:textSize="@dimen/_12sdp"
                 tools:text="Yearly" />
@@ -48,7 +48,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_2sdp"
-                android:fontFamily="@font/nt_400"
+                android:fontFamily="@font/nunito_600"
                 android:textColor="@color/text_secondary"
                 android:textSize="@dimen/_9sdp"
                 tools:text="3-day free trial, then $29.99 a year" />
@@ -57,7 +57,7 @@
                 android:id="@+id/tvLine2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/nt_400"
+                android:fontFamily="@font/nunito_600"
                 android:textColor="@color/text_secondary"
                 android:textSize="@dimen/_9sdp"
                 tools:text="Equal to $2.50 / month" />
@@ -73,7 +73,7 @@
                 android:id="@+id/tvPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/nt_600"
+                android:fontFamily="@font/nunito_800"
                 android:textColor="@color/text_primary"
                 android:textSize="@dimen/_13sdp"
                 tools:text="$29.99" />
@@ -82,7 +82,7 @@
                 android:id="@+id/tvPeriod"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/nt_400"
+                android:fontFamily="@font/nunito_600"
                 android:textColor="@color/text_secondary"
                 android:textSize="@dimen/_9sdp"
                 tools:text="per year" />
@@ -96,7 +96,7 @@
         android:layout_gravity="top|end"
         android:layout_marginEnd="@dimen/_11sdp"
         android:layout_marginTop="@dimen/_minus8sdp"
-        android:fontFamily="@font/nt_600"
+        android:fontFamily="@font/nunito_800"
         android:gravity="center"
         android:paddingHorizontal="@dimen/_8sdp"
         android:textSize="@dimen/_9sdp"

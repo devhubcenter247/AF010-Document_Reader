@@ -244,6 +244,11 @@
             android:screenOrientation="sensorLandscape"
             tools:ignore="DiscouragedApi" />
         <activity
+            android:name=".ui.main.premium.IntroPaywallActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            tools:ignore="DiscouragedApi,LockedOrientationActivity" />
+        <activity
             android:name=".ui.main.premium.PaywallActivity"
             android:exported="false"
             android:screenOrientation="portrait"

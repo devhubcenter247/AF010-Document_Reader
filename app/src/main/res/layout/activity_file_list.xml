@@ -25,8 +25,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/_13sdp"
             android:layout_marginVertical="@dimen/_11sdp"
-            android:background="@drawable/bg_surface_card_r15sdp"
-            android:foreground="@drawable/stroke_r15sdp_st1sdp_stroke"
+            android:background="@drawable/bg_card"
             android:clipToOutline="true">
 
             <androidx.recyclerview.widget.RecyclerView

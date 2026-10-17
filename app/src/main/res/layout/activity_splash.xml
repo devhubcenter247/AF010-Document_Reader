@@ -8,74 +8,99 @@
     android:background="@color/color_bg_app"
     tools:context=".ui.splash.SplashActivity">
 
+    <!-- Soft blobs and sparkles, laid out on the 390 × 844 design canvas -->
     <ImageView
-        android:id="@+id/uiImageView"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:importantForAccessibility="no"
         android:scaleType="centerCrop"
-        android:src="@drawable/img_logo_splash"
+        android:src="@drawable/bg_decor_splash"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.302"
-        android:background="@drawable/bg_r23sdp"
-        android:clipToOutline="true"
-        android:elevation="@dimen/_27sdp"
-        android:outlineSpotShadowColor="@color/primary_40"
-        android:outlineAmbientShadowColor="@color/primary_40"
-        app:layout_constraintWidth_percent="0.35"
-        app:layout_constraintDimensionRatio="1:1" />
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/tvAppName"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_10ssp"
-        android:fontFamily="@font/nt_600"
-        android:text="@string/app_name"
-        android:textAlignment="center"
-        android:textSize="@dimen/_15sdp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/uiImageView" />
-
-    <TextView
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/nt_400"
-        android:textColor="@color/text_secondary"
-        android:layout_marginTop="@dimen/_10ssp"
-        android:text="@string/create_edit_and_sign_any_document"
-        android:textAlignment="center"
-        android:textSize="@dimen/_10sdp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvAppName" />
-
-    <TextView
+    <!-- Mascot and name, centred -->
+    <LinearLayout
+        android:id="@+id/brand"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/_7sdp"
-        android:text="@string/this_action_may_contain_advertising"
-        app:layout_constraintBottom_toTopOf="@+id/uiLinearProgressIndicator"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/ivMascot"
+            android:layout_width="@dimen/_95sdp"
+            android:layout_height="@dimen/_119sdp"
+            android:importantForAccessibility="no"
+            android:rotation="-6"
+            android:src="@drawable/ic_mascot_cheer" />
+
+        <TextView
+            android:id="@+id/tvAppName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:fontFamily="@font/nunito_800"
+            android:letterSpacing="-0.025"
+            android:text="@string/app_name"
+            android:textColor="@color/text_primary"
+            android:textSize="@dimen/_37sdp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_6sdp"
+            android:fontFamily="@font/nunito_600"
+            android:text="@string/splash_tagline"
+            android:textColor="@color/text_tertiary"
+            android:textSize="@dimen/_13sdp" />
+    </LinearLayout>
+
+    <!-- Loading -->
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/progress"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_49sdp"
+        android:layout_marginBottom="@dimen/_9sdp"
+        android:indeterminate="true"
+        app:indicatorColor="@color/primary"
+        app:layout_constraintBottom_toTopOf="@+id/tvLoading"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:trackColor="@color/color_handle"
+        app:trackCornerRadius="@dimen/_3sdp"
+        app:trackThickness="@dimen/_6sdp" />
+
+    <TextView
+        android:id="@+id/tvLoading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/nunito_800"
+        android:text="@string/splash_loading"
+        android:textColor="@color/text_tertiary"
+        android:textSize="@dimen/_11sdp"
+        app:layout_constraintBottom_toTopOf="@+id/tvAds"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <com.ui.baselib.widget.view.UiLinearProgressIndicator
-        android:id="@+id/uiLinearProgressIndicator"
-        android:layout_width="0dp"
-        app:uiProgressTrackThickness="@dimen/_3sdp"
+    <TextView
+        android:id="@+id/tvAds"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:uiProgressTrackColor="@color/primary_30"
-        app:uiProgressTrackCornerRadius="@dimen/_10ssp"
-        android:layout_marginBottom="@dimen/_10ssp"
+        android:layout_marginTop="@dimen/_9sdp"
+        android:layout_marginBottom="@dimen/_54sdp"
+        android:fontFamily="@font/nunito_600"
+        android:text="@string/this_action_may_contain_advertising"
+        android:textColor="@color/text_secondary"
+        android:textSize="@dimen/_9sdp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintWidth_percent="0.7"
-        app:uiProgressGradientEnd="@color/gradient_end"
-        app:uiProgressGradientStart="@color/gradient_start"
-        app:uiProgressIndeterminate="true" />
+        app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -32,7 +32,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ellipsize="middle"
-            android:fontFamily="@font/nt_500"
+            android:fontFamily="@font/nunito_700"
             android:maxLines="1"
             android:textColor="@color/text_primary"
             android:textSize="@dimen/_11sdp"
@@ -43,7 +43,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_3sdp"
-            android:fontFamily="@font/nt_400"
+            android:fontFamily="@font/nunito_600"
             android:textColor="@color/text_secondary"
             android:textSize="@dimen/_9sdp"
             tools:text="40 pages · 6.8 MB" />

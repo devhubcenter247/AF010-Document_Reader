@@ -23,7 +23,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/nt_400"
+            android:fontFamily="@font/nunito_600"
             android:text="@string/pages"
             android:textColor="@color/text_secondary"
             android:textSize="@dimen/_11sdp" />
@@ -33,7 +33,7 @@
             android:layout_width="@dimen/_37sdp"
             android:layout_height="match_parent"
             android:background="@null"
-            android:fontFamily="@font/nt_600"
+            android:fontFamily="@font/nunito_800"
             android:gravity="center"
             android:imeOptions="actionDone"
             android:importantForAutofill="no"
@@ -48,7 +48,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/nt_400"
+            android:fontFamily="@font/nunito_600"
             android:text="@string/range_to"
             android:textColor="@color/text_secondary"
             android:textSize="@dimen/_11sdp" />
@@ -58,7 +58,7 @@
             android:layout_width="@dimen/_37sdp"
             android:layout_height="match_parent"
             android:background="@null"
-            android:fontFamily="@font/nt_600"
+            android:fontFamily="@font/nunito_800"
             android:gravity="center"
             android:imeOptions="actionDone"
             android:importantForAutofill="no"

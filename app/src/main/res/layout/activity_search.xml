@@ -50,7 +50,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:background="@null"
-                    android:fontFamily="@font/nt_400"
+                    android:fontFamily="@font/nunito_600"
                     android:hint="@string/search_files"
                     android:imeOptions="actionSearch"
                     android:importantForAutofill="no"
@@ -107,7 +107,7 @@
             android:id="@+id/tvResultCount"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/nt_400"
+            android:fontFamily="@font/nunito_600"
             android:paddingHorizontal="@dimen/_15sdp"
             android:paddingTop="@dimen/_13sdp"
             android:paddingBottom="@dimen/_6sdp"
@@ -122,8 +122,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/_13sdp"
             android:layout_marginBottom="@dimen/_11sdp"
-            android:background="@drawable/bg_surface_card_r15sdp"
-            android:foreground="@drawable/stroke_r15sdp_st1sdp_stroke"
+            android:background="@drawable/bg_card"
             android:clipToOutline="true">
 
             <androidx.recyclerview.widget.RecyclerView

@@ -8,7 +8,7 @@
     android:layout_height="@dimen/_27sdp"
     android:layout_marginEnd="@dimen/_6sdp"
     android:drawablePadding="@dimen/_4sdp"
-    android:fontFamily="@font/nt_500"
+    android:fontFamily="@font/nunito_700"
     android:gravity="center"
     android:paddingHorizontal="@dimen/_11sdp"
     android:textSize="@dimen/_10sdp"

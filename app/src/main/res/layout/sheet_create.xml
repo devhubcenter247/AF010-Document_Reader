@@ -47,7 +47,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/nt_600"
+                android:fontFamily="@font/nunito_800"
                 android:text="@string/scan_document"
                 android:textColor="@color/on_accent"
                 android:textSize="@dimen/_12sdp" />
@@ -55,7 +55,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/nt_400"
+                android:fontFamily="@font/nunito_600"
                 android:text="@string/scan_document_desc"
                 android:textColor="@color/color_on_accent_secondary"
                 android:textSize="@dimen/_9sdp" />
@@ -80,8 +80,7 @@
         android:orientation="horizontal"
         android:paddingHorizontal="@dimen/_13sdp"
         android:paddingVertical="@dimen/_9sdp"
-        android:background="@drawable/bg_surface_card_r15sdp"
-        android:foreground="@drawable/stroke_r15sdp_st1sdp_stroke"
+        android:background="@drawable/bg_card"
         android:clipToOutline="true">
 
         <ImageView
@@ -100,7 +99,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/nt_600"
+                android:fontFamily="@font/nunito_800"
                 android:text="@string/images_to_pdf"
                 android:textColor="@color/text_primary"
                 android:textSize="@dimen/_11sdp" />
@@ -108,7 +107,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/nt_400"
+                android:fontFamily="@font/nunito_600"
                 android:text="@string/images_to_pdf_desc"
                 android:textColor="@color/text_secondary"
                 android:textSize="@dimen/_9sdp" />
@@ -158,7 +157,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_6sdp"
                 android:ellipsize="end"
-                android:fontFamily="@font/nt_500"
+                android:fontFamily="@font/nunito_700"
                 android:gravity="center"
                 android:maxLines="1"
                 android:text="@string/tab_word"
@@ -170,7 +169,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_2sdp"
                 android:ellipsize="end"
-                android:fontFamily="@font/nt_400"
+                android:fontFamily="@font/nunito_600"
                 android:gravity="center"
                 android:lines="2"
                 android:text="@string/word_desc"
@@ -205,7 +204,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_6sdp"
                 android:ellipsize="end"
-                android:fontFamily="@font/nt_500"
+                android:fontFamily="@font/nunito_700"
                 android:gravity="center"
                 android:maxLines="1"
                 android:text="@string/tab_excel"
@@ -217,7 +216,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_2sdp"
                 android:ellipsize="end"
-                android:fontFamily="@font/nt_400"
+                android:fontFamily="@font/nunito_600"
                 android:gravity="center"
                 android:lines="2"
                 android:text="@string/excel_desc"
@@ -251,7 +250,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_6sdp"
                 android:ellipsize="end"
-                android:fontFamily="@font/nt_500"
+                android:fontFamily="@font/nunito_700"
                 android:gravity="center"
                 android:maxLines="1"
                 android:text="@string/powerpoint"
@@ -263,7 +262,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_2sdp"
                 android:ellipsize="end"
-                android:fontFamily="@font/nt_400"
+                android:fontFamily="@font/nunito_600"
                 android:gravity="center"
                 android:lines="2"
                 android:text="@string/powerpoint_desc"

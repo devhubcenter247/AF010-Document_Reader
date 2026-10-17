@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name" translatable="false">All Docs: Create &amp; Edit PDF</string>
+    <string name="app_name" translatable="false">Folio</string>
 
     <string name="this_action_may_contain_advertising">This action may contain advertising</string>
     <string name="language">Language</string>
@@ -740,4 +740,65 @@
     <string name="ocr_page_none">No text found on this page</string>
     <string name="ocr_page_failed">Could not recognize the text</string>
     <string name="scanner_discard_message">The pages you scanned haven’t been saved as a PDF yet.</string>
+
+    <!-- Folio · first run -->
+    <string name="splash_tagline">Your documents, made easy</string>
+    <string name="splash_loading">Getting things ready…</string>
+    <string name="fo_step_of">Step %1$d of %2$d</string>
+    <string name="fo_language_title">Hi there! Which language feels like home?</string>
+    <string name="fo_language_subtitle">You can switch any time in Settings.</string>
+    <string name="fo_skip">Skip</string>
+    <string name="fo_onboarding_kicker_1">Open anything</string>
+    <string name="fo_onboarding_title_1">Every document, one cosy home</string>
+    <string name="fo_onboarding_body_1">PDF, Word, Excel, PowerPoint, text and photos all open right here. No extra apps needed.</string>
+    <string name="fo_onboarding_kicker_2">Edit &amp; sign</string>
+    <string name="fo_onboarding_title_2">Sign it from the sofa</string>
+    <string name="fo_onboarding_body_2">Add text, highlight, fill in forms and draw your signature straight onto any PDF.</string>
+    <string name="fo_onboarding_kicker_3">Scan</string>
+    <string name="fo_onboarding_title_3">Paper to PDF in a snap</string>
+    <string name="fo_onboarding_body_3">Point your camera and we’ll find the edges, tidy up the shadows and save a clean PDF.</string>
+    <string name="fo_onboarding_kicker_4">Handy tools</string>
+    <string name="fo_onboarding_title_4">A toolbox for every little job</string>
+    <string name="fo_onboarding_body_4">Merge, split, shrink, protect, translate and more. All in one tap from the Tools tab.</string>
+    <string name="fo_lets_get_started">Let’s get started</string>
+    <string name="fo_signed_by_you">Signed by you</string>
+    <string name="fo_edges_found">Edges found</string>
+    <string name="fo_welcome_title">What brings you to Folio?</string>
+    <string name="fo_welcome_subtitle">Pick as many as you like. We’ll keep your favourite tools close by.</string>
+    <string name="fo_use_case_work_desc">Contracts, reports and signing</string>
+    <string name="fo_use_case_personal_desc">IDs, bills and photos</string>
+    <string name="fo_use_case_reading_desc">Open and enjoy files</string>
+    <string name="fo_picked_none">Nothing picked yet, that’s okay too</string>
+    <plurals name="fo_picked">
+        <item quantity="one">Nice! %d picked</item>
+        <item quantity="other">Nice! %d picked</item>
+    </plurals>
+    <string name="fo_access_title">Let Folio gather your documents</string>
+    <string name="fo_access_point_1">Everything in one list</string>
+    <string name="fo_access_point_1_desc">PDF, Word, Excel, PowerPoint, text and photos from all your folders.</string>
+    <string name="fo_access_point_2">It all stays on your phone</string>
+    <string name="fo_access_point_2_desc">Files are read on your device. Nothing is uploaded.</string>
+    <string name="fo_access_point_3">Edits save right in place</string>
+    <string name="fo_access_point_3_desc">Sign, annotate or rename and the original file updates.</string>
+    <string name="fo_phone_storage">Phone storage</string>
+    <string name="fo_maybe_later">Maybe later</string>
+    <string name="fo_pro_name">Folio Pro</string>
+    <string name="fo_paywall_first_title">Do more with your documents</string>
+    <string name="fo_paywall_first_subtitle">Unlock every tool, with no limits and no ads.</string>
+    <string name="fo_pro_benefit_ocr">Turn scans into editable text (OCR)</string>
+    <string name="fo_pro_benefit_protect">Protect and redact private files</string>
+    <string name="fo_pro_benefit_translate">Translate whole PDFs, not just %d pages</string>
+    <string name="fo_pro_benefit_ads">No ads, ever</string>
+    <string name="fo_restore_purchase">Restore purchase</string>
+    <string name="fo_best_value">Best value</string>
+    <string name="fo_plan_yearly_sub">%1$d days free, then %2$s/mo</string>
+    <string name="fo_plan_monthly_sub">Billed every month</string>
+    <string name="fo_plan_lifetime_sub">Pay once, keep forever</string>
+    <string name="fo_cta_trial">Try %d days free</string>
+    <string name="fo_cta_monthly">Subscribe for %s/mo</string>
+    <string name="fo_cta_lifetime">Get lifetime for %s</string>
+    <string name="fo_no_charge_today">No charge today. Cancel any time in Google Play</string>
+    <string name="fo_terms">Terms</string>
+    <string name="fo_privacy">Privacy</string>
+    <string name="close">Close</string>
 </resources>

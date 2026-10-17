@@ -84,7 +84,7 @@
                     android:id="@+id/tvPlan"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/nt_600"
+                    android:fontFamily="@font/nunito_800"
                     android:letterSpacing="0.08"
                     android:text="@string/free_plan"
                     android:textAllCaps="true"
@@ -99,7 +99,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_3sdp"
                     android:layout_marginEnd="@dimen/_67sdp"
-                    android:fontFamily="@font/nt_600"
+                    android:fontFamily="@font/nunito_800"
                     android:text="@string/premium_title"
                     android:textColor="@color/on_primary"
                     android:textSize="@dimen/_13sdp"
@@ -123,7 +123,7 @@
                         android:layout_marginTop="@dimen/_4sdp"
                         android:layout_marginEnd="@dimen/_5sdp"
                         android:drawablePadding="@dimen/_3sdp"
-                        android:fontFamily="@font/nt_500"
+                        android:fontFamily="@font/nunito_700"
                         android:gravity="center"
                         android:paddingHorizontal="@dimen/_5sdp"
                         android:text="@string/no_ads"
@@ -139,7 +139,7 @@
                         android:layout_marginTop="@dimen/_4sdp"
                         android:layout_marginEnd="@dimen/_5sdp"
                         android:drawablePadding="@dimen/_3sdp"
-                        android:fontFamily="@font/nt_500"
+                        android:fontFamily="@font/nunito_700"
                         android:gravity="center"
                         android:paddingHorizontal="@dimen/_5sdp"
                         android:text="@string/unlimited_tools"
@@ -155,7 +155,7 @@
                         android:layout_marginTop="@dimen/_4sdp"
                         android:layout_marginEnd="@dimen/_5sdp"
                         android:drawablePadding="@dimen/_3sdp"
-                        android:fontFamily="@font/nt_500"
+                        android:fontFamily="@font/nunito_700"
                         android:gravity="center"
                         android:paddingHorizontal="@dimen/_5sdp"
                         android:text="@string/tool_ocr"
@@ -172,7 +172,7 @@
                     android:layout_width="0dp"
                     android:layout_height="@dimen/_33sdp"
                     android:layout_marginTop="@dimen/_13sdp"
-                    android:fontFamily="@font/nt_600"
+                    android:fontFamily="@font/nunito_800"
                     android:gravity="center"
                     android:text="@string/start_free_trial"
                     android:textSize="@dimen/_11sdp"
@@ -224,8 +224,7 @@
                     android:orientation="vertical"
                     android:paddingHorizontal="@dimen/_9sdp"
                     android:paddingVertical="@dimen/_11sdp"
-                    android:background="@drawable/bg_surface_card_r15sdp"
-                    android:foreground="@drawable/stroke_r15sdp_st1sdp_stroke"
+                    android:background="@drawable/bg_card"
                     android:clipToOutline="true">
 
                     <FrameLayout
@@ -254,7 +253,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_9sdp"
                         android:ellipsize="end"
-                        android:fontFamily="@font/nt_400"
+                        android:fontFamily="@font/nunito_600"
                         android:maxLines="1"
                         android:text="@string/language"
                         android:textColor="@color/text_secondary"
@@ -266,7 +265,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_2sdp"
                         android:ellipsize="end"
-                        android:fontFamily="@font/nt_500"
+                        android:fontFamily="@font/nunito_700"
                         android:maxLines="1"
                         android:textSize="@dimen/_10sdp"
                         app:drawableTint="@color/color_icon_muted"
@@ -286,8 +285,7 @@
                     android:orientation="vertical"
                     android:paddingHorizontal="@dimen/_9sdp"
                     android:paddingVertical="@dimen/_11sdp"
-                    android:background="@drawable/bg_surface_card_r15sdp"
-                    android:foreground="@drawable/stroke_r15sdp_st1sdp_stroke"
+                    android:background="@drawable/bg_card"
                     android:clipToOutline="true">
 
                     <FrameLayout
@@ -316,7 +314,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_9sdp"
                         android:ellipsize="end"
-                        android:fontFamily="@font/nt_400"
+                        android:fontFamily="@font/nunito_600"
                         android:maxLines="1"
                         android:text="@string/theme"
                         android:textColor="@color/text_secondary"
@@ -328,7 +326,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_2sdp"
                         android:ellipsize="end"
-                        android:fontFamily="@font/nt_500"
+                        android:fontFamily="@font/nunito_700"
                         android:maxLines="1"
                         android:textSize="@dimen/_10sdp"
                         app:drawableTint="@color/color_icon_muted"
@@ -355,14 +353,13 @@
                 android:layout_marginHorizontal="@dimen/_13sdp"
                 android:orientation="vertical"
                 android:padding="@dimen/_13sdp"
-                android:background="@drawable/bg_surface_card_r15sdp"
-                android:foreground="@drawable/stroke_r15sdp_st1sdp_stroke"
+                android:background="@drawable/bg_card"
                 android:clipToOutline="true">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/nt_600"
+                    android:fontFamily="@font/nunito_800"
                     android:text="@string/enjoying_the_app"
                     android:textColor="@color/text_primary"
                     android:textSize="@dimen/_12sdp" />
@@ -371,7 +368,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_2sdp"
-                    android:fontFamily="@font/nt_400"
+                    android:fontFamily="@font/nunito_600"
                     android:text="@string/tap_a_star_to_rate"
                     android:textColor="@color/text_secondary"
                     android:textSize="@dimen/_10sdp" />
@@ -470,8 +467,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/_13sdp"
                 android:orientation="vertical"
-                android:background="@drawable/bg_surface_card_r15sdp"
-                android:foreground="@drawable/stroke_r15sdp_st1sdp_stroke"
+                android:background="@drawable/bg_card"
                 android:clipToOutline="true">
 
                 <LinearLayout
@@ -534,8 +530,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/_13sdp"
                 android:orientation="vertical"
-                android:background="@drawable/bg_surface_card_r15sdp"
-                android:foreground="@drawable/stroke_r15sdp_st1sdp_stroke"
+                android:background="@drawable/bg_card"
                 android:clipToOutline="true">
 
                 <LinearLayout
@@ -596,8 +591,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/_13sdp"
                 android:orientation="vertical"
-                android:background="@drawable/bg_surface_card_r15sdp"
-                android:foreground="@drawable/stroke_r15sdp_st1sdp_stroke"
+                android:background="@drawable/bg_card"
                 android:clipToOutline="true">
 
                 <LinearLayout
@@ -648,7 +642,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_13sdp"
-                android:fontFamily="@font/nt_400"
+                android:fontFamily="@font/nunito_600"
                 android:gravity="center"
                 android:textColor="@color/text_secondary"
                 android:textSize="@dimen/_9sdp"

@@ -22,7 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_3sdp"
-        android:fontFamily="@font/nt_500"
+        android:fontFamily="@font/nunito_700"
         android:maxLines="1"
         android:textColor="@color/sl_reader_item"
         android:textSize="@dimen/_9sdp"

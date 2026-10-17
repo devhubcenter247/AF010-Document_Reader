@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipChildren="false">
+
+    <FrameLayout
+        android:layout_width="@dimen/_254sdp"
+        android:layout_height="@dimen/_254sdp"
+        android:layout_gravity="center"
+        android:clipChildren="false">
+
+        <ImageView
+            android:layout_width="@dimen/_231sdp"
+            android:layout_height="@dimen/_231sdp"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:importantForAccessibility="no"
+            android:src="@drawable/ic_blob"
+            app:tint="@color/color_blob_sage" />
+
+        <!-- A phone, its camera finding the edges of a page -->
+        <FrameLayout
+            android:layout_width="@dimen/_139sdp"
+            android:layout_height="@dimen/_208sdp"
+            android:layout_marginStart="@dimen/_58sdp"
+            android:layout_marginTop="@dimen/_23sdp"
+            android:background="@drawable/bg_phone_body"
+            android:elevation="@dimen/_8sdp"
+            android:outlineAmbientShadowColor="@color/color_shadow"
+            android:outlineSpotShadowColor="@color/color_shadow"
+            android:padding="@dimen/_12sdp">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/bg_phone_screen"
+                android:clipToOutline="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/_18sdp"
+                    android:layout_marginTop="@dimen/_23sdp"
+                    android:layout_marginEnd="@dimen/_15sdp"
+                    android:layout_marginBottom="@dimen/_26sdp"
+                    android:background="@drawable/bg_paper_sheet"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_11sdp"
+                    android:rotation="-5">
+
+                    <View android:layout_width="@dimen/_33sdp" android:layout_height="@dimen/_4sdp" android:background="@drawable/bg_sheet_line" />
+                    <View android:layout_width="match_parent" android:layout_height="@dimen/_4sdp" android:layout_marginTop="@dimen/_5sdp" android:background="@drawable/bg_sheet_line" />
+                    <View android:layout_width="@dimen/_55sdp" android:layout_height="@dimen/_4sdp" android:layout_marginTop="@dimen/_5sdp" android:background="@drawable/bg_sheet_line" />
+                    <View android:layout_width="@dimen/_59sdp" android:layout_height="@dimen/_4sdp" android:layout_marginTop="@dimen/_5sdp" android:background="@drawable/bg_sheet_line" />
+                    <View android:layout_width="@dimen/_38sdp" android:layout_height="@dimen/_4sdp" android:layout_marginTop="@dimen/_5sdp" android:background="@drawable/bg_sheet_line" />
+                    <View android:layout_width="@dimen/_54sdp" android:layout_height="@dimen/_4sdp" android:layout_marginTop="@dimen/_5sdp" android:background="@drawable/bg_sheet_line" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="@dimen/_17sdp"
+                    android:layout_height="@dimen/_17sdp"
+                    android:layout_marginStart="@dimen/_11sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:importantForAccessibility="no"
+                    android:src="@drawable/ic_scan_corner" />
+
+                <ImageView
+                    android:layout_width="@dimen/_17sdp"
+                    android:layout_height="@dimen/_17sdp"
+                    android:layout_gravity="end"
+                    android:layout_marginTop="@dimen/_14sdp"
+                    android:layout_marginEnd="@dimen/_9sdp"
+                    android:importantForAccessibility="no"
+                    android:rotation="90"
+                    android:src="@drawable/ic_scan_corner" />
+
+                <ImageView
+                    android:layout_width="@dimen/_17sdp"
+                    android:layout_height="@dimen/_17sdp"
+                    android:layout_gravity="bottom"
+                    android:layout_marginStart="@dimen/_12sdp"
+                    android:layout_marginBottom="@dimen/_17sdp"
+                    android:importantForAccessibility="no"
+                    android:rotation="270"
+                    android:src="@drawable/ic_scan_corner" />
+
+                <ImageView
+                    android:layout_width="@dimen/_17sdp"
+                    android:layout_height="@dimen/_17sdp"
+                    android:layout_gravity="bottom|end"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_20sdp"
+                    android:importantForAccessibility="no"
+                    android:rotation="180"
+                    android:src="@drawable/ic_scan_corner" />
+            </FrameLayout>
+        </FrameLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_31sdp"
+            android:layout_gravity="bottom|end"
+            android:layout_marginEnd="@dimen/_23sdp"
+            android:layout_marginBottom="@dimen/_31sdp"
+            android:background="@drawable/bg_pill_card"
+            android:drawablePadding="@dimen/_5sdp"
+            android:elevation="@dimen/_10sdp"
+            android:fontFamily="@font/nunito_800"
+            android:gravity="center_vertical"
+            android:outlineAmbientShadowColor="@color/color_shadow"
+            android:outlineSpotShadowColor="@color/color_shadow"
+            android:paddingHorizontal="@dimen/_11sdp"
+            android:text="@string/fo_edges_found"
+            android:textColor="@color/color_success"
+            android:textSize="@dimen/_10sdp"
+            app:drawableStartCompat="@drawable/ic_fo_check_12sdp"
+            app:drawableTint="@color/color_success" />
+
+        <ImageView
+            android:layout_width="@dimen/_15sdp"
+            android:layout_height="@dimen/_15sdp"
+            android:layout_marginStart="@dimen/_26sdp"
+            android:layout_marginTop="@dimen/_46sdp"
+            android:importantForAccessibility="no"
+            android:src="@drawable/ic_sparkle"
+            app:tint="@color/color_sparkle_green" />
+    </FrameLayout>
+</FrameLayout>

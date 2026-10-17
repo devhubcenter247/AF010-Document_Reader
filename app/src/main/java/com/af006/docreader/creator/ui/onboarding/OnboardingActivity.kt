@@ -1,88 +1,66 @@
 package com.af010.creator.docreader.ui.onboarding
 
+import android.widget.LinearLayout
 import android.view.View
 import androidx.viewpager2.widget.ViewPager2
 import com.af010.creator.docreader.R
 import com.af010.creator.docreader.base.BaseAppActivity
 import com.af010.creator.docreader.databinding.ActivityOnboardingBinding
-import com.af010.creator.docreader.ui.main.MainActivity
 import com.af010.creator.docreader.ui.welcome.WelcomeActivity
 import com.ui.baselib.extensions.clickSingle
 
 class OnboardingActivity : BaseAppActivity<ActivityOnboardingBinding>(ActivityOnboardingBinding::inflate) {
-    override val fullStatus: Boolean
-        get() = true
+
+    private val slides = OnboardingSlide.entries
+    private val isLast get() = binding.viewPager.currentItem == slides.lastIndex
+
+    override fun initialize() = Unit
+
     override fun backPressed() {
-        if (binding.viewPager.currentItem > 0) {
-            binding.viewPager.currentItem -= 1
-        } else {
-            finish()
-        }
-    }
-
-    private val pagerAdapter by lazy { OnboardingViewPagerAdapter(this, 4) }
-
-    override fun initialize() {
-
+        if (binding.viewPager.currentItem > 0) binding.viewPager.currentItem -= 1 else finish()
     }
 
     override fun ActivityOnboardingBinding.setData() {
-        viewPager.adapter = pagerAdapter
-
-        indicatorView.attachViewPager(viewPager)
-        indicatorView.setIndicatorMaxCount(4)
-
+        viewPager.adapter = OnboardingPictures()
+        viewPager.offscreenPageLimit = 1
         viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
-            override fun onPageSelected(position: Int) {
-                updatePageUi(position)
-            }
+            override fun onPageSelected(position: Int) = showSlide(position)
         })
-
-        updatePageUi(0)
+        showSlide(0)
     }
 
     override fun ActivityOnboardingBinding.onClick() {
+        btnSkip.clickSingle { openWelcome() }
         btnNext.clickSingle {
-            val current = viewPager.currentItem
-            if (current < 3) {
-                viewPager.setCurrentItem(current + 1, true)
-            } else {
-                finishOnboarding()
-            }
+            if (isLast) openWelcome() else viewPager.setCurrentItem(viewPager.currentItem + 1, true)
         }
     }
 
-    private fun updatePageUi(position: Int) {
-        binding.indicatorView.setIndicatorActive(position)
-        when (position) {
-            0 -> {
-                binding.tvTitle.setText(R.string.title_onboarding_1)
-                binding.tvSubtitle.setText(R.string.content_onboarding_1)
-            }
-            1 -> {
-                binding.tvTitle.setText(R.string.title_onboarding_2)
-                binding.tvSubtitle.setText(R.string.content_onboarding_2)
-            }
-            2 -> {
-                binding.tvTitle.setText(R.string.title_onboarding_3)
-                binding.tvSubtitle.setText(R.string.content_onboarding_3)
-            }
-            else -> {
-                binding.tvTitle.setText(R.string.title_onboarding_4)
-                binding.tvSubtitle.setText(R.string.content_onboarding_4)
-            }
-        }
+    private fun showSlide(position: Int) = with(binding) {
+        val slide = slides[position]
+        tvKicker.setText(slide.kicker)
+        tvTitle.setText(slide.title)
+        tvSubtitle.setText(slide.body)
+        btnNext.setText(if (position == slides.lastIndex) R.string.fo_lets_get_started else R.string.next)
+        btnSkip.visibility = if (position == slides.lastIndex) View.INVISIBLE else View.VISIBLE
+        drawBars(position)
+    }
 
-        if (position == 3) {
-            binding.btnNext.text = getString(R.string.get_started)
-            binding.btnNext.icon = null
-        } else {
-            binding.btnNext.text = getString(R.string.next)
-            binding.btnNext.setIconResource(R.drawable.ic_app_arrowr)
+    /** One bar per slide: a long one for this slide, blue up to it and grey after. */
+    private fun drawBars(position: Int) = with(binding.layoutBars) {
+        val short = resources.getDimensionPixelSize(com.intuit.sdp.R.dimen._6sdp)
+        val long = resources.getDimensionPixelSize(com.intuit.sdp.R.dimen._20sdp)
+        val gap = resources.getDimensionPixelSize(com.intuit.sdp.R.dimen._5sdp)
+        removeAllViews()
+        slides.indices.forEach { index ->
+            addView(View(context).apply {
+                setBackgroundResource(if (index <= position) R.drawable.bg_step_done else R.drawable.bg_step_todo)
+                layoutParams = LinearLayout.LayoutParams(if (index == position) long else short, short).apply {
+                    if (index > 0) marginStart = gap
+                }
+            })
         }
     }
 
-    private fun finishOnboarding() {
-        launchAndFinish<WelcomeActivity>()
-    }
+    private fun openWelcome() = launchAndFinish<WelcomeActivity>()
 }

@@ -41,7 +41,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_3sdp"
-        android:fontFamily="@font/nt_500"
+        android:fontFamily="@font/nunito_700"
         android:textColor="@color/text_secondary"
         android:textSize="@dimen/_9sdp"
         tools:text="1" />

@@ -8,6 +8,8 @@ import com.af010.creator.docreader.databinding.ActivityLanguageBinding
 import com.af010.creator.docreader.ui.main.MainActivity
 import com.af010.creator.docreader.ui.onboarding.OnboardingActivity
 import com.ui.baselib.extensions.clickSingle
+import androidx.core.view.isVisible
+import com.af010.creator.docreader.ui.common.show
 
 class LanguageActivity :
     BaseAppActivity<ActivityLanguageBinding>(ActivityLanguageBinding::inflate) {
@@ -23,6 +25,9 @@ class LanguageActivity :
     override fun initialize() = Unit
 
     override fun ActivityLanguageBinding.setData() {
+        // Opened again from Settings, the first-run steps make no sense.
+        steps.root.isVisible = !preferenceHelper.isFinishFirstFlow
+        steps.show(current = 1, total = 3)
         (rcvLangue.itemAnimator as? SimpleItemAnimator)?.supportsChangeAnimations = false
         rcvLangue.adapter = languageAdapter
         val savedCode =

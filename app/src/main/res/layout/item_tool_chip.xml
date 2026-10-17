@@ -32,7 +32,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/_3sdp"
         android:layout_marginStart="@dimen/_7sdp"
-        android:fontFamily="@font/nt_500"
+        android:fontFamily="@font/nunito_700"
         android:textColor="@color/color_ink"
         android:textSize="@dimen/_10sdp"
         tools:text="Sign" />

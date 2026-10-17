@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- A tiny document: a coloured type chip over three grey text lines (90/70/80% wide). -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="@dimen/_86sdp"
+    android:layout_height="@dimen/_108sdp"
+    android:background="@drawable/bg_paper_card"
+    android:elevation="@dimen/_8sdp"
+    android:orientation="vertical"
+    android:outlineAmbientShadowColor="@color/color_shadow"
+    android:outlineSpotShadowColor="@color/color_shadow"
+    android:padding="@dimen/_11sdp">
+
+    <TextView
+        android:id="@+id/tvChip"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/_20sdp"
+        android:fontFamily="@font/nunito_800"
+        android:gravity="center"
+        android:paddingHorizontal="@dimen/_8sdp"
+        android:textSize="@dimen/_9sdp"
+        tools:background="@drawable/bg_chip_word"
+        tools:text="DOCX"
+        tools:textColor="@color/color_file_word" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_5sdp"
+        android:layout_marginTop="@dimen/_6sdp"
+        android:weightSum="100">
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="90"
+            android:background="@drawable/bg_sheet_line" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_5sdp"
+        android:layout_marginTop="@dimen/_6sdp"
+        android:weightSum="100">
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="70"
+            android:background="@drawable/bg_sheet_line" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_5sdp"
+        android:layout_marginTop="@dimen/_6sdp"
+        android:weightSum="100">
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="80"
+            android:background="@drawable/bg_sheet_line" />
+    </LinearLayout>
+</LinearLayout>

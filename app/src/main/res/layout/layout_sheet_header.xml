@@ -27,7 +27,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:fontFamily="@font/nt_600"
+            android:fontFamily="@font/nunito_800"
             android:textColor="@color/text_primary"
             android:textSize="@dimen/_12sdp"
             tools:text="Create new" />

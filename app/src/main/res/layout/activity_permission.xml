@@ -1,227 +1,150 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/color_bg_app"
+    android:orientation="vertical"
     tools:context=".ui.welcome.PermissionActivity">
 
-    <!-- Top Banner Illustration -->
-    <ImageView
-        android:id="@+id/ivHeader"
+    <include
+        android:id="@+id/steps"
+        layout="@layout/layout_step_progress"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_134sdp"
-        android:layout_marginTop="@dimen/_13sdp"
-        android:contentDescription="@null"
-        android:scaleType="fitCenter"
-        android:scaleY="2"
-        android:scaleX="2"
-        android:src="@drawable/img_permission_access"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_18sdp"
+        android:layout_marginTop="@dimen/_14sdp" />
 
-    <!-- Title -->
+    <!-- A folder with two documents peeking out, the mascot beside it (300 × 193 design frame) -->
+    <FrameLayout
+        android:layout_width="@dimen/_300sdp"
+        android:layout_height="@dimen/_193sdp"
+        android:layout_gravity="center_horizontal"
+        android:clipChildren="false">
+
+        <ImageView
+            android:layout_width="@dimen/_193sdp"
+            android:layout_height="@dimen/_193sdp"
+            android:layout_marginStart="@dimen/_54sdp"
+            android:importantForAccessibility="no"
+            android:src="@drawable/ic_blob"
+            app:tint="@color/color_blob_peach" />
+
+        <View
+            android:layout_width="@dimen/_69sdp"
+            android:layout_height="@dimen/_31sdp"
+            android:layout_marginStart="@dimen/_69sdp"
+            android:layout_marginTop="@dimen/_62sdp"
+            android:background="@drawable/bg_folder_tab" />
+
+        <include
+            android:id="@+id/cardPdf"
+            layout="@layout/layout_doc_card"
+            android:layout_width="@dimen/_66sdp"
+            android:layout_height="@dimen/_85sdp"
+            android:layout_marginStart="@dimen/_86sdp"
+            android:layout_marginTop="@dimen/_12sdp" />
+
+        <include
+            android:id="@+id/cardDocx"
+            layout="@layout/layout_doc_card"
+            android:layout_width="@dimen/_66sdp"
+            android:layout_height="@dimen/_85sdp"
+            android:layout_marginStart="@dimen/_149sdp"
+            android:layout_marginTop="@dimen/_18sdp" />
+
+        <FrameLayout
+            android:layout_width="@dimen/_162sdp"
+            android:layout_height="@dimen/_97sdp"
+            android:layout_marginStart="@dimen/_69sdp"
+            android:layout_marginTop="@dimen/_80sdp"
+            android:background="@drawable/bg_folder_front"
+            android:elevation="@dimen/_9sdp"
+            android:outlineProvider="none">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_23sdp"
+                android:layout_gravity="bottom|center_horizontal"
+                android:layout_marginBottom="@dimen/_14sdp"
+                android:background="@drawable/bg_folder_label"
+                android:fontFamily="@font/nunito_800"
+                android:gravity="center"
+                android:paddingHorizontal="@dimen/_11sdp"
+                android:text="@string/fo_phone_storage"
+                android:textColor="@color/color_warning"
+                android:textSize="@dimen/_9sdp" />
+        </FrameLayout>
+
+        <ImageView
+            android:layout_width="@dimen/_54sdp"
+            android:layout_height="@dimen/_67sdp"
+            android:layout_marginStart="@dimen/_213sdp"
+            android:layout_marginTop="@dimen/_91sdp"
+            android:elevation="@dimen/_10sdp"
+            android:importantForAccessibility="no"
+            android:outlineProvider="none"
+            android:src="@drawable/ic_mascot_smile" />
+    </FrameLayout>
+
     <TextView
-        android:id="@+id/tvTitle"
-        style="@style/TextHeadLine"
+        style="@style/DisplayTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/_10sdp"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:fontFamily="@font/nt_600"
-        android:text="@string/allow_file_access"
-        android:textSize="@dimen/_13sdp"
-        app:layout_constraintTop_toBottomOf="@+id/ivHeader" />
+        android:layout_marginHorizontal="@dimen/_18sdp"
+        android:text="@string/fo_access_title"
+        android:textSize="@dimen/_23sdp" />
 
-    <!-- Subtitle -->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/_11sdp"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:paddingHorizontal="@dimen/_15sdp"
+        android:paddingBottom="@dimen/_6sdp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <include
+                android:id="@+id/pointList"
+                layout="@layout/layout_point_card" />
+
+            <include
+                android:id="@+id/pointPrivate"
+                layout="@layout/layout_point_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp" />
+
+            <include
+                android:id="@+id/pointInPlace"
+                layout="@layout/layout_point_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
     <TextView
-        android:id="@+id/tvSubtitle"
-        style="@style/TextSubContent"
+        android:id="@+id/btnAllowAccess"
+        style="@style/PrimaryPillButton"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/_10sdp"
-        android:layout_marginTop="@dimen/_3sdp"
-        android:fontFamily="@font/nt_400"
-        android:text="@string/allow_file_access_desc"
-        app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+        android:layout_marginHorizontal="@dimen/_18sdp"
+        android:layout_marginTop="@dimen/_9sdp"
+        android:text="@string/allow_file_access" />
 
-    <!-- Item 1: See all your documents -->
-    <LinearLayout
-        android:id="@+id/item1"
+    <TextView
+        android:id="@+id/btnNotNow"
+        style="@style/GhostButton"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/_10sdp"
-        android:layout_marginTop="@dimen/_13sdp"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@+id/tvSubtitle">
-
-        <ImageView
-            android:layout_width="@dimen/_27sdp"
-            android:layout_height="@dimen/_27sdp"
-            android:contentDescription="@null"
-            android:padding="@dimen/_5sdp"
-            android:src="@drawable/ic_app_folder"
-            app:tint="@color/primary"
-            android:background="@drawable/bg_xf0ebff_r8sdp"
-            android:clipToOutline="true" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_10sdp"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/nt_500"
-                android:text="@string/see_all_your_documents"
-                android:textColor="@color/text_primary"
-                android:textSize="@dimen/_10sdp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_2sdp"
-                android:fontFamily="@font/nt_400"
-                android:text="@string/see_all_your_documents_desc"
-                android:textColor="@color/text_secondary"
-                android:textSize="@dimen/_9sdp" />
-        </LinearLayout>
-    </LinearLayout>
-
-    <!-- Item 2: Files stay on your device -->
-    <LinearLayout
-        android:id="@+id/item2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/_10sdp"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@+id/item1">
-
-        <ImageView
-            android:layout_width="@dimen/_27sdp"
-            android:layout_height="@dimen/_27sdp"
-            android:contentDescription="@null"
-            android:padding="@dimen/_5sdp"
-            android:src="@drawable/ic_app_shield"
-            app:tint="@color/primary"
-            android:background="@drawable/bg_xf0ebff_r8sdp"
-            android:clipToOutline="true" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_10sdp"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/nt_500"
-                android:text="@string/files_stay_on_your_device"
-                android:textColor="@color/text_primary"
-                android:textSize="@dimen/_10sdp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_2sdp"
-                android:fontFamily="@font/nt_400"
-                android:text="@string/files_stay_on_your_device_desc"
-                android:textColor="@color/text_secondary"
-                android:textSize="@dimen/_9sdp" />
-        </LinearLayout>
-    </LinearLayout>
-
-    <!-- Item 3: Turn off anytime -->
-    <LinearLayout
-        android:id="@+id/item3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/_10sdp"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@+id/item2">
-
-        <ImageView
-            android:layout_width="@dimen/_27sdp"
-            android:layout_height="@dimen/_27sdp"
-            android:contentDescription="@null"
-            android:padding="@dimen/_5sdp"
-            android:src="@drawable/ic_app_gear"
-            app:tint="@color/primary"
-            android:background="@drawable/bg_xf0ebff_r8sdp"
-            android:clipToOutline="true" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_10sdp"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/nt_500"
-                android:text="@string/turn_off_anytime"
-                android:textColor="@color/text_primary"
-                android:textSize="@dimen/_10sdp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_2sdp"
-                android:fontFamily="@font/nt_400"
-                android:text="@string/turn_off_anytime_desc"
-                android:textColor="@color/text_secondary"
-                android:textSize="@dimen/_9sdp" />
-        </LinearLayout>
-    </LinearLayout>
-
-    <!-- Bottom Action Container -->
-    <LinearLayout
-        android:id="@+id/layoutBottom"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-
-        android:layout_marginBottom="@dimen/_5sdp"
-        android:gravity="center"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent">
-
-        <!-- Allow Access Button -->
-        <TextView
-            android:id="@+id/btnAllowAccess"
-            android:layout_marginTop="@dimen/_10sdp"
-            style="@style/ButtonAppStyle"
-            android:layout_marginHorizontal="@dimen/_13sdp"
-            android:layout_width="match_parent"
-            android:text="@string/allow_access"
-            android:background="@drawable/bg_grad_gradient_start_gradient_end_270_r10sdp"
-            android:elevation="@dimen/_5sdp"
-            android:outlineSpotShadowColor="@color/primary_30"
-            android:outlineAmbientShadowColor="@color/primary_20"
-            android:textColor="@color/white" />
-
-        <!-- Not Now Button -->
-        <TextView
-            android:id="@+id/btnNotNow"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_5sdp"
-            android:layout_marginHorizontal="@dimen/_13sdp"
-            android:fontFamily="@font/nt_500"
-            android:padding="@dimen/_5sdp"
-            android:text="@string/not_now"
-            android:textColor="@color/text_secondary"
-            android:textSize="@dimen/_10sdp" />
-
-    </LinearLayout>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_marginHorizontal="@dimen/_18sdp"
+        android:layout_marginTop="@dimen/_6sdp"
+        android:layout_marginBottom="@dimen/_14sdp"
+        android:text="@string/fo_maybe_later" />
+</LinearLayout>

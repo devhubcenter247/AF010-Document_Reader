@@ -65,7 +65,7 @@
             android:id="@+id/tvShowPage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/nt_600"
+            android:fontFamily="@font/nunito_800"
             android:paddingHorizontal="@dimen/_5sdp"
             android:textColor="@color/on_primary"
             android:textSize="@dimen/_10sdp"

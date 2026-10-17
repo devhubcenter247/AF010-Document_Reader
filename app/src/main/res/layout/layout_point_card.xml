@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- An icon in a soft blue tile, a bold line and a lighter explanation. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/FloatingCard"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="@dimen/_11sdp">
+
+    <ImageView
+        android:id="@+id/ivIcon"
+        android:layout_width="@dimen/_31sdp"
+        android:layout_height="@dimen/_31sdp"
+        android:background="@drawable/bg_icon_tile_soft"
+        android:importantForAccessibility="no"
+        android:padding="@dimen/_8sdp"
+        app:tint="@color/text_on_selected"
+        tools:src="@drawable/ic_fo_folder" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_11sdp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nunito_800"
+            android:textColor="@color/text_primary"
+            android:textSize="@dimen/_12sdp"
+            tools:text="Everything in one list" />
+
+        <TextView
+            android:id="@+id/tvDesc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:fontFamily="@font/nunito_600"
+            android:lineSpacingMultiplier="1.15"
+            android:textColor="@color/text_secondary"
+            android:textSize="@dimen/_10sdp"
+            tools:text="PDF, Word, Excel, PowerPoint, text and photos from all your folders." />
+    </LinearLayout>
+</LinearLayout>

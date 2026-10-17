@@ -60,7 +60,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/nt_400"
+                        android:fontFamily="@font/nunito_600"
                         android:text="@string/translate_from"
                         android:textColor="@color/text_secondary"
                         android:textSize="@dimen/_9sdp" />
@@ -70,7 +70,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:ellipsize="end"
-                        android:fontFamily="@font/nt_600"
+                        android:fontFamily="@font/nunito_800"
                         android:maxLines="1"
                         android:textSize="@dimen/_11sdp"
                         app:drawableTint="@color/text_secondary"
@@ -106,7 +106,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/nt_400"
+                        android:fontFamily="@font/nunito_600"
                         android:text="@string/translate_to_short"
                         android:textColor="@color/text_secondary"
                         android:textSize="@dimen/_9sdp" />
@@ -116,7 +116,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:ellipsize="end"
-                        android:fontFamily="@font/nt_600"
+                        android:fontFamily="@font/nunito_800"
                         android:maxLines="1"
                         android:textSize="@dimen/_11sdp"
                         app:drawableTint="@color/text_secondary"
@@ -154,7 +154,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/nt_600"
+                        android:fontFamily="@font/nunito_800"
                         android:text="@string/language_pack_title"
                         android:textColor="@color/text_primary"
                         android:textSize="@dimen/_10sdp" />
@@ -163,7 +163,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_3sdp"
-                        android:fontFamily="@font/nt_400"
+                        android:fontFamily="@font/nunito_600"
                         android:text="@string/language_pack_desc"
                         android:textColor="@color/text_secondary"
                         android:textSize="@dimen/_9sdp" />

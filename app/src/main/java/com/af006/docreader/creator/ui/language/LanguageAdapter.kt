@@ -2,6 +2,7 @@ package com.af010.creator.docreader.ui.language
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.view.isInvisible
 import com.af010.creator.docreader.databinding.ItemViewLanguageBinding
 import com.ui.baselib.base.BaseAdapter
 
@@ -16,10 +17,11 @@ class LanguageAdapter : BaseAdapter<LanguageUiModel, ItemViewLanguageBinding>() 
         item: LanguageUiModel,
         position: Int
     ) {
-        itemLanguage.setImageResource(item.item.flagId)
+        tvBadge.text = item.item.languageTag.substringBefore('-').uppercase()
         languageName.text = item.title
         locateName.text = item.subtitle
         root.isSelected = item.isSelected
+        ivCheck.isInvisible = !item.isSelected
         root.setOnClickListener {
             if (item.isSelected) return@setOnClickListener
             select(item.item.code)

@@ -25,7 +25,7 @@
             android:id="@+id/tvTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/nt_600"
+            android:fontFamily="@font/nunito_800"
             android:textColor="@color/text_primary"
             android:textSize="@dimen/_12sdp"
             tools:text="Merge PDF" />
@@ -35,7 +35,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_2sdp"
-            android:fontFamily="@font/nt_400"
+            android:fontFamily="@font/nunito_600"
             android:textColor="@color/text_secondary"
             android:textSize="@dimen/_9sdp"
             tools:text="Combine files into one PDF" />

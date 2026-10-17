@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- A raised card: plain surface, soft corners; the shadow comes from elevation. -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="@color/color_surface_card" />
+    <corners android:radius="@dimen/_17sdp" />
+</shape>

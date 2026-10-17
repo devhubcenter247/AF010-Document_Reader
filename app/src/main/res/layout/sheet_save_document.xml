@@ -39,7 +39,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/nt_500"
+                android:fontFamily="@font/nunito_700"
                 android:text="@string/save_to_original"
                 android:textColor="@color/text_primary"
                 android:textSize="@dimen/_11sdp" />
@@ -50,7 +50,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_2sdp"
                 android:ellipsize="end"
-                android:fontFamily="@font/nt_400"
+                android:fontFamily="@font/nunito_600"
                 android:maxLines="1"
                 android:textColor="@color/text_secondary"
                 android:textSize="@dimen/_9sdp"
@@ -81,7 +81,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/nt_500"
+                android:fontFamily="@font/nunito_700"
                 android:text="@string/save_as_copy"
                 android:textColor="@color/text_primary"
                 android:textSize="@dimen/_11sdp" />
@@ -91,7 +91,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_2sdp"
                 android:ellipsize="end"
-                android:fontFamily="@font/nt_400"
+                android:fontFamily="@font/nunito_600"
                 android:maxLines="1"
                 android:text="@string/save_as_copy_desc"
                 android:textColor="@color/text_secondary"
@@ -122,7 +122,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/nt_500"
+                android:fontFamily="@font/nunito_700"
                 android:text="@string/export_to_pdf"
                 android:textColor="@color/text_primary"
                 android:textSize="@dimen/_11sdp" />
@@ -132,7 +132,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_2sdp"
                 android:ellipsize="end"
-                android:fontFamily="@font/nt_400"
+                android:fontFamily="@font/nunito_600"
                 android:maxLines="1"
                 android:text="@string/export_to_pdf_desc"
                 android:textColor="@color/text_secondary"
@@ -163,7 +163,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/nt_500"
+                android:fontFamily="@font/nunito_700"
                 android:text="@string/file_action_share"
                 android:textColor="@color/text_primary"
                 android:textSize="@dimen/_11sdp" />
@@ -173,7 +173,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_2sdp"
                 android:ellipsize="end"
-                android:fontFamily="@font/nt_400"
+                android:fontFamily="@font/nunito_600"
                 android:maxLines="1"
                 android:text="@string/share_desc"
                 android:textColor="@color/text_secondary"

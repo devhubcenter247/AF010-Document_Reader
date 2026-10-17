@@ -36,7 +36,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/nt_500"
+                android:fontFamily="@font/nunito_700"
                 android:text="@string/scan_clean_up"
                 android:textColor="@color/on_primary"
                 android:textSize="@dimen/_12sdp" />
@@ -46,7 +46,7 @@
                 android:layout_height="wrap_content"
                 android:alpha="0.7"
                 android:ellipsize="end"
-                android:fontFamily="@font/nt_400"
+                android:fontFamily="@font/nunito_600"
                 android:maxLines="1"
                 android:text="@string/scan_clean_hint"
                 android:textColor="@color/on_primary"
@@ -57,7 +57,7 @@
             android:id="@+id/btnDone"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/_23sdp"
-            android:fontFamily="@font/nt_600"
+            android:fontFamily="@font/nunito_800"
             android:gravity="center"
             android:paddingHorizontal="@dimen/_10sdp"
             android:text="@string/done"
@@ -97,7 +97,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/nt_500"
+            android:fontFamily="@font/nunito_700"
             android:text="@string/scan_brush"
             android:textColor="@color/on_primary"
             android:textSize="@dimen/_10sdp" />

@@ -70,7 +70,7 @@
                 android:id="@+id/tvUnlockTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/nt_600"
+                android:fontFamily="@font/nunito_800"
                 android:textColor="@color/on_primary"
                 android:textSize="@dimen/_11sdp"
                 tools:text="Translate the other 15 pages" />
@@ -78,7 +78,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/nt_400"
+                android:fontFamily="@font/nunito_600"
                 android:text="@string/translate_unlock_desc"
                 android:textColor="@color/color_on_gradient_secondary"
                 android:textSize="@dimen/_9sdp" />
@@ -88,7 +88,7 @@
             android:id="@+id/btnUnlock"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/_23sdp"
-            android:fontFamily="@font/nt_500"
+            android:fontFamily="@font/nunito_700"
             android:gravity="center"
             android:paddingHorizontal="@dimen/_11sdp"
             android:text="@string/unlock"

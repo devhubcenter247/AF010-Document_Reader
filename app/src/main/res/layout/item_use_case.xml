@@ -1,51 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="@dimen/_3sdp"
-    android:clickable="true"
-    android:focusable="true"
-    android:padding="@dimen/_10sdp"
-    android:background="@drawable/bg_surface_card_r10sdp"
-    android:foreground="@drawable/stroke_r10sdp_st1sdp_stroke"
-    android:clipToOutline="true">
+    android:layout_height="@dimen/_151sdp"
+    android:layout_margin="@dimen/_5sdp"
+    android:background="@drawable/bg_use_case"
+    android:elevation="@dimen/_3sdp"
+    android:orientation="vertical"
+    android:outlineAmbientShadowColor="@color/color_shadow"
+    android:outlineSpotShadowColor="@color/color_shadow"
+    android:padding="@dimen/_12sdp">
 
-    <ImageView
-        android:id="@+id/ivIcon"
-        android:layout_width="@dimen/_27sdp"
-        android:layout_height="@dimen/_27sdp"
-        android:contentDescription="@null"
-        android:padding="@dimen/_5sdp"
-        app:tint="@color/white"
-        android:src="@drawable/ic_use_case_work"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:background="@drawable/bg_x3582ff_r8sdp"
-        android:clipToOutline="true" />
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
 
-    <ImageView
-        android:id="@+id/ivCheck"
-        android:layout_width="@dimen/_15sdp"
-        android:layout_height="@dimen/_15sdp"
-        android:contentDescription="@null"
-        android:src="@drawable/ic_check_circle"
-        android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:visibility="visible" />
+        <ImageView
+            android:id="@+id/ivIcon"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:background="@drawable/bg_icon_tile_large"
+            android:importantForAccessibility="no"
+            android:padding="@dimen/_10sdp"
+            app:tint="@color/on_primary"
+            tools:src="@drawable/ic_fo_work" />
+
+        <ImageView
+            android:id="@+id/ivCheck"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_gravity="end"
+            android:background="@drawable/bg_tick"
+            android:duplicateParentState="true"
+            android:importantForAccessibility="no"
+            android:padding="@dimen/_4sdp"
+            android:src="@drawable/ic_fo_check"
+            app:tint="@color/on_primary" />
+    </FrameLayout>
 
     <TextView
         android:id="@+id/tvTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_7sdp"
-        android:fontFamily="@font/nt_600"
+        android:fontFamily="@font/nunito_800"
         android:textColor="@color/text_primary"
-        android:textSize="@dimen/_11sdp"
-        app:layout_constraintTop_toBottomOf="@+id/ivIcon"
+        android:textSize="@dimen/_13sdp"
         tools:text="Work" />
 
     <TextView
@@ -53,12 +54,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_2sdp"
-        android:lines="2"
-        android:gravity="center_vertical"
-        android:fontFamily="@font/nt_400"
+        android:fontFamily="@font/nunito_600"
+        android:lineSpacingMultiplier="1.1"
         android:textColor="@color/text_secondary"
-        android:textSize="@dimen/_9sdp"
-        app:layout_constraintTop_toBottomOf="@+id/tvTitle"
-        tools:text="Contracts, reports, signing" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:textSize="@dimen/_10sdp"
+        tools:text="Contracts, reports and signing" />
+</LinearLayout>

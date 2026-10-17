@@ -1,52 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <color name="ic_launcher_background">#FFFFFF</color>
-    <color name="icon_default">#20243A</color>
+    <color name="ic_launcher_background">#1F6FEB</color>
+    <color name="icon_default">#1F2433</color>
 
     <!-- Brand -->
-    <color name="primary">#4850F4</color>
-    <color name="primary_20">#334850F4</color>
-    <color name="primary_30">#4D4850F4</color>
-    <color name="primary_40">#804850F4</color>
+    <color name="primary">#1F6FEB</color>
+    <color name="primary_20">#331F6FEB</color>
+    <color name="primary_30">#4D1F6FEB</color>
+    <color name="primary_40">#661F6FEB</color>
 
     <!-- Nút chính, tab đang chọn, checkbox -->
-    <color name="primary_dark">#3238F4</color>  <!-- Chữ/icon trên nền đang chọn, cuối gradient -->
+    <color name="primary_dark">#1858C4</color>  <!-- Chữ/icon trên nền đang chọn, cuối gradient -->
     <color name="on_primary">#FFFFFF</color>  <!-- Chữ trên nút chính -->
-    <color name="gradient_start">#7168F3</color>  <!-- FAB +, thẻ Premium -->
-    <color name="gradient_end">#3238F4</color>
-    <color name="accent">#FF784F</color>  <!-- Scan / tính năng nổi bật -->
+    <color name="gradient_start">#1F6FEB</color>  <!-- FAB +, thẻ Premium -->
+    <color name="gradient_end">#1F6FEB</color>
+    <color name="accent">#F4B740</color>  <!-- Scan / tính năng nổi bật -->
     <!-- Nền nhạt của Scan -->
-    <color name="on_accent">#20243A</color>  <!-- Chữ trên nền cam san hô (không dùng chữ trắng) -->
+    <color name="on_accent">#1F2433</color>  <!-- Chữ trên nền cam san hô (không dùng chữ trắng) -->
 
     <!-- Surfaces -->
     <!-- Background / Surface -->
-    <color name="color_bg_app">#F7F8FC</color> <!-- Nền màn hình -->
+    <color name="color_bg_app">#F2F4F8</color> <!-- Nền màn hình -->
     <color name="color_surface_card">#FFFFFF</color> <!-- Card, sheet, danh sách file -->
-    <color name="color_surface_variant">#F1F2F7</color> <!-- Nút icon, ô nhập phụ -->
-    <color name="color_bg_selected">#EFEBFF</color> <!-- Chip lọc, tab đang chọn -->
-    <color name="color_stroke">#E7E9F2</color> <!-- Viền card 1dp, divider -->
+    <color name="color_surface_variant">#E8EBF2</color> <!-- Nút icon, ô nhập phụ -->
+    <color name="color_bg_selected">#E2ECFF</color> <!-- Chip lọc, tab đang chọn -->
+    <color name="color_stroke">#E3E6EE</color> <!-- Viền card 1dp, divider -->
     <!-- Nền mờ sau sheet/dialog (48%) -->
 
     <!-- Text -->
-    <color name="text_primary">#20243A</color> <!-- Tiêu đề, tên file -->
-    <color name="text_secondary">#6B7186</color> <!-- Dung lượng, ngày, mô tả -->
-    <color name="text_on_selected">#3238F4</color> <!-- Chữ trong chip/tab đang chọn -->
+    <color name="text_primary">#1F2433</color> <!-- Tiêu đề, tên file -->
+    <color name="text_secondary">#5F6677</color> <!-- Dung lượng, ngày, mô tả -->
+    <color name="text_on_selected">#1858C4</color> <!-- Chữ trong chip/tab đang chọn -->
 
     <!-- Status -->
-    <color name="color_error">#D93A2F</color> <!-- Xoá, lỗi -->
-    <color name="color_success">#1E9E5A</color> <!-- Đã lưu, hoàn tất -->
-    <color name="color_success_bg">#E3F6EA</color>
-    <color name="color_warning">#9A6A00</color> <!-- Chữ cảnh báo -->
-    <color name="color_warning_bg">#FFF6DA</color> <!-- Nền cảnh báo -->
-    <color name="color_premium_gold">#FFB020</color> <!-- Vương miện Premium -->
+    <color name="color_error">#DC2F2F</color> <!-- Xoá, lỗi -->
+    <color name="color_success">#128A3C</color> <!-- Đã lưu, hoàn tất -->
+    <color name="color_success_bg">#DDF4E4</color>
+    <color name="color_warning">#7A5300</color> <!-- Chữ cảnh báo -->
+    <color name="color_warning_bg">#FFF3D6</color> <!-- Nền cảnh báo -->
+    <color name="color_premium_gold">#E39B17</color> <!-- Vương miện Premium -->
 
     <!-- File types -->
-    <color name="color_file_pdf">#F0443A</color>
-    <color name="color_file_word">#3984FF</color>
-    <color name="color_file_excel">#22A565</color>
-    <color name="color_file_powerpoint">#F57A2A</color>
-    <color name="color_file_txt">#7A8199</color>
+    <color name="color_file_pdf">#DC2F2F</color>
+    <color name="color_file_word">#1F6FEB</color>
+    <color name="color_file_excel">#128A3C</color>
+    <color name="color_file_powerpoint">#C9520A</color>
+    <color name="color_file_txt">#5F6677</color>
 
     <!-- Tools (icon color + pastel bg) -->
     <!-- Scan -->
@@ -118,33 +118,61 @@
     <color name="color_eeeff4">#EEEFF4</color>
     <color name="color_efebff">#EFEBFF</color>
     <!-- Home / lists -->
-    <color name="color_surface_track">#ECEDF3</color> <!-- Nền segmented control, nút tròn phụ -->
-    <color name="color_handle">#D5D8E3</color> <!-- Thanh kéo của bottom sheet -->
-    <color name="color_icon_muted">#A3A8BA</color> <!-- Chevron cuối dòng -->
-    <color name="color_checkbox_stroke">#C5C9D6</color> <!-- Viền checkbox / radio chưa chọn -->
-    <color name="color_error_bg">#FDECEB</color>
-    <color name="color_search_highlight">#FFE58A</color>
-    <color name="color_ink">#1E2238</color> <!-- Nút tối trên thẻ Scan -->
+    <color name="color_surface_track">#E8EBF2</color> <!-- Nền segmented control, nút tròn phụ -->
+    <color name="color_handle">#D9DDE7</color> <!-- Thanh kéo của bottom sheet -->
+    <color name="color_icon_muted">#878E9F</color> <!-- Chevron cuối dòng -->
+    <color name="color_checkbox_stroke">#D9DDE7</color> <!-- Viền checkbox / radio chưa chọn -->
+    <color name="color_error_bg">#FFE2E0</color>
+    <color name="color_search_highlight">#FFE08A</color>
+    <color name="color_ink">#1F2433</color> <!-- Nút tối trên thẻ Scan -->
     <color name="color_on_accent_secondary">#4A2415</color> <!-- Chữ phụ trên nền cam san hô -->
     <color name="color_on_teal_secondary">#1F5F57</color>
     <color name="color_on_gradient_secondary">#E4E0FF</color>
-    <color name="color_on_warning">#5C4300</color> <!-- Chữ trong hộp cảnh báo -->
-    <color name="color_info">#2A5BD7</color> <!-- Icon trong banner thông tin -->
-    <color name="color_info_bg">#EEF4FF</color>
-    <color name="color_on_info">#1E3F99</color>
+    <color name="color_on_warning">#7A5300</color> <!-- Chữ trong hộp cảnh báo -->
+    <color name="color_info">#1F6FEB</color> <!-- Icon trong banner thông tin -->
+    <color name="color_info_bg">#E2ECFF</color>
+    <color name="color_on_info">#1858C4</color>
     <color name="color_on_brand_secondary">#E4E0FF</color> <!-- Chữ phụ trên nền gradient Premium -->
-    <color name="color_plan_selected">#F6F4FF</color> <!-- Nền gói đang chọn ở paywall -->
-    <color name="color_trial_end">#F5A623</color>
-    <color name="color_word">#3984FF</color> <!-- Màu ribbon theo định dạng -->
-    <color name="color_excel">#22A565</color>
-    <color name="color_slides">#F57A2A</color>
-    <color name="color_reader_night">#0B0C14</color> <!-- Nền quanh trang PDF ở chế độ đọc Night / Sepia -->
+    <color name="color_plan_selected">#E2ECFF</color> <!-- Nền gói đang chọn ở paywall -->
+    <color name="color_trial_end">#F4B740</color>
+    <color name="color_word">#1F6FEB</color> <!-- Màu ribbon theo định dạng -->
+    <color name="color_excel">#128A3C</color>
+    <color name="color_slides">#C9520A</color>
+    <color name="color_reader_night">#14161C</color> <!-- Nền quanh trang PDF ở chế độ đọc Night / Sepia -->
     <color name="color_reader_sepia">#E9DFC8</color>
-    <color name="color_sign_pad">#F7F8FC</color> <!-- Nền ô ký: luôn sáng để mực tối nhìn rõ -->
-    <color name="color_sign_ink">#20243A</color>
-    <color name="color_pill_dark">#D120243A</color> <!-- Nhãn số trang nổi trên trang PDF -->
-    <color name="color_scan_bg">#0B0C14</color> <!-- Nền màn camera / chỉnh góc -->
+    <color name="color_sign_pad">#F2F4F8</color> <!-- Nền ô ký: luôn sáng để mực tối nhìn rõ -->
+    <color name="color_sign_ink">#1F2433</color>
+    <color name="color_pill_dark">#D11F2433</color> <!-- Nhãn số trang nổi trên trang PDF -->
+    <color name="color_scan_bg">#14161C</color> <!-- Nền màn camera / chỉnh góc -->
     <color name="color_white_12">#1FFFFFFF</color>
     <color name="color_white_16">#29FFFFFF</color>
     <color name="color_white_28">#47FFFFFF</color>
+
+    <!-- Folio palette additions -->
+    <color name="text_tertiary">#4B5263</color> <!-- Chữ phụ đậm hơn: nút phụ, chú thích trên nền xám -->
+    <color name="color_reader_bg">#E9ECF2</color> <!-- Nền quanh trang PDF -->
+    <color name="color_shadow">#1E2846</color> <!-- Màu bóng của thẻ nổi -->
+    <color name="color_pro">#F4B740</color> <!-- Chỉ dùng cho Pro -->
+    <color name="color_pro_bg">#FFF3D6</color>
+    <color name="color_file_pdf_bg">#FFE2E0</color>
+    <color name="color_file_word_bg">#E2ECFF</color>
+    <color name="color_file_excel_bg">#DDF4E4</color>
+    <color name="color_file_powerpoint_bg">#FFE9D9</color>
+    <color name="color_file_txt_bg">#ECEEF3</color>
+    <color name="color_file_image">#0E7F94</color>
+    <color name="color_file_image_bg">#DAF1F5</color>
+    <color name="color_file_zip">#9A6F00</color>
+    <color name="color_file_zip_bg">#FDF0C9</color>
+    <color name="color_mascot_cheek">#FFB3C1</color>
+    <color name="color_blob_peach">#FBE7C6</color> <!-- Hình nền minh hoạ -->
+    <color name="color_blob_butter">#FFF0CC</color>
+    <color name="color_blob_sage">#E6EEDF</color>
+    <color name="color_sparkle_orange">#E8955A</color>
+    <color name="color_sparkle_green">#9CC7A9</color>
+    <color name="color_phone_screen">#3B404E</color>
+    <color name="color_tool_amber">#C77700</color>
+    <color name="color_folder">#F4B740</color>
+    <color name="color_folder_back">#F2B544</color>
+    <color name="color_folder_label">#99FFFFFF</color>
+    <color name="color_tool_indigo">#5B5BD6</color>
 </resources>

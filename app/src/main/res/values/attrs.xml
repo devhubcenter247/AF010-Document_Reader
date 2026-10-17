@@ -227,18 +227,6 @@
 
 
 
-    <declare-styleable name="UiLinearProgressIndicator">
-        <attr name="uiProgress" format="integer" />
-        <attr name="uiProgressMax" format="integer" />
-        <attr name="uiProgressIndeterminate" format="boolean" />
-        <!-- Milliseconds -->
-        <attr name="uiProgressAnimationDuration" format="integer" />
-        <attr name="uiProgressTrackColor" format="color" />
-        <attr name="uiProgressTrackThickness" format="dimension" />
-        <attr name="uiProgressTrackCornerRadius" format="dimension" />
-        <attr name="uiProgressGradientStart" format="color" />
-        <attr name="uiProgressGradientEnd" format="color" />
-    </declare-styleable>
 
 
 

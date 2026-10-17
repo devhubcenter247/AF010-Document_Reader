@@ -28,7 +28,7 @@
             android:layout_height="@dimen/_15sdp"
             android:layout_gravity="bottom|center_horizontal"
             android:layout_marginBottom="@dimen/_3sdp"
-            android:fontFamily="@font/nt_400"
+            android:fontFamily="@font/nunito_600"
             android:gravity="center"
             android:minWidth="@dimen/_15sdp"
             android:paddingHorizontal="@dimen/_4sdp"

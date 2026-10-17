@@ -911,7 +911,7 @@ class OfficeActivity : BaseAppActivity<ActivityOfficeBinding>(ActivityOfficeBind
             val selected = index == tabIndex
             val label = (column as LinearLayout).getChildAt(0) as TextView
             label.setTextColor(if (selected) accent else muted)
-            label.typeface = ResourcesCompat.getFont(this@OfficeActivity, if (selected) R.font.nt_700 else R.font.nt_500)
+            label.typeface = ResourcesCompat.getFont(this@OfficeActivity, if (selected) R.font.nunito_900 else R.font.nunito_700)
                 ?: Typeface.DEFAULT
             column.getChildAt(1).setBackgroundColor(if (selected) accent else 0)
         }

@@ -37,7 +37,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/nt_600"
+                android:fontFamily="@font/nunito_800"
                 android:text="@string/theme_sample"
                 android:textColor="#20243A"
                 android:textSize="@dimen/_17sdp" />
@@ -47,7 +47,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_3sdp"
-                android:fontFamily="@font/nt_500"
+                android:fontFamily="@font/nunito_700"
                 android:text="@string/theme_normal"
                 android:textColor="#20243A"
                 android:textSize="@dimen/_10sdp" />
@@ -68,7 +68,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/nt_600"
+                android:fontFamily="@font/nunito_800"
                 android:text="@string/theme_sample"
                 android:textColor="#D9DBE6"
                 android:textSize="@dimen/_17sdp" />
@@ -78,7 +78,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_3sdp"
-                android:fontFamily="@font/nt_500"
+                android:fontFamily="@font/nunito_700"
                 android:text="@string/theme_night"
                 android:textColor="#D9DBE6"
                 android:textSize="@dimen/_10sdp" />
@@ -99,7 +99,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/nt_600"
+                android:fontFamily="@font/nunito_800"
                 android:text="@string/theme_sample"
                 android:textColor="#5B4636"
                 android:textSize="@dimen/_17sdp" />
@@ -109,7 +109,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_3sdp"
-                android:fontFamily="@font/nt_500"
+                android:fontFamily="@font/nunito_700"
                 android:text="@string/theme_sepia"
                 android:textColor="#5B4636"
                 android:textSize="@dimen/_10sdp" />
@@ -136,7 +136,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/_6sdp"
-            android:fontFamily="@font/nt_400"
+            android:fontFamily="@font/nunito_600"
             android:text="@string/text_view_desc"
             android:textColor="@color/text_secondary"
             android:textSize="@dimen/_10sdp" />
@@ -209,7 +209,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/_6sdp"
-            android:fontFamily="@font/nt_400"
+            android:fontFamily="@font/nunito_600"
             android:textColor="@color/text_secondary"
             android:textSize="@dimen/_10sdp"
             tools:text="Vertical" />

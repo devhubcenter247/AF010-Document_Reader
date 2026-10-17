@@ -1,20 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="icon_default">#F2F3F8</color>
+    <color name="icon_default">#F2F4F8</color>
 
     <!-- Surfaces -->
-    <color name="color_bg_app">#0F1120</color>
-    <color name="color_surface_card">#1A1D2E</color>
-    <color name="color_surface_variant">#24283C</color>
-    <color name="color_surface_track">#24283C</color>
-    <color name="color_bg_selected">#2D2860</color>
-    <color name="color_stroke">#2B2F46</color>
-    <color name="color_handle">#3A3F5A</color>
-    <color name="color_checkbox_stroke">#4A4F6A</color>
+    <color name="color_bg_app">#14161C</color>
+    <color name="color_surface_card">#1F222B</color>
+    <color name="color_surface_variant">#292D38</color>
+    <color name="color_surface_track">#292D38</color>
+    <color name="color_bg_selected">#1E2A44</color>
+    <color name="color_stroke">#333846</color>
+    <color name="color_handle">#3D4250</color>
+    <color name="color_checkbox_stroke">#4A5060</color>
+    <color name="color_plan_selected">#1E2A44</color>
+    <color name="color_reader_bg">#0F1115</color>
+    <color name="color_shadow">#000000</color>
+    <color name="color_info_bg">#1E2A44</color>
+    <color name="color_on_info">#8DB4FF</color>
+    <color name="color_error_bg">#4A2523</color>
+    <color name="color_success_bg">#1B3427</color>
+    <color name="color_warning_bg">#45301F</color>
+    <color name="color_on_warning">#F3B27A</color>
+    <color name="color_warning">#F3B27A</color>
+    <color name="color_pro_bg">#45301F</color>
 
     <!-- Text -->
-    <color name="text_primary">#F2F3F8</color>
-    <color name="text_secondary">#A3A8BD</color>
-    <color name="text_on_selected">#C4BBFF</color>
-    <color name="color_plan_selected">#262A45</color>
+    <color name="text_primary">#F2F4F8</color>
+    <color name="text_secondary">#B9BFCC</color>
+    <color name="text_tertiary">#9AA1B2</color>
+    <color name="text_on_selected">#8DB4FF</color>
+
+    <!-- File type tints: deep fills, light glyphs -->
+    <color name="color_file_pdf_bg">#4A2523</color>
+    <color name="color_file_word_bg">#1F2C48</color>
+    <color name="color_file_excel_bg">#1B3427</color>
+    <color name="color_file_powerpoint_bg">#45301F</color>
+    <color name="color_file_txt_bg">#292D38</color>
+    <color name="color_file_image_bg">#163640</color>
+    <color name="color_file_zip_bg">#45301F</color>
+
+    <!-- Illustration grounds -->
+    <color name="color_blob_peach">#2A2620</color>
+    <color name="color_blob_butter">#2B2819</color>
+    <color name="color_blob_sage">#202A22</color>
 </resources>

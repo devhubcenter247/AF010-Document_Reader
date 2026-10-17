@@ -11,7 +11,7 @@
         android:id="@+id/tvLabel"
         android:layout_width="@dimen/_80sdp"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/nt_400"
+        android:fontFamily="@font/nunito_600"
         android:textColor="@color/text_secondary"
         android:textSize="@dimen/_11sdp"
         tools:text="Location" />
@@ -21,7 +21,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:fontFamily="@font/nt_500"
+        android:fontFamily="@font/nunito_700"
         android:textColor="@color/text_primary"
         android:textIsSelectable="true"
         android:textSize="@dimen/_11sdp"
