@@ -857,6 +857,10 @@
         <item quantity="one">%d found</item>
         <item quantity="other">%d found</item>
     </plurals>
+    <plurals name="fo_show_all_files">
+        <item quantity="one">Show all %d file</item>
+        <item quantity="other">Show all %d files</item>
+    </plurals>
     <string name="fo_page_n">Page %d</string>
     <string name="fo_line_n">Line %d</string>
     <string name="fo_recent_searches">Recent searches</string>

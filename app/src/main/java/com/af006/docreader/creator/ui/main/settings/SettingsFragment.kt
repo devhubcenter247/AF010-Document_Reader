@@ -98,7 +98,7 @@ class SettingsFragment : BaseAppFragment<FragmentSettingsBinding>(FragmentSettin
                 layoutParams = LinearLayout.LayoutParams(size, size)
                 setPadding(inset, inset, inset, inset)
                 setImageResource(if (lit) R.drawable.ic_fo_star_filled else R.drawable.ic_fo_star)
-                ImageViewCompat.setImageTintList(this, ColorStateList.valueOf(context.getColor(if (lit) R.color.color_pro else R.color.primary_dark)))
+                ImageViewCompat.setImageTintList(this, ColorStateList.valueOf(context.getColor(if (lit) R.color.color_pro else R.color.star_idle)))
                 contentDescription = resources.getQuantityString(R.plurals.fo_rate_stars, star, star)
                 clickSingle {
                     showStars(star)

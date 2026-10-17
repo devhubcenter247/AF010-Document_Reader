@@ -43,4 +43,5 @@
     <color name="color_blob_butter">#2B2819</color>
     <color name="color_blob_sage">#202A22</color>
     <color name="color_bg_app_clear">#0014161C</color>
+    <color name="star_idle">#8AB4FF</color>
 </resources>

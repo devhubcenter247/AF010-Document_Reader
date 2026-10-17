@@ -138,6 +138,20 @@
                         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                         tools:itemCount="2"
                         tools:listitem="@layout/item_document" />
+
+                    <TextView
+                        android:id="@+id/btnShowAll"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_34sdp"
+                        android:layout_marginTop="@dimen/_4sdp"
+                        android:background="?attr/selectableItemBackground"
+                        android:fontFamily="@font/nunito_800"
+                        android:gravity="center"
+                        android:textColor="@color/primary"
+                        android:textSize="@dimen/_11sdp"
+                        android:visibility="gone"
+                        tools:text="Show all 120 files"
+                        tools:visibility="visible" />
                 </LinearLayout>
 
                 <LinearLayout
