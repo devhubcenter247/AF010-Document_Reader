@@ -3,6 +3,8 @@ package com.af010.creator.docreader.ui.main.reader.office.sheet
 import androidx.fragment.app.FragmentActivity
 import com.af010.creator.docreader.R
 import com.af010.creator.docreader.databinding.SheetSaveDocumentBinding
+import com.af010.creator.docreader.ui.common.showTypeTile
+import java.io.File
 import com.ui.baselib.base.BaseBottomSheet
 import com.ui.baselib.extensions.click
 import com.ui.baselib.extensions.visibleOrGone
@@ -18,8 +20,10 @@ class SaveDocumentBottomSheet(
 ) : BaseBottomSheet<SheetSaveDocumentBinding>(activity, SheetSaveDocumentBinding::inflate) {
 
     override fun SheetSaveDocumentBinding.onBind() {
-        header.tvTitle.setText(R.string.save_document)
+        header.tvTitle.setText(R.string.fo_keep_changes)
         header.btnClose.click { dismissSafe() }
+        tvFileName.text = fileName
+        tvType.showTypeTile(File(fileName), soft = true)
         tvSaveDesc.text = activity.getString(R.string.save_to_original_desc, fileName)
 
         mapOf(

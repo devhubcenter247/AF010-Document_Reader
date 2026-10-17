@@ -439,7 +439,7 @@
         <item quantity="one">%d match marked</item>
         <item quantity="other">%d matches marked</item>
     </plurals>
-    <string name="page_of">Page %1$d / %2$d</string>
+    <string name="page_of">Page %1$d of %2$d</string>
     <string name="page_number">Page %d</string>
     <string name="translate_subtitle">Works offline, right on your phone</string>
     <string name="translate_from">From</string>
@@ -594,8 +594,8 @@
     <!-- Office viewer and editor -->
     <string name="edit_document">Edit document</string>
     <string name="legacy_view_only">Old %1$s files are view-only.</string>
-    <string name="sheet_of">Sheet %1$d / %2$d</string>
-    <string name="slide_of">Slide %1$d / %2$d</string>
+    <string name="sheet_of">Sheet %1$d of %2$d</string>
+    <string name="slide_of">Slide %1$d of %2$d</string>
     <string name="saved">Saved</string>
     <string name="unsaved_changes">Not saved</string>
     <string name="save_document">Save document</string>
@@ -606,13 +606,13 @@
     <string name="export_to_pdf">Export to PDF</string>
     <string name="export_to_pdf_desc">For sending or printing</string>
     <string name="share_desc">WhatsApp, Gmail, Drive…</string>
-    <string name="unsaved_title">Save changes before leaving?</string>
-    <string name="unsaved_message">Your changes to %s aren’t saved to the original file.</string>
+    <string name="unsaved_title">Save before you go?</string>
+    <string name="unsaved_message">You have unsaved edits in %s.</string>
     <string name="dont_save">Don’t save</string>
     <string name="keep_editing">Keep editing</string>
-    <string name="draft_title">Restore unsaved changes?</string>
-    <string name="draft_message">The app closed while you were editing %1$s at %2$s. Continue where you left off?</string>
-    <string name="draft_restore">Restore</string>
+    <string name="draft_title">Welcome back!</string>
+    <string name="draft_message">We kept a draft of the edits you didn’t get to save in %s.</string>
+    <string name="draft_restore">Restore my draft</string>
     <string name="draft_restore_failed">Couldn’t restore the changes</string>
     <string name="ribbon_home">Home</string>
     <string name="ribbon_insert">Insert</string>
@@ -1101,4 +1101,22 @@
     <string name="fo_letter_a" translatable="false">A</string>
     <string name="fo_smaller_text">Smaller text</string>
     <string name="fo_bigger_text">Bigger text</string>
+    <string name="fo_find">Find</string>
+    <string name="fo_edit">Edit</string>
+    <string name="fo_edited">Edited</string>
+    <string name="fo_draft">Draft</string>
+    <string name="fo_saved_file">Saved file</string>
+    <string name="fo_not_saved_yet">Not saved yet</string>
+    <string name="fo_last_save">Last save</string>
+    <string name="fo_save_and_leave">Save and leave</string>
+    <string name="fo_leave_without_saving">Leave without saving</string>
+    <string name="fo_open_saved_file">Open saved file</string>
+    <string name="fo_keep_changes">Keep your changes?</string>
+    <string name="fo_save_as_copy">Save as a copy</string>
+    <string name="fo_export_pdf">Export as PDF</string>
+    <string name="fo_text_style">Text style</string>
+    <string name="fo_format_cells">Format cells</string>
+    <string name="fo_end_show">End slideshow</string>
+    <string name="fo_previous_slide">Previous slide</string>
+    <string name="fo_next_slide">Next slide</string>
 </resources>

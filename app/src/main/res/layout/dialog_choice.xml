@@ -1,87 +1,132 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<!-- A question from the mascot with up to three answers; the draft prompt also compares the
+     draft with the saved file. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    style="@style/DialogAppStyle"
-    android:clipChildren="false"
-    android:clipToPadding="false"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@drawable/bg_dialog"
+    android:clipToPadding="false"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    android:padding="@dimen/_17sdp"
-    tools:context=".ui.dialog.ChoiceDialog"
-    android:background="@drawable/bg_surface_card_r18sdp"
-    android:clipToOutline="true">
+    android:paddingHorizontal="@dimen/_17sdp"
+    android:paddingTop="@dimen/_20sdp"
+    android:paddingBottom="@dimen/_15sdp">
 
     <ImageView
-        android:id="@+id/ivIcon"
-        android:layout_width="@dimen/_55sdp"
-        android:layout_height="@dimen/_55sdp"
-        android:contentDescription="@null"
-        android:padding="@dimen/_15sdp"
-        app:tint="@color/primary"
-        tools:src="@drawable/ic_app_save"
-        android:background="@drawable/bg_bg_selected_r28sdp"
-        android:clipToOutline="true" />
+        android:layout_width="@dimen/_54sdp"
+        android:layout_height="@dimen/_67sdp"
+        android:importantForAccessibility="no"
+        android:src="@drawable/ic_mascot_smile" />
 
     <TextView
         android:id="@+id/tvTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_11sdp"
+        android:layout_marginTop="@dimen/_8sdp"
         android:fontFamily="@font/nunito_800"
         android:gravity="center"
         android:textColor="@color/text_primary"
-        android:textSize="@dimen/_13sdp"
-        tools:text="Save changes before leaving?" />
+        android:textSize="@dimen/_18sdp"
+        tools:text="Save before you go?" />
 
     <TextView
         android:id="@+id/tvMessage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_6sdp"
+        android:layout_marginTop="@dimen/_5sdp"
         android:fontFamily="@font/nunito_600"
         android:gravity="center"
-        android:lineSpacingMultiplier="1.2"
+        android:lineSpacingMultiplier="1.15"
         android:textColor="@color/text_secondary"
-        android:textSize="@dimen/_9sdp"
-        tools:text="Your changes aren’t saved to the original file." />
+        android:textSize="@dimen/_11sdp"
+        tools:text="You have unsaved edits in Team offsite plan.docx." />
+
+    <LinearLayout
+        android:id="@+id/layoutCompare"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_11sdp"
+        android:baselineAligned="false"
+        android:orientation="horizontal"
+        android:visibility="gone"
+        tools:visibility="visible">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/bg_option_card"
+            android:orientation="vertical"
+            android:padding="@dimen/_9sdp"
+            tools:ignore="UselessParent">
+
+            <TextView
+                style="@style/CompareLabel"
+                android:text="@string/fo_draft"
+                android:textColor="@color/text_on_selected" />
+
+            <TextView
+                android:id="@+id/tvDraftTime"
+                style="@style/CompareValue"
+                tools:text="Today, 09:42" />
+
+            <TextView
+                style="@style/CompareNote"
+                android:text="@string/fo_not_saved_yet" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_6sdp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_outline_card"
+            android:orientation="vertical"
+            android:padding="@dimen/_9sdp">
+
+            <TextView
+                style="@style/CompareLabel"
+                android:text="@string/fo_saved_file"
+                android:textColor="@color/text_secondary" />
+
+            <TextView
+                android:id="@+id/tvSavedTime"
+                style="@style/CompareValue"
+                tools:text="Mon, 16:10" />
+
+            <TextView
+                style="@style/CompareNote"
+                android:text="@string/fo_last_save" />
+        </LinearLayout>
+    </LinearLayout>
 
     <TextView
         android:id="@+id/btnPrimary"
-        style="@style/ButtonAppStyle"
+        style="@style/PrimaryPillButton"
         android:layout_width="match_parent"
-        android:layout_marginTop="@dimen/_13sdp"
-        tools:text="Save"
-        android:background="@drawable/bg_button_primary"
-        android:elevation="@dimen/_5sdp"
-        android:outlineSpotShadowColor="@color/primary_30"
-        android:outlineAmbientShadowColor="@color/primary_20"
-        android:textColor="@color/white" />
+        android:layout_marginTop="@dimen/_14sdp"
+        tools:text="Save and leave" />
 
     <TextView
         android:id="@+id/btnSecondary"
-        style="@style/ButtonOutlineStyle"
         android:layout_width="match_parent"
+        android:layout_height="@dimen/_40sdp"
         android:layout_marginTop="@dimen/_6sdp"
-        tools:text="Don’t save"
-        android:background="@drawable/bg_surface_card_r10sdp_st1sdp_stroke"
-        android:textColor="@color/text_primary" />
+        android:background="@drawable/bg_outline_pill"
+        android:fontFamily="@font/nunito_800"
+        android:foreground="?attr/selectableItemBackground"
+        android:gravity="center"
+        android:textColor="@color/text_primary"
+        android:textSize="@dimen/_12sdp"
+        tools:text="Leave without saving" />
 
     <TextView
         android:id="@+id/btnTertiary"
+        style="@style/GhostButton"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_33sdp"
-        android:layout_marginTop="@dimen/_3sdp"
-        android:background="?attr/selectableItemBackground"
-        android:fontFamily="@font/nunito_700"
-        android:gravity="center"
-        android:textColor="@color/text_secondary"
-        android:textSize="@dimen/_11sdp"
+        android:layout_marginTop="@dimen/_2sdp"
         android:visibility="gone"
         tools:text="Keep editing"
         tools:visibility="visible" />
-
 </LinearLayout>

@@ -36,7 +36,7 @@ class CellFormatBottomSheet(
     private val wrapAtStart = wrap
 
     override fun SheetCellFormatBinding.onBind() {
-        header.tvTitle.setText(R.string.cell_format)
+        header.tvTitle.setText(R.string.fo_format_cells)
         header.btnClose.click { dismissSafe() }
 
         layoutFillColors.addColorDots(FILLS, com.intuit.sdp.R.dimen._28sdp) { color ->
@@ -80,12 +80,12 @@ class CellFormatBottomSheet(
         aligns().forEach { (view, action) ->
             val selected = action == align
             view.setFillColor(ContextCompat.getColor(
-                activity, if (selected) R.color.color_bg_selected else R.color.color_surface_variant
+                activity, if (selected) R.color.color_file_excel else R.color.color_surface_card
             ))
             ImageViewCompat.setImageTintList(
                 view,
                 ColorStateList.valueOf(
-                    ContextCompat.getColor(activity, if (selected) R.color.text_on_selected else R.color.text_primary)
+                    ContextCompat.getColor(activity, if (selected) R.color.on_primary else R.color.text_primary)
                 )
             )
             view.invalidate()

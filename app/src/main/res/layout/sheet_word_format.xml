@@ -44,7 +44,7 @@
                 android:textSize="@dimen/_12sdp"
                 app:drawableTint="@color/text_secondary"
                 tools:text="Times New Roman"
-                android:background="@drawable/bg_surface_variant_r11sdp"
+                android:background="@drawable/bg_format_tile"
                 android:textColor="@color/text_primary"
                 app:drawableEndCompat="@drawable/ic_app_chevd_13sdp" />
 
@@ -63,7 +63,7 @@
                 android:textSize="@dimen/_12sdp"
                 app:drawableTint="@color/text_secondary"
                 tools:text="13"
-                android:background="@drawable/bg_surface_variant_r11sdp"
+                android:background="@drawable/bg_format_tile"
                 android:textColor="@color/text_primary"
                 app:drawableEndCompat="@drawable/ic_app_chevd_13sdp" />
         </LinearLayout>
@@ -83,7 +83,7 @@
                 android:contentDescription="@null"
                 android:padding="@dimen/_10sdp"
                 android:src="@drawable/ic_app_bold"
-                android:background="@drawable/bg_surface_variant_r11sdp"
+                android:background="@drawable/bg_format_tile"
                 android:clipToOutline="true" />
 
             <ImageView
@@ -94,7 +94,7 @@
                 android:contentDescription="@null"
                 android:padding="@dimen/_10sdp"
                 android:src="@drawable/ic_app_italic"
-                android:background="@drawable/bg_surface_variant_r11sdp"
+                android:background="@drawable/bg_format_tile"
                 android:clipToOutline="true" />
 
             <ImageView
@@ -105,7 +105,7 @@
                 android:contentDescription="@null"
                 android:padding="@dimen/_10sdp"
                 android:src="@drawable/ic_app_underline"
-                android:background="@drawable/bg_surface_variant_r11sdp"
+                android:background="@drawable/bg_format_tile"
                 android:clipToOutline="true" />
 
             <TextView
@@ -117,7 +117,7 @@
                 android:gravity="center"
                 android:text="@string/format_strike_sample"
                 android:textSize="@dimen/_14sdp"
-                android:background="@drawable/bg_surface_variant_r11sdp"
+                android:background="@drawable/bg_format_tile"
                 android:textColor="@color/text_primary" />
 
             <TextView
@@ -129,7 +129,7 @@
                 android:gravity="center"
                 android:text="@string/format_superscript_sample"
                 android:textSize="@dimen/_14sdp"
-                android:background="@drawable/bg_surface_variant_r11sdp"
+                android:background="@drawable/bg_format_tile"
                 android:textColor="@color/text_primary" />
 
             <TextView
@@ -141,7 +141,7 @@
                 android:gravity="center"
                 android:text="@string/format_subscript_sample"
                 android:textSize="@dimen/_14sdp"
-                android:background="@drawable/bg_surface_variant_r11sdp"
+                android:background="@drawable/bg_format_tile"
                 android:textColor="@color/text_primary" />
         </LinearLayout>
 
@@ -194,7 +194,7 @@
                 android:layout_marginEnd="@dimen/_6sdp"
                 android:contentDescription="@null"
                 android:padding="@dimen/_10sdp"
-                android:background="@drawable/bg_surface_variant_r11sdp"
+                android:background="@drawable/bg_format_tile"
                 android:clipToOutline="true" />
 
             <ImageView
@@ -204,7 +204,7 @@
                 android:layout_marginEnd="@dimen/_6sdp"
                 android:contentDescription="@null"
                 android:padding="@dimen/_10sdp"
-                android:background="@drawable/bg_surface_variant_r11sdp"
+                android:background="@drawable/bg_format_tile"
                 android:clipToOutline="true" />
 
             <ImageView
@@ -214,7 +214,7 @@
                 android:layout_marginEnd="@dimen/_6sdp"
                 android:contentDescription="@null"
                 android:padding="@dimen/_10sdp"
-                android:background="@drawable/bg_surface_variant_r11sdp"
+                android:background="@drawable/bg_format_tile"
                 android:clipToOutline="true" />
 
             <ImageView
@@ -224,7 +224,7 @@
                 android:layout_marginEnd="@dimen/_6sdp"
                 android:contentDescription="@null"
                 android:padding="@dimen/_10sdp"
-                android:background="@drawable/bg_surface_variant_r11sdp"
+                android:background="@drawable/bg_format_tile"
                 android:clipToOutline="true" />
 
             <ImageView
@@ -234,7 +234,7 @@
                 android:layout_marginEnd="@dimen/_6sdp"
                 android:contentDescription="@null"
                 android:padding="@dimen/_10sdp"
-                android:background="@drawable/bg_surface_variant_r11sdp"
+                android:background="@drawable/bg_format_tile"
                 android:clipToOutline="true" />
 
             <ImageView
@@ -244,7 +244,7 @@
                 android:layout_marginEnd="@dimen/_6sdp"
                 android:contentDescription="@null"
                 android:padding="@dimen/_10sdp"
-                android:background="@drawable/bg_surface_variant_r11sdp"
+                android:background="@drawable/bg_format_tile"
                 android:clipToOutline="true" />
         </LinearLayout>
 
@@ -271,7 +271,7 @@
                 android:textSize="@dimen/_12sdp"
                 app:drawableTint="@color/text_secondary"
                 tools:text="Line spacing"
-                android:background="@drawable/bg_surface_variant_r11sdp"
+                android:background="@drawable/bg_format_tile"
                 android:textColor="@color/text_primary"
                 app:drawableEndCompat="@drawable/ic_app_chevd_13sdp" />
         </LinearLayout>

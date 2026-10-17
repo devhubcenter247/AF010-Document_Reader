@@ -1,6 +1,7 @@
 package com.af010.creator.docreader.ui.main.reader.office
 
 import android.content.Intent
+import android.content.res.ColorStateList
 import android.view.KeyEvent
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
@@ -74,8 +75,12 @@ class SlideShowActivity : BaseAppActivity<ActivitySlideShowBinding>(ActivitySlid
     }
 
     private fun renderInk() = with(binding) {
-        btnShowPen.setBackgroundResource(if (show.ink == SlideShowView.Ink.PEN) R.drawable.bg_circle_white_14 else 0)
-        btnShowEraser.setBackgroundResource(if (show.ink == SlideShowView.Ink.ERASER) R.drawable.bg_circle_white_14 else 0)
+        btnShowPen.isSelected = show.ink == SlideShowView.Ink.PEN
+        btnShowEraser.isSelected = show.ink == SlideShowView.Ink.ERASER
+        // On the light blue of the picked tool the icon turns dark.
+        listOf(btnShowPen, btnShowEraser).forEach {
+            it.imageTintList = ColorStateList.valueOf(getColor(if (it.isSelected) R.color.ink_on_accent else R.color.white))
+        }
     }
 
     /** Back to the document, at the slide the show was on. */

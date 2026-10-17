@@ -27,7 +27,7 @@ class OfficeOptionsBottomSheet(
         header.tvTitle.text = fileName
         header.btnClose.click { dismissSafe() }
         tvGoTo.setText(goToLabel)
-        if (isFavorite) ivFavorite.setImageResource(R.drawable.ic_app_star_filled)
+        if (isFavorite) ivFavorite.setImageResource(R.drawable.ic_fo_star_filled)
 
         mapOf(
             rowSlideshow to OfficeOption.Slideshow,

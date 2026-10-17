@@ -221,7 +221,7 @@ class RibbonAdapter : BaseAdapter<RibbonItem, ItemRibbonBinding>() {
         val side = if (chip) res.getDimensionPixelSize(com.intuit.sdp.R.dimen._9sdp) else 0
         this.item.updatePadding(left = side, right = side)
         this.item.setFillColor(ContextCompat.getColor(
-            context, if (active) R.color.color_bg_selected else R.color.color_surface_variant
+            context, if (active) R.color.primary else R.color.color_surface_variant
         ))
         this.item.invalidate()
 
@@ -229,7 +229,7 @@ class RibbonAdapter : BaseAdapter<RibbonItem, ItemRibbonBinding>() {
             context,
             when {
                 item.danger -> R.color.color_error
-                active -> R.color.text_on_selected
+                active -> R.color.on_primary
                 else -> R.color.text_primary
             }
         )

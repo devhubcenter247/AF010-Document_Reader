@@ -1,5 +1,12 @@
 package com.af010.creator.docreader.ui.main.reader.office
 
+import com.af010.creator.docreader.utils.extensions.softColorRes
+import com.af010.creator.docreader.utils.extensions.colorRes
+import com.af010.creator.docreader.utils.AppUtils
+import java.util.Locale
+import android.util.TypedValue
+import android.graphics.Color
+import android.content.res.ColorStateList
 import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
@@ -44,6 +51,7 @@ import com.af010.creator.docreader.ui.main.tools.result.ProcessingActivity
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import com.af010.creator.docreader.ui.dialog.ChoiceDialog
+import com.af010.creator.docreader.ui.dialog.DraftTimes
 import com.af010.creator.docreader.ui.dialog.MessageDialog
 import com.af010.creator.docreader.ui.dialog.OpenPasswordDialog
 import com.af010.creator.docreader.ui.main.reader.office.sheet.CellFormatBottomSheet
@@ -52,7 +60,6 @@ import com.af010.creator.docreader.ui.main.reader.office.sheet.SaveDocumentBotto
 import com.af010.creator.docreader.ui.main.reader.office.sheet.TablePickerBottomSheet
 import com.af010.creator.docreader.ui.main.reader.office.sheet.WordFormatBottomSheet
 import com.af010.creator.docreader.ui.main.reader.pdf.setEnabledLook
-import com.af010.creator.docreader.ui.main.tools.typeIcon
 import com.d010.pdf.reader.base.shareFile
 import com.editor.docsdk.DocumentEditor
 import com.editor.docsdk.DocumentException
@@ -185,7 +192,12 @@ class OfficeActivity : BaseAppActivity<ActivityOfficeBinding>(ActivityOfficeBind
         layoutTop.updatePadding(top = statusBarHeight)
         tvName.text = file.name
         tvEditName.text = file.name
-        ivType.setImageResource(file.typeIcon)
+        listOf(tvType, tvTypeEdit).forEach { badge ->
+            badge.text = file.extension.uppercase(Locale.ROOT)
+            val fileType = AppUtils.documentTypeOf(file)
+            badge.backgroundTintList = ColorStateList.valueOf(getColor(fileType?.softColorRes ?: R.color.color_surface_variant))
+            badge.setTextColor(getColor(fileType?.colorRes ?: R.color.text_secondary))
+        }
         rcvRibbon.adapter = ribbonAdapter
         rcvSlides.adapter = stripAdapter
         rcvSorter.adapter = sorterAdapter
@@ -351,11 +363,12 @@ class OfficeActivity : BaseAppActivity<ActivityOfficeBinding>(ActivityOfficeBind
     /** Offers the edits kept when the app was closed before saving them; true when it asks. */
     private fun offerDraft(): Boolean {
         val draft = EditDrafts.pending(this, file) ?: return false
-        val time = DateFormat.getTimeInstance(DateFormat.SHORT).format(Date(draft.lastModified()))
+        val format = DateFormat.getDateTimeInstance(DateFormat.MEDIUM, DateFormat.SHORT)
         ChoiceDialog(
-            this, R.drawable.ic_app_restore, R.string.draft_title,
-            getString(R.string.draft_message, file.name, time),
-            R.string.draft_restore, R.string.discard,
+            this, R.string.draft_title,
+            getString(R.string.draft_message, file.name),
+            R.string.draft_restore, R.string.fo_open_saved_file,
+            times = DraftTimes(format.format(Date(draft.lastModified())), format.format(Date(file.lastModified()))),
             onPrimary = {
                 if (EditDrafts.restore(this, file)) {
                     editWhenLoaded = true
@@ -520,9 +533,10 @@ class OfficeActivity : BaseAppActivity<ActivityOfficeBinding>(ActivityOfficeBind
         val editor = editor ?: return setMode(Mode.View)
         if (!editor.hasUnsavedChanges()) return stopEditing()
         ChoiceDialog(
-            this, R.drawable.ic_app_save, R.string.unsaved_title,
+            this, R.string.unsaved_title,
             getString(R.string.unsaved_message, file.name),
-            R.string.file_action_save, R.string.dont_save, R.string.keep_editing,
+            R.string.fo_save_and_leave, R.string.fo_leave_without_saving, R.string.keep_editing,
+            secondaryDanger = true,
             onPrimary = { if (editor.save()) stopEditing() },
             onSecondary = {
                 EditDrafts.delete(this, file)
@@ -842,7 +856,7 @@ class OfficeActivity : BaseAppActivity<ActivityOfficeBinding>(ActivityOfficeBind
         // Asking closes the box being typed in (slide text, cell): the keyboard would drop at once.
         // Word only reads its state, and its hidden typing box has the focus all the time.
         if (type == DocumentType.WORD || !typingInDocument()) unsaved = editor.hasUnsavedChanges()
-        tvStatus.setText(if (unsaved) R.string.unsaved_changes else R.string.saved)
+        tvStatus.setText(if (unsaved) R.string.fo_edited else R.string.saved)
         tvStatus.setTextColor(
             ContextCompat.getColor(this@OfficeActivity, if (unsaved) R.color.text_secondary else R.color.color_success)
         )
@@ -865,6 +879,8 @@ class OfficeActivity : BaseAppActivity<ActivityOfficeBinding>(ActivityOfficeBind
         val count = documentView.pageCount
         val page = (documentView.currentPage + 1).coerceIn(1, count.coerceAtLeast(1))
         tvPage.visibleOrGone(loaded && count > 0)
+        tvPagePill.visibleOrGone(loaded && count > 1 && mode == Mode.View)
+        tvPagePill.text = getString(R.string.page_count_short, page, count)
         tvPage.text = getString(
             when (type) {
                 DocumentType.EXCEL -> R.string.sheet_of
@@ -878,42 +894,41 @@ class OfficeActivity : BaseAppActivity<ActivityOfficeBinding>(ActivityOfficeBind
 
     private fun buildTabs() = with(binding) {
         layoutTabs.removeAllViews()
-        val side = resources.getDimensionPixelSize(com.intuit.sdp.R.dimen._9sdp)
-        val indicator = resources.getDimensionPixelSize(com.intuit.sdp.R.dimen._3sdp)
+        val side = resources.getDimensionPixelSize(com.intuit.sdp.R.dimen._11sdp)
+        val gap = resources.getDimensionPixelSize(com.intuit.sdp.R.dimen._3sdp)
         tabs.forEachIndexed { index, tab ->
             val label = TextView(this@OfficeActivity).apply {
                 setText(tab.title)
                 gravity = Gravity.CENTER
                 setPadding(side, 0, side, 0)
-                textSize = TAB_TEXT_SP
-            }
-            val line = View(this@OfficeActivity)
-            val column = LinearLayout(this@OfficeActivity).apply {
-                orientation = LinearLayout.VERTICAL
-                addView(label, LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, 0, 1f))
-                addView(line, LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, indicator))
+                setBackgroundResource(R.drawable.bg_badge)
+                setTextSize(TypedValue.COMPLEX_UNIT_PX, resources.getDimension(com.intuit.sdp.R.dimen._11sdp))
+                typeface = ResourcesCompat.getFont(this@OfficeActivity, R.font.nunito_800)
                 setOnClickListener {
                     tabIndex = index
                     renderTabs()
                 }
             }
             layoutTabs.addView(
-                column, LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.MATCH_PARENT)
+                label,
+                LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.MATCH_PARENT)
+                    .apply { if (index > 0) marginStart = gap }
             )
         }
     }
 
+    /** The picked tab is a pill in the file type's pale colour. */
     private fun renderTabs() = with(binding) {
         if (tabs.isEmpty()) return@with
-        val accent = ContextCompat.getColor(this@OfficeActivity, (type ?: DocumentType.WORD).accentColor)
-        val muted = ContextCompat.getColor(this@OfficeActivity, R.color.text_secondary)
-        layoutTabs.children.forEachIndexed { index, column ->
+        val fileType = AppUtils.documentTypeOf(file)
+        val accent = getColor(fileType?.colorRes ?: R.color.primary)
+        val soft = getColor(fileType?.softColorRes ?: R.color.color_bg_selected)
+        val muted = getColor(R.color.text_secondary)
+        layoutTabs.children.forEachIndexed { index, view ->
             val selected = index == tabIndex
-            val label = (column as LinearLayout).getChildAt(0) as TextView
+            val label = view as TextView
             label.setTextColor(if (selected) accent else muted)
-            label.typeface = ResourcesCompat.getFont(this@OfficeActivity, if (selected) R.font.nunito_900 else R.font.nunito_700)
-                ?: Typeface.DEFAULT
-            column.getChildAt(1).setBackgroundColor(if (selected) accent else 0)
+            label.backgroundTintList = ColorStateList.valueOf(if (selected) soft else Color.TRANSPARENT)
         }
         ribbonAdapter.submitList(tabs[tabIndex.coerceIn(0, tabs.lastIndex)].items)
     }
@@ -944,7 +959,6 @@ class OfficeActivity : BaseAppActivity<ActivityOfficeBinding>(ActivityOfficeBind
         private const val TO_PDF_PAGE_PX = 1600
         private const val TO_PDF_QUALITY = 90
         private const val STATE_PASSWORD = "state_password"
-        private const val TAB_TEXT_SP = 13.5f
         private val LEGACY_EXTENSIONS = setOf("doc", "xls", "ppt")
 
         /** Whether this screen can show the file with [name]. */

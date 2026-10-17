@@ -30,7 +30,7 @@ class WordFormatBottomSheet(
 ) : BaseBottomSheet<SheetWordFormatBinding>(activity, SheetWordFormatBinding::inflate) {
 
     override fun SheetWordFormatBinding.onBind() {
-        header.tvTitle.setText(R.string.ribbon_format)
+        header.tvTitle.setText(R.string.fo_text_style)
         header.btnClose.click { dismissSafe() }
 
         btnFont.click { editor.runSafely(EditAction.FONT) }
@@ -81,9 +81,9 @@ class WordFormatBottomSheet(
         toggles().forEach { (view, action) ->
             val active = editor.isActive(action)
             val background = ContextCompat.getColor(
-                activity, if (active) R.color.color_bg_selected else R.color.color_surface_variant
+                activity, if (active) R.color.primary else R.color.color_surface_card
             )
-            val tint = ContextCompat.getColor(activity, if (active) R.color.text_on_selected else R.color.text_primary)
+            val tint = ContextCompat.getColor(activity, if (active) R.color.on_primary else R.color.text_primary)
             view.setFillColor(background)
             when (view) {
                 is ImageView -> ImageViewCompat.setImageTintList(view, ColorStateList.valueOf(tint))

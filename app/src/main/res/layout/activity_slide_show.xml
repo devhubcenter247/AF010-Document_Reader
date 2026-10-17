@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- The slideshow: the SDK plays the slides; round see-through controls sit in three corners. -->
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/black">
+    android:background="@color/color_scan_bg">
 
     <!-- The SDK plays the slides: transitions, animations, links, pen and eraser -->
     <com.editor.docsdk.SlideShowView
@@ -13,71 +14,78 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <LinearLayout
+    <FrameLayout
         android:id="@+id/layoutShowControls"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|center_horizontal"
-        android:layout_marginBottom="@dimen/_11sdp"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:padding="@dimen/_4sdp"
-        android:background="@drawable/bg_pill_dark_r20sdp"
-        android:clipToOutline="true">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/_12sdp">
 
-        <ImageView
-            android:id="@+id/btnShowExit"
-            android:layout_width="@dimen/_31sdp"
-            android:layout_height="@dimen/_31sdp"
-            android:contentDescription="@string/scanner_close"
-            android:padding="@dimen/_8sdp"
-            android:src="@drawable/ic_app_close"
-            app:tint="@color/on_primary" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-        <ImageView
-            android:id="@+id/btnShowPen"
-            android:layout_width="@dimen/_31sdp"
-            android:layout_height="@dimen/_31sdp"
-            android:contentDescription="@string/annot_pen"
-            android:padding="@dimen/_8sdp"
-            android:src="@drawable/ic_app_pen"
-            app:tint="@color/on_primary" />
+            <ImageView
+                android:id="@+id/btnShowExit"
+                style="@style/ShowButton"
+                android:contentDescription="@string/fo_end_show"
+                android:src="@drawable/ic_fo_close" />
 
-        <ImageView
-            android:id="@+id/btnShowEraser"
-            android:layout_width="@dimen/_31sdp"
-            android:layout_height="@dimen/_31sdp"
-            android:contentDescription="@string/annot_eraser"
-            android:padding="@dimen/_8sdp"
-            android:src="@drawable/ic_app_eraser"
-            app:tint="@color/on_primary" />
+            <ImageView
+                android:id="@+id/btnShowPen"
+                style="@style/ShowButton"
+                android:layout_marginTop="@dimen/_7sdp"
+                android:contentDescription="@string/annot_pen"
+                android:src="@drawable/ic_fo_pen_line" />
 
-        <ImageView
-            android:id="@+id/btnShowPrevious"
-            android:layout_width="@dimen/_31sdp"
-            android:layout_height="@dimen/_31sdp"
-            android:contentDescription="@string/scanner_back"
-            android:padding="@dimen/_8sdp"
-            android:src="@drawable/ic_app_chevl"
-            app:tint="@color/on_primary" />
+            <ImageView
+                android:id="@+id/btnShowEraser"
+                style="@style/ShowButton"
+                android:layout_marginTop="@dimen/_7sdp"
+                android:contentDescription="@string/annot_eraser"
+                android:src="@drawable/ic_fo_eraser" />
+        </LinearLayout>
 
         <TextView
             android:id="@+id/tvShowPage"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/_28sdp"
+            android:layout_gravity="top|end"
+            android:layout_marginTop="@dimen/_3sdp"
+            android:background="@drawable/bg_glass_track"
+            android:backgroundTint="@color/show_glass"
             android:fontFamily="@font/nunito_800"
-            android:paddingHorizontal="@dimen/_5sdp"
-            android:textColor="@color/on_primary"
-            android:textSize="@dimen/_10sdp"
-            tools:text="1 / 12" />
+            android:gravity="center"
+            android:paddingHorizontal="@dimen/_11sdp"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_11sdp"
+            tools:text="2 / 6" />
 
-        <ImageView
-            android:id="@+id/btnShowNext"
-            android:layout_width="@dimen/_31sdp"
-            android:layout_height="@dimen/_31sdp"
-            android:contentDescription="@string/next"
-            android:padding="@dimen/_8sdp"
-            android:src="@drawable/ic_app_chev"
-            app:tint="@color/on_primary" />
-    </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/btnShowPrevious"
+                style="@style/ShowButton"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:contentDescription="@string/fo_previous_slide"
+                android:src="@drawable/ic_fo_back" />
+
+            <ImageView
+                android:id="@+id/btnShowNext"
+                style="@style/ShowButton"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:background="@drawable/bg_show_next"
+                android:contentDescription="@string/fo_next_slide"
+                android:rotation="180"
+                android:src="@drawable/ic_fo_back"
+                app:tint="@color/ink_on_accent" />
+        </LinearLayout>
+    </FrameLayout>
 </FrameLayout>

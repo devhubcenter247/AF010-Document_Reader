@@ -1,38 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- A slide as a picture with its number; ringed in blue while it is the one picked. -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    android:padding="@dimen/_3sdp">
+    android:padding="@dimen/_4sdp">
 
     <FrameLayout
         android:id="@+id/card"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_74sdp"
-        android:background="@drawable/bg_white_r5sdp"
-        android:foreground="@drawable/stroke_r5sdp_st1sdp_stroke"
-        android:clipToOutline="true">
+        android:layout_height="@dimen/_80sdp"
+        android:background="@drawable/bg_page_thumb"
+        android:duplicateParentState="true"
+        android:padding="@dimen/_2sdp">
 
         <ImageView
             android:id="@+id/ivSlide"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="@dimen/_2sdp"
-            android:contentDescription="@null"
+            android:background="@drawable/bg_page_sheet"
+            android:clipToOutline="true"
+            android:importantForAccessibility="no"
             android:scaleType="fitCenter" />
     </FrameLayout>
 
     <TextView
         android:id="@+id/tvNumber"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/_18sdp"
         android:layout_marginTop="@dimen/_3sdp"
-        android:fontFamily="@font/nunito_700"
-        android:textColor="@color/text_secondary"
-        android:textSize="@dimen/_9sdp"
+        android:background="@drawable/bg_page_number_pill"
+        android:duplicateParentState="true"
+        android:fontFamily="@font/nunito_800"
+        android:gravity="center"
+        android:minWidth="@dimen/_18sdp"
+        android:paddingHorizontal="@dimen/_5sdp"
+        android:textColor="@color/text_page_number"
+        android:textSize="@dimen/_10sdp"
         tools:text="1" />
-
 </LinearLayout>
