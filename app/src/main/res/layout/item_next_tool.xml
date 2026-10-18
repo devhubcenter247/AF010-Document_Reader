@@ -1,32 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<!-- A tool to run next on the new file: its tile and name on a white card. -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:clipToPadding="false"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="?attr/selectableItemBackgroundBorderless"
-    android:gravity="center_horizontal"
-    android:orientation="vertical"
-    android:paddingVertical="@dimen/_3sdp">
+    android:padding="@dimen/_3sdp">
 
-    <ImageView
-        android:id="@+id/ivIcon"
-        android:layout_width="@dimen/_37sdp"
-        android:layout_height="@dimen/_37sdp"
-        android:contentDescription="@null"
-        tools:src="@drawable/ic_app_tool_sign_pdf" />
-
-    <TextView
-        android:id="@+id/tvTitle"
+    <LinearLayout
+        android:id="@+id/card"
+        style="@style/FloatingCard"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_6sdp"
-        android:ellipsize="end"
-        android:fontFamily="@font/nt_500"
+        android:layout_height="@dimen/_66sdp"
+        android:background="@drawable/bg_rounded_panel"
+        android:backgroundTint="@color/color_surface_card"
+        android:foreground="?attr/selectableItemBackground"
         android:gravity="center"
-        android:maxLines="1"
-        android:textColor="@color/text_primary"
-        android:textSize="@dimen/_9sdp"
-        tools:text="Sign" />
+        android:orientation="vertical">
 
-</LinearLayout>
+        <ImageView
+            android:id="@+id/ivIcon"
+            android:layout_width="@dimen/_29sdp"
+            android:layout_height="@dimen/_29sdp"
+            android:importantForAccessibility="no"
+            tools:src="@drawable/ic_fo_sign" />
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:ellipsize="end"
+            android:fontFamily="@font/nunito_700"
+            android:gravity="center"
+            android:maxLines="1"
+            android:paddingHorizontal="@dimen/_4sdp"
+            android:textColor="@color/text_primary"
+            android:textSize="@dimen/_10sdp"
+            tools:text="Sign" />
+    </LinearLayout>
+</FrameLayout>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- "Start something new": a coloured tile with a tilted blank page and a + badge (colours from code). -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="0dp"
+    android:layout_height="@dimen/_105sdp"
+    android:layout_weight="1"
+    android:background="@drawable/bg_start_tile"
+    android:clipChildren="false"
+    android:foreground="?attr/selectableItemBackground"
+    android:orientation="vertical"
+    android:padding="@dimen/_9sdp"
+    tools:backgroundTint="@color/primary">
+
+    <FrameLayout
+        android:id="@+id/page"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_48sdp"
+        android:clipChildren="false">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_mini_doc"
+            android:elevation="@dimen/_3sdp"
+            android:orientation="vertical"
+            android:outlineAmbientShadowColor="@color/color_shadow"
+            android:outlineSpotShadowColor="@color/color_shadow"
+            android:paddingHorizontal="@dimen/_7sdp"
+            android:paddingVertical="@dimen/_8sdp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_4sdp"
+                android:weightSum="100">
+
+                <View
+                    android:id="@+id/lineAccent"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="55"
+                    android:background="@drawable/bg_mini_line_ink"
+                    tools:backgroundTint="@color/primary" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_3sdp"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:background="@drawable/bg_mini_line" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_3sdp"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:weightSum="100">
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="75"
+                    android:background="@drawable/bg_mini_line" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/ivPlus"
+            android:layout_width="@dimen/_22sdp"
+            android:layout_height="@dimen/_22sdp"
+            android:layout_gravity="bottom|end"
+            android:background="@drawable/bg_circle_white"
+            android:elevation="@dimen/_4sdp"
+            android:importantForAccessibility="no"
+            android:outlineProvider="none"
+            android:padding="@dimen/_5sdp"
+            android:src="@drawable/ic_fo_plus"
+            android:translationX="@dimen/_5sdp"
+            android:translationY="@dimen/_6sdp"
+            app:tint="@color/on_primary"
+            tools:backgroundTint="@color/primary" />
+    </FrameLayout>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/nunito_700"
+        android:maxLines="1"
+        android:textColor="@color/on_primary"
+        android:textSize="@dimen/_12sdp"
+        tools:text="Document" />
+
+    <TextView
+        android:id="@+id/tvApp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:alpha="0.88"
+        android:fontFamily="@font/nunito_600"
+        android:maxLines="1"
+        android:textColor="@color/on_primary"
+        android:textSize="@dimen/_10sdp"
+        tools:text="Word" />
+</LinearLayout>

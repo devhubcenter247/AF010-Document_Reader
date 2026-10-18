@@ -1,44 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.ui.baselib.widget.layout.UiLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<!-- A ribbon command: an icon tile, a labelled tile, or a chip with a value and a chevron
+     (font, size). RibbonAdapter colours it; blue while the command is on. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/item"
     android:layout_width="wrap_content"
-    android:layout_height="@dimen/_33sdp"
-    android:layout_marginEnd="@dimen/_5sdp"
+    android:layout_height="@dimen/_28sdp"
+    android:layout_marginEnd="@dimen/_2sdp"
+    android:background="@drawable/bg_ribbon_item"
+    android:foreground="?attr/selectableItemBackground"
     android:gravity="center"
-    android:minWidth="@dimen/_33sdp"
-    android:orientation="horizontal"
-    app:uiBackgroundColor="@color/color_surface_variant"
-    app:uiCornerRadius="@dimen/_9sdp">
+    android:minWidth="@dimen/_28sdp"
+    android:orientation="horizontal">
 
     <ImageView
         android:id="@+id/ivIcon"
-        android:layout_width="@dimen/_16sdp"
-        android:layout_height="@dimen/_16sdp"
+        android:layout_width="@dimen/_15sdp"
+        android:layout_height="@dimen/_15sdp"
         android:contentDescription="@null"
-        tools:src="@drawable/ic_app_bold" />
+        tools:src="@drawable/ic_fo_type" />
 
     <TextView
         android:id="@+id/tvLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ellipsize="end"
-        android:fontFamily="@font/nt_500"
+        android:fontFamily="@font/nunito_700"
         android:maxLines="1"
         android:textColor="@color/text_primary"
-        android:textSize="@dimen/_10sdp"
+        android:textSize="@dimen/_11sdp"
         android:visibility="gone"
-        tools:text="Table" />
+        tools:text="Calibri" />
 
     <ImageView
         android:id="@+id/ivChevron"
-        android:layout_width="@dimen/_11sdp"
-        android:layout_height="@dimen/_11sdp"
-        android:layout_marginStart="@dimen/_5sdp"
+        android:layout_width="@dimen/_12sdp"
+        android:layout_height="@dimen/_12sdp"
+        android:layout_marginStart="@dimen/_4sdp"
         android:contentDescription="@null"
-        android:src="@drawable/ic_app_chevd"
+        android:src="@drawable/ic_fo_chevron_down"
         android:visibility="gone"
-        app:tint="@color/text_secondary" />
-
-</com.ui.baselib.widget.layout.UiLinearLayout>
+        app:tint="@color/text_primary" />
+</LinearLayout>

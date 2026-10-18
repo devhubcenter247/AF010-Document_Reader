@@ -1,86 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/color_bg_app"
+    android:orientation="vertical"
     tools:context=".ui.onboarding.OnboardingActivity">
 
-    <!-- ViewPager2 for image slides -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_43sdp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="@dimen/_18sdp"
+        android:paddingEnd="@dimen/_12sdp">
+
+        <LinearLayout
+            android:id="@+id/layoutBars"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_6sdp"
+            android:layout_weight="1"
+            android:orientation="horizontal" />
+
+        <TextView
+            android:id="@+id/btnSkip"
+            style="@style/GhostButton"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_34sdp"
+            android:paddingHorizontal="@dimen/_12sdp"
+            android:text="@string/fo_skip"
+            android:textColor="@color/text_secondary"
+            android:textSize="@dimen/_11sdp" />
+    </LinearLayout>
+
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/viewPager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-    <!-- Top bar Skip button -->
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clipChildren="false" />
 
+    <TextView
+        android:id="@+id/tvKicker"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/_23sdp"
+        android:layout_marginHorizontal="@dimen/_22sdp"
+        android:background="@drawable/bg_chip_selected"
+        android:fontFamily="@font/nunito_700"
+        android:gravity="center"
+        android:paddingHorizontal="@dimen/_9sdp"
+        android:textColor="@color/text_on_selected"
+        android:textSize="@dimen/_10sdp"
+        tools:text="Open anything" />
 
-    <!-- Bottom card containing Indicator, Title, Subtitle, and Button -->
-    <LinearLayout
-        android:id="@+id/layoutBottom"
+    <TextView
+        android:id="@+id/tvTitle"
+        style="@style/DisplayTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingTop="@dimen/_10sdp"
-        app:layout_constraintBottom_toBottomOf="parent">
+        android:layout_marginHorizontal="@dimen/_22sdp"
+        android:layout_marginTop="@dimen/_8sdp"
+        tools:text="Every document, one cosy home" />
 
-        <com.ui.baselib.widget.view.IndicatorView
-            android:id="@+id/indicatorView"
-            android:layout_width="wrap_content"
-            android:layout_marginHorizontal="@dimen/_10sdp"
-            android:layout_height="@dimen/_7sdp"
-            android:layout_marginBottom="@dimen/_10sdp"
-            app:uiIndicatorColor="@color/color_stroke"
-            app:uiIndicatorCount="4"
-            app:uiIndicatorRadius="@dimen/_3sdp"
-            app:uiIndicatorSelectedColor="@color/primary"
-            app:uiIndicatorSelectedWidthRatio="2.5"
-            app:uiIndicatorSpacing="@dimen/_4sdp" />
+    <TextView
+        android:id="@+id/tvSubtitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_22sdp"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:fontFamily="@font/nunito_500"
+        android:lineSpacingMultiplier="1.2"
+        android:minLines="3"
+        android:textColor="@color/text_tertiary"
+        android:textSize="@dimen/_12sdp"
+        tools:text="PDF, Word, Excel, PowerPoint, text and photos all open right here." />
 
-        <TextView
-            android:id="@+id/tvTitle"
-            style="@style/TextHeadLine"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/_10sdp"
-            android:layout_marginBottom="@dimen/_7sdp"
-            android:fontFamily="@font/nt_500"
-            android:textColor="@color/text_primary"
-            android:textSize="@dimen/_13sdp"
-            tools:text="All documents in one app" />
-
-        <TextView
-            android:id="@+id/tvSubtitle"
-            style="@style/TextSubContent"
-            android:layout_width="match_parent"
-            android:layout_marginHorizontal="@dimen/_10sdp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/_13sdp"
-            android:fontFamily="@font/nt_400"
-            android:lines="2"
-            android:textColor="@color/text_secondary"
-            android:textSize="@dimen/_9sdp"
-            tools:text="Open PDF, Word, Excel and PowerPoint files fast, even offline." />
-
-        <com.ui.baselib.widget.view.UiTextView
-            android:id="@+id/btnNext"
-            style="@style/ButtonAppStyle"
-            android:layout_marginHorizontal="@dimen/_10sdp"
-            android:layout_marginBottom="@dimen/_10sdp"
-            android:layout_width="match_parent"
-            android:drawableEnd="@drawable/ic_app_arrowr"
-            android:paddingHorizontal="@dimen/_13sdp"
-            android:text="@string/next"
-            android:textColor="@color/white"
-            app:uiDrawableAlign="text"
-            app:uiDrawablePadding="@dimen/_7sdp"
-            app:uiDrawableSize="@dimen/_17sdp"
-            app:uiDrawableTint="@color/white" />
-    </LinearLayout>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/btnNext"
+        style="@style/PrimaryPillButton"
+        android:layout_width="match_parent"
+        android:layout_marginHorizontal="@dimen/_18sdp"
+        android:layout_marginTop="@dimen/_9sdp"
+        android:layout_marginBottom="@dimen/_26sdp"
+        android:text="@string/next" />
+</LinearLayout>

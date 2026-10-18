@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_bg_app"
+    android:orientation="vertical"
+    tools:context=".ui.main.tools.ocr.OcrActivity">
+
+    <include
+        android:id="@+id/topBar"
+        layout="@layout/layout_screen_bar" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:overScrollMode="never">
+
+        <LinearLayout
+            android:clipToPadding="false"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="@dimen/_15sdp"
+            android:paddingBottom="@dimen/_10sdp">
+
+            <include
+                android:id="@+id/steps"
+                layout="@layout/layout_step_progress" />
+
+            <include
+                android:id="@+id/file"
+                layout="@layout/layout_tool_file"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_11sdp" />
+
+            <!-- Before and after: a picture of words, then words you can search -->
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_192sdp"
+                android:layout_marginTop="@dimen/_11sdp"
+                android:importantForAccessibility="noHideDescendants">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <FrameLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginEnd="@dimen/_5sdp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_rounded_panel"
+                        android:backgroundTint="@color/ocr_picture_bg">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:adjustViewBounds="true"
+                            android:padding="@dimen/_12sdp"
+                            android:src="@drawable/ic_ocr_lines"
+                            app:tint="@color/ocr_picture_line" />
+
+                        <TextView
+                            style="@style/OcrTag"
+                            android:background="@drawable/bg_badge"
+                            android:backgroundTint="@color/ocr_tag_dark"
+                            android:text="@string/fo_ocr_just_picture"
+                            android:textColor="@color/white" />
+                    </FrameLayout>
+
+                    <FrameLayout
+                        style="@style/FloatingCard"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_rounded_panel"
+                        android:backgroundTint="@color/color_surface_card">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:adjustViewBounds="true"
+                            android:padding="@dimen/_12sdp"
+                            android:src="@drawable/ic_ocr_text" />
+
+                        <TextView
+                            style="@style/OcrTag"
+                            android:background="@drawable/bg_badge"
+                            android:backgroundTint="@color/color_file_excel_bg"
+                            android:text="@string/fo_ocr_searchable"
+                            android:textColor="@color/color_file_excel" />
+                    </FrameLayout>
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="@dimen/_42sdp"
+                    android:layout_height="@dimen/_42sdp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/bg_ocr_badge"
+                    android:elevation="@dimen/_4sdp"
+                    android:padding="@dimen/_12sdp"
+                    android:src="@drawable/ic_fo_sparkles"
+                    app:tint="@color/on_primary" />
+            </FrameLayout>
+
+            <include
+                android:id="@+id/optionSearchable"
+                layout="@layout/layout_option"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_11sdp" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <include
+        android:id="@+id/action"
+        layout="@layout/layout_tool_action" />
+</LinearLayout>

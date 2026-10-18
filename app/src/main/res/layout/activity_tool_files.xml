@@ -11,7 +11,7 @@
 
     <include
         android:id="@+id/topBar"
-        layout="@layout/layout_tool_topbar" />
+        layout="@layout/layout_screen_bar" />
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -23,100 +23,126 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingHorizontal="@dimen/_12sdp"
+            android:paddingHorizontal="@dimen/_15sdp"
             android:paddingBottom="@dimen/_10sdp">
 
             <include
-                android:id="@+id/header"
-                layout="@layout/layout_tool_header" />
+                android:id="@+id/steps"
+                layout="@layout/layout_step_progress" />
+
+            <include
+                android:id="@+id/hero"
+                layout="@layout/layout_zip_hero"
+                android:visibility="gone" />
+
+            <!-- Merge: the order rule and the page total -->
+            <LinearLayout
+                android:id="@+id/layoutOrder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_11sdp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:visibility="gone"
+                tools:visibility="visible">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/nunito_500"
+                    android:text="@string/fo_order_note"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="@dimen/_11sdp" />
+
+                <TextView
+                    android:id="@+id/tvTotal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_23sdp"
+                    android:background="@drawable/bg_badge"
+                    android:backgroundTint="@color/color_bg_selected"
+                    android:fontFamily="@font/nunito_700"
+                    android:gravity="center"
+                    android:paddingHorizontal="@dimen/_9sdp"
+                    android:textColor="@color/text_on_selected"
+                    android:textSize="@dimen/_10sdp"
+                    tools:text="42 pages in total" />
+            </LinearLayout>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rcvFiles"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_9sdp"
+                android:layout_marginTop="@dimen/_11sdp"
+                android:clipToPadding="false"
                 android:nestedScrollingEnabled="false"
                 android:overScrollMode="never"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 tools:itemCount="3"
                 tools:listitem="@layout/item_tool_file_row" />
 
-            <com.ui.baselib.widget.view.UiTextView
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnAddFiles"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_37sdp"
-                android:layout_marginTop="@dimen/_8sdp"
-                android:drawablePadding="@dimen/_6sdp"
-                android:fontFamily="@font/nt_600"
-                android:gravity="center"
-                android:text="@string/add_files"
-                android:textSize="@dimen/_11sdp"
-                app:drawableStartCompat="@drawable/ic_app_plus"
-                app:drawableTint="@color/text_on_selected"
-                app:uiCornerRadius="@dimen/_11sdp"
-                app:uiDrawableAlign="text"
-                app:uiDrawableSize="@dimen/_13sdp"
-                app:uiStrokeColor="@color/color_checkbox_stroke"
-                app:uiStrokeDashGap="@dimen/_3sdp"
-                app:uiStrokeDashed="true"
-                app:uiStrokeWidth="2dp"
-                app:uiTextColor="@color/text_on_selected" />
+                android:layout_height="@dimen/_41sdp"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:background="@drawable/bg_add_outline"
+                android:fontFamily="@font/nunito_700"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:letterSpacing="0"
+                android:minHeight="0dp"
+                android:stateListAnimator="@null"
+                android:textAllCaps="false"
+                android:textColor="@color/text_on_selected"
+                android:textSize="@dimen/_12sdp"
+                app:backgroundTint="@null"
+                app:icon="@drawable/ic_fo_plus"
+                app:iconGravity="textStart"
+                app:iconPadding="@dimen/_6sdp"
+                app:iconSize="@dimen/_15sdp"
+                app:iconTint="@color/text_on_selected"
+                app:rippleColor="@color/primary_20"
+                tools:text="@string/fo_add_another_file" />
 
             <TextView
                 android:id="@+id/tvNameLabel"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_13sdp"
-                android:fontFamily="@font/nt_500"
-                android:text="@string/new_file_name"
-                android:textColor="@color/text_secondary"
-                android:textSize="@dimen/_10sdp" />
+                style="@style/FieldLabel"
+                android:layout_marginTop="@dimen/_14sdp"
+                android:labelFor="@id/edtName"
+                tools:text="@string/fo_name_new_file" />
 
-            <com.ui.baselib.widget.layout.UiLinearLayout
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_37sdp"
-                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_height="@dimen/_42sdp"
+                android:addStatesFromChildren="true"
+                android:background="@drawable/bg_field"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
-                android:paddingStart="@dimen/_11sdp"
-                android:paddingEnd="@dimen/_11sdp"
-                app:uiBackgroundColor="@color/color_surface_card"
-                app:uiCornerRadius="@dimen/_11sdp"
-                app:uiStrokeColor="@color/color_stroke"
-                app:uiStrokeWidth="@dimen/_1sdp">
+                android:paddingHorizontal="@dimen/_12sdp">
 
                 <EditText
                     android:id="@+id/edtName"
+                    style="@style/FieldInput"
                     android:layout_width="0dp"
-                    android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:background="@null"
-                    android:fontFamily="@font/nt_400"
-                    android:hint="@string/new_file_name"
                     android:imeOptions="actionDone"
-                    android:importantForAutofill="no"
-                    android:inputType="text"
-                    android:maxLines="1"
-                    android:textColor="@color/text_primary"
-                    android:textColorHint="@color/text_secondary"
-                    android:textSize="@dimen/_12sdp" />
+                    android:inputType="text" />
 
                 <TextView
                     android:id="@+id/tvExtension"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_6sdp"
-                    android:fontFamily="@font/nt_400"
+                    android:fontFamily="@font/nunito_600"
                     android:textColor="@color/text_secondary"
                     android:textSize="@dimen/_12sdp"
                     tools:text=".pdf" />
-            </com.ui.baselib.widget.layout.UiLinearLayout>
-
+            </LinearLayout>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
     <include
         android:id="@+id/action"
         layout="@layout/layout_tool_action" />
-
 </LinearLayout>

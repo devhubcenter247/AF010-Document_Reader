@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- A white file card whose pill (the background tint colour) sits near the top. -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/color_surface_card" />
+            <corners android:radius="@dimen/_9sdp" />
+        </shape>
+    </item>
+</layer-list>

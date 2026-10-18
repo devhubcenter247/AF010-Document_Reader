@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- OCR "after": a heading and lines of real text, one of them highlighted as a search hit. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="120dp"
+    android:height="110dp"
+    android:viewportWidth="120"
+    android:viewportHeight="110">
+    <path android:fillColor="@color/text_primary" android:pathData="M3,3h46a4,4 0 0,1 0,8h-46a4,4 0 0,1 0,-8z" />
+    <path android:fillColor="@color/text_tertiary" android:pathData="M3,23h96a2.5,2.5 0 0,1 0,5h-96a2.5,2.5 0 0,1 0,-5z" />
+    <path android:fillColor="@color/ocr_highlight" android:pathData="M2,36h88a3,3 0 0,1 3,3v7a3,3 0 0,1 -3,3h-88a3,3 0 0,1 -3,-3v-7a3,3 0 0,1 3,-3z" />
+    <path android:fillColor="@color/text_tertiary" android:pathData="M3,40h82a2.5,2.5 0 0,1 0,5h-82a2.5,2.5 0 0,1 0,-5z" />
+    <path android:fillColor="@color/text_tertiary" android:pathData="M3,57h108a2.5,2.5 0 0,1 0,5h-108a2.5,2.5 0 0,1 0,-5z" />
+    <path android:fillColor="@color/text_tertiary" android:pathData="M3,74h70a2.5,2.5 0 0,1 0,5h-70a2.5,2.5 0 0,1 0,-5z" />
+</vector>

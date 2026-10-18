@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- OCR "before": grey bars where the words are, just a picture of them. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="120dp"
+    android:height="110dp"
+    android:viewportWidth="120"
+    android:viewportHeight="110">
+    <path android:fillColor="#FFFFFFFF" android:pathData="M3.5,4h53a3.5,3.5 0 0,1 0,7h-53a3.5,3.5 0 0,1 0,-7z" />
+    <path android:fillColor="#FFFFFFFF" android:pathData="M3.5,21h101a3.5,3.5 0 0,1 0,7h-101a3.5,3.5 0 0,1 0,-7z" />
+    <path android:fillColor="#FFFFFFFF" android:pathData="M3.5,38h84a3.5,3.5 0 0,1 0,7h-84a3.5,3.5 0 0,1 0,-7z" />
+    <path android:fillColor="#FFFFFFFF" android:pathData="M3.5,55h109a3.5,3.5 0 0,1 0,7h-109a3.5,3.5 0 0,1 0,-7z" />
+    <path android:fillColor="#FFFFFFFF" android:pathData="M3.5,72h66a3.5,3.5 0 0,1 0,7h-66a3.5,3.5 0 0,1 0,-7z" />
+    <path android:fillColor="#FFFFFFFF" android:pathData="M3.5,89h94a3.5,3.5 0 0,1 0,7h-94a3.5,3.5 0 0,1 0,-7z" />
+</vector>

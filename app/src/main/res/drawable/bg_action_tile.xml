@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- A big action tile; turns butter yellow while its action is on (selected), like Favourite. -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_selected="true">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/color_pro_bg" />
+            <corners android:radius="@dimen/_17sdp" />
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/color_surface_card" />
+            <corners android:radius="@dimen/_17sdp" />
+        </shape>
+    </item>
+</selector>

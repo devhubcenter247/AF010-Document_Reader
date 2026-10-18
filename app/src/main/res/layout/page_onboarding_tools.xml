@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Nine tool tiles, filled in from code. -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipChildren="false">
+
+    <GridLayout
+        android:id="@+id/gridTools"
+        android:layout_width="@dimen/_254sdp"
+        android:layout_height="@dimen/_254sdp"
+        android:layout_gravity="center"
+        android:clipChildren="false"
+        android:columnCount="3"
+        android:padding="@dimen/_4sdp"
+        android:rowCount="3" />
+</FrameLayout>

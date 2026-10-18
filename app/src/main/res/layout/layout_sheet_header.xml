@@ -4,42 +4,44 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:gravity="center_horizontal"
     android:orientation="vertical">
 
-    <com.ui.baselib.widget.layout.UiView
-        android:layout_width="@dimen/_31sdp"
+    <View
+        android:layout_width="@dimen/_34sdp"
         android:layout_height="@dimen/_4sdp"
+        android:layout_gravity="center_horizontal"
         android:layout_marginTop="@dimen/_8sdp"
-        app:uiBackgroundColor="@color/color_handle"
-        app:uiCornerRadius="@dimen/_3sdp" />
+        android:background="@drawable/bg_handle" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:paddingStart="@dimen/_15sdp"
-        android:paddingEnd="@dimen/_13sdp"
-        android:paddingBottom="@dimen/_3sdp">
+        android:paddingStart="@dimen/_18sdp"
+        android:paddingTop="@dimen/_11sdp"
+        android:paddingEnd="@dimen/_15sdp"
+        android:paddingBottom="@dimen/_6sdp">
 
         <TextView
             android:id="@+id/tvTitle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:fontFamily="@font/nt_600"
+            android:fontFamily="@font/nunito_700"
+            android:letterSpacing="-0.015"
             android:textColor="@color/text_primary"
-            android:textSize="@dimen/_12sdp"
-            tools:text="Create new" />
+            android:textSize="@dimen/_20sdp"
+            tools:text="Sort your files" />
 
-        <com.ui.baselib.widget.view.UiImageView
+        <ImageView
             android:id="@+id/btnClose"
-            style="@style/IconButtonStyle"
-            android:layout_width="@dimen/_23sdp"
-            android:layout_height="@dimen/_23sdp"
-            android:contentDescription="@string/scanner_close"
-            android:src="@drawable/ic_app_close" />
+            android:layout_width="@dimen/_28sdp"
+            android:layout_height="@dimen/_28sdp"
+            android:background="@drawable/bg_circle_variant"
+            android:contentDescription="@string/close"
+            android:padding="@dimen/_7sdp"
+            android:src="@drawable/ic_fo_close"
+            app:tint="@color/text_tertiary" />
     </LinearLayout>
-
 </LinearLayout>

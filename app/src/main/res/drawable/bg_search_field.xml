@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- A search field: white pill, ringed in blue while typing. -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_focused="true">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/color_surface_card" />
+            <corners android:radius="@dimen/_19sdp" />
+            <stroke android:width="@dimen/_2sdp" android:color="@color/primary" />
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/color_surface_card" />
+            <corners android:radius="@dimen/_19sdp" />
+        </shape>
+    </item>
+</selector>

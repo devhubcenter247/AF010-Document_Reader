@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
@@ -11,7 +10,7 @@
 
     <include
         android:id="@+id/topBar"
-        layout="@layout/layout_tool_topbar" />
+        layout="@layout/layout_screen_bar" />
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -20,63 +19,33 @@
         android:overScrollMode="never">
 
         <LinearLayout
+            android:clipToPadding="false"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingHorizontal="@dimen/_12sdp"
+            android:paddingHorizontal="@dimen/_15sdp"
             android:paddingBottom="@dimen/_10sdp">
 
             <include
-                android:id="@+id/header"
-                layout="@layout/layout_tool_header" />
+                android:id="@+id/steps"
+                layout="@layout/layout_step_progress" />
 
             <include
                 android:id="@+id/file"
                 layout="@layout/layout_tool_file"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_13sdp" />
-
-            <include
-                android:id="@+id/optionRanges"
-                layout="@layout/layout_option"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_13sdp" />
-
-            <LinearLayout
-                android:id="@+id/layoutRanges"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rcvRanges"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:nestedScrollingEnabled="false"
-                    android:overScrollMode="never"
-                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    tools:itemCount="2"
-                    tools:listitem="@layout/item_split_range" />
-
-                <com.ui.baselib.widget.view.UiTextView
-                    android:id="@+id/btnAddRange"
-                    android:layout_width="wrap_content"
-                    android:layout_height="@dimen/_27sdp"
-                    android:drawablePadding="@dimen/_5sdp"
-                    android:fontFamily="@font/nt_600"
-                    android:gravity="center_vertical"
-                    android:text="@string/add_range"
-                    android:textSize="@dimen/_10sdp"
-                    app:drawableStartCompat="@drawable/ic_app_plus"
-                    app:drawableTint="@color/text_on_selected"
-                    app:uiDrawableSize="@dimen/_12sdp"
-                    app:uiTextColor="@color/text_on_selected" />
-            </LinearLayout>
+                android:layout_marginTop="@dimen/_11sdp" />
 
             <include
                 android:id="@+id/optionEachPage"
+                layout="@layout/layout_option"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_11sdp" />
+
+            <include
+                android:id="@+id/optionRanges"
                 layout="@layout/layout_option"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -89,23 +58,69 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_8sdp" />
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rcvPages"
+            <LinearLayout
+                android:id="@+id/layoutPages"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_8sdp"
-                android:nestedScrollingEnabled="false"
-                android:overScrollMode="never"
-                android:visibility="gone"
-                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-                app:spanCount="4"
-                tools:listitem="@layout/item_page_thumb" />
+                android:layout_marginTop="@dimen/_11sdp"
+                android:orientation="vertical">
 
+                <TextView
+                    android:id="@+id/tvPagesLabel"
+                    style="@style/FieldLabel"
+                    android:labelFor="@id/edtPages"
+                    tools:text="@string/split_ranges_label" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_42sdp"
+                    android:addStatesFromChildren="true"
+                    android:background="@drawable/bg_field"
+                    android:gravity="center_vertical"
+                    android:paddingHorizontal="@dimen/_12sdp">
+
+                    <EditText
+                        android:id="@+id/edtPages"
+                        style="@style/FieldInput"
+                        android:layout_width="match_parent"
+                        android:digits="0123456789,- "
+                        android:hint="@string/split_ranges_hint"
+                        android:imeOptions="actionDone"
+                        android:inputType="number|text" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- What comes out -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_11sdp"
+                android:background="@drawable/bg_rounded_panel"
+                android:backgroundTint="@color/color_surface_variant"
+                android:orientation="vertical"
+                android:paddingHorizontal="@dimen/_12sdp"
+                android:paddingVertical="@dimen/_11sdp">
+
+                <TextView
+                    android:id="@+id/tvPreview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nunito_700"
+                    android:textColor="@color/text_tertiary"
+                    android:textSize="@dimen/_10sdp"
+                    tools:text="You’ll get 3 files" />
+
+                <LinearLayout
+                    android:id="@+id/layoutParts"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_42sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:orientation="horizontal" />
+            </LinearLayout>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
     <include
         android:id="@+id/action"
         layout="@layout/layout_tool_action" />
-
 </LinearLayout>

@@ -11,7 +11,7 @@
         android:id="@+id/previewView"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/layoutModes"
+        app:layout_constraintBottom_toTopOf="@+id/bottomPanel"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/topBar"
@@ -44,25 +44,24 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/nt_400"
+            android:fontFamily="@font/nunito_500"
             android:gravity="center"
             android:text="@string/camera_permission_required"
             android:textColor="@color/on_primary"
             android:textSize="@dimen/_11sdp" />
 
-        <com.ui.baselib.widget.view.UiTextView
+        <TextView
             android:id="@+id/btnAllowCamera"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/_34sdp"
             android:layout_marginTop="@dimen/_12sdp"
-            android:fontFamily="@font/nt_600"
+            android:fontFamily="@font/nunito_700"
             android:gravity="center"
             android:paddingHorizontal="@dimen/_18sdp"
             android:text="@string/allow_access"
             android:textSize="@dimen/_11sdp"
-            app:uiBackgroundColor="@color/accent"
-            app:uiCornerRadius="@dimen/_17sdp"
-            app:uiTextColor="@color/on_accent" />
+            android:background="@drawable/bg_ink_next"
+            android:textColor="@color/ink_on_accent" />
     </LinearLayout>
 
     <LinearLayout
@@ -70,168 +69,160 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
-        android:minHeight="@dimen/_46sdp"
+        android:minHeight="@dimen/_49sdp"
         android:orientation="horizontal"
-        android:paddingHorizontal="@dimen/_9sdp"
+        android:paddingHorizontal="@dimen/_12sdp"
         app:layout_constraintTop_toTopOf="parent">
 
-        <com.ui.baselib.widget.view.UiImageView
+        <ImageView
             android:id="@+id/btnClose"
-            style="@style/IconButtonStyle"
+            android:layout_width="@dimen/_34sdp"
+            android:layout_height="@dimen/_34sdp"
+            android:background="@drawable/bg_glass_circle"
             android:contentDescription="@string/scanner_close"
-            android:src="@drawable/ic_app_close"
-            app:tint="@color/on_primary"
-            app:uiBackgroundColor="@color/color_white_12" />
+            android:foreground="?attr/selectableItemBackgroundBorderless"
+            android:padding="@dimen/_9sdp"
+            android:src="@drawable/ic_fo_close"
+            app:tint="@color/white" />
 
-        <!-- The hint keeps its own width and sits in the middle of the space between the buttons -->
         <FrameLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/_6sdp"
             android:layout_weight="1">
 
-            <com.ui.baselib.widget.view.UiTextView
-                android:id="@+id/scanHint"
+            <LinearLayout
+                android:id="@+id/layoutModes"
                 android:layout_width="wrap_content"
-                android:layout_height="@dimen/_23sdp"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:drawablePadding="@dimen/_5sdp"
-                android:ellipsize="end"
-                android:fontFamily="@font/nt_400"
-                android:gravity="center"
-                android:maxLines="1"
-                android:paddingHorizontal="@dimen/_9sdp"
-                android:text="@string/scanner_hint_searching"
-                android:textSize="@dimen/_9sdp"
-                app:uiBackgroundColor="@color/color_white_12"
-                app:uiCornerRadius="@dimen/_12sdp"
-                app:uiDrawableSize="@dimen/_12sdp"
-                app:uiTextColor="@color/on_primary" />
+                android:background="@drawable/bg_glass_track"
+                android:orientation="horizontal"
+                android:padding="@dimen/_3sdp">
+
+                <TextView
+                    android:id="@+id/btnAuto"
+                    style="@style/GlassOption"
+                    android:text="@string/scan_mode_auto" />
+
+                <TextView
+                    android:id="@+id/btnManual"
+                    style="@style/GlassOption"
+                    android:text="@string/scan_mode_manual" />
+            </LinearLayout>
         </FrameLayout>
 
-        <com.ui.baselib.widget.view.UiImageView
+        <ImageView
             android:id="@+id/btnFlash"
-            style="@style/IconButtonStyle"
+            android:layout_width="@dimen/_34sdp"
+            android:layout_height="@dimen/_34sdp"
+            android:background="@drawable/bg_glass_circle"
             android:contentDescription="@string/scanner_flash"
-            android:src="@drawable/ic_app_no_flash"
-            app:tint="@color/on_primary"
-            app:uiBackgroundColor="@color/color_white_12" />
-
+            android:foreground="?attr/selectableItemBackgroundBorderless"
+            android:padding="@dimen/_9sdp"
+            android:src="@drawable/ic_fo_flash"
+            app:tint="@color/white" />
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/layoutModes"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+    <!-- What the scanner is doing, over the bottom of the preview -->
+    <TextView
+        android:id="@+id/scanHint"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/_31sdp"
+        android:layout_marginBottom="@dimen/_12sdp"
+        android:background="@drawable/bg_scan_hint"
+        android:drawablePadding="@dimen/_6sdp"
+        android:ellipsize="end"
+        android:fontFamily="@font/nunito_700"
         android:gravity="center"
-        android:orientation="horizontal"
-        android:paddingTop="@dimen/_5sdp"
-        android:paddingBottom="@dimen/_5sdp"
-        app:layout_constraintBottom_toTopOf="@+id/bottomPanel">
-
-        <com.ui.baselib.widget.view.UiTextView
-            android:id="@+id/btnAuto"
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/_23sdp"
-            android:layout_marginHorizontal="@dimen/_2sdp"
-            android:fontFamily="@font/nt_600"
-            android:gravity="center"
-            android:paddingHorizontal="@dimen/_11sdp"
-            android:text="@string/scan_mode_auto"
-            android:textSize="@dimen/_10sdp"
-            app:uiCornerRadius="@dimen/_12sdp" />
-
-        <com.ui.baselib.widget.view.UiTextView
-            android:id="@+id/btnManual"
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/_23sdp"
-            android:layout_marginHorizontal="@dimen/_2sdp"
-            android:fontFamily="@font/nt_600"
-            android:gravity="center"
-            android:paddingHorizontal="@dimen/_11sdp"
-            android:text="@string/scan_mode_manual"
-            android:textSize="@dimen/_10sdp"
-            app:uiCornerRadius="@dimen/_12sdp" />
-
-    </LinearLayout>
+        android:maxLines="1"
+        android:paddingHorizontal="@dimen/_12sdp"
+        android:text="@string/scanner_hint_searching"
+        android:textColor="@color/ink_bar_text"
+        android:textSize="@dimen/_11sdp"
+        app:layout_constraintBottom_toTopOf="@+id/bottomPanel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/bottomPanel"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_77sdp"
-        android:paddingHorizontal="@dimen/_15sdp"
+        android:layout_height="@dimen/_120sdp"
+        android:background="@drawable/bg_scan_tray"
+        android:paddingHorizontal="@dimen/_26sdp"
         app:layout_constraintBottom_toBottomOf="parent">
 
-        <com.ui.baselib.widget.view.UiImageView
-            android:id="@+id/btnGallery"
-            android:layout_width="@dimen/_40sdp"
-            android:layout_height="@dimen/_40sdp"
-            android:contentDescription="@string/scanner_gallery"
-            android:padding="@dimen/_11sdp"
-            android:src="@drawable/ic_app_image"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:tint="@color/on_primary"
-            app:uiBackgroundColor="@color/color_white_12"
-            app:uiCornerRadius="@dimen/_11sdp" />
-
-        <com.ui.baselib.widget.layout.UiFrameLayout
-            android:id="@+id/captureButton"
-            android:layout_width="@dimen/_48sdp"
-            android:layout_height="@dimen/_48sdp"
-            android:contentDescription="@string/capture"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintVertical_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:uiCornerRadius="@dimen/_33sdp"
-            app:uiStrokeColor="@color/on_primary"
-            app:uiStrokeWidth="@dimen/_3sdp">
-
-            <com.ui.baselib.widget.layout.UiView
-                android:layout_width="@dimen/_38sdp"
-                android:layout_height="@dimen/_38sdp"
-                android:layout_gravity="center"
-                app:uiBackgroundColor="@color/accent"
-                app:uiCornerRadius="@dimen/_25sdp" />
-        </com.ui.baselib.widget.layout.UiFrameLayout>
-
+        <!-- The pages scanned so far: the latest on top of the stack, with the count -->
         <FrameLayout
             android:id="@+id/thumbnailContainer"
-            android:layout_width="@dimen/_48sdp"
-            android:layout_height="@dimen/_59sdp"
-            android:visibility="gone"
+            android:layout_width="@dimen/_46sdp"
+            android:layout_height="@dimen/_57sdp"
+            android:contentDescription="@string/scanner_scanned_pages"
+            android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:visibility="visible">
 
-            <com.ui.baselib.widget.view.UiImageView
-                android:id="@+id/ivThumbnail"
-                android:layout_width="@dimen/_40sdp"
-                android:layout_height="@dimen/_49sdp"
+            <View
+                android:layout_width="@dimen/_35sdp"
+                android:layout_height="@dimen/_46sdp"
                 android:layout_gravity="bottom|start"
-                android:contentDescription="@string/scanner_scanned_pages"
-                android:scaleType="centerCrop"
-                app:uiCornerRadius="@dimen/_6sdp"
-                app:uiStrokeColor="@color/on_primary"
-                app:uiStrokeWidth="@dimen/_1sdp" />
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_marginBottom="@dimen/_3sdp"
+                android:background="@drawable/bg_page_stack"
+                android:rotation="8" />
 
-            <com.ui.baselib.widget.view.UiTextView
+            <ImageView
+                android:id="@+id/ivThumbnail"
+                android:layout_width="@dimen/_35sdp"
+                android:layout_height="@dimen/_46sdp"
+                android:layout_gravity="bottom|start"
+                android:layout_marginStart="@dimen/_2sdp"
+                android:background="@drawable/bg_r6sdp"
+                android:clipToOutline="true"
+                android:foreground="@drawable/stroke_r6sdp_st1sdp_on_primary"
+                android:importantForAccessibility="no"
+                android:scaleType="centerCrop" />
+
+            <TextView
                 android:id="@+id/tvPageCount"
                 android:layout_width="@dimen/_20sdp"
                 android:layout_height="@dimen/_20sdp"
                 android:layout_gravity="top|end"
-                android:fontFamily="@font/nt_600"
+                android:background="@drawable/bg_circle_variant"
+                android:backgroundTint="@color/primary"
+                android:fontFamily="@font/nunito_700"
                 android:gravity="center"
+                android:textColor="@color/white"
                 android:textSize="@dimen/_10sdp"
-                app:uiBackgroundColor="@color/accent"
-                app:uiCornerRadius="@dimen/_10sdp"
-                app:uiTextColor="@color/on_accent"
-                tools:text="3" />
+                tools:text="2" />
         </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/captureButton"
+            android:layout_width="@dimen/_65sdp"
+            android:layout_height="@dimen/_65sdp"
+            android:background="@drawable/bg_shutter"
+            android:contentDescription="@string/capture"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/btnGallery"
+            android:layout_width="@dimen/_43sdp"
+            android:layout_height="@dimen/_43sdp"
+            android:background="@drawable/bg_glass_track"
+            android:contentDescription="@string/scanner_gallery"
+            android:foreground="?attr/selectableItemBackground"
+            android:padding="@dimen/_12sdp"
+            android:src="@drawable/ic_fo_photo"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/white" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -11,7 +11,7 @@
 
     <include
         android:id="@+id/topBar"
-        layout="@layout/layout_tool_topbar" />
+        layout="@layout/layout_screen_bar" />
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -23,130 +23,195 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingHorizontal="@dimen/_12sdp"
+            android:paddingHorizontal="@dimen/_15sdp"
             android:paddingBottom="@dimen/_10sdp">
 
             <include
-                android:id="@+id/header"
-                layout="@layout/layout_tool_header" />
+                android:id="@+id/steps"
+                layout="@layout/layout_step_progress" />
 
-            <include
-                android:id="@+id/file"
-                layout="@layout/layout_tool_file"
+            <!-- The file, with a lock on it -->
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_13sdp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_13sdp"
-                android:fontFamily="@font/nt_500"
-                android:text="@string/password_hint"
-                android:textColor="@color/text_secondary"
-                android:textSize="@dimen/_10sdp" />
-
-            <com.ui.baselib.widget.layout.UiLinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_37sdp"
-                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_11sdp"
+                android:background="@drawable/bg_rounded_panel"
+                android:backgroundTint="@color/color_file_excel_bg"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
-                android:paddingStart="@dimen/_11sdp"
-                android:paddingEnd="@dimen/_3sdp"
-                app:uiBackgroundColor="@color/color_surface_card"
-                app:uiCornerRadius="@dimen/_11sdp"
-                app:uiStrokeColor="@color/primary"
-                app:uiStrokeWidth="@dimen/_1sdp">
+                android:padding="@dimen/_12sdp">
+
+                <FrameLayout
+                    android:layout_width="@dimen/_40sdp"
+                    android:layout_height="@dimen/_46sdp">
+
+                    <View
+                        android:layout_width="@dimen/_34sdp"
+                        android:layout_height="@dimen/_42sdp"
+                        android:background="@drawable/bg_file_tile"
+                        android:backgroundTint="@color/color_surface_card" />
+
+                    <ImageView
+                        android:layout_width="@dimen/_25sdp"
+                        android:layout_height="@dimen/_25sdp"
+                        android:layout_gravity="bottom|end"
+                        android:background="@drawable/bg_circle_variant"
+                        android:backgroundTint="@color/color_file_excel"
+                        android:importantForAccessibility="no"
+                        android:padding="@dimen/_6sdp"
+                        android:src="@drawable/ic_fo_lock"
+                        app:tint="@color/on_primary" />
+                </FrameLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_11sdp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tvFileName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="middle"
+                        android:fontFamily="@font/nunito_700"
+                        android:maxLines="1"
+                        android:textColor="@color/text_primary"
+                        android:textSize="@dimen/_12sdp"
+                        tools:text="Tenant ID copy.pdf" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_1sdp"
+                        android:fontFamily="@font/nunito_500"
+                        android:text="@string/fo_protect_hero"
+                        android:textColor="@color/text_tertiary"
+                        android:textSize="@dimen/_10sdp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                style="@style/FieldLabel"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:labelFor="@id/edtPassword"
+                android:text="@string/password_hint" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_43sdp"
+                android:addStatesFromChildren="true"
+                android:background="@drawable/bg_field"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingStart="@dimen/_12sdp"
+                android:paddingEnd="@dimen/_4sdp">
 
                 <EditText
                     android:id="@+id/edtPassword"
+                    style="@style/FieldInput"
                     android:layout_width="0dp"
-                    android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:background="@null"
-                    android:fontFamily="@font/nt_400"
-                    android:hint="@string/password_hint"
-                    android:imeOptions="actionDone"
-                    android:importantForAutofill="no"
-                    android:inputType="textPassword"
-                    android:maxLines="1"
-                    android:textColor="@color/text_primary"
-                    android:textColorHint="@color/text_secondary"
-                    android:textSize="@dimen/_12sdp" />
+                    android:imeOptions="actionNext"
+                    android:inputType="textPassword" />
 
                 <ImageView
                     android:id="@+id/btnShowPassword"
-                    android:layout_width="@dimen/_31sdp"
-                    android:layout_height="match_parent"
+                    android:layout_width="@dimen/_34sdp"
+                    android:layout_height="@dimen/_34sdp"
                     android:background="?attr/selectableItemBackgroundBorderless"
-                    android:contentDescription="@null"
-                    android:padding="@dimen/_8sdp"
-                    android:src="@drawable/ic_app_eye"
+                    android:contentDescription="@string/fo_show_password"
+                    android:padding="@dimen/_9sdp"
+                    android:src="@drawable/ic_fo_eye"
                     app:tint="@color/text_secondary" />
-            </com.ui.baselib.widget.layout.UiLinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layoutStrength"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:visibility="invisible"
+                tools:visibility="visible">
+
+                <LinearLayout
+                    android:id="@+id/layoutBars"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_5sdp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal" />
+
+                <TextView
+                    android:id="@+id/tvStrength"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:fontFamily="@font/nunito_700"
+                    android:textSize="@dimen/_10sdp"
+                    tools:text="Nice and strong"
+                    tools:textColor="@color/color_file_excel" />
+            </LinearLayout>
+
+            <TextView
+                style="@style/FieldLabel"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:labelFor="@id/edtConfirm"
+                android:text="@string/fo_type_once_more" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_43sdp"
+                android:addStatesFromChildren="true"
+                android:background="@drawable/bg_field"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingHorizontal="@dimen/_12sdp">
+
+                <EditText
+                    android:id="@+id/edtConfirm"
+                    style="@style/FieldInput"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:imeOptions="actionDone"
+                    android:inputType="textPassword" />
+
+                <ImageView
+                    android:id="@+id/ivMatch"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:background="@drawable/bg_circle_variant"
+                    android:backgroundTint="@color/color_file_excel_bg"
+                    android:importantForAccessibility="no"
+                    android:padding="@dimen/_4sdp"
+                    android:src="@drawable/ic_fo_check"
+                    android:visibility="gone"
+                    app:tint="@color/color_file_excel"
+                    tools:visibility="visible" />
+            </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_12sdp"
-                android:fontFamily="@font/nt_500"
-                android:text="@string/confirm_password"
-                android:textColor="@color/text_secondary"
-                android:textSize="@dimen/_10sdp" />
-
-            <com.ui.baselib.widget.layout.UiLinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_37sdp"
-                android:layout_marginTop="@dimen/_5sdp"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:paddingStart="@dimen/_11sdp"
-                android:paddingEnd="@dimen/_11sdp"
-                app:uiBackgroundColor="@color/color_surface_card"
-                app:uiCornerRadius="@dimen/_11sdp"
-                app:uiStrokeColor="@color/color_stroke"
-                app:uiStrokeWidth="@dimen/_1sdp">
-
-                <EditText
-                    android:id="@+id/edtConfirm"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@null"
-                    android:fontFamily="@font/nt_400"
-                    android:hint="@string/confirm_password"
-                    android:imeOptions="actionDone"
-                    android:importantForAutofill="no"
-                    android:inputType="textPassword"
-                    android:maxLines="1"
-                    android:textColor="@color/text_primary"
-                    android:textColorHint="@color/text_secondary"
-                    android:textSize="@dimen/_12sdp" />
-            </com.ui.baselib.widget.layout.UiLinearLayout>
-
-            <com.ui.baselib.widget.view.UiTextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_13sdp"
-                android:drawablePadding="@dimen/_8sdp"
-                android:fontFamily="@font/nt_400"
-                android:paddingHorizontal="@dimen/_11sdp"
-                android:paddingVertical="@dimen/_9sdp"
+                android:background="@drawable/bg_rounded_panel"
+                android:backgroundTint="@color/color_pro_bg"
+                android:drawablePadding="@dimen/_9sdp"
+                android:fontFamily="@font/nunito_500"
+                android:lineSpacingMultiplier="1.2"
+                android:paddingHorizontal="@dimen/_12sdp"
+                android:paddingVertical="@dimen/_11sdp"
                 android:text="@string/protect_warning"
-                android:textSize="@dimen/_9sdp"
-                app:drawableStartCompat="@drawable/ic_app_alert"
-                app:drawableTint="@color/color_warning"
-                app:uiBackgroundColor="@color/color_warning_bg"
-                app:uiCornerRadius="@dimen/_11sdp"
-                app:uiDrawableSize="@dimen/_13sdp"
-                app:uiTextColor="@color/color_on_warning" />
-
+                android:textColor="@color/text_tertiary"
+                android:textSize="@dimen/_11sdp"
+                app:drawableStartCompat="@drawable/ic_fo_info_17sdp"
+                app:drawableTint="@color/color_premium_gold" />
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
     <include
         android:id="@+id/action"
         layout="@layout/layout_tool_action" />
-
 </LinearLayout>

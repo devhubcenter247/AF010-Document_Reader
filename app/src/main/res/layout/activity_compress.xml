@@ -11,38 +11,134 @@
 
     <include
         android:id="@+id/topBar"
-        layout="@layout/layout_tool_topbar" />
+        layout="@layout/layout_screen_bar" />
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
+        android:clipToPadding="false"
         android:overScrollMode="never">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:clipToPadding="false"
             android:orientation="vertical"
-            android:paddingHorizontal="@dimen/_12sdp"
+            android:paddingHorizontal="@dimen/_15sdp"
             android:paddingBottom="@dimen/_10sdp">
 
             <include
-                android:id="@+id/header"
-                layout="@layout/layout_tool_header" />
+                android:id="@+id/steps"
+                layout="@layout/layout_step_progress" />
 
             <include
                 android:id="@+id/file"
                 layout="@layout/layout_tool_file"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_13sdp" />
+                android:layout_marginTop="@dimen/_11sdp" />
+
+            <!-- Before / after -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_11sdp"
+                android:background="@drawable/bg_rounded_panel"
+                android:backgroundTint="@color/color_file_excel_bg"
+                android:orientation="vertical"
+                android:padding="@dimen/_14sdp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/nunito_700"
+                            android:text="@string/fo_right_now"
+                            android:textColor="@color/text_tertiary"
+                            android:textSize="@dimen/_10sdp" />
+
+                        <TextView
+                            android:id="@+id/tvBefore"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/nunito_700"
+                            android:textColor="@color/text_primary"
+                            android:textSize="@dimen/_17sdp"
+                            tools:text="4.0 MB" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="@dimen/_17sdp"
+                        android:layout_height="@dimen/_17sdp"
+                        android:importantForAccessibility="no"
+                        android:src="@drawable/ic_fo_chevron"
+                        app:tint="@color/text_secondary" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/nunito_700"
+                            android:text="@string/fo_after_about"
+                            android:textColor="@color/text_tertiary"
+                            android:textSize="@dimen/_10sdp" />
+
+                        <TextView
+                            android:id="@+id/tvAfter"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/nunito_700"
+                            android:textColor="@color/color_file_excel"
+                            android:textSize="@dimen/_23sdp"
+                            tools:text="1.8 MB" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/layoutBar"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_9sdp"
+                    android:layout_marginTop="@dimen/_11sdp"
+                    android:background="@drawable/bg_badge"
+                    android:backgroundTint="@color/excel_track"
+                    android:clipToOutline="true"
+                    android:orientation="horizontal"
+                    android:weightSum="100">
+
+                    <View
+                        android:id="@+id/viewBarFill"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="45"
+                        android:background="@drawable/bg_badge"
+                        android:backgroundTint="@color/color_file_excel" />
+                </LinearLayout>
+            </LinearLayout>
 
             <include
                 android:id="@+id/optionLow"
                 layout="@layout/layout_option"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_13sdp" />
+                android:layout_marginTop="@dimen/_11sdp" />
 
             <include
                 android:id="@+id/optionMedium"
@@ -57,12 +153,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_8sdp" />
-
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
     <include
         android:id="@+id/action"
         layout="@layout/layout_tool_action" />
-
 </LinearLayout>

@@ -5,27 +5,87 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/color_surface_card"
+    android:background="@color/color_bg_app"
     android:orientation="vertical"
     tools:context=".ui.main.reader.pdf.reflow.PdfReflowActivity">
 
-    <include
-        android:id="@+id/toolbar"
-        layout="@layout/layout_toolbar" />
+    <LinearLayout
+        android:id="@+id/topBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:minHeight="@dimen/_46sdp"
+        android:orientation="horizontal"
+        android:paddingHorizontal="@dimen/_12sdp">
+
+        <ImageView
+            android:id="@+id/btnBack"
+            style="@style/RoundIconButton"
+            android:layout_width="@dimen/_32sdp"
+            android:layout_height="@dimen/_32sdp"
+            android:contentDescription="@string/back"
+            android:src="@drawable/ic_fo_back" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_9sdp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunito_700"
+                android:maxLines="1"
+                android:text="@string/fo_text_view"
+                android:textColor="@color/text_primary"
+                android:textSize="@dimen/_14sdp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:fontFamily="@font/nunito_500"
+                android:maxLines="1"
+                android:text="@string/text_view_subtitle"
+                android:textColor="@color/text_secondary"
+                android:textSize="@dimen/_10sdp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/btnSmaller"
+            style="@style/SizeButton"
+            android:contentDescription="@string/fo_smaller_text"
+            android:textSize="@dimen/_11sdp" />
+
+        <TextView
+            android:id="@+id/btnBigger"
+            style="@style/SizeButton"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:contentDescription="@string/fo_bigger_text"
+            android:textSize="@dimen/_15sdp" />
+    </LinearLayout>
 
     <FrameLayout
+        style="@style/FloatingCard"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_marginHorizontal="@dimen/_12sdp"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_marginBottom="@dimen/_15sdp"
+        android:layout_weight="1"
+        android:background="@drawable/bg_rounded_panel"
+        android:backgroundTint="@color/color_surface_card"
+        android:clipToOutline="true">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rcvText"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:clipToPadding="false"
-            android:overScrollMode="never"
-            android:paddingHorizontal="@dimen/_15sdp"
-            android:paddingVertical="@dimen/_11sdp"
+            android:paddingHorizontal="@dimen/_17sdp"
+            android:paddingVertical="@dimen/_15sdp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             tools:listitem="@layout/item_reflow_text" />
 
@@ -38,56 +98,15 @@
 
         <TextView
             android:id="@+id/tvEmpty"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:fontFamily="@font/nt_400"
+            android:fontFamily="@font/nunito_600"
+            android:gravity="center"
+            android:paddingHorizontal="@dimen/_23sdp"
             android:text="@string/reflow_no_text"
             android:textColor="@color/text_secondary"
-            android:textSize="@dimen/_10sdp"
+            android:textSize="@dimen/_11sdp"
             android:visibility="gone" />
     </FrameLayout>
-
-    <com.ui.baselib.widget.layout.UiLinearLayout
-        android:id="@+id/layoutSize"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:paddingBottom="@dimen/_10sdp"
-        android:paddingHorizontal="@dimen/_13sdp"
-        android:paddingTop="@dimen/_9sdp"
-        app:uiBackgroundColor="@color/color_surface_card"
-        app:uiStrokeColor="@color/color_stroke"
-        app:uiStrokeSides="top"
-        app:uiStrokeWidth="@dimen/_1sdp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/nt_600"
-            android:text="@string/text_size_sample"
-            android:textColor="@color/text_primary"
-            android:textSize="@dimen/_10sdp" />
-
-        <SeekBar
-            android:id="@+id/seekSize"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/_6sdp"
-            android:layout_weight="1"
-            android:max="12"
-            android:progressBackgroundTint="@color/color_checkbox_stroke"
-            android:progressTint="@color/primary"
-            android:thumbTint="@color/primary" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/nt_600"
-            android:text="@string/text_size_sample"
-            android:textColor="@color/text_primary"
-            android:textSize="@dimen/_15sdp" />
-    </com.ui.baselib.widget.layout.UiLinearLayout>
-
 </LinearLayout>

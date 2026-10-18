@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Every colour a pen, text or highlight can take: ColorGridDialog fills the grid. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_dialog"
+    android:orientation="vertical"
+    android:padding="@dimen/_15sdp"
+    tools:context=".ui.common.ColorGridDialog">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/nunito_600"
+        android:text="@string/fo_colour"
+        android:textColor="@color/text_primary"
+        android:textSize="@dimen/_15sdp" />
+
+    <GridLayout
+        android:id="@+id/gridColors"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_11sdp"
+        android:columnCount="10"
+        android:useDefaultMargins="false" />
+</LinearLayout>

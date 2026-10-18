@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- A page to jump to; blue while it is the one shown (selected state). -->
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/tvNumber"
+    android:layout_width="@dimen/_34sdp"
+    android:layout_height="@dimen/_34sdp"
+    android:layout_marginEnd="@dimen/_6sdp"
+    android:background="@drawable/bg_page_number"
+    android:elevation="@dimen/_2sdp"
+    android:fontFamily="@font/nunito_700"
+    android:gravity="center"
+    android:outlineAmbientShadowColor="@color/color_shadow"
+    android:outlineSpotShadowColor="@color/color_shadow"
+    android:textColor="@color/text_page_number"
+    android:textSize="@dimen/_12sdp"
+    tools:text="1" />

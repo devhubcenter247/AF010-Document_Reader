@@ -1,39 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- A look for the page: the page in that look, ringed in blue while picked (selected state). -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
+    android:layout_width="@dimen/_58sdp"
     android:layout_height="wrap_content"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    android:paddingHorizontal="@dimen/_5sdp">
+    android:paddingHorizontal="@dimen/_3sdp">
 
-    <com.ui.baselib.widget.layout.UiFrameLayout
+    <FrameLayout
         android:id="@+id/card"
-        android:layout_width="@dimen/_49sdp"
-        android:layout_height="@dimen/_62sdp"
-        android:padding="@dimen/_3sdp"
-        app:uiCornerRadius="@dimen/_9sdp"
-        app:uiStrokeColor="@color/primary">
+        android:layout_width="@dimen/_51sdp"
+        android:layout_height="@dimen/_63sdp"
+        android:background="@drawable/bg_filter_card"
+        android:duplicateParentState="true"
+        android:padding="@dimen/_3sdp">
 
-        <com.ui.baselib.widget.view.UiImageView
+        <ImageView
             android:id="@+id/ivPreview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:contentDescription="@null"
-            android:scaleType="centerCrop"
-            app:uiBackgroundColor="@color/color_surface_track"
-            app:uiCornerRadius="@dimen/_7sdp" />
-    </com.ui.baselib.widget.layout.UiFrameLayout>
+            android:background="@drawable/bg_filter_preview"
+            android:clipToOutline="true"
+            android:importantForAccessibility="no"
+            android:scaleType="centerCrop" />
+    </FrameLayout>
 
     <TextView
         android:id="@+id/tvLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_3sdp"
-        android:fontFamily="@font/nt_500"
-        android:textColor="@color/text_primary"
-        android:textSize="@dimen/_9sdp"
+        android:layout_marginTop="@dimen/_4sdp"
+        android:duplicateParentState="true"
+        android:fontFamily="@font/nunito_700"
+        android:maxLines="1"
+        android:textColor="@color/text_filter_label"
+        android:textSize="@dimen/_10sdp"
         tools:text="Document" />
-
 </LinearLayout>

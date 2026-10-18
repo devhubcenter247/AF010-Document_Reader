@@ -1,73 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="DialogAppStyle">
-        <item name="uiBackgroundColor">@color/color_surface_card</item>
-        <item name="uiCornerRadius">@dimen/_18sdp</item>
-        <item name="android:fontFamily">@font/nt_400</item>
-        <item name="android:padding">@dimen/_7sdp</item>
-    </style>
 
     <style name="ButtonAppStyle">
-        <item name="android:layout_height">@dimen/_35sdp</item>
-        <item name="uiBackgroundColor">@color/color_stroke</item>
-        <item name="uiBackgroundGradientStart">@color/gradient_start</item>
-        <item name="uiBackgroundGradientEnabled">true</item>
-        <item name="uiBackgroundGradientEnd">@color/gradient_end</item>
-        <item name="uiCornerRadius">@dimen/_10sdp</item>
-        <item name="uiShadowColor">@color/primary_30</item>
-        <item name="uiShadowElevation">0dp</item>
-        <item name="uiShadowRadius">@dimen/_5sdp</item>
-        <item name="uiShadowDy">@dimen/_3sdp</item>
-        <item name="uiShadowClipParent">force</item>
-        <item name="uiShadowAmbientColor">@color/primary_20</item>
-        <item name="uiShadowAmbientRadius">@dimen/_10sdp</item>
-        <item name="android:textSize">@dimen/_11sdp</item>
-        <item name="uiTextColor">@color/white</item>
-        <item name="android:fontFamily">@font/nt_500</item>
+        <item name="android:layout_height">@dimen/_43sdp</item>
+        <item name="android:textSize">@dimen/_12sdp</item>
+        <item name="android:fontFamily">@font/nunito_700</item>
         <item name="android:gravity">center</item>
     </style>
 
-    <style name="TextHeadLine">
-        <item name="android:textColor">@color/text_primary</item>
-        <item name="android:textSize">@dimen/_13sdp</item>
-        <item name="fontFamily">@font/nt_600</item>
-    </style>
 
-    <style name="TextSubContent">
-        <item name="android:textColor">@color/text_secondary</item>
-        <item name="android:textSize">@dimen/_9sdp</item>
-        <item name="fontFamily">@font/nt_400</item>
-    </style>
-    <!-- Tiêu đề lớn của tab: My files, Tools, Settings -->
-    <style name="TextScreenTitle">
-        <item name="android:textColor">@color/text_primary</item>
-        <item name="android:textSize">@dimen/_13sdp</item>
-        <item name="android:letterSpacing">-0.02</item>
-        <item name="android:includeFontPadding">false</item>
-        <item name="fontFamily">@font/nt_600</item>
-    </style>
 
-    <style name="TextSectionTitle">
-        <item name="android:textColor">@color/text_primary</item>
-        <item name="android:textSize">@dimen/_12sdp</item>
-        <item name="fontFamily">@font/nt_600</item>
-    </style>
 
     <!-- Nhãn nhóm viết hoa: PREFERENCES, RECENT SEARCHES -->
     <style name="TextSectionCaps">
         <item name="android:textColor">@color/text_secondary</item>
-        <item name="android:textSize">@dimen/_11sdp</item>
-        <item name="android:letterSpacing">0.03</item>
+        <item name="android:textSize">@dimen/_10sdp</item>
         <item name="android:textAllCaps">false</item>
-        <item name="fontFamily">@font/nt_500</item>
+        <item name="fontFamily">@font/nunito_700</item>
     </style>
 
     <style name="CardAppStyle">
-        <item name="uiBackgroundColor">@color/color_surface_card</item>
-        <item name="uiCornerRadius">@dimen/_15sdp</item>
-        <item name="uiStrokeColor">@color/color_stroke</item>
-        <item name="uiStrokeWidth">@dimen/_1sdp</item>
+        <item name="android:elevation">@dimen/_3sdp</item>
+        <item name="android:outlineSpotShadowColor">@color/color_shadow</item>
+        <item name="android:outlineAmbientShadowColor">@color/color_shadow</item>
     </style>
 
     <!-- Nút tròn 40 chứa icon: back, close, search -->
@@ -75,26 +31,12 @@
         <item name="android:layout_width">@dimen/_27sdp</item>
         <item name="android:layout_height">@dimen/_27sdp</item>
         <item name="android:padding">@dimen/_5sdp</item>
-        <item name="uiCornerRadius">@dimen/_17sdp</item>
-        <item name="uiBackgroundColor">@color/color_surface_variant</item>
     </style>
 
     <style name="ButtonOutlineStyle" parent="ButtonAppStyle">
-        <item name="uiBackgroundGradientEnabled">false</item>
-        <item name="uiBackgroundColor">@color/color_surface_card</item>
-        <item name="uiTextColor">@color/text_primary</item>
-        <item name="uiStrokeColor">@color/color_stroke</item>
-        <item name="uiStrokeWidth">@dimen/_1sdp</item>
-        <item name="uiShadowElevation">0dp</item>
-        <item name="uiShadowRadius">0dp</item>
-        <item name="uiShadowDy">0dp</item>
-        <item name="uiShadowAmbientRadius">0dp</item>
     </style>
 
     <style name="BottomSheetAppStyle">
-        <item name="uiBackgroundColor">@color/color_surface_card</item>
-        <item name="uiCornerTopLeft">@dimen/_22sdp</item>
-        <item name="uiCornerTopRight">@dimen/_22sdp</item>
     </style>
 
     <!-- Dòng trong sheet / Settings: icon + nhãn -->
@@ -105,77 +47,651 @@
         <item name="android:layout_marginStart">@dimen/_10sdp</item>
         <item name="android:textColor">@color/text_primary</item>
         <item name="android:textSize">@dimen/_10sdp</item>
-        <item name="fontFamily">@font/nt_500</item>
+        <item name="fontFamily">@font/nunito_600</item>
     </style>
 
-    <style name="SettingRowStyle">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">@dimen/_43sdp</item>
-        <item name="android:gravity">center_vertical</item>
-        <item name="android:orientation">horizontal</item>
-        <item name="android:paddingHorizontal">@dimen/_13sdp</item>
-        <item name="android:background">?attr/selectableItemBackground</item>
-    </style>
 
-    <style name="SettingRowIconStyle">
-        <item name="android:layout_width">@dimen/_28sdp</item>
-        <item name="android:layout_height">@dimen/_28sdp</item>
-        <item name="android:padding">@dimen/_6sdp</item>
-        <item name="uiCornerRadius">@dimen/_9sdp</item>
-    </style>
 
-    <style name="RowChevronStyle">
-        <item name="android:layout_width">@dimen/_13sdp</item>
-        <item name="android:layout_height">@dimen/_13sdp</item>
-        <item name="android:src">@drawable/ic_app_chev</item>
-        <item name="tint">@color/color_icon_muted</item>
-    </style>
 
-    <!-- Nút PRO gradient ở góc header -->
-    <style name="ProBadgeStyle">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">@dimen/_23sdp</item>
-        <item name="android:drawablePadding">@dimen/_5sdp</item>
-        <item name="android:gravity">center</item>
-        <item name="android:paddingHorizontal">@dimen/_11sdp</item>
-        <item name="android:text">@string/pro</item>
-        <item name="android:textSize">@dimen/_10sdp</item>
-        <item name="fontFamily">@font/nt_600</item>
-        <item name="drawableStartCompat">@drawable/ic_app_crown</item>
-        <item name="drawableTint">@color/on_primary</item>
-        <item name="uiBackgroundGradientEnabled">true</item>
-        <item name="uiBackgroundGradientStart">@color/gradient_start</item>
-        <item name="uiBackgroundGradientEnd">@color/gradient_end</item>
-        <item name="uiBackgroundGradientOrientation">tl_br</item>
-        <item name="uiCornerRadius">@dimen/_14sdp</item>
-        <item name="uiDrawableSize">@dimen/_13sdp</item>
-        <item name="uiTextColor">@color/on_primary</item>
-    </style>
 
     <!-- Nút trong thanh nổi tối trên trang PDF -->
     <style name="MarkupActionStyle">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">@dimen/_26sdp</item>
         <item name="android:gravity">center</item>
-        <item name="android:paddingHorizontal">@dimen/_8sdp</item>
+        <item name="android:paddingHorizontal">@dimen/_9sdp</item>
         <item name="android:textColor">@color/on_primary</item>
-        <item name="android:textSize">@dimen/_9sdp</item>
-        <item name="fontFamily">@font/nt_500</item>
+        <item name="android:textSize">@dimen/_10sdp</item>
+        <item name="fontFamily">@font/nunito_700</item>
         <item name="android:background">?attr/selectableItemBackground</item>
     </style>
 
-    <!-- Nút icon + nhãn trong thanh dưới của trình đọc -->
-    <style name="ReaderActionStyle">
+
+    <!-- Folio: the main action, a 56px blue pill with a soft blue glow -->
+    <style name="PrimaryPillButton">
+        <item name="android:layout_height">@dimen/_43sdp</item>
+        <item name="android:background">@drawable/bg_button_primary</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingHorizontal">@dimen/_17sdp</item>
+        <item name="android:textColor">@color/on_primary</item>
+        <item name="android:textSize">@dimen/_12sdp</item>
+        <item name="android:fontFamily">@font/nunito_700</item>
+        <item name="android:elevation">@dimen/_4sdp</item>
+        <item name="android:outlineSpotShadowColor">@color/primary</item>
+        <item name="android:outlineAmbientShadowColor">@color/primary</item>
+    </style>
+
+    <!-- Folio: a quiet text-only action under the main one ("Maybe later") -->
+    <style name="GhostButton">
+        <item name="android:layout_height">@dimen/_37sdp</item>
+        <item name="android:background">?attr/selectableItemBackgroundBorderless</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingHorizontal">@dimen/_17sdp</item>
+        <item name="android:textColor">@color/text_tertiary</item>
+        <item name="android:textSize">@dimen/_12sdp</item>
+        <item name="android:fontFamily">@font/nunito_700</item>
+    </style>
+
+    <!-- Folio: big friendly screen titles (32px) -->
+    <style name="DisplayTitle">
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textSize">@dimen/_25sdp</item>
+        <item name="android:fontFamily">@font/nunito_700</item>
+        <item name="android:letterSpacing">-0.02</item>
+        <item name="android:lineSpacingMultiplier">0.95</item>
+    </style>
+
+    <style name="DisplaySubtitle">
+        <item name="android:textColor">@color/text_secondary</item>
+        <item name="android:textSize">@dimen/_12sdp</item>
+        <item name="android:fontFamily">@font/nunito_500</item>
+        <item name="android:lineSpacingMultiplier">1.15</item>
+    </style>
+
+    <!-- Folio: the white floating card used for rows and options -->
+    <style name="FloatingCard">
+        <item name="android:background">@drawable/bg_card</item>
+        <item name="android:elevation">@dimen/_3sdp</item>
+        <item name="android:outlineSpotShadowColor">@color/color_shadow</item>
+        <item name="android:outlineAmbientShadowColor">@color/color_shadow</item>
+    </style>
+
+    <!-- Folio: one option of a segmented control (layout_segment.xml) -->
+    <style name="SegmentItem">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">@dimen/_31sdp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:background">@drawable/bg_segment_item</item>
+        <item name="android:fontFamily">@font/nunito_700</item>
+        <item name="android:gravity">center</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:paddingHorizontal">@dimen/_9sdp</item>
+        <item name="android:textColor">@color/text_segment</item>
+        <item name="android:textSize">@dimen/_11sdp</item>
+        <!-- Only the picked option has an opaque outline, so only it casts a shadow. -->
+        <item name="android:elevation">@dimen/_1sdp</item>
+        <item name="android:outlineSpotShadowColor">@color/color_shadow</item>
+        <item name="android:outlineAmbientShadowColor">@color/color_shadow</item>
+    </style>
+
+    <!-- Folio: a round white icon button (back, search) -->
+    <style name="RoundIconButton">
+        <item name="android:layout_width">@dimen/_34sdp</item>
+        <item name="android:layout_height">@dimen/_34sdp</item>
+        <item name="android:background">@drawable/bg_circle_card</item>
+        <item name="android:foreground">?attr/selectableItemBackgroundBorderless</item>
+        <item name="android:padding">@dimen/_9sdp</item>
+        <item name="tint">@color/text_primary</item>
+    </style>
+
+    <!-- Folio: section heading with an optional link on the right -->
+    <style name="SectionHeading">
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textSize">@dimen/_14sdp</item>
+        <item name="android:fontFamily">@font/nunito_700</item>
+        <item name="android:letterSpacing">-0.01</item>
+    </style>
+
+    <!-- Folio: one tab of the floating bottom bar; the icon and label follow its selected state -->
+    <style name="NavTab">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">@dimen/_38sdp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:background">@drawable/bg_nav_tab</item>
+        <item name="android:gravity">center</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="NavTabIcon">
+        <item name="android:layout_width">@dimen/_16sdp</item>
+        <item name="android:layout_height">@dimen/_16sdp</item>
+        <item name="android:duplicateParentState">true</item>
+        <item name="android:importantForAccessibility">no</item>
+        <item name="tint">@color/nav_tab_content</item>
+    </style>
+
+    <style name="NavTabLabel">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/_1sdp</item>
+        <item name="android:duplicateParentState">true</item>
+        <item name="android:fontFamily">@font/nunito_700</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:textColor">@color/nav_tab_content</item>
+        <item name="android:textSize">@dimen/_9sdp</item>
+    </style>
+
+    <!-- Folio: a see-through chip on a coloured card ("Add text", "Sign"…) -->
+    <style name="GlassChip">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">@dimen/_23sdp</item>
+        <item name="android:layout_marginEnd">@dimen/_5sdp</item>
+        <item name="android:layout_marginBottom">@dimen/_5sdp</item>
+        <item name="android:background">@drawable/bg_chip_glass</item>
+        <item name="android:foreground">?attr/selectableItemBackground</item>
+        <item name="android:clipToOutline">true</item>
+        <item name="android:fontFamily">@font/nunito_700</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingHorizontal">@dimen/_9sdp</item>
+        <item name="android:textColor">@color/on_primary</item>
+        <item name="android:textSize">@dimen/_10sdp</item>
+    </style>
+
+    <!-- Folio: a white pill with a blue icon ("Scan to PDF") -->
+    <style name="PillAction">
+        <item name="android:layout_height">@dimen/_40sdp</item>
+        <item name="android:background">@drawable/bg_pill_button</item>
+        <item name="android:foreground">?attr/selectableItemBackground</item>
+        <item name="android:clipToOutline">true</item>
+        <item name="android:elevation">@dimen/_2sdp</item>
+        <item name="android:outlineSpotShadowColor">@color/color_shadow</item>
+        <item name="android:outlineAmbientShadowColor">@color/color_shadow</item>
+        <item name="android:paddingHorizontal">@dimen/_14sdp</item>
+        <item name="android:drawablePadding">@dimen/_6sdp</item>
+        <item name="android:fontFamily">@font/nunito_700</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textSize">@dimen/_11sdp</item>
+    </style>
+
+    <!-- Folio: an action tile in a sheet's grid (Share, Favourite, Rename, Copy) -->
+    <style name="ActionTile">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">@dimen/_65sdp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:background">@drawable/bg_action_tile</item>
+        <item name="android:foreground">?attr/selectableItemBackground</item>
+        <item name="android:clipToOutline">true</item>
+        <item name="android:drawablePadding">@dimen/_5sdp</item>
+        <item name="android:fontFamily">@font/nunito_700</item>
+        <item name="android:gravity">center</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:paddingTop">@dimen/_12sdp</item>
+        <item name="android:paddingBottom">@dimen/_9sdp</item>
+        <item name="android:textColor">@color/action_tile_content</item>
+        <item name="android:textSize">@dimen/_10sdp</item>
+        <item name="drawableTint">@color/action_tile_content</item>
+    </style>
+
+    <!-- Folio: a row inside a white list card (File info, Delete) -->
+    <style name="CardRow">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/_43sdp</item>
+        <item name="android:background">?attr/selectableItemBackground</item>
+        <item name="android:drawablePadding">@dimen/_9sdp</item>
+        <item name="android:fontFamily">@font/nunito_700</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingHorizontal">@dimen/_9sdp</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textSize">@dimen/_12sdp</item>
+        <item name="drawableTint">@color/text_primary</item>
+    </style>
+
+    <!-- Folio: an action on the dark floating bar of multi-select -->
+    <style name="InkBarAction">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">@dimen/_46sdp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:background">?attr/selectableItemBackgroundBorderless</item>
+        <item name="android:drawablePadding">@dimen/_2sdp</item>
+        <item name="android:fontFamily">@font/nunito_700</item>
+        <item name="android:gravity">center</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:paddingTop">@dimen/_6sdp</item>
+        <item name="android:textColor">@color/ink_bar_action</item>
+        <item name="android:textSize">@dimen/_9sdp</item>
+        <item name="drawableTint">@color/ink_bar_action</item>
+    </style>
+
+    <!-- Folio: the small grey note at the right of a section heading ("2 found") -->
+    <style name="SectionNote">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/nunito_700</item>
+        <item name="android:textColor">@color/text_secondary</item>
+        <item name="android:textSize">@dimen/_10sdp</item>
+    </style>
+    <!-- A tool screen's text field: the label above it, and the EditText inside a bg_field box. -->
+    <style name="FieldLabel">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingBottom">@dimen/_6sdp</item>
+        <item name="android:fontFamily">@font/nunito_700</item>
+        <item name="android:textColor">@color/text_secondary</item>
+        <item name="android:textSize">@dimen/_10sdp</item>
+    </style>
+    <style name="FieldInput">
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@null</item>
+        <item name="android:fontFamily">@font/nunito_600</item>
+        <item name="android:importantForAutofill">no</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textColorHint">@color/text_secondary</item>
+        <item name="android:textSize">@dimen/_12sdp</item>
+    </style>
+    <!-- A file card in the ZIP picture: a white page with its type in a coloured pill near the top. -->
+    <style name="ZipHeroCard">
+        <item name="android:layout_width">@dimen/_38sdp</item>
+        <item name="android:layout_height">@dimen/_48sdp</item>
+        <item name="android:background">@drawable/bg_zip_card</item>
+        <item name="android:elevation">@dimen/_3sdp</item>
+        <item name="android:outlineSpotShadowColor">@color/color_shadow</item>
+        <item name="android:outlineAmbientShadowColor">@color/color_shadow</item>
+    </style>
+    <style name="ZipHeroPill">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">@dimen/_14sdp</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:layout_marginTop">@dimen/_6sdp</item>
+        <item name="android:background">@drawable/bg_badge</item>
+        <item name="android:fontFamily">@font/nunito_700</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingHorizontal">@dimen/_4sdp</item>
+        <item name="android:textSize">@dimen/_9sdp</item>
+    </style>
+    <!-- Translate: one end of the From / To card. -->
+    <style name="LanguagePick">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">?attr/selectableItemBackground</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:paddingStart">@dimen/_12sdp</item>
+        <item name="android:paddingEnd">@dimen/_60sdp</item>
+        <item name="android:paddingVertical">@dimen/_11sdp</item>
+    </style>
+    <style name="LanguagePickLabel">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/nunito_700</item>
+        <item name="android:textColor">@color/text_secondary</item>
+        <item name="android:textSize">@dimen/_10sdp</item>
+    </style>
+    <style name="LanguagePickValue">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/_1sdp</item>
+        <item name="android:drawablePadding">@dimen/_5sdp</item>
+        <item name="android:drawableEnd">@drawable/ic_fo_chevron_down_15sdp</item>
+        <item name="android:drawableTint">@color/text_primary</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:fontFamily">@font/nunito_700</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textSize">@dimen/_14sdp</item>
+    </style>
+    <!-- The name above a set of choices in a tool screen ("Page size"). -->
+    <style name="OptionHeading">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingBottom">@dimen/_6sdp</item>
+        <item name="android:fontFamily">@font/nunito_700</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textSize">@dimen/_11sdp</item>
+    </style>
+    <!-- The tag in a corner of OCR's before / after pictures. -->
+    <style name="OcrTag">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">@dimen/_20sdp</item>
+        <item name="android:layout_gravity">bottom|start</item>
+        <item name="android:layout_margin">@dimen/_9sdp</item>
+        <item name="android:fontFamily">@font/nunito_700</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingHorizontal">@dimen/_8sdp</item>
+        <item name="android:textSize">@dimen/_9sdp</item>
+    </style>
+    <!-- The name at the start of a row of choices ("Colour", "Opacity"). -->
+    <style name="RowLabel">
+        <item name="android:layout_width">@dimen/_48sdp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/nunito_700</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textSize">@dimen/_11sdp</item>
+    </style>
+    <!-- Previous / next page over a page preview. -->
+    <style name="PageArrow">
+        <item name="android:layout_width">@dimen/_28sdp</item>
+        <item name="android:layout_height">@dimen/_28sdp</item>
+        <item name="android:background">@drawable/bg_circle_variant</item>
+        <item name="android:backgroundTint">@color/color_surface_card</item>
+        <item name="android:elevation">@dimen/_3sdp</item>
+        <item name="android:outlineSpotShadowColor">@color/color_shadow</item>
+        <item name="android:outlineAmbientShadowColor">@color/color_shadow</item>
+        <item name="android:padding">@dimen/_7sdp</item>
+        <item name="tint">@color/text_primary</item>
+    </style>
+    <!-- A secondary action next to a primary pill: grey pill, dark text, optional icon. -->
+    <style name="SoftPillButton">
+        <item name="android:layout_height">@dimen/_37sdp</item>
+        <item name="android:background">@drawable/bg_soft_pill</item>
+        <item name="android:backgroundTint">@color/color_surface_variant</item>
+        <item name="backgroundTint">@null</item>
+        <item name="android:fontFamily">@font/nunito_700</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:letterSpacing">0</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:minHeight">0dp</item>
+        <item name="android:minWidth">0dp</item>
+        <item name="android:paddingHorizontal">@dimen/_6sdp</item>
+        <item name="android:stateListAnimator">@null</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textSize">@dimen/_12sdp</item>
+        <item name="iconGravity">textStart</item>
+        <item name="iconPadding">@dimen/_5sdp</item>
+        <item name="iconSize">@dimen/_14sdp</item>
+        <item name="iconTint">@color/text_primary</item>
+    </style>
+    <!-- An option on a see-through track over the camera (Auto / Manual). -->
+    <style name="GlassOption">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">@dimen/_28sdp</item>
+        <item name="android:background">@drawable/bg_glass_option</item>
+        <item name="android:fontFamily">@font/nunito_700</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingHorizontal">@dimen/_12sdp</item>
+        <item name="android:textColor">@color/text_glass_option</item>
+        <item name="android:textSize">@dimen/_11sdp</item>
+    </style>
+    <!-- The PDF reader: its floating bars, their icon buttons and the mode tabs. -->
+    <style name="FloatBar">
+        <item name="android:background">@drawable/bg_float_card</item>
+        <item name="android:elevation">@dimen/_8sdp</item>
+        <item name="android:outlineSpotShadowColor">@color/color_shadow</item>
+        <item name="android:outlineAmbientShadowColor">@color/color_shadow</item>
+    </style>
+    <style name="ReaderBarIcon">
+        <item name="android:layout_width">@dimen/_34sdp</item>
+        <item name="android:layout_height">@dimen/_34sdp</item>
+        <item name="android:background">?attr/selectableItemBackgroundBorderless</item>
+        <item name="android:padding">@dimen/_9sdp</item>
+        <item name="tint">@color/text_primary</item>
+    </style>
+    <style name="ReaderBarClose" parent="ReaderBarIcon">
+        <item name="android:background">@drawable/bg_circle_variant</item>
+        <item name="android:foreground">?attr/selectableItemBackgroundBorderless</item>
+    </style>
+    <style name="ReaderSave">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">@dimen/_34sdp</item>
+        <item name="android:layout_marginStart">@dimen/_3sdp</item>
+        <item name="android:background">@drawable/bg_button_primary</item>
+        <item name="android:fontFamily">@font/nunito_700</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingHorizontal">@dimen/_15sdp</item>
+        <item name="android:textColor">@color/on_primary</item>
+        <item name="android:textSize">@dimen/_12sdp</item>
+    </style>
+    <style name="ReaderTab">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">@dimen/_46sdp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:background">?attr/selectableItemBackgroundBorderless</item>
+        <item name="android:gravity">center</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+    <style name="ReaderTabIcon">
+        <item name="android:layout_width">@dimen/_28sdp</item>
+        <item name="android:layout_height">@dimen/_23sdp</item>
+        <item name="android:background">@drawable/bg_reader_tab_icon</item>
+        <item name="android:importantForAccessibility">no</item>
+        <item name="android:paddingVertical">@dimen/_5sdp</item>
+        <item name="tint">@color/text_on_selected</item>
+    </style>
+    <style name="ReaderTabLabel">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/_3sdp</item>
+        <item name="android:fontFamily">@font/nunito_700</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textSize">@dimen/_9sdp</item>
+    </style>
+    <style name="SoftTile">
+        <item name="android:layout_height">@dimen/_46sdp</item>
+        <item name="android:background">@drawable/bg_soft_pill</item>
+        <item name="android:backgroundTint">@color/color_surface_variant</item>
+        <item name="android:foreground">?attr/selectableItemBackground</item>
+        <item name="android:drawablePadding">@dimen/_5sdp</item>
+        <item name="android:fontFamily">@font/nunito_700</item>
+        <item name="android:gravity">center</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:paddingHorizontal">@dimen/_8sdp</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textSize">@dimen/_11sdp</item>
+        <item name="drawableTint">@color/text_primary</item>
+    </style>
+    <style name="ReaderHint">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/nunito_600</item>
+        <item name="android:textColor">@color/text_secondary</item>
+        <item name="android:textSize">@dimen/_10sdp</item>
+    </style>
+    <!-- A plain action chip (Share, Rename…), white with a thin grey ring. -->
+    <style name="OutlineChip">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">@dimen/_28sdp</item>
+        <item name="android:layout_marginEnd">@dimen/_6sdp</item>
+        <item name="android:layout_marginBottom">@dimen/_6sdp</item>
+        <item name="android:background">@drawable/bg_outline_chip</item>
+        <item name="android:foreground">?attr/selectableItemBackground</item>
+        <item name="android:fontFamily">@font/nunito_700</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingHorizontal">@dimen/_12sdp</item>
+        <item name="android:textColor">@color/text_tertiary</item>
+        <item name="android:textSize">@dimen/_11sdp</item>
+    </style>
+    <!-- "A" buttons that make the text smaller or bigger. -->
+    <style name="SizeButton">
+        <item name="android:layout_width">@dimen/_34sdp</item>
+        <item name="android:layout_height">@dimen/_34sdp</item>
+        <item name="android:background">@drawable/bg_circle_variant</item>
+        <item name="android:backgroundTint">@color/color_surface_card</item>
+        <item name="android:foreground">?attr/selectableItemBackgroundBorderless</item>
+        <item name="android:fontFamily">serif</item>
+        <item name="android:gravity">center</item>
+        <item name="android:text">@string/fo_letter_a</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <!-- The Office bars: title, the line under it, the file type badge and the find fields. -->
+    <!-- Save on the docked edit bar: a small pill. -->
+    <style name="DockedSave" parent="ReaderSave">
+        <item name="android:layout_height">@dimen/_25sdp</item>
+        <item name="android:paddingHorizontal">@dimen/_11sdp</item>
+        <item name="android:textSize">@dimen/_11sdp</item>
+    </style>
+    <style name="OfficeBarTitle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:ellipsize">middle</item>
+        <item name="android:fontFamily">@font/nunito_700</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textSize">@dimen/_12sdp</item>
+    </style>
+    <style name="OfficeBarSubtitle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">@dimen/_5sdp</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:fontFamily">@font/nunito_600</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:textColor">@color/text_secondary</item>
+        <item name="android:textSize">@dimen/_10sdp</item>
+    </style>
+    <style name="OfficeTypeBadge">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">@dimen/_15sdp</item>
+        <item name="android:background">@drawable/bg_type_badge</item>
+        <item name="android:fontFamily">@font/nunito_700</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingHorizontal">@dimen/_4sdp</item>
+        <item name="android:textSize">@dimen/_9sdp</item>
+    </style>
+    <style name="OfficeFindInput">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">match_parent</item>
         <item name="android:layout_weight">1</item>
-        <item name="android:background">?attr/selectableItemBackgroundBorderless</item>
-        <item name="android:drawablePadding">@dimen/_3sdp</item>
+        <item name="android:layout_marginHorizontal">@dimen/_5sdp</item>
+        <item name="android:background">@null</item>
+        <item name="android:fontFamily">@font/nunito_700</item>
+        <item name="android:importantForAutofill">no</item>
+        <item name="android:inputType">text</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textColorHint">@color/text_secondary</item>
+        <item name="android:textSize">@dimen/_12sdp</item>
+    </style>
+    <style name="OfficeFindButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">@dimen/_31sdp</item>
+        <item name="android:layout_marginStart">@dimen/_5sdp</item>
+        <item name="android:background">@drawable/bg_soft_pill</item>
+        <item name="android:fontFamily">@font/nunito_700</item>
         <item name="android:gravity">center</item>
-        <item name="android:paddingVertical">@dimen/_11sdp</item>
+        <item name="android:paddingHorizontal">@dimen/_10sdp</item>
+        <item name="android:textSize">@dimen/_10sdp</item>
+    </style>
+    <!-- The draft prompt's two cards: what it is, when, and a note. -->
+    <style name="CompareLabel">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/nunito_600</item>
         <item name="android:textSize">@dimen/_9sdp</item>
-        <item name="fontFamily">@font/nt_500</item>
-        <item name="uiDrawableSize">@dimen/_17sdp</item>
-        <item name="uiTextColor">@color/text_primary</item>
+    </style>
+    <style name="CompareValue">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/nunito_600</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textSize">@dimen/_11sdp</item>
+    </style>
+    <style name="CompareNote">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/nunito_500</item>
+        <item name="android:textColor">@color/text_secondary</item>
+        <item name="android:textSize">@dimen/_10sdp</item>
+    </style>
+    <!-- A row in a sheet card: grey icon tile, title and a line under it, chevron. -->
+    <style name="SheetRow">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">?attr/selectableItemBackground</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:minHeight">@dimen/_49sdp</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:paddingHorizontal">@dimen/_6sdp</item>
+    </style>
+    <style name="SheetRowIcon">
+        <item name="android:layout_width">@dimen/_31sdp</item>
+        <item name="android:layout_height">@dimen/_31sdp</item>
+        <item name="android:background">@drawable/bg_badge</item>
+        <item name="android:backgroundTint">@color/color_surface_variant</item>
+        <item name="android:importantForAccessibility">no</item>
+        <item name="android:padding">@dimen/_8sdp</item>
+        <item name="tint">@color/text_primary</item>
+    </style>
+    <style name="SheetRowTitle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/nunito_700</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textSize">@dimen/_12sdp</item>
+    </style>
+    <style name="SheetRowDesc">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/nunito_500</item>
+        <item name="android:textColor">@color/text_secondary</item>
+        <item name="android:textSize">@dimen/_10sdp</item>
+    </style>
+    <!-- A round see-through button over the slideshow. -->
+    <style name="ShowButton">
+        <item name="android:layout_width">@dimen/_37sdp</item>
+        <item name="android:layout_height">@dimen/_37sdp</item>
+        <item name="android:background">@drawable/bg_show_button</item>
+        <item name="android:foreground">?attr/selectableItemBackgroundBorderless</item>
+        <item name="android:padding">@dimen/_10sdp</item>
+        <item name="tint">@color/white</item>
+    </style>
+    <!-- The quiet answer next to a dialog's main one (Cancel, Keep it, Exit). -->
+    <style name="DialogSoftButton">
+        <item name="android:layout_height">@dimen/_36sdp</item>
+        <item name="android:background">@drawable/bg_soft_pill</item>
+        <item name="android:backgroundTint">@color/color_surface_variant</item>
+        <item name="android:foreground">?attr/selectableItemBackground</item>
+        <item name="android:fontFamily">@font/nunito_600</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textSize">@dimen/_11sdp</item>
+    </style>
+    <!-- A dialog's main answer: smaller and lighter than a screen's pill; DialogAccent.kt fills it
+         with the open file's colour. -->
+    <style name="DialogPrimaryButton" parent="PrimaryPillButton">
+        <item name="android:layout_height">@dimen/_36sdp</item>
+        <item name="android:elevation">@dimen/_3sdp</item>
+        <item name="android:fontFamily">@font/nunito_600</item>
+        <item name="android:textSize">@dimen/_11sdp</item>
+    </style>
+    <style name="DialogGhostButton" parent="GhostButton">
+        <item name="android:layout_height">@dimen/_32sdp</item>
+        <item name="android:fontFamily">@font/nunito_600</item>
+        <item name="android:textSize">@dimen/_11sdp</item>
+    </style>
+    <style name="PaywallLink">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">@dimen/_28sdp</item>
+        <item name="android:layout_marginHorizontal">@dimen/_7sdp</item>
+        <item name="android:background">?attr/selectableItemBackgroundBorderless</item>
+        <item name="android:fontFamily">@font/nunito_700</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/text_tertiary</item>
+        <item name="android:textSize">@dimen/_10sdp</item>
+    </style>
+    <!-- A line of what a plan includes: a round tick (or cross) and the words. -->
+    <style name="CheckRow">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:minHeight">@dimen/_34sdp</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+    <style name="CheckRowIcon">
+        <item name="android:layout_width">@dimen/_20sdp</item>
+        <item name="android:layout_height">@dimen/_20sdp</item>
+        <item name="android:background">@drawable/bg_circle_variant</item>
+        <item name="android:importantForAccessibility">no</item>
+        <item name="android:padding">@dimen/_5sdp</item>
+    </style>
+    <style name="CheckRowText">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">@dimen/_9sdp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:fontFamily">@font/nunito_600</item>
+        <item name="android:textSize">@dimen/_11sdp</item>
     </style>
 </resources>

@@ -8,62 +8,89 @@
     android:background="@color/color_bg_app"
     tools:context=".ui.main.MainActivity">
 
+    <!-- Tabs scroll under the bar; each leaves room for it at the bottom. -->
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/navHostFragment"
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:defaultNavHost="true"
-        app:layout_constraintBottom_toTopOf="@id/navBar"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:navGraph="@navigation/main_nav_graph" />
 
-    <com.ui.baselib.widget.navigation.UiNavigationBar
+    <View
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_100sdp"
+        android:background="@drawable/bg_bottom_fade"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <LinearLayout
         android:id="@+id/navBar"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_58sdp"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_48sdp"
+        android:layout_marginStart="@dimen/_12sdp"
+        android:layout_marginEnd="@dimen/_8sdp"
+        android:layout_marginBottom="@dimen/_17sdp"
+        android:background="@drawable/bg_nav_bar"
+        android:elevation="@dimen/_8sdp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:outlineAmbientShadowColor="@color/color_shadow"
+        android:outlineSpotShadowColor="@color/color_shadow"
         android:paddingHorizontal="@dimen/_5sdp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:uiBackgroundColor="@color/color_surface_card"
-        app:uiNavGraph="@navigation/main_nav_graph"
-        app:uiNavIconSize="@dimen/_20sdp"
-        app:uiNavIconTintSelected="@color/primary"
-        app:uiNavIconTintUnselected="@color/text_secondary"
-        app:uiNavIndicatorColor="@color/color_bg_app"
-        app:uiNavIndicatorStyle="pill"
-        app:uiNavItemAnimation="fade"
-        app:uiShadowColor="@color/primary_40"
-        app:uiShadowClipParent="force"
-        app:uiShadowRadius="@dimen/_3sdp"
-        app:uiNavRippleEnabled="true"
-        app:uiNavTextColorSelected="@color/primary"
-        app:uiNavTextColorUnselected="@color/text_secondary"
-        app:uiNavTextSingleLine="true"
-        app:uiNavTextSize="@dimen/_9sdp"
-        app:uiStrokeColor="@color/color_stroke">
+        app:layout_constraintEnd_toStartOf="@+id/btnCreate"
+        app:layout_constraintStart_toStartOf="parent">
 
-        <com.ui.baselib.widget.navigation.NavItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:uiNavDestination="@id/filesFragment"
-            app:uiNavIcon="@drawable/ic_app_folder"
-            app:uiNavTitle="@string/files" />
+        <LinearLayout
+            android:id="@+id/tabFiles"
+            style="@style/NavTab">
 
-        <com.ui.baselib.widget.navigation.NavItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:uiNavDestination="@id/toolsFragment"
-            app:uiNavIcon="@drawable/ic_app_grid"
-            app:uiNavTitle="@string/tools" />
+            <ImageView style="@style/NavTabIcon" android:src="@drawable/ic_fo_folder" />
 
-        <com.ui.baselib.widget.navigation.NavItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:uiNavDestination="@id/settingsFragment"
-            app:uiNavIcon="@drawable/ic_app_gear"
-            app:uiNavTitle="@string/settings" />
-    </com.ui.baselib.widget.navigation.UiNavigationBar>
+            <TextView style="@style/NavTabLabel" android:text="@string/files" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/tabTools"
+            style="@style/NavTab">
+
+            <ImageView style="@style/NavTabIcon" android:src="@drawable/ic_fo_tools" />
+
+            <TextView style="@style/NavTabLabel" android:text="@string/tools" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/tabSettings"
+            style="@style/NavTab">
+
+            <ImageView style="@style/NavTabIcon" android:src="@drawable/ic_fo_settings" />
+
+            <TextView style="@style/NavTabLabel" android:text="@string/settings" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/btnCreate"
+        android:layout_width="@dimen/_48sdp"
+        android:layout_height="@dimen/_48sdp"
+        android:layout_marginEnd="@dimen/_12sdp"
+        android:background="@drawable/bg_create_button"
+        android:contentDescription="@string/create_new"
+        android:elevation="@dimen/_8sdp"
+        android:outlineAmbientShadowColor="@color/primary"
+        android:outlineSpotShadowColor="@color/primary"
+        android:padding="@dimen/_13sdp"
+        android:rotation="-4"
+        android:src="@drawable/ic_fo_plus"
+        app:layout_constraintBottom_toBottomOf="@id/navBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/navBar"
+        app:tint="@color/on_primary" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

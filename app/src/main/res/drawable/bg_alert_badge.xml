@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The red warning disc on the mascot, ringed in the dialog's colour. -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+    <solid android:color="@color/color_file_pdf" />
+    <stroke android:width="@dimen/_3sdp" android:color="@color/color_bg_app" />
+</shape>

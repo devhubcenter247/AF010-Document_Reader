@@ -4,5 +4,17 @@
         <item name="android:includeFontPadding">false</item>
         <item name="android:textColor">@color/text_primary</item>
         <item name="android:textSize">@dimen/_9sdp</item>
+        <item name="android:fontFamily">@font/nunito_500</item>
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorOnPrimary">@color/on_primary</item>
+        <item name="colorPrimaryContainer">@color/color_bg_selected</item>
+        <item name="colorOnPrimaryContainer">@color/text_on_selected</item>
+        <item name="colorSecondary">@color/primary</item>
+        <item name="colorError">@color/color_error</item>
+        <item name="android:colorBackground">@color/color_bg_app</item>
+        <item name="colorSurface">@color/color_surface_card</item>
+        <item name="colorOnSurface">@color/text_primary</item>
+        <item name="colorOnSurfaceVariant">@color/text_secondary</item>
+        <item name="colorOutline">@color/color_checkbox_stroke</item>
     </style>
 </resources>

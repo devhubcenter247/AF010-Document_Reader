@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- A secondary screen's top bar: round back button, title (and an optional line under it),
+     an optional Pro chip, and up to two round actions. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_46sdp"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingHorizontal="@dimen/_12sdp">
+
+    <ImageView
+        android:id="@+id/btnBack"
+        style="@style/RoundIconButton"
+        android:layout_width="@dimen/_32sdp"
+        android:layout_height="@dimen/_32sdp"
+        android:contentDescription="@string/back"
+        android:src="@drawable/ic_fo_back" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_9sdp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:fontFamily="@font/nunito_700"
+            android:letterSpacing="-0.01"
+            android:maxLines="1"
+            android:textColor="@color/text_primary"
+            android:textSize="@dimen/_14sdp"
+            tools:text="All files" />
+
+        <TextView
+            android:id="@+id/tvSubtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:fontFamily="@font/nunito_500"
+            android:maxLines="1"
+            android:textColor="@color/text_secondary"
+            android:textSize="@dimen/_10sdp"
+            android:visibility="gone"
+            tools:text="Works offline, right on your phone"
+            tools:visibility="visible" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvPro"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/_25sdp"
+        android:background="@drawable/bg_pro_pill"
+        android:drawablePadding="@dimen/_4sdp"
+        android:fontFamily="@font/nunito_700"
+        android:gravity="center_vertical"
+        android:paddingStart="@dimen/_6sdp"
+        android:paddingEnd="@dimen/_9sdp"
+        android:text="@string/fo_pro"
+        android:textColor="@color/color_warning"
+        android:textSize="@dimen/_10sdp"
+        android:visibility="gone"
+        app:drawableStartCompat="@drawable/ic_fo_crown_13sdp"
+        app:drawableTint="@color/color_premium_gold"
+        tools:visibility="visible" />
+
+    <ImageView
+        android:id="@+id/btnSecond"
+        style="@style/RoundIconButton"
+        android:layout_marginEnd="@dimen/_6sdp"
+        android:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/btnFirst"
+        style="@style/RoundIconButton"
+        android:visibility="gone" />
+</LinearLayout>

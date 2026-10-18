@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Content fades out under the floating bar. -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <gradient
+        android:angle="270"
+        android:centerColor="@color/color_bg_app"
+        android:centerY="0.55"
+        android:endColor="@color/color_bg_app"
+        android:startColor="@color/color_bg_app_clear" />
+</shape>

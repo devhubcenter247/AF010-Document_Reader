@@ -1,287 +1,228 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/color_bg_app"
-    android:fillViewport="true"
-    android:overScrollMode="never"
+    android:orientation="vertical"
     tools:context=".ui.main.premium.PaywallActivity">
 
-    <LinearLayout
+    <FrameLayout
+        android:id="@+id/layoutHeader"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:minHeight="@dimen/_43sdp"
+        android:paddingHorizontal="@dimen/_12sdp">
 
-        <com.ui.baselib.widget.layout.UiLinearLayout
-            android:id="@+id/layoutHeader"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingBottom="@dimen/_10sdp"
-            android:paddingHorizontal="@dimen/_17sdp"
-            app:uiBackgroundGradientEnabled="true"
-            app:uiBackgroundGradientEnd="@color/gradient_end"
-            app:uiBackgroundGradientOrientation="tl_br"
-            app:uiBackgroundGradientStart="@color/gradient_start"
-            app:uiCornerBottomLeft="@dimen/_24sdp"
-            app:uiCornerBottomRight="@dimen/_24sdp">
+        <ImageView
+            android:id="@+id/btnClose"
+            style="@style/RoundIconButton"
+            android:layout_width="@dimen/_32sdp"
+            android:layout_height="@dimen/_32sdp"
+            android:layout_gravity="start|center_vertical"
+            android:backgroundTint="@color/color_surface_variant"
+            android:contentDescription="@string/scanner_close"
+            android:elevation="0dp"
+            android:src="@drawable/ic_fo_close" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
+        <TextView
+            android:id="@+id/tvProTool"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_26sdp"
+            android:layout_gravity="end|center_vertical"
+            android:background="@drawable/bg_pro_pill"
+            android:drawablePadding="@dimen/_5sdp"
+            android:fontFamily="@font/nunito_700"
+            android:gravity="center_vertical"
+            android:paddingStart="@dimen/_8sdp"
+            android:paddingEnd="@dimen/_11sdp"
+            android:text="@string/fo_pro_tool"
+            android:textColor="@color/color_warning"
+            android:textSize="@dimen/_11sdp"
+            app:drawableStartCompat="@drawable/ic_fo_crown_13sdp"
+            app:drawableTint="@color/color_premium_gold" />
+    </FrameLayout>
 
-                <com.ui.baselib.widget.view.UiTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="@dimen/_22sdp"
-                    android:drawablePadding="@dimen/_5sdp"
-                    android:fontFamily="@font/nt_600"
-                    android:gravity="center"
-                    android:letterSpacing="0.08"
-                    android:paddingHorizontal="@dimen/_9sdp"
-                    android:text="@string/premium"
-                    android:textAllCaps="true"
-                    android:textSize="@dimen/_9sdp"
-                    app:drawableStartCompat="@drawable/ic_app_crown"
-                    app:drawableTint="@color/on_primary"
-                    app:uiBackgroundColor="@color/color_white_16"
-                    app:uiCornerRadius="@dimen/_11sdp"
-                    app:uiDrawableSize="@dimen/_11sdp"
-                    app:uiTextColor="@color/on_primary" />
-
-                <Space
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:layout_weight="1" />
-
-                <com.ui.baselib.widget.view.UiImageView
-                    android:id="@+id/btnClose"
-                    android:layout_width="@dimen/_27sdp"
-                    android:layout_height="@dimen/_27sdp"
-                    android:contentDescription="@string/scanner_close"
-                    android:padding="@dimen/_5sdp"
-                    android:src="@drawable/ic_app_close"
-                    app:tint="@color/on_primary"
-                    app:uiBackgroundColor="@color/color_white_16"
-                    app:uiCornerRadius="@dimen/_13sdp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_13sdp"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
-
-                <com.ui.baselib.widget.view.UiImageView
-                    android:id="@+id/ivFeature"
-                    android:layout_width="@dimen/_44sdp"
-                    android:layout_height="@dimen/_44sdp"
-                    android:contentDescription="@null"
-                    android:padding="@dimen/_11sdp"
-                    app:tint="@color/on_primary"
-                    app:uiBackgroundColor="@color/color_white_16"
-                    app:uiCornerRadius="@dimen/_14sdp"
-                    tools:src="@drawable/ic_app_ocr" />
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_11sdp"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/tvTitle"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/nt_600"
-                        android:lineSpacingMultiplier="0.95"
-                        android:textColor="@color/on_primary"
-                        android:textSize="@dimen/_15sdp"
-                        tools:text="OCR is a Premium feature" />
-
-                    <TextView
-                        android:id="@+id/tvSubtitle"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_3sdp"
-                        android:fontFamily="@font/nt_400"
-                        android:textColor="@color/color_on_brand_secondary"
-                        android:textSize="@dimen/_10sdp"
-                        tools:text="Turn scanned pages into text you can search and copy." />
-                </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/layoutBenefits"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_8sdp"
-                android:orientation="vertical" />
-        </com.ui.baselib.widget.layout.UiLinearLayout>
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:overScrollMode="never">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingBottom="@dimen/_22sdp"
-            android:paddingHorizontal="@dimen/_15sdp"
-            android:paddingTop="@dimen/_17sdp">
+            android:paddingBottom="@dimen/_8sdp">
+
+            <!-- A page as a picture next to the same page with text you can pick -->
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_182sdp"
+                android:layout_marginHorizontal="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:background="@drawable/bg_rounded_panel"
+                android:backgroundTint="@color/color_pro_bg"
+                android:clipChildren="false"
+                android:importantForAccessibility="noHideDescendants">
+
+                <ImageView
+                    android:layout_width="@dimen/_14sdp"
+                    android:layout_height="@dimen/_14sdp"
+                    android:layout_marginStart="@dimen/_14sdp"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:src="@drawable/ic_sparkle"
+                    app:tint="@color/color_pro" />
+
+                <FrameLayout
+                    android:layout_width="@dimen/_108sdp"
+                    android:layout_height="@dimen/_131sdp"
+                    android:layout_gravity="start|center_vertical"
+                    android:layout_marginStart="@dimen/_23sdp"
+                    android:background="@drawable/bg_rounded_panel"
+                    android:backgroundTint="@color/ocr_picture_bg"
+                    android:rotation="-6">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:adjustViewBounds="true"
+                        android:padding="@dimen/_12sdp"
+                        android:src="@drawable/ic_ocr_lines"
+                        app:tint="@color/ocr_picture_line" />
+                </FrameLayout>
+
+                <FrameLayout
+                    style="@style/FloatingCard"
+                    android:layout_width="@dimen/_115sdp"
+                    android:layout_height="@dimen/_135sdp"
+                    android:layout_gravity="end|center_vertical"
+                    android:layout_marginEnd="@dimen/_20sdp"
+                    android:background="@drawable/bg_rounded_panel"
+                    android:backgroundTint="@color/color_surface_card"
+                    android:rotation="4">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:adjustViewBounds="true"
+                        android:padding="@dimen/_11sdp"
+                        android:src="@drawable/ic_ocr_text" />
+                </FrameLayout>
+
+                <ImageView
+                    android:id="@+id/ivFeature"
+                    android:layout_width="@dimen/_38sdp"
+                    android:layout_height="@dimen/_38sdp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/bg_ocr_badge"
+                    android:backgroundTint="@color/primary"
+                    android:elevation="@dimen/_6sdp"
+                    android:padding="@dimen/_10sdp"
+                    android:src="@drawable/ic_fo_sparkles"
+                    app:tint="@color/on_primary" />
+            </FrameLayout>
 
             <TextView
-                android:layout_width="wrap_content"
+                android:id="@+id/tvTitle"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/_3sdp"
-                android:fontFamily="@font/nt_600"
-                android:text="@string/choose_plan"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:fontFamily="@font/nunito_700"
+                android:letterSpacing="-0.015"
+                android:lineSpacingMultiplier="1.05"
+                android:paddingHorizontal="@dimen/_18sdp"
                 android:textColor="@color/text_primary"
-                android:textSize="@dimen/_12sdp" />
-
-            <include
-                android:id="@+id/planYearly"
-                layout="@layout/layout_plan" />
-
-            <include
-                android:id="@+id/planMonthly"
-                layout="@layout/layout_plan" />
-
-            <include
-                android:id="@+id/planLifetime"
-                layout="@layout/layout_plan" />
-
-            <com.ui.baselib.widget.layout.UiLinearLayout
-                android:id="@+id/cardTrial"
-                style="@style/CardAppStyle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_11sdp"
-                android:orientation="vertical"
-                android:padding="@dimen/_13sdp"
-                app:uiCornerRadius="@dimen/_15sdp">
-
-                <TextView
-                    style="@style/TextSectionCaps"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/_11sdp"
-                    android:text="@string/trial_how_it_works" />
-
-                <include
-                    android:id="@+id/stepToday"
-                    layout="@layout/layout_trial_step" />
-
-                <include
-                    android:id="@+id/stepEnd"
-                    layout="@layout/layout_trial_step" />
-
-                <include
-                    android:id="@+id/stepRenew"
-                    layout="@layout/layout_trial_step" />
-            </com.ui.baselib.widget.layout.UiLinearLayout>
-
-            <com.ui.baselib.widget.view.UiTextView
-                android:id="@+id/btnPurchase"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_40sdp"
-                android:layout_marginTop="@dimen/_13sdp"
-                android:fontFamily="@font/nt_600"
-                android:gravity="center"
-                android:textSize="@dimen/_12sdp"
-                app:uiBackgroundGradientEnabled="true"
-                app:uiBackgroundGradientEnd="@color/gradient_end"
-                app:uiBackgroundGradientOrientation="tl_br"
-                app:uiBackgroundGradientStart="@color/gradient_start"
-                app:uiCornerRadius="@dimen/_13sdp"
-                app:uiShadowClipParent="force"
-                app:uiShadowColor="#523238F4"
-                app:uiShadowElevation="@dimen/_2sdp"
-                app:uiShadowRadius="@dimen/_3sdp"
-                app:uiTextColor="@color/on_primary"
-                tools:text="Start 3-day free trial" />
+                android:textSize="@dimen/_20sdp"
+                tools:text="Turn scans into words you can search and copy" />
 
             <TextView
-                android:id="@+id/tvPriceNote"
+                android:id="@+id/tvSubtitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_8sdp"
-                android:fontFamily="@font/nt_400"
-                android:gravity="center"
+                android:layout_marginTop="@dimen/_6sdp"
+                android:fontFamily="@font/nunito_500"
+                android:lineSpacingMultiplier="1.15"
+                android:paddingHorizontal="@dimen/_18sdp"
                 android:textColor="@color/text_secondary"
-                android:textSize="@dimen/_9sdp"
-                tools:text="$0.00 today, then $29.99 / year from Oct 3, 2026" />
+                android:textSize="@dimen/_11sdp"
+                tools:text="OCR comes with Folio Pro, along with protect, redact, full translation and no ads." />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_14sdp"
+                android:baselineAligned="false"
+                android:orientation="horizontal"
+                android:paddingHorizontal="@dimen/_15sdp">
+
+                <include
+                    android:id="@+id/planYearly"
+                    layout="@layout/layout_plan_card"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+
+                <include
+                    android:id="@+id/planMonthly"
+                    layout="@layout/layout_plan_card"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_weight="1" />
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/tvLegal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_6sdp"
-                android:fontFamily="@font/nt_400"
-                android:lineSpacingMultiplier="1.2"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:fontFamily="@font/nunito_500"
+                android:paddingHorizontal="@dimen/_18sdp"
                 android:textColor="@color/text_secondary"
                 android:textSize="@dimen/_9sdp"
-                tools:text="Your Google Play account will be charged…" />
+                tools:text="$29.99 a year after a 3-day free trial…" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
 
-            <com.ui.baselib.widget.flexbox.FlexboxLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_8sdp"
-                app:uiFlexWrap="wrap"
-                app:uiJustifyContent="center">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipToPadding="false"
+        android:orientation="vertical"
+        android:paddingHorizontal="@dimen/_15sdp"
+        android:paddingTop="@dimen/_9sdp"
+        android:paddingBottom="@dimen/_15sdp">
 
-                <TextView
-                    android:id="@+id/btnRestore"
-                    android:layout_width="wrap_content"
-                    android:layout_height="@dimen/_25sdp"
-                    android:background="?attr/selectableItemBackground"
-                    android:fontFamily="@font/nt_500"
-                    android:gravity="center"
-                    android:paddingHorizontal="@dimen/_7sdp"
-                    android:text="@string/restore_purchases"
-                    android:textColor="@color/text_on_selected"
-                    android:textSize="@dimen/_9sdp" />
+        <TextView
+            android:id="@+id/btnPurchase"
+            style="@style/PrimaryPillButton"
+            android:layout_width="match_parent"
+            tools:text="Try 3 days free" />
 
-                <TextView
-                    android:id="@+id/btnManage"
-                    android:layout_width="wrap_content"
-                    android:layout_height="@dimen/_25sdp"
-                    android:background="?attr/selectableItemBackground"
-                    android:fontFamily="@font/nt_500"
-                    android:gravity="center"
-                    android:paddingHorizontal="@dimen/_7sdp"
-                    android:text="@string/manage_subscription"
-                    android:textColor="@color/text_on_selected"
-                    android:textSize="@dimen/_9sdp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_6sdp"
+            android:gravity="center"
+            android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/btnTerms"
-                    android:layout_width="wrap_content"
-                    android:layout_height="@dimen/_25sdp"
-                    android:background="?attr/selectableItemBackground"
-                    android:fontFamily="@font/nt_500"
-                    android:gravity="center"
-                    android:paddingHorizontal="@dimen/_7sdp"
-                    android:text="@string/terms_of_use"
-                    android:textColor="@color/text_on_selected"
-                    android:textSize="@dimen/_9sdp" />
+            <TextView
+                android:id="@+id/btnRestore"
+                style="@style/PaywallLink"
+                android:text="@string/fo_restore" />
 
-                <TextView
-                    android:id="@+id/btnPrivacy"
-                    android:layout_width="wrap_content"
-                    android:layout_height="@dimen/_25sdp"
-                    android:background="?attr/selectableItemBackground"
-                    android:fontFamily="@font/nt_500"
-                    android:gravity="center"
-                    android:paddingHorizontal="@dimen/_7sdp"
-                    android:text="@string/privacy_policy"
-                    android:textColor="@color/text_on_selected"
-                    android:textSize="@dimen/_9sdp" />
-            </com.ui.baselib.widget.flexbox.FlexboxLayout>
+            <TextView
+                android:id="@+id/btnLifetime"
+                style="@style/PaywallLink"
+                tools:text="Lifetime $49.99" />
+
+            <TextView
+                android:id="@+id/btnTerms"
+                style="@style/PaywallLink"
+                android:text="@string/fo_terms" />
         </LinearLayout>
     </LinearLayout>
-
-</ScrollView>
+</LinearLayout>

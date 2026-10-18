@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- An annotate tool: blue once picked (selected state). -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_selected="true">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/primary" />
+            <corners android:radius="@dimen/_12sdp" />
+        </shape>
+    </item>
+    <item android:drawable="@android:color/transparent" />
+</selector>

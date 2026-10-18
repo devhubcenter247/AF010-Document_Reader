@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- The plan the user is on, what it includes, and where to change it. -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -10,247 +11,286 @@
     tools:context=".ui.main.premium.SubscriptionActivity">
 
     <include
-        android:id="@+id/toolbar"
-        layout="@layout/layout_toolbar" />
+        android:id="@+id/topBar"
+        layout="@layout/layout_screen_bar" />
 
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:overScrollMode="never">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:clipToPadding="false"
             android:orientation="vertical"
-            android:paddingHorizontal="@dimen/_13sdp"
-            android:paddingVertical="@dimen/_15sdp">
+            android:paddingHorizontal="@dimen/_15sdp"
+            android:paddingTop="@dimen/_6sdp"
+            android:paddingBottom="@dimen/_20sdp">
 
-            <com.ui.baselib.widget.layout.UiLinearLayout
+            <LinearLayout
+                style="@style/FloatingCard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/bg_rounded_panel"
+                android:backgroundTint="@color/color_surface_card"
+                android:orientation="vertical"
+                android:padding="@dimen/_14sdp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <FrameLayout
+                        android:layout_width="@dimen/_40sdp"
+                        android:layout_height="@dimen/_40sdp"
+                        android:background="@drawable/bg_mascot_tile"
+                        android:rotation="-5">
+
+                        <ImageView
+                            android:layout_width="@dimen/_23sdp"
+                            android:layout_height="@dimen/_29sdp"
+                            android:layout_gravity="center"
+                            android:importantForAccessibility="no"
+                            android:src="@drawable/ic_mascot_smile_ink" />
+                    </FrameLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_11sdp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/nunito_700"
+                            android:text="@string/fo_current_plan"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="@dimen/_10sdp" />
+
+                        <TextView
+                            android:id="@+id/tvPlan"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/nunito_700"
+                            android:textColor="@color/text_primary"
+                            android:textSize="@dimen/_18sdp"
+                            tools:text="Free" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/_22sdp"
+                        android:background="@drawable/bg_badge"
+                        android:backgroundTint="@color/color_file_excel_bg"
+                        android:fontFamily="@font/nunito_700"
+                        android:gravity="center"
+                        android:paddingHorizontal="@dimen/_9sdp"
+                        android:text="@string/fo_active"
+                        android:textColor="@color/color_file_excel"
+                        android:textSize="@dimen/_10sdp" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_2sdp"
+                    android:layout_marginTop="@dimen/_11sdp"
+                    android:background="@drawable/line_dashed" />
+
+            <LinearLayout style="@style/CheckRow">
+
+                <ImageView
+                    style="@style/CheckRowIcon"
+                    android:backgroundTint="@color/color_file_excel_bg"
+                    android:src="@drawable/ic_fo_check"
+                    app:tint="@color/color_file_excel" />
+
+                <TextView
+                    style="@style/CheckRowText"
+                    android:text="@string/fo_free_read_edit"
+                    android:textColor="@color/text_primary" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/CheckRow">
+
+                <ImageView
+                    style="@style/CheckRowIcon"
+                    android:backgroundTint="@color/color_file_excel_bg"
+                    android:src="@drawable/ic_fo_check"
+                    app:tint="@color/color_file_excel" />
+
+                <TextView
+                    style="@style/CheckRowText"
+                    android:text="@string/fo_free_tools"
+                    android:textColor="@color/text_primary" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/CheckRow">
+
+                <ImageView
+                    style="@style/CheckRowIcon"
+                    android:backgroundTint="@color/color_file_excel_bg"
+                    android:src="@drawable/ic_fo_check"
+                    app:tint="@color/color_file_excel" />
+
+                <TextView
+                    style="@style/CheckRowText"
+                    android:text="@string/fo_free_translate"
+                    android:textColor="@color/text_primary" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/CheckRow">
+
+                <ImageView
+                    style="@style/CheckRowIcon"
+                    android:backgroundTint="@color/color_surface_variant"
+                    android:src="@drawable/ic_fo_close"
+                    app:tint="@color/text_secondary" />
+
+                <TextView
+                    style="@style/CheckRowText"
+                    android:text="@string/fo_pro_ocr_protect"
+                    android:textColor="@color/text_secondary" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/CheckRow">
+
+                <ImageView
+                    style="@style/CheckRowIcon"
+                    android:backgroundTint="@color/color_surface_variant"
+                    android:src="@drawable/ic_fo_close"
+                    app:tint="@color/text_secondary" />
+
+                <TextView
+                    style="@style/CheckRowText"
+                    android:text="@string/fo_pro_no_ads"
+                    android:textColor="@color/text_secondary" />
+            </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/cardUpgrade"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_11sdp"
+                android:background="@drawable/bg_rounded_panel"
+                android:backgroundTint="@color/color_pro_bg"
+                android:foreground="?attr/selectableItemBackground"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
-                android:padding="@dimen/_13sdp"
-                app:uiBackgroundGradientEnabled="true"
-                app:uiBackgroundGradientEnd="@color/gradient_end"
-                app:uiBackgroundGradientOrientation="tl_br"
-                app:uiBackgroundGradientStart="@color/gradient_start"
-                app:uiCornerRadius="@dimen/_17sdp">
+                android:padding="@dimen/_14sdp">
 
-                <com.ui.baselib.widget.view.UiImageView
-                    android:layout_width="@dimen/_37sdp"
-                    android:layout_height="@dimen/_37sdp"
-                    android:contentDescription="@null"
+                <ImageView
+                    android:layout_width="@dimen/_38sdp"
+                    android:layout_height="@dimen/_38sdp"
+                    android:background="@drawable/bg_rounded_panel"
+                    android:backgroundTint="@color/color_pro"
+                    android:importantForAccessibility="no"
                     android:padding="@dimen/_10sdp"
-                    android:src="@drawable/ic_app_crown"
-                    app:tint="@color/on_primary"
-                    app:uiBackgroundColor="@color/color_white_16"
-                    app:uiCornerRadius="@dimen/_13sdp" />
+                    android:rotation="-6"
+                    android:src="@drawable/ic_fo_crown"
+                    app:tint="@color/ink_bar_text" />
 
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_11sdp"
+                    android:layout_marginHorizontal="@dimen/_11sdp"
                     android:layout_weight="1"
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/tvPlan"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/nt_600"
-                        android:textColor="@color/on_primary"
-                        android:textSize="@dimen/_13sdp"
-                        tools:text="Free plan" />
+                        android:fontFamily="@font/nunito_700"
+                        android:text="@string/fo_upgrade_pro"
+                        android:textColor="@color/text_primary"
+                        android:textSize="@dimen/_13sdp" />
 
                     <TextView
-                        android:id="@+id/tvPlanState"
-                        android:layout_width="match_parent"
+                        android:id="@+id/tvUpgradePrice"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/nt_400"
-                        android:textColor="@color/color_on_brand_secondary"
-                        android:textSize="@dimen/_9sdp"
-                        tools:text="No active subscription" />
+                        android:fontFamily="@font/nunito_600"
+                        android:textColor="@color/color_warning"
+                        android:textSize="@dimen/_10sdp"
+                        tools:text="$29.99 a year · 3 days free" />
                 </LinearLayout>
-            </com.ui.baselib.widget.layout.UiLinearLayout>
 
-            <com.ui.baselib.widget.layout.UiLinearLayout
-                style="@style/CardAppStyle"
+                <ImageView
+                    android:layout_width="@dimen/_15sdp"
+                    android:layout_height="@dimen/_15sdp"
+                    android:importantForAccessibility="no"
+                    android:src="@drawable/ic_fo_chevron"
+                    app:tint="@color/color_warning" />
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/FloatingCard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_13sdp"
+                android:layout_marginTop="@dimen/_11sdp"
+                android:background="@drawable/bg_benefits_card"
                 android:orientation="vertical"
-                app:uiCornerRadius="@dimen/_15sdp">
+                android:paddingHorizontal="@dimen/_6sdp"
+                android:paddingVertical="@dimen/_3sdp">
 
                 <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal"
-                    android:paddingHorizontal="@dimen/_13sdp"
-                    android:paddingVertical="@dimen/_11sdp">
+                    android:id="@+id/rowRestore"
+                    style="@style/SheetRow">
+
+                    <ImageView
+                        style="@style/SheetRowIcon"
+                        android:src="@drawable/ic_fo_rotate" />
 
                     <TextView
+                        style="@style/SheetRowTitle"
                         android:layout_width="0dp"
-                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_9sdp"
                         android:layout_weight="1"
-                        android:fontFamily="@font/nt_400"
-                        android:text="@string/subscription_status"
-                        android:textColor="@color/text_secondary"
-                        android:textSize="@dimen/_10sdp" />
+                        android:text="@string/restore_purchases" />
 
-                    <TextView
-                        android:id="@+id/tvStatus"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/nt_500"
-                        android:textColor="@color/text_primary"
-                        android:textSize="@dimen/_10sdp"
-                        tools:text="Google Play" />
+                    <ImageView
+                        android:layout_width="@dimen/_15sdp"
+                        android:layout_height="@dimen/_15sdp"
+                        android:importantForAccessibility="no"
+                        android:src="@drawable/ic_fo_chevron"
+                        app:tint="@color/text_secondary" />
                 </LinearLayout>
 
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_1sdp"
-                    android:background="@color/color_stroke" />
+                    android:layout_height="@dimen/_2sdp"
+                    android:layout_marginHorizontal="@dimen/_6sdp"
+                    android:background="@drawable/line_dashed" />
 
                 <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal"
-                    android:paddingHorizontal="@dimen/_13sdp"
-                    android:paddingVertical="@dimen/_11sdp">
+                    android:id="@+id/rowGooglePlay"
+                    style="@style/SheetRow">
+
+                    <ImageView
+                        style="@style/SheetRowIcon"
+                        android:src="@drawable/ic_fo_card" />
 
                     <TextView
+                        style="@style/SheetRowTitle"
                         android:layout_width="0dp"
-                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_9sdp"
                         android:layout_weight="1"
-                        android:fontFamily="@font/nt_400"
-                        android:text="@string/subscription_amount"
-                        android:textColor="@color/text_secondary"
-                        android:textSize="@dimen/_10sdp" />
+                        android:text="@string/fo_manage_play" />
 
-                    <TextView
-                        android:id="@+id/tvAmount"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/nt_500"
-                        android:textColor="@color/text_primary"
-                        android:textSize="@dimen/_10sdp"
-                        tools:text="Google Play" />
+                    <ImageView
+                        android:layout_width="@dimen/_15sdp"
+                        android:layout_height="@dimen/_15sdp"
+                        android:importantForAccessibility="no"
+                        android:src="@drawable/ic_fo_chevron"
+                        app:tint="@color/text_secondary" />
                 </LinearLayout>
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_1sdp"
-                    android:background="@color/color_stroke" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal"
-                    android:paddingHorizontal="@dimen/_13sdp"
-                    android:paddingVertical="@dimen/_11sdp">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:fontFamily="@font/nt_400"
-                        android:text="@string/subscription_renews"
-                        android:textColor="@color/text_secondary"
-                        android:textSize="@dimen/_10sdp" />
-
-                    <TextView
-                        android:id="@+id/tvRenews"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/nt_500"
-                        android:textColor="@color/text_primary"
-                        android:textSize="@dimen/_10sdp"
-                        tools:text="Google Play" />
-                </LinearLayout>
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_1sdp"
-                    android:background="@color/color_stroke" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal"
-                    android:paddingHorizontal="@dimen/_13sdp"
-                    android:paddingVertical="@dimen/_11sdp">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:fontFamily="@font/nt_400"
-                        android:text="@string/subscription_billed_through"
-                        android:textColor="@color/text_secondary"
-                        android:textSize="@dimen/_10sdp" />
-
-                    <TextView
-                        android:id="@+id/tvBilledThrough"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/nt_500"
-                        android:textColor="@color/text_primary"
-                        android:textSize="@dimen/_10sdp"
-                        tools:text="Google Play" />
-                </LinearLayout>
-            </com.ui.baselib.widget.layout.UiLinearLayout>
-
-            <com.ui.baselib.widget.view.UiTextView
-                android:id="@+id/tvNotice"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_13sdp"
-                android:drawablePadding="@dimen/_8sdp"
-                android:fontFamily="@font/nt_400"
-                android:lineSpacingMultiplier="1.2"
-                android:paddingHorizontal="@dimen/_11sdp"
-                android:paddingVertical="@dimen/_9sdp"
-                android:text="@string/subscription_none_notice"
-                android:textSize="@dimen/_9sdp"
-                app:drawableStartCompat="@drawable/ic_app_info"
-                app:drawableTint="@color/color_warning"
-                app:uiBackgroundColor="@color/color_warning_bg"
-                app:uiCornerRadius="@dimen/_11sdp"
-                app:uiDrawableSize="@dimen/_13sdp"
-                app:uiTextColor="@color/color_on_warning" />
-
-            <com.ui.baselib.widget.view.UiTextView
-                android:id="@+id/btnPrimary"
-                style="@style/ButtonAppStyle"
-                android:layout_width="match_parent"
-                android:layout_marginTop="@dimen/_13sdp"
-                app:uiShadowClipParent="force"
-                app:uiShadowColor="@color/primary_30"
-                tools:text="See Premium plans" />
-
-            <com.ui.baselib.widget.view.UiTextView
-                android:id="@+id/btnGooglePlay"
-                style="@style/ButtonOutlineStyle"
-                android:layout_width="match_parent"
-                android:layout_marginTop="@dimen/_8sdp"
-                android:text="@string/manage_in_google_play" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_13sdp"
-                android:fontFamily="@font/nt_400"
-                android:lineSpacingMultiplier="1.2"
-                android:text="@string/how_to_cancel"
-                android:textColor="@color/text_secondary"
-                android:textSize="@dimen/_9sdp" />
+            </LinearLayout>
         </LinearLayout>
-    </ScrollView>
-
+    </androidx.core.widget.NestedScrollView>
 </LinearLayout>

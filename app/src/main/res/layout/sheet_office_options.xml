@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.ui.baselib.widget.layout.UiLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<!-- The "more" menu of a document being viewed. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    style="@style/BottomSheetAppStyle"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@drawable/bg_sheet"
+    android:clipToPadding="false"
     android:orientation="vertical"
-    android:paddingBottom="@dimen/_10sdp"
+    android:paddingHorizontal="@dimen/_15sdp"
+    android:paddingBottom="@dimen/_20sdp"
     tools:context=".ui.main.reader.office.sheet.OfficeOptionsBottomSheet">
 
     <include
@@ -14,153 +17,122 @@
         layout="@layout/layout_sheet_header" />
 
     <LinearLayout
-        android:id="@+id/rowSlideshow"
+        style="@style/FloatingCard"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_40sdp"
-        android:background="?attr/selectableItemBackground"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:paddingHorizontal="@dimen/_15sdp">
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_benefits_card"
+        android:orientation="vertical"
+        android:paddingHorizontal="@dimen/_6sdp"
+        android:paddingVertical="@dimen/_3sdp">
 
-        <ImageView
-            android:layout_width="@dimen/_17sdp"
-            android:layout_height="@dimen/_17sdp"
-            android:contentDescription="@null"
-            android:src="@drawable/ic_app_play" />
+        <LinearLayout
+            android:id="@+id/rowSlideshow"
+            style="@style/SheetRow"
+            android:minHeight="@dimen/_44sdp">
 
-        <TextView
-            style="@style/RowLabelStyle"
-            android:text="@string/slideshow"
-            android:textColor="@color/text_primary" />
-    </LinearLayout>
+            <ImageView
+                style="@style/SheetRowIcon"
+                android:src="@drawable/ic_fo_play" />
 
-    <LinearLayout
-        android:id="@+id/rowGoTo"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_40sdp"
-        android:background="?attr/selectableItemBackground"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:paddingHorizontal="@dimen/_15sdp">
+            <TextView
+                style="@style/SheetRowTitle"
+                android:layout_marginStart="@dimen/_9sdp"
+                android:text="@string/slideshow" />
+        </LinearLayout>
 
-        <ImageView
-            android:layout_width="@dimen/_17sdp"
-            android:layout_height="@dimen/_17sdp"
-            android:contentDescription="@null"
-            android:src="@drawable/ic_app_pages" />
+        <LinearLayout
+            android:id="@+id/rowGoTo"
+            style="@style/SheetRow"
+            android:minHeight="@dimen/_44sdp">
 
-        <TextView
+            <ImageView
+                style="@style/SheetRowIcon"
+                android:src="@drawable/ic_fo_list" />
+
+            <TextView
             android:id="@+id/tvGoTo"
-            style="@style/RowLabelStyle"
-            android:text="@string/go_to_page"
-            android:textColor="@color/text_primary" />
-    </LinearLayout>
+                style="@style/SheetRowTitle"
+                android:layout_marginStart="@dimen/_9sdp"
+                android:text="@string/go_to_page" />
+        </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/rowToPdf"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_40sdp"
-        android:background="?attr/selectableItemBackground"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:paddingHorizontal="@dimen/_15sdp">
+        <LinearLayout
+            android:id="@+id/rowToPdf"
+            style="@style/SheetRow"
+            android:minHeight="@dimen/_44sdp">
 
-        <ImageView
-            android:layout_width="@dimen/_17sdp"
-            android:layout_height="@dimen/_17sdp"
-            android:contentDescription="@null"
-            android:src="@drawable/ic_app_convert" />
+            <ImageView
+                style="@style/SheetRowIcon"
+                android:src="@drawable/ic_fo_office" />
 
-        <TextView
-            style="@style/RowLabelStyle"
-            android:text="@string/convert_to_pdf"
-            android:textColor="@color/text_primary" />
-    </LinearLayout>
+            <TextView
+                style="@style/SheetRowTitle"
+                android:layout_marginStart="@dimen/_9sdp"
+                android:text="@string/convert_to_pdf" />
+        </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/rowFavorite"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_40sdp"
-        android:background="?attr/selectableItemBackground"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:paddingHorizontal="@dimen/_15sdp">
+        <LinearLayout
+            android:id="@+id/rowFavorite"
+            style="@style/SheetRow"
+            android:minHeight="@dimen/_44sdp">
 
-        <ImageView
+            <ImageView
             android:id="@+id/ivFavorite"
-            android:layout_width="@dimen/_17sdp"
-            android:layout_height="@dimen/_17sdp"
-            android:contentDescription="@null"
-            android:src="@drawable/ic_app_star" />
+                style="@style/SheetRowIcon"
+                android:src="@drawable/ic_fo_star" />
 
-        <TextView
-            style="@style/RowLabelStyle"
-            android:text="@string/file_action_favorite"
-            android:textColor="@color/text_primary" />
+            <TextView
+                style="@style/SheetRowTitle"
+                android:layout_marginStart="@dimen/_9sdp"
+                android:text="@string/file_action_favorite" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/rowInfo"
+            style="@style/SheetRow"
+            android:minHeight="@dimen/_44sdp">
+
+            <ImageView
+                style="@style/SheetRowIcon"
+                android:src="@drawable/ic_fo_info" />
+
+            <TextView
+                style="@style/SheetRowTitle"
+                android:layout_marginStart="@dimen/_9sdp"
+                android:text="@string/file_info" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/rowOpenWith"
+            style="@style/SheetRow"
+            android:minHeight="@dimen/_44sdp">
+
+            <ImageView
+                style="@style/SheetRowIcon"
+                android:src="@drawable/ic_fo_share" />
+
+            <TextView
+                style="@style/SheetRowTitle"
+                android:layout_marginStart="@dimen/_9sdp"
+                android:text="@string/open_with_other_app" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/rowDelete"
+            style="@style/SheetRow"
+            android:minHeight="@dimen/_44sdp">
+
+            <ImageView
+                style="@style/SheetRowIcon"
+            android:backgroundTint="@color/color_file_pdf_bg"
+            app:tint="@color/color_file_pdf"
+                android:src="@drawable/ic_fo_trash" />
+
+            <TextView
+                style="@style/SheetRowTitle"
+                android:layout_marginStart="@dimen/_9sdp"
+            android:textColor="@color/color_file_pdf"
+                android:text="@string/file_action_delete" />
+        </LinearLayout>
     </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/rowInfo"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_40sdp"
-        android:background="?attr/selectableItemBackground"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:paddingHorizontal="@dimen/_15sdp">
-
-        <ImageView
-            android:layout_width="@dimen/_17sdp"
-            android:layout_height="@dimen/_17sdp"
-            android:contentDescription="@null"
-            android:src="@drawable/ic_app_info" />
-
-        <TextView
-            style="@style/RowLabelStyle"
-            android:text="@string/file_info"
-            android:textColor="@color/text_primary" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/rowOpenWith"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_40sdp"
-        android:background="?attr/selectableItemBackground"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:paddingHorizontal="@dimen/_15sdp">
-
-        <ImageView
-            android:layout_width="@dimen/_17sdp"
-            android:layout_height="@dimen/_17sdp"
-            android:contentDescription="@null"
-            android:src="@drawable/ic_app_share" />
-
-        <TextView
-            style="@style/RowLabelStyle"
-            android:text="@string/open_with_other_app"
-            android:textColor="@color/text_primary" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/rowDelete"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_40sdp"
-        android:background="?attr/selectableItemBackground"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:paddingHorizontal="@dimen/_15sdp">
-
-        <ImageView
-            android:layout_width="@dimen/_17sdp"
-            android:layout_height="@dimen/_17sdp"
-            android:contentDescription="@null"
-            android:src="@drawable/ic_app_trash"
-            app:tint="@color/color_error" />
-
-        <TextView
-            style="@style/RowLabelStyle"
-            android:text="@string/file_action_delete"
-            android:textColor="@color/color_error" />
-    </LinearLayout>
-
-</com.ui.baselib.widget.layout.UiLinearLayout>
+</LinearLayout>

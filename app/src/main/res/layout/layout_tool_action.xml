@@ -1,36 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.ui.baselib.widget.layout.UiLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<!-- The bottom of a tool screen: an optional note and the big action. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@color/color_bg_app"
+    android:clipToPadding="false"
     android:orientation="vertical"
+    android:paddingHorizontal="@dimen/_15sdp"
     android:paddingTop="@dimen/_9sdp"
-    app:uiBackgroundColor="@color/color_surface_card"
-    app:uiStrokeColor="@color/color_stroke"
-    app:uiStrokeSides="top"
-    app:uiStrokeWidth="@dimen/_1sdp">
+    android:paddingBottom="@dimen/_17sdp">
 
     <TextView
         android:id="@+id/tvNote"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/_12sdp"
         android:layout_marginBottom="@dimen/_8sdp"
-        android:fontFamily="@font/nt_600"
+        android:fontFamily="@font/nunito_500"
         android:gravity="center"
-        android:textColor="@color/text_on_selected"
+        android:textColor="@color/text_secondary"
         android:textSize="@dimen/_10sdp"
-        android:visibility="gone" />
+        android:visibility="gone"
+        tools:text="The Vietnamese pack downloads once, then works offline."
+        tools:visibility="visible" />
 
-    <com.ui.baselib.widget.view.UiTextView
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btnAction"
-        style="@style/ButtonAppStyle"
-        android:layout_marginHorizontal="@dimen/_12sdp"
-        android:layout_marginBottom="@dimen/_8sdp"
+        style="@style/PrimaryPillButton"
         android:layout_width="match_parent"
-        app:uiShadowClipParent="force"
-        app:uiShadowColor="@color/primary_30"
-        tools:text="Merge 3 files · 16 pages" />
-
-</com.ui.baselib.widget.layout.UiLinearLayout>
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:letterSpacing="0"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:minHeight="0dp"
+        android:stateListAnimator="@null"
+        android:textAllCaps="false"
+        app:backgroundTint="@null"
+        app:iconGravity="textStart"
+        app:iconPadding="@dimen/_6sdp"
+        app:iconSize="@dimen/_15sdp"
+        app:iconTint="@color/on_primary"
+        tools:icon="@drawable/ic_fo_compress"
+        tools:text="Make it smaller" />
+</LinearLayout>

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/color_scan_bg"
+    android:background="@color/color_bg_app"
     android:orientation="vertical"
     tools:context=".ui.main.scan.fragment.ScanCropFragment">
 
@@ -15,117 +15,143 @@
         android:gravity="center_vertical"
         android:minHeight="@dimen/_46sdp"
         android:orientation="horizontal"
-        android:paddingHorizontal="@dimen/_9sdp">
+        android:paddingHorizontal="@dimen/_12sdp">
 
-        <com.ui.baselib.widget.view.UiImageView
+        <ImageView
             android:id="@+id/btnBack"
-            style="@style/IconButtonStyle"
+            style="@style/RoundIconButton"
+            android:layout_width="@dimen/_32sdp"
+            android:layout_height="@dimen/_32sdp"
             android:contentDescription="@string/scanner_back"
-            android:src="@drawable/ic_app_back"
-            app:tint="@color/on_primary"
-            app:uiBackgroundColor="@color/color_white_12" />
+            android:src="@drawable/ic_fo_back" />
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/_6sdp"
+            android:layout_marginHorizontal="@dimen/_9sdp"
             android:layout_weight="1"
-            android:fontFamily="@font/nt_500"
-            android:text="@string/adjust_corners"
-            android:textColor="@color/on_primary"
-            android:textSize="@dimen/_12sdp" />
+            android:ellipsize="end"
+            android:fontFamily="@font/nunito_700"
+            android:maxLines="1"
+            android:text="@string/fo_adjust_corners"
+            android:textColor="@color/text_primary"
+            android:textSize="@dimen/_14sdp" />
 
-        <com.ui.baselib.widget.view.UiTextView
-            android:id="@+id/btnNext"
+        <TextView
+            android:id="@+id/tvPage"
             android:layout_width="wrap_content"
-            android:layout_height="@dimen/_23sdp"
-            android:fontFamily="@font/nt_600"
+            android:layout_height="@dimen/_25sdp"
+            android:background="@drawable/bg_badge"
+            android:backgroundTint="@color/color_surface_card"
+            android:fontFamily="@font/nunito_700"
             android:gravity="center"
-            android:paddingHorizontal="@dimen/_10sdp"
-            android:text="@string/next"
+            android:paddingHorizontal="@dimen/_9sdp"
+            android:textColor="@color/text_tertiary"
             android:textSize="@dimen/_10sdp"
-            app:uiBackgroundColor="@color/accent"
-            app:uiCornerRadius="@dimen/_12sdp"
-            app:uiTextColor="@color/on_accent" />
+            tools:text="Page 2 of 2" />
     </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/nunito_500"
+        android:paddingHorizontal="@dimen/_18sdp"
+        android:paddingBottom="@dimen/_6sdp"
+        android:text="@string/fo_drag_the_dots"
+        android:textColor="@color/text_secondary"
+        android:textSize="@dimen/_11sdp" />
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_marginHorizontal="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_weight="1"
+        android:background="@drawable/bg_rounded_panel"
+        android:backgroundTint="@color/scan_board"
+        android:clipToOutline="true">
 
         <com.af010.creator.docreader.ui.main.scan.view.CornerAdjustView
             android:id="@+id/cornerView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="@dimen/_15sdp" />
+            android:layout_height="match_parent" />
 
         <ProgressBar
             android:id="@+id/progress"
-            android:layout_width="@dimen/_28sdp"
-            android:layout_height="@dimen/_28sdp"
+            android:layout_width="@dimen/_34sdp"
+            android:layout_height="@dimen/_34sdp"
             android:layout_gravity="center"
-            android:indeterminateTint="@color/accent"
+            android:indeterminateTint="@color/white"
             android:visibility="gone" />
     </FrameLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_54sdp"
+        android:layout_height="wrap_content"
+        android:clipToPadding="false"
+        android:gravity="center"
         android:orientation="horizontal"
-        android:paddingBottom="@dimen/_7sdp">
+        android:paddingHorizontal="@dimen/_12sdp"
+        android:paddingVertical="@dimen/_11sdp">
 
-        <com.ui.baselib.widget.view.UiTextView
+        <TextView
             android:id="@+id/btnRotate"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:drawablePadding="@dimen/_3sdp"
-            android:fontFamily="@font/nt_500"
-            android:gravity="center"
-            android:paddingTop="@dimen/_11sdp"
+            style="@style/PillAction"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_32sdp"
+            android:paddingHorizontal="@dimen/_11sdp"
+            app:drawableTint="@color/text_primary"
             android:text="@string/scanner_rotate"
-            android:textSize="@dimen/_9sdp"
-            app:drawableTint="@color/on_primary"
-            app:drawableTopCompat="@drawable/ic_app_rotate"
-            app:uiDrawableSize="@dimen/_17sdp"
-            app:uiTextColor="@color/on_primary" />
+            app:drawableStartCompat="@drawable/ic_fo_rotate_15sdp" />
 
-        <com.ui.baselib.widget.view.UiTextView
+        <TextView
             android:id="@+id/btnAutoDetect"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:drawablePadding="@dimen/_3sdp"
-            android:fontFamily="@font/nt_500"
-            android:gravity="center"
-            android:paddingTop="@dimen/_11sdp"
+            style="@style/PillAction"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_32sdp"
+            android:paddingHorizontal="@dimen/_11sdp"
+            app:drawableTint="@color/text_primary"
+            android:layout_marginStart="@dimen/_6sdp"
             android:text="@string/scan_auto_detect"
-            android:textSize="@dimen/_9sdp"
-            app:drawableTint="@color/on_primary"
-            app:drawableTopCompat="@drawable/ic_app_sparkle"
-            app:uiDrawableSize="@dimen/_17sdp"
-            app:uiTextColor="@color/on_primary" />
+            app:drawableStartCompat="@drawable/ic_fo_sparkles_15sdp" />
 
-        <com.ui.baselib.widget.view.UiTextView
+        <TextView
             android:id="@+id/btnFullPage"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:drawablePadding="@dimen/_3sdp"
-            android:fontFamily="@font/nt_500"
-            android:gravity="center"
-            android:paddingTop="@dimen/_11sdp"
+            style="@style/PillAction"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_32sdp"
+            android:paddingHorizontal="@dimen/_11sdp"
+            app:drawableTint="@color/text_primary"
+            android:layout_marginStart="@dimen/_6sdp"
             android:text="@string/scan_full_page"
-            android:textSize="@dimen/_9sdp"
-            app:drawableTint="@color/on_primary"
-            app:drawableTopCompat="@drawable/ic_app_crop"
-            app:uiDrawableSize="@dimen/_17sdp"
-            app:uiTextColor="@color/on_primary" />
-
+            app:drawableStartCompat="@drawable/ic_fo_scan_15sdp" />
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingHorizontal="@dimen/_15sdp"
+        android:paddingBottom="@dimen/_17sdp"
+        android:clipToPadding="false">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnRetake"
+            style="@style/SoftPillButton"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_43sdp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/color_surface_card"
+            android:text="@string/fo_retake"
+            app:strokeColor="@color/color_stroke"
+            app:strokeWidth="@dimen/_1sdp" />
+
+        <TextView
+            android:id="@+id/btnNext"
+            style="@style/PrimaryPillButton"
+            android:layout_width="0dp"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_weight="1.4"
+            android:text="@string/fo_looks_good" />
+    </LinearLayout>
 </LinearLayout>

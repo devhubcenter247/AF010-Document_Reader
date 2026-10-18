@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/_8sdp"
+    android:background="@drawable/bg_card"
+    android:elevation="@dimen/_3sdp"
+    android:foreground="?attr/selectableItemBackground"
+    android:orientation="vertical"
+    android:outlineAmbientShadowColor="@color/color_shadow"
+    android:outlineSpotShadowColor="@color/color_shadow"
+    android:paddingHorizontal="@dimen/_12sdp"
+    android:paddingVertical="@dimen/_11sdp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <View
+            android:id="@+id/dot"
+            android:layout_width="@dimen/_8sdp"
+            android:layout_height="@dimen/_8sdp"
+            android:background="@drawable/bg_dot"
+            tools:backgroundTint="@color/color_file_pdf" />
+
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_6sdp"
+            android:layout_weight="1"
+            android:ellipsize="middle"
+            android:fontFamily="@font/nunito_700"
+            android:maxLines="1"
+            android:textColor="@color/text_tertiary"
+            android:textSize="@dimen/_10sdp"
+            tools:text="Lease_Agreement_2026.pdf" />
+
+        <TextView
+            android:id="@+id/tvPlace"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_18sdp"
+            android:background="@drawable/bg_place_pill"
+            android:fontFamily="@font/nunito_700"
+            android:gravity="center"
+            android:paddingHorizontal="@dimen/_7sdp"
+            android:textColor="@color/text_tertiary"
+            android:textSize="@dimen/_9sdp"
+            tools:text="Page 4" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvSnippet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:fontFamily="@font/nunito_500"
+        android:lineSpacingMultiplier="1.25"
+        android:textColor="@color/text_tertiary"
+        android:textSize="@dimen/_11sdp"
+        tools:text="…the Tenant shall pay a security deposit equal to one month of rent…" />
+</LinearLayout>

@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.ui.baselib.widget.layout.UiLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/BottomSheetAppStyle"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:paddingBottom="@dimen/_10sdp">
+    android:paddingBottom="@dimen/_10sdp"
+    android:background="@drawable/bg_sheet"
+    android:clipToOutline="true">
 
     <include
         android:id="@+id/header"
@@ -20,4 +23,4 @@
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:listitem="@layout/item_language_option" />
 
-</com.ui.baselib.widget.layout.UiLinearLayout>
+</LinearLayout>

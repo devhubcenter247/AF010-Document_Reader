@@ -9,182 +9,281 @@
     android:orientation="vertical"
     tools:context=".ui.main.tools.result.SuccessActivity">
 
-    <LinearLayout
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_31sdp"
-        android:gravity="center_vertical"
-        android:paddingHorizontal="@dimen/_9sdp">
-
-        <com.ui.baselib.widget.view.UiImageView
-            android:id="@+id/btnClose"
-            style="@style/IconButtonStyle"
-            android:contentDescription="@string/scanner_close"
-            android:src="@drawable/ic_app_close" />
-    </LinearLayout>
-
-    <com.ui.baselib.widget.view.UiImageView
-        android:layout_width="@dimen/_74sdp"
-        android:layout_height="@dimen/_74sdp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="@dimen/_6sdp"
-        android:contentDescription="@null"
-        android:padding="@dimen/_13sdp"
-        android:src="@drawable/ic_check_success"
-        app:uiBackgroundColor="@color/color_success_bg"
-        app:uiCornerRadius="@dimen/_37sdp" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_11sdp"
-        android:fontFamily="@font/nt_600"
-        android:gravity="center"
-        android:text="@string/saved_title"
-        android:textColor="@color/text_primary"
-        android:textSize="@dimen/_15sdp" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_3sdp"
-        android:fontFamily="@font/nt_400"
-        android:gravity="center"
-        android:text="@string/saved_subtitle"
-        android:textColor="@color/text_secondary"
-        android:textSize="@dimen/_10sdp" />
-
-    <com.ui.baselib.widget.layout.UiLinearLayout
-        style="@style/CardAppStyle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/_15sdp"
-        android:layout_marginTop="@dimen/_15sdp"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:paddingHorizontal="@dimen/_11sdp"
-        android:paddingVertical="@dimen/_9sdp"
-        app:uiCornerRadius="@dimen/_10sdp">
+        android:layout_height="@dimen/_43sdp"
+        android:paddingHorizontal="@dimen/_12sdp">
 
         <ImageView
-            android:id="@+id/ivType"
-            android:layout_width="@dimen/_25sdp"
-            android:layout_height="@dimen/_25sdp"
-            android:contentDescription="@null"
-            tools:src="@drawable/ic_file_pdf" />
+            android:id="@+id/btnClose"
+            style="@style/RoundIconButton"
+            android:layout_width="@dimen/_32sdp"
+            android:layout_height="@dimen/_32sdp"
+            android:layout_gravity="end|center_vertical"
+            android:backgroundTint="@color/color_surface_variant"
+            android:contentDescription="@string/scanner_close"
+            android:elevation="0dp"
+            android:src="@drawable/ic_fo_close" />
+    </FrameLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:overScrollMode="never">
 
         <LinearLayout
-            android:layout_width="0dp"
+            android:clipToPadding="false"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/_9sdp"
-            android:layout_weight="1"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/_17sdp">
+
+            <!-- The mascot cheering among confetti -->
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_154sdp"
+                android:importantForAccessibility="noHideDescendants">
+
+                <ImageView
+                    android:layout_width="@dimen/_154sdp"
+                    android:layout_height="@dimen/_154sdp"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/ic_blob"
+                    app:tint="@color/color_bg_selected" />
+
+                <ImageView
+                    android:layout_width="@dimen/_85sdp"
+                    android:layout_height="@dimen/_106sdp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/_35sdp"
+                    android:src="@drawable/ic_mascot_cheer" />
+
+                <FrameLayout
+                    android:layout_width="@dimen/_300sdp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal">
+
+        <View
+            android:layout_width="@dimen/_8sdp"
+            android:layout_height="@dimen/_14sdp"
+            android:layout_marginStart="@dimen/_54sdp"
+            android:layout_marginTop="@dimen/_31sdp"
+            android:background="@drawable/bg_badge"
+            android:backgroundTint="@color/confetti_gold"
+            android:rotation="20" />
+
+        <View
+            android:layout_width="@dimen/_9sdp"
+            android:layout_height="@dimen/_9sdp"
+            android:layout_marginStart="@dimen/_231sdp"
+            android:layout_marginTop="@dimen/_46sdp"
+            android:background="@drawable/bg_badge"
+            android:backgroundTint="@color/primary"
+            android:rotation="0" />
+
+        <View
+            android:layout_width="@dimen/_6sdp"
+            android:layout_height="@dimen/_11sdp"
+            android:layout_marginStart="@dimen/_85sdp"
+            android:layout_marginTop="@dimen/_115sdp"
+            android:background="@drawable/bg_badge"
+            android:backgroundTint="@color/confetti_green"
+            android:rotation="-30" />
+
+        <View
+            android:layout_width="@dimen/_8sdp"
+            android:layout_height="@dimen/_14sdp"
+            android:layout_marginStart="@dimen/_208sdp"
+            android:layout_marginTop="@dimen/_123sdp"
+            android:background="@drawable/bg_badge"
+            android:backgroundTint="@color/confetti_sky"
+            android:rotation="40" />
+
+        <View
+            android:layout_width="@dimen/_9sdp"
+            android:layout_height="@dimen/_9sdp"
+            android:layout_marginStart="@dimen/_31sdp"
+            android:layout_marginTop="@dimen/_85sdp"
+            android:background="@drawable/bg_badge"
+            android:backgroundTint="@color/confetti_teal"
+            android:rotation="0" />
+
+        <View
+            android:layout_width="@dimen/_6sdp"
+            android:layout_height="@dimen/_12sdp"
+            android:layout_marginStart="@dimen/_254sdp"
+            android:layout_marginTop="@dimen/_92sdp"
+            android:background="@drawable/bg_badge"
+            android:backgroundTint="@color/confetti_gold"
+            android:rotation="-20" />
+
+                </FrameLayout>
+            </FrameLayout>
 
             <TextView
-                android:id="@+id/tvName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ellipsize="middle"
-                android:fontFamily="@font/nt_500"
-                android:maxLines="1"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:fontFamily="@font/nunito_700"
+                android:gravity="center"
+                android:letterSpacing="-0.015"
+                android:text="@string/fo_all_done"
                 android:textColor="@color/text_primary"
-                android:textSize="@dimen/_11sdp"
-                tools:text="Annual-report-compressed.pdf" />
+                android:textSize="@dimen/_25sdp" />
 
             <TextView
-                android:id="@+id/tvMeta"
+                android:id="@+id/tvMessage"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_3sdp"
-                android:fontFamily="@font/nt_400"
+                android:fontFamily="@font/nunito_500"
+                android:gravity="center"
+                android:paddingHorizontal="@dimen/_23sdp"
                 android:textColor="@color/text_secondary"
-                android:textSize="@dimen/_9sdp"
-                tools:text="2.4 MB · 65% smaller" />
+                android:textSize="@dimen/_12sdp"
+                tools:text="Your files are now one tidy PDF." />
+
+            <!-- The new file -->
+            <LinearLayout
+                style="@style/FloatingCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_14sdp"
+                android:background="@drawable/bg_rounded_panel"
+                android:backgroundTint="@color/color_surface_card"
+                android:orientation="vertical"
+                android:padding="@dimen/_12sdp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <FrameLayout
+                        android:layout_width="@dimen/_37sdp"
+                        android:layout_height="@dimen/_37sdp">
+
+                        <TextView
+                            android:id="@+id/tvType"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/bg_file_tile"
+                            android:fontFamily="@font/nunito_700"
+                            android:gravity="center"
+                            android:importantForAccessibility="no"
+                            android:maxLines="1"
+                            android:textSize="@dimen/_9sdp"
+                            tools:backgroundTint="@color/color_file_pdf_bg"
+                            tools:text="PDF"
+                            tools:textColor="@color/color_file_pdf" />
+
+                        <ImageView
+                            android:id="@+id/ivThumb"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/bg_file_tile"
+                            android:clipToOutline="true"
+                            android:importantForAccessibility="no"
+                            android:scaleType="centerCrop"
+                            android:visibility="gone" />
+                    </FrameLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_9sdp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="middle"
+                            android:fontFamily="@font/nunito_700"
+                            android:maxLines="1"
+                            android:textColor="@color/text_primary"
+                            android:textSize="@dimen/_12sdp"
+                            tools:text="Lease_bundle.pdf" />
+
+                        <TextView
+                            android:id="@+id/tvMeta"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/nunito_500"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="@dimen/_10sdp"
+                            tools:text="3.7 MB · Download › Folio" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_11sdp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/btnOpen"
+                        style="@style/PrimaryPillButton"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_37sdp"
+                        android:layout_weight="1.3"
+                        android:paddingHorizontal="@dimen/_6sdp"
+                        android:elevation="0dp"
+                        android:text="@string/fo_open"
+                        android:textSize="@dimen/_12sdp" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnShare"
+                        style="@style/SoftPillButton"
+                        android:layout_width="0dp"
+                        android:layout_marginStart="@dimen/_6sdp"
+                        android:layout_weight="1"
+                        android:text="@string/file_action_share"
+                        app:icon="@drawable/ic_fo_share" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnRename"
+                        style="@style/SoftPillButton"
+                        android:layout_width="0dp"
+                        android:layout_marginStart="@dimen/_6sdp"
+                        android:layout_weight="1"
+                        android:text="@string/fo_rename" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layoutNextTools"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/SectionHeading"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="@dimen/_15sdp"
+                    android:paddingTop="@dimen/_15sdp"
+                    android:paddingBottom="@dimen/_8sdp"
+                    android:text="@string/fo_keep_going" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rcvNextTools"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clipToPadding="false"
+                    android:nestedScrollingEnabled="false"
+                    android:overScrollMode="never"
+                    android:paddingHorizontal="@dimen/_12sdp"
+                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                    app:spanCount="3"
+                    tools:itemCount="3"
+                    tools:listitem="@layout/item_next_tool" />
+            </LinearLayout>
         </LinearLayout>
-
-        <com.ui.baselib.widget.view.UiTextView
-            android:id="@+id/tvSaving"
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/_20sdp"
-            android:fontFamily="@font/nt_600"
-            android:gravity="center"
-            android:paddingHorizontal="@dimen/_8sdp"
-            android:textSize="@dimen/_9sdp"
-            android:visibility="gone"
-            app:uiBackgroundColor="@color/color_success_bg"
-            app:uiCornerRadius="@dimen/_10sdp"
-            app:uiTextColor="@color/color_success"
-            tools:text="−65%"
-            tools:visibility="visible" />
-    </com.ui.baselib.widget.layout.UiLinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="horizontal">
-
-        <com.ui.baselib.widget.view.UiTextView
-            android:id="@+id/btnOpen"
-            android:layout_marginStart="@dimen/_12sdp"
-            style="@style/ButtonAppStyle"
-            android:layout_width="0dp"
-            android:layout_marginEnd="@dimen/_4sdp"
-            android:layout_weight="1"
-            android:drawablePadding="@dimen/_6sdp"
-            android:text="@string/open"
-            android:layout_marginVertical="@dimen/_8sdp"
-            app:drawableStartCompat="@drawable/ic_app_eye"
-            app:drawableTint="@color/on_primary"
-            app:uiDrawableAlign="text"
-            app:uiDrawableSize="@dimen/_15sdp"
-            app:uiShadowClipParent="force"
-            app:uiShadowColor="@color/primary_30" />
-
-        <com.ui.baselib.widget.view.UiTextView
-            android:id="@+id/btnShare"
-            style="@style/ButtonOutlineStyle"
-            android:layout_width="0dp"
-            android:layout_marginStart="@dimen/_4sdp"
-            android:layout_marginEnd="@dimen/_12sdp"
-            android:layout_weight="1"
-            android:drawablePadding="@dimen/_6sdp"
-            android:text="@string/file_action_share"
-            app:drawableStartCompat="@drawable/ic_app_share"
-            app:drawableTint="@color/text_primary"
-            app:uiDrawableAlign="text"
-            app:uiDrawableSize="@dimen/_15sdp" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/layoutNextTools"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <TextView
-            style="@style/TextSectionTitle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingHorizontal="@dimen/_15sdp"
-            android:paddingTop="@dimen/_13sdp"
-            android:paddingBottom="@dimen/_7sdp"
-            android:text="@string/keep_working" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rcvNextTools"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/_9sdp"
-            android:overScrollMode="never"
-            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-            app:spanCount="4"
-            tools:itemCount="4"
-            tools:listitem="@layout/item_next_tool" />
-    </LinearLayout>
-
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1" />
+    </androidx.core.widget.NestedScrollView>
 </LinearLayout>

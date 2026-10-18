@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- A radio dot: grey ring, or a thick blue ring around a white centre when on. -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_selected="true">
+        <shape android:shape="oval">
+            <solid android:color="@color/color_surface_card" />
+            <stroke android:width="@dimen/_5sdp" android:color="@color/primary" />
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="oval">
+            <stroke android:width="@dimen/_2sdp" android:color="@color/color_handle" />
+        </shape>
+    </item>
+</selector>

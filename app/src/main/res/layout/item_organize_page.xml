@@ -1,50 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- A page to organize: the page on a card that turns soft blue with a tick once picked. -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:clipToPadding="false"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    android:padding="@dimen/_3sdp">
+    android:padding="@dimen/_4sdp">
 
-    <com.ui.baselib.widget.layout.UiFrameLayout
+    <FrameLayout
         android:id="@+id/card"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_105sdp"
-        app:uiBackgroundColor="@color/white"
-        app:uiCornerRadius="@dimen/_5sdp"
-        app:uiStrokeColor="@color/color_stroke"
-        app:uiStrokeWidth="@dimen/_1sdp">
+        android:layout_height="@dimen/_115sdp"
+        android:background="@drawable/bg_option_card"
+        android:duplicateParentState="true"
+        android:elevation="@dimen/_2sdp"
+        android:outlineAmbientShadowColor="@color/color_shadow"
+        android:outlineSpotShadowColor="@color/color_shadow">
 
         <ImageView
             android:id="@+id/ivPage"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="@dimen/_3sdp"
-            android:contentDescription="@null"
+            android:layout_width="@dimen/_57sdp"
+            android:layout_height="@dimen/_78sdp"
+            android:layout_gravity="center"
+            android:background="@drawable/bg_page_sheet"
+            android:elevation="@dimen/_2sdp"
+            android:importantForAccessibility="no"
             android:scaleType="fitCenter" />
 
         <ImageView
             android:id="@+id/ivCheck"
-            android:layout_width="@dimen/_15sdp"
-            android:layout_height="@dimen/_15sdp"
+            android:layout_width="@dimen/_18sdp"
+            android:layout_height="@dimen/_18sdp"
             android:layout_gravity="top|end"
-            android:layout_margin="@dimen/_4sdp"
-            android:contentDescription="@null"
-            android:src="@drawable/ic_app_checkbox_on"
+            android:layout_margin="@dimen/_6sdp"
+            android:background="@drawable/bg_circle_variant"
+            android:backgroundTint="@color/primary"
+            android:elevation="@dimen/_3sdp"
+            android:importantForAccessibility="no"
+            android:padding="@dimen/_4sdp"
+            android:src="@drawable/ic_fo_check"
             android:visibility="gone"
+            app:tint="@color/on_primary"
             tools:visibility="visible" />
-    </com.ui.baselib.widget.layout.UiFrameLayout>
+    </FrameLayout>
 
     <TextView
         android:id="@+id/tvNumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_3sdp"
-        android:fontFamily="@font/nt_500"
-        android:textColor="@color/text_secondary"
-        android:textSize="@dimen/_9sdp"
+        android:layout_marginTop="@dimen/_4sdp"
+        android:duplicateParentState="true"
+        android:fontFamily="@font/nunito_700"
+        android:textColor="@color/text_filter_label"
+        android:textSize="@dimen/_10sdp"
         tools:text="1" />
-
 </LinearLayout>

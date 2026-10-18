@@ -1,31 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<!-- A tool in the reader's More sheet: its tile and name, with a crown when it is a Pro tool. -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:clipToPadding="false"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="?attr/selectableItemBackgroundBorderless"
-    android:gravity="center_horizontal"
-    android:orientation="vertical"
-    android:paddingVertical="@dimen/_6sdp">
+    android:padding="@dimen/_3sdp">
+
+    <LinearLayout
+        android:id="@+id/card"
+        style="@style/FloatingCard"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_62sdp"
+        android:background="@drawable/bg_rounded_panel"
+        android:backgroundTint="@color/color_surface_card"
+        android:foreground="?attr/selectableItemBackground"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/ivIcon"
+            android:layout_width="@dimen/_28sdp"
+            android:layout_height="@dimen/_28sdp"
+            android:importantForAccessibility="no"
+            tools:src="@drawable/ic_fo_compress" />
+
+        <TextView
+            android:id="@+id/tvLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:ellipsize="end"
+            android:fontFamily="@font/nunito_700"
+            android:gravity="center"
+            android:maxLines="1"
+            android:paddingHorizontal="@dimen/_2sdp"
+            android:textColor="@color/text_primary"
+            android:textSize="@dimen/_10sdp"
+            tools:text="Compress" />
+    </LinearLayout>
 
     <ImageView
-        android:id="@+id/ivIcon"
-        android:layout_width="@dimen/_37sdp"
-        android:layout_height="@dimen/_37sdp"
-        android:contentDescription="@null"
-        tools:src="@drawable/ic_app_tool_annotate" />
-
-    <TextView
-        android:id="@+id/tvLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_6sdp"
-        android:fontFamily="@font/nt_400"
-        android:gravity="center"
-        android:maxLines="1"
-        android:textColor="@color/text_primary"
-        android:textSize="@dimen/_9sdp"
-        tools:text="Annotate" />
-
-</LinearLayout>
+        android:id="@+id/ivPro"
+        android:layout_width="@dimen/_14sdp"
+        android:layout_height="@dimen/_14sdp"
+        android:layout_gravity="top|end"
+        android:layout_margin="@dimen/_7sdp"
+        android:elevation="@dimen/_3sdp"
+        android:importantForAccessibility="no"
+        android:src="@drawable/ic_fo_crown"
+        android:visibility="gone"
+        app:tint="@color/color_premium_gold"
+        tools:visibility="visible" />
+</FrameLayout>

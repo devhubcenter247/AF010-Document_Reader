@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- A format button in the Office sheets; coloured from code (white, or the accent while on). -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="@color/color_surface_card" />
+    <corners android:radius="@dimen/_14sdp" />
+</shape>

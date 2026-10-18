@@ -1,58 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.ui.baselib.widget.layout.UiLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<!-- Offline: the mascot on its blob with a Wi-Fi badge; local files still work. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    style="@style/DialogAppStyle"
     android:clipChildren="false"
-    android:clipToPadding="false"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@drawable/bg_dialog"
+    android:clipToPadding="false"
     android:gravity="center_horizontal"
     android:orientation="vertical"
+    android:paddingHorizontal="@dimen/_17sdp"
+    android:paddingTop="@dimen/_18sdp"
+    android:paddingBottom="@dimen/_15sdp"
     tools:context=".ui.dialog.DialogNoInternet">
 
+    <FrameLayout
+        android:layout_width="@dimen/_92sdp"
+        android:layout_height="@dimen/_92sdp"
+        android:importantForAccessibility="noHideDescendants">
 
-    <com.ui.baselib.widget.view.UiImageView
-        android:layout_width="@dimen/_38sdp"
-        android:layout_height="@dimen/_38sdp"
-        android:padding="@dimen/_7sdp"
-        android:src="@drawable/ic_app_wifioff"
-        android:tint="@color/primary"
-        app:uiBackgroundColor="@color/color_efebff"
-        app:uiCornerRadius="@dimen/_20sdp" />
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_blob"
+            app:tint="@color/color_bg_selected" />
 
-    <com.ui.baselib.widget.view.UiTextView
+        <ImageView
+            android:layout_width="@dimen/_46sdp"
+            android:layout_height="@dimen/_57sdp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_mascot_smile" />
+
+        <ImageView
+            style="@style/FloatingCard"
+            android:layout_width="@dimen/_31sdp"
+            android:layout_height="@dimen/_31sdp"
+            android:layout_gravity="top|end"
+            android:background="@drawable/bg_circle_variant"
+            android:backgroundTint="@color/color_surface_card"
+            android:padding="@dimen/_8sdp"
+            android:src="@drawable/ic_fo_wifi"
+            app:tint="@color/primary" />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/tvTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/nt_600"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:fontFamily="@font/nunito_600"
+        android:gravity="center"
         android:textColor="@color/text_primary"
-        android:includeFontPadding="false"
-        android:layout_marginTop="@dimen/_10ssp"
-        android:text="@string/no_internet_connection"
-        android:textAlignment="center"
-        android:textSize="@dimen/_13sdp" />
+        android:textSize="@dimen/_15sdp"
+        android:text="@string/fo_offline_title" />
 
-
-    <com.ui.baselib.widget.view.UiTextView
+    <TextView
+        android:id="@+id/tvOfflineMessage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/nt_400"
-        android:layout_marginHorizontal="@dimen/_13sdp"
-        android:layout_marginTop="@dimen/_13sdp"
-        android:includeFontPadding="false"
-        android:text="@string/your_first_translation_needs_a_language_pack_reading_and_editing_still_work_offline"
-        android:textAlignment="center"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:fontFamily="@font/nunito_400"
+        android:gravity="center"
+        android:lineSpacingMultiplier="1.15"
         android:textColor="@color/text_secondary"
-        android:textSize="@dimen/_9sdp" />
+        android:textSize="@dimen/_10sdp"
+        android:text="@string/fo_offline_message" />
 
-    <com.ui.baselib.widget.view.UiTextView
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btnTryAgain"
-        style="@style/ButtonAppStyle"
-        android:layout_marginHorizontal="@dimen/_13sdp"
+        style="@style/PrimaryPillButton"
         android:layout_width="match_parent"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:layout_marginBottom="@dimen/_5sdp"
-        android:text="@string/try_again"
-        app:uiShadowClipParent="force"
-        app:uiShadowColor="@color/primary_30" />
-</com.ui.baselib.widget.layout.UiLinearLayout>
+        android:layout_marginTop="@dimen/_14sdp"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:letterSpacing="0"
+        android:minHeight="0dp"
+        android:stateListAnimator="@null"
+        android:text="@string/fo_try_again"
+        android:textAllCaps="false"
+        app:backgroundTint="@null"
+        app:icon="@drawable/ic_fo_rotate"
+        app:iconGravity="textStart"
+        app:iconPadding="@dimen/_6sdp"
+        app:iconSize="@dimen/_15sdp"
+        app:iconTint="@color/on_primary" />
+
+    <TextView
+        android:id="@+id/btnWifi"
+        style="@style/DialogGhostButton"
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/_2sdp"
+        android:text="@string/fo_open_wifi" />
+</LinearLayout>

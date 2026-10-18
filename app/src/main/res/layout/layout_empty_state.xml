@@ -1,80 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- What a list shows in place of its rows: no file access, no files, no results. -->
-<com.ui.baselib.widget.layout.UiLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    style="@style/CardAppStyle"
+    android:clipChildren="false"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    android:paddingVertical="@dimen/_15sdp"
+    android:paddingHorizontal="@dimen/_23sdp"
+    android:paddingTop="@dimen/_31sdp"
     android:visibility="gone"
-    app:uiCornerRadius="@dimen/_15sdp"
     tools:visibility="visible">
 
-    <com.ui.baselib.widget.view.UiImageView
+    <ImageView
         android:id="@+id/ivIcon"
         android:layout_width="@dimen/_49sdp"
         android:layout_height="@dimen/_49sdp"
+        android:background="@drawable/bg_icon_tile_round"
         android:contentDescription="@null"
         android:padding="@dimen/_13sdp"
-        android:src="@drawable/ic_app_folder"
-        app:tint="@color/text_on_selected"
-        app:uiBackgroundColor="@color/color_bg_selected"
-        app:uiCornerRadius="@dimen/_17sdp" />
+        android:rotation="-4"
+        android:src="@drawable/ic_fo_folder"
+        app:tint="@color/text_on_selected" />
 
     <TextView
         android:id="@+id/tvTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_11sdp"
-        android:fontFamily="@font/nt_600"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:fontFamily="@font/nunito_700"
         android:gravity="center"
         android:textColor="@color/text_primary"
-        android:textSize="@dimen/_12sdp"
+        android:textSize="@dimen/_13sdp"
         tools:text="@string/no_access_title" />
 
     <TextView
         android:id="@+id/tvMessage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_3sdp"
-        android:fontFamily="@font/nt_400"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:fontFamily="@font/nunito_500"
         android:gravity="center"
+        android:lineSpacingMultiplier="1.15"
         android:textColor="@color/text_secondary"
-        android:textSize="@dimen/_9sdp"
+        android:textSize="@dimen/_11sdp"
         tools:text="@string/no_access_desc" />
 
     <LinearLayout
-
         android:id="@+id/layoutButtons"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_14sdp"
         android:gravity="center"
         android:orientation="horizontal">
 
-        <com.ui.baselib.widget.view.UiTextView
+        <TextView
             android:id="@+id/btnPrimary"
-            android:layout_marginStart="@dimen/_12sdp"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:layout_marginBottom="@dimen/_8sdp"
-            style="@style/ButtonAppStyle"
+            style="@style/PrimaryPillButton"
             android:layout_width="0dp"
+            android:layout_height="@dimen/_37sdp"
             android:layout_weight="1"
-            app:uiShadowClipParent="force"
-            app:uiShadowColor="@color/primary_30"
+            android:textSize="@dimen/_11sdp"
             tools:text="@string/allow_access" />
 
-        <com.ui.baselib.widget.view.UiTextView
+        <TextView
             android:id="@+id/btnSecondary"
-            android:layout_marginEnd="@dimen/_12sdp"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:layout_marginBottom="@dimen/_8sdp"
-            style="@style/ButtonOutlineStyle"
             android:layout_width="0dp"
+            android:layout_height="@dimen/_37sdp"
             android:layout_marginStart="@dimen/_8sdp"
             android:layout_weight="1"
-            tools:text="@string/browse_files" />
+            android:background="@drawable/bg_button_outline"
+            android:fontFamily="@font/nunito_700"
+            android:foreground="?attr/selectableItemBackground"
+            android:gravity="center"
+            android:textColor="@color/text_primary"
+            android:textSize="@dimen/_11sdp"
+            android:visibility="gone"
+            tools:text="@string/open_a_file"
+            tools:visibility="visible" />
     </LinearLayout>
-</com.ui.baselib.widget.layout.UiLinearLayout>
+</LinearLayout>

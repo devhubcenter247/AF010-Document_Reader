@@ -59,6 +59,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "AF006-DocReader-Creator"
 include(":app")
-include(":lib")
 include(":opencv")
 //include(":pdfview")

@@ -1,89 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.ui.baselib.widget.layout.UiLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    style="@style/BottomSheetAppStyle"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:background="@drawable/bg_sheet"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/_18sdp">
 
     <include
         android:id="@+id/header"
         layout="@layout/layout_sheet_header" />
 
-    <com.ui.baselib.widget.view.UiTextView
-        android:id="@+id/tvSortDate"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_40sdp"
-        android:background="?attr/selectableItemBackground"
-        android:drawablePadding="@dimen/_11sdp"
-        android:fontFamily="@font/nt_400"
-        android:gravity="center_vertical"
-        android:paddingHorizontal="@dimen/_15sdp"
-        android:textColor="@color/text_primary"
-        android:textSize="@dimen/_12sdp"
-        app:uiDrawableSize="@dimen/_15sdp"
-        tools:drawableStartCompat="@drawable/ic_app_radio_off" />
-
-    <com.ui.baselib.widget.view.UiTextView
-        android:id="@+id/tvSortName"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_40sdp"
-        android:background="?attr/selectableItemBackground"
-        android:drawablePadding="@dimen/_11sdp"
-        android:fontFamily="@font/nt_400"
-        android:gravity="center_vertical"
-        android:paddingHorizontal="@dimen/_15sdp"
-        android:textColor="@color/text_primary"
-        android:textSize="@dimen/_12sdp"
-        app:uiDrawableSize="@dimen/_15sdp"
-        tools:drawableStartCompat="@drawable/ic_app_radio_off" />
-
-    <com.ui.baselib.widget.view.UiTextView
-        android:id="@+id/tvSortSize"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_40sdp"
-        android:background="?attr/selectableItemBackground"
-        android:drawablePadding="@dimen/_11sdp"
-        android:fontFamily="@font/nt_400"
-        android:gravity="center_vertical"
-        android:paddingHorizontal="@dimen/_15sdp"
-        android:textColor="@color/text_primary"
-        android:textSize="@dimen/_12sdp"
-        app:uiDrawableSize="@dimen/_15sdp"
-        tools:drawableStartCompat="@drawable/ic_app_radio_off" />
-
-    <com.ui.baselib.widget.view.UiTextView
-        android:id="@+id/tvSortType"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_40sdp"
-        android:background="?attr/selectableItemBackground"
-        android:drawablePadding="@dimen/_11sdp"
-        android:fontFamily="@font/nt_400"
-        android:gravity="center_vertical"
-        android:paddingHorizontal="@dimen/_15sdp"
-        android:textColor="@color/text_primary"
-        android:textSize="@dimen/_12sdp"
-        app:uiDrawableSize="@dimen/_15sdp"
-        tools:drawableStartCompat="@drawable/ic_app_radio_off" />
-
-    <include
-        android:id="@+id/segmentOrder"
-        layout="@layout/layout_segment"
+    <LinearLayout
+        android:clipToPadding="false"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/_15sdp"
-        android:layout_marginTop="@dimen/_9sdp" />
+        android:orientation="vertical"
+        android:paddingHorizontal="@dimen/_15sdp">
 
-    <com.ui.baselib.widget.view.UiTextView
-        android:id="@+id/btnApply"
-        style="@style/ButtonAppStyle"
-        android:layout_marginBottom="10sp"
-        android:layout_width="match_parent"
-        android:layout_marginHorizontal="@dimen/_15sdp"
-        android:layout_marginTop="@dimen/_13sdp"
-        android:text="@string/apply"
-        app:uiShadowClipParent="force"
-        app:uiShadowColor="@color/primary_30" />
+        <include android:id="@+id/rowDate" layout="@layout/layout_choice_row" />
 
-</com.ui.baselib.widget.layout.UiLinearLayout>
+        <include
+            android:id="@+id/rowName"
+            layout="@layout/layout_choice_row"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_46sdp"
+            android:layout_marginTop="@dimen/_5sdp" />
+
+        <include
+            android:id="@+id/rowSize"
+            layout="@layout/layout_choice_row"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_46sdp"
+            android:layout_marginTop="@dimen/_5sdp" />
+
+        <include
+            android:id="@+id/rowType"
+            layout="@layout/layout_choice_row"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_46sdp"
+            android:layout_marginTop="@dimen/_5sdp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_3sdp"
+            android:layout_marginTop="@dimen/_14sdp"
+            android:fontFamily="@font/nunito_700"
+            android:text="@string/fo_order"
+            android:textColor="@color/text_secondary"
+            android:textSize="@dimen/_10sdp" />
+
+        <include
+            android:id="@+id/segmentOrder"
+            layout="@layout/layout_segment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_9sdp" />
+
+        <TextView
+            android:id="@+id/btnApply"
+            style="@style/PrimaryPillButton"
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/_14sdp"
+            android:text="@string/fo_show_files" />
+    </LinearLayout>
+</LinearLayout>

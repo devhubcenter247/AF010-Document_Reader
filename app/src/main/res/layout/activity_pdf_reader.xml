@@ -1,288 +1,259 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- The PDF reader: a floating bar at the top (reading, an edit mode, or search), the pages,
+     and a floating card at the bottom whose content follows the mode. PdfReaderActivity.render()
+     decides what is visible. -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/color_surface_track"
+    android:background="@color/reader_bg"
     android:orientation="vertical"
     tools:context=".ui.main.reader.pdf.PdfReaderActivity">
 
-    <com.ui.baselib.widget.layout.UiLinearLayout
+    <FrameLayout
         android:id="@+id/layoutTop"
-        android:layout_gravity="center_vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingBottom="@dimen/_4sdp"
-        app:uiBackgroundColor="@color/color_surface_card"
-        app:uiStrokeColor="@color/color_stroke"
-        app:uiStrokeSides="bottom"
-        app:uiStrokeWidth="@dimen/_1sdp">
+        android:clipToPadding="false"
+        android:paddingHorizontal="@dimen/_9sdp"
+        android:paddingTop="@dimen/_6sdp"
+        android:paddingBottom="@dimen/_8sdp">
 
-        <LinearLayout
-            android:id="@+id/barReader"
+        <FrameLayout
+            style="@style/FloatBar"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_37sdp"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:paddingEnd="@dimen/_4sdp"
-            android:paddingStart="@dimen/_9sdp">
+            android:layout_height="@dimen/_46sdp"
+            android:paddingHorizontal="@dimen/_6sdp">
 
-            <com.ui.baselib.widget.view.UiImageView
-                android:id="@+id/btnBack"
-                style="@style/IconButtonStyle"
-                android:contentDescription="@string/scanner_back"
-                android:src="@drawable/ic_app_back" />
-
-            <ImageView
-                android:layout_width="@dimen/_20sdp"
-                android:layout_height="@dimen/_25sdp"
-                android:layout_marginStart="@dimen/_6sdp"
-                android:contentDescription="@null"
-                android:src="@drawable/ic_file_pdf" />
-
+            <!-- Reading -->
             <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/_6sdp"
-                android:layout_weight="1"
-                android:orientation="vertical">
+                android:id="@+id/barReader"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/tvName"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ellipsize="end"
-                    android:fontFamily="@font/nt_500"
-                    android:maxLines="1"
-                    android:textColor="@color/text_primary"
-                    android:textSize="@dimen/_12sdp"
-                    tools:text="Lease-agreement.pdf" />
+                <ImageView
+                    android:id="@+id/btnBack"
+                    style="@style/ReaderBarIcon"
+                    android:contentDescription="@string/back"
+                    android:src="@drawable/ic_fo_back" />
 
-                <TextView
-                    android:id="@+id/tvPage"
-                    android:layout_width="match_parent"
+                <LinearLayout
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:ellipsize="end"
-                    android:fontFamily="@font/nt_400"
-                    android:maxLines="1"
-                    android:textColor="@color/text_secondary"
-                    android:textSize="@dimen/_9sdp"
-                    tools:text="Page 1 / 12" />
+                    android:layout_marginStart="@dimen/_2sdp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tvName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="middle"
+                        android:fontFamily="@font/nunito_700"
+                        android:maxLines="1"
+                        android:textColor="@color/text_primary"
+                        android:textSize="@dimen/_12sdp"
+                        tools:text="Lease_Agreement_2026.pdf" />
+
+                    <TextView
+                        android:id="@+id/tvPage"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/nunito_600"
+                        android:maxLines="1"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="@dimen/_10sdp"
+                        tools:text="Page 12 of 38" />
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/btnSearch"
+                    style="@style/ReaderBarIcon"
+                    android:contentDescription="@string/search_files"
+                    android:src="@drawable/ic_fo_search" />
+
+                <ImageView
+                    android:id="@+id/btnBookmark"
+                    style="@style/ReaderBarIcon"
+                    android:contentDescription="@string/fo_bookmark_page"
+                    android:src="@drawable/ic_fo_star" />
+
+                <ImageView
+                    android:id="@+id/btnNormal"
+                    style="@style/ReaderBarIcon"
+                    android:contentDescription="@string/theme_normal"
+                    android:src="@drawable/ic_fo_sun"
+                    android:visibility="gone" />
+
+                <ImageView
+                    android:id="@+id/btnMore"
+                    style="@style/ReaderBarIcon"
+                    android:contentDescription="@string/fo_more"
+                    android:src="@drawable/ic_fo_more" />
             </LinearLayout>
 
-            <ImageView
-                android:id="@+id/btnSearch"
-                android:layout_width="@dimen/_27sdp"
-                android:layout_height="@dimen/_27sdp"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:contentDescription="@string/search_in_file"
-                android:padding="@dimen/_5sdp"
-                android:src="@drawable/ic_app_search" />
-
-            <ImageView
-                android:id="@+id/btnContents"
-                android:layout_width="@dimen/_27sdp"
-                android:layout_height="@dimen/_27sdp"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:contentDescription="@string/contents"
-                android:padding="@dimen/_5sdp"
-                android:src="@drawable/ic_app_list" />
-
-            <ImageView
-                android:id="@+id/btnNormal"
-                android:layout_width="@dimen/_27sdp"
-                android:layout_height="@dimen/_27sdp"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:contentDescription="@string/theme_normal"
-                android:padding="@dimen/_5sdp"
-                android:src="@drawable/ic_app_sun"
-                android:visibility="gone" />
-
-            <ImageView
-                android:id="@+id/btnMore"
-                android:layout_width="@dimen/_27sdp"
-                android:layout_height="@dimen/_27sdp"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:contentDescription="@string/reading_mode"
-                android:padding="@dimen/_5sdp"
-                android:src="@drawable/ic_app_more" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/barMode"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_37sdp"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:paddingEnd="@dimen/_4sdp"
-            android:paddingStart="@dimen/_9sdp"
-            android:visibility="gone">
-
-            <com.ui.baselib.widget.view.UiImageView
-                android:id="@+id/btnModeClose"
-                style="@style/IconButtonStyle"
-                android:contentDescription="@string/scanner_close"
-                android:src="@drawable/ic_app_close" />
-
+            <!-- An edit mode or the contents -->
             <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/_6sdp"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/tvModeTitle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ellipsize="end"
-                    android:fontFamily="@font/nt_500"
-                    android:maxLines="1"
-                    android:textColor="@color/text_primary"
-                    android:textSize="@dimen/_12sdp"
-                    tools:text="Annotate" />
-
-                <TextView
-                    android:id="@+id/tvModeSubtitle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ellipsize="end"
-                    android:fontFamily="@font/nt_400"
-                    android:maxLines="1"
-                    android:textColor="@color/text_secondary"
-                    android:textSize="@dimen/_9sdp"
-                    android:visibility="gone"
-                    tools:text="Drag to move"
-                    tools:visibility="visible" />
-            </LinearLayout>
-
-            <ImageView
-                android:id="@+id/btnUndo"
-                android:layout_width="@dimen/_27sdp"
-                android:layout_height="@dimen/_27sdp"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:contentDescription="@string/undo"
-                android:padding="@dimen/_5sdp"
-                android:src="@drawable/ic_app_undo" />
-
-            <ImageView
-                android:id="@+id/btnRedo"
-                android:layout_width="@dimen/_27sdp"
-                android:layout_height="@dimen/_27sdp"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:contentDescription="@string/redo"
-                android:padding="@dimen/_5sdp"
-                android:src="@drawable/ic_app_redo" />
-
-            <com.ui.baselib.widget.view.UiTextView
-                android:id="@+id/btnModeAction"
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/_23sdp"
-                android:layout_marginHorizontal="@dimen/_3sdp"
-                android:fontFamily="@font/nt_600"
-                android:gravity="center"
-                android:paddingHorizontal="@dimen/_10sdp"
-                android:text="@string/file_action_save"
-                android:textSize="@dimen/_10sdp"
-                app:uiBackgroundColor="@color/primary"
-                app:uiCornerRadius="@dimen/_12sdp"
-                app:uiTextColor="@color/on_primary" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/barSearch"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_37sdp"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:paddingEnd="@dimen/_4sdp"
-            android:paddingStart="@dimen/_9sdp"
-            android:visibility="gone">
-
-            <com.ui.baselib.widget.view.UiImageView
-                android:id="@+id/btnSearchClose"
-                style="@style/IconButtonStyle"
-                android:contentDescription="@string/scanner_close"
-                android:src="@drawable/ic_app_close" />
-
-            <com.ui.baselib.widget.layout.UiLinearLayout
-                android:layout_width="0dp"
-                android:layout_height="@dimen/_34sdp"
-                android:layout_marginStart="@dimen/_5sdp"
-                android:layout_weight="1"
+                android:id="@+id/barMode"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
-                android:paddingHorizontal="@dimen/_9sdp"
-                app:uiCornerRadius="@dimen/_11sdp"
-                app:uiStrokeColor="@color/primary"
-                app:uiStrokeWidth="@dimen/_1sdp">
+                android:visibility="gone">
 
-                <EditText
-                    android:id="@+id/edtSearch"
+                <ImageView
+                    android:id="@+id/btnModeClose"
+                    style="@style/ReaderBarClose"
+                    android:contentDescription="@string/scanner_close"
+                    android:src="@drawable/ic_fo_close" />
+
+                <LinearLayout
                     android:layout_width="0dp"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_8sdp"
                     android:layout_weight="1"
-                    android:background="@null"
-                    android:fontFamily="@font/nt_400"
-                    android:hint="@string/search_in_file"
-                    android:imeOptions="actionSearch"
-                    android:importantForAutofill="no"
-                    android:inputType="text"
-                    android:maxLines="1"
-                    android:textColor="@color/text_primary"
-                    android:textColorHint="@color/text_secondary"
-                    android:textSize="@dimen/_11sdp" />
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tvModeTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:fontFamily="@font/nunito_700"
+                        android:maxLines="1"
+                        android:textColor="@color/text_primary"
+                        android:textSize="@dimen/_12sdp"
+                        tools:text="Add text" />
+
+                    <TextView
+                        android:id="@+id/tvModeSubtitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="middle"
+                        android:fontFamily="@font/nunito_600"
+                        android:maxLines="1"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="@dimen/_10sdp"
+                        tools:text="Lease_Agreement_2026.pdf" />
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/btnUndo"
+                    style="@style/ReaderBarIcon"
+                    android:contentDescription="@string/undo"
+                    android:src="@drawable/ic_fo_undo" />
+
+                <ImageView
+                    android:id="@+id/btnRedo"
+                    style="@style/ReaderBarIcon"
+                    android:contentDescription="@string/redo"
+                    android:src="@drawable/ic_fo_redo" />
 
                 <TextView
-                    android:id="@+id/tvSearchCount"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/nt_400"
-                    android:textColor="@color/text_secondary"
-                    android:textSize="@dimen/_10sdp"
-                    tools:text="1/17" />
-            </com.ui.baselib.widget.layout.UiLinearLayout>
+                    android:id="@+id/btnModeAction"
+                    style="@style/ReaderSave"
+                    android:text="@string/file_action_save" />
+            </LinearLayout>
 
-            <ImageView
-                android:id="@+id/btnSearchPrevious"
-                android:layout_width="@dimen/_27sdp"
-                android:layout_height="@dimen/_27sdp"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:contentDescription="@string/scanner_back"
-                android:padding="@dimen/_5sdp"
-                android:rotation="180"
-                android:src="@drawable/ic_app_chevd" />
+            <!-- Search in the file -->
+            <LinearLayout
+                android:id="@+id/barSearch"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:visibility="gone">
 
-            <ImageView
-                android:id="@+id/btnSearchNext"
-                android:layout_width="@dimen/_27sdp"
-                android:layout_height="@dimen/_27sdp"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:contentDescription="@string/next"
-                android:padding="@dimen/_5sdp"
-                android:src="@drawable/ic_app_chevd" />
-        </LinearLayout>
-    </com.ui.baselib.widget.layout.UiLinearLayout>
+                <ImageView
+                    android:id="@+id/btnSearchClose"
+                    style="@style/ReaderBarClose"
+                    android:contentDescription="@string/scanner_close"
+                    android:src="@drawable/ic_fo_close" />
 
-    <com.ui.baselib.widget.view.UiTextView
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_34sdp"
+                    android:layout_marginHorizontal="@dimen/_5sdp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_search_field_soft"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/_9sdp">
+
+                    <ImageView
+                        android:layout_width="@dimen/_14sdp"
+                        android:layout_height="@dimen/_14sdp"
+                        android:importantForAccessibility="no"
+                        android:src="@drawable/ic_fo_search"
+                        app:tint="@color/text_secondary" />
+
+                    <EditText
+                        android:id="@+id/edtSearch"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginHorizontal="@dimen/_5sdp"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:fontFamily="@font/nunito_700"
+                        android:hint="@string/fo_search_in_file"
+                        android:imeOptions="actionSearch"
+                        android:importantForAutofill="no"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:textColor="@color/text_primary"
+                        android:textColorHint="@color/text_secondary"
+                        android:textSize="@dimen/_12sdp" />
+
+                    <TextView
+                        android:id="@+id/tvSearchCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/nunito_700"
+                        android:maxLines="1"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="@dimen/_10sdp"
+                        tools:text="2 of 7" />
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/btnSearchPrevious"
+                    style="@style/ReaderBarIcon"
+                    android:contentDescription="@string/fo_previous_match"
+                    android:rotation="90"
+                    android:src="@drawable/ic_fo_back" />
+
+                <ImageView
+                    android:id="@+id/btnSearchNext"
+                    style="@style/ReaderBarIcon"
+                    android:contentDescription="@string/fo_next_match"
+                    android:rotation="-90"
+                    android:src="@drawable/ic_fo_back" />
+            </LinearLayout>
+        </FrameLayout>
+    </FrameLayout>
+
+    <TextView
         android:id="@+id/tvBanner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_12sdp"
+        android:layout_marginBottom="@dimen/_6sdp"
+        android:background="@drawable/bg_rounded_panel"
+        android:backgroundTint="@color/color_bg_selected"
         android:drawablePadding="@dimen/_6sdp"
-        android:fontFamily="@font/nt_400"
-        android:paddingHorizontal="@dimen/_13sdp"
-        android:paddingVertical="@dimen/_8sdp"
+        android:fontFamily="@font/nunito_600"
+        android:paddingHorizontal="@dimen/_11sdp"
+        android:paddingVertical="@dimen/_7sdp"
         android:text="@string/form_hint"
+        android:textColor="@color/text_on_selected"
         android:textSize="@dimen/_10sdp"
         android:visibility="gone"
-        app:drawableStartCompat="@drawable/ic_app_info"
-        app:drawableTint="@color/color_info"
-        app:uiBackgroundColor="@color/color_info_bg"
-        app:uiDrawableSize="@dimen/_13sdp"
-        app:uiTextColor="@color/color_on_info"
+        app:drawableStartCompat="@drawable/ic_fo_info_17sdp"
+        app:drawableTint="@color/text_on_selected"
         tools:visibility="visible" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -310,29 +281,31 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <com.ui.baselib.widget.view.UiTextView
+        <TextView
             android:id="@+id/tvPagePill"
             android:layout_width="wrap_content"
-            android:layout_height="@dimen/_23sdp"
-            android:layout_marginBottom="@dimen/_11sdp"
-            android:layout_marginStart="@dimen/_13sdp"
-            android:fontFamily="@font/nt_600"
+            android:layout_height="@dimen/_26sdp"
+            android:layout_marginEnd="@dimen/_14sdp"
+            android:layout_marginBottom="@dimen/_9sdp"
+            android:background="@drawable/bg_ink_pill"
+            android:elevation="@dimen/_3sdp"
+            android:fontFamily="@font/nunito_700"
             android:gravity="center"
-            android:paddingHorizontal="@dimen/_9sdp"
-            android:textSize="@dimen/_9sdp"
+            android:paddingHorizontal="@dimen/_11sdp"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_10sdp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:uiBackgroundColor="@color/color_pill_dark"
-            app:uiCornerRadius="@dimen/_12sdp"
-            app:uiTextColor="@color/on_primary"
-            tools:text="1 / 12" />
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="12 / 38" />
 
         <!-- Actions on the selected text (markup) or the selected object (duplicate, delete) -->
-        <com.ui.baselib.widget.layout.UiLinearLayout
+        <LinearLayout
             android:id="@+id/layoutMarkup"
             android:layout_width="wrap_content"
-            android:layout_height="@dimen/_31sdp"
+            android:layout_height="@dimen/_35sdp"
             android:layout_marginBottom="@dimen/_9sdp"
+            android:background="@drawable/bg_ink_bar"
+            android:elevation="@dimen/_8sdp"
             android:gravity="center_vertical"
             android:orientation="horizontal"
             android:paddingHorizontal="@dimen/_3sdp"
@@ -340,8 +313,6 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:uiBackgroundColor="@color/color_ink"
-            app:uiCornerRadius="@dimen/_9sdp"
             tools:visibility="visible">
 
             <TextView
@@ -367,8 +338,9 @@
             <TextView
                 android:id="@+id/btnMarkDelete"
                 style="@style/MarkupActionStyle"
-                android:text="@string/file_action_delete" />
-        </com.ui.baselib.widget.layout.UiLinearLayout>
+                android:text="@string/file_action_delete"
+                android:textColor="@color/ink_bar_danger" />
+        </LinearLayout>
 
         <ProgressBar
             android:id="@+id/progress"
@@ -395,396 +367,449 @@
     <FrameLayout
         android:id="@+id/layoutBottom"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:clipToPadding="false"
+        android:paddingHorizontal="@dimen/_9sdp"
+        android:paddingTop="@dimen/_6sdp"
+        android:paddingBottom="@dimen/_15sdp">
 
-        <com.ui.baselib.widget.layout.UiLinearLayout
+        <!-- Reading: where you are, and the edit modes -->
+        <LinearLayout
             android:id="@+id/bottomReader"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_54sdp"
-            android:orientation="horizontal"
-            android:paddingBottom="@dimen/_3sdp"
-            android:paddingHorizontal="@dimen/_6sdp"
-            app:uiBackgroundColor="@color/color_surface_card"
-            app:uiStrokeColor="@color/color_stroke"
-            app:uiStrokeSides="top"
-            app:uiStrokeWidth="@dimen/_1sdp">
-
-            <LinearLayout
-                android:id="@+id/btnEdit"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:layout_width="@dimen/_37sdp"
-                    android:layout_height="@dimen/_26sdp"
-                    android:background="@drawable/bg_nav_pill"
-                    android:contentDescription="@null"
-                    android:paddingVertical="@dimen/_5sdp"
-                    android:src="@drawable/ic_app_text"
-                    app:tint="@color/sl_reader_item" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_3sdp"
-                    android:fontFamily="@font/nt_500"
-                    android:text="@string/reader_edit"
-                    android:textColor="@color/sl_reader_item"
-                    android:textSize="@dimen/_9sdp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/btnAnnotate"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:layout_width="@dimen/_37sdp"
-                    android:layout_height="@dimen/_26sdp"
-                    android:background="@drawable/bg_nav_pill"
-                    android:contentDescription="@null"
-                    android:paddingVertical="@dimen/_5sdp"
-                    android:src="@drawable/ic_app_highlight"
-                    app:tint="@color/sl_reader_item" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_3sdp"
-                    android:fontFamily="@font/nt_500"
-                    android:text="@string/tool_annotate"
-                    android:textColor="@color/sl_reader_item"
-                    android:textSize="@dimen/_9sdp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/btnSign"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:layout_width="@dimen/_37sdp"
-                    android:layout_height="@dimen/_26sdp"
-                    android:background="@drawable/bg_nav_pill"
-                    android:contentDescription="@null"
-                    android:paddingVertical="@dimen/_5sdp"
-                    android:src="@drawable/ic_app_sign"
-                    app:tint="@color/sl_reader_item" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_3sdp"
-                    android:fontFamily="@font/nt_500"
-                    android:text="@string/tool_sign"
-                    android:textColor="@color/sl_reader_item"
-                    android:textSize="@dimen/_9sdp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/btnFill"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:layout_width="@dimen/_37sdp"
-                    android:layout_height="@dimen/_26sdp"
-                    android:background="@drawable/bg_nav_pill"
-                    android:contentDescription="@null"
-                    android:paddingVertical="@dimen/_5sdp"
-                    android:src="@drawable/ic_app_form"
-                    app:tint="@color/sl_reader_item" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_3sdp"
-                    android:fontFamily="@font/nt_500"
-                    android:text="@string/reader_fill"
-                    android:textColor="@color/sl_reader_item"
-                    android:textSize="@dimen/_9sdp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/btnTools"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:layout_width="@dimen/_37sdp"
-                    android:layout_height="@dimen/_26sdp"
-                    android:background="@drawable/bg_nav_pill"
-                    android:contentDescription="@null"
-                    android:paddingVertical="@dimen/_5sdp"
-                    android:src="@drawable/ic_app_grid"
-                    app:tint="@color/sl_reader_item" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_3sdp"
-                    android:fontFamily="@font/nt_500"
-                    android:text="@string/tools"
-                    android:textColor="@color/sl_reader_item"
-                    android:textSize="@dimen/_9sdp" />
-            </LinearLayout>
-        </com.ui.baselib.widget.layout.UiLinearLayout>
-
-        <!-- Add text: size and colour of the next text -->
-        <com.ui.baselib.widget.layout.UiLinearLayout
-            android:id="@+id/bottomText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:paddingBottom="@dimen/_10sdp"
-            android:paddingHorizontal="@dimen/_13sdp"
-            android:paddingTop="@dimen/_9sdp"
-            android:visibility="gone"
-            app:uiBackgroundColor="@color/color_surface_card"
-            app:uiStrokeColor="@color/color_stroke"
-            app:uiStrokeSides="top"
-            app:uiStrokeWidth="@dimen/_1sdp">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:fontFamily="@font/nt_500"
-                android:text="@string/text_size"
-                android:textColor="@color/text_secondary"
-                android:textSize="@dimen/_10sdp" />
-
-            <com.ui.baselib.widget.layout.UiLinearLayout
-                style="@style/CardAppStyle"
-                android:layout_width="@dimen/_77sdp"
-                android:layout_height="@dimen/_33sdp"
-                android:layout_marginEnd="@dimen/_11sdp"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                app:uiCornerRadius="@dimen/_9sdp">
-
-                <ImageView
-                    android:id="@+id/btnTextSmaller"
-                    android:layout_width="@dimen/_25sdp"
-                    android:layout_height="match_parent"
-                    android:contentDescription="@null"
-                    android:padding="@dimen/_6sdp"
-                    android:src="@drawable/ic_app_minus" />
-
-                <TextView
-                    android:id="@+id/tvTextSize"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/nt_600"
-                    android:gravity="center"
-                    android:textColor="@color/text_primary"
-                    android:textSize="@dimen/_11sdp"
-                    tools:text="13" />
-
-                <ImageView
-                    android:id="@+id/btnTextLarger"
-                    android:layout_width="@dimen/_25sdp"
-                    android:layout_height="match_parent"
-                    android:contentDescription="@null"
-                    android:padding="@dimen/_6sdp"
-                    android:src="@drawable/ic_app_plus" />
-            </com.ui.baselib.widget.layout.UiLinearLayout>
-
-            <LinearLayout
-                android:id="@+id/layoutTextColors"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal" />
-        </com.ui.baselib.widget.layout.UiLinearLayout>
-
-        <!-- Annotate: colours, width, tools -->
-        <com.ui.baselib.widget.layout.UiLinearLayout
-            android:id="@+id/bottomAnnotate"
+            style="@style/FloatBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:visibility="gone"
-            app:uiBackgroundColor="@color/color_surface_card"
-            app:uiStrokeColor="@color/color_stroke"
-            app:uiStrokeSides="top"
-            app:uiStrokeWidth="@dimen/_1sdp">
+            android:paddingHorizontal="@dimen/_6sdp"
+            android:paddingTop="@dimen/_6sdp"
+            android:paddingBottom="@dimen/_5sdp">
+
+            <SeekBar
+                android:id="@+id/seekPage"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_20sdp"
+                android:contentDescription="@string/fo_go_to_page"
+                android:maxHeight="@dimen/_5sdp"
+                android:minHeight="@dimen/_5sdp"
+                android:paddingHorizontal="@dimen/_12sdp"
+                android:progressBackgroundTint="@color/color_surface_variant"
+                android:progressTint="@color/text_on_selected"
+                android:splitTrack="false"
+                android:thumbTint="@color/text_on_selected" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/btnEdit"
+                    style="@style/ReaderTab">
+
+                    <ImageView
+                        style="@style/ReaderTabIcon"
+                        android:src="@drawable/ic_fo_type" />
+
+                    <TextView
+                        style="@style/ReaderTabLabel"
+                        android:text="@string/fo_text" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/btnAnnotate"
+                    style="@style/ReaderTab">
+
+                    <ImageView
+                        style="@style/ReaderTabIcon"
+                        android:src="@drawable/ic_fo_highlight" />
+
+                    <TextView
+                        style="@style/ReaderTabLabel"
+                        android:text="@string/tool_annotate" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/btnSign"
+                    style="@style/ReaderTab">
+
+                    <ImageView
+                        style="@style/ReaderTabIcon"
+                        android:src="@drawable/ic_fo_sign" />
+
+                    <TextView
+                        style="@style/ReaderTabLabel"
+                        android:text="@string/tool_sign" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/btnFill"
+                    style="@style/ReaderTab">
+
+                    <ImageView
+                        style="@style/ReaderTabIcon"
+                        android:src="@drawable/ic_fo_form" />
+
+                    <TextView
+                        style="@style/ReaderTabLabel"
+                        android:text="@string/tool_fill_form" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/btnContents"
+                    style="@style/ReaderTab">
+
+                    <ImageView
+                        style="@style/ReaderTabIcon"
+                        android:src="@drawable/ic_fo_list" />
+
+                    <TextView
+                        style="@style/ReaderTabLabel"
+                        android:text="@string/contents" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Add text: size and colour of the next text -->
+        <LinearLayout
+            android:id="@+id/bottomText"
+            style="@style/FloatBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/_11sdp"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_segment_track"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="@dimen/_3sdp">
+
+                <ImageView
+                    android:id="@+id/btnTextSmaller"
+                    android:layout_width="@dimen/_31sdp"
+                    android:layout_height="@dimen/_31sdp"
+                    android:background="@drawable/bg_circle_variant"
+                    android:backgroundTint="@color/color_surface_card"
+                    android:contentDescription="@string/fo_smaller"
+                    android:padding="@dimen/_8sdp"
+                    android:src="@drawable/ic_fo_minus"
+                    app:tint="@color/text_primary" />
+
+                <TextView
+                    android:id="@+id/tvTextSize"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nunito_700"
+                    android:gravity="center"
+                    android:minWidth="@dimen/_40sdp"
+                    android:textColor="@color/text_primary"
+                    android:textSize="@dimen/_12sdp"
+                    tools:text="12 pt" />
+
+                <ImageView
+                    android:id="@+id/btnTextLarger"
+                    android:layout_width="@dimen/_31sdp"
+                    android:layout_height="@dimen/_31sdp"
+                    android:background="@drawable/bg_circle_variant"
+                    android:backgroundTint="@color/color_surface_card"
+                    android:contentDescription="@string/fo_bigger"
+                    android:padding="@dimen/_8sdp"
+                    android:src="@drawable/ic_fo_plus"
+                    app:tint="@color/text_primary" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_9sdp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/layoutTextColors"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" />
+
+                <TextView
+                    style="@style/ReaderHint"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:gravity="end|center_vertical"
+                    android:text="@string/fo_tap_to_add" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Annotate: colours, width, tools -->
+        <LinearLayout
+            android:id="@+id/bottomAnnotate"
+            style="@style/FloatBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/_11sdp"
+            android:visibility="gone">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
-                android:paddingHorizontal="@dimen/_13sdp"
-                android:paddingVertical="@dimen/_8sdp">
+                android:paddingHorizontal="@dimen/_3sdp">
 
                 <LinearLayout
                     android:id="@+id/layoutInkColors"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/_8sdp"
                     android:orientation="horizontal" />
 
-                <SeekBar
-                    android:id="@+id/seekInkWidth"
+                <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:max="7"
-                    android:progressBackgroundTint="@color/color_checkbox_stroke"
-                    android:progressTint="@color/primary"
-                    android:thumbTint="@color/primary" />
-            </LinearLayout>
+                    android:fontFamily="@font/nunito_700"
+                    android:gravity="end"
+                    android:text="@string/fo_size"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="@dimen/_10sdp" />
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_1sdp"
-                android:background="@color/color_stroke" />
+                <SeekBar
+                    android:id="@+id/seekInkWidth"
+                    android:layout_width="@dimen/_72sdp"
+                    android:layout_height="wrap_content"
+                    android:max="7"
+                    android:paddingHorizontal="@dimen/_8sdp"
+                    android:progressBackgroundTint="@color/color_surface_variant"
+                    android:progressTint="@color/text_primary"
+                    android:splitTrack="false"
+                    android:thumbTint="@color/text_primary" />
+            </LinearLayout>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rcvAnnotateTools"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:clipToPadding="false"
-                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/_8sdp"
                 android:overScrollMode="never"
-                android:paddingBottom="@dimen/_10sdp"
-                android:paddingHorizontal="@dimen/_3sdp"
-                android:paddingTop="@dimen/_8sdp"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:spanCount="8"
+                tools:itemCount="8"
                 tools:listitem="@layout/item_annotate_tool" />
-        </com.ui.baselib.widget.layout.UiLinearLayout>
-
-        <!-- Place signature -->
-        <com.ui.baselib.widget.layout.UiLinearLayout
-            android:id="@+id/bottomSign"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingBottom="@dimen/_3sdp"
-            android:visibility="gone"
-            app:uiBackgroundColor="@color/color_surface_card"
-            app:uiStrokeColor="@color/color_stroke"
-            app:uiStrokeSides="top"
-            app:uiStrokeWidth="@dimen/_1sdp">
-
-            <com.ui.baselib.widget.view.UiTextView
-                android:id="@+id/btnAddSignature"
-                style="@style/ReaderActionStyle"
-                android:text="@string/add_signature"
-                app:drawableTopCompat="@drawable/ic_app_sign" />
-
-            <com.ui.baselib.widget.view.UiTextView
-                android:id="@+id/btnSignDate"
-                style="@style/ReaderActionStyle"
-                android:text="@string/sign_date"
-                app:drawableTopCompat="@drawable/ic_app_calendar" />
-
-            <com.ui.baselib.widget.view.UiTextView
-                android:id="@+id/btnSignInitials"
-                style="@style/ReaderActionStyle"
-                android:text="@string/sign_initials"
-                app:drawableTopCompat="@drawable/ic_app_text" />
-        </com.ui.baselib.widget.layout.UiLinearLayout>
-
-        <!-- Fill form -->
-        <com.ui.baselib.widget.layout.UiLinearLayout
-            android:id="@+id/bottomForm"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:paddingBottom="@dimen/_10sdp"
-            android:paddingHorizontal="@dimen/_9sdp"
-            android:paddingTop="@dimen/_8sdp"
-            android:visibility="gone"
-            app:uiBackgroundColor="@color/color_surface_card"
-            app:uiStrokeColor="@color/color_stroke"
-            app:uiStrokeSides="top"
-            app:uiStrokeWidth="@dimen/_1sdp">
-
-            <com.ui.baselib.widget.view.UiImageView
-                android:id="@+id/btnFieldPrevious"
-                style="@style/IconButtonStyle"
-                android:contentDescription="@string/scanner_back"
-                android:src="@drawable/ic_app_chevl" />
-
-            <Space
-                android:layout_width="@dimen/_6sdp"
-                android:layout_height="0dp" />
-
-            <com.ui.baselib.widget.view.UiImageView
-                android:id="@+id/btnFieldNext"
-                style="@style/IconButtonStyle"
-                android:contentDescription="@string/next"
-                android:src="@drawable/ic_app_chev" />
 
             <TextView
-                android:id="@+id/tvField"
-                android:layout_width="0dp"
+                android:id="@+id/tvAnnotateHint"
+                style="@style/ReaderHint"
+                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:gravity="center"
+                tools:text="Shapes · tap to place, drag to resize" />
+        </LinearLayout>
+
+        <!-- Place signature -->
+        <LinearLayout
+            android:id="@+id/bottomSign"
+            style="@style/FloatBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/_11sdp"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/_6sdp"
-                android:layout_weight="1"
-                android:ellipsize="end"
-                android:fontFamily="@font/nt_400"
-                android:gravity="center"
-                android:maxLines="1"
-                android:textColor="@color/text_secondary"
-                android:textSize="@dimen/_10sdp"
-                tools:text="Field 3 of 6 · Email" />
+                android:orientation="horizontal">
 
-            <com.ui.baselib.widget.view.UiTextView
-                android:id="@+id/btnFormDone"
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/_23sdp"
-                android:layout_marginHorizontal="@dimen/_3sdp"
-                android:fontFamily="@font/nt_600"
-                android:gravity="center"
-                android:paddingHorizontal="@dimen/_10sdp"
-                android:text="@string/done"
-                android:textSize="@dimen/_10sdp"
-                app:uiBackgroundColor="@color/primary"
-                app:uiCornerRadius="@dimen/_12sdp"
-                app:uiTextColor="@color/on_primary" />
-        </com.ui.baselib.widget.layout.UiLinearLayout>
+                <FrameLayout
+                    android:id="@+id/btnAddSignature"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_46sdp"
+                    android:layout_weight="1.4"
+                    android:background="@drawable/bg_option_card"
+                    android:foreground="?attr/selectableItemBackground">
 
-        <!-- Read aloud and auto-scroll controls -->
-        <com.ui.baselib.widget.layout.UiLinearLayout
-            android:id="@+id/bottomPlay"
+                    <ImageView
+                        android:id="@+id/ivSignature"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:importantForAccessibility="no"
+                        android:padding="@dimen/_6sdp"
+                        android:scaleType="fitCenter"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/tvAddSignature"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:drawablePadding="@dimen/_5sdp"
+                        android:fontFamily="@font/nunito_700"
+                        android:gravity="center"
+                        android:text="@string/add_signature"
+                        android:textColor="@color/text_on_selected"
+                        android:textSize="@dimen/_11sdp"
+                        app:drawableStartCompat="@drawable/ic_fo_sign_17sdp"
+                        app:drawableTint="@color/text_on_selected" />
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/btnSignInitials"
+                    style="@style/SoftTile"
+                    android:layout_width="0dp"
+                    android:layout_marginStart="@dimen/_6sdp"
+                    android:layout_weight="1"
+                    android:text="@string/sign_initials" />
+
+                <TextView
+                    android:id="@+id/btnSignDate"
+                    style="@style/SoftTile"
+                    android:layout_width="0dp"
+                    android:layout_marginStart="@dimen/_6sdp"
+                    android:layout_weight="1"
+                    android:text="@string/sign_date" />
+            </LinearLayout>
+
+            <TextView
+                style="@style/ReaderHint"
+                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:gravity="center"
+                android:text="@string/fo_sign_hint" />
+        </LinearLayout>
+
+        <!-- Fill form -->
+        <LinearLayout
+            android:id="@+id/bottomForm"
+            style="@style/FloatBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
             android:orientation="horizontal"
-            android:paddingBottom="@dimen/_10sdp"
-            android:paddingEnd="@dimen/_4sdp"
-            android:paddingStart="@dimen/_13sdp"
-            android:paddingTop="@dimen/_6sdp"
-            android:visibility="gone"
-            app:uiBackgroundColor="@color/color_surface_card"
-            app:uiStrokeColor="@color/color_stroke"
-            app:uiStrokeSides="top"
-            app:uiStrokeWidth="@dimen/_1sdp">
+            android:padding="@dimen/_11sdp"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_4sdp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvFieldCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nunito_700"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="@dimen/_10sdp"
+                    tools:text="Field 3 of 4" />
+
+                <TextView
+                    android:id="@+id/tvField"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/nunito_700"
+                    android:maxLines="1"
+                    android:textColor="@color/text_primary"
+                    android:textSize="@dimen/_12sdp"
+                    tools:text="New address" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/btnFieldPrevious"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:background="@drawable/bg_circle_variant"
+                android:contentDescription="@string/fo_previous_field"
+                android:foreground="?attr/selectableItemBackgroundBorderless"
+                android:padding="@dimen/_11sdp"
+                android:src="@drawable/ic_fo_back"
+                app:tint="@color/text_primary" />
+
+            <TextView
+                android:id="@+id/btnFieldNext"
+                style="@style/PrimaryPillButton"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginStart="@dimen/_6sdp"
+                android:elevation="0dp"
+                android:text="@string/fo_next_field" />
+
+            <TextView
+                android:id="@+id/btnFormDone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/done"
+                android:visibility="gone" />
+        </LinearLayout>
+
+        <!-- Search: every match, by page -->
+        <LinearLayout
+            android:id="@+id/bottomSearch"
+            style="@style/FloatBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/_11sdp"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingHorizontal="@dimen/_3sdp">
+
+                <TextView
+                    android:id="@+id/tvMatches"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/nunito_700"
+                    android:textColor="@color/text_primary"
+                    android:textSize="@dimen/_12sdp"
+                    tools:text="7 matches" />
+
+                <TextView
+                    android:id="@+id/tvMatchPages"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_20sdp"
+                    android:background="@drawable/bg_badge"
+                    android:backgroundTint="@color/color_surface_variant"
+                    android:fontFamily="@font/nunito_700"
+                    android:gravity="center"
+                    android:paddingHorizontal="@dimen/_8sdp"
+                    android:textColor="@color/text_tertiary"
+                    android:textSize="@dimen/_10sdp"
+                    tools:text="on 3 pages" />
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rcvMatches"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:maxHeight="@dimen/_160sdp"
+                android:overScrollMode="never"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:itemCount="4"
+                tools:listitem="@layout/item_search_match" />
+        </LinearLayout>
+
+        <!-- Read aloud and auto-scroll controls -->
+        <LinearLayout
+            android:id="@+id/bottomPlay"
+            style="@style/FloatBar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_52sdp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="@dimen/_15sdp"
+            android:paddingEnd="@dimen/_6sdp"
+            android:visibility="gone">
 
             <TextView
                 android:id="@+id/tvPlayTitle"
@@ -792,7 +817,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ellipsize="end"
-                android:fontFamily="@font/nt_500"
+                android:fontFamily="@font/nunito_700"
                 android:maxLines="1"
                 android:textColor="@color/text_primary"
                 android:textSize="@dimen/_11sdp"
@@ -800,28 +825,27 @@
 
             <ImageView
                 android:id="@+id/btnPlayPrevious"
-                android:layout_width="@dimen/_27sdp"
-                android:layout_height="@dimen/_27sdp"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:contentDescription="@null"
-                android:padding="@dimen/_5sdp"
-                android:src="@drawable/ic_app_chevl" />
+                style="@style/ReaderBarIcon"
+                android:contentDescription="@string/fo_previous_page"
+                android:src="@drawable/ic_fo_back" />
 
             <ImageView
                 android:id="@+id/btnPlayToggle"
-                android:layout_width="@dimen/_27sdp"
-                android:layout_height="@dimen/_27sdp"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:contentDescription="@null"
-                android:padding="@dimen/_5sdp"
-                android:src="@drawable/ic_app_pause" />
+                android:layout_width="@dimen/_34sdp"
+                android:layout_height="@dimen/_34sdp"
+                android:background="@drawable/bg_circle_variant"
+                android:backgroundTint="@color/primary"
+                android:contentDescription="@string/fo_pause"
+                android:padding="@dimen/_9sdp"
+                android:src="@drawable/ic_fo_pause"
+                app:tint="@color/on_primary" />
 
             <!-- Auto-scroll: the speed, between the slower and faster buttons -->
             <TextView
                 android:id="@+id/tvPlaySpeed"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/nt_600"
+                android:fontFamily="@font/nunito_700"
                 android:gravity="center"
                 android:minWidth="@dimen/_23sdp"
                 android:textColor="@color/text_primary"
@@ -831,22 +855,17 @@
 
             <ImageView
                 android:id="@+id/btnPlayNext"
-                android:layout_width="@dimen/_27sdp"
-                android:layout_height="@dimen/_27sdp"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:contentDescription="@null"
-                android:padding="@dimen/_5sdp"
-                android:src="@drawable/ic_app_chev" />
+                style="@style/ReaderBarIcon"
+                android:contentDescription="@string/fo_next_page"
+                android:rotation="180"
+                android:src="@drawable/ic_fo_back" />
 
             <ImageView
                 android:id="@+id/btnPlayClose"
-                android:layout_width="@dimen/_27sdp"
-                android:layout_height="@dimen/_27sdp"
-                android:background="?attr/selectableItemBackgroundBorderless"
+                style="@style/ReaderBarClose"
+                android:layout_marginStart="@dimen/_3sdp"
                 android:contentDescription="@string/scanner_close"
-                android:padding="@dimen/_5sdp"
-                android:src="@drawable/ic_app_close" />
-        </com.ui.baselib.widget.layout.UiLinearLayout>
+                android:src="@drawable/ic_fo_close" />
+        </LinearLayout>
     </FrameLayout>
-
 </LinearLayout>

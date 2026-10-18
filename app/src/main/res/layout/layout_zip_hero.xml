@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ZIP's picture: four file cards fanned out over the box they go into. -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_100sdp"
+    android:layout_marginTop="@dimen/_6sdp"
+    android:background="@drawable/bg_rounded_panel"
+    android:backgroundTint="@color/color_file_zip_bg"
+    android:importantForAccessibility="noHideDescendants">
+
+    <FrameLayout
+        android:layout_width="@dimen/_115sdp"
+        android:layout_height="@dimen/_69sdp"
+        android:layout_gravity="center"
+        android:clipChildren="false">
+
+        <FrameLayout
+            style="@style/ZipHeroCard"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:rotation="-10">
+
+            <TextView
+                style="@style/ZipHeroPill"
+                android:backgroundTint="@color/color_file_pdf_bg"
+                android:text="@string/fo_ext_pdf"
+                android:textColor="@color/color_file_pdf" />
+        </FrameLayout>
+
+        <FrameLayout
+            style="@style/ZipHeroCard"
+            android:layout_marginStart="@dimen/_28sdp"
+            android:rotation="-3">
+
+            <TextView
+                style="@style/ZipHeroPill"
+                android:backgroundTint="@color/color_file_word_bg"
+                android:text="@string/fo_ext_docx"
+                android:textColor="@color/color_file_word" />
+        </FrameLayout>
+
+        <FrameLayout
+            style="@style/ZipHeroCard"
+            android:layout_marginStart="@dimen/_48sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:rotation="4">
+
+            <TextView
+                style="@style/ZipHeroPill"
+                android:backgroundTint="@color/color_file_excel_bg"
+                android:text="@string/fo_ext_xlsx"
+                android:textColor="@color/color_file_excel" />
+        </FrameLayout>
+
+        <FrameLayout
+            style="@style/ZipHeroCard"
+            android:layout_marginStart="@dimen/_68sdp"
+            android:rotation="11">
+
+            <TextView
+                style="@style/ZipHeroPill"
+                android:backgroundTint="@color/color_file_image_bg"
+                android:text="@string/fo_ext_jpg"
+                android:textColor="@color/color_file_image" />
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_34sdp"
+            android:layout_gravity="bottom"
+            android:layout_marginHorizontal="@dimen/_15sdp"
+            android:background="@drawable/bg_badge"
+            android:backgroundTint="@color/zip_box"
+            android:elevation="@dimen/_2sdp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:translationY="@dimen/_5sdp">
+
+            <ImageView
+                android:layout_width="@dimen/_14sdp"
+                android:layout_height="@dimen/_14sdp"
+                android:src="@drawable/ic_fo_box"
+                app:tint="@color/white" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:fontFamily="@font/nunito_700"
+                android:text="@string/fo_ext_zip"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_11sdp" />
+        </LinearLayout>
+    </FrameLayout>
+</FrameLayout>

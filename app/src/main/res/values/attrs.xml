@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--
+        Custom attributes of the baselib widgets.
+
+        Naming: every attr is "ui" + camelCase (layout params: "layout_ui" + camelCase), so
+        none can collide with Material/AppCompat/Navigation attrs of the same name; enum and flag
+        values are snake_case. Attrs shared by several widgets are declared once below with their
+        format, and each declare-styleable only references them.
+    -->
+
+    <!-- Corners -->
+    <attr name="uiCornerRadius" format="dimension" />
+    <attr name="uiCornerTopLeft" format="dimension" />
+    <attr name="uiCornerTopRight" format="dimension" />
+    <attr name="uiCornerBottomLeft" format="dimension" />
+    <attr name="uiCornerBottomRight" format="dimension" />
+
+    <!-- Background: a solid color, or a gradient from start/center/end or a color list -->
+    <attr name="uiBackgroundColor" format="color" />
+    <attr name="uiBackgroundGradientEnabled" format="boolean" />
+    <attr name="uiBackgroundGradientStart" format="color" />
+    <attr name="uiBackgroundGradientCenter" format="color" />
+    <attr name="uiBackgroundGradientEnd" format="color" />
+    <!-- "#F00 #0F0 #00F" or an @array/ of colors; overrides start/center/end -->
+    <attr name="uiBackgroundGradientColors" format="string|reference" />
+    <attr name="uiBackgroundGradientType" format="enum">
+        <enum name="linear" value="0" />
+        <enum name="radial" value="1" />
+        <enum name="sweep" value="2" />
+    </attr>
+    <attr name="uiBackgroundGradientOrientation" format="enum">
+        <enum name="top_bottom" value="0" />
+        <enum name="tr_bl" value="1" />
+        <enum name="right_left" value="2" />
+        <enum name="br_tl" value="3" />
+        <enum name="bottom_top" value="4" />
+        <enum name="bl_tr" value="5" />
+        <enum name="left_right" value="6" />
+        <enum name="tl_br" value="7" />
+    </attr>
+    <!-- Radial/sweep center as a fraction of the view size (0.0 - 1.0) -->
+    <attr name="uiBackgroundGradientCenterX" format="float" />
+    <attr name="uiBackgroundGradientCenterY" format="float" />
+    <!-- Radial radius; 0 = half of the larger side -->
+    <attr name="uiBackgroundGradientRadius" format="dimension" />
+
+    <!-- Stroke -->
+    <attr name="uiStrokeWidth" format="dimension" />
+    <!-- Per-side widths "top left bottom right" (e.g. "2dp 0 0 4dp"); one value = all sides -->
+    <attr name="uiStrokeWidths" format="string" />
+    <attr name="uiStrokeColor" format="color" />
+    <!-- Explicitly enable/disable stroke gradient; omitted keeps legacy auto-detection. -->
+    <attr name="uiStrokeGradient" format="boolean" />
+    <attr name="uiStrokeGradientStart" format="color" />
+    <attr name="uiStrokeGradientCenter" format="color" />
+    <attr name="uiStrokeGradientEnd" format="color" />
+    <!-- "#F00 #0F0 #00F" or an @array/ of colors; overrides start/center/end -->
+    <attr name="uiStrokeGradientColors" format="string|reference" />
+    <attr name="uiStrokeGradientOrientation" format="enum">
+        <enum name="top_bottom" value="0" />
+        <enum name="tr_bl" value="1" />
+        <enum name="right_left" value="2" />
+        <enum name="br_tl" value="3" />
+        <enum name="bottom_top" value="4" />
+        <enum name="bl_tr" value="5" />
+        <enum name="left_right" value="6" />
+        <enum name="tl_br" value="7" />
+    </attr>
+    <attr name="uiStrokeDashed" format="boolean" />
+    <!-- Length of each dash and of each gap between dashes -->
+    <attr name="uiStrokeDashGap" format="dimension" />
+    <!-- Which sides get a stroke -->
+    <attr name="uiStrokeSides" format="flags">
+        <flag name="none" value="0" />
+        <flag name="top" value="1" />
+        <flag name="left" value="2" />
+        <flag name="bottom" value="4" />
+        <flag name="right" value="8" />
+        <flag name="horizontal" value="5" />
+        <flag name="vertical" value="10" />
+        <flag name="top_left" value="3" />
+        <flag name="top_right" value="9" />
+        <flag name="bottom_left" value="6" />
+        <flag name="bottom_right" value="12" />
+        <flag name="all" value="15" />
+    </attr>
+    <attr name="uiStrokeCap" format="enum">
+        <enum name="butt" value="0" />
+        <enum name="round" value="1" />
+        <enum name="square" value="2" />
+    </attr>
+
+    <!--
+        Shadow. By default it is the platform elevation shadow (uiShadowElevation; the color
+        needs API 28+). Setting uiShadowRadius > 0 switches to a custom blurred shadow drawn
+        with uiShadowColor / uiShadowDx / uiShadowDy on every API level; it is drawn outside
+        the view bounds, so the parent needs room via margin/padding and must not clip
+        children (see uiShadowClipParent). Under it sits a wider, fainter ambient layer with
+        no offset, by default 2.5x uiShadowRadius at half the alpha; set uiShadowAmbientColor to
+        transparent to turn it off.
+    -->
+    <attr name="uiShadowColor" format="color" />
+    <attr name="uiShadowElevation" format="dimension" />
+    <attr name="uiShadowRadius" format="dimension" />
+    <attr name="uiShadowDx" format="dimension" />
+    <attr name="uiShadowDy" format="dimension" />
+    <attr name="uiShadowAmbientColor" format="color" />
+    <attr name="uiShadowAmbientRadius" format="dimension" />
+    <!--
+        Whether the custom shadow turns off its parent's clipChildren so it can draw outside
+        the view bounds. clipChildren=false un-clips every child of that parent, so a
+        RecyclerView / ScrollView sibling would draw its scrolled content over other views.
+        auto (default): only when the view is its parent's only child, i.e. wrap the view in
+        its own container (with padding for the shadow); otherwise the shadow is clipped and
+        a warning is logged in debuggable apps. force: always (only for parents with no
+        scrolling or overflowing children). never: leave the parent alone.
+    -->
+    <attr name="uiShadowClipParent" format="enum">
+        <enum name="auto" value="0" />
+        <enum name="force" value="1" />
+        <enum name="never" value="2" />
+    </attr>
+
+    <!-- Sizing relative to the parent -->
+    <!-- "16:9", "1.78", or with the computed side first: "W,16:9" / "H,16:9" -->
+    <attr name="uiDimensionRatio" format="string" />
+    <attr name="uiWidthPercent" format="fraction|float" />
+    <attr name="uiHeightPercent" format="fraction|float" />
+    <attr name="uiMaxWidthPercent" format="fraction|float" />
+    <attr name="uiMaxHeightPercent" format="fraction|float" />
+    <attr name="uiMinWidthPercent" format="fraction|float" />
+    <attr name="uiMinHeightPercent" format="fraction|float" />
+
+    <!-- Text -->
+    <attr name="uiTextColor" format="color" />
+    <attr name="uiTextColorHint" format="color" />
+    <attr name="uiTextGradientEnabled" format="boolean" />
+    <attr name="uiTextGradientStart" format="color" />
+    <attr name="uiTextGradientCenter" format="color" />
+    <attr name="uiTextGradientEnd" format="color" />
+    <attr name="uiTextGradientOrientation" format="enum">
+        <enum name="top_bottom" value="0" />
+        <enum name="tr_bl" value="1" />
+        <enum name="right_left" value="2" />
+        <enum name="br_tl" value="3" />
+        <enum name="bottom_top" value="4" />
+        <enum name="bl_tr" value="5" />
+        <enum name="left_right" value="6" />
+        <enum name="tl_br" value="7" />
+    </attr>
+    <attr name="uiTextDecoration" format="enum">
+        <enum name="none" value="0" />
+        <enum name="overline" value="1" />
+        <enum name="underline" value="2" />
+        <enum name="strikethrough" value="3" />
+    </attr>
+    <attr name="uiDrawableSize" format="dimension" />
+    <!-- Per-axis compound drawable size; override uiDrawableSize. Setting only one keeps the aspect ratio. -->
+    <attr name="uiDrawableWidth" format="dimension" />
+    <attr name="uiDrawableHeight" format="dimension" />
+    <!--
+        Where horizontal compound drawables sit. edge (default, TextView behavior): at the view
+        edges, inside the padding. text: next to the text, moving with it per the horizontal
+        gravity (e.g. a centered "Continue →" group in a match_parent button).
+    -->
+    <attr name="uiDrawableAlign" format="enum">
+        <enum name="edge" value="0" />
+        <enum name="text" value="1" />
+    </attr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <declare-styleable name="IndicatorView">
+        <attr name="uiIndicatorCount" format="integer" />
+        <!-- Selected index; the highlighted dot is uiIndicatorSelected * uiIndicatorStep -->
+        <attr name="uiIndicatorSelected" format="integer" />
+        <attr name="uiIndicatorStep" format="integer" />
+        <attr name="uiIndicatorSpacing" format="dimension" />
+        <attr name="uiIndicatorRadius" format="dimension" />
+        <attr name="uiIndicatorColor" format="color" />
+        <attr name="uiIndicatorSelectedColor" format="color" />
+        <!-- Width of the selected dot relative to the others -->
+        <attr name="uiIndicatorSelectedWidthRatio" format="float" />
+        <!-- Same idea for IndicatorCustomView -->
+        <attr name="uiIndicatorSelectedWidthMultiplier" format="float" />
+        <attr name="uiIndicatorGradientEnabled" format="boolean" />
+        <attr name="uiIndicatorGradientStart" format="color" />
+        <attr name="uiIndicatorGradientEnd" format="color" />
+        <attr name="uiIndicatorGradientOrientation" format="enum">
+            <enum name="left_right" value="0" />
+            <enum name="top_bottom" value="1" />
+            <enum name="tl_br" value="2" />
+            <enum name="tr_bl" value="3" />
+        </attr>
+    </declare-styleable>
+
+
+
+    <!-- Port of google/flexbox-layout with ui-prefixed attrs -->
+    <declare-styleable name="FlexboxLayout">
+        <attr name="uiFlexDirection" format="enum">
+            <enum name="row" value="0" />
+            <enum name="row_reverse" value="1" />
+            <enum name="column" value="2" />
+            <enum name="column_reverse" value="3" />
+        </attr>
+        <attr name="uiFlexWrap" format="enum">
+            <enum name="nowrap" value="0" />
+            <enum name="wrap" value="1" />
+            <enum name="wrap_reverse" value="2" />
+        </attr>
+        <attr name="uiJustifyContent" format="enum">
+            <enum name="flex_start" value="0" />
+            <enum name="flex_end" value="1" />
+            <enum name="center" value="2" />
+            <enum name="space_between" value="3" />
+            <enum name="space_around" value="4" />
+            <enum name="space_evenly" value="5" />
+        </attr>
+        <attr name="uiAlignItems" format="enum">
+            <enum name="flex_start" value="0" />
+            <enum name="flex_end" value="1" />
+            <enum name="center" value="2" />
+            <enum name="baseline" value="3" />
+            <enum name="stretch" value="4" />
+        </attr>
+        <attr name="uiAlignContent" format="enum">
+            <enum name="flex_start" value="0" />
+            <enum name="flex_end" value="1" />
+            <enum name="center" value="2" />
+            <enum name="space_between" value="3" />
+            <enum name="space_around" value="4" />
+            <enum name="stretch" value="5" />
+            <enum name="space_evenly" value="6" />
+        </attr>
+        <attr name="uiDividerDrawable" format="reference" />
+        <attr name="uiDividerDrawableHorizontal" format="reference" />
+        <attr name="uiDividerDrawableVertical" format="reference" />
+        <attr name="uiShowDivider" format="flags">
+            <flag name="none" value="0" />
+            <flag name="beginning" value="1" />
+            <flag name="middle" value="2" />
+            <flag name="end" value="4" />
+        </attr>
+        <attr name="uiShowDividerHorizontal" format="flags">
+            <flag name="none" value="0" />
+            <flag name="beginning" value="1" />
+            <flag name="middle" value="2" />
+            <flag name="end" value="4" />
+        </attr>
+        <attr name="uiShowDividerVertical" format="flags">
+            <flag name="none" value="0" />
+            <flag name="beginning" value="1" />
+            <flag name="middle" value="2" />
+            <flag name="end" value="4" />
+        </attr>
+        <!-- Maximum number of flex lines; only with uiFlexWrap="wrap" or "wrap_reverse" -->
+        <attr name="uiMaxLine" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="FlexboxLayout_Layout">
+        <attr name="layout_uiOrder" format="integer" />
+        <!-- Negative numbers are invalid -->
+        <attr name="layout_uiFlexGrow" format="float" />
+        <attr name="layout_uiFlexShrink" format="float" />
+        <!-- Initial main-axis size as a fraction of the parent (CSS flex-basis) -->
+        <attr name="layout_uiFlexBasisPercent" format="fraction" />
+        <!-- Values match uiAlignItems, plus auto (use the parent's) -->
+        <attr name="layout_uiAlignSelf" format="enum">
+            <enum name="auto" value="-1" />
+            <enum name="flex_start" value="0" />
+            <enum name="flex_end" value="1" />
+            <enum name="center" value="2" />
+            <enum name="baseline" value="3" />
+            <enum name="stretch" value="4" />
+        </attr>
+        <attr name="layout_uiMinWidth" format="dimension" />
+        <attr name="layout_uiMinHeight" format="dimension" />
+        <attr name="layout_uiMaxWidth" format="dimension" />
+        <attr name="layout_uiMaxHeight" format="dimension" />
+        <!-- Start a new flex line at this item (ignored with uiFlexWrap="nowrap") -->
+        <attr name="layout_uiWrapBefore" format="boolean" />
+    </declare-styleable>
+</resources>

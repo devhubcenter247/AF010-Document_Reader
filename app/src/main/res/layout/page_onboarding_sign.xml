@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipChildren="false">
+
+    <FrameLayout
+        android:layout_width="@dimen/_254sdp"
+        android:layout_height="@dimen/_254sdp"
+        android:layout_gravity="center"
+        android:clipChildren="false">
+
+        <ImageView
+            android:layout_width="@dimen/_231sdp"
+            android:layout_height="@dimen/_231sdp"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:importantForAccessibility="no"
+            android:src="@drawable/ic_blob"
+            app:tint="@color/color_blob_butter" />
+
+        <LinearLayout
+            android:layout_width="@dimen/_159sdp"
+            android:layout_height="@dimen/_200sdp"
+            android:layout_marginStart="@dimen/_48sdp"
+            android:layout_marginTop="@dimen/_31sdp"
+            android:background="@drawable/bg_paper_card"
+            android:elevation="@dimen/_8sdp"
+            android:orientation="vertical"
+            android:outlineAmbientShadowColor="@color/color_shadow"
+            android:outlineSpotShadowColor="@color/color_shadow"
+            android:padding="@dimen/_17sdp"
+            android:rotation="-3">
+
+            <View
+                android:layout_width="@dimen/_75sdp"
+                android:layout_height="@dimen/_5sdp"
+                android:background="@drawable/bg_sheet_line" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:background="@drawable/bg_sheet_line" />
+
+            <View
+                android:layout_width="@dimen/_112sdp"
+                android:layout_height="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:background="@drawable/bg_sheet_line" />
+
+            <View
+                android:layout_width="@dimen/_120sdp"
+                android:layout_height="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:background="@drawable/bg_sheet_line" />
+
+            <View
+                android:layout_width="@dimen/_87sdp"
+                android:layout_height="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:background="@drawable/bg_sheet_line" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_57sdp"
+                android:background="@drawable/bg_signature_box">
+
+                <ImageView
+                    android:layout_width="@dimen/_108sdp"
+                    android:layout_height="@dimen/_36sdp"
+                    android:layout_gravity="center"
+                    android:importantForAccessibility="no"
+                    android:src="@drawable/ic_signature_scribble" />
+            </FrameLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_6sdp"
+                android:fontFamily="@font/nunito_700"
+                android:text="@string/fo_signed_by_you"
+                android:textColor="@color/text_secondary"
+                android:textSize="@dimen/_9sdp" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="@dimen/_45sdp"
+            android:layout_height="@dimen/_45sdp"
+            android:layout_marginStart="@dimen/_189sdp"
+            android:layout_marginTop="@dimen/_143sdp"
+            android:background="@drawable/bg_tile_primary"
+            android:elevation="@dimen/_10sdp"
+            android:importantForAccessibility="no"
+            android:padding="@dimen/_11sdp"
+            android:rotation="10"
+            android:src="@drawable/ic_fo_pen"
+            app:tint="@color/on_primary" />
+
+        <ImageView
+            android:layout_width="@dimen/_14sdp"
+            android:layout_height="@dimen/_14sdp"
+            android:layout_marginStart="@dimen/_23sdp"
+            android:layout_marginTop="@dimen/_31sdp"
+            android:importantForAccessibility="no"
+            android:src="@drawable/ic_sparkle"
+            app:tint="@color/color_sparkle_orange" />
+    </FrameLayout>
+</FrameLayout>

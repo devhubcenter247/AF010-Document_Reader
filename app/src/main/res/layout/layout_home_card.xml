@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Read or Create at the top of the Files tab: a tilted glyph tile, a title and a line under it
+     (glyph and colour from code). -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/FloatingCard"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    android:foreground="?attr/selectableItemBackground"
+    android:orientation="vertical"
+    android:padding="@dimen/_12sdp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/ivIcon"
+            android:layout_width="@dimen/_34sdp"
+            android:layout_height="@dimen/_34sdp"
+            android:background="@drawable/bg_tool_glyph"
+            android:importantForAccessibility="no"
+            android:padding="@dimen/_8sdp"
+            android:rotation="-5"
+            tools:backgroundTint="@color/primary"
+            tools:src="@drawable/ic_fo_book" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <ImageView
+            android:layout_width="@dimen/_16sdp"
+            android:layout_height="@dimen/_16sdp"
+            android:importantForAccessibility="no"
+            android:src="@drawable/ic_fo_chevron"
+            app:tint="@color/text_tertiary" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_9sdp"
+        android:fontFamily="@font/nunito_700"
+        android:maxLines="1"
+        android:textColor="@color/text_primary"
+        android:textSize="@dimen/_14sdp"
+        tools:text="Read" />
+
+    <TextView
+        android:id="@+id/tvDesc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_1sdp"
+        android:fontFamily="@font/nunito_500"
+        android:ellipsize="end"
+        android:lines="2"
+        android:textColor="@color/text_secondary"
+        android:textSize="@dimen/_10sdp"
+        tools:text="47 files on this phone" />
+</LinearLayout>

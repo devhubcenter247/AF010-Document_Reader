@@ -1,44 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<!-- An outline entry or a bookmark: soft blue while the reader is there (selected state). -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/row"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/_38sdp"
-    android:gravity="center_vertical"
-    android:orientation="horizontal"
-    android:paddingEnd="@dimen/_6sdp"
-    tools:ignore="RtlSymmetry">
+    android:layout_height="wrap_content"
+    android:paddingHorizontal="@dimen/_3sdp"
+    android:paddingBottom="@dimen/_5sdp">
 
-    <TextView
-        android:id="@+id/tvTitle"
-        android:layout_width="0dp"
+    <LinearLayout
+        android:id="@+id/row"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:ellipsize="end"
-        android:maxLines="1"
-        android:textSize="@dimen/_10sdp"
-        tools:text="1.1 Scope" />
+        android:background="@drawable/bg_toc_row"
+        android:foreground="?attr/selectableItemBackground"
+        android:gravity="center_vertical"
+        android:minHeight="@dimen/_37sdp"
+        android:orientation="horizontal"
+        android:paddingVertical="@dimen/_5sdp"
+        android:paddingEnd="@dimen/_6sdp"
+        tools:ignore="RtlSymmetry">
 
-    <TextView
-        android:id="@+id/tvPage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/_9sdp"
-        android:fontFamily="@font/nt_400"
-        android:textColor="@color/text_secondary"
-        android:textSize="@dimen/_10sdp"
-        tools:text="1" />
+        <ImageView
+            android:id="@+id/ivStar"
+            android:layout_width="@dimen/_31sdp"
+            android:layout_height="@dimen/_31sdp"
+            android:layout_marginEnd="@dimen/_9sdp"
+            android:background="@drawable/bg_badge"
+            android:backgroundTint="@color/color_pro_bg"
+            android:importantForAccessibility="no"
+            android:padding="@dimen/_8sdp"
+            android:src="@drawable/ic_fo_star_filled"
+            android:visibility="gone"
+            app:tint="@color/color_premium_gold" />
 
-    <ImageView
-        android:id="@+id/btnRemove"
-        android:layout_width="@dimen/_23sdp"
-        android:layout_height="@dimen/_23sdp"
-        android:background="?attr/selectableItemBackgroundBorderless"
-        android:contentDescription="@string/file_action_delete"
-        android:padding="@dimen/_6sdp"
-        android:src="@drawable/ic_app_close"
-        android:visibility="gone"
-        app:tint="@color/text_secondary" />
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textSize="@dimen/_11sdp"
+            tools:text="1.1 Scope" />
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/tvPage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_8sdp"
+            android:fontFamily="@font/nunito_700"
+            android:textColor="@color/text_secondary"
+            android:textSize="@dimen/_10sdp"
+            tools:text="1" />
+
+        <ImageView
+            android:id="@+id/btnRemove"
+            android:layout_width="@dimen/_26sdp"
+            android:layout_height="@dimen/_26sdp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/fo_remove_bookmark"
+            android:padding="@dimen/_7sdp"
+            android:src="@drawable/ic_fo_close"
+            android:visibility="gone"
+            app:tint="@color/text_secondary" />
+    </LinearLayout>
+</FrameLayout>

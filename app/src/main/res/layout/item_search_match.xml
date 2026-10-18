@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- A match in the open PDF: its page and the words around it. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_match_row"
+    android:gravity="center_vertical"
+    android:minHeight="@dimen/_37sdp"
+    android:orientation="horizontal"
+    android:paddingHorizontal="@dimen/_8sdp">
+
+    <TextView
+        android:id="@+id/tvPage"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/_20sdp"
+        android:background="@drawable/bg_badge"
+        android:backgroundTint="@color/color_surface_variant"
+        android:fontFamily="@font/nunito_700"
+        android:gravity="center"
+        android:minWidth="@dimen/_40sdp"
+        android:paddingHorizontal="@dimen/_6sdp"
+        android:textColor="@color/text_tertiary"
+        android:textSize="@dimen/_9sdp"
+        tools:text="Page 4" />
+
+    <TextView
+        android:id="@+id/tvSnippet"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:layout_weight="1"
+        android:ellipsize="end"
+        android:fontFamily="@font/nunito_500"
+        android:maxLines="1"
+        android:textColor="@color/text_tertiary"
+        android:textSize="@dimen/_11sdp"
+        tools:text="…shall pay a security deposit equal to one" />
+</LinearLayout>
