@@ -44,7 +44,7 @@
         android:id="@+id/tvTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/nunito_800"
+        android:fontFamily="@font/nunito_700"
         android:textColor="@color/text_primary"
         android:textSize="@dimen/_13sdp"
         tools:text="Work" />
@@ -54,7 +54,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_2sdp"
-        android:fontFamily="@font/nunito_600"
+        android:fontFamily="@font/nunito_500"
         android:lineSpacingMultiplier="1.1"
         android:textColor="@color/text_secondary"
         android:textSize="@dimen/_10sdp"

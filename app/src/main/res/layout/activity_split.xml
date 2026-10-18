@@ -19,6 +19,7 @@
         android:overScrollMode="never">
 
         <LinearLayout
+            android:clipToPadding="false"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -104,7 +105,7 @@
                     android:id="@+id/tvPreview"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/nunito_800"
+                    android:fontFamily="@font/nunito_700"
                     android:textColor="@color/text_tertiary"
                     android:textSize="@dimen/_10sdp"
                     tools:text="You’ll get 3 files" />

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The "+" after a row of colour dots: a rainbow disc that opens the full palette. -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+    <gradient
+        android:centerColor="#22A565"
+        android:endColor="#7C3AED"
+        android:startColor="#F0443A"
+        android:type="sweep" />
+</shape>

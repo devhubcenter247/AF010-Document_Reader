@@ -70,7 +70,7 @@
                 android:layout_gravity="bottom|center_horizontal"
                 android:layout_marginBottom="@dimen/_14sdp"
                 android:background="@drawable/bg_folder_label"
-                android:fontFamily="@font/nunito_800"
+                android:fontFamily="@font/nunito_700"
                 android:gravity="center"
                 android:paddingHorizontal="@dimen/_11sdp"
                 android:text="@string/fo_phone_storage"
@@ -98,6 +98,7 @@
         android:textSize="@dimen/_23sdp" />
 
     <androidx.core.widget.NestedScrollView
+        android:clipChildren="false"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="@dimen/_11sdp"

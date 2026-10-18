@@ -4,7 +4,7 @@
         <item name="android:includeFontPadding">false</item>
         <item name="android:textColor">@color/text_primary</item>
         <item name="android:textSize">@dimen/_9sdp</item>
-        <item name="android:fontFamily">@font/nunito_600</item>
+        <item name="android:fontFamily">@font/nunito_500</item>
         <item name="colorPrimary">@color/primary</item>
         <item name="colorOnPrimary">@color/on_primary</item>
         <item name="colorPrimaryContainer">@color/color_bg_selected</item>

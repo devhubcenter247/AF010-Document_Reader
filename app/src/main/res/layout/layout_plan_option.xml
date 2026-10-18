@@ -33,7 +33,7 @@
                 android:id="@+id/tvName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/nunito_800"
+                android:fontFamily="@font/nunito_700"
                 android:textColor="@color/text_primary"
                 android:textSize="@dimen/_12sdp"
                 tools:text="Yearly" />
@@ -44,7 +44,7 @@
                 android:layout_height="@dimen/_17sdp"
                 android:layout_marginStart="@dimen/_6sdp"
                 android:background="@drawable/bg_best_value"
-                android:fontFamily="@font/nunito_800"
+                android:fontFamily="@font/nunito_700"
                 android:gravity="center"
                 android:paddingHorizontal="@dimen/_6sdp"
                 android:text="@string/fo_best_value"
@@ -57,7 +57,7 @@
             android:id="@+id/tvDetail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/nunito_600"
+            android:fontFamily="@font/nunito_500"
             android:textColor="@color/text_secondary"
             android:textSize="@dimen/_10sdp"
             tools:text="3 days free, then $2.50/mo" />
@@ -67,7 +67,7 @@
         android:id="@+id/tvPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/nunito_800"
+        android:fontFamily="@font/nunito_700"
         android:textColor="@color/text_primary"
         android:textSize="@dimen/_13sdp"
         tools:text="$29.99" />

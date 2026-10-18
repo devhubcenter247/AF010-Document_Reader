@@ -33,6 +33,7 @@
         android:overScrollMode="never">
 
         <LinearLayout
+            android:clipToPadding="false"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -124,7 +125,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_5sdp"
-                android:fontFamily="@font/nunito_800"
+                android:fontFamily="@font/nunito_700"
                 android:gravity="center"
                 android:letterSpacing="-0.015"
                 android:text="@string/fo_all_done"
@@ -136,7 +137,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_3sdp"
-                android:fontFamily="@font/nunito_600"
+                android:fontFamily="@font/nunito_500"
                 android:gravity="center"
                 android:paddingHorizontal="@dimen/_23sdp"
                 android:textColor="@color/text_secondary"
@@ -170,7 +171,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:background="@drawable/bg_file_tile"
-                            android:fontFamily="@font/nunito_800"
+                            android:fontFamily="@font/nunito_700"
                             android:gravity="center"
                             android:importantForAccessibility="no"
                             android:maxLines="1"
@@ -202,7 +203,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:ellipsize="middle"
-                            android:fontFamily="@font/nunito_800"
+                            android:fontFamily="@font/nunito_700"
                             android:maxLines="1"
                             android:textColor="@color/text_primary"
                             android:textSize="@dimen/_12sdp"
@@ -212,7 +213,7 @@
                             android:id="@+id/tvMeta"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:fontFamily="@font/nunito_600"
+                            android:fontFamily="@font/nunito_500"
                             android:textColor="@color/text_secondary"
                             android:textSize="@dimen/_10sdp"
                             tools:text="3.7 MB · Download › Folio" />

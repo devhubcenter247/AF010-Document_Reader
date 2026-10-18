@@ -52,7 +52,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_9sdp"
-        android:fontFamily="@font/nunito_700"
+        android:fontFamily="@font/nunito_600"
         android:gravity="center"
         android:textColor="@color/text_tertiary"
         android:textSize="@dimen/_11sdp"

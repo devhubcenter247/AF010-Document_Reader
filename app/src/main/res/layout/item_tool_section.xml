@@ -10,7 +10,7 @@
         android:id="@+id/tvTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/nunito_800"
+        android:fontFamily="@font/nunito_700"
         android:paddingStart="@dimen/_6sdp"
         android:paddingTop="@dimen/_12sdp"
         android:paddingBottom="@dimen/_4sdp"

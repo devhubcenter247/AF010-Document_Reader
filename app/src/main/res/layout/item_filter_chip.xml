@@ -8,7 +8,7 @@
     android:layout_marginEnd="@dimen/_6sdp"
     android:background="@drawable/bg_filter_chip"
     android:drawablePadding="@dimen/_5sdp"
-    android:fontFamily="@font/nunito_800"
+    android:fontFamily="@font/nunito_700"
     android:gravity="center"
     android:paddingHorizontal="@dimen/_12sdp"
     android:textColor="@color/text_filter_chip"

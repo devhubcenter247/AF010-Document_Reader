@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- A text field whose last value was wrong: ringed in red. -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="@color/color_surface_card" />
+    <corners android:radius="@dimen/_14sdp" />
+    <stroke android:width="@dimen/_2sdp" android:color="@color/color_file_pdf" />
+</shape>

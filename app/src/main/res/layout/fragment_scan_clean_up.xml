@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Clean up a scan: paint over marks on the page, then Done fills them with the paper around. -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/color_scan_bg"
+    android:background="@color/color_bg_app"
     android:orientation="vertical"
     tools:context=".ui.main.scan.fragment.ScanCleanUpFragment">
 
@@ -15,112 +16,116 @@
         android:gravity="center_vertical"
         android:minHeight="@dimen/_46sdp"
         android:orientation="horizontal"
-        android:paddingHorizontal="@dimen/_9sdp">
+        android:paddingHorizontal="@dimen/_12sdp">
 
         <ImageView
             android:id="@+id/btnBack"
-            style="@style/IconButtonStyle"
-            android:contentDescription="@string/scanner_back"
-            android:src="@drawable/ic_app_back"
-            app:tint="@color/on_primary"
-            android:background="@drawable/bg_white_12_r17sdp"
-            android:clipToOutline="true" />
+            style="@style/RoundIconButton"
+            android:layout_width="@dimen/_32sdp"
+            android:layout_height="@dimen/_32sdp"
+            android:contentDescription="@string/back"
+            android:src="@drawable/ic_fo_back" />
 
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/_6sdp"
+            android:layout_marginHorizontal="@dimen/_9sdp"
             android:layout_weight="1"
             android:orientation="vertical">
 
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/nunito_700"
                 android:text="@string/scan_clean_up"
-                android:textColor="@color/on_primary"
-                android:textSize="@dimen/_12sdp" />
+                android:textColor="@color/text_primary"
+                android:textSize="@dimen/_14sdp" />
 
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:alpha="0.7"
                 android:ellipsize="end"
-                android:fontFamily="@font/nunito_600"
+                android:fontFamily="@font/nunito_500"
                 android:maxLines="1"
                 android:text="@string/scan_clean_hint"
-                android:textColor="@color/on_primary"
-                android:textSize="@dimen/_9sdp" />
+                android:textColor="@color/text_secondary"
+                android:textSize="@dimen/_10sdp" />
         </LinearLayout>
 
         <TextView
             android:id="@+id/btnDone"
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/_23sdp"
-            android:fontFamily="@font/nunito_800"
-            android:gravity="center"
-            android:paddingHorizontal="@dimen/_10sdp"
-            android:text="@string/done"
-            android:textSize="@dimen/_10sdp"
-            android:background="@drawable/bg_accent_r12sdp"
-            android:textColor="@color/on_accent" />
+            style="@style/ReaderSave"
+            android:text="@string/done" />
     </LinearLayout>
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_marginHorizontal="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_weight="1"
+        android:background="@drawable/bg_rounded_panel"
+        android:backgroundTint="@color/scan_board"
+        android:clipToOutline="true">
 
         <com.af010.creator.docreader.ui.main.scan.view.CleanUpView
             android:id="@+id/cleanView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="@dimen/_15sdp" />
+            android:layout_margin="@dimen/_12sdp" />
 
         <ProgressBar
             android:id="@+id/progress"
-            android:layout_width="@dimen/_28sdp"
-            android:layout_height="@dimen/_28sdp"
+            android:layout_width="@dimen/_34sdp"
+            android:layout_height="@dimen/_34sdp"
             android:layout_gravity="center"
-            android:indeterminateTint="@color/accent"
+            android:indeterminateTint="@color/white"
             android:visibility="gone" />
     </FrameLayout>
 
-    <LinearLayout
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_54sdp"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
+        android:layout_height="wrap_content"
+        android:clipToPadding="false"
         android:paddingHorizontal="@dimen/_12sdp"
-        android:paddingBottom="@dimen/_7sdp">
+        android:paddingTop="@dimen/_9sdp"
+        android:paddingBottom="@dimen/_15sdp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/nunito_700"
-            android:text="@string/scan_brush"
-            android:textColor="@color/on_primary"
-            android:textSize="@dimen/_10sdp" />
+        <LinearLayout
+            style="@style/FloatBar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_49sdp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="@dimen/_15sdp"
+            android:paddingEnd="@dimen/_6sdp">
 
-        <SeekBar
-            android:id="@+id/seekBrush"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/_6sdp"
-            android:layout_weight="1"
-            android:max="100"
-            android:progressBackgroundTint="@color/color_white_12"
-            android:progressTint="@color/accent"
-            android:thumbTint="@color/accent" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunito_700"
+                android:text="@string/scan_brush"
+                android:textColor="@color/text_secondary"
+                android:textSize="@dimen/_10sdp" />
 
-        <ImageView
-            android:id="@+id/btnUndo"
-            style="@style/IconButtonStyle"
-            android:contentDescription="@string/undo"
-            android:src="@drawable/ic_app_undo"
-            app:tint="@color/on_primary"
-            android:background="@drawable/bg_white_12_r17sdp"
-            android:clipToOutline="true" />
-    </LinearLayout>
+            <SeekBar
+                android:id="@+id/seekBrush"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_6sdp"
+                android:layout_weight="1"
+                android:max="100"
+                android:progressBackgroundTint="@color/color_surface_variant"
+                android:progressTint="@color/text_primary"
+                android:splitTrack="false"
+                android:thumbTint="@color/text_primary" />
 
+            <ImageView
+                android:id="@+id/btnUndo"
+                style="@style/ReaderBarIcon"
+                android:background="@drawable/bg_circle_variant"
+                android:contentDescription="@string/undo"
+                android:src="@drawable/ic_fo_undo" />
+        </LinearLayout>
+    </FrameLayout>
 </LinearLayout>

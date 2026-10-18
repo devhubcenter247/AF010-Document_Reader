@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- "Your documents": one file type with how many of it are on the phone (FilesFragment). -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/FloatingCard"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    android:elevation="@dimen/_2sdp"
+    android:foreground="?attr/selectableItemBackground"
+    android:orientation="vertical"
+    android:paddingHorizontal="@dimen/_8sdp"
+    android:paddingVertical="@dimen/_9sdp">
+
+    <TextView
+        android:id="@+id/tvBadge"
+        android:layout_width="@dimen/_32sdp"
+        android:layout_height="@dimen/_23sdp"
+        android:background="@drawable/bg_file_tile"
+        android:fontFamily="@font/nunito_700"
+        android:gravity="center"
+        android:maxLines="1"
+        android:textColor="@color/on_primary"
+        android:textSize="@dimen/_9sdp"
+        tools:backgroundTint="@color/color_file_pdf"
+        tools:text="PDF" />
+
+    <TextView
+        android:id="@+id/tvCount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_7sdp"
+        android:fontFamily="@font/nunito_700"
+        android:maxLines="1"
+        android:textColor="@color/text_primary"
+        android:textSize="@dimen/_11sdp"
+        tools:text="24 files" />
+</LinearLayout>

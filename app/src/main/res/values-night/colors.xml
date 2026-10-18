@@ -11,15 +11,7 @@
     <color name="color_stroke">#333846</color>
     <color name="color_handle">#3D4250</color>
     <color name="color_checkbox_stroke">#4A5060</color>
-    <color name="color_plan_selected">#1E2A44</color>
-    <color name="color_reader_bg">#0F1115</color>
     <color name="color_shadow">#000000</color>
-    <color name="color_info_bg">#1E2A44</color>
-    <color name="color_on_info">#8DB4FF</color>
-    <color name="color_error_bg">#4A2523</color>
-    <color name="color_success_bg">#1B3427</color>
-    <color name="color_warning_bg">#45301F</color>
-    <color name="color_on_warning">#F3B27A</color>
     <color name="color_warning">#F3B27A</color>
     <color name="color_pro_bg">#45301F</color>
 

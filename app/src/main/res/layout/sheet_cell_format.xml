@@ -88,7 +88,7 @@
                 android:layout_height="@dimen/_36sdp"
                 android:layout_marginStart="@dimen/_8sdp"
                 android:drawablePadding="@dimen/_8sdp"
-                android:fontFamily="@font/nunito_600"
+                android:fontFamily="@font/nunito_500"
                 android:gravity="center_vertical"
                 android:text="@string/wrap_text"
                 android:textSize="@dimen/_12sdp"

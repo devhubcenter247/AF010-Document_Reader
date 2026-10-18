@@ -64,7 +64,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:fontFamily="@font/nunito_800"
+                            android:fontFamily="@font/nunito_700"
                             android:text="@string/fo_right_now"
                             android:textColor="@color/text_tertiary"
                             android:textSize="@dimen/_10sdp" />
@@ -73,7 +73,7 @@
                             android:id="@+id/tvBefore"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:fontFamily="@font/nunito_800"
+                            android:fontFamily="@font/nunito_700"
                             android:textColor="@color/text_primary"
                             android:textSize="@dimen/_17sdp"
                             tools:text="4.0 MB" />
@@ -96,7 +96,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:fontFamily="@font/nunito_800"
+                            android:fontFamily="@font/nunito_700"
                             android:text="@string/fo_after_about"
                             android:textColor="@color/text_tertiary"
                             android:textSize="@dimen/_10sdp" />
@@ -105,7 +105,7 @@
                             android:id="@+id/tvAfter"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:fontFamily="@font/nunito_800"
+                            android:fontFamily="@font/nunito_700"
                             android:textColor="@color/color_file_excel"
                             android:textSize="@dimen/_23sdp"
                             tools:text="1.8 MB" />

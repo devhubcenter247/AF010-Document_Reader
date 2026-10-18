@@ -4,12 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:clipToPadding="false"
     android:padding="@dimen/_4sdp">
 
     <LinearLayout
         android:id="@+id/card"
         style="@style/FloatingCard"
         android:layout_width="match_parent"
+        android:elevation="@dimen/_2sdp"
         android:layout_height="wrap_content"
         android:foreground="?attr/selectableItemBackground"
         android:gravity="center_vertical"
@@ -40,7 +42,7 @@
                 android:id="@+id/tvTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/nunito_800"
+                android:fontFamily="@font/nunito_700"
                 android:lineSpacingMultiplier="0.95"
                 android:textColor="@color/text_primary"
                 android:textSize="@dimen/_11sdp"
@@ -51,7 +53,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_1sdp"
-                android:fontFamily="@font/nunito_600"
+                android:fontFamily="@font/nunito_500"
                 android:textColor="@color/text_secondary"
                 android:textSize="@dimen/_10sdp"
                 tools:text="Paper to PDF" />
@@ -62,7 +64,7 @@
                 android:layout_height="@dimen/_15sdp"
                 android:layout_marginTop="@dimen/_2sdp"
                 android:background="@drawable/bg_soon_chip"
-                android:fontFamily="@font/nunito_800"
+                android:fontFamily="@font/nunito_700"
                 android:gravity="center"
                 android:paddingHorizontal="@dimen/_6sdp"
                 android:text="@string/fo_coming_soon"

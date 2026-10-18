@@ -32,7 +32,7 @@
             android:id="@+id/tvTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/nunito_800"
+            android:fontFamily="@font/nunito_700"
             android:textColor="@color/text_primary"
             android:textSize="@dimen/_12sdp"
             tools:text="Custom ranges" />
@@ -42,7 +42,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_1sdp"
-            android:fontFamily="@font/nunito_600"
+            android:fontFamily="@font/nunito_500"
             android:textColor="@color/text_secondary"
             android:textSize="@dimen/_10sdp"
             tools:text="Choose the pages for each file" />
@@ -54,7 +54,7 @@
         android:layout_height="@dimen/_23sdp"
         android:background="@drawable/bg_badge"
         android:backgroundTint="@color/color_file_excel_bg"
-        android:fontFamily="@font/nunito_800"
+        android:fontFamily="@font/nunito_700"
         android:gravity="center"
         android:paddingHorizontal="@dimen/_8sdp"
         android:textColor="@color/color_file_excel"

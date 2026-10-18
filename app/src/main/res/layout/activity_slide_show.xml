@@ -54,7 +54,7 @@
             android:layout_marginTop="@dimen/_3sdp"
             android:background="@drawable/bg_glass_track"
             android:backgroundTint="@color/show_glass"
-            android:fontFamily="@font/nunito_800"
+            android:fontFamily="@font/nunito_700"
             android:gravity="center"
             android:paddingHorizontal="@dimen/_11sdp"
             android:textColor="@color/white"

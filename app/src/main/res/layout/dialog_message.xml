@@ -1,67 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<!-- A message from the mascot (a red warning badge when something failed) with one or two answers. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    style="@style/DialogAppStyle"
-    android:clipChildren="false"
-    android:clipToPadding="false"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@drawable/bg_dialog"
+    android:clipToPadding="false"
+    android:gravity="center_horizontal"
     android:orientation="vertical"
-    android:padding="@dimen/_17sdp"
-    tools:context=".ui.dialog.MessageDialog"
-    android:background="@drawable/bg_surface_card_r18sdp"
-    android:clipToOutline="true">
+    android:paddingHorizontal="@dimen/_17sdp"
+    android:paddingTop="@dimen/_18sdp"
+    android:paddingBottom="@dimen/_15sdp"
+    tools:context=".ui.dialog.MessageDialog">
+
+    <FrameLayout
+        android:layout_width="@dimen/_77sdp"
+        android:layout_height="@dimen/_80sdp"
+        android:importantForAccessibility="noHideDescendants">
+
+        <ImageView
+            android:layout_width="@dimen/_54sdp"
+            android:layout_height="@dimen/_67sdp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_mascot_smile" />
+
+        <ImageView
+            android:id="@+id/ivAlert"
+            android:layout_width="@dimen/_28sdp"
+            android:layout_height="@dimen/_28sdp"
+            android:layout_gravity="bottom|end"
+            android:background="@drawable/bg_alert_badge"
+            android:padding="@dimen/_7sdp"
+            android:src="@drawable/ic_fo_alert"
+            android:visibility="gone"
+            app:tint="@color/white"
+            tools:visibility="visible" />
+    </FrameLayout>
 
     <TextView
         android:id="@+id/tvTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/nunito_800"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:fontFamily="@font/nunito_600"
+        android:gravity="center"
         android:textColor="@color/text_primary"
-        android:textSize="@dimen/_13sdp"
-        tools:text="Can’t open file" />
+        android:textSize="@dimen/_15sdp" />
 
     <TextView
         android:id="@+id/tvMessage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_6sdp"
-        android:fontFamily="@font/nunito_600"
-        android:lineSpacingMultiplier="1.2"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:fontFamily="@font/nunito_400"
+        android:gravity="center"
+        android:lineSpacingMultiplier="1.15"
         android:textColor="@color/text_secondary"
-        android:textSize="@dimen/_9sdp"
-        tools:text="The file may be damaged or not fully downloaded. Download it again and retry." />
+        android:textSize="@dimen/_10sdp" />
 
-    <LinearLayout
+    <TextView
+        android:id="@+id/btnConfirm"
+        style="@style/DialogPrimaryButton"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_13sdp"
-        android:orientation="horizontal">
+        android:layout_marginTop="@dimen/_14sdp"
+        tools:text="Okay" />
 
-        <TextView
-            android:id="@+id/btnCancel"
-            style="@style/ButtonOutlineStyle"
-            android:layout_width="0dp"
-            android:layout_marginEnd="@dimen/_4sdp"
-            android:layout_weight="1"
-            android:text="@string/file_action_cancel"
-            android:background="@drawable/bg_surface_card_r10sdp_st1sdp_stroke"
-            android:textColor="@color/text_primary" />
-
-        <TextView
-            android:id="@+id/btnConfirm"
-            style="@style/ButtonAppStyle"
-            android:layout_width="0dp"
-            android:layout_marginStart="@dimen/_4sdp"
-            android:layout_weight="1"
-            android:text="@string/got_it"
-            android:background="@drawable/bg_button_primary"
-            android:elevation="@dimen/_5sdp"
-            android:outlineSpotShadowColor="@color/primary_30"
-            android:outlineAmbientShadowColor="@color/primary_20"
-            android:textColor="@color/white" />
-    </LinearLayout>
-
+    <TextView
+        android:id="@+id/btnCancel"
+        style="@style/DialogGhostButton"
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/_2sdp"
+        android:visibility="gone"
+        tools:text="Delete this file"
+        tools:visibility="visible" />
 </LinearLayout>

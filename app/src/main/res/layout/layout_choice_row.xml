@@ -31,7 +31,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/_9sdp"
         android:layout_weight="1"
-        android:fontFamily="@font/nunito_800"
+        android:fontFamily="@font/nunito_700"
         android:textColor="@color/text_primary"
         android:textSize="@dimen/_12sdp"
         tools:text="Date modified" />

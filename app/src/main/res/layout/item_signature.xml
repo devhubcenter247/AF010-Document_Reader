@@ -30,7 +30,7 @@
             android:background="?attr/selectableItemBackgroundBorderless"
             android:contentDescription="@string/file_action_delete"
             android:padding="@dimen/_5sdp"
-            android:src="@drawable/ic_app_close"
+            android:src="@drawable/ic_fo_close"
             app:tint="#6B7186" />
     </FrameLayout>
 

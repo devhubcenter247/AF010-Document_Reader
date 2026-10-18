@@ -59,7 +59,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:fontFamily="@font/nunito_800"
+                        android:fontFamily="@font/nunito_700"
                         android:letterSpacing="0.08"
                         android:maxLines="1"
                         tools:text="CONFIDENTIAL" />
@@ -79,7 +79,7 @@
                     android:id="@+id/edtText"
                     style="@style/FieldInput"
                     android:layout_width="match_parent"
-                    android:fontFamily="@font/nunito_800"
+                    android:fontFamily="@font/nunito_700"
                     android:hint="@string/watermark_text"
                     android:imeOptions="actionDone"
                     android:inputType="textCapCharacters"

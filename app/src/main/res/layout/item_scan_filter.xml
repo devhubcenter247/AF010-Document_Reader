@@ -32,7 +32,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_4sdp"
         android:duplicateParentState="true"
-        android:fontFamily="@font/nunito_800"
+        android:fontFamily="@font/nunito_700"
         android:maxLines="1"
         android:textColor="@color/text_filter_label"
         android:textSize="@dimen/_10sdp"

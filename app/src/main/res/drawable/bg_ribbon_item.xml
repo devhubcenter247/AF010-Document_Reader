@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- A ribbon command on the docked bar; RibbonAdapter fills it (clear, a chip's box, or the
+     file type's pale tint while the command is on). -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="@android:color/transparent" />
+    <corners android:radius="@dimen/_7sdp" />
+</shape>

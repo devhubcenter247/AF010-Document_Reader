@@ -20,6 +20,7 @@
         android:overScrollMode="never">
 
         <LinearLayout
+            android:clipToPadding="false"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -109,7 +110,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_12sdp"
-                    android:fontFamily="@font/nunito_800"
+                    android:fontFamily="@font/nunito_700"
                     android:text="@string/fo_used_lately"
                     android:textColor="@color/text_primary"
                     android:textSize="@dimen/_11sdp" />
@@ -149,7 +150,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:fontFamily="@font/nunito_800"
+                        android:fontFamily="@font/nunito_700"
                         android:textColor="@color/text_primary"
                         android:textSize="@dimen/_11sdp"
                         tools:text="Free plan: first 3 pages" />
@@ -158,7 +159,7 @@
                         android:id="@+id/tvQuotaCount"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/nunito_800"
+                        android:fontFamily="@font/nunito_700"
                         android:textColor="@color/color_warning"
                         android:textSize="@dimen/_11sdp"
                         tools:text="3 of 38" />
@@ -189,7 +190,7 @@
                     android:layout_marginTop="@dimen/_4sdp"
                     android:background="?attr/selectableItemBackground"
                     android:drawablePadding="@dimen/_5sdp"
-                    android:fontFamily="@font/nunito_800"
+                    android:fontFamily="@font/nunito_700"
                     android:gravity="center_vertical"
                     android:textColor="@color/color_warning"
                     android:textSize="@dimen/_11sdp"

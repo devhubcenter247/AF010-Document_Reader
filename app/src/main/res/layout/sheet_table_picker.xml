@@ -34,7 +34,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_8sdp"
-            android:fontFamily="@font/nunito_800"
+            android:fontFamily="@font/nunito_700"
             android:gravity="center"
             android:textColor="@color/text_primary"
             android:textSize="@dimen/_13sdp"
@@ -45,7 +45,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_3sdp"
-            android:fontFamily="@font/nunito_700"
+            android:fontFamily="@font/nunito_600"
             android:gravity="center"
             android:text="@string/columns_by_rows"
             android:textColor="@color/text_secondary"
@@ -68,7 +68,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/nunito_700"
+                    android:fontFamily="@font/nunito_600"
                     android:text="@string/columns"
                     android:textColor="@color/text_secondary"
                     android:textSize="@dimen/_10sdp" />
@@ -89,14 +89,14 @@
                         android:layout_height="match_parent"
                         android:contentDescription="@null"
                         android:padding="@dimen/_8sdp"
-                        android:src="@drawable/ic_app_minus" />
+                        android:src="@drawable/ic_fo_minus" />
 
                     <TextView
                         android:id="@+id/tvColumns"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:fontFamily="@font/nunito_800"
+                        android:fontFamily="@font/nunito_700"
                         android:gravity="center"
                         android:textColor="@color/text_primary"
                         android:textSize="@dimen/_11sdp"
@@ -108,7 +108,7 @@
                         android:layout_height="match_parent"
                         android:contentDescription="@null"
                         android:padding="@dimen/_8sdp"
-                        android:src="@drawable/ic_app_plus" />
+                        android:src="@drawable/ic_fo_plus" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -125,7 +125,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/nunito_700"
+                    android:fontFamily="@font/nunito_600"
                     android:text="@string/rows"
                     android:textColor="@color/text_secondary"
                     android:textSize="@dimen/_10sdp" />
@@ -146,14 +146,14 @@
                         android:layout_height="match_parent"
                         android:contentDescription="@null"
                         android:padding="@dimen/_8sdp"
-                        android:src="@drawable/ic_app_minus" />
+                        android:src="@drawable/ic_fo_minus" />
 
                     <TextView
                         android:id="@+id/tvRows"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:fontFamily="@font/nunito_800"
+                        android:fontFamily="@font/nunito_700"
                         android:gravity="center"
                         android:textColor="@color/text_primary"
                         android:textSize="@dimen/_11sdp"
@@ -165,7 +165,7 @@
                         android:layout_height="match_parent"
                         android:contentDescription="@null"
                         android:padding="@dimen/_8sdp"
-                        android:src="@drawable/ic_app_plus" />
+                        android:src="@drawable/ic_fo_plus" />
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>

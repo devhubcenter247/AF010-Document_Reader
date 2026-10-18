@@ -49,7 +49,7 @@
         android:layout_marginStart="@dimen/_9sdp"
         android:layout_weight="1"
         android:ellipsize="middle"
-        android:fontFamily="@font/nunito_700"
+        android:fontFamily="@font/nunito_600"
         android:maxLines="1"
         android:textColor="@color/text_tertiary"
         android:textSize="@dimen/_11sdp"

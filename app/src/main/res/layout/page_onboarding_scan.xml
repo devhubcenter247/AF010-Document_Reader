@@ -107,7 +107,7 @@
             android:background="@drawable/bg_pill_card"
             android:drawablePadding="@dimen/_5sdp"
             android:elevation="@dimen/_10sdp"
-            android:fontFamily="@font/nunito_800"
+            android:fontFamily="@font/nunito_700"
             android:gravity="center_vertical"
             android:outlineAmbientShadowColor="@color/color_shadow"
             android:outlineSpotShadowColor="@color/color_shadow"

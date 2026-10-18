@@ -1,188 +1,501 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<!-- The Files tab. With file access a MotionLayout (scene_files_home) under a header that stays: once
+     the Read and Create cards scroll away, two pills take their place under the header. Without access, the
+     library with its own header. FilesFragment shows one or the other. -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/scroll"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/color_bg_app"
-    android:clipToPadding="false"
-    android:paddingBottom="@dimen/_100sdp"
     tools:context=".ui.main.files.FilesFragment">
 
-    <LinearLayout
+    <androidx.constraintlayout.motion.widget.MotionLayout
+        android:id="@+id/motionHome"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="match_parent"
+        app:layoutDescription="@xml/scene_files_home">
 
-        <!-- ============ With file access ============ -->
         <LinearLayout
-            android:id="@+id/layoutHome"
+            android:id="@+id/headerHome"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="@dimen/_49sdp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="@dimen/_15sdp"
+            android:paddingEnd="@dimen/_9sdp">
+
+            <FrameLayout
+                android:layout_width="@dimen/_34sdp"
+                android:layout_height="@dimen/_34sdp"
+                android:background="@drawable/bg_mascot_tile"
+                android:rotation="-6">
+
+                <ImageView
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_25sdp"
+                    android:layout_gravity="center"
+                    android:importantForAccessibility="no"
+                    android:src="@drawable/ic_mascot_smile_ink" />
+            </FrameLayout>
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_49sdp"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:paddingStart="@dimen/_15sdp"
-                android:paddingEnd="@dimen/_9sdp">
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_9sdp"
+                android:layout_weight="1"
+                android:orientation="vertical">
 
-                <FrameLayout
-                    android:layout_width="@dimen/_34sdp"
-                    android:layout_height="@dimen/_34sdp"
-                    android:background="@drawable/bg_mascot_tile"
-                    android:rotation="-6">
-
-                    <ImageView
-                        android:layout_width="@dimen/_20sdp"
-                        android:layout_height="@dimen/_25sdp"
-                        android:layout_gravity="center"
-                        android:importantForAccessibility="no"
-                        android:src="@drawable/ic_mascot_smile_ink" />
-                </FrameLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
+                <TextView
+                    android:id="@+id/tvGreeting"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/_9sdp"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
+                    android:fontFamily="@font/nunito_600"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="@dimen/_10sdp"
+                    tools:text="Good morning" />
 
-                    <TextView
-                        android:id="@+id/tvGreeting"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/nunito_700"
-                        android:textColor="@color/text_secondary"
-                        android:textSize="@dimen/_10sdp"
-                        tools:text="Good morning" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nunito_700"
+                    android:letterSpacing="-0.015"
+                    android:maxLines="1"
+                    android:text="@string/fo_whats_on_today"
+                    android:textColor="@color/text_primary"
+                    android:textSize="@dimen/_16sdp" />
+            </LinearLayout>
 
-                    <TextView
-                        android:layout_width="wrap_content"
+            <ImageView
+                android:id="@+id/btnSearch"
+                style="@style/RoundIconButton"
+                android:contentDescription="@string/search_files"
+                android:src="@drawable/ic_fo_search" />
+
+            <ImageView
+                android:id="@+id/btnPro"
+                android:layout_width="@dimen/_34sdp"
+                android:layout_height="@dimen/_34sdp"
+                android:layout_marginStart="@dimen/_9sdp"
+                android:background="@drawable/bg_circle_pro"
+                android:contentDescription="@string/fo_pro_name"
+                android:foreground="?attr/selectableItemBackgroundBorderless"
+                android:padding="@dimen/_9sdp"
+                android:src="@drawable/ic_fo_crown"
+                app:tint="@color/color_premium_gold" />
+        </LinearLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/scroll"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:clipToPadding="false"
+            android:paddingBottom="@dimen/_100sdp">
+
+            <LinearLayout
+                android:id="@+id/layoutHome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- The two halves of the app side by side: read what is on the phone, or make something -->
+                <LinearLayout
+                    android:id="@+id/layoutCards"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clipToPadding="false"
+                    android:baselineAligned="false"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/_15sdp"
+                    android:paddingTop="@dimen/_6sdp"
+            android:paddingBottom="@dimen/_4sdp">
+
+                    <include
+                        android:id="@+id/cardRead"
+                        layout="@layout/layout_home_card"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/nunito_800"
-                        android:letterSpacing="-0.015"
-                        android:maxLines="1"
-                        android:text="@string/fo_whats_on_today"
-                        android:textColor="@color/text_primary"
-                        android:textSize="@dimen/_16sdp" />
+                        android:layout_weight="1" />
+
+                    <Space
+                        android:layout_width="@dimen/_8sdp"
+                        android:layout_height="0dp" />
+
+                    <include
+                        android:id="@+id/cardCreate"
+                        layout="@layout/layout_home_card"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
                 </LinearLayout>
 
-                <ImageView
-                    android:id="@+id/btnSearch"
-                    style="@style/RoundIconButton"
-                    android:contentDescription="@string/search_files"
-                    android:src="@drawable/ic_fo_search" />
-
-                <ImageView
-                    android:id="@+id/btnPro"
-                    android:layout_width="@dimen/_34sdp"
-                    android:layout_height="@dimen/_34sdp"
-                    android:layout_marginStart="@dimen/_9sdp"
-                    android:background="@drawable/bg_circle_pro"
-                    android:contentDescription="@string/fo_pro_name"
-                    android:foreground="?attr/selectableItemBackgroundBorderless"
-                    android:padding="@dimen/_9sdp"
-                    android:src="@drawable/ic_fo_crown"
-                    app:tint="@color/color_premium_gold" />
-            </LinearLayout>
-
-            <TextView
-                style="@style/SectionHeading"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingHorizontal="@dimen/_15sdp"
-                android:paddingTop="@dimen/_12sdp"
-                android:paddingBottom="@dimen/_8sdp"
-                android:text="@string/fo_start_something_new" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:clipChildren="false"
-                android:orientation="horizontal"
-                android:paddingHorizontal="@dimen/_15sdp">
-
-                <include
-                    android:id="@+id/tileWord"
-                    layout="@layout/layout_start_tile"
-                    android:layout_width="0dp"
-                    android:layout_height="@dimen/_105sdp"
-                    android:layout_weight="1" />
-
-                <include
-                    android:id="@+id/tileExcel"
-                    layout="@layout/layout_start_tile"
-                    android:layout_width="0dp"
-                    android:layout_height="@dimen/_105sdp"
-                    android:layout_marginHorizontal="@dimen/_8sdp"
-                    android:layout_weight="1" />
-
-                <include
-                    android:id="@+id/tilePpt"
-                    layout="@layout/layout_start_tile"
-                    android:layout_width="0dp"
-                    android:layout_height="@dimen/_105sdp"
-                    android:layout_weight="1" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingHorizontal="@dimen/_15sdp"
-                android:paddingTop="@dimen/_8sdp">
-
                 <TextView
-                    android:id="@+id/btnScan"
-                    style="@style/PillAction"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:text="@string/fo_scan_to_pdf"
-                    app:drawableStartCompat="@drawable/ic_fo_scan_15sdp"
-                    app:drawableTint="@color/primary" />
-
-                <TextView
-                    android:id="@+id/btnPhotos"
-                    style="@style/PillAction"
-                    android:layout_width="0dp"
-                    android:layout_marginStart="@dimen/_8sdp"
-                    android:layout_weight="1"
-                    android:text="@string/photos_to_pdf"
-                    app:drawableStartCompat="@drawable/ic_fo_photo_15sdp"
-                    app:drawableTint="@color/primary" />
-            </LinearLayout>
-
-            <!-- The red "edit" card; a pale circle peeks from the top corner -->
-            <FrameLayout
-                android:id="@+id/cardEdit"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/_15sdp"
-                android:layout_marginTop="@dimen/_11sdp"
-                android:background="@drawable/bg_edit_card"
-                android:clipToOutline="true"
-                android:foreground="?attr/selectableItemBackground">
-
-                <View
-                    android:layout_width="@dimen/_123sdp"
-                    android:layout_height="@dimen/_123sdp"
-                    android:layout_gravity="top|end"
-                    android:alpha="0.18"
-                    android:background="@drawable/bg_circle_white"
-                    android:translationX="@dimen/_31sdp"
-                    android:translationY="@dimen/_minus29sdp" />
+                    style="@style/SectionHeading"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="@dimen/_15sdp"
+                    android:paddingTop="@dimen/_12sdp"
+                    android:paddingBottom="@dimen/_8sdp"
+                    android:text="@string/fo_your_documents" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:clipToPadding="false"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/_15sdp"
+                    android:paddingBottom="@dimen/_4sdp">
+
+                    <include
+                        android:id="@+id/typePdf"
+                        layout="@layout/layout_type_count" />
+
+                    <include
+                        android:id="@+id/typeWord"
+                        layout="@layout/layout_type_count"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_7sdp"
+                        android:layout_weight="1" />
+
+                    <include
+                        android:id="@+id/typeExcel"
+                        layout="@layout/layout_type_count"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_7sdp"
+                        android:layout_weight="1" />
+
+                    <include
+                        android:id="@+id/typePpt"
+                        layout="@layout/layout_type_count"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_7sdp"
+                        android:layout_weight="1" />
+                </LinearLayout>
+
+                <TextView
+                    style="@style/SectionHeading"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="@dimen/_15sdp"
+                    android:paddingTop="@dimen/_12sdp"
+                    android:paddingBottom="@dimen/_8sdp"
+                    android:text="@string/fo_start_something_new" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clipChildren="false"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/_15sdp">
+
+                    <include
+                        android:id="@+id/tileWord"
+                        layout="@layout/layout_start_tile"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_105sdp"
+                        android:layout_weight="1" />
+
+                    <include
+                        android:id="@+id/tileExcel"
+                        layout="@layout/layout_start_tile"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_105sdp"
+                        android:layout_marginHorizontal="@dimen/_8sdp"
+                        android:layout_weight="1" />
+
+                    <include
+                        android:id="@+id/tilePpt"
+                        layout="@layout/layout_start_tile"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_105sdp"
+                        android:layout_weight="1" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clipToPadding="false"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/_15sdp"
+                    android:paddingTop="@dimen/_8sdp"
+                    android:paddingBottom="@dimen/_6sdp">
+
+                    <TextView
+                        android:id="@+id/btnScan"
+                        style="@style/PillAction"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:text="@string/fo_scan_to_pdf"
+                        app:drawableStartCompat="@drawable/ic_fo_scan_15sdp"
+                        app:drawableTint="@color/primary" />
+
+                    <TextView
+                        android:id="@+id/btnPhotos"
+                        style="@style/PillAction"
+                        android:layout_width="0dp"
+                        android:layout_marginStart="@dimen/_8sdp"
+                        android:layout_weight="1"
+                        android:text="@string/photos_to_pdf"
+                        app:drawableStartCompat="@drawable/ic_fo_photo_15sdp"
+                        app:drawableTint="@color/primary" />
+                </LinearLayout>
+
+                <!-- The red "edit" card; a pale circle peeks from the top corner -->
+                <FrameLayout
+                    android:id="@+id/cardEdit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:background="@drawable/bg_edit_card"
+                    android:clipToOutline="true"
+                    android:foreground="?attr/selectableItemBackground">
+
+                    <View
+                        android:layout_width="@dimen/_123sdp"
+                        android:layout_height="@dimen/_123sdp"
+                        android:layout_gravity="top|end"
+                        android:alpha="0.18"
+                        android:background="@drawable/bg_circle_white"
+                        android:translationX="@dimen/_31sdp"
+                        android:translationY="@dimen/_minus29sdp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingHorizontal="@dimen/_14sdp"
+                        android:paddingTop="@dimen/_14sdp"
+                        android:paddingBottom="@dimen/_7sdp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/nunito_700"
+                                    android:letterSpacing="-0.015"
+                                    android:text="@string/fo_edit_any_document"
+                                    android:textColor="@color/on_primary"
+                                    android:textSize="@dimen/_17sdp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/_2sdp"
+                                    android:fontFamily="@font/nunito_500"
+                                    android:text="@string/fo_edit_any_document_desc"
+                                    android:textColor="@color/color_on_pdf_soft"
+                                    android:textSize="@dimen/_10sdp" />
+                            </LinearLayout>
+
+                            <ImageView
+                                android:layout_width="@dimen/_34sdp"
+                                android:layout_height="@dimen/_34sdp"
+                                android:background="@drawable/bg_circle_white"
+                                android:importantForAccessibility="no"
+                                android:padding="@dimen/_9sdp"
+                                android:src="@drawable/ic_fo_chevron"
+                                app:tint="@color/color_file_pdf" />
+                        </LinearLayout>
+
+                        <com.ui.baselib.widget.flexbox.FlexboxLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_9sdp"
+                            app:uiFlexWrap="wrap">
+
+                            <TextView
+                                android:id="@+id/chipAddText"
+                                style="@style/GlassChip"
+                                android:text="@string/add_text" />
+
+                            <TextView
+                                android:id="@+id/chipSign"
+                                style="@style/GlassChip"
+                                android:text="@string/tool_sign" />
+
+                            <TextView
+                                android:id="@+id/chipAnnotate"
+                                style="@style/GlassChip"
+                                android:text="@string/tool_annotate" />
+
+                            <TextView
+                                android:id="@+id/chipFillForms"
+                                style="@style/GlassChip"
+                                android:text="@string/fo_fill_forms" />
+
+                            <TextView
+                                android:id="@+id/chipOrganize"
+                                style="@style/GlassChip"
+                                android:text="@string/tool_organize" />
+                        </com.ui.baselib.widget.flexbox.FlexboxLayout>
+                    </LinearLayout>
+                </FrameLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/_15sdp"
+                    android:paddingTop="@dimen/_17sdp"
+                    android:paddingBottom="@dimen/_8sdp">
+
+                    <TextView
+                        style="@style/SectionHeading"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/fo_pick_up" />
+
+                    <TextView
+                        android:id="@+id/btnAllFiles"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:fontFamily="@font/nunito_700"
+                        android:padding="@dimen/_3sdp"
+                        android:text="@string/all_file"
+                        android:textColor="@color/primary"
+                        android:textSize="@dimen/_11sdp" />
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rcvDocuments"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clipToPadding="false"
+                    android:nestedScrollingEnabled="false"
+                    android:overScrollMode="never"
+                    android:paddingHorizontal="@dimen/_15sdp"
+                    android:paddingTop="@dimen/_2sdp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:itemCount="3"
+                    tools:listitem="@layout/item_document" />
+
+                <include
+                    android:id="@+id/emptyRecent"
+                    layout="@layout/layout_empty_shelf"
+                    android:visibility="gone" />
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <!-- Read and Create once the cards above have scrolled away -->
+        <LinearLayout
+            android:id="@+id/layoutPills"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/color_bg_app"
+            android:clipToPadding="false"
+            android:orientation="horizontal"
+            android:paddingHorizontal="@dimen/_15sdp"
+            android:paddingTop="@dimen/_2sdp"
+            android:paddingBottom="@dimen/_6sdp">
+
+            <TextView
+                android:id="@+id/pillRead"
+                style="@style/PillAction"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_34sdp"
+                android:layout_weight="1"
+                android:text="@string/fo_home_read"
+                app:drawableStartCompat="@drawable/ic_fo_book_15sdp"
+                app:drawableTint="@color/primary" />
+
+            <TextView
+                android:id="@+id/pillCreate"
+                style="@style/PillAction"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_34sdp"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_weight="1"
+                android:text="@string/fo_home_create"
+                app:drawableStartCompat="@drawable/ic_fo_plus_15sdp"
+                app:drawableTint="@color/color_file_powerpoint" />
+        </LinearLayout>
+    </androidx.constraintlayout.motion.widget.MotionLayout>
+
+    <LinearLayout
+        android:id="@+id/screenNoAccess"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:id="@+id/headerNoAccess"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_49sdp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="@dimen/_15sdp"
+            android:paddingEnd="@dimen/_12sdp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/nunito_700"
+                android:letterSpacing="-0.018"
+                android:text="@string/fo_your_library"
+                android:textColor="@color/text_primary"
+                android:textSize="@dimen/_21sdp" />
+
+            <TextView
+                android:id="@+id/btnProPill"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_31sdp"
+                android:background="@drawable/bg_pro_pill"
+                android:drawablePadding="@dimen/_5sdp"
+                android:fontFamily="@font/nunito_700"
+                android:gravity="center_vertical"
+                android:paddingStart="@dimen/_8sdp"
+                android:paddingEnd="@dimen/_11sdp"
+                android:text="@string/fo_pro"
+                android:textColor="@color/color_warning"
+                android:textSize="@dimen/_11sdp"
+                app:drawableStartCompat="@drawable/ic_fo_crown_13sdp"
+                app:drawableTint="@color/color_premium_gold" />
+        </LinearLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/scrollNoAccess"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:clipToPadding="false"
+            android:paddingBottom="@dimen/_100sdp">
+
+            <LinearLayout
+                android:id="@+id/layoutNoAccess"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:clipChildren="false"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_6sdp"
+                    android:background="@drawable/bg_access_card"
                     android:orientation="vertical"
-                    android:paddingHorizontal="@dimen/_14sdp"
-                    android:paddingTop="@dimen/_14sdp"
-                    android:paddingBottom="@dimen/_7sdp">
+                    android:padding="@dimen/_15sdp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -190,287 +503,115 @@
                         android:gravity="center_vertical"
                         android:orientation="horizontal">
 
+                        <ImageView
+                            android:layout_width="@dimen/_49sdp"
+                            android:layout_height="@dimen/_62sdp"
+                            android:importantForAccessibility="no"
+                            android:rotation="-6"
+                            android:src="@drawable/ic_mascot_smile" />
+
                         <LinearLayout
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_11sdp"
                             android:layout_weight="1"
                             android:orientation="vertical">
 
                             <TextView
-                                android:layout_width="wrap_content"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:fontFamily="@font/nunito_800"
-                                android:letterSpacing="-0.015"
-                                android:text="@string/fo_edit_any_document"
-                                android:textColor="@color/on_primary"
-                                android:textSize="@dimen/_17sdp" />
+                                android:fontFamily="@font/nunito_700"
+                                android:text="@string/fo_no_access_title"
+                                android:textColor="@color/text_primary"
+                                android:textSize="@dimen/_13sdp" />
 
                             <TextView
-                                android:layout_width="wrap_content"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="@dimen/_2sdp"
-                                android:fontFamily="@font/nunito_600"
-                                android:text="@string/fo_edit_any_document_desc"
-                                android:textColor="@color/color_on_pdf_soft"
-                                android:textSize="@dimen/_10sdp" />
+                                android:layout_marginTop="@dimen/_3sdp"
+                                android:fontFamily="@font/nunito_500"
+                                android:lineSpacingMultiplier="1.15"
+                                android:text="@string/fo_no_access_desc"
+                                android:textColor="@color/text_tertiary"
+                                android:textSize="@dimen/_11sdp" />
                         </LinearLayout>
-
-                        <ImageView
-                            android:layout_width="@dimen/_34sdp"
-                            android:layout_height="@dimen/_34sdp"
-                            android:background="@drawable/bg_circle_white"
-                            android:importantForAccessibility="no"
-                            android:padding="@dimen/_9sdp"
-                            android:src="@drawable/ic_fo_chevron"
-                            app:tint="@color/color_file_pdf" />
                     </LinearLayout>
 
-                    <com.ui.baselib.widget.flexbox.FlexboxLayout
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_9sdp"
-                        app:uiFlexWrap="wrap">
+                        android:layout_marginTop="@dimen/_11sdp"
+                        android:orientation="horizontal">
 
                         <TextView
-                            android:id="@+id/chipAddText"
-                            style="@style/GlassChip"
-                            android:text="@string/add_text" />
+                            android:id="@+id/btnAllowAccess"
+                            style="@style/PrimaryPillButton"
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/_37sdp"
+                            android:layout_weight="1"
+                            android:paddingHorizontal="@dimen/_6sdp"
+                            android:text="@string/allow_access"
+                            android:textSize="@dimen/_11sdp" />
 
                         <TextView
-                            android:id="@+id/chipSign"
-                            style="@style/GlassChip"
-                            android:text="@string/tool_sign" />
-
-                        <TextView
-                            android:id="@+id/chipAnnotate"
-                            style="@style/GlassChip"
-                            android:text="@string/tool_annotate" />
-
-                        <TextView
-                            android:id="@+id/chipFillForms"
-                            style="@style/GlassChip"
-                            android:text="@string/fo_fill_forms" />
-
-                        <TextView
-                            android:id="@+id/chipOrganize"
-                            style="@style/GlassChip"
-                            android:text="@string/tool_organize" />
-                    </com.ui.baselib.widget.flexbox.FlexboxLayout>
-                </LinearLayout>
-            </FrameLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:paddingHorizontal="@dimen/_15sdp"
-                android:paddingTop="@dimen/_17sdp"
-                android:paddingBottom="@dimen/_8sdp">
-
-                <TextView
-                    style="@style/SectionHeading"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/fo_pick_up" />
-
-                <TextView
-                    android:id="@+id/btnAllFiles"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="?attr/selectableItemBackgroundBorderless"
-                    android:fontFamily="@font/nunito_800"
-                    android:padding="@dimen/_3sdp"
-                    android:text="@string/all_file"
-                    android:textColor="@color/primary"
-                    android:textSize="@dimen/_11sdp" />
-            </LinearLayout>
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rcvDocuments"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:clipToPadding="false"
-                android:nestedScrollingEnabled="false"
-                android:overScrollMode="never"
-                android:paddingHorizontal="@dimen/_15sdp"
-                android:paddingTop="@dimen/_2sdp"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                tools:itemCount="3"
-                tools:listitem="@layout/item_document" />
-
-            <include
-                android:id="@+id/emptyRecent"
-                layout="@layout/layout_empty_shelf"
-                android:visibility="gone" />
-        </LinearLayout>
-
-        <!-- ============ Without file access ============ -->
-        <LinearLayout
-            android:id="@+id/layoutNoAccess"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:visibility="gone">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_49sdp"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:paddingStart="@dimen/_15sdp"
-                android:paddingEnd="@dimen/_12sdp">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/nunito_800"
-                    android:letterSpacing="-0.018"
-                    android:text="@string/fo_your_library"
-                    android:textColor="@color/text_primary"
-                    android:textSize="@dimen/_21sdp" />
-
-                <TextView
-                    android:id="@+id/btnProPill"
-                    android:layout_width="wrap_content"
-                    android:layout_height="@dimen/_31sdp"
-                    android:background="@drawable/bg_pro_pill"
-                    android:drawablePadding="@dimen/_5sdp"
-                    android:fontFamily="@font/nunito_800"
-                    android:gravity="center_vertical"
-                    android:paddingStart="@dimen/_8sdp"
-                    android:paddingEnd="@dimen/_11sdp"
-                    android:text="@string/fo_pro"
-                    android:textColor="@color/color_warning"
-                    android:textSize="@dimen/_11sdp"
-                    app:drawableStartCompat="@drawable/ic_fo_crown_13sdp"
-                    app:drawableTint="@color/color_premium_gold" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/_15sdp"
-                android:layout_marginTop="@dimen/_6sdp"
-                android:background="@drawable/bg_access_card"
-                android:orientation="vertical"
-                android:padding="@dimen/_15sdp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_width="@dimen/_49sdp"
-                        android:layout_height="@dimen/_62sdp"
-                        android:importantForAccessibility="no"
-                        android:rotation="-6"
-                        android:src="@drawable/ic_mascot_smile" />
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/_11sdp"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/nunito_800"
-                            android:text="@string/fo_no_access_title"
+                            android:id="@+id/btnOpenFile"
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/_37sdp"
+                            android:layout_marginStart="@dimen/_8sdp"
+                            android:layout_weight="1"
+                            android:background="@drawable/bg_button_outline"
+                            android:fontFamily="@font/nunito_700"
+                            android:foreground="?attr/selectableItemBackground"
+                            android:gravity="center"
+                            android:text="@string/open_a_file"
                             android:textColor="@color/text_primary"
-                            android:textSize="@dimen/_13sdp" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/_3sdp"
-                            android:fontFamily="@font/nunito_600"
-                            android:lineSpacingMultiplier="1.15"
-                            android:text="@string/fo_no_access_desc"
-                            android:textColor="@color/text_tertiary"
                             android:textSize="@dimen/_11sdp" />
                     </LinearLayout>
                 </LinearLayout>
 
-                <LinearLayout
+                <TextView
+                    style="@style/SectionHeading"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_11sdp"
-                    android:orientation="horizontal">
+                    android:paddingHorizontal="@dimen/_15sdp"
+                    android:paddingTop="@dimen/_17sdp"
+                    android:paddingBottom="@dimen/_8sdp"
+                    android:text="@string/fo_quick_start" />
 
-                    <TextView
-                        android:id="@+id/btnAllowAccess"
-                        style="@style/PrimaryPillButton"
-                        android:layout_width="0dp"
-                        android:layout_height="@dimen/_37sdp"
-                        android:layout_weight="1"
-                        android:paddingHorizontal="@dimen/_6sdp"
-                        android:text="@string/allow_access"
-                        android:textSize="@dimen/_11sdp" />
+                <LinearLayout
+                    android:clipToPadding="false"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/_15sdp">
 
-                    <TextView
-                        android:id="@+id/btnOpenFile"
+                    <include
+                        android:id="@+id/quickScan"
+                        layout="@layout/layout_quick_tile"
                         android:layout_width="0dp"
-                        android:layout_height="@dimen/_37sdp"
-                        android:layout_marginStart="@dimen/_8sdp"
-                        android:layout_weight="1"
-                        android:background="@drawable/bg_button_outline"
-                        android:fontFamily="@font/nunito_800"
-                        android:foreground="?attr/selectableItemBackground"
-                        android:gravity="center"
-                        android:text="@string/open_a_file"
-                        android:textColor="@color/text_primary"
-                        android:textSize="@dimen/_11sdp" />
+                        android:layout_height="@dimen/_74sdp"
+                        android:layout_weight="1" />
+
+                    <include
+                        android:id="@+id/quickPhotos"
+                        layout="@layout/layout_quick_tile"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_74sdp"
+                        android:layout_marginHorizontal="@dimen/_8sdp"
+                        android:layout_weight="1" />
+
+                    <include
+                        android:id="@+id/quickNew"
+                        layout="@layout/layout_quick_tile"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_74sdp"
+                        android:layout_weight="1" />
                 </LinearLayout>
+
+                <include
+                    android:id="@+id/emptyShelf"
+                    layout="@layout/layout_empty_shelf" />
             </LinearLayout>
-
-            <TextView
-                style="@style/SectionHeading"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingHorizontal="@dimen/_15sdp"
-                android:paddingTop="@dimen/_17sdp"
-                android:paddingBottom="@dimen/_8sdp"
-                android:text="@string/fo_quick_start" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingHorizontal="@dimen/_15sdp">
-
-                <include
-                    android:id="@+id/quickScan"
-                    layout="@layout/layout_quick_tile"
-                    android:layout_width="0dp"
-                    android:layout_height="@dimen/_74sdp"
-                    android:layout_weight="1" />
-
-                <include
-                    android:id="@+id/quickPhotos"
-                    layout="@layout/layout_quick_tile"
-                    android:layout_width="0dp"
-                    android:layout_height="@dimen/_74sdp"
-                    android:layout_marginHorizontal="@dimen/_8sdp"
-                    android:layout_weight="1" />
-
-                <include
-                    android:id="@+id/quickNew"
-                    layout="@layout/layout_quick_tile"
-                    android:layout_width="0dp"
-                    android:layout_height="@dimen/_74sdp"
-                    android:layout_weight="1" />
-            </LinearLayout>
-
-            <include
-                android:id="@+id/emptyShelf"
-                layout="@layout/layout_empty_shelf" />
-        </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
     </LinearLayout>
-</androidx.core.widget.NestedScrollView>
+</FrameLayout>

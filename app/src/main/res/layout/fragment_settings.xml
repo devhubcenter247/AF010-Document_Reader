@@ -10,6 +10,7 @@
     tools:context=".ui.main.settings.SettingsFragment">
 
     <LinearLayout
+        android:clipToPadding="false"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -70,7 +71,7 @@
                         android:id="@+id/tvPlan"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/nunito_800"
+                        android:fontFamily="@font/nunito_700"
                         android:text="@string/fo_free_plan"
                         android:textColor="@color/color_warning"
                         android:textSize="@dimen/_10sdp" />
@@ -80,7 +81,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_2sdp"
-                        android:fontFamily="@font/nunito_800"
+                        android:fontFamily="@font/nunito_700"
                         android:lineSpacingMultiplier="1.1"
                         android:text="@string/fo_free_plan_pitch"
                         android:textColor="@color/text_primary"
@@ -92,7 +93,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/_29sdp"
                     android:background="@drawable/bg_ink_pill"
-                    android:fontFamily="@font/nunito_800"
+                    android:fontFamily="@font/nunito_700"
                     android:gravity="center"
                     android:maxLines="1"
                     android:paddingHorizontal="@dimen/_11sdp"
@@ -152,7 +153,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/_9sdp"
                     android:layout_weight="1"
-                    android:fontFamily="@font/nunito_800"
+                    android:fontFamily="@font/nunito_700"
                     android:text="@string/fo_theme"
                     android:textColor="@color/text_primary"
                     android:textSize="@dimen/_12sdp" />
@@ -188,7 +189,7 @@
                 android:id="@+id/tvRate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/nunito_800"
+                android:fontFamily="@font/nunito_700"
                 android:text="@string/fo_rate_0"
                 android:textColor="@color/text_primary"
                 android:textSize="@dimen/_12sdp" />
@@ -238,7 +239,7 @@
             android:id="@+id/tvVersion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/nunito_700"
+            android:fontFamily="@font/nunito_600"
             android:gravity="center"
             android:paddingTop="@dimen/_11sdp"
             android:textColor="@color/text_secondary"

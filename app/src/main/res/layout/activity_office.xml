@@ -26,11 +26,12 @@
             android:paddingTop="@dimen/_6sdp"
             android:paddingBottom="@dimen/_8sdp">
 
+            <!-- Floating while viewing; OfficeActivity.render() docks it flat to the top while editing -->
             <FrameLayout
+                android:id="@+id/cardTop"
                 style="@style/FloatBar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:minHeight="@dimen/_46sdp"
                 android:paddingHorizontal="@dimen/_6sdp">
 
                 <!-- Viewing -->
@@ -102,21 +103,21 @@
                 <LinearLayout
                     android:id="@+id/barEdit"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_46sdp"
+                    android:layout_height="@dimen/_34sdp"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
                     android:visibility="gone">
 
                     <ImageView
                         android:id="@+id/btnEditBack"
-                        style="@style/ReaderBarClose"
+                        style="@style/ReaderBarIcon"
                         android:contentDescription="@string/scanner_close"
                         android:src="@drawable/ic_fo_close" />
 
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/_8sdp"
+                        android:layout_marginStart="@dimen/_2sdp"
                         android:layout_weight="1"
                         android:orientation="vertical">
 
@@ -171,7 +172,7 @@
 
                     <TextView
                         android:id="@+id/btnSave"
-                        style="@style/ReaderSave"
+                        style="@style/DockedSave"
                         android:text="@string/file_action_save" />
                 </LinearLayout>
 
@@ -223,7 +224,7 @@
                                 android:id="@+id/tvFindCount"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:fontFamily="@font/nunito_800"
+                                android:fontFamily="@font/nunito_700"
                                 android:maxLines="1"
                                 android:textColor="@color/text_secondary"
                                 android:textSize="@dimen/_10sdp"
@@ -329,7 +330,7 @@
             android:background="@drawable/bg_rounded_panel"
             android:backgroundTint="@color/color_pro_bg"
             android:drawablePadding="@dimen/_6sdp"
-            android:fontFamily="@font/nunito_700"
+            android:fontFamily="@font/nunito_600"
             android:paddingHorizontal="@dimen/_11sdp"
             android:paddingVertical="@dimen/_7sdp"
             android:text="@string/legacy_view_only"
@@ -343,32 +344,28 @@
         <!-- Excel: the selected cell and what is in it -->
         <LinearLayout
             android:id="@+id/layoutFormula"
-            style="@style/FloatingCard"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_42sdp"
-            android:layout_marginHorizontal="@dimen/_9sdp"
-            android:layout_marginBottom="@dimen/_8sdp"
-            android:background="@drawable/bg_rounded_panel"
-            android:backgroundTint="@color/color_surface_card"
+            android:layout_height="@dimen/_28sdp"
+            android:background="@drawable/bg_docked_top"
             android:gravity="center_vertical"
             android:orientation="horizontal"
-            android:paddingStart="@dimen/_6sdp"
-            android:paddingEnd="@dimen/_5sdp"
+            android:paddingStart="@dimen/_7sdp"
+            android:paddingEnd="@dimen/_3sdp"
             android:visibility="gone"
             tools:visibility="visible">
 
             <TextView
                 android:id="@+id/tvCell"
                 android:layout_width="wrap_content"
-                android:layout_height="@dimen/_28sdp"
+                android:layout_height="@dimen/_19sdp"
                 android:background="@drawable/bg_badge"
                 android:backgroundTint="@color/color_file_excel_bg"
-                android:fontFamily="@font/nunito_800"
+                android:fontFamily="@font/nunito_700"
                 android:gravity="center"
-                android:minWidth="@dimen/_34sdp"
-                android:paddingHorizontal="@dimen/_7sdp"
+                android:minWidth="@dimen/_28sdp"
+                android:paddingHorizontal="@dimen/_5sdp"
                 android:textColor="@color/color_file_excel"
-                android:textSize="@dimen/_10sdp"
+                android:textSize="@dimen/_9sdp"
                 tools:text="C6" />
 
             <TextView
@@ -378,7 +375,7 @@
                 android:fontFamily="serif"
                 android:text="@string/formula_fx"
                 android:textColor="@color/text_secondary"
-                android:textSize="@dimen/_12sdp"
+                android:textSize="@dimen/_11sdp"
                 android:textStyle="bold|italic" />
 
             <LinearLayout
@@ -395,7 +392,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:background="@null"
-                    android:fontFamily="@font/nunito_800"
+                    android:fontFamily="@font/nunito_700"
                     android:hint="@string/formula_hint"
                     android:imeOptions="actionDone"
                     android:importantForAutofill="no"
@@ -403,20 +400,19 @@
                     android:maxLines="1"
                     android:textColor="@color/text_primary"
                     android:textColorHint="@color/text_secondary"
-                    android:textSize="@dimen/_12sdp" />
+                    android:textSize="@dimen/_11sdp" />
             </LinearLayout>
 
             <ImageView
                 android:id="@+id/btnFormulaApply"
-                android:layout_width="@dimen/_32sdp"
-                android:layout_height="@dimen/_32sdp"
-                android:layout_marginStart="@dimen/_6sdp"
-                android:background="@drawable/bg_badge"
-                android:backgroundTint="@color/color_file_excel"
+                android:layout_width="@dimen/_26sdp"
+                android:layout_height="@dimen/_26sdp"
+                android:layout_marginStart="@dimen/_4sdp"
+                android:background="?attr/selectableItemBackgroundBorderless"
                 android:contentDescription="@string/apply"
-                android:padding="@dimen/_8sdp"
+                android:padding="@dimen/_6sdp"
                 android:src="@drawable/ic_fo_check"
-                app:tint="@color/on_primary" />
+                app:tint="@color/color_file_excel" />
         </LinearLayout>
 
         <FrameLayout
@@ -446,7 +442,7 @@
                 android:layout_marginBottom="@dimen/_26sdp"
                 android:background="@drawable/bg_ink_pill"
                 android:elevation="@dimen/_3sdp"
-                android:fontFamily="@font/nunito_800"
+                android:fontFamily="@font/nunito_700"
                 android:gravity="center"
                 android:paddingHorizontal="@dimen/_11sdp"
                 android:textColor="@color/white"
@@ -501,17 +497,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:clipToPadding="false"
-            android:orientation="vertical"
-            android:paddingHorizontal="@dimen/_9sdp"
-            android:paddingBottom="@dimen/_12sdp">
+            android:orientation="vertical">
 
             <!-- PowerPoint: the slides, with the way to arrange them -->
             <LinearLayout
+                android:clipToPadding="false"
                 android:id="@+id/layoutSlides"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
+                android:paddingHorizontal="@dimen/_9sdp"
                 android:paddingBottom="@dimen/_6sdp"
                 android:visibility="gone"
                 tools:visibility="visible">
@@ -545,44 +541,74 @@
 
             <LinearLayout
                 android:id="@+id/layoutRibbon"
-                style="@style/FloatBar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/bg_docked_bottom"
                 android:orientation="vertical"
-                android:paddingVertical="@dimen/_9sdp"
+                android:paddingVertical="@dimen/_4sdp"
                 android:visibility="gone"
                 tools:visibility="visible">
 
                 <HorizontalScrollView
+                    android:id="@+id/scrollTabs"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_3sdp"
                     android:scrollbars="none">
 
                     <LinearLayout
                         android:id="@+id/layoutTabs"
                         android:layout_width="wrap_content"
-                        android:layout_height="@dimen/_26sdp"
+                        android:layout_height="@dimen/_22sdp"
                         android:orientation="horizontal"
-                        android:paddingHorizontal="@dimen/_9sdp" />
+                        android:paddingHorizontal="@dimen/_6sdp" />
                 </HorizontalScrollView>
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rcvRibbon"
+                <!-- While typing the tab row goes: the picked tab becomes a chip at the start of the commands -->
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_8sdp"
-                    android:clipToPadding="false"
-                    android:orientation="horizontal"
-                    android:overScrollMode="never"
-                    android:paddingHorizontal="@dimen/_9sdp"
-                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    tools:listitem="@layout/item_ribbon" />
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/btnTabPick"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/_24sdp"
+                        android:layout_marginStart="@dimen/_6sdp"
+                        android:background="@drawable/bg_badge"
+                        android:drawablePadding="@dimen/_2sdp"
+                        android:fontFamily="@font/nunito_700"
+                        android:foreground="?attr/selectableItemBackground"
+                        android:gravity="center"
+                        android:paddingStart="@dimen/_8sdp"
+                        android:paddingEnd="@dimen/_5sdp"
+                        android:textSize="@dimen/_10sdp"
+                        android:visibility="gone"
+                        app:drawableEndCompat="@drawable/ic_fo_chevron_down_13sdp"
+                        tools:text="Home"
+                        tools:visibility="visible" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rcvRibbon"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:clipToPadding="false"
+                        android:orientation="horizontal"
+                        android:overScrollMode="never"
+                        android:paddingHorizontal="@dimen/_6sdp"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        tools:listitem="@layout/item_ribbon" />
+                </LinearLayout>
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/layoutSorterActions"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_55sdp"
+                android:layout_marginHorizontal="@dimen/_9sdp"
+                android:layout_marginBottom="@dimen/_12sdp"
                 android:background="@drawable/bg_ink_bar"
                 android:elevation="@dimen/_10sdp"
                 android:gravity="center_vertical"

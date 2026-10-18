@@ -3,6 +3,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:clipToPadding="false"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:gravity="center_horizontal"
@@ -52,7 +53,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_4sdp"
         android:duplicateParentState="true"
-        android:fontFamily="@font/nunito_800"
+        android:fontFamily="@font/nunito_700"
         android:textColor="@color/text_filter_label"
         android:textSize="@dimen/_10sdp"
         tools:text="1" />

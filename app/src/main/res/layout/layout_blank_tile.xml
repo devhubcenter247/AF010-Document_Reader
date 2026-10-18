@@ -16,7 +16,7 @@
         android:layout_width="@dimen/_34sdp"
         android:layout_height="@dimen/_34sdp"
         android:background="@drawable/bg_blank_badge"
-        android:fontFamily="@font/nunito_800"
+        android:fontFamily="@font/nunito_700"
         android:gravity="center"
         android:textSize="@dimen/_9sdp"
         tools:text="DOCX"
@@ -27,7 +27,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_8sdp"
-        android:fontFamily="@font/nunito_800"
+        android:fontFamily="@font/nunito_700"
         android:textColor="@color/text_primary"
         android:textSize="@dimen/_11sdp"
         tools:text="Word" />

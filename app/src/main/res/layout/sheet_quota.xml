@@ -1,128 +1,158 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<!-- The free uses of a Pro tool are spent: how many, what Pro adds, and the trial. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    style="@style/BottomSheetAppStyle"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:paddingBottom="@dimen/_10sdp"
-    tools:context=".ui.main.premium.QuotaBottomSheet"
     android:background="@drawable/bg_sheet"
-    android:clipToOutline="true">
+    android:clipToPadding="false"
+    android:orientation="vertical"
+    android:paddingHorizontal="@dimen/_15sdp"
+    android:paddingBottom="@dimen/_20sdp"
+    tools:context=".ui.main.premium.QuotaBottomSheet">
 
     <View
-        android:layout_width="@dimen/_31sdp"
+        android:layout_width="@dimen/_34sdp"
         android:layout_height="@dimen/_4sdp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="@dimen/_8sdp"
-        android:background="@drawable/bg_checkbox_stroke_r3sdp" />
+        android:background="@drawable/bg_badge"
+        android:backgroundTint="@color/color_handle" />
 
-    <LinearLayout
+    <FrameLayout
+        android:layout_width="@dimen/_65sdp"
+        android:layout_height="@dimen/_65sdp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/_12sdp">
+
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:id="@+id/progressUsed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:progress="100"
+            app:indicatorColor="@color/color_pro"
+            app:indicatorSize="@dimen/_65sdp"
+            app:trackColor="@color/color_surface_variant"
+            app:trackCornerRadius="@dimen/_4sdp"
+            app:trackThickness="@dimen/_6sdp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvUsed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunito_700"
+                android:textColor="@color/text_primary"
+                android:textSize="@dimen/_15sdp"
+                tools:text="3/3" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunito_700"
+                android:text="@string/fo_used"
+                android:textColor="@color/text_secondary"
+                android:textSize="@dimen/_9sdp" />
+        </LinearLayout>
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/tvTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:fontFamily="@font/nunito_700"
+        android:gravity="center"
+        android:textColor="@color/text_primary"
+        android:textSize="@dimen/_18sdp"
+        tools:text="You’ve used your free OCR" />
+
+    <TextView
+        android:id="@+id/tvMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:fontFamily="@font/nunito_500"
+        android:gravity="center"
+        android:lineSpacingMultiplier="1.15"
+        android:paddingHorizontal="@dimen/_8sdp"
+        android:textColor="@color/text_secondary"
+        android:textSize="@dimen/_11sdp"
+        tools:text="Go Pro to use OCR as much as you like, without ads." />
+
+    <LinearLayout
+        style="@style/FloatingCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:background="@drawable/bg_rounded_panel"
+        android:backgroundTint="@color/color_surface_card"
         android:orientation="vertical"
-        android:paddingHorizontal="@dimen/_15sdp"
-        android:paddingTop="@dimen/_13sdp">
+        android:paddingHorizontal="@dimen/_12sdp"
+        android:paddingVertical="@dimen/_3sdp">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
+            <LinearLayout style="@style/CheckRow">
 
-            <ImageView
-                android:id="@+id/ivTool"
-                android:layout_width="@dimen/_35sdp"
-                android:layout_height="@dimen/_35sdp"
-                android:contentDescription="@null"
-                tools:src="@drawable/ic_app_tool_compress_pdf" />
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_11sdp"
-                android:layout_weight="1"
-                android:orientation="vertical">
+                <ImageView
+                    style="@style/CheckRowIcon"
+                    android:backgroundTint="@color/color_file_excel_bg"
+                    android:src="@drawable/ic_fo_check"
+                    app:tint="@color/color_file_excel" />
 
                 <TextView
-                    android:id="@+id/tvTitle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/nunito_800"
-                    android:lineSpacingMultiplier="1.05"
-                    android:textColor="@color/text_primary"
-                    android:textSize="@dimen/_12sdp"
-                    tools:text="You’ve used your free Compress uses today" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_3sdp"
-                    android:fontFamily="@font/nunito_600"
-                    android:text="@string/quota_desc"
-                    android:textColor="@color/text_secondary"
-                    android:textSize="@dimen/_9sdp" />
+                    style="@style/CheckRowText"
+                    android:text="@string/fo_pro_unlimited"
+                    android:textColor="@color/text_primary" />
             </LinearLayout>
-        </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/btnTrial"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_13sdp"
-            android:orientation="vertical"
-            android:padding="@dimen/_13sdp"
-            android:background="@drawable/bg_grad_gradient_start_gradient_end_315_r14sdp"
-            android:clipToOutline="true">
+            <LinearLayout style="@style/CheckRow">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:drawablePadding="@dimen/_6sdp"
-                android:fontFamily="@font/nunito_800"
-                android:text="@string/quota_try_premium"
-                android:textSize="@dimen/_11sdp"
-                app:drawableTint="@color/on_primary"
-                android:textColor="@color/on_primary"
-                app:drawableStartCompat="@drawable/ic_app_crown_14sdp" />
+                <ImageView
+                    style="@style/CheckRowIcon"
+                    android:backgroundTint="@color/color_file_excel_bg"
+                    android:src="@drawable/ic_fo_check"
+                    app:tint="@color/color_file_excel" />
 
-            <TextView
-                android:id="@+id/tvTrialTerms"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_3sdp"
-                android:fontFamily="@font/nunito_600"
-                android:lineSpacingMultiplier="1.15"
-                android:textColor="@color/color_on_brand_secondary"
-                android:textSize="@dimen/_9sdp"
-                tools:text="$0.00 today, then $29.99 / year after 3 days." />
-        </LinearLayout>
+                <TextView
+                    style="@style/CheckRowText"
+                    android:text="@string/fo_pro_translate_all"
+                    android:textColor="@color/text_primary" />
+            </LinearLayout>
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnWatchAd"
-            style="@style/ButtonOutlineStyle"
-            android:layout_width="match_parent"
-            android:layout_marginTop="@dimen/_9sdp"
-            android:text="@string/quota_watch_ad"
-            android:background="@drawable/bg_surface_card_r10sdp_st1sdp_stroke"
-            android:textColor="@color/text_primary"
-            app:icon="@drawable/ic_app_play"
-            app:iconGravity="textStart"
-            app:iconPadding="@dimen/_6sdp"
-            app:iconSize="@dimen/_15sdp"
-            app:backgroundTint="@null"
-            android:insetTop="0dp"
-            android:insetBottom="0dp"
-            android:minWidth="0dp"
-            android:minHeight="0dp"
-            android:textAllCaps="false"
-            android:letterSpacing="0"
-            android:stateListAnimator="@null"
-            android:paddingHorizontal="0dp"
-            android:paddingVertical="0dp"
-            android:elevation="0dp" />
+            <LinearLayout style="@style/CheckRow">
+
+                <ImageView
+                    style="@style/CheckRowIcon"
+                    android:backgroundTint="@color/color_file_excel_bg"
+                    android:src="@drawable/ic_fo_check"
+                    app:tint="@color/color_file_excel" />
+
+                <TextView
+                    style="@style/CheckRowText"
+                    android:text="@string/fo_pro_no_ads_ever"
+                    android:textColor="@color/text_primary" />
+            </LinearLayout>
     </LinearLayout>
 
+    <TextView
+        android:id="@+id/btnTrial"
+        style="@style/PrimaryPillButton"
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/_12sdp"
+        tools:text="Try Pro free for 3 days" />
+
+    <TextView
+        android:id="@+id/btnNotNow"
+        style="@style/GhostButton"
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/_2sdp"
+        android:text="@string/fo_not_now" />
 </LinearLayout>

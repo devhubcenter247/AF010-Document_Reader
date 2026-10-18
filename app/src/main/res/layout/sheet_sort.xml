@@ -11,6 +11,7 @@
         layout="@layout/layout_sheet_header" />
 
     <LinearLayout
+        android:clipToPadding="false"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -44,7 +45,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/_3sdp"
             android:layout_marginTop="@dimen/_14sdp"
-            android:fontFamily="@font/nunito_800"
+            android:fontFamily="@font/nunito_700"
             android:text="@string/fo_order"
             android:textColor="@color/text_secondary"
             android:textSize="@dimen/_10sdp" />

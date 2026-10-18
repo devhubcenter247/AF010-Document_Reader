@@ -50,7 +50,7 @@
                 android:layout_marginHorizontal="@dimen/_6sdp"
                 android:layout_weight="1"
                 android:background="@null"
-                android:fontFamily="@font/nunito_700"
+                android:fontFamily="@font/nunito_600"
                 android:hint="@string/search_files"
                 android:imeOptions="actionSearch"
                 android:importantForAutofill="no"
@@ -99,6 +99,8 @@
             android:paddingBottom="@dimen/_20sdp">
 
             <LinearLayout
+                android:clipChildren="false"
+                android:clipToPadding="false"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
@@ -106,6 +108,7 @@
 
                 <LinearLayout
                     android:id="@+id/layoutResults"
+                    android:clipChildren="false"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
@@ -145,7 +148,7 @@
                         android:layout_height="@dimen/_34sdp"
                         android:layout_marginTop="@dimen/_4sdp"
                         android:background="?attr/selectableItemBackground"
-                        android:fontFamily="@font/nunito_800"
+                        android:fontFamily="@font/nunito_700"
                         android:gravity="center"
                         android:textColor="@color/primary"
                         android:textSize="@dimen/_11sdp"
@@ -156,6 +159,7 @@
 
                 <LinearLayout
                     android:id="@+id/layoutInside"
+                    android:clipChildren="false"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"

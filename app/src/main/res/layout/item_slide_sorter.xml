@@ -33,7 +33,7 @@
         android:layout_marginTop="@dimen/_3sdp"
         android:background="@drawable/bg_page_number_pill"
         android:duplicateParentState="true"
-        android:fontFamily="@font/nunito_800"
+        android:fontFamily="@font/nunito_700"
         android:gravity="center"
         android:minWidth="@dimen/_18sdp"
         android:paddingHorizontal="@dimen/_5sdp"

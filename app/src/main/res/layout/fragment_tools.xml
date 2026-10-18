@@ -39,7 +39,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_2sdp"
-                    android:fontFamily="@font/nunito_600"
+                    android:fontFamily="@font/nunito_500"
                     android:textColor="@color/text_secondary"
                     android:textSize="@dimen/_11sdp"
                     tools:text="17 handy tools for your files" />
@@ -60,7 +60,7 @@
             android:layout_marginTop="@dimen/_10sdp"
             android:background="@drawable/bg_search_field"
             android:drawablePadding="@dimen/_6sdp"
-            android:fontFamily="@font/nunito_700"
+            android:fontFamily="@font/nunito_600"
             android:hint="@string/search_tools"
             android:imeOptions="actionSearch"
             android:importantForAutofill="no"
@@ -90,6 +90,7 @@
             android:id="@+id/layoutSections"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:clipToPadding="false"
             android:orientation="vertical"
             android:paddingHorizontal="@dimen/_10sdp" />
 
@@ -98,7 +99,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_31sdp"
-            android:fontFamily="@font/nunito_700"
+            android:fontFamily="@font/nunito_600"
             android:gravity="center"
             android:text="@string/fo_no_tools"
             android:textColor="@color/text_secondary"

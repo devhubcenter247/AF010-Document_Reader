@@ -2,6 +2,7 @@
 <!-- A tool to run next on the new file: its tile and name on a white card. -->
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:clipToPadding="false"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="@dimen/_3sdp">
@@ -30,7 +31,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_5sdp"
             android:ellipsize="end"
-            android:fontFamily="@font/nunito_800"
+            android:fontFamily="@font/nunito_700"
             android:gravity="center"
             android:maxLines="1"
             android:paddingHorizontal="@dimen/_4sdp"

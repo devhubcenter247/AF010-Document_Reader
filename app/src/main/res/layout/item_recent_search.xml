@@ -22,7 +22,7 @@
         style="@style/RowLabelStyle"
         android:layout_marginStart="@dimen/_9sdp"
         android:ellipsize="end"
-        android:fontFamily="@font/nunito_700"
+        android:fontFamily="@font/nunito_600"
         android:maxLines="1"
         tools:text="report" />
 

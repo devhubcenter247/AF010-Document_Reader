@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:clipToPadding="false"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/bg_sheet"
@@ -20,7 +21,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/_3sdp"
         android:layout_marginTop="@dimen/_14sdp"
-        android:fontFamily="@font/nunito_800"
+        android:fontFamily="@font/nunito_700"
         android:letterSpacing="-0.015"
         android:text="@string/fo_create_title"
         android:textColor="@color/text_primary"
@@ -31,7 +32,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/_3sdp"
         android:layout_marginTop="@dimen/_2sdp"
-        android:fontFamily="@font/nunito_600"
+        android:fontFamily="@font/nunito_500"
         android:text="@string/fo_create_location"
         android:textColor="@color/text_secondary"
         android:textSize="@dimen/_10sdp" />
@@ -67,7 +68,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/nunito_800"
+                android:fontFamily="@font/nunito_700"
                 android:text="@string/fo_scan_document"
                 android:textColor="@color/on_primary"
                 android:textSize="@dimen/_13sdp" />
@@ -76,7 +77,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_2sdp"
-                android:fontFamily="@font/nunito_600"
+                android:fontFamily="@font/nunito_500"
                 android:text="@string/fo_scan_document_desc"
                 android:textColor="@color/color_on_primary_soft"
                 android:textSize="@dimen/_10sdp" />
@@ -122,7 +123,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/nunito_800"
+                android:fontFamily="@font/nunito_700"
                 android:text="@string/photos_to_pdf"
                 android:textColor="@color/text_primary"
                 android:textSize="@dimen/_12sdp" />
@@ -131,7 +132,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_2sdp"
-                android:fontFamily="@font/nunito_600"
+                android:fontFamily="@font/nunito_500"
                 android:text="@string/fo_photos_desc"
                 android:textColor="@color/text_secondary"
                 android:textSize="@dimen/_10sdp" />
@@ -150,7 +151,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/_3sdp"
         android:layout_marginTop="@dimen/_14sdp"
-        android:fontFamily="@font/nunito_800"
+        android:fontFamily="@font/nunito_700"
         android:text="@string/fo_blank_page"
         android:textColor="@color/text_secondary"
         android:textSize="@dimen/_10sdp" />

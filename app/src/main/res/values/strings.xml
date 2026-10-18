@@ -4,39 +4,17 @@
     <string name="this_action_may_contain_advertising">This action may contain advertising</string>
     <string name="language">Language</string>
     <string name="next">Next</string>
-    <string name="title_onboarding_1">All documents in one app</string>
-    <string name="content_onboarding_1">Open PDF, Word, Excel and PowerPoint files fast, even offline.</string>
-    <string name="title_onboarding_2">Edit and sign on the go</string>
-    <string name="content_onboarding_2">Edit text, highlight, add notes, fill forms and sign in seconds.</string>
-    <string name="title_onboarding_3">Scan paper to PDF</string>
-    <string name="content_onboarding_3">Auto-detect edges, clean up with filters and recognize text.</string>
-    <string name="title_onboarding_4">Powerful PDF tools</string>
-    <string name="content_onboarding_4">Merge, split, compress, protect and translate your files.</string>
-    <string name="get_started">Get started</string>
 
     <string name="check_out_this_amazing_app">Check out this amazing app: </string>
     <string name="share_via">Share via</string>
-    <string name="rate_us">Rate us</string>
 
 
-    <string name="welcome_use_case_title">What will you use the app for?</string>
-    <string name="welcome_use_case_subtitle">Pick one or more. We\'ll put the right tools on your home screen.</string>
     <string name="use_case_work">Work</string>
-    <string name="use_case_work_desc">Contracts, reports, signing</string>
     <string name="use_case_study">Study</string>
     <string name="use_case_study_desc">Lectures, notes, translation</string>
     <string name="use_case_personal">Personal</string>
-    <string name="use_case_personal_desc">IDs, bills, photos</string>
     <string name="use_case_reading">Just reading</string>
-    <string name="use_case_reading_desc">Open and view files</string>
     <string name="allow_file_access">Allow file access</string>
-    <string name="allow_file_access_desc">To open and save your documents, the app needs permission to read and write files on this device.</string>
-    <string name="see_all_your_documents">See all your documents</string>
-    <string name="see_all_your_documents_desc">PDF, Word, Excel and PowerPoint in one place.</string>
-    <string name="files_stay_on_your_device">Files stay on your device</string>
-    <string name="files_stay_on_your_device_desc">The app never uploads your documents.</string>
-    <string name="turn_off_anytime">Turn off anytime</string>
-    <string name="turn_off_anytime_desc">Change access in system Settings.</string>
     <string name="allow_access">Allow access</string>
     <string name="not_now">Not now</string>
     <string name="txt_continues">Continue</string>
@@ -76,6 +54,8 @@
     <string name="tab_excel" translatable="false">Excel</string>
     <string name="tab_ppt" translatable="false">PPT</string>
     <string name="tab_txt" translatable="false">TXT</string>
+    <string name="fo_badge_doc" translatable="false">DOC</string>
+    <string name="fo_badge_xls" translatable="false">XLS</string>
     <string name="no_file_found">No files found</string>
 
     <string name="file_action_rename">Rename</string>
@@ -90,46 +70,33 @@
     <string name="file_delete_failed">Could not delete file</string>
     <string name="file_share_failed">Could not share file</string>
     <string name="delete_selected_failed">Could not delete %d file(s)</string>
-    <string name="no_files_yet">No files yet!</string>
     <string name="recent">Recent</string>
     <string name="favorites">Favorites</string>
-    <string name="sort_by">Sort by</string>
     <string name="sort_name">Name</string>
 
     <string name="done">Done</string>
-    <string name="pdf_edit_color">Color</string>
     <string name="pdf_edit_underline">Underline</string>
     <string name="pdf_edit_strikethrough">Strikethrough</string>
     <string name="error_file_damaged">This file is damaged or is not a valid document.</string>
     <string name="error_file_not_found">This file cannot be found or read. Check that it is still available.</string>
     <string name="error_file_open_generic">This document could not be opened or processed. Please try another file.</string>
     <string name="error_file_password">This document is password protected. A password is required to open it.</string>
-    <string name="error_file_password_incorrect">The password for this document is incorrect.</string>
     <string name="error_file_storage">The document could not be processed because of a storage error. Check free space and access permissions.</string>
     <string name="error_file_too_large_memory">There is not enough memory to open this document.</string>
     <string name="error_file_unsupported">This type of document cannot be opened.</string>
     <!-- The document SDK's own error dialog reads these names: same words as the app's dialog. -->
-    <string name="docsdk_error_unsupported">@string/error_file_unsupported</string>
-    <string name="docsdk_error_damaged">@string/error_file_damaged</string>
-    <string name="docsdk_error_not_found">@string/error_file_not_found</string>
-    <string name="docsdk_error_memory">@string/error_file_too_large_memory</string>
-    <string name="docsdk_error_generic">@string/error_file_open_generic</string>
     <string name="no_result_found">No result found</string>
     <string name="password_hint">Password</string>
     <string name="redo">Redo</string>
     <string name="undo">Undo</string>
     <string name="translate_pdf">Translate PDF</string>
-    <string name="scan_to_pdf">Scan to PDF</string>
     <string name="merge_pdf">Merge PDF</string>
     <string name="split_pdf">Split PDF</string>
-    <string name="convert_add">Add</string>
     <string name="convert_failed">Could not convert images to PDF</string>
     <string name="file_name_exists">A file with this name already exists</string>
     <string name="split_open_failed">Could not open this PDF</string>
     <string name="split_failed">Could not split this PDF</string>
-    <string name="choose_language">Choose Language</string>
     <string name="translate_to">Translate to</string>
-    <string name="start_translation">Start Translation</string>
     <plurals name="translate_page_count">
         <item quantity="one">%d page</item>
         <item quantity="other">%d pages</item>
@@ -146,14 +113,11 @@
     <string name="translate_save_failed">Could not save the translated PDF</string>
     <string name="merge_failed">Could not merge these PDFs</string>
     <string name="merge_need_two_files">Select at least 2 files to merge</string>
-    <string name="create_zip">Create Zip</string>
     <string name="settings">Settings</string>
     <string name="privacy_policy">Privacy Policy</string>
-    <string name="term_of_service">Terms of Service</string>
     <string name="zip_failed">Could not create the ZIP file</string>
     <string name="open">Open</string>
     <string name="file_open_with_failed">No app found to open this file</string>
-    <string name="select_files">Select Files</string>
 
     <!-- Library strings (lib, android_document) translated in this module's values-* folders -->
     <string name="baselib_share_images_title">Share images via</string>
@@ -165,29 +129,14 @@
     <string name="baselib_no_files_to_share">No valid files to share</string>
     <string name="baselib_share_image_failed">Failed to share image</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="no_internet_connection">No internet connection</string>
-    <string name="your_first_translation_needs_a_language_pack_reading_and_editing_still_work_offline">Your first translation needs a language pack. Reading and editing still work offline.</string>
-    <string name="try_again">Try again</string>
-    <string name="create_edit_and_sign_any_document">Create, edit and sign any document</string>
-    <string name="you_can_change_it_anytime_in_settings">You can change it anytime in Settings.</string>
 
     <!-- Main: Files · Tools · Settings -->
-    <string name="home_subtitle" translatable="false">PDF Reader &amp; Editor</string>
-    <string name="pro" translatable="false">PRO</string>
-    <string name="coming_soon">Coming soon</string>
     <string name="files">Files</string>
-    <string name="my_files">My files</string>
     <string name="search_files">Search files</string>
     <string name="scan">Scan</string>
     <string name="paper_to_pdf">Paper to PDF</string>
-    <string name="start">Start</string>
     <string name="photos_to_pdf">Photos to PDF</string>
-    <string name="from_gallery">From gallery</string>
     <string name="new_file">New file</string>
-    <string name="new_file_desc">Word, Excel, PPT</string>
-    <string name="all_tools">All tools</string>
-    <string name="browse">Browse</string>
-    <string name="slides">Slides</string>
     <string name="powerpoint" translatable="false">PowerPoint</string>
     <plurals name="file_count">
         <item quantity="one">%d file</item>
@@ -199,13 +148,11 @@
     <string name="open_a_file">Open a file</string>
     <string name="pick_empty_desc">There is nothing to pick here yet. Browse to choose a file from another place.</string>
     <string name="no_type_file_found">No %1$s files found</string>
-    <string name="file_list_empty_desc">Files of this kind on your device will show here.</string>
     <string name="search_start_title">Search your files</string>
     <string name="search_start_desc">Find a document by its name or by the text inside it.</string>
     <string name="search_no_results_desc">Try another word or check the spelling.</string>
     <string name="search_no_access_desc">Allow access so the app can look through the files on this device.</string>
     <string name="pick_no_access_desc">Allow access to list the files on this device, or browse to pick one yourself.</string>
-    <string name="no_favorites_yet">No favorites yet</string>
     <string name="document_meta" translatable="false">%1$s · %2$s</string>
     <string name="just_now">Just now</string>
     <string name="minutes_ago">%d min ago</string>
@@ -214,14 +161,7 @@
 
     <!-- Create sheet / New document -->
     <string name="create_new">Create new</string>
-    <string name="scan_document">Scan document</string>
-    <string name="scan_document_desc">Paper, receipts, ID cards</string>
     <string name="images_to_pdf">Images to PDF</string>
-    <string name="images_to_pdf_desc">Pick photos from your gallery</string>
-    <string name="new_blank_document">New blank document</string>
-    <string name="word_desc">Letters, contracts</string>
-    <string name="excel_desc">Numbers, formulas</string>
-    <string name="powerpoint_desc">Slides, animations</string>
     <string name="new_document">New document</string>
     <string name="new_document_file_name">File name</string>
     <string name="save_to">Save to</string>
@@ -245,16 +185,10 @@
     <string name="apply">Apply</string>
 
     <!-- File options -->
-    <string name="to_pdf">To PDF</string>
-    <string name="open_to_edit">Open to edit</string>
-    <string name="make_a_copy">Make a copy</string>
     <string name="file_info">File info</string>
     <string name="file_info_pages">Pages</string>
     <string name="file_info_location">Location</string>
-    <string name="file_meta_edited">%1$s · edited %2$s</string>
     <string name="file_copy_failed">Could not copy file</string>
-    <string name="rename_file">Rename file</string>
-    <string name="new_name">New name</string>
     <plurals name="delete_files_title">
         <item quantity="one">Delete this file?</item>
         <item quantity="other">Delete %d files?</item>
@@ -265,37 +199,15 @@
     </plurals>
 
     <!-- Multi-select / Search / All files -->
-    <string name="selected_count">%d selected</string>
     <string name="select_all">Select all</string>
-    <string name="deselect_all">Deselect all</string>
     <string name="zip" translatable="false">ZIP</string>
-    <plurals name="result_count">
-        <item quantity="one">%d result</item>
-        <item quantity="other">%d results</item>
-    </plurals>
-    <string name="recent_searches">Recent searches</string>
-    <string name="filter_all">All</string>
-    <string name="filter_file_name">File name</string>
-    <string name="filter_content">Content</string>
-    <string name="folders">Folders</string>
-    <string name="other_types">Other types</string>
     <string name="images">Images</string>
 
     <!-- Tools -->
-    <string name="tools_subtitle">%d tools · all work offline</string>
     <string name="search_tools">Search tools</string>
-    <string name="tool_scan_highlight_desc">Edges, filters, OCR</string>
-    <string name="scan_now">Scan now</string>
-    <string name="sign_pdf">Sign PDF</string>
     <string name="tool_group_convert">Convert</string>
     <string name="tool_group_edit_sign">Edit &amp; Sign</string>
     <string name="tool_group_organize">Organize</string>
-    <string name="tool_group_security">Security &amp; More</string>
-    <plurals name="tool_count">
-        <item quantity="one">%d tool</item>
-        <item quantity="other">%d tools</item>
-    </plurals>
-    <string name="tool_images_to_pdf_desc">Photos to one PDF</string>
     <string name="tool_office_to_pdf">Office to PDF</string>
     <string name="tool_office_to_pdf_desc">Word, Excel, PPT</string>
     <string name="tool_pdf_to_images">PDF to Images</string>
@@ -327,27 +239,10 @@
     <string name="tool_zip_desc">Bundle files</string>
 
     <!-- Settings -->
-    <string name="free_plan">Free plan</string>
-    <string name="premium_title">Get Premium, work without limits</string>
-    <string name="no_ads">No ads</string>
-    <string name="unlimited_tools">Unlimited tools</string>
-    <string name="start_free_trial">Start 3-day free trial</string>
-    <string name="preferences">Preferences</string>
-    <string name="theme">Theme</string>
     <string name="theme_light">Light</string>
     <string name="theme_dark">Dark</string>
     <string name="theme_system">System</string>
-    <string name="i_use_it_for">I use it for</string>
-    <string name="support">Support</string>
-    <string name="enjoying_the_app">Enjoying the app?</string>
-    <string name="tap_a_star_to_rate">Tap a star to rate us on Google Play</string>
-    <string name="share_the_app">Share the app</string>
-    <string name="send_feedback">Send feedback</string>
-    <string name="premium">Premium</string>
     <string name="restore_purchases">Restore purchases</string>
-    <string name="manage_subscription">Manage subscription</string>
-    <string name="about">About</string>
-    <string name="version_info">%1$s · Version %2$s</string>
 
     <!-- Tools: shared -->
     <string name="compress_low">Light</string>
@@ -367,25 +262,10 @@
     <string name="margin_large">Large</string>
 
     <!-- Tools: pick files -->
-    <string name="choose_pdf_files">Choose PDF files</string>
-    <string name="choose_files">Choose files</string>
-    <string name="pick_one">%1$s · pick a file</string>
-    <string name="pick_two_or_more">%1$s · pick 2 or more</string>
-    <string name="pick_one_or_more">%1$s · pick 1 or more</string>
     <string name="browse_files">Browse</string>
-    <plurals name="continue_with_files">
-        <item quantity="one">Continue with %d file</item>
-        <item quantity="other">Continue with %d files</item>
-    </plurals>
-    <string name="add_files">Add files</string>
     <string name="file_extension" translatable="false">.%1$s</string>
-    <string name="progress_count" translatable="false">%1$d / %2$d</string>
 
     <!-- Tools: setup screens -->
-    <string name="merge_subtitle">Combine files into one PDF</string>
-    <string name="new_file_name">New file name</string>
-    <string name="merge_action">Merge %1$s · %2$s</string>
-    <string name="split_subtitle">Break a PDF into smaller files</string>
     <string name="split_each_page">Every page</string>
     <string name="split_each_page_desc">Turn each page into its own PDF</string>
     <string name="split_by_range">Custom ranges</string>
@@ -406,32 +286,12 @@
         <item quantity="other">Split into %d files</item>
     </plurals>
     <string name="compress_pdf">Compress PDF</string>
-    <string name="compress_subtitle">Make files small enough to email</string>
     <string name="protect_pdf">Protect PDF</string>
-    <string name="protect_subtitle">Only people with the password can open it</string>
-    <string name="confirm_password">Confirm password</string>
     <string name="protect_warning">Heads up: a lost password can’t be recovered, so keep it somewhere safe.</string>
-    <string name="lock_file">Lock file</string>
     <string name="password_empty">Please enter a password</string>
     <string name="password_mismatch">The passwords don’t match</string>
-    <string name="zip_subtitle">Bundle files to send in one go</string>
-    <string name="archive_name">Archive name</string>
-    <string name="zip_action">Create ZIP · %1$s, %2$s</string>
-    <plurals name="image_count_reorder">
-        <item quantity="one">%d image · drag to reorder</item>
-        <item quantity="other">%d images · drag to reorder</item>
-    </plurals>
-    <string name="page_size">Page size</string>
-    <string name="orientation">Orientation</string>
-    <string name="margins">Margins</string>
-    <string name="create_pdf_action">Create PDF · %1$s</string>
     <string name="watermark_text">Watermark text</string>
     <string name="watermark_default" translatable="false">CONFIDENTIAL</string>
-    <string name="opacity">Opacity</string>
-    <string name="rotation">Rotation</string>
-    <string name="degrees" translatable="false">%1$s°</string>
-    <string name="redact_warning">Redacted areas are permanently removed when you save.</string>
-    <string name="redact_drag">Drag to redact</string>
     <string name="redact_find_text">Find text to redact</string>
     <string name="redact_find_hint">Text to find</string>
     <string name="redact_find">Find</string>
@@ -446,25 +306,7 @@
     <string name="translate_to_short">To</string>
     <string name="translate_detect">Detect language</string>
     <string name="translate_detected">%1$s · looks like %2$s</string>
-    <string name="language_pack_title">One-time language pack · about 30 MB</string>
-    <string name="language_pack_desc">After that, translation runs on your device with no internet.</string>
-    <plurals name="translate_free_note">
-        <item quantity="one">Free version translates the first page</item>
-        <item quantity="other">Free version translates the first %d pages</item>
-    </plurals>
-    <plurals name="translate_first_pages">
-        <item quantity="one">Translate the first page</item>
-        <item quantity="other">Translate first %d pages</item>
-    </plurals>
-    <string name="translated_pages">Translated %1$d / %2$d pages</string>
     <string name="translation">Translation</string>
-    <string name="side_by_side">Side by side</string>
-    <plurals name="translate_unlock_title">
-        <item quantity="one">Translate the other page</item>
-        <item quantity="other">Translate the other %d pages</item>
-    </plurals>
-    <string name="translate_unlock_desc">Premium translates whole documents</string>
-    <string name="unlock">Unlock</string>
 
     <!-- Tools: processing and result -->
     <string name="processing_subtitle">Feel free to leave. We’ll keep working on it in the meantime.</string>
@@ -478,33 +320,21 @@
     <string name="processing_ocr">Reading the words…</string>
     <string name="processing_zip">Packing your ZIP…</string>
     <string name="processing_images">Making your PDF…</string>
-    <string name="saved_title">Saved!</string>
-    <string name="saved_subtitle">Your file is ready to open or share</string>
-    <string name="percent_smaller">%d%% smaller</string>
-    <string name="percent_saved" translatable="false">−%d%%</string>
-    <string name="keep_working">Keep working on this file</string>
 
     <!-- Scan -->
     <string name="scan_edges_found">Hold still, we’ll snap it for you</string>
     <string name="scan_mode_auto">Auto</string>
     <string name="scan_mode_manual">Manual</string>
-    <string name="adjust_corners">Adjust corners</string>
     <string name="scan_auto_detect">Auto-detect</string>
     <string name="scan_full_page">Full page</string>
-    <string name="scan_tap_filter">Tap a filter to preview</string>
-    <string name="save_pdf">Save PDF</string>
     <string name="scan_crop">Crop</string>
     <string name="scan_clean_up">Clean up</string>
     <string name="scan_clean_hint">Paint over what you want to remove</string>
     <string name="scan_brush">Brush</string>
 
     <!-- PDF reader -->
-    <string name="reader_edit">Edit</string>
-    <string name="reader_fill">Fill</string>
     <string name="add_text">Add text</string>
-    <string name="add_text_hint">Tap the page where the text goes</string>
     <string name="enter_text">Text</string>
-    <string name="text_size">Text size</string>
     <string name="annot_select">Select</string>
     <string name="annot_pen">Pen</string>
     <string name="annot_highlight">Highlight</string>
@@ -517,8 +347,6 @@
     <string name="shape_ellipse">Ellipse</string>
     <string name="shape_line">Line</string>
     <string name="shape_arrow">Arrow</string>
-    <string name="place_signature">Place signature</string>
-    <string name="place_signature_hint">Drag to move, pull a corner to resize</string>
     <string name="your_signature">Your signature</string>
     <string name="sign_draw">Draw</string>
     <string name="sign_type">Type</string>
@@ -535,40 +363,22 @@
     <string name="sign_initials">Initials</string>
     <string name="form_hint">Tap a blue field to fill it in</string>
     <string name="form_none">This PDF has no form fields</string>
-    <string name="form_fields_filled">%1$d fields · %2$d filled</string>
-    <string name="form_field_of">Field %1$d of %2$d · %3$s</string>
     <string name="form_field_default">Field</string>
-    <string name="tools_for_this_pdf">Tools for this PDF</string>
-    <string name="pages_and_file">Pages &amp; file</string>
-    <string name="tool_password">Password</string>
     <string name="tool_pages">Pages</string>
-    <string name="tool_to_images">To images</string>
-    <string name="reading_mode">Reading mode</string>
     <string name="theme_normal">Normal</string>
     <string name="theme_night">Night</string>
-    <string name="text_view">Text view</string>
-    <string name="text_view_desc">Reflow to fit screen</string>
     <string name="text_view_subtitle">Text reflows to fit the screen</string>
     <string name="reflow_no_text">No text found in this PDF</string>
     <string name="read_aloud">Read aloud</string>
     <string name="read_aloud_page">Reading page %d</string>
     <string name="read_aloud_unavailable">Text to speech is not available</string>
-    <string name="auto_scroll">Auto-scroll</string>
     <string name="auto_scroll_speed">Auto-scroll · speed %d</string>
-    <string name="page_layout">Page layout</string>
-    <string name="layout_vertical">Vertical</string>
-    <string name="layout_horizontal">Horizontal</string>
     <string name="contents">Contents</string>
-    <string name="bookmarks_count">Bookmarks (%d)</string>
     <string name="contents_none">This PDF has no table of contents</string>
     <string name="bookmarks_none">No bookmarks yet</string>
     <string name="bookmark_add">Bookmark page %d</string>
-    <string name="search_in_file">Search in file</string>
-    <string name="protected_file">Protected file</string>
-    <string name="enter_password_to_open">Enter the password to open</string>
     <string name="protected_meta">Protected</string>
-    <string name="cant_open_file">Can’t open file</string>
-    <string name="got_it">Got it</string>
+    <string name="cant_open_file">We couldn’t open this one</string>
     <string name="organize_pages">Organize pages</string>
     <string name="organize_selected">%d selected · drag to reorder</string>
     <string name="organize_drag">Drag to reorder</string>
@@ -577,8 +387,6 @@
     <string name="add_page">Add page</string>
     <string name="organize_select_first">Select pages first</string>
     <string name="theme_sepia">Sepia</string>
-    <string name="theme_sample" translatable="false">Aa</string>
-    <string name="text_size_sample" translatable="false">A</string>
     <string name="page_theme_suffix">%1$s · %2$s</string>
     <string name="page_count_short" translatable="false">%1$d / %2$d</string>
     <string name="pages_count">%d pages</string>
@@ -592,23 +400,16 @@
     <string name="discard_changes_message">Your edits to this PDF haven’t been saved.</string>
 
     <!-- Office viewer and editor -->
-    <string name="edit_document">Edit document</string>
     <string name="legacy_view_only">Old %1$s files are view-only.</string>
     <string name="sheet_of">Sheet %1$d of %2$d</string>
     <string name="slide_of">Slide %1$d of %2$d</string>
     <string name="saved">Saved</string>
-    <string name="unsaved_changes">Not saved</string>
-    <string name="save_document">Save document</string>
-    <string name="save_to_original">Save to original file</string>
     <string name="save_to_original_desc">Replaces %s</string>
-    <string name="save_as_copy">Save as a copy</string>
     <string name="save_as_copy_desc">Keep the original unchanged</string>
-    <string name="export_to_pdf">Export to PDF</string>
     <string name="export_to_pdf_desc">For sending or printing</string>
     <string name="share_desc">WhatsApp, Gmail, Drive…</string>
     <string name="unsaved_title">Save before you go?</string>
     <string name="unsaved_message">You have unsaved edits in %s.</string>
-    <string name="dont_save">Don’t save</string>
     <string name="keep_editing">Keep editing</string>
     <string name="draft_title">Welcome back!</string>
     <string name="draft_message">We kept a draft of the edits you didn’t get to save in %s.</string>
@@ -628,7 +429,6 @@
     <string name="ribbon_camera">Camera</string>
     <string name="slideshow">Slideshow</string>
     <string name="slideshow_unavailable">The slideshow isn’t ready yet</string>
-    <string name="find_and_replace">Find and replace</string>
     <string name="find_hint">Find</string>
     <string name="replace_hint">Replace with</string>
     <string name="replace">Replace</string>
@@ -660,69 +460,20 @@
     <string name="rows">Rows</string>
 
     <!-- Premium (placeholder prices until Play Billing is wired) -->
-    <string name="terms_of_use">Terms of use</string>
-    <string name="choose_plan">Choose a plan</string>
-    <string name="paywall_title">Get more with Premium</string>
-    <string name="paywall_subtitle">Every tool, no ads, no limits.</string>
-    <string name="paywall_feature_title">%s is a Premium feature</string>
-    <string name="benefit_no_ads">No ads, anywhere</string>
-    <string name="benefit_unlimited">Unlimited compress, merge and split</string>
-    <string name="benefit_ocr">OCR and redact sensitive info</string>
-    <string name="benefit_protect">Protect files with a password</string>
-    <string name="benefit_translate">Translate whole documents</string>
     <string name="plan_yearly">Yearly</string>
     <string name="plan_monthly">Monthly</string>
     <string name="plan_lifetime">Lifetime</string>
-    <string name="plan_yearly_line1">%1$d-day free trial, then %2$s a year</string>
-    <string name="plan_yearly_line2">Equal to %s / month</string>
-    <string name="plan_monthly_line1">Billed %s every month</string>
-    <string name="plan_monthly_line2">No free trial</string>
-    <string name="plan_lifetime_line1">Pay once, no renewals</string>
-    <string name="plan_lifetime_line2">Not a subscription</string>
     <string name="plan_per_year">per year</string>
     <string name="plan_per_month">per month</string>
     <string name="plan_one_time">one time</string>
     <string name="plan_save">Save %d%%</string>
-    <string name="trial_how_it_works">How your free trial works</string>
-    <string name="trial_today_title">Today · %s</string>
-    <string name="trial_today_desc">Full Premium access starts now. You won’t be charged today.</string>
-    <string name="trial_end_title">%s · trial ends</string>
-    <string name="trial_end_desc">You’ll be charged %1$s for 1 year unless you cancel before this date.</string>
-    <string name="trial_renew_title">Every %s after</string>
-    <string name="trial_renew_desc">Renews at %s / year until you cancel.</string>
-    <string name="purchase_trial">Start %d-day free trial</string>
-    <string name="purchase_monthly">Subscribe for %s / month</string>
     <string name="purchase_lifetime">Buy lifetime for %s</string>
-    <string name="price_note_yearly">%1$s today, then %2$s / year from %3$s</string>
-    <string name="price_note_monthly">%s charged today, then every month</string>
-    <string name="price_note_lifetime">%s charged once. No subscription.</string>
     <string name="legal_yearly">Your Google Play account will be charged %1$s when the %2$d-day trial ends on %3$s, and every year after that. The subscription renews automatically until you cancel. Cancel anytime in Google Play › Payments &amp; subscriptions › Subscriptions; cancel before %3$s to avoid being charged. Price shown in USD; your local price and taxes are shown in Google Play before you confirm.</string>
     <string name="legal_monthly">Your Google Play account will be charged %s today and every month after that. The subscription renews automatically until you cancel. Cancel anytime in Google Play › Payments &amp; subscriptions › Subscriptions; you keep Premium until the end of the paid month.</string>
     <string name="legal_lifetime">One-time purchase of %s through Google Play. You won’t be charged again. Premium stays with this Google account and can be restored on a new device with Restore purchases.</string>
     <string name="purchase_unavailable">Purchases aren’t available in this build yet</string>
     <string name="restore_nothing">No purchases to restore</string>
     <string name="plan_free">Free plan</string>
-    <string name="subscription_none">No active subscription</string>
-    <string name="subscription_status">Status</string>
-    <string name="subscription_amount">Amount</string>
-    <string name="subscription_renews">Renews</string>
-    <string name="subscription_billed_through">Billed through</string>
-    <string name="subscription_not_subscribed">Not subscribed</string>
-    <string name="subscription_dash" translatable="false">—</string>
-    <string name="google_play" translatable="false">Google Play</string>
-    <string name="subscription_none_notice">You’re on the free plan. Premium removes ads and limits and unlocks every tool.</string>
-    <string name="see_premium_plans">See Premium plans</string>
-    <string name="manage_in_google_play">Manage in Google Play</string>
-    <string name="how_to_cancel">How to cancel. Subscriptions are billed and cancelled through Google Play. Uninstalling the app does not cancel your subscription.</string>
-    <string name="quota_title">You’ve used your free %s uses today</string>
-    <string name="quota_desc">New uses at midnight, or pick an option to save your file now.</string>
-    <string name="quota_try_premium">Try Premium free for 3 days</string>
-    <string name="quota_trial_terms">%1$s today, then %2$s / year after %3$d days. Renews automatically; cancel anytime in Google Play.</string>
-    <string name="quota_watch_ad">Watch an ad for 1 more use</string>
-    <string name="quit_title">Exit the app?</string>
-    <string name="quit_message">Your files stay where they are.</string>
-    <string name="quit_exit">Exit</string>
-    <string name="quit_stay">Stay</string>
     <string name="open_with_other_app">Open with another app</string>
     <string name="go_to_page">Go to page</string>
     <string name="go_to_sheet">Go to sheet</string>
@@ -732,7 +483,6 @@
     <string name="convert_to_pdf">Convert to PDF</string>
     <string name="convert_pdf_unavailable">This file can’t be converted to PDF yet</string>
     <string name="convert_pdf_not_ready">The document is still loading. Try again in a moment.</string>
-    <string name="choose_office_files">Choose a Word or PowerPoint file</string>
     <string name="delete_slide_title">Delete slide?</string>
     <string name="delete_slide_message">This slide will be removed from the presentation.</string>
     <string name="slides_updating">The slides are still updating. Try again in a moment.</string>
@@ -1063,7 +813,6 @@
     <string name="fo_next_field">Next field</string>
     <string name="fo_field_x_of_y">Field %1$d of %2$d</string>
     <string name="fo_pause">Pause</string>
-    <string name="fo_play">Play</string>
     <plurals name="fo_matches">
         <item quantity="one">%d match</item>
         <item quantity="other">%d matches</item>
@@ -1119,4 +868,56 @@
     <string name="fo_end_show">End slideshow</string>
     <string name="fo_previous_slide">Previous slide</string>
     <string name="fo_next_slide">Next slide</string>
+    <string name="fo_quit_title">Heading off already?</string>
+    <string name="fo_quit_message">Your documents stay safe on your phone, right where you left them.</string>
+    <string name="fo_exit">Exit</string>
+    <string name="fo_stay">Stay a bit</string>
+    <string name="fo_keep_it">Keep it</string>
+    <string name="fo_offline_title">You’re offline</string>
+    <string name="fo_offline_message">No worries, files on your phone still open and edit. Reconnect to use online tools.</string>
+    <string name="fo_try_again">Try again</string>
+    <string name="fo_open_wifi">Open Wi-Fi settings</string>
+    <string name="fo_new_name_title">Give it a new name</string>
+    <string name="fo_file_name">File name</string>
+    <string name="fo_extension_stays">The %s ending stays the same.</string>
+    <string name="fo_locked_title">This file is locked</string>
+    <string name="fo_locked_message">Enter the password for %s</string>
+    <string name="fo_wrong_password">Hmm, that’s not it. Give it another try.</string>
+    <string name="fo_okay">Okay</string>
+    <string name="fo_pro_tool">Pro tool</string>
+    <string name="fo_restore">Restore</string>
+    <string name="fo_lifetime_price">Lifetime %s</string>
+    <string name="fo_paywall_title">Every tool, no ads, no limits</string>
+    <string name="fo_paywall_subtitle">Folio Pro adds OCR, protect, redact, full translation and no ads.</string>
+    <string name="fo_paywall_tool_title">Unlock %s with Folio Pro</string>
+    <string name="fo_paywall_tool_subtitle">%s comes with Folio Pro, along with protect, redact, full translation and no ads.</string>
+    <string name="fo_yearly_line">%1$s a month · %2$d days free</string>
+    <string name="fo_monthly_line">Billed every month</string>
+    <string name="fo_try_days_free">Try %d days free</string>
+    <string name="fo_subscribe_monthly">Subscribe for %s/mo</string>
+    <string name="fo_your_plan">Your plan</string>
+    <string name="fo_current_plan">Current plan</string>
+    <string name="fo_active">Active</string>
+    <string name="fo_free_read_edit">Read, create and edit documents</string>
+    <string name="fo_free_tools">Scan, merge, split, compress</string>
+    <string name="fo_free_translate">Translate 3 pages per file</string>
+    <string name="fo_pro_ocr_protect">OCR, protect and redact</string>
+    <string name="fo_pro_no_ads">No ads</string>
+    <string name="fo_upgrade_pro">Upgrade to Pro</string>
+    <string name="fo_upgrade_price">%1$s a year · %2$d days free</string>
+    <string name="fo_manage_play">Manage in Google Play</string>
+    <string name="fo_used">used</string>
+    <string name="fo_quota_title">You’ve used your free %s</string>
+    <string name="fo_quota_message">Go Pro to use %s as much as you like, without ads.</string>
+    <string name="fo_pro_unlimited">Unlimited OCR, protect and redact</string>
+    <string name="fo_pro_translate_all">Translate whole documents</string>
+    <string name="fo_pro_no_ads_ever">No ads, ever</string>
+    <string name="fo_try_pro_free">Try Pro free for %d days</string>
+    <string name="fo_not_now">Not now</string>
+    <string name="fo_used_of" translatable="false">%1$d/%2$d</string>
+    <string name="fo_ext_pptx" translatable="false">PPTX</string>
+    <string name="fo_home_read">Read</string>
+    <string name="fo_home_create">Create</string>
+    <string name="fo_home_create_desc">Word, Excel, Slides and scans</string>
+    <string name="fo_your_documents">Your documents</string>
 </resources>

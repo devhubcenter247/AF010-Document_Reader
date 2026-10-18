@@ -37,7 +37,7 @@
                 android:layout_weight="2"
                 android:drawablePadding="@dimen/_5sdp"
                 android:ellipsize="end"
-                android:fontFamily="@font/nunito_600"
+                android:fontFamily="@font/nunito_500"
                 android:gravity="center_vertical"
                 android:maxLines="1"
                 android:paddingHorizontal="@dimen/_9sdp"
@@ -46,7 +46,7 @@
                 tools:text="Times New Roman"
                 android:background="@drawable/bg_format_tile"
                 android:textColor="@color/text_primary"
-                app:drawableEndCompat="@drawable/ic_app_chevd_13sdp" />
+                app:drawableEndCompat="@drawable/ic_fo_chevron_down_13sdp" />
 
             <TextView
                 android:id="@+id/btnSize"
@@ -56,7 +56,7 @@
                 android:layout_weight="1"
                 android:drawablePadding="@dimen/_5sdp"
                 android:ellipsize="end"
-                android:fontFamily="@font/nunito_700"
+                android:fontFamily="@font/nunito_600"
                 android:gravity="center_vertical"
                 android:maxLines="1"
                 android:paddingHorizontal="@dimen/_9sdp"
@@ -65,7 +65,7 @@
                 tools:text="13"
                 android:background="@drawable/bg_format_tile"
                 android:textColor="@color/text_primary"
-                app:drawableEndCompat="@drawable/ic_app_chevd_13sdp" />
+                app:drawableEndCompat="@drawable/ic_fo_chevron_down_13sdp" />
         </LinearLayout>
 
         <LinearLayout
@@ -113,7 +113,7 @@
                 android:layout_width="@dimen/_36sdp"
                 android:layout_height="@dimen/_36sdp"
                 android:layout_marginEnd="@dimen/_6sdp"
-                android:fontFamily="@font/nunito_800"
+                android:fontFamily="@font/nunito_700"
                 android:gravity="center"
                 android:text="@string/format_strike_sample"
                 android:textSize="@dimen/_14sdp"
@@ -125,7 +125,7 @@
                 android:layout_width="@dimen/_36sdp"
                 android:layout_height="@dimen/_36sdp"
                 android:layout_marginEnd="@dimen/_6sdp"
-                android:fontFamily="@font/nunito_800"
+                android:fontFamily="@font/nunito_700"
                 android:gravity="center"
                 android:text="@string/format_superscript_sample"
                 android:textSize="@dimen/_14sdp"
@@ -137,7 +137,7 @@
                 android:layout_width="@dimen/_36sdp"
                 android:layout_height="@dimen/_36sdp"
                 android:layout_marginEnd="@dimen/_6sdp"
-                android:fontFamily="@font/nunito_800"
+                android:fontFamily="@font/nunito_700"
                 android:gravity="center"
                 android:text="@string/format_subscript_sample"
                 android:textSize="@dimen/_14sdp"
@@ -263,7 +263,7 @@
                 android:layout_weight="1"
                 android:drawablePadding="@dimen/_5sdp"
                 android:ellipsize="end"
-                android:fontFamily="@font/nunito_700"
+                android:fontFamily="@font/nunito_600"
                 android:gravity="center_vertical"
                 android:maxLines="1"
                 android:paddingHorizontal="@dimen/_9sdp"
@@ -273,7 +273,7 @@
                 tools:text="Line spacing"
                 android:background="@drawable/bg_format_tile"
                 android:textColor="@color/text_primary"
-                app:drawableEndCompat="@drawable/ic_app_chevd_13sdp" />
+                app:drawableEndCompat="@drawable/ic_fo_chevron_down_13sdp" />
         </LinearLayout>
     </LinearLayout>
 

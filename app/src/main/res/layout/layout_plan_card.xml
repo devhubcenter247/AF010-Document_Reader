@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- A plan on the paywall: name (and a saving badge), price, what it means. Picked = selected state. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_plan_option"
+    android:foreground="?attr/selectableItemBackground"
+    android:minHeight="@dimen/_86sdp"
+    android:orientation="vertical"
+    android:padding="@dimen/_11sdp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/nunito_700"
+            android:maxLines="1"
+            android:textColor="@color/text_primary"
+            android:textSize="@dimen/_12sdp"
+            tools:text="Yearly" />
+
+        <TextView
+            android:id="@+id/tvBadge"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_17sdp"
+            android:background="@drawable/bg_badge"
+            android:backgroundTint="@color/color_pro"
+            android:fontFamily="@font/nunito_700"
+            android:gravity="center"
+            android:paddingHorizontal="@dimen/_6sdp"
+            android:textColor="@color/ink_bar_text"
+            android:textSize="@dimen/_9sdp"
+            android:visibility="gone"
+            tools:text="Save 58%"
+            tools:visibility="visible" />
+    </LinearLayout>
+
+    <Space
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <TextView
+        android:id="@+id/tvPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_6sdp"
+        android:fontFamily="@font/nunito_700"
+        android:textColor="@color/text_primary"
+        android:textSize="@dimen/_18sdp"
+        tools:text="$29.99" />
+
+    <TextView
+        android:id="@+id/tvLine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/nunito_500"
+        android:textColor="@color/text_secondary"
+        android:textSize="@dimen/_10sdp"
+        tools:text="$2.50 a month · 3 days free" />
+</LinearLayout>

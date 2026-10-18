@@ -1,106 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<!-- A new name (rename) or any single line of text (TextInputDialog). -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    style="@style/DialogAppStyle"
-    android:clipChildren="false"
-    android:clipToPadding="false"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:gravity="center_horizontal"
+    android:background="@drawable/bg_dialog"
+    android:clipToPadding="false"
+    android:gravity="start"
     android:orientation="vertical"
-    android:padding="@dimen/_17sdp"
-    tools:context=".ui.dialog.RenameDialog"
-    android:background="@drawable/bg_surface_card_r18sdp"
-    android:clipToOutline="true">
+    android:paddingHorizontal="@dimen/_17sdp"
+    android:paddingTop="@dimen/_17sdp"
+    android:paddingBottom="@dimen/_15sdp"
+    tools:context=".ui.dialog.RenameDialog">
 
     <TextView
         android:id="@+id/tvTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/nunito_800"
-        android:gravity="center"
-        android:text="@string/rename_file"
+        android:fontFamily="@font/nunito_600"
+        android:text="@string/fo_new_name_title"
         android:textColor="@color/text_primary"
-        android:textSize="@dimen/_13sdp" />
+        android:textSize="@dimen/_15sdp" />
 
     <TextView
         android:id="@+id/tvLabel"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/FieldLabel"
         android:layout_marginTop="@dimen/_11sdp"
-        android:fontFamily="@font/nunito_700"
-        android:text="@string/new_name"
-        android:textColor="@color/text_secondary"
-        android:textSize="@dimen/_10sdp" />
+        android:labelFor="@id/edtName"
+        android:text="@string/fo_file_name" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_37sdp"
-        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_height="@dimen/_43sdp"
+        android:addStatesFromChildren="true"
+        android:background="@drawable/bg_field"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:paddingHorizontal="@dimen/_11sdp"
-        android:background="@drawable/bg_surface_card_r11sdp"
-        android:foreground="@drawable/stroke_r11sdp_st1sdp_primary"
-        android:clipToOutline="true">
+        android:paddingHorizontal="@dimen/_12sdp">
 
         <EditText
             android:id="@+id/edtName"
+            style="@style/FieldInput"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@null"
             android:fontFamily="@font/nunito_600"
-            android:hint="@string/new_name"
             android:imeOptions="actionDone"
-            android:importantForAutofill="no"
-            android:inputType="text"
-            android:maxLines="1"
-            android:textColor="@color/text_primary"
-            android:textColorHint="@color/text_secondary"
-            android:textSize="@dimen/_12sdp" />
+            android:inputType="text" />
 
         <TextView
             android:id="@+id/tvExtension"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_6sdp"
+            android:layout_marginStart="@dimen/_5sdp"
             android:fontFamily="@font/nunito_600"
             android:textColor="@color/text_secondary"
             android:textSize="@dimen/_12sdp"
-            tools:text=".docx" />
+            tools:text=".pdf" />
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvHint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:fontFamily="@font/nunito_500"
+        android:textColor="@color/text_secondary"
+        android:textSize="@dimen/_10sdp"
+        android:visibility="gone"
+        tools:text="The .pdf ending stays the same."
+        tools:visibility="visible" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_13sdp"
+        android:layout_marginTop="@dimen/_14sdp"
+        android:clipToPadding="false"
         android:orientation="horizontal">
 
         <TextView
             android:id="@+id/btnCancel"
-            style="@style/ButtonOutlineStyle"
+            style="@style/DialogSoftButton"
             android:layout_width="0dp"
-            android:layout_marginEnd="@dimen/_4sdp"
             android:layout_weight="1"
-            android:text="@string/file_action_cancel"
-            android:background="@drawable/bg_surface_card_r10sdp_st1sdp_stroke"
-            android:textColor="@color/text_primary" />
+            android:text="@string/file_action_cancel" />
 
         <TextView
             android:id="@+id/btnConfirm"
-            style="@style/ButtonAppStyle"
+            style="@style/DialogPrimaryButton"
             android:layout_width="0dp"
-            android:layout_marginStart="@dimen/_4sdp"
-            android:layout_weight="1"
-            android:text="@string/file_action_save"
-            android:background="@drawable/bg_button_primary"
-            android:elevation="@dimen/_5sdp"
-            android:outlineSpotShadowColor="@color/primary_30"
-            android:outlineAmbientShadowColor="@color/primary_20"
-            android:textColor="@color/white" />
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_weight="1.3"
+            android:text="@string/fo_rename" />
     </LinearLayout>
-
 </LinearLayout>

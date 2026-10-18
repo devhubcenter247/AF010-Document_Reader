@@ -24,10 +24,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_8sdp"
-        android:fontFamily="@font/nunito_800"
+        android:fontFamily="@font/nunito_600"
         android:gravity="center"
         android:textColor="@color/text_primary"
-        android:textSize="@dimen/_18sdp"
+        android:textSize="@dimen/_15sdp"
         tools:text="Save before you go?" />
 
     <TextView
@@ -35,11 +35,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_5sdp"
-        android:fontFamily="@font/nunito_600"
+        android:fontFamily="@font/nunito_400"
         android:gravity="center"
         android:lineSpacingMultiplier="1.15"
         android:textColor="@color/text_secondary"
-        android:textSize="@dimen/_11sdp"
+        android:textSize="@dimen/_10sdp"
         tools:text="You have unsaved edits in Team offsite plan.docx." />
 
     <LinearLayout
@@ -103,7 +103,7 @@
 
     <TextView
         android:id="@+id/btnPrimary"
-        style="@style/PrimaryPillButton"
+        style="@style/DialogPrimaryButton"
         android:layout_width="match_parent"
         android:layout_marginTop="@dimen/_14sdp"
         tools:text="Save and leave" />
@@ -111,19 +111,19 @@
     <TextView
         android:id="@+id/btnSecondary"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_40sdp"
+        android:layout_height="@dimen/_36sdp"
         android:layout_marginTop="@dimen/_6sdp"
         android:background="@drawable/bg_outline_pill"
-        android:fontFamily="@font/nunito_800"
+        android:fontFamily="@font/nunito_600"
         android:foreground="?attr/selectableItemBackground"
         android:gravity="center"
         android:textColor="@color/text_primary"
-        android:textSize="@dimen/_12sdp"
+        android:textSize="@dimen/_11sdp"
         tools:text="Leave without saving" />
 
     <TextView
         android:id="@+id/btnTertiary"
-        style="@style/GhostButton"
+        style="@style/DialogGhostButton"
         android:layout_width="match_parent"
         android:layout_marginTop="@dimen/_2sdp"
         android:visibility="gone"

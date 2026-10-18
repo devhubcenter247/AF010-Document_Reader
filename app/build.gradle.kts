@@ -151,7 +151,7 @@ dependencies {
     implementation(libs.kotlinx.coroutines.android)
 
     implementation(project(":opencv"))
-     implementation(libs.docsdk)
+    implementation(libs.docsdk)
     implementation(libs.androidx.viewpager2)
     implementation(libs.mlkit.translate)
     implementation(libs.mlkit.language.id)

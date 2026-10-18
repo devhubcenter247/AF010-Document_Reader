@@ -8,7 +8,7 @@
     android:layout_marginEnd="@dimen/_6sdp"
     android:background="@drawable/bg_page_number"
     android:elevation="@dimen/_2sdp"
-    android:fontFamily="@font/nunito_800"
+    android:fontFamily="@font/nunito_700"
     android:gravity="center"
     android:outlineAmbientShadowColor="@color/color_shadow"
     android:outlineSpotShadowColor="@color/color_shadow"
