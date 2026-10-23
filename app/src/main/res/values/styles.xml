@@ -3,9 +3,9 @@
 
 
     <style name="ButtonAppStyle">
-        <item name="android:layout_height">@dimen/_43sdp</item>
+        <item name="android:layout_height">@dimen/_39sdp</item>
         <item name="android:textSize">@dimen/_12sdp</item>
-        <item name="android:fontFamily">@font/nunito_700</item>
+        <item name="android:fontFamily">@font/nunito_600</item>
         <item name="android:gravity">center</item>
     </style>
 
@@ -17,21 +17,10 @@
         <item name="android:textColor">@color/text_secondary</item>
         <item name="android:textSize">@dimen/_10sdp</item>
         <item name="android:textAllCaps">false</item>
-        <item name="fontFamily">@font/nunito_700</item>
-    </style>
-
-    <style name="CardAppStyle">
-        <item name="android:elevation">@dimen/_3sdp</item>
-        <item name="android:outlineSpotShadowColor">@color/color_shadow</item>
-        <item name="android:outlineAmbientShadowColor">@color/color_shadow</item>
+        <item name="fontFamily">@font/nunito_600</item>
     </style>
 
     <!-- Nút tròn 40 chứa icon: back, close, search -->
-    <style name="IconButtonStyle">
-        <item name="android:layout_width">@dimen/_27sdp</item>
-        <item name="android:layout_height">@dimen/_27sdp</item>
-        <item name="android:padding">@dimen/_5sdp</item>
-    </style>
 
     <style name="ButtonOutlineStyle" parent="ButtonAppStyle">
     </style>
@@ -62,20 +51,20 @@
         <item name="android:paddingHorizontal">@dimen/_9sdp</item>
         <item name="android:textColor">@color/on_primary</item>
         <item name="android:textSize">@dimen/_10sdp</item>
-        <item name="fontFamily">@font/nunito_700</item>
+        <item name="fontFamily">@font/nunito_600</item>
         <item name="android:background">?attr/selectableItemBackground</item>
     </style>
 
 
     <!-- Folio: the main action, a 56px blue pill with a soft blue glow -->
     <style name="PrimaryPillButton">
-        <item name="android:layout_height">@dimen/_43sdp</item>
+        <item name="android:layout_height">@dimen/_39sdp</item>
         <item name="android:background">@drawable/bg_button_primary</item>
         <item name="android:gravity">center</item>
-        <item name="android:paddingHorizontal">@dimen/_17sdp</item>
+        <item name="android:paddingHorizontal">@dimen/_14sdp</item>
         <item name="android:textColor">@color/on_primary</item>
         <item name="android:textSize">@dimen/_12sdp</item>
-        <item name="android:fontFamily">@font/nunito_700</item>
+        <item name="android:fontFamily">@font/nunito_600</item>
         <item name="android:elevation">@dimen/_4sdp</item>
         <item name="android:outlineSpotShadowColor">@color/primary</item>
         <item name="android:outlineAmbientShadowColor">@color/primary</item>
@@ -89,13 +78,13 @@
         <item name="android:paddingHorizontal">@dimen/_17sdp</item>
         <item name="android:textColor">@color/text_tertiary</item>
         <item name="android:textSize">@dimen/_12sdp</item>
-        <item name="android:fontFamily">@font/nunito_700</item>
+        <item name="android:fontFamily">@font/nunito_600</item>
     </style>
 
     <!-- Folio: big friendly screen titles (32px) -->
     <style name="DisplayTitle">
         <item name="android:textColor">@color/text_primary</item>
-        <item name="android:textSize">@dimen/_25sdp</item>
+        <item name="android:textSize">@dimen/_18sdp</item>
         <item name="android:fontFamily">@font/nunito_700</item>
         <item name="android:letterSpacing">-0.02</item>
         <item name="android:lineSpacingMultiplier">0.95</item>
@@ -111,7 +100,7 @@
     <!-- Folio: the white floating card used for rows and options -->
     <style name="FloatingCard">
         <item name="android:background">@drawable/bg_card</item>
-        <item name="android:elevation">@dimen/_3sdp</item>
+        <item name="android:elevation">@dimen/_2sdp</item>
         <item name="android:outlineSpotShadowColor">@color/color_shadow</item>
         <item name="android:outlineAmbientShadowColor">@color/color_shadow</item>
     </style>
@@ -122,7 +111,7 @@
         <item name="android:layout_height">@dimen/_31sdp</item>
         <item name="android:layout_weight">1</item>
         <item name="android:background">@drawable/bg_segment_item</item>
-        <item name="android:fontFamily">@font/nunito_700</item>
+        <item name="android:fontFamily">@font/nunito_600</item>
         <item name="android:gravity">center</item>
         <item name="android:maxLines">1</item>
         <item name="android:paddingHorizontal">@dimen/_9sdp</item>
@@ -148,7 +137,7 @@
     <style name="SectionHeading">
         <item name="android:textColor">@color/text_primary</item>
         <item name="android:textSize">@dimen/_14sdp</item>
-        <item name="android:fontFamily">@font/nunito_700</item>
+        <item name="android:fontFamily">@font/nunito_600</item>
         <item name="android:letterSpacing">-0.01</item>
     </style>
 
@@ -175,7 +164,7 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginTop">@dimen/_1sdp</item>
         <item name="android:duplicateParentState">true</item>
-        <item name="android:fontFamily">@font/nunito_700</item>
+        <item name="android:fontFamily">@font/nunito_600</item>
         <item name="android:maxLines">1</item>
         <item name="android:textColor">@color/nav_tab_content</item>
         <item name="android:textSize">@dimen/_9sdp</item>
@@ -190,7 +179,7 @@
         <item name="android:background">@drawable/bg_chip_glass</item>
         <item name="android:foreground">?attr/selectableItemBackground</item>
         <item name="android:clipToOutline">true</item>
-        <item name="android:fontFamily">@font/nunito_700</item>
+        <item name="android:fontFamily">@font/nunito_600</item>
         <item name="android:gravity">center</item>
         <item name="android:paddingHorizontal">@dimen/_9sdp</item>
         <item name="android:textColor">@color/on_primary</item>
@@ -208,7 +197,7 @@
         <item name="android:outlineAmbientShadowColor">@color/color_shadow</item>
         <item name="android:paddingHorizontal">@dimen/_14sdp</item>
         <item name="android:drawablePadding">@dimen/_6sdp</item>
-        <item name="android:fontFamily">@font/nunito_700</item>
+        <item name="android:fontFamily">@font/nunito_600</item>
         <item name="android:gravity">center</item>
         <item name="android:textColor">@color/text_primary</item>
         <item name="android:textSize">@dimen/_11sdp</item>
@@ -217,13 +206,13 @@
     <!-- Folio: an action tile in a sheet's grid (Share, Favourite, Rename, Copy) -->
     <style name="ActionTile">
         <item name="android:layout_width">0dp</item>
-        <item name="android:layout_height">@dimen/_65sdp</item>
+        <item name="android:layout_height">@dimen/_62sdp</item>
         <item name="android:layout_weight">1</item>
         <item name="android:background">@drawable/bg_action_tile</item>
         <item name="android:foreground">?attr/selectableItemBackground</item>
         <item name="android:clipToOutline">true</item>
         <item name="android:drawablePadding">@dimen/_5sdp</item>
-        <item name="android:fontFamily">@font/nunito_700</item>
+        <item name="android:fontFamily">@font/nunito_600</item>
         <item name="android:gravity">center</item>
         <item name="android:maxLines">1</item>
         <item name="android:paddingTop">@dimen/_12sdp</item>
@@ -239,7 +228,7 @@
         <item name="android:layout_height">@dimen/_43sdp</item>
         <item name="android:background">?attr/selectableItemBackground</item>
         <item name="android:drawablePadding">@dimen/_9sdp</item>
-        <item name="android:fontFamily">@font/nunito_700</item>
+        <item name="android:fontFamily">@font/nunito_600</item>
         <item name="android:gravity">center_vertical</item>
         <item name="android:paddingHorizontal">@dimen/_9sdp</item>
         <item name="android:textColor">@color/text_primary</item>
@@ -254,7 +243,7 @@
         <item name="android:layout_weight">1</item>
         <item name="android:background">?attr/selectableItemBackgroundBorderless</item>
         <item name="android:drawablePadding">@dimen/_2sdp</item>
-        <item name="android:fontFamily">@font/nunito_700</item>
+        <item name="android:fontFamily">@font/nunito_600</item>
         <item name="android:gravity">center</item>
         <item name="android:maxLines">1</item>
         <item name="android:paddingTop">@dimen/_6sdp</item>
@@ -267,7 +256,7 @@
     <style name="SectionNote">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:fontFamily">@font/nunito_700</item>
+        <item name="android:fontFamily">@font/nunito_600</item>
         <item name="android:textColor">@color/text_secondary</item>
         <item name="android:textSize">@dimen/_10sdp</item>
     </style>
@@ -276,7 +265,7 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:paddingBottom">@dimen/_6sdp</item>
-        <item name="android:fontFamily">@font/nunito_700</item>
+        <item name="android:fontFamily">@font/nunito_600</item>
         <item name="android:textColor">@color/text_secondary</item>
         <item name="android:textSize">@dimen/_10sdp</item>
     </style>
@@ -305,7 +294,7 @@
         <item name="android:layout_gravity">center_horizontal</item>
         <item name="android:layout_marginTop">@dimen/_6sdp</item>
         <item name="android:background">@drawable/bg_badge</item>
-        <item name="android:fontFamily">@font/nunito_700</item>
+        <item name="android:fontFamily">@font/nunito_600</item>
         <item name="android:gravity">center</item>
         <item name="android:paddingHorizontal">@dimen/_4sdp</item>
         <item name="android:textSize">@dimen/_9sdp</item>
@@ -323,7 +312,7 @@
     <style name="LanguagePickLabel">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:fontFamily">@font/nunito_700</item>
+        <item name="android:fontFamily">@font/nunito_600</item>
         <item name="android:textColor">@color/text_secondary</item>
         <item name="android:textSize">@dimen/_10sdp</item>
     </style>
@@ -335,7 +324,7 @@
         <item name="android:drawableEnd">@drawable/ic_fo_chevron_down_15sdp</item>
         <item name="android:drawableTint">@color/text_primary</item>
         <item name="android:ellipsize">end</item>
-        <item name="android:fontFamily">@font/nunito_700</item>
+        <item name="android:fontFamily">@font/nunito_600</item>
         <item name="android:maxLines">1</item>
         <item name="android:textColor">@color/text_primary</item>
         <item name="android:textSize">@dimen/_14sdp</item>
@@ -345,7 +334,7 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:paddingBottom">@dimen/_6sdp</item>
-        <item name="android:fontFamily">@font/nunito_700</item>
+        <item name="android:fontFamily">@font/nunito_600</item>
         <item name="android:textColor">@color/text_primary</item>
         <item name="android:textSize">@dimen/_11sdp</item>
     </style>
@@ -355,7 +344,7 @@
         <item name="android:layout_height">@dimen/_20sdp</item>
         <item name="android:layout_gravity">bottom|start</item>
         <item name="android:layout_margin">@dimen/_9sdp</item>
-        <item name="android:fontFamily">@font/nunito_700</item>
+        <item name="android:fontFamily">@font/nunito_600</item>
         <item name="android:gravity">center</item>
         <item name="android:paddingHorizontal">@dimen/_8sdp</item>
         <item name="android:textSize">@dimen/_9sdp</item>
@@ -364,7 +353,7 @@
     <style name="RowLabel">
         <item name="android:layout_width">@dimen/_48sdp</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:fontFamily">@font/nunito_700</item>
+        <item name="android:fontFamily">@font/nunito_600</item>
         <item name="android:textColor">@color/text_primary</item>
         <item name="android:textSize">@dimen/_11sdp</item>
     </style>
@@ -382,11 +371,11 @@
     </style>
     <!-- A secondary action next to a primary pill: grey pill, dark text, optional icon. -->
     <style name="SoftPillButton">
-        <item name="android:layout_height">@dimen/_37sdp</item>
+        <item name="android:layout_height">@dimen/_34sdp</item>
         <item name="android:background">@drawable/bg_soft_pill</item>
         <item name="android:backgroundTint">@color/color_surface_variant</item>
         <item name="backgroundTint">@null</item>
-        <item name="android:fontFamily">@font/nunito_700</item>
+        <item name="android:fontFamily">@font/nunito_600</item>
         <item name="android:insetTop">0dp</item>
         <item name="android:insetBottom">0dp</item>
         <item name="android:letterSpacing">0</item>
@@ -408,7 +397,7 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">@dimen/_28sdp</item>
         <item name="android:background">@drawable/bg_glass_option</item>
-        <item name="android:fontFamily">@font/nunito_700</item>
+        <item name="android:fontFamily">@font/nunito_600</item>
         <item name="android:gravity">center</item>
         <item name="android:paddingHorizontal">@dimen/_12sdp</item>
         <item name="android:textColor">@color/text_glass_option</item>
@@ -434,10 +423,10 @@
     </style>
     <style name="ReaderSave">
         <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">@dimen/_34sdp</item>
+        <item name="android:layout_height">@dimen/_32sdp</item>
         <item name="android:layout_marginStart">@dimen/_3sdp</item>
         <item name="android:background">@drawable/bg_button_primary</item>
-        <item name="android:fontFamily">@font/nunito_700</item>
+        <item name="android:fontFamily">@font/nunito_600</item>
         <item name="android:gravity">center</item>
         <item name="android:paddingHorizontal">@dimen/_15sdp</item>
         <item name="android:textColor">@color/on_primary</item>
@@ -455,15 +444,16 @@
         <item name="android:layout_width">@dimen/_28sdp</item>
         <item name="android:layout_height">@dimen/_23sdp</item>
         <item name="android:background">@drawable/bg_reader_tab_icon</item>
+        <item name="android:backgroundTint">@color/color_file_pdf_bg</item>
         <item name="android:importantForAccessibility">no</item>
         <item name="android:paddingVertical">@dimen/_5sdp</item>
-        <item name="tint">@color/text_on_selected</item>
+        <item name="tint">@color/color_file_pdf</item>
     </style>
     <style name="ReaderTabLabel">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginTop">@dimen/_3sdp</item>
-        <item name="android:fontFamily">@font/nunito_700</item>
+        <item name="android:fontFamily">@font/nunito_600</item>
         <item name="android:maxLines">1</item>
         <item name="android:textColor">@color/text_primary</item>
         <item name="android:textSize">@dimen/_9sdp</item>
@@ -474,7 +464,7 @@
         <item name="android:backgroundTint">@color/color_surface_variant</item>
         <item name="android:foreground">?attr/selectableItemBackground</item>
         <item name="android:drawablePadding">@dimen/_5sdp</item>
-        <item name="android:fontFamily">@font/nunito_700</item>
+        <item name="android:fontFamily">@font/nunito_600</item>
         <item name="android:gravity">center</item>
         <item name="android:maxLines">1</item>
         <item name="android:paddingHorizontal">@dimen/_8sdp</item>
@@ -496,7 +486,7 @@
         <item name="android:layout_marginBottom">@dimen/_6sdp</item>
         <item name="android:background">@drawable/bg_outline_chip</item>
         <item name="android:foreground">?attr/selectableItemBackground</item>
-        <item name="android:fontFamily">@font/nunito_700</item>
+        <item name="android:fontFamily">@font/nunito_600</item>
         <item name="android:gravity">center</item>
         <item name="android:paddingHorizontal">@dimen/_12sdp</item>
         <item name="android:textColor">@color/text_tertiary</item>
@@ -525,9 +515,10 @@
     <style name="OfficeBarTitle">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:ellipsize">middle</item>
-        <item name="android:fontFamily">@font/nunito_700</item>
-        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">marquee</item>
+        <item name="android:marqueeRepeatLimit">marquee_forever</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:fontFamily">@font/nunito_600</item>
         <item name="android:textColor">@color/text_primary</item>
         <item name="android:textSize">@dimen/_12sdp</item>
     </style>
@@ -545,7 +536,7 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">@dimen/_15sdp</item>
         <item name="android:background">@drawable/bg_type_badge</item>
-        <item name="android:fontFamily">@font/nunito_700</item>
+        <item name="android:fontFamily">@font/nunito_600</item>
         <item name="android:gravity">center</item>
         <item name="android:paddingHorizontal">@dimen/_4sdp</item>
         <item name="android:textSize">@dimen/_9sdp</item>
@@ -556,7 +547,7 @@
         <item name="android:layout_weight">1</item>
         <item name="android:layout_marginHorizontal">@dimen/_5sdp</item>
         <item name="android:background">@null</item>
-        <item name="android:fontFamily">@font/nunito_700</item>
+        <item name="android:fontFamily">@font/nunito_600</item>
         <item name="android:importantForAutofill">no</item>
         <item name="android:inputType">text</item>
         <item name="android:maxLines">1</item>
@@ -569,7 +560,7 @@
         <item name="android:layout_height">@dimen/_31sdp</item>
         <item name="android:layout_marginStart">@dimen/_5sdp</item>
         <item name="android:background">@drawable/bg_soft_pill</item>
-        <item name="android:fontFamily">@font/nunito_700</item>
+        <item name="android:fontFamily">@font/nunito_600</item>
         <item name="android:gravity">center</item>
         <item name="android:paddingHorizontal">@dimen/_10sdp</item>
         <item name="android:textSize">@dimen/_10sdp</item>
@@ -606,8 +597,8 @@
         <item name="android:paddingHorizontal">@dimen/_6sdp</item>
     </style>
     <style name="SheetRowIcon">
-        <item name="android:layout_width">@dimen/_31sdp</item>
-        <item name="android:layout_height">@dimen/_31sdp</item>
+        <item name="android:layout_width">@dimen/_28sdp</item>
+        <item name="android:layout_height">@dimen/_28sdp</item>
         <item name="android:background">@drawable/bg_badge</item>
         <item name="android:backgroundTint">@color/color_surface_variant</item>
         <item name="android:importantForAccessibility">no</item>
@@ -617,7 +608,7 @@
     <style name="SheetRowTitle">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:fontFamily">@font/nunito_700</item>
+        <item name="android:fontFamily">@font/nunito_600</item>
         <item name="android:textColor">@color/text_primary</item>
         <item name="android:textSize">@dimen/_12sdp</item>
     </style>
@@ -666,7 +657,7 @@
         <item name="android:layout_height">@dimen/_28sdp</item>
         <item name="android:layout_marginHorizontal">@dimen/_7sdp</item>
         <item name="android:background">?attr/selectableItemBackgroundBorderless</item>
-        <item name="android:fontFamily">@font/nunito_700</item>
+        <item name="android:fontFamily">@font/nunito_600</item>
         <item name="android:gravity">center</item>
         <item name="android:textColor">@color/text_tertiary</item>
         <item name="android:textSize">@dimen/_10sdp</item>

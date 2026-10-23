@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- A slide as a picture with its number; ringed in blue while it is the one picked. -->
+<!-- A slide as a picture with its number, ringed in the file type's colour while it is the one
+     picked; the last tile of the strip adds a slide (ivAdd). SlideAdapter paints the ring in the
+     card's foreground, over the picture's edge, with the picture's own corners, so the two match. -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="@dimen/_71sdp"
     android:layout_height="wrap_content"
+    android:clipToPadding="false"
     android:gravity="center_horizontal"
     android:orientation="vertical"
     android:padding="@dimen/_4sdp">
@@ -12,18 +16,32 @@
         android:id="@+id/card"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_40sdp"
-        android:background="@drawable/bg_page_thumb"
+        android:clipChildren="false"
         android:duplicateParentState="true"
-        android:padding="@dimen/_2sdp">
+        android:foreground="@drawable/bg_page_thumb">
 
+        <!-- Lifted off the grey page behind the strip, so a blank white slide still shows. -->
         <ImageView
             android:id="@+id/ivSlide"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/bg_page_sheet"
             android:clipToOutline="true"
+            android:elevation="@dimen/_2sdp"
             android:importantForAccessibility="no"
+            android:outlineAmbientShadowColor="@color/color_shadow"
+            android:outlineSpotShadowColor="@color/color_shadow"
             android:scaleType="fitCenter" />
+
+        <ImageView
+            android:id="@+id/ivAdd"
+            android:layout_width="@dimen/_17sdp"
+            android:layout_height="@dimen/_17sdp"
+            android:layout_gravity="center"
+            android:contentDescription="@string/add_after"
+            android:src="@drawable/ic_fo_plus"
+            android:visibility="gone"
+            tools:tint="@color/color_file_powerpoint" />
     </FrameLayout>
 
     <TextView

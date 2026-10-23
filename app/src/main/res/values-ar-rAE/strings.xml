@@ -79,7 +79,6 @@
     <string name="merge_pdf">دمج PDF</string>
     <string name="split_pdf">تقسيم PDF</string>
     <string name="convert_failed">لا يمكن تحويل الصور إلى PDF</string>
-    <string name="file_name_exists">يوجد ملف بهذا الاسم بالفعل</string>
     <string name="split_open_failed">لا يمكن فتح ملف PDF هذا</string>
     <string name="split_failed">لا يمكن تقسيم ملف PDF هذا</string>
     <string name="translate_to">ترجمة إلى</string>
@@ -132,14 +131,7 @@
     <string name="create_new">إنشاء جديد</string>
     <string name="images_to_pdf">الصور إلى PDF</string>
     <string name="new_document">وثيقة جديدة</string>
-    <string name="new_document_file_name">اسم الملف</string>
-    <string name="save_to">حفظ في</string>
-    <string name="blank_document">صفحة A4 فارغة</string>
-    <string name="blank_spreadsheet">جدول بيانات فارغ</string>
-    <string name="blank_presentation">عرض تقديمي فارغ</string>
-    <string name="blank_document_desc">يفتح في وضع التحرير ولوحة المفاتيح جاهزة.</string>
     <string name="untitled">بدون عنوان</string>
-    <string name="create_and_start_editing">إنشاء وبدء التحرير</string>
     <string name="sort_date_modified">تاريخ التعديل</string>
     <string name="sort_size">الحجم</string>
     <string name="sort_file_type">نوع الملف</string>
@@ -212,9 +204,6 @@
     <string name="split_each_page">ملف واحد لكل صفحة</string>
     <string name="split_pick_pages">اختر الصفحات لاستخراجها</string>
     <string name="split_pick_pages_desc">اضغط على الصور المصغرة للصفحة</string>
-    <string name="pages">الصفحات</string>
-    <string name="range_to">إلى</string>
-    <string name="add_range">إضافة نطاق</string>
     <string name="compress_pdf">ضغط PDF</string>
     <string name="protect_pdf">حماية PDF</string>
     <string name="protect_warning">لا يمكن استعادة كلمة المرور المنسية. احتفظ بها في مكان آمن.</string>
@@ -399,10 +388,6 @@
         <item quantity="one">سيتم حذف الملف من هذا الجهاز ولا يمكن استرداده.</item>
         <item quantity="other">سيتم حذف الملفات من هذا الجهاز ولا يمكن استردادها.</item>
     </plurals>
-    <plurals name="split_creates_files">
-        <item quantity="one">ينشئ ملفًا واحدًا</item>
-        <item quantity="other">ينشئ %d ملفًا</item>
-    </plurals>
     <plurals name="split_action">
         <item quantity="one">تقسيم إلى ملف واحد</item>
         <item quantity="other">تقسيم إلى %d ملفًا</item>
@@ -469,4 +454,5 @@
     <string name="fo_home_create">إنشاء</string>
     <string name="fo_home_create_desc">Word وExcel والعروض والمسح الضوئي</string>
     <string name="fo_your_documents">مستنداتك</string>
+    <string name="fo_photo_edits_message">لم يتم حفظ التغييرات التي أجريتها على هذه الصور بعد.</string>
 </resources>

@@ -11,13 +11,15 @@
         layout="@layout/layout_sheet_header" />
 
     <LinearLayout
-        android:clipToPadding="false"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:clipToPadding="false"
         android:orientation="vertical"
         android:paddingHorizontal="@dimen/_15sdp">
 
-        <include android:id="@+id/rowDate" layout="@layout/layout_choice_row" />
+        <include
+            android:id="@+id/rowDate"
+            layout="@layout/layout_choice_row" />
 
         <include
             android:id="@+id/rowName"

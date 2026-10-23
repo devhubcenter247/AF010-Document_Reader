@@ -79,7 +79,6 @@
     <string name="merge_pdf">पीडीएफ मर्ज करें</string>
     <string name="split_pdf">पीडीएफ को विभाजित करें</string>
     <string name="convert_failed">छवियों को पीडीएफ में परिवर्तित नहीं किया जा सका</string>
-    <string name="file_name_exists">इस नाम की एक फ़ाइल पहले से मौजूद है</string>
     <string name="split_open_failed">यह पीडीएफ नहीं खुल सका</string>
     <string name="split_failed">इस पीडीएफ को विभाजित नहीं किया जा सका</string>
     <string name="translate_to">इसमें अनुवाद करें</string>
@@ -132,14 +131,7 @@
     <string name="create_new">नया बनाएं</string>
     <string name="images_to_pdf">छवियाँ पीडीएफ में</string>
     <string name="new_document">नया दस्तावेज़</string>
-    <string name="new_document_file_name">फ़ाइल का नाम</string>
-    <string name="save_to">यहां सहेजें</string>
-    <string name="blank_document">खाली A4 पृष्ठ</string>
-    <string name="blank_spreadsheet">खाली स्प्रेडशीट</string>
-    <string name="blank_presentation">रिक्त प्रस्तुति</string>
-    <string name="blank_document_desc">कीबोर्ड तैयार होने पर संपादन मोड में खुलता है।</string>
     <string name="untitled">शीर्षकहीन</string>
-    <string name="create_and_start_editing">बनाएं और संपादन प्रारंभ करें</string>
     <string name="sort_date_modified">संशोधन की तारीख</string>
     <string name="sort_size">आकार</string>
     <string name="sort_file_type">फ़ाइल प्रकार</string>
@@ -212,9 +204,6 @@
     <string name="split_each_page">प्रति पृष्ठ एक फ़ाइल</string>
     <string name="split_pick_pages">निकालने के लिए पृष्ठ चुनें</string>
     <string name="split_pick_pages_desc">पेज थंबनेल टैप करें</string>
-    <string name="pages">पेज</string>
-    <string name="range_to">तक</string>
-    <string name="add_range">रेंज जोड़ें</string>
     <string name="compress_pdf">पीडीएफ को कंप्रेस करें</string>
     <string name="protect_pdf">पीडीएफ को सुरक्षित रखें</string>
     <string name="protect_warning">भूला हुआ पासवर्ड पुनर्प्राप्त नहीं किया जा सकता. इसे कहीं सुरक्षित रखें.</string>
@@ -399,10 +388,6 @@
         <item quantity="one">फ़ाइल इस डिवाइस से हटा दी जाएगी और इसे पुनर्प्राप्त नहीं किया जा सकता।</item>
         <item quantity="other">फ़ाइलें इस डिवाइस से हटा दी जाएंगी और उन्हें पुनर्प्राप्त नहीं किया जा सकता।</item>
     </plurals>
-    <plurals name="split_creates_files">
-        <item quantity="one">%d फ़ाइल बनाता है</item>
-        <item quantity="other">%d फ़ाइलें बनाता है</item>
-    </plurals>
     <plurals name="split_action">
         <item quantity="one">%d फ़ाइल में विभाजित करें</item>
         <item quantity="other">%d फ़ाइलों में विभाजित करें</item>
@@ -469,4 +454,5 @@
     <string name="fo_home_create">बनाएँ</string>
     <string name="fo_home_create_desc">Word, Excel, स्लाइड और स्कैन</string>
     <string name="fo_your_documents">आपके दस्तावेज़</string>
+    <string name="fo_photo_edits_message">इन फ़ोटो में आपके बदलाव अभी सहेजे नहीं गए हैं।</string>
 </resources>

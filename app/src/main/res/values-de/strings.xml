@@ -79,7 +79,6 @@
     <string name="merge_pdf">PDF zusammenführen</string>
     <string name="split_pdf">PDF teilen</string>
     <string name="convert_failed">Bilder konnten nicht in PDF konvertiert werden</string>
-    <string name="file_name_exists">Eine Datei mit diesem Namen existiert bereits</string>
     <string name="split_open_failed">Dieses PDF konnte nicht geöffnet werden</string>
     <string name="split_failed">Dieses PDF konnte nicht geteilt werden</string>
     <string name="translate_to">Übersetzen nach</string>
@@ -132,14 +131,7 @@
     <string name="create_new">Neu erstellen</string>
     <string name="images_to_pdf">Bilder als PDF</string>
     <string name="new_document">Neues Dokument</string>
-    <string name="new_document_file_name">Dateiname</string>
-    <string name="save_to">Speichern in</string>
-    <string name="blank_document">Leere A4-Seite</string>
-    <string name="blank_spreadsheet">Leere Tabelle</string>
-    <string name="blank_presentation">Leere Präsentation</string>
-    <string name="blank_document_desc">Öffnet im Bearbeitungsmodus mit bereiter Tastatur.</string>
     <string name="untitled">Ohne Titel</string>
-    <string name="create_and_start_editing">Erstellen und mit der Bearbeitung beginnen</string>
     <string name="sort_date_modified">Änderungsdatum</string>
     <string name="sort_size">Größe</string>
     <string name="sort_file_type">Dateityp</string>
@@ -212,9 +204,6 @@
     <string name="split_each_page">Eine Datei pro Seite</string>
     <string name="split_pick_pages">Wählen Sie Seiten zum Extrahieren aus</string>
     <string name="split_pick_pages_desc">Tippen Sie auf Seitenminiaturansichten</string>
-    <string name="pages">Seiten</string>
-    <string name="range_to">bis</string>
-    <string name="add_range">Bereich hinzufügen</string>
     <string name="compress_pdf">PDF komprimieren</string>
     <string name="protect_pdf">PDF schützen</string>
     <string name="protect_warning">Ein vergessenes Passwort kann nicht wiederhergestellt werden. Bewahren Sie es an einem sicheren Ort auf.</string>
@@ -399,10 +388,6 @@
         <item quantity="one">Die Datei wird von diesem Gerät gelöscht und kann nicht wiederhergestellt werden.</item>
         <item quantity="other">Die Dateien werden von diesem Gerät gelöscht und können nicht wiederhergestellt werden.</item>
     </plurals>
-    <plurals name="split_creates_files">
-        <item quantity="one">Erstellt %d Datei</item>
-        <item quantity="other">Erstellt %d Dateien</item>
-    </plurals>
     <plurals name="split_action">
         <item quantity="one">In %d Datei teilen</item>
         <item quantity="other">In %d Dateien teilen</item>
@@ -469,4 +454,5 @@
     <string name="fo_home_create">Erstellen</string>
     <string name="fo_home_create_desc">Word, Excel, Folien und Scans</string>
     <string name="fo_your_documents">Deine Dokumente</string>
+    <string name="fo_photo_edits_message">Ihre Änderungen an diesen Fotos wurden noch nicht übernommen.</string>
 </resources>

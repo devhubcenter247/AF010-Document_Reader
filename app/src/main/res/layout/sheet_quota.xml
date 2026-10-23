@@ -72,7 +72,7 @@
         android:fontFamily="@font/nunito_700"
         android:gravity="center"
         android:textColor="@color/text_primary"
-        android:textSize="@dimen/_18sdp"
+        android:textSize="@dimen/_16sdp"
         tools:text="You’ve used your free OCR" />
 
     <TextView

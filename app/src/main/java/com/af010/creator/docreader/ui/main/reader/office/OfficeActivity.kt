@@ -200,7 +200,10 @@ class OfficeActivity : BaseAppActivity<ActivityOfficeBinding>(ActivityOfficeBind
     override fun ActivityOfficeBinding.setData() {
         layoutTop.updatePadding(top = statusBarHeight)
         tvName.text = file.name
-        tvEditName.text = file.name
+        tvName.isSelected = true
+        // The badge under it already says the type.
+        tvEditName.text = file.nameWithoutExtension
+        tvEditName.isSelected = true
         listOf(tvType, tvTypeEdit).forEach { badge ->
             badge.text = file.extension.uppercase(Locale.ROOT)
             val fileType = AppUtils.documentTypeOf(file)
@@ -212,6 +215,10 @@ class OfficeActivity : BaseAppActivity<ActivityOfficeBinding>(ActivityOfficeBind
             val accent = getColor(type?.colorRes ?: R.color.primary)
             ribbonAdapter.accent = accent
             ribbonAdapter.accentSoft = getColor(type?.softColorRes ?: R.color.color_bg_selected)
+            listOf(stripAdapter, sorterAdapter).forEach {
+                it.accent = accent
+                it.accentSoft = ribbonAdapter.accentSoft
+            }
             // Every main button in the file type's colour, as in the dialogs (DocumentAccent).
             listOf(btnSave, btnEdit, btnSorterDone, btnReplaceAll).forEach { it.fillAccent(accent) }
             progress.indeterminateTintList = ColorStateList.valueOf(accent)
@@ -276,6 +283,7 @@ class OfficeActivity : BaseAppActivity<ActivityOfficeBinding>(ActivityOfficeBind
 
         // slides
         stripAdapter.onSlideClick { slide -> documentView.goToPage(slide) }
+        stripAdapter.onAddClick { runSlideAction(EditAction.ADD_SLIDE) }
         sorterAdapter.onSlideClick { slide -> documentView.goToPage(slide) }
         btnArrange.click { setMode(Mode.Sorter) }
         btnSorterClose.click { setMode(Mode.Edit) }
@@ -771,7 +779,7 @@ class OfficeActivity : BaseAppActivity<ActivityOfficeBinding>(ActivityOfficeBind
         if (count != slideCount || redraw) {
             slideCount = count
             val slides = (0 until count).toList()
-            stripAdapter.submitList(slides)
+            stripAdapter.submitList(slides + SlideAdapter.ADD)
             sorterAdapter.submitList(slides)
         }
         val current = documentView.currentPage

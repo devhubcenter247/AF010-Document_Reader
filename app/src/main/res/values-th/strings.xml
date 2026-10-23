@@ -79,7 +79,6 @@
     <string name="merge_pdf">รวม PDF</string>
     <string name="split_pdf">แยก PDF</string>
     <string name="convert_failed">ไม่สามารถแปลงรูปภาพเป็น PDF</string>
-    <string name="file_name_exists">มีไฟล์ชื่อนี้อยู่แล้ว</string>
     <string name="split_open_failed">ไม่สามารถเปิด PDF นี้</string>
     <string name="split_failed">ไม่สามารถแยก PDF นี้</string>
     <string name="translate_to">แปลเป็น</string>
@@ -132,14 +131,7 @@
     <string name="create_new">สร้างใหม่</string>
     <string name="images_to_pdf">รูปภาพเป็น PDF</string>
     <string name="new_document">เอกสารใหม่</string>
-    <string name="new_document_file_name">ชื่อไฟล์</string>
-    <string name="save_to">บันทึกไปที่</string>
-    <string name="blank_document">หน้าเปล่า A4</string>
-    <string name="blank_spreadsheet">สเปรดชีตเปล่า</string>
-    <string name="blank_presentation">การนำเสนอที่ว่างเปล่า</string>
-    <string name="blank_document_desc">เปิดในโหมดแก้ไขโดยที่แป้นพิมพ์พร้อม</string>
     <string name="untitled">ไม่มีชื่อ</string>
-    <string name="create_and_start_editing">สร้างและเริ่มแก้ไข</string>
     <string name="sort_date_modified">วันที่แก้ไข</string>
     <string name="sort_size">ขนาด</string>
     <string name="sort_file_type">ประเภทไฟล์</string>
@@ -212,9 +204,6 @@
     <string name="split_each_page">หนึ่งไฟล์ต่อหน้า</string>
     <string name="split_pick_pages">เลือกหน้าที่จะแยก</string>
     <string name="split_pick_pages_desc">แตะรูปขนาดย่อของหน้า</string>
-    <string name="pages">หน้า</string>
-    <string name="range_to">ถึง</string>
-    <string name="add_range">เพิ่มช่วง</string>
     <string name="compress_pdf">บีบอัด PDF</string>
     <string name="protect_pdf">ป้องกัน PDF</string>
     <string name="protect_warning">รหัสผ่านที่ลืมไม่สามารถกู้คืนได้ เก็บไว้ที่ไหนสักแห่งที่ปลอดภัย</string>
@@ -399,10 +388,6 @@
         <item quantity="one">ไฟล์จะถูกลบออกจากอุปกรณ์นี้และไม่สามารถกู้คืนได้</item>
         <item quantity="other">ไฟล์จะถูกลบออกจากอุปกรณ์นี้และไม่สามารถกู้คืนได้</item>
     </plurals>
-    <plurals name="split_creates_files">
-        <item quantity="one">สร้าง %d ไฟล์</item>
-        <item quantity="other">สร้าง %d ไฟล์</item>
-    </plurals>
     <plurals name="split_action">
         <item quantity="one">แยกเป็น %d ไฟล์</item>
         <item quantity="other">แยกเป็น %d ไฟล์</item>
@@ -469,4 +454,5 @@
     <string name="fo_home_create">สร้าง</string>
     <string name="fo_home_create_desc">Word, Excel, สไลด์ และสแกน</string>
     <string name="fo_your_documents">เอกสารของคุณ</string>
+    <string name="fo_photo_edits_message">การเปลี่ยนแปลงรูปภาพเหล่านี้ของคุณยังไม่ได้บันทึก</string>
 </resources>

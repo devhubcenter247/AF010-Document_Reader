@@ -79,7 +79,6 @@
     <string name="merge_pdf">PDF\'yi birleştir</string>
     <string name="split_pdf">PDF\'yi böl</string>
     <string name="convert_failed">Resimler PDF\'ye dönüştürülemedi</string>
-    <string name="file_name_exists">Bu adda bir dosya zaten mevcut</string>
     <string name="split_open_failed">Bu PDF açılamadı</string>
     <string name="split_failed">Bu PDF bölünemedi</string>
     <string name="translate_to">Şu dile çevir</string>
@@ -132,14 +131,7 @@
     <string name="create_new">Yeni oluştur</string>
     <string name="images_to_pdf">Resimlerden PDF\'ye</string>
     <string name="new_document">Yeni belge</string>
-    <string name="new_document_file_name">Dosya adı</string>
-    <string name="save_to">Şuraya kaydet</string>
-    <string name="blank_document">Boş A4 sayfası</string>
-    <string name="blank_spreadsheet">Boş e-tablo</string>
-    <string name="blank_presentation">Boş sunum</string>
-    <string name="blank_document_desc">Klavye hazır durumdayken düzenleme modunda açılır.</string>
     <string name="untitled">İsimsiz</string>
-    <string name="create_and_start_editing">Oluşturun ve düzenlemeye başlayın</string>
     <string name="sort_date_modified">Değiştirilme tarihi</string>
     <string name="sort_size">Boyut</string>
     <string name="sort_file_type">Dosya türü</string>
@@ -212,9 +204,6 @@
     <string name="split_each_page">Sayfa başına bir dosya</string>
     <string name="split_pick_pages">Çıkarılacak sayfaları seçin</string>
     <string name="split_pick_pages_desc">Sayfa küçük resimlerine dokunun</string>
-    <string name="pages">Sayfalar</string>
-    <string name="range_to">–</string>
-    <string name="add_range">Aralık ekle</string>
     <string name="compress_pdf">PDF\'yi sıkıştır</string>
     <string name="protect_pdf">PDF\'yi koruyun</string>
     <string name="protect_warning">Unutulan bir şifre kurtarılamaz. Güvenli bir yerde saklayın.</string>
@@ -399,10 +388,6 @@
         <item quantity="one">Dosya bu cihazdan silinecek ve geri alınamayacak.</item>
         <item quantity="other">Dosyalar bu cihazdan silinecek ve geri alınamayacak.</item>
     </plurals>
-    <plurals name="split_creates_files">
-        <item quantity="one">%d dosya oluşturur</item>
-        <item quantity="other">%d dosya oluşturur</item>
-    </plurals>
     <plurals name="split_action">
         <item quantity="one">%d dosyaya böl</item>
         <item quantity="other">%d dosyaya böl</item>
@@ -469,4 +454,5 @@
     <string name="fo_home_create">Oluştur</string>
     <string name="fo_home_create_desc">Word, Excel, slaytlar ve taramalar</string>
     <string name="fo_your_documents">Belgelerin</string>
+    <string name="fo_photo_edits_message">Bu fotoğraflarda yaptığınız değişiklikler henüz kaydedilmedi.</string>
 </resources>

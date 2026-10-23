@@ -79,7 +79,6 @@
     <string name="merge_pdf">Объединить PDF</string>
     <string name="split_pdf">Разделить PDF</string>
     <string name="convert_failed">Не удалось преобразовать изображения в PDF</string>
-    <string name="file_name_exists">Файл с таким именем уже существует</string>
     <string name="split_open_failed">Не удалось открыть этот PDF-файл</string>
     <string name="split_failed">Не удалось разделить этот PDF-файл</string>
     <string name="translate_to">Перевести на</string>
@@ -132,14 +131,7 @@
     <string name="create_new">Создать</string>
     <string name="images_to_pdf">Изображения в PDF</string>
     <string name="new_document">Новый документ</string>
-    <string name="new_document_file_name">Имя файла</string>
-    <string name="save_to">Сохранить в</string>
-    <string name="blank_document">Пустая страница А4</string>
-    <string name="blank_spreadsheet">Пустая таблица</string>
-    <string name="blank_presentation">Пустая презентация</string>
-    <string name="blank_document_desc">Открывается в режиме редактирования с готовой клавиатурой.</string>
     <string name="untitled">Без названия</string>
-    <string name="create_and_start_editing">Создать и начать редактировать</string>
     <string name="sort_date_modified">Дата изменения</string>
     <string name="sort_size">Размер</string>
     <string name="sort_file_type">Тип файла</string>
@@ -212,9 +204,6 @@
     <string name="split_each_page">Один файл на страницу</string>
     <string name="split_pick_pages">Выберите страницы для извлечения</string>
     <string name="split_pick_pages_desc">Нажмите миниатюры страниц</string>
-    <string name="pages">Страницы</string>
-    <string name="range_to">до</string>
-    <string name="add_range">Добавить диапазон</string>
     <string name="compress_pdf">Сжать PDF</string>
     <string name="protect_pdf">Защитить PDF</string>
     <string name="protect_warning">Забытый пароль невозможно восстановить. Храните его в безопасном месте.</string>
@@ -399,10 +388,6 @@
         <item quantity="one">Файл будет удален с этого устройства без возможности восстановления.</item>
         <item quantity="other">Файлы будут удалены с этого устройства без возможности восстановления.</item>
     </plurals>
-    <plurals name="split_creates_files">
-        <item quantity="one">Создает %d файл</item>
-        <item quantity="other">Создает %d файлов</item>
-    </plurals>
     <plurals name="split_action">
         <item quantity="one">Разделить на %d файл</item>
         <item quantity="other">Разделить на %d файлов</item>
@@ -469,4 +454,5 @@
     <string name="fo_home_create">Создать</string>
     <string name="fo_home_create_desc">Word, Excel, слайды и сканы</string>
     <string name="fo_your_documents">Ваши документы</string>
+    <string name="fo_photo_edits_message">Изменения этих фотографий ещё не сохранены.</string>
 </resources>

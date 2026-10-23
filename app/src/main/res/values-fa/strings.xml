@@ -79,7 +79,6 @@
     <string name="merge_pdf">ادغام PDF</string>
     <string name="split_pdf">تقسیم PDF</string>
     <string name="convert_failed">نمی توان تصاویر را به PDF تبدیل کرد</string>
-    <string name="file_name_exists">فایلی با این نام از قبل وجود دارد</string>
     <string name="split_open_failed">این PDF باز نشد</string>
     <string name="split_failed">نمی توان این PDF را تقسیم کرد</string>
     <string name="translate_to">ترجمه به</string>
@@ -132,14 +131,7 @@
     <string name="create_new">ایجاد مورد جدید</string>
     <string name="images_to_pdf">تصاویر به PDF</string>
     <string name="new_document">سند جدید</string>
-    <string name="new_document_file_name">نام فایل</string>
-    <string name="save_to">ذخیره در</string>
-    <string name="blank_document">صفحه A4 خالی</string>
-    <string name="blank_spreadsheet">صفحه گسترده خالی</string>
-    <string name="blank_presentation">ارائه خالی</string>
-    <string name="blank_document_desc">در حالت ویرایش با صفحه کلید آماده باز می شود.</string>
     <string name="untitled">بدون عنوان</string>
-    <string name="create_and_start_editing">ایجاد و شروع به ویرایش کنید</string>
     <string name="sort_date_modified">تاریخ اصلاح</string>
     <string name="sort_size">اندازه</string>
     <string name="sort_file_type">نوع فایل</string>
@@ -212,9 +204,6 @@
     <string name="split_each_page">هر صفحه یک فایل</string>
     <string name="split_pick_pages">صفحاتی را برای استخراج انتخاب کنید</string>
     <string name="split_pick_pages_desc">روی تصاویر کوچک صفحه ضربه بزنید</string>
-    <string name="pages">صفحات</string>
-    <string name="range_to">به</string>
-    <string name="add_range">محدوده اضافه کنید</string>
     <string name="compress_pdf">فشرده سازی PDF</string>
     <string name="protect_pdf">محافظت از PDF</string>
     <string name="protect_warning">رمز عبور فراموش شده قابل بازیابی نیست. آن را در جایی امن نگه دارید.</string>
@@ -399,10 +388,6 @@
         <item quantity="one">فایل از این دستگاه حذف می‌شود و قابل بازیابی نیست.</item>
         <item quantity="other">فایل‌ها از این دستگاه حذف می‌شوند و قابل بازیابی نیستند.</item>
     </plurals>
-    <plurals name="split_creates_files">
-        <item quantity="one">%d فایل ایجاد می‌کند</item>
-        <item quantity="other">%d فایل ایجاد می‌کند</item>
-    </plurals>
     <plurals name="split_action">
         <item quantity="one">تقسیم به %d فایل</item>
         <item quantity="other">تقسیم به %d فایل</item>
@@ -469,4 +454,5 @@
     <string name="fo_home_create">ایجاد</string>
     <string name="fo_home_create_desc">Word، Excel، اسلاید و اسکن</string>
     <string name="fo_your_documents">اسناد شما</string>
+    <string name="fo_photo_edits_message">تغییرات شما در این عکس‌ها هنوز ذخیره نشده‌اند.</string>
 </resources>

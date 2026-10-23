@@ -79,7 +79,6 @@
     <string name="merge_pdf">PDF ஐ இணைக்கவும்</string>
     <string name="split_pdf">PDF ஐப் பிரிக்கவும்</string>
     <string name="convert_failed">படங்களை PDF ஆக மாற்ற முடியவில்லை</string>
-    <string name="file_name_exists">இந்தப் பெயரில் ஒரு கோப்பு ஏற்கனவே உள்ளது</string>
     <string name="split_open_failed">இந்த PDF ஐ திறக்க முடியவில்லை</string>
     <string name="split_failed">இந்த PDF ஐப் பிரிக்க முடியவில்லை</string>
     <string name="translate_to">இதற்கு மொழிபெயர்</string>
@@ -132,14 +131,7 @@
     <string name="create_new">புதிதாக உருவாக்கவும்</string>
     <string name="images_to_pdf">படங்கள் PDFக்கு</string>
     <string name="new_document">புதிய ஆவணம்</string>
-    <string name="new_document_file_name">கோப்பு பெயர்</string>
-    <string name="save_to">இங்கே சேமி</string>
-    <string name="blank_document">வெற்று A4 பக்கம்</string>
-    <string name="blank_spreadsheet">வெற்று விரிதாள்</string>
-    <string name="blank_presentation">வெற்று விளக்கக்காட்சி</string>
-    <string name="blank_document_desc">விசைப்பலகை தயார் நிலையில் எடிட் முறையில் திறக்கும்.</string>
     <string name="untitled">பெயரிடப்படாதது</string>
-    <string name="create_and_start_editing">உருவாக்கி திருத்தத் தொடங்குங்கள்</string>
     <string name="sort_date_modified">மாற்றிய தேதி</string>
     <string name="sort_size">அளவு</string>
     <string name="sort_file_type">கோப்பு வகை</string>
@@ -212,9 +204,6 @@
     <string name="split_each_page">ஒரு பக்கத்திற்கு ஒரு கோப்பு</string>
     <string name="split_pick_pages">பிரித்தெடுக்க பக்கங்களைத் தேர்ந்தெடுக்கவும்</string>
     <string name="split_pick_pages_desc">பக்க சிறுபடங்களைத் தட்டவும்</string>
-    <string name="pages">பக்கங்கள்</string>
-    <string name="range_to">வரை</string>
-    <string name="add_range">வரம்பைச் சேர்க்கவும்</string>
     <string name="compress_pdf">PDF ஐ சுருக்கவும்</string>
     <string name="protect_pdf">PDF ஐப் பாதுகாக்கவும்</string>
     <string name="protect_warning">மறந்துபோன கடவுச்சொல்லை மீட்டெடுக்க முடியாது. எங்காவது பாதுகாப்பாக வைக்கவும்.</string>
@@ -399,10 +388,6 @@
         <item quantity="one">கோப்பு இந்தச் சாதனத்திலிருந்து நீக்கப்படும், அதை மீட்டெடுக்க முடியாது.</item>
         <item quantity="other">கோப்புகள் இந்தச் சாதனத்திலிருந்து நீக்கப்படும், அவற்றை மீட்டெடுக்க முடியாது.</item>
     </plurals>
-    <plurals name="split_creates_files">
-        <item quantity="one">%d கோப்பை உருவாக்கும்</item>
-        <item quantity="other">%d கோப்புகளை உருவாக்கும்</item>
-    </plurals>
     <plurals name="split_action">
         <item quantity="one">%d கோப்பாகப் பிரிக்கவும்</item>
         <item quantity="other">%d கோப்புகளாகப் பிரிக்கவும்</item>
@@ -469,4 +454,5 @@
     <string name="fo_home_create">உருவாக்கு</string>
     <string name="fo_home_create_desc">Word, Excel, ஸ்லைடுகள், ஸ்கேன்</string>
     <string name="fo_your_documents">உங்கள் ஆவணங்கள்</string>
+    <string name="fo_photo_edits_message">இந்தப் படங்களில் நீங்கள் செய்த மாற்றங்கள் இன்னும் சேமிக்கப்படவில்லை.</string>
 </resources>

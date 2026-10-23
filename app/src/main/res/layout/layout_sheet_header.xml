@@ -19,7 +19,7 @@
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:paddingStart="@dimen/_18sdp"
-        android:paddingTop="@dimen/_11sdp"
+        android:paddingTop="@dimen/_6sdp"
         android:paddingEnd="@dimen/_15sdp"
         android:paddingBottom="@dimen/_6sdp">
 
@@ -31,16 +31,16 @@
             android:fontFamily="@font/nunito_700"
             android:letterSpacing="-0.015"
             android:textColor="@color/text_primary"
-            android:textSize="@dimen/_20sdp"
+            android:textSize="@dimen/_15sdp"
             tools:text="Sort your files" />
 
         <ImageView
             android:id="@+id/btnClose"
-            android:layout_width="@dimen/_28sdp"
-            android:layout_height="@dimen/_28sdp"
+            android:layout_width="@dimen/_24sdp"
+            android:layout_height="@dimen/_24sdp"
             android:background="@drawable/bg_circle_variant"
             android:contentDescription="@string/close"
-            android:padding="@dimen/_7sdp"
+            android:padding="@dimen/_5sdp"
             android:src="@drawable/ic_fo_close"
             app:tint="@color/text_tertiary" />
     </LinearLayout>

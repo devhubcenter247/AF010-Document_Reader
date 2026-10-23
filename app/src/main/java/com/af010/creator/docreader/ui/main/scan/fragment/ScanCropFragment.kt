@@ -1,7 +1,9 @@
 package com.af010.creator.docreader.ui.main.scan.fragment
 
 import android.util.Log
+import android.view.ViewGroup
 import androidx.core.view.isVisible
+import androidx.core.view.updateLayoutParams
 import androidx.core.view.updatePadding
 import androidx.lifecycle.lifecycleScope
 import com.af010.creator.docreader.R
@@ -34,6 +36,9 @@ class ScanCropFragment : BaseAppFragment<FragmentScanCropBinding>(FragmentScanCr
 
     override fun FragmentScanCropBinding.initView() {
         topBar.updatePadding(top = statusBarHeight)
+        // Picked photos have nothing to retake: back is the way out.
+        btnRetake.isVisible = (activity as? ScanActivity)?.isEditing != true
+        if (!btnRetake.isVisible) btnNext.updateLayoutParams<ViewGroup.MarginLayoutParams> { marginStart = 0 }
         val pending = viewModel.pendingCrop
         if (pending == null) {
             navHost.goBackFragment()

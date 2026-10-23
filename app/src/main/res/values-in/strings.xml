@@ -79,7 +79,6 @@
     <string name="merge_pdf">Gabungkan PDF</string>
     <string name="split_pdf">Pisahkan PDF</string>
     <string name="convert_failed">Tidak dapat mengonversi gambar ke PDF</string>
-    <string name="file_name_exists">File dengan nama ini sudah ada</string>
     <string name="split_open_failed">Tidak dapat membuka PDF ini</string>
     <string name="split_failed">Tidak dapat membagi PDF ini</string>
     <string name="translate_to">Terjemahkan ke</string>
@@ -132,14 +131,7 @@
     <string name="create_new">Buat baru</string>
     <string name="images_to_pdf">Gambar ke PDF</string>
     <string name="new_document">Dokumen baru</string>
-    <string name="new_document_file_name">Nama berkas</string>
-    <string name="save_to">Simpan ke</string>
-    <string name="blank_document">Halaman A4 kosong</string>
-    <string name="blank_spreadsheet">Lembar kerja kosong</string>
-    <string name="blank_presentation">Presentasi kosong</string>
-    <string name="blank_document_desc">Terbuka dalam mode edit dengan keyboard siap.</string>
     <string name="untitled">Tanpa judul</string>
-    <string name="create_and_start_editing">Buat dan mulai mengedit</string>
     <string name="sort_date_modified">Tanggal diubah</string>
     <string name="sort_size">Ukuran</string>
     <string name="sort_file_type">Jenis berkas</string>
@@ -212,9 +204,6 @@
     <string name="split_each_page">Satu file per halaman</string>
     <string name="split_pick_pages">Pilih halaman yang akan diekstraksi</string>
     <string name="split_pick_pages_desc">Ketuk thumbnail halaman</string>
-    <string name="pages">Halaman</string>
-    <string name="range_to">sampai</string>
-    <string name="add_range">Tambahkan rentang</string>
     <string name="compress_pdf">Kompres PDF</string>
     <string name="protect_pdf">Lindungi PDF</string>
     <string name="protect_warning">Kata sandi yang terlupa tidak dapat dipulihkan. Simpan di tempat yang aman.</string>
@@ -399,10 +388,6 @@
         <item quantity="one">File akan dihapus dari perangkat ini dan tidak dapat dipulihkan.</item>
         <item quantity="other">File akan dihapus dari perangkat ini dan tidak dapat dipulihkan.</item>
     </plurals>
-    <plurals name="split_creates_files">
-        <item quantity="one">Membuat %d file</item>
-        <item quantity="other">Membuat %d file</item>
-    </plurals>
     <plurals name="split_action">
         <item quantity="one">Bagi menjadi %d file</item>
         <item quantity="other">Bagi menjadi %d file</item>
@@ -469,4 +454,5 @@
     <string name="fo_home_create">Buat</string>
     <string name="fo_home_create_desc">Word, Excel, slide, dan pindaian</string>
     <string name="fo_your_documents">Dokumen Anda</string>
+    <string name="fo_photo_edits_message">Perubahan Anda pada foto-foto ini belum disimpan.</string>
 </resources>

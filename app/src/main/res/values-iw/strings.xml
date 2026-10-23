@@ -79,7 +79,6 @@
     <string name="merge_pdf">מזג PDF</string>
     <string name="split_pdf">חלק PDF</string>
     <string name="convert_failed">לא ניתן להמיר תמונות ל-PDF</string>
-    <string name="file_name_exists">קובץ עם שם זה כבר קיים</string>
     <string name="split_open_failed">לא ניתן לפתוח את ה-PDF הזה</string>
     <string name="split_failed">לא ניתן לחלק את ה-PDF הזה</string>
     <string name="translate_to">תרגם ל</string>
@@ -132,14 +131,7 @@
     <string name="create_new">צור חדש</string>
     <string name="images_to_pdf">תמונות ל-PDF</string>
     <string name="new_document">מסמך חדש</string>
-    <string name="new_document_file_name">שם קובץ</string>
-    <string name="save_to">שמור ב</string>
-    <string name="blank_document">דף A4 ריק</string>
-    <string name="blank_spreadsheet">גיליון אלקטרוני ריק</string>
-    <string name="blank_presentation">מצגת ריקה</string>
-    <string name="blank_document_desc">נפתח במצב עריכה עם מקלדת מוכנה.</string>
     <string name="untitled">ללא כותרת</string>
-    <string name="create_and_start_editing">צור והתחל לערוך</string>
     <string name="sort_date_modified">תאריך שינוי</string>
     <string name="sort_size">גודל</string>
     <string name="sort_file_type">סוג הקובץ</string>
@@ -212,9 +204,6 @@
     <string name="split_each_page">קובץ אחד לכל עמוד</string>
     <string name="split_pick_pages">בחר עמודים לחילוץ</string>
     <string name="split_pick_pages_desc">הקש על תמונות ממוזערות של עמודים</string>
-    <string name="pages">עמודים</string>
-    <string name="range_to">עד</string>
-    <string name="add_range">הוסף טווח</string>
     <string name="compress_pdf">דחיסת PDF</string>
     <string name="protect_pdf">הגן על PDF</string>
     <string name="protect_warning">סיסמה שנשכחה לא ניתנת לשחזור. שמור אותה במקום בטוח.</string>
@@ -399,10 +388,6 @@
         <item quantity="one">הקובץ יימחק מהמכשיר הזה ולא ניתן יהיה לשחזר אותו.</item>
         <item quantity="other">הקבצים יימחקו מהמכשיר הזה ולא ניתן יהיה לשחזר אותם.</item>
     </plurals>
-    <plurals name="split_creates_files">
-        <item quantity="one">יוצר קובץ %d</item>
-        <item quantity="other">יוצר %d קבצים</item>
-    </plurals>
     <plurals name="split_action">
         <item quantity="one">פיצול לקובץ %d</item>
         <item quantity="other">פיצול ל-%d קבצים</item>
@@ -469,4 +454,5 @@
     <string name="fo_home_create">יצירה</string>
     <string name="fo_home_create_desc">Word,‏ Excel, מצגות וסריקות</string>
     <string name="fo_your_documents">המסמכים שלך</string>
+    <string name="fo_photo_edits_message">השינויים שלך בתמונות האלה עדיין לא נשמרו.</string>
 </resources>

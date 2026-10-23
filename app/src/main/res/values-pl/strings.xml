@@ -79,7 +79,6 @@
     <string name="merge_pdf">Scal PDF</string>
     <string name="split_pdf">Podziel plik PDF</string>
     <string name="convert_failed">Nie można przekonwertować obrazów do formatu PDF</string>
-    <string name="file_name_exists">Plik o tej nazwie już istnieje</string>
     <string name="split_open_failed">Nie można otworzyć tego pliku PDF</string>
     <string name="split_failed">Nie można podzielić tego pliku PDF</string>
     <string name="translate_to">Przetłumacz na</string>
@@ -132,14 +131,7 @@
     <string name="create_new">Utwórz nowe</string>
     <string name="images_to_pdf">Obrazy do pliku PDF</string>
     <string name="new_document">Nowy dokument</string>
-    <string name="new_document_file_name">Nazwa pliku</string>
-    <string name="save_to">Zapisz w</string>
-    <string name="blank_document">Pusta strona A4</string>
-    <string name="blank_spreadsheet">Pusty arkusz kalkulacyjny</string>
-    <string name="blank_presentation">Pusta prezentacja</string>
-    <string name="blank_document_desc">Otwiera się w trybie edycji z gotową klawiaturą.</string>
     <string name="untitled">Bez tytułu</string>
-    <string name="create_and_start_editing">Utwórz i rozpocznij edycję</string>
     <string name="sort_date_modified">Data modyfikacji</string>
     <string name="sort_size">Rozmiar</string>
     <string name="sort_file_type">Typ pliku</string>
@@ -212,9 +204,6 @@
     <string name="split_each_page">Jeden plik na stronę</string>
     <string name="split_pick_pages">Wybierz strony do wyodrębnienia</string>
     <string name="split_pick_pages_desc">Kliknij miniatury stron</string>
-    <string name="pages">Strony</string>
-    <string name="range_to">do</string>
-    <string name="add_range">Dodaj zakres</string>
     <string name="compress_pdf">Kompresuj PDF</string>
     <string name="protect_pdf">Chroń PDF</string>
     <string name="protect_warning">Zapomnianego hasła nie można odzyskać. Przechowuj je w bezpiecznym miejscu.</string>
@@ -399,10 +388,6 @@
         <item quantity="one">Plik zostanie usunięty z tego urządzenia i nie będzie można go odzyskać.</item>
         <item quantity="other">Pliki zostaną usunięte z tego urządzenia i nie będzie można ich odzyskać.</item>
     </plurals>
-    <plurals name="split_creates_files">
-        <item quantity="one">Tworzy %d plik</item>
-        <item quantity="other">Tworzy %d plików</item>
-    </plurals>
     <plurals name="split_action">
         <item quantity="one">Podziel na %d plik</item>
         <item quantity="other">Podziel na %d plików</item>
@@ -469,4 +454,5 @@
     <string name="fo_home_create">Utwórz</string>
     <string name="fo_home_create_desc">Word, Excel, slajdy i skany</string>
     <string name="fo_your_documents">Twoje dokumenty</string>
+    <string name="fo_photo_edits_message">Twoje zmiany w tych zdjęciach nie zostały jeszcze zapisane.</string>
 </resources>

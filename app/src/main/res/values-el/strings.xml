@@ -79,7 +79,6 @@
     <string name="merge_pdf">Συγχώνευση PDF</string>
     <string name="split_pdf">Διαχωρισμός PDF</string>
     <string name="convert_failed">Δεν ήταν δυνατή η μετατροπή των εικόνων σε PDF</string>
-    <string name="file_name_exists">Ένα αρχείο με αυτό το όνομα υπάρχει ήδη</string>
     <string name="split_open_failed">Δεν ήταν δυνατό το άνοιγμα αυτού του PDF</string>
     <string name="split_failed">Δεν ήταν δυνατός ο διαχωρισμός αυτού του PDF</string>
     <string name="translate_to">Μετάφραση σε</string>
@@ -132,14 +131,7 @@
     <string name="create_new">Δημιουργία νέου</string>
     <string name="images_to_pdf">Εικόνες σε PDF</string>
     <string name="new_document">Νέο έγγραφο</string>
-    <string name="new_document_file_name">Όνομα αρχείου</string>
-    <string name="save_to">Αποθήκευση σε</string>
-    <string name="blank_document">Κενή σελίδα Α4</string>
-    <string name="blank_spreadsheet">Κενό υπολογιστικό φύλλο</string>
-    <string name="blank_presentation">Κενή παρουσίαση</string>
-    <string name="blank_document_desc">Ανοίγει σε λειτουργία επεξεργασίας με το πληκτρολόγιο έτοιμο.</string>
     <string name="untitled">Χωρίς τίτλο</string>
-    <string name="create_and_start_editing">Δημιουργήστε και ξεκινήστε την επεξεργασία</string>
     <string name="sort_date_modified">Ημερομηνία τροποποίησης</string>
     <string name="sort_size">Μέγεθος</string>
     <string name="sort_file_type">Τύπος αρχείου</string>
@@ -212,9 +204,6 @@
     <string name="split_each_page">Ένα αρχείο ανά σελίδα</string>
     <string name="split_pick_pages">Επιλέξτε σελίδες για εξαγωγή</string>
     <string name="split_pick_pages_desc">Πατήστε μικρογραφίες σελίδας</string>
-    <string name="pages">Σελίδες</string>
-    <string name="range_to">έως</string>
-    <string name="add_range">Προσθήκη εύρους</string>
     <string name="compress_pdf">Συμπίεση PDF</string>
     <string name="protect_pdf">Προστασία PDF</string>
     <string name="protect_warning">Δεν είναι δυνατή η ανάκτηση ενός ξεχασμένου κωδικού πρόσβασης. Φυλάξτε τον κάπου ασφαλές.</string>
@@ -399,10 +388,6 @@
         <item quantity="one">Το αρχείο θα διαγραφεί από αυτήν τη συσκευή και δεν είναι δυνατή η ανάκτησή του.</item>
         <item quantity="other">Τα αρχεία θα διαγραφούν από αυτήν τη συσκευή και δεν είναι δυνατή η ανάκτησή τους.</item>
     </plurals>
-    <plurals name="split_creates_files">
-        <item quantity="one">Δημιουργεί %d αρχείο</item>
-        <item quantity="other">Δημιουργεί %d αρχεία</item>
-    </plurals>
     <plurals name="split_action">
         <item quantity="one">Διαχωρισμός σε %d αρχείο</item>
         <item quantity="other">Διαχωρισμός σε %d αρχεία</item>
@@ -469,4 +454,5 @@
     <string name="fo_home_create">Δημιουργία</string>
     <string name="fo_home_create_desc">Word, Excel, διαφάνειες και σαρώσεις</string>
     <string name="fo_your_documents">Τα έγγραφά σας</string>
+    <string name="fo_photo_edits_message">Οι αλλαγές σας σε αυτές τις φωτογραφίες δεν έχουν κρατηθεί ακόμα.</string>
 </resources>

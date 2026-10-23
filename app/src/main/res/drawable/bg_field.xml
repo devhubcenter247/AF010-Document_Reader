@@ -6,14 +6,14 @@
         <shape android:shape="rectangle">
             <solid android:color="@color/color_surface_card" />
             <corners android:radius="@dimen/_14sdp" />
-            <stroke android:width="@dimen/_2sdp" android:color="@color/primary" />
+            <stroke android:width="@dimen/_1sdp" android:color="@color/primary" />
         </shape>
     </item>
     <item>
         <shape android:shape="rectangle">
             <solid android:color="@color/color_surface_card" />
             <corners android:radius="@dimen/_14sdp" />
-            <stroke android:width="@dimen/_2sdp" android:color="@color/color_stroke" />
+            <stroke android:width="@dimen/_1sdp" android:color="@color/color_stroke" />
         </shape>
     </item>
 </selector>

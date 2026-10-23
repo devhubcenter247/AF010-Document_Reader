@@ -79,7 +79,6 @@
     <string name="merge_pdf">PDF ಅನ್ನು ವಿಲೀನಗೊಳಿಸಿ</string>
     <string name="split_pdf">PDF ಅನ್ನು ವಿಭಜಿಸಿ</string>
     <string name="convert_failed">ಚಿತ್ರಗಳನ್ನು PDF ಗೆ ಪರಿವರ್ತಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ</string>
-    <string name="file_name_exists">ಈ ಹೆಸರಿನ ಫೈಲ್ ಈಗಾಗಲೇ ಅಸ್ತಿತ್ವದಲ್ಲಿದೆ</string>
     <string name="split_open_failed">ಈ PDF ಅನ್ನು ತೆರೆಯಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ</string>
     <string name="split_failed">ಈ PDF ಅನ್ನು ವಿಭಜಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ</string>
     <string name="translate_to">ಇದಕ್ಕೆ ಅನುವಾದಿಸಿ</string>
@@ -132,14 +131,7 @@
     <string name="create_new">ಹೊಸದನ್ನು ರಚಿಸಿ</string>
     <string name="images_to_pdf">ಚಿತ್ರಗಳು PDF ಗೆ</string>
     <string name="new_document">ಹೊಸ ಡಾಕ್ಯುಮೆಂಟ್</string>
-    <string name="new_document_file_name">ಫೈಲ್ ಹೆಸರು</string>
-    <string name="save_to">ಇಲ್ಲಿ ಉಳಿಸಿ</string>
-    <string name="blank_document">ಖಾಲಿ A4 ಪುಟ</string>
-    <string name="blank_spreadsheet">ಖಾಲಿ ಸ್ಪ್ರೆಡ್‌ಶೀಟ್</string>
-    <string name="blank_presentation">ಖಾಲಿ ಪ್ರಸ್ತುತಿ</string>
-    <string name="blank_document_desc">ಸಿದ್ಧವಾಗಿರುವ ಕೀಬೋರ್ಡ್‌ನೊಂದಿಗೆ ಎಡಿಟ್ ಮೋಡ್‌ನಲ್ಲಿ ತೆರೆಯುತ್ತದೆ.</string>
     <string name="untitled">ಶೀರ್ಷಿಕೆಯಿಲ್ಲದ</string>
-    <string name="create_and_start_editing">ರಚಿಸಿ ಮತ್ತು ಸಂಪಾದಿಸಲು ಪ್ರಾರಂಭಿಸಿ</string>
     <string name="sort_date_modified">ಮಾರ್ಪಡಿಸಿದ ದಿನಾಂಕ</string>
     <string name="sort_size">ಗಾತ್ರ</string>
     <string name="sort_file_type">ಫೈಲ್ ಪ್ರಕಾರ</string>
@@ -212,9 +204,6 @@
     <string name="split_each_page">ಪ್ರತಿ ಪುಟಕ್ಕೆ ಒಂದು ಫೈಲ್</string>
     <string name="split_pick_pages">ಹೊರತೆಗೆಯಲು ಪುಟಗಳನ್ನು ಆರಿಸಿ</string>
     <string name="split_pick_pages_desc">ಪುಟದ ಥಂಬ್‌ನೇಲ್‌ಗಳನ್ನು ಟ್ಯಾಪ್ ಮಾಡಿ</string>
-    <string name="pages">ಪುಟಗಳು</string>
-    <string name="range_to">ವರೆಗೆ</string>
-    <string name="add_range">ಶ್ರೇಣಿಯನ್ನು ಸೇರಿಸಿ</string>
     <string name="compress_pdf">PDF ಅನ್ನು ಕುಗ್ಗಿಸಿ</string>
     <string name="protect_pdf">PDF ಅನ್ನು ರಕ್ಷಿಸಿ</string>
     <string name="protect_warning">ಮರೆತುಹೋದ ಪಾಸ್‌ವರ್ಡ್ ಅನ್ನು ಮರುಪಡೆಯಲಾಗುವುದಿಲ್ಲ. ಎಲ್ಲೋ ಸುರಕ್ಷಿತವಾಗಿ ಇರಿಸಿ.</string>
@@ -399,10 +388,6 @@
         <item quantity="one">ಫೈಲ್ ಅನ್ನು ಈ ಸಾಧನದಿಂದ ಅಳಿಸಲಾಗುತ್ತದೆ ಮತ್ತು ಅದನ್ನು ಮರುಪಡೆಯಲು ಸಾಧ್ಯವಿಲ್ಲ.</item>
         <item quantity="other">ಫೈಲ್‌ಗಳನ್ನು ಈ ಸಾಧನದಿಂದ ಅಳಿಸಲಾಗುತ್ತದೆ ಮತ್ತು ಅವುಗಳನ್ನು ಮರುಪಡೆಯಲು ಸಾಧ್ಯವಿಲ್ಲ.</item>
     </plurals>
-    <plurals name="split_creates_files">
-        <item quantity="one">%d ಫೈಲ್ ರಚಿಸುತ್ತದೆ</item>
-        <item quantity="other">%d ಫೈಲ್‌ಗಳನ್ನು ರಚಿಸುತ್ತದೆ</item>
-    </plurals>
     <plurals name="split_action">
         <item quantity="one">%d ಫೈಲ್ ಆಗಿ ವಿಭಜಿಸಿ</item>
         <item quantity="other">%d ಫೈಲ್‌ಗಳಾಗಿ ವಿಭಜಿಸಿ</item>
@@ -469,4 +454,5 @@
     <string name="fo_home_create">ರಚಿಸಿ</string>
     <string name="fo_home_create_desc">Word, Excel, ಸ್ಲೈಡ್‌ಗಳು ಮತ್ತು ಸ್ಕ್ಯಾನ್</string>
     <string name="fo_your_documents">ನಿಮ್ಮ ಡಾಕ್ಯುಮೆಂಟ್‌ಗಳು</string>
+    <string name="fo_photo_edits_message">ಈ ಫೋಟೋಗಳಿಗೆ ನೀವು ಮಾಡಿದ ಬದಲಾವಣೆಗಳನ್ನು ಇನ್ನೂ ಉಳಿಸಲಾಗಿಲ್ಲ.</string>
 </resources>

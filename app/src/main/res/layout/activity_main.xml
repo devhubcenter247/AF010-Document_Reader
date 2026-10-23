@@ -75,6 +75,21 @@
         </LinearLayout>
     </LinearLayout>
 
+    <!-- The ring that pulses out of the "+" (MainActivity.createPulse); just under the button. -->
+    <View
+        android:id="@+id/viewCreatePulse"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:alpha="0"
+        android:background="@drawable/bg_circle_primary"
+        android:elevation="@dimen/_7sdp"
+        android:importantForAccessibility="no"
+        android:outlineProvider="none"
+        app:layout_constraintBottom_toBottomOf="@id/btnCreate"
+        app:layout_constraintEnd_toEndOf="@id/btnCreate"
+        app:layout_constraintStart_toStartOf="@id/btnCreate"
+        app:layout_constraintTop_toTopOf="@id/btnCreate" />
+
     <ImageView
         android:id="@+id/btnCreate"
         android:layout_width="@dimen/_48sdp"
@@ -86,7 +101,6 @@
         android:outlineAmbientShadowColor="@color/primary"
         android:outlineSpotShadowColor="@color/primary"
         android:padding="@dimen/_13sdp"
-        android:rotation="-4"
         android:src="@drawable/ic_fo_plus"
         app:layout_constraintBottom_toBottomOf="@id/navBar"
         app:layout_constraintEnd_toEndOf="parent"

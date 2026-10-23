@@ -79,7 +79,6 @@
     <string name="merge_pdf">Gabungkan PDF</string>
     <string name="split_pdf">Pisahkan PDF</string>
     <string name="convert_failed">Tidak dapat menukar imej kepada PDF</string>
-    <string name="file_name_exists">Fail dengan nama ini sudah wujud</string>
     <string name="split_open_failed">Tidak dapat membuka PDF ini</string>
     <string name="split_failed">Tidak dapat membahagikan PDF ini</string>
     <string name="translate_to">Terjemah ke</string>
@@ -132,14 +131,7 @@
     <string name="create_new">Buat baharu</string>
     <string name="images_to_pdf">Imej ke PDF</string>
     <string name="new_document">Dokumen baharu</string>
-    <string name="new_document_file_name">Nama fail</string>
-    <string name="save_to">Simpan ke</string>
-    <string name="blank_document">Muka surat A4 kosong</string>
-    <string name="blank_spreadsheet">Hamparan kosong</string>
-    <string name="blank_presentation">Persembahan kosong</string>
-    <string name="blank_document_desc">Dibuka dalam mod edit dengan papan kekunci sedia.</string>
     <string name="untitled">Tidak bertajuk</string>
-    <string name="create_and_start_editing">Buat dan mula mengedit</string>
     <string name="sort_date_modified">Tarikh diubah suai</string>
     <string name="sort_size">Saiz</string>
     <string name="sort_file_type">Jenis fail</string>
@@ -212,9 +204,6 @@
     <string name="split_each_page">Satu fail setiap halaman</string>
     <string name="split_pick_pages">Pilih halaman untuk diekstrak</string>
     <string name="split_pick_pages_desc">Ketik lakaran kecil halaman</string>
-    <string name="pages">Muka surat</string>
-    <string name="range_to">hingga</string>
-    <string name="add_range">Tambah julat</string>
     <string name="compress_pdf">Mampatkan PDF</string>
     <string name="protect_pdf">Lindungi PDF</string>
     <string name="protect_warning">Kata laluan yang terlupa tidak boleh dipulihkan. Simpan di tempat yang selamat.</string>
@@ -399,10 +388,6 @@
         <item quantity="one">File akan dihapus dari perangkat ini dan tidak dapat dipulihkan.</item>
         <item quantity="other">File akan dihapus dari perangkat ini dan tidak dapat dipulihkan.</item>
     </plurals>
-    <plurals name="split_creates_files">
-        <item quantity="one">Membuat %d file</item>
-        <item quantity="other">Membuat %d file</item>
-    </plurals>
     <plurals name="split_action">
         <item quantity="one">Bagi menjadi %d file</item>
         <item quantity="other">Bagi menjadi %d file</item>
@@ -469,4 +454,5 @@
     <string name="fo_home_create">Cipta</string>
     <string name="fo_home_create_desc">Word, Excel, slaid dan imbasan</string>
     <string name="fo_your_documents">Dokumen anda</string>
+    <string name="fo_photo_edits_message">Perubahan anda pada foto ini belum disimpan.</string>
 </resources>

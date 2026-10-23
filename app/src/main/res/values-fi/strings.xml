@@ -79,7 +79,6 @@
     <string name="merge_pdf">Yhdistä PDF</string>
     <string name="split_pdf">Jaa PDF</string>
     <string name="convert_failed">Kuvia ei voitu muuntaa PDF-muotoon</string>
-    <string name="file_name_exists">Tämän niminen tiedosto on jo olemassa</string>
     <string name="split_open_failed">Tätä PDF-tiedostoa ei voitu avata</string>
     <string name="split_failed">Tätä PDF-tiedostoa ei voitu jakaa</string>
     <string name="translate_to">Käännä kielelle</string>
@@ -132,14 +131,7 @@
     <string name="create_new">Luo uusi</string>
     <string name="images_to_pdf">Kuvat PDF-muotoon</string>
     <string name="new_document">Uusi asiakirja</string>
-    <string name="new_document_file_name">Tiedoston nimi</string>
-    <string name="save_to">Tallenna kohteeseen</string>
-    <string name="blank_document">Tyhjä A4-sivu</string>
-    <string name="blank_spreadsheet">Tyhjä laskentataulukko</string>
-    <string name="blank_presentation">Tyhjä esitys</string>
-    <string name="blank_document_desc">Avautuu muokkaustilassa näppäimistön ollessa valmiina.</string>
     <string name="untitled">Nimetön</string>
-    <string name="create_and_start_editing">Luo ja aloita muokkaaminen</string>
     <string name="sort_date_modified">Muokkauspäivämäärä</string>
     <string name="sort_size">Koko</string>
     <string name="sort_file_type">Tiedostotyyppi</string>
@@ -212,9 +204,6 @@
     <string name="split_each_page">Yksi tiedosto per sivu</string>
     <string name="split_pick_pages">Valitse poimittavat sivut</string>
     <string name="split_pick_pages_desc">Napauta sivun pikkukuvia</string>
-    <string name="pages">Sivut</string>
-    <string name="range_to">–</string>
-    <string name="add_range">Lisää alue</string>
     <string name="compress_pdf">Pakkaa PDF</string>
     <string name="protect_pdf">Suojaa PDF</string>
     <string name="protect_warning">Unohtunutta salasanaa ei voi palauttaa. Pidä se jossain turvallisessa paikassa.</string>
@@ -399,10 +388,6 @@
         <item quantity="one">Tiedosto poistetaan tästä laitteesta, eikä sitä voi palauttaa.</item>
         <item quantity="other">Tiedostot poistetaan tästä laitteesta, eikä niitä voi palauttaa.</item>
     </plurals>
-    <plurals name="split_creates_files">
-        <item quantity="one">Luo %d tiedoston</item>
-        <item quantity="other">Luo %d tiedostoa</item>
-    </plurals>
     <plurals name="split_action">
         <item quantity="one">Jaa %d tiedostoon</item>
         <item quantity="other">Jaa %d tiedostoon</item>
@@ -469,4 +454,5 @@
     <string name="fo_home_create">Luo</string>
     <string name="fo_home_create_desc">Word, Excel, diat ja skannaukset</string>
     <string name="fo_your_documents">Omat asiakirjat</string>
+    <string name="fo_photo_edits_message">Näihin kuviin tekemiäsi muutoksia ei ole vielä tallennettu.</string>
 </resources>

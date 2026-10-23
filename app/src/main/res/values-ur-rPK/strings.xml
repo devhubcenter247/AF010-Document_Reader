@@ -79,7 +79,6 @@
     <string name="merge_pdf">پی ڈی ایف کو ضم کریں</string>
     <string name="split_pdf">پی ڈی ایف تقسیم کریں</string>
     <string name="convert_failed">تصاویر کو پی ڈی ایف میں تبدیل نہیں کیا جا سکا</string>
-    <string name="file_name_exists">اس نام کی فائل پہلے سے موجود ہے</string>
     <string name="split_open_failed">اس PDF کو نہیں کھولا جا سکا</string>
     <string name="split_failed">اس PDF کو تقسیم نہیں کیا جا سکا</string>
     <string name="translate_to">اس میں ترجمہ کریں</string>
@@ -132,14 +131,7 @@
     <string name="create_new">نیا بنائیں</string>
     <string name="images_to_pdf">پی ڈی ایف میں تصاویر</string>
     <string name="new_document">نئی دستاویز</string>
-    <string name="new_document_file_name">فائل کا نام</string>
-    <string name="save_to">یہاں محفوظ کریں</string>
-    <string name="blank_document">خالی A4 صفحہ</string>
-    <string name="blank_spreadsheet">خالی اسپریڈشیٹ</string>
-    <string name="blank_presentation">خالی پریزنٹیشن</string>
-    <string name="blank_document_desc">کی بورڈ تیار کے ساتھ ترمیم موڈ میں کھلتا ہے۔</string>
     <string name="untitled">بلا عنوان</string>
-    <string name="create_and_start_editing">بنائیں اور ترمیم شروع کریں</string>
     <string name="sort_date_modified">ترمیم کی تاریخ</string>
     <string name="sort_size">سائز</string>
     <string name="sort_file_type">فائل کی قسم</string>
@@ -212,9 +204,6 @@
     <string name="split_each_page">فی صفحہ ایک فائل</string>
     <string name="split_pick_pages">نکالنے کے لیے صفحات چنیں</string>
     <string name="split_pick_pages_desc">صفحہ تھمب نیلز کو تھپتھپائیں</string>
-    <string name="pages">صفحات</string>
-    <string name="range_to">تا</string>
-    <string name="add_range">رینج شامل کریں</string>
     <string name="compress_pdf">پی ڈی ایف کو کمپریس کریں</string>
     <string name="protect_pdf">پی ڈی ایف کی حفاظت کریں</string>
     <string name="protect_warning">بھولا ہوا پاس ورڈ بازیافت نہیں کیا جا سکتا۔ اسے کہیں محفوظ رکھیں۔</string>
@@ -399,10 +388,6 @@
         <item quantity="one">فائل اس آلے سے حذف کر دی جائے گی اور اسے بازیافت نہیں کیا جا سکتا۔</item>
         <item quantity="other">فائلیں اس آلے سے حذف کر دی جائیں گی اور انہیں بازیافت نہیں کیا جا سکتا۔</item>
     </plurals>
-    <plurals name="split_creates_files">
-        <item quantity="one">%d فائل بناتا ہے</item>
-        <item quantity="other">%d فائلیں بناتا ہے</item>
-    </plurals>
     <plurals name="split_action">
         <item quantity="one">%d فائل میں تقسیم کریں</item>
         <item quantity="other">%d فائلوں میں تقسیم کریں</item>
@@ -469,4 +454,5 @@
     <string name="fo_home_create">بنائیں</string>
     <string name="fo_home_create_desc">Word، Excel، سلائیڈز اور اسکین</string>
     <string name="fo_your_documents">آپ کی دستاویزات</string>
+    <string name="fo_photo_edits_message">ان تصاویر میں آپ کی تبدیلیاں ابھی محفوظ نہیں ہوئیں۔</string>
 </resources>

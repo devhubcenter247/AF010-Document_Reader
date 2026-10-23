@@ -58,6 +58,7 @@ class DocumentAdapter(private val end: RowEnd = RowEnd.Options) : DiffAdapter<Re
         val doc = item.document
         tvType.showTypeTile(doc)
         tvName.text = marked(doc.name, ContextCompat.getColor(context, R.color.color_pro))
+        tvName.isSelected = true
         tvMeta.text = context.getString(
             R.string.document_meta,
             doc.sizeText(context),

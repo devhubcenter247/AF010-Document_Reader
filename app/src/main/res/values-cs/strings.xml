@@ -79,7 +79,6 @@
     <string name="merge_pdf">Sloučit PDF</string>
     <string name="split_pdf">Rozdělit PDF</string>
     <string name="convert_failed">Nelze převést obrázky do PDF</string>
-    <string name="file_name_exists">Soubor s tímto názvem již existuje</string>
     <string name="split_open_failed">Tento soubor PDF nelze otevřít</string>
     <string name="split_failed">Toto PDF nelze rozdělit</string>
     <string name="translate_to">Přeložit do</string>
@@ -132,14 +131,7 @@
     <string name="create_new">Vytvořit nový</string>
     <string name="images_to_pdf">Obrázky do PDF</string>
     <string name="new_document">Nový dokument</string>
-    <string name="new_document_file_name">Název souboru</string>
-    <string name="save_to">Uložit do</string>
-    <string name="blank_document">Prázdná stránka A4</string>
-    <string name="blank_spreadsheet">Prázdná tabulka</string>
-    <string name="blank_presentation">Prázdná prezentace</string>
-    <string name="blank_document_desc">Otevře se v režimu úprav s připravenou klávesnicí.</string>
     <string name="untitled">Bez názvu</string>
-    <string name="create_and_start_editing">Vytvořte a začněte upravovat</string>
     <string name="sort_date_modified">Datum změny</string>
     <string name="sort_size">Velikost</string>
     <string name="sort_file_type">Typ souboru</string>
@@ -212,9 +204,6 @@
     <string name="split_each_page">Jeden soubor na stránku</string>
     <string name="split_pick_pages">Vyberte stránky, které chcete extrahovat</string>
     <string name="split_pick_pages_desc">Klepněte na miniatury stránek</string>
-    <string name="pages">Stránky</string>
-    <string name="range_to">do</string>
-    <string name="add_range">Přidat rozsah</string>
     <string name="compress_pdf">Komprimovat PDF</string>
     <string name="protect_pdf">Chránit PDF</string>
     <string name="protect_warning">Zapomenuté heslo nelze obnovit. Uschovejte ho na bezpečném místě.</string>
@@ -403,11 +392,6 @@
         <item quantity="few">Soubory budou z tohoto zařízení smazány a nelze je obnovit.</item>
         <item quantity="other">Soubory budou z tohoto zařízení smazány a nelze je obnovit.</item>
     </plurals>
-    <plurals name="split_creates_files">
-        <item quantity="one">Vytvoří %d soubor</item>
-        <item quantity="few">Vytvoří %d soubory</item>
-        <item quantity="other">Vytvoří %d souborů</item>
-    </plurals>
     <plurals name="split_action">
         <item quantity="one">Rozdělit na %d soubor</item>
         <item quantity="few">Rozdělit na %d soubory</item>
@@ -476,4 +460,5 @@
     <string name="fo_home_create">Vytvořit</string>
     <string name="fo_home_create_desc">Word, Excel, snímky a skeny</string>
     <string name="fo_your_documents">Vaše dokumenty</string>
+    <string name="fo_photo_edits_message">Vaše změny těchto fotek zatím nejsou uložené.</string>
 </resources>

@@ -79,7 +79,6 @@
     <string name="merge_pdf">પીડીએફ મર્જ કરો</string>
     <string name="split_pdf">પીડીએફને વિભાજિત કરો</string>
     <string name="convert_failed">છબીઓને PDF માં કન્વર્ટ કરી શકાઈ નથી</string>
-    <string name="file_name_exists">આ નામની ફાઇલ પહેલેથી જ અસ્તિત્વમાં છે</string>
     <string name="split_open_failed">આ PDF ખોલી શકાઈ નથી</string>
     <string name="split_failed">આ PDF વિભાજિત કરી શકાયું નથી</string>
     <string name="translate_to">આમાં અનુવાદ કરો</string>
@@ -132,14 +131,7 @@
     <string name="create_new">નવું બનાવો</string>
     <string name="images_to_pdf">છબીઓથી PDF</string>
     <string name="new_document">નવો દસ્તાવેજ</string>
-    <string name="new_document_file_name">ફાઇલનું નામ</string>
-    <string name="save_to">અહીં સાચવો</string>
-    <string name="blank_document">ખાલી A4 પૃષ્ઠ</string>
-    <string name="blank_spreadsheet">ખાલી સ્પ્રેડશીટ</string>
-    <string name="blank_presentation">ખાલી રજૂઆત</string>
-    <string name="blank_document_desc">કીબોર્ડ તૈયાર સાથે સંપાદન મોડમાં ખુલે છે.</string>
     <string name="untitled">શીર્ષક વિનાનું</string>
-    <string name="create_and_start_editing">બનાવો અને સંપાદન શરૂ કરો</string>
     <string name="sort_date_modified">ફેરફારની તારીખ</string>
     <string name="sort_size">કદ</string>
     <string name="sort_file_type">ફાઇલ પ્રકાર</string>
@@ -212,9 +204,6 @@
     <string name="split_each_page">પૃષ્ઠ દીઠ એક ફાઇલ</string>
     <string name="split_pick_pages">કાઢવા માટે પૃષ્ઠો ચૂંટો</string>
     <string name="split_pick_pages_desc">પૃષ્ઠ થંબનેલ્સને ટેપ કરો</string>
-    <string name="pages">પૃષ્ઠો</string>
-    <string name="range_to">સુધી</string>
-    <string name="add_range">શ્રેણી ઉમેરો</string>
     <string name="compress_pdf">પીડીએફને સંકુચિત કરો</string>
     <string name="protect_pdf">પીડીએફને સુરક્ષિત કરો</string>
     <string name="protect_warning">ભૂલી ગયેલો પાસવર્ડ પુનઃપ્રાપ્ત કરી શકાતો નથી. તેને ક્યાંક સુરક્ષિત રાખો.</string>
@@ -399,10 +388,6 @@
         <item quantity="one">ફાઇલ આ ઉપકરણમાંથી કાઢી નાખવામાં આવશે અને તે પાછી મેળવી શકાશે નહીં.</item>
         <item quantity="other">ફાઇલો આ ઉપકરણમાંથી કાઢી નાખવામાં આવશે અને તે પાછી મેળવી શકાશે નહીં.</item>
     </plurals>
-    <plurals name="split_creates_files">
-        <item quantity="one">%d ફાઇલ બનાવે છે</item>
-        <item quantity="other">%d ફાઇલો બનાવે છે</item>
-    </plurals>
     <plurals name="split_action">
         <item quantity="one">%d ફાઇલમાં વિભાજિત કરો</item>
         <item quantity="other">%d ફાઇલોમાં વિભાજિત કરો</item>
@@ -469,4 +454,5 @@
     <string name="fo_home_create">બનાવો</string>
     <string name="fo_home_create_desc">Word, Excel, સ્લાઇડ્સ અને સ્કૅન</string>
     <string name="fo_your_documents">તમારા દસ્તાવેજો</string>
+    <string name="fo_photo_edits_message">આ ફોટામાં તમારા ફેરફારો હજી સાચવવામાં આવ્યા નથી.</string>
 </resources>

@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- The Files tab. With file access a MotionLayout (scene_files_home) under a header that stays: once
+<?xml version="1.0" encoding="utf-8"?><!-- The Files tab. With file access a MotionLayout (scene_files_home) under a header that stays: once
      the Read and Create cards scroll away, two pills take their place under the header. Without access, the
      library with its own header. FilesFragment shows one or the other. -->
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -103,12 +102,12 @@
                     android:id="@+id/layoutCards"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:clipToPadding="false"
                     android:baselineAligned="false"
+                    android:clipToPadding="false"
                     android:orientation="horizontal"
                     android:paddingHorizontal="@dimen/_15sdp"
                     android:paddingTop="@dimen/_6sdp"
-            android:paddingBottom="@dimen/_4sdp">
+                    android:paddingBottom="@dimen/_4sdp">
 
                     <include
                         android:id="@+id/cardRead"
@@ -488,12 +487,12 @@
                 android:visibility="gone">
 
                 <LinearLayout
-                    android:clipChildren="false"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/_15sdp"
                     android:layout_marginTop="@dimen/_6sdp"
                     android:background="@drawable/bg_access_card"
+                    android:clipChildren="false"
                     android:orientation="vertical"
                     android:padding="@dimen/_15sdp">
 
@@ -579,9 +578,9 @@
                     android:text="@string/fo_quick_start" />
 
                 <LinearLayout
-                    android:clipToPadding="false"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:clipToPadding="false"
                     android:orientation="horizontal"
                     android:paddingHorizontal="@dimen/_15sdp">
 

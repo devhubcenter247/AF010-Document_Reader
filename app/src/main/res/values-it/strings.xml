@@ -79,7 +79,6 @@
     <string name="merge_pdf">Unisci PDF</string>
     <string name="split_pdf">Dividi PDF</string>
     <string name="convert_failed">Impossibile convertire le immagini in PDF</string>
-    <string name="file_name_exists">Esiste già un file con questo nome</string>
     <string name="split_open_failed">Impossibile aprire questo PDF</string>
     <string name="split_failed">Impossibile dividere questo PDF</string>
     <string name="translate_to">Traduci in</string>
@@ -132,14 +131,7 @@
     <string name="create_new">Crea nuovo</string>
     <string name="images_to_pdf">Immagini in PDF</string>
     <string name="new_document">Nuovo documento</string>
-    <string name="new_document_file_name">Nome del file</string>
-    <string name="save_to">Salva in</string>
-    <string name="blank_document">Pagina A4 vuota</string>
-    <string name="blank_spreadsheet">Foglio di calcolo vuoto</string>
-    <string name="blank_presentation">Presentazione vuota</string>
-    <string name="blank_document_desc">Si apre in modalità modifica con la tastiera pronta.</string>
     <string name="untitled">Senza titolo</string>
-    <string name="create_and_start_editing">Crea e inizia a modificare</string>
     <string name="sort_date_modified">Data di modifica</string>
     <string name="sort_size">Dimensioni</string>
     <string name="sort_file_type">Tipo di file</string>
@@ -212,9 +204,6 @@
     <string name="split_each_page">Un file per pagina</string>
     <string name="split_pick_pages">Scegli le pagine da estrarre</string>
     <string name="split_pick_pages_desc">Tocca le miniature delle pagine</string>
-    <string name="pages">Pagine</string>
-    <string name="range_to">a</string>
-    <string name="add_range">Aggiungi intervallo</string>
     <string name="compress_pdf">Comprimi PDF</string>
     <string name="protect_pdf">Proteggi PDF</string>
     <string name="protect_warning">Una password dimenticata non può essere recuperata. Conservala in un posto sicuro.</string>
@@ -399,10 +388,6 @@
         <item quantity="one">Il file verrà eliminato da questo dispositivo e non potrà essere recuperato.</item>
         <item quantity="other">I file verranno eliminati da questo dispositivo e non potranno essere recuperati.</item>
     </plurals>
-    <plurals name="split_creates_files">
-        <item quantity="one">Crea %d file</item>
-        <item quantity="other">Crea %d file</item>
-    </plurals>
     <plurals name="split_action">
         <item quantity="one">Dividi in %d file</item>
         <item quantity="other">Dividi in %d file</item>
@@ -469,4 +454,5 @@
     <string name="fo_home_create">Crea</string>
     <string name="fo_home_create_desc">Word, Excel, slide e scansioni</string>
     <string name="fo_your_documents">I tuoi documenti</string>
+    <string name="fo_photo_edits_message">Le modifiche a queste foto non sono ancora state salvate.</string>
 </resources>

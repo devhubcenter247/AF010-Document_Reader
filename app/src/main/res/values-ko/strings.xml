@@ -79,7 +79,6 @@
     <string name="merge_pdf">PDF 병합</string>
     <string name="split_pdf">PDF 분할</string>
     <string name="convert_failed">이미지를 PDF로 변환할 수 없습니다</string>
-    <string name="file_name_exists">이 이름을 가진 파일이 이미 존재합니다</string>
     <string name="split_open_failed">이 PDF를 열 수 없습니다</string>
     <string name="split_failed">이 PDF를 분할할 수 없습니다</string>
     <string name="translate_to">번역 대상 언어</string>
@@ -132,14 +131,7 @@
     <string name="create_new">새로 만들기</string>
     <string name="images_to_pdf">이미지를 PDF로</string>
     <string name="new_document">새 문서</string>
-    <string name="new_document_file_name">파일 이름</string>
-    <string name="save_to">다음에 저장</string>
-    <string name="blank_document">빈 A4 페이지</string>
-    <string name="blank_spreadsheet">빈 스프레드시트</string>
-    <string name="blank_presentation">빈 프레젠테이션</string>
-    <string name="blank_document_desc">키보드가 준비된 상태에서 편집 모드로 열립니다.</string>
     <string name="untitled">제목 없음</string>
-    <string name="create_and_start_editing">만들기 및 편집 시작</string>
     <string name="sort_date_modified">수정한 날짜</string>
     <string name="sort_size">크기</string>
     <string name="sort_file_type">파일 형식</string>
@@ -212,9 +204,6 @@
     <string name="split_each_page">페이지당 파일 1개</string>
     <string name="split_pick_pages">추출할 페이지 선택</string>
     <string name="split_pick_pages_desc">페이지 축소판을 탭하세요</string>
-    <string name="pages">페이지</string>
-    <string name="range_to">~</string>
-    <string name="add_range">범위 추가</string>
     <string name="compress_pdf">PDF 압축</string>
     <string name="protect_pdf">PDF 보호</string>
     <string name="protect_warning">잊어버린 비밀번호는 복구할 수 없습니다. 안전한 곳에 보관하세요.</string>
@@ -399,10 +388,6 @@
         <item quantity="one">이 기기에서 파일이 삭제되며 복구할 수 없습니다.</item>
         <item quantity="other">이 기기에서 파일이 삭제되며 복구할 수 없습니다.</item>
     </plurals>
-    <plurals name="split_creates_files">
-        <item quantity="one">파일 %d개 생성</item>
-        <item quantity="other">파일 %d개 생성</item>
-    </plurals>
     <plurals name="split_action">
         <item quantity="one">파일 %d개로 분할</item>
         <item quantity="other">파일 %d개로 분할</item>
@@ -469,4 +454,5 @@
     <string name="fo_home_create">만들기</string>
     <string name="fo_home_create_desc">Word, Excel, 슬라이드, 스캔</string>
     <string name="fo_your_documents">내 문서</string>
+    <string name="fo_photo_edits_message">이 사진에 대한 변경 사항이 아직 저장되지 않았습니다.</string>
 </resources>

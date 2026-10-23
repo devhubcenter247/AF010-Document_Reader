@@ -28,6 +28,8 @@ fun View.setStroke(@Px width: Int, @ColorInt color: Int) {
     if (this is ViewGroup || this is ImageView) {
         val shape = foreground?.findShape() ?: GradientDrawable().apply {
             background?.findShape()?.let { fill ->
+                // the border follows the outline: an oval fill (a colour dot) gets a round border
+                shape = fill.shape
                 fill.cornerRadii?.let { cornerRadii = it } ?: run { cornerRadius = fill.cornerRadius }
             }
             foreground = this

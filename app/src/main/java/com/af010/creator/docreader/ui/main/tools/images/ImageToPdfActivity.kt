@@ -21,6 +21,8 @@ import com.af010.creator.docreader.model.PageOrientation
 import com.af010.creator.docreader.model.PageSetup
 import com.af010.creator.docreader.model.PageSize
 import com.af010.creator.docreader.model.ToolRequest
+import com.af010.creator.docreader.ui.main.scan.ScanActivity
+import com.af010.creator.docreader.ui.main.scan.ScanPage
 import com.af010.creator.docreader.ui.main.tools.result.ProcessingActivity
 import com.bumptech.glide.Glide
 import com.ui.baselib.base.BaseAdapter
@@ -31,10 +33,14 @@ import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
 
-/** Pick photos, put them in order, choose the page layout, and turn them into one PDF. */
+/**
+ * Pick photos, put them in order, choose the page layout, and turn them into one PDF. Tapping a photo
+ * opens the scanner's editor on all of them (rotate, crop, clean up, filters); each photo is a
+ * [ScanPage], so it keeps its original and can be edited again.
+ */
 class ImageToPdfActivity :
     BaseAppActivity<ActivityImageToPdfBinding>(ActivityImageToPdfBinding::inflate) {
-    private var images: List<File> = emptyList()
+    private var images: List<ScanPage> = emptyList()
     private var setup = PageSetup()
 
     private val imageAdapter by lazy { ImageAdapter() }
@@ -43,6 +49,12 @@ class ImageToPdfActivity :
         ActivityResultContracts.PickMultipleVisualMedia()
     ) { uris ->
         if (uris.isNotEmpty()) importImages(uris) else if (images.isEmpty()) finish()
+    }
+
+    private val editLauncher = registerForActivityResult(ScanActivity.EditPhotos()) { edited ->
+        if (edited == null) return@registerForActivityResult
+        images = edited
+        render()
     }
 
     override fun backPressed() {
@@ -80,15 +92,18 @@ class ImageToPdfActivity :
         topBar.btnBack.clickSingle { finish() }
         imageAdapter
             .onAddClick { pickImages() }
-            .onRemoveClick { file ->
-                images = images - file
+            .onEditClick { position ->
+                if (position in images.indices) editLauncher.launch(ScanActivity.EditPhotos.Input(images, position))
+            }
+            .onRemoveClick { page ->
+                images = images - page
                 render()
             }
         action.btnAction.clickSingle {
             val name = "PDF_" + SimpleDateFormat("yyyyMMdd_HHmmss", Locale.US).format(Date())
             ProcessingActivity.start(
                 this@ImageToPdfActivity,
-                ToolRequest.ImagesToPdf(images.map { it.path }, name, setup)
+                ToolRequest.ImagesToPdf(images.map { it.output.path }, name, setup)
             )
             finish()
         }
@@ -108,7 +123,7 @@ class ImageToPdfActivity :
                     contentResolver.openInputStream(uri)?.use { input ->
                         target.outputStream().use { input.copyTo(it) }
                     }
-                    target.takeIf { it.length() > 0 }
+                    target.takeIf { it.length() > 0 }?.let { ScanPage(original = it, cropped = it) }
                 }.getOrNull()
             }
             withMain {
@@ -159,7 +174,7 @@ class ImageToPdfActivity :
         }
     }
 
-    private class ImageAdapter : BaseAdapter<File?, ItemImagePageBinding>() {
+    private class ImageAdapter : BaseAdapter<ScanPage?, ItemImagePageBinding>() {
         override fun createBinding(
             inflater: LayoutInflater,
             parent: ViewGroup,
@@ -167,25 +182,34 @@ class ImageToPdfActivity :
         ) = ItemImagePageBinding.inflate(inflater, parent, false)
 
         private var onAdd: (() -> Unit) = {}
-        private var onItemRemove: ((File) -> Unit) = {}
+        private var onItemEdit: ((Int) -> Unit) = {}
+        private var onItemRemove: ((ScanPage) -> Unit) = {}
 
         fun onAddClick(listener: () -> Unit) = apply { onAdd = listener }
-        fun onRemoveClick(listener: (File) -> Unit) = apply { onItemRemove = listener }
+        fun onEditClick(listener: (Int) -> Unit) = apply { onItemEdit = listener }
+        fun onRemoveClick(listener: (ScanPage) -> Unit) = apply { onItemRemove = listener }
 
-        override fun ItemImagePageBinding.bind(item: File?, position: Int) {
+        override fun ItemImagePageBinding.bind(item: ScanPage?, position: Int) {
             btnAdd.visibleOrGone(item == null)
             ivImage.visibleOrGone(item != null)
             tvNumber.visibleOrGone(item != null)
             btnRemove.visibleOrGone(item != null)
+            ivEdit.visibleOrGone(item != null)
             btnAdd.setOnClickListener { onAdd.invoke() }
             card.rotation = 0f
+            card.setOnClickListener(null)
             if (item == null) return
 
             // A loose pile: each photo leans a little, the way the design draws them.
             card.rotation = TILTS[position % TILTS.size]
             tvNumber.text = (position + 1).toString()
-            Glide.with(ivImage).load(item).centerCrop().into(ivImage)
+            Glide.with(ivImage).load(item.output).centerCrop().into(ivImage)
             btnRemove.setOnClickListener { onItemRemove.invoke(item) }
+            // The position at tap time: a drag may have moved the tile since it was bound.
+            card.setOnClickListener {
+                val list = root.parent as? RecyclerView ?: return@setOnClickListener
+                list.getChildAdapterPosition(root).takeIf { it != RecyclerView.NO_POSITION }?.let(onItemEdit)
+            }
         }
     }
 

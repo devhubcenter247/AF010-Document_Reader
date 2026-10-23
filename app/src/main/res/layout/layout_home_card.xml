@@ -25,7 +25,6 @@
             android:background="@drawable/bg_tool_glyph"
             android:importantForAccessibility="no"
             android:padding="@dimen/_8sdp"
-            android:rotation="-5"
             tools:backgroundTint="@color/primary"
             tools:src="@drawable/ic_fo_book" />
 

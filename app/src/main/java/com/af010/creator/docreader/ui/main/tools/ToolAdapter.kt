@@ -17,17 +17,14 @@ class ToolAdapter(private val onTool: (Tool) -> Unit) : BaseAdapter<Tool, ItemTo
 
     override fun ItemToolBinding.bind(item: Tool, position: Int) {
         ivIcon.showToolTile(item)
-        ivIcon.rotation = TILTS[position % TILTS.size]
         tvTitle.setText(item.title)
+        tvTitle.isSelected = true
         val soon = item == Tool.OfficeToPdf
         tvDesc.isVisible = !soon
         tvSoon.isVisible = soon
         if (!soon) tvDesc.setText(item.desc)
+        tvDesc.isSelected = true
         ivPremium.isVisible = item.isPremium && remoteConfig.paywallEnabled
         card.setOnClickListener { onTool(item) }
-    }
-
-    private companion object {
-        val TILTS = floatArrayOf(-4f, 3f, -2f, 4f)
     }
 }

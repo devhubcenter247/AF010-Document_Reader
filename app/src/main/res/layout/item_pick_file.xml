@@ -41,9 +41,10 @@
             android:id="@+id/tvName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ellipsize="middle"
+            android:ellipsize="marquee"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:singleLine="true"
             android:fontFamily="@font/nunito_700"
-            android:maxLines="1"
             android:textColor="@color/text_primary"
             android:textSize="@dimen/_12sdp"
             tools:text="Lease_Agreement_2026.pdf" />

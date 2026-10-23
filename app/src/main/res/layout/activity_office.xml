@@ -149,11 +149,14 @@
                     <ImageView
                         android:id="@+id/btnPlay"
                         style="@style/ReaderBarIcon"
+                        android:layout_width="@dimen/_28sdp"
+                        android:layout_height="@dimen/_28sdp"
+                        android:layout_marginHorizontal="@dimen/_3sdp"
                         android:background="@drawable/bg_circle_variant"
                         android:backgroundTint="@color/color_file_powerpoint_bg"
                         android:contentDescription="@string/slideshow"
                         android:foreground="?attr/selectableItemBackgroundBorderless"
-                        android:padding="@dimen/_10sdp"
+                        android:padding="@dimen/_8sdp"
                         android:src="@drawable/ic_fo_play"
                         android:visibility="gone"
                         app:tint="@color/color_file_powerpoint" />
@@ -173,6 +176,7 @@
                     <TextView
                         android:id="@+id/btnSave"
                         style="@style/DockedSave"
+                        android:layout_marginEnd="@dimen/_6sdp"
                         android:text="@string/file_action_save" />
                 </LinearLayout>
 
@@ -455,7 +459,7 @@
                 android:id="@+id/btnEdit"
                 style="@style/PrimaryPillButton"
                 android:layout_width="wrap_content"
-                android:layout_height="@dimen/_46sdp"
+                android:layout_height="@dimen/_38sdp"
                 android:layout_gravity="bottom|end"
                 android:layout_marginEnd="@dimen/_15sdp"
                 android:layout_marginBottom="@dimen/_20sdp"
@@ -463,8 +467,8 @@
                 android:insetBottom="0dp"
                 android:letterSpacing="0"
                 android:minHeight="0dp"
-                android:paddingStart="@dimen/_14sdp"
-                android:paddingEnd="@dimen/_18sdp"
+                android:paddingStart="@dimen/_24sdp"
+                android:paddingEnd="@dimen/_24sdp"
                 android:stateListAnimator="@null"
                 android:text="@string/fo_edit"
                 android:textAllCaps="false"
@@ -499,7 +503,8 @@
             android:clipToPadding="false"
             android:orientation="vertical">
 
-            <!-- PowerPoint: the slides, with the way to arrange them -->
+            <!-- PowerPoint: the slides, with the way to arrange them. btnArrange lines up with the
+                 slide pictures: as tall (40sdp), as round, and as far down (rcvSlides padding 3 + item padding 4). -->
             <LinearLayout
                 android:clipToPadding="false"
                 android:id="@+id/layoutSlides"
@@ -526,10 +531,12 @@
 
                 <ImageView
                     android:id="@+id/btnArrange"
-                    android:layout_width="@dimen/_38sdp"
-                    android:layout_height="@dimen/_38sdp"
+                    android:layout_width="@dimen/_40sdp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_gravity="top"
                     android:layout_marginStart="@dimen/_6sdp"
-                    android:background="@drawable/bg_badge"
+                    android:layout_marginTop="@dimen/_7sdp"
+                    android:background="@drawable/bg_type_badge"
                     android:backgroundTint="@color/color_surface_card"
                     android:contentDescription="@string/arrange_slides"
                     android:elevation="@dimen/_2sdp"

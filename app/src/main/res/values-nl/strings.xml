@@ -79,7 +79,6 @@
     <string name="merge_pdf">PDF samenvoegen</string>
     <string name="split_pdf">PDF splitsen</string>
     <string name="convert_failed">Kon afbeeldingen niet naar PDF converteren</string>
-    <string name="file_name_exists">Er bestaat al een bestand met deze naam</string>
     <string name="split_open_failed">Kan deze pdf niet openen</string>
     <string name="split_failed">Kan deze pdf niet splitsen</string>
     <string name="translate_to">Vertalen naar</string>
@@ -132,14 +131,7 @@
     <string name="create_new">Nieuw maken</string>
     <string name="images_to_pdf">Afbeeldingen naar PDF</string>
     <string name="new_document">Nieuw document</string>
-    <string name="new_document_file_name">Bestandsnaam</string>
-    <string name="save_to">Opslaan in</string>
-    <string name="blank_document">Blanco A4-pagina</string>
-    <string name="blank_spreadsheet">Leeg spreadsheet</string>
-    <string name="blank_presentation">Lege presentatie</string>
-    <string name="blank_document_desc">Opent in bewerkingsmodus met het toetsenbord gereed.</string>
     <string name="untitled">Zonder titel</string>
-    <string name="create_and_start_editing">Maak en begin met bewerken</string>
     <string name="sort_date_modified">Wijzigingsdatum</string>
     <string name="sort_size">Grootte</string>
     <string name="sort_file_type">Bestandstype</string>
@@ -212,9 +204,6 @@
     <string name="split_each_page">Eén bestand per pagina</string>
     <string name="split_pick_pages">Kies pagina\'s om uit te pakken</string>
     <string name="split_pick_pages_desc">Tik op paginaminiaturen</string>
-    <string name="pages">Pagina\'s</string>
-    <string name="range_to">tot</string>
-    <string name="add_range">Bereik toevoegen</string>
     <string name="compress_pdf">PDF comprimeren</string>
     <string name="protect_pdf">PDF beveiligen</string>
     <string name="protect_warning">Een vergeten wachtwoord kan niet worden hersteld. Bewaar het op een veilige plek.</string>
@@ -399,10 +388,6 @@
         <item quantity="one">Het bestand wordt van dit apparaat verwijderd en kan niet worden hersteld.</item>
         <item quantity="other">De bestanden worden van dit apparaat verwijderd en kunnen niet worden hersteld.</item>
     </plurals>
-    <plurals name="split_creates_files">
-        <item quantity="one">Maakt %d bestand aan</item>
-        <item quantity="other">Maakt %d bestanden aan</item>
-    </plurals>
     <plurals name="split_action">
         <item quantity="one">Splitsen in %d bestand</item>
         <item quantity="other">Splitsen in %d bestanden</item>
@@ -469,4 +454,5 @@
     <string name="fo_home_create">Maken</string>
     <string name="fo_home_create_desc">Word, Excel, dia\'s en scans</string>
     <string name="fo_your_documents">Je documenten</string>
+    <string name="fo_photo_edits_message">Je wijzigingen aan deze foto\'s zijn nog niet bewaard.</string>
 </resources>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- A page as a thumbnail with its number under it; ringed in blue while picked. -->
+<!-- A page as a thumbnail with its number under it; ringed in the file's colour while picked.
+     showPageThumb paints the ring in the card's foreground, over the picture's edge. -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -12,9 +13,8 @@
         android:id="@+id/card"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_101sdp"
-        android:background="@drawable/bg_page_thumb"
         android:duplicateParentState="true"
-        android:padding="@dimen/_3sdp">
+        android:foreground="@drawable/bg_page_thumb">
 
         <ImageView
             android:id="@+id/ivPage"

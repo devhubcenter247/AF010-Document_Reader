@@ -44,6 +44,36 @@ class ScanSessionViewModel : ViewModel() {
 
     val pageList: List<ScanPage> get() = _pages.value.orEmpty()
 
+    /**
+     * The photos an editing session started with ([ScanActivity.isEditing]). Their files belong to the
+     * screen that opened the editor, so they are not deleted until it takes the edits back.
+     */
+    var editStart: List<ScanPage> = emptyList()
+        private set
+    private val startFiles: Set<File> get() = editStart.flatMap { it.files }.toSet()
+
+    val hasEdits: Boolean get() = pageList != editStart
+
+    fun startEditing(pages: List<ScanPage>, index: Int) {
+        editStart = pages
+        _pages.value = pages
+        select(index)
+    }
+
+    /** Keeps the edits: the starting files no page uses any more can go. */
+    fun keepEdits() {
+        val used = pageList.flatMap { it.files }.toSet()
+        (startFiles - used).forEach { it.delete() }
+    }
+
+    /** Drops the edits: deletes what the session wrote and leaves the starting photos as they were. */
+    fun discardEdits() {
+        val start = startFiles
+        pageList.flatMap { it.files }.filter { it !in start }.forEach { it.delete() }
+        _selectedIndex.value = (_selectedIndex.value ?: 0).coerceAtMost(editStart.lastIndex).coerceAtLeast(0)
+        _pages.value = editStart
+    }
+
     fun select(index: Int) {
         if (index in pageList.indices) _selectedIndex.value = index
     }
@@ -92,10 +122,10 @@ class ScanSessionViewModel : ViewModel() {
         retakeIndex = null
     }
 
+    private val ScanPage.files: List<File> get() = listOf(original, cropped, output).distinct()
+
     private fun ScanPage.deleteFiles(keep: ScanPage? = null) {
-        val kept = keep?.let { setOf(it.original, it.cropped, it.output) }.orEmpty()
-        listOf(original, cropped, output).distinct()
-            .filter { it !in kept }
-            .forEach { it.delete() }
+        val kept = keep?.files.orEmpty().toSet() + startFiles
+        files.filter { it !in kept }.forEach { it.delete() }
     }
 }

@@ -79,7 +79,6 @@
     <string name="merge_pdf">PDF ਨੂੰ ਮਿਲਾਓ</string>
     <string name="split_pdf">PDF ਵੰਡੋ</string>
     <string name="convert_failed">ਚਿੱਤਰਾਂ ਨੂੰ PDF ਵਿੱਚ ਬਦਲਿਆ ਨਹੀਂ ਜਾ ਸਕਿਆ</string>
-    <string name="file_name_exists">ਇਸ ਨਾਮ ਵਾਲੀ ਇੱਕ ਫ਼ਾਈਲ ਪਹਿਲਾਂ ਹੀ ਮੌਜੂਦ ਹੈ</string>
     <string name="split_open_failed">ਇਸ PDF ਨੂੰ ਖੋਲ੍ਹਿਆ ਨਹੀਂ ਜਾ ਸਕਿਆ</string>
     <string name="split_failed">ਇਸ PDF ਨੂੰ ਵੰਡਿਆ ਨਹੀਂ ਜਾ ਸਕਿਆ</string>
     <string name="translate_to">ਇਸ ਵਿੱਚ ਅਨੁਵਾਦ ਕਰੋ</string>
@@ -132,14 +131,7 @@
     <string name="create_new">ਨਵਾਂ ਬਣਾਓ</string>
     <string name="images_to_pdf">ਚਿੱਤਰਾਂ ਤੋਂ PDF</string>
     <string name="new_document">ਨਵਾਂ ਦਸਤਾਵੇਜ਼</string>
-    <string name="new_document_file_name">ਫਾਈਲ ਦਾ ਨਾਮ</string>
-    <string name="save_to">ਇੱਥੇ ਸੇਵ ਕਰੋ</string>
-    <string name="blank_document">ਖਾਲੀ A4 ਪੰਨਾ</string>
-    <string name="blank_spreadsheet">ਖਾਲੀ ਸਪ੍ਰੈਡਸ਼ੀਟ</string>
-    <string name="blank_presentation">ਖਾਲੀ ਪੇਸ਼ਕਾਰੀ</string>
-    <string name="blank_document_desc">ਕੀਬੋਰਡ ਤਿਆਰ ਦੇ ਨਾਲ ਸੰਪਾਦਨ ਮੋਡ ਵਿੱਚ ਖੁੱਲ੍ਹਦਾ ਹੈ।</string>
     <string name="untitled">ਬਿਨਾਂ ਸਿਰਲੇਖ ਵਾਲਾ</string>
-    <string name="create_and_start_editing">ਬਣਾਓ ਅਤੇ ਸੰਪਾਦਨ ਸ਼ੁਰੂ ਕਰੋ</string>
     <string name="sort_date_modified">ਸੋਧ ਦੀ ਤਾਰੀਖ</string>
     <string name="sort_size">ਆਕਾਰ</string>
     <string name="sort_file_type">ਫਾਈਲ ਕਿਸਮ</string>
@@ -212,9 +204,6 @@
     <string name="split_each_page">ਪ੍ਰਤੀ ਪੰਨਾ ਇੱਕ ਫ਼ਾਈਲ</string>
     <string name="split_pick_pages">ਐਕਸਟਰੈਕਟ ਕਰਨ ਲਈ ਪੰਨੇ ਚੁਣੋ</string>
     <string name="split_pick_pages_desc">ਪੰਨੇ ਦੇ ਥੰਬਨੇਲ \'ਤੇ ਟੈਪ ਕਰੋ</string>
-    <string name="pages">ਪੰਨੇ</string>
-    <string name="range_to">ਤੱਕ</string>
-    <string name="add_range">ਰੇਂਜ ਸ਼ਾਮਲ ਕਰੋ</string>
     <string name="compress_pdf">ਪੀਡੀਐਫ ਨੂੰ ਸੰਕੁਚਿਤ ਕਰੋ</string>
     <string name="protect_pdf">PDF ਨੂੰ ਸੁਰੱਖਿਅਤ ਕਰੋ</string>
     <string name="protect_warning">ਭੁੱਲਿਆ ਹੋਇਆ ਪਾਸਵਰਡ ਮੁੜ ਪ੍ਰਾਪਤ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ ਹੈ। ਇਸ ਨੂੰ ਕਿਤੇ ਸੁਰੱਖਿਅਤ ਰੱਖੋ।</string>
@@ -399,10 +388,6 @@
         <item quantity="one">ਫ਼ਾਈਲ ਇਸ ਡੀਵਾਈਸ ਤੋਂ ਮਿਟਾ ਦਿੱਤੀ ਜਾਵੇਗੀ ਅਤੇ ਇਸਨੂੰ ਮੁੜ-ਹਾਸਲ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ।</item>
         <item quantity="other">ਫ਼ਾਈਲਾਂ ਇਸ ਡੀਵਾਈਸ ਤੋਂ ਮਿਟਾ ਦਿੱਤੀਆਂ ਜਾਣਗੀਆਂ ਅਤੇ ਇਹਨਾਂ ਨੂੰ ਮੁੜ-ਹਾਸਲ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ।</item>
     </plurals>
-    <plurals name="split_creates_files">
-        <item quantity="one">%d ਫ਼ਾਈਲ ਬਣਾਉਂਦਾ ਹੈ</item>
-        <item quantity="other">%d ਫ਼ਾਈਲਾਂ ਬਣਾਉਂਦਾ ਹੈ</item>
-    </plurals>
     <plurals name="split_action">
         <item quantity="one">%d ਫ਼ਾਈਲ ਵਿੱਚ ਵੰਡੋ</item>
         <item quantity="other">%d ਫ਼ਾਈਲਾਂ ਵਿੱਚ ਵੰਡੋ</item>
@@ -469,4 +454,5 @@
     <string name="fo_home_create">ਬਣਾਓ</string>
     <string name="fo_home_create_desc">Word, Excel, ਸਲਾਈਡਾਂ ਅਤੇ ਸਕੈਨ</string>
     <string name="fo_your_documents">ਤੁਹਾਡੇ ਦਸਤਾਵੇਜ਼</string>
+    <string name="fo_photo_edits_message">ਇਹਨਾਂ ਫ਼ੋਟੋਆਂ ਵਿੱਚ ਤੁਹਾਡੀਆਂ ਤਬਦੀਲੀਆਂ ਅਜੇ ਰੱਖਿਅਤ ਨਹੀਂ ਕੀਤੀਆਂ ਗਈਆਂ ਹਨ।</string>
 </resources>

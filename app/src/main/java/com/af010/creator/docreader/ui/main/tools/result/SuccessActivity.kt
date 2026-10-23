@@ -90,6 +90,7 @@ class SuccessActivity : BaseAppActivity<ActivitySuccessBinding>(ActivitySuccessB
         tvType.backgroundTintList = ColorStateList.valueOf(getColor(type?.softColorRes ?: R.color.color_file_zip_bg))
         tvType.setTextColor(getColor(type?.colorRes ?: R.color.color_file_zip))
         tvName.text = if (outputs.size > 1) resources.getQuantityString(R.plurals.file_count, outputs.size, outputs.size) else first.name
+        tvName.isSelected = true
         tvMeta.text = getString(R.string.document_meta, sizeText, getString(R.string.fo_saved_place))
         // Several files cannot be renamed as one.
         btnRename.isVisible = outputs.size == 1
@@ -153,6 +154,7 @@ class SuccessActivity : BaseAppActivity<ActivitySuccessBinding>(ActivitySuccessB
         override fun ItemNextToolBinding.bind(item: Tool, position: Int) {
             ivIcon.showToolTile(item)
             tvTitle.setText(item.title)
+            tvTitle.isSelected = true
             card.setOnClickListener { onItemClick.invoke(item) }
         }
     }

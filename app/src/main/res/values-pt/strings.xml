@@ -79,7 +79,6 @@
     <string name="merge_pdf">Mesclar PDF</string>
     <string name="split_pdf">Dividir PDF</string>
     <string name="convert_failed">Não foi possível converter imagens em PDF</string>
-    <string name="file_name_exists">Já existe um arquivo com este nome</string>
     <string name="split_open_failed">Não foi possível abrir este PDF</string>
     <string name="split_failed">Não foi possível dividir este PDF</string>
     <string name="translate_to">Traduzir para</string>
@@ -132,14 +131,7 @@
     <string name="create_new">Criar novo</string>
     <string name="images_to_pdf">Imagens para PDF</string>
     <string name="new_document">Novo documento</string>
-    <string name="new_document_file_name">Nome do arquivo</string>
-    <string name="save_to">Salvar em</string>
-    <string name="blank_document">Página A4 em branco</string>
-    <string name="blank_spreadsheet">Planilha em branco</string>
-    <string name="blank_presentation">Apresentação em branco</string>
-    <string name="blank_document_desc">Abre no modo de edição com o teclado pronto.</string>
     <string name="untitled">Sem título</string>
-    <string name="create_and_start_editing">Crie e comece a editar</string>
     <string name="sort_date_modified">Data de modificação</string>
     <string name="sort_size">Tamanho</string>
     <string name="sort_file_type">Tipo de arquivo</string>
@@ -212,9 +204,6 @@
     <string name="split_each_page">Um arquivo por página</string>
     <string name="split_pick_pages">Escolha páginas para extrair</string>
     <string name="split_pick_pages_desc">Toque nas miniaturas das páginas</string>
-    <string name="pages">Páginas</string>
-    <string name="range_to">a</string>
-    <string name="add_range">Adicionar intervalo</string>
     <string name="compress_pdf">Compactar PDF</string>
     <string name="protect_pdf">Proteger PDF</string>
     <string name="protect_warning">Uma senha esquecida não pode ser recuperada. Guarde-a em um lugar seguro.</string>
@@ -399,10 +388,6 @@
         <item quantity="one">O arquivo será excluído deste dispositivo e não poderá ser recuperado.</item>
         <item quantity="other">Os arquivos serão excluídos deste dispositivo e não poderão ser recuperados.</item>
     </plurals>
-    <plurals name="split_creates_files">
-        <item quantity="one">Cria %d arquivo</item>
-        <item quantity="other">Cria %d arquivos</item>
-    </plurals>
     <plurals name="split_action">
         <item quantity="one">Dividir em %d arquivo</item>
         <item quantity="other">Dividir em %d arquivos</item>
@@ -469,4 +454,5 @@
     <string name="fo_home_create">Criar</string>
     <string name="fo_home_create_desc">Word, Excel, slides e digitalizações</string>
     <string name="fo_your_documents">Seus documentos</string>
+    <string name="fo_photo_edits_message">As suas alterações a estas fotos ainda não foram guardadas.</string>
 </resources>

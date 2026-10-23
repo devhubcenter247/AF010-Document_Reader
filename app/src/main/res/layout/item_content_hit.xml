@@ -32,9 +32,10 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/_6sdp"
             android:layout_weight="1"
-            android:ellipsize="middle"
+            android:ellipsize="marquee"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:singleLine="true"
             android:fontFamily="@font/nunito_700"
-            android:maxLines="1"
             android:textColor="@color/text_tertiary"
             android:textSize="@dimen/_10sdp"
             tools:text="Lease_Agreement_2026.pdf" />

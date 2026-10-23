@@ -79,7 +79,6 @@
     <string name="merge_pdf">PDF ലയിപ്പിക്കുക</string>
     <string name="split_pdf">പിഡിഎഫ് വിഭജിക്കുക</string>
     <string name="convert_failed">ചിത്രങ്ങൾ PDF-ലേക്ക് പരിവർത്തനം ചെയ്യാനായില്ല</string>
-    <string name="file_name_exists">ഈ പേരിലുള്ള ഒരു ഫയൽ ഇതിനകം നിലവിലുണ്ട്</string>
     <string name="split_open_failed">ഈ PDF തുറക്കാൻ കഴിഞ്ഞില്ല</string>
     <string name="split_failed">ഈ PDF വിഭജിക്കാനായില്ല</string>
     <string name="translate_to">ഇതിലേക്ക് വിവർത്തനം ചെയ്യുക</string>
@@ -132,14 +131,7 @@
     <string name="create_new">പുതിയത് സൃഷ്ടിക്കുക</string>
     <string name="images_to_pdf">ചിത്രങ്ങൾ PDF-ലേക്ക്</string>
     <string name="new_document">പുതിയ പ്രമാണം</string>
-    <string name="new_document_file_name">ഫയലിൻ്റെ പേര്</string>
-    <string name="save_to">ഇതിലേക്ക് സംരക്ഷിക്കുക</string>
-    <string name="blank_document">ശൂന്യമായ A4 പേജ്</string>
-    <string name="blank_spreadsheet">ശൂന്യമായ സ്പ്രെഡ്ഷീറ്റ്</string>
-    <string name="blank_presentation">ശൂന്യമായ അവതരണം</string>
-    <string name="blank_document_desc">കീബോർഡ് തയ്യാറായതോടെ എഡിറ്റ് മോഡിൽ തുറക്കുന്നു.</string>
     <string name="untitled">ശീർഷകമില്ലാത്തത്</string>
-    <string name="create_and_start_editing">സൃഷ്‌ടിക്കുകയും എഡിറ്റുചെയ്യാൻ ആരംഭിക്കുകയും ചെയ്യുക</string>
     <string name="sort_date_modified">പരിഷ്കരിച്ച തീയതി</string>
     <string name="sort_size">വലിപ്പം</string>
     <string name="sort_file_type">ഫയൽ തരം</string>
@@ -212,9 +204,6 @@
     <string name="split_each_page">ഓരോ പേജിനും ഒരു ഫയൽ</string>
     <string name="split_pick_pages">എക്‌സ്‌ട്രാക്‌റ്റുചെയ്യാൻ പേജുകൾ തിരഞ്ഞെടുക്കുക</string>
     <string name="split_pick_pages_desc">പേജ് ലഘുചിത്രങ്ങൾ ടാപ്പ് ചെയ്യുക</string>
-    <string name="pages">പേജുകൾ</string>
-    <string name="range_to">വരെ</string>
-    <string name="add_range">ശ്രേണി ചേർക്കുക</string>
     <string name="compress_pdf">PDF കംപ്രസ് ചെയ്യുക</string>
     <string name="protect_pdf">PDF പരിരക്ഷിക്കുക</string>
     <string name="protect_warning">മറന്നുപോയ പാസ്‌വേഡ് വീണ്ടെടുക്കാനാവില്ല. സുരക്ഷിതമായി എവിടെയെങ്കിലും സൂക്ഷിക്കുക.</string>
@@ -399,10 +388,6 @@
         <item quantity="one">ഫയൽ ഈ ഉപകരണത്തിൽ നിന്ന് ഇല്ലാതാക്കും, അത് വീണ്ടെടുക്കാനാകില്ല.</item>
         <item quantity="other">ഫയലുകൾ ഈ ഉപകരണത്തിൽ നിന്ന് ഇല്ലാതാക്കും, അവ വീണ്ടെടുക്കാനാകില്ല.</item>
     </plurals>
-    <plurals name="split_creates_files">
-        <item quantity="one">%d ഫയൽ സൃഷ്ടിക്കുന്നു</item>
-        <item quantity="other">%d ഫയലുകൾ സൃഷ്ടിക്കുന്നു</item>
-    </plurals>
     <plurals name="split_action">
         <item quantity="one">%d ഫയലായി വിഭജിക്കുക</item>
         <item quantity="other">%d ഫയലുകളായി വിഭജിക്കുക</item>
@@ -469,4 +454,5 @@
     <string name="fo_home_create">സൃഷ്ടിക്കുക</string>
     <string name="fo_home_create_desc">Word, Excel, സ്ലൈഡുകൾ, സ്കാൻ</string>
     <string name="fo_your_documents">നിങ്ങളുടെ പ്രമാണങ്ങൾ</string>
+    <string name="fo_photo_edits_message">ഈ ഫോട്ടോകളിൽ നിങ്ങൾ വരുത്തിയ മാറ്റങ്ങൾ ഇതുവരെ സംരക്ഷിച്ചിട്ടില്ല.</string>
 </resources>

@@ -79,7 +79,6 @@
     <string name="merge_pdf">Споји PDF</string>
     <string name="split_pdf">Подели PDF</string>
     <string name="convert_failed">Није могуће претворити слике у PDF</string>
-    <string name="file_name_exists">Датотека са овим именом већ постоји</string>
     <string name="split_open_failed">Није могуће отворити овај PDF</string>
     <string name="split_failed">Није могуће поделити овај PDF</string>
     <string name="translate_to">Преведи на</string>
@@ -132,14 +131,7 @@
     <string name="create_new">Креирај ново</string>
     <string name="images_to_pdf">Слике у PDF</string>
     <string name="new_document">Нови документ</string>
-    <string name="new_document_file_name">Име датотеке</string>
-    <string name="save_to">Сачувај у</string>
-    <string name="blank_document">Празна страница А4</string>
-    <string name="blank_spreadsheet">Празна табела</string>
-    <string name="blank_presentation">Празна презентација</string>
-    <string name="blank_document_desc">Отвара се у режиму за уређивање са спремном тастатуром.</string>
     <string name="untitled">Без наслова</string>
-    <string name="create_and_start_editing">Креирајте и почните да уређујете</string>
     <string name="sort_date_modified">Датум измене</string>
     <string name="sort_size">Величина</string>
     <string name="sort_file_type">Тип датотеке</string>
@@ -212,9 +204,6 @@
     <string name="split_each_page">Једна датотека по страници</string>
     <string name="split_pick_pages">Изаберите странице за издвајање</string>
     <string name="split_pick_pages_desc">Додирните сличице страница</string>
-    <string name="pages">Странице</string>
-    <string name="range_to">до</string>
-    <string name="add_range">Додај опсег</string>
     <string name="compress_pdf">Компримуј PDF</string>
     <string name="protect_pdf">Заштити PDF</string>
     <string name="protect_warning">Заборављена лозинка се не може повратити. Чувајте је на сигурном месту.</string>
@@ -403,11 +392,6 @@
         <item quantity="few">Датотеке ће бити избрисане са овог уређаја и не могу се вратити.</item>
         <item quantity="other">Датотеке ће бити избрисане са овог уређаја и не могу се вратити.</item>
     </plurals>
-    <plurals name="split_creates_files">
-        <item quantity="one">Прави %d датотеку</item>
-        <item quantity="few">Прави %d датотеке</item>
-        <item quantity="other">Прави %d датотека</item>
-    </plurals>
     <plurals name="split_action">
         <item quantity="one">Подели на %d датотеку</item>
         <item quantity="few">Подели на %d датотеке</item>
@@ -476,4 +460,5 @@
     <string name="fo_home_create">Направи</string>
     <string name="fo_home_create_desc">Word, Excel, слајдови и скенови</string>
     <string name="fo_your_documents">Ваши документи</string>
+    <string name="fo_photo_edits_message">Ваше измене ових фотографија још нису сачуване.</string>
 </resources>

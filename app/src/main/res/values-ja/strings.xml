@@ -79,7 +79,6 @@
     <string name="merge_pdf">PDFを結合</string>
     <string name="split_pdf">PDFの分割</string>
     <string name="convert_failed">画像を PDF に変換できませんでした</string>
-    <string name="file_name_exists">この名前のファイルはすでに存在します</string>
     <string name="split_open_failed">この PDF を開けませんでした</string>
     <string name="split_failed">この PDF を分割できませんでした</string>
     <string name="translate_to">翻訳先</string>
@@ -132,14 +131,7 @@
     <string name="create_new">新規作成</string>
     <string name="images_to_pdf">画像をPDFに変換</string>
     <string name="new_document">新しいドキュメント</string>
-    <string name="new_document_file_name">ファイル名</string>
-    <string name="save_to">保存先</string>
-    <string name="blank_document">空白の A4 ページ</string>
-    <string name="blank_spreadsheet">空のスプレッドシート</string>
-    <string name="blank_presentation">空白のプレゼンテーション</string>
-    <string name="blank_document_desc">キーボードを準備した状態で編集モードで開きます。</string>
     <string name="untitled">無題</string>
-    <string name="create_and_start_editing">作成して編集を開始する</string>
     <string name="sort_date_modified">変更日</string>
     <string name="sort_size">サイズ</string>
     <string name="sort_file_type">ファイルの種類</string>
@@ -212,9 +204,6 @@
     <string name="split_each_page">ページごとに 1 つのファイル</string>
     <string name="split_pick_pages">抽出するページを選択してください</string>
     <string name="split_pick_pages_desc">ページのサムネイルをタップします</string>
-    <string name="pages">ページ</string>
-    <string name="range_to">〜</string>
-    <string name="add_range">範囲を追加する</string>
     <string name="compress_pdf">PDFを圧縮する</string>
     <string name="protect_pdf">PDFを保護する</string>
     <string name="protect_warning">忘れたパスワードは回復できません。 安全な場所に保管してください。</string>
@@ -399,10 +388,6 @@
         <item quantity="one">ファイルはこのデバイスから削除され、復元できません。</item>
         <item quantity="other">ファイルはこのデバイスから削除され、復元できません。</item>
     </plurals>
-    <plurals name="split_creates_files">
-        <item quantity="one">%d 件のファイルを生成</item>
-        <item quantity="other">%d 件のファイルを生成</item>
-    </plurals>
     <plurals name="split_action">
         <item quantity="one">%d 件のファイルに分割</item>
         <item quantity="other">%d 件のファイルに分割</item>
@@ -469,4 +454,5 @@
     <string name="fo_home_create">作成</string>
     <string name="fo_home_create_desc">Word・Excel・スライド・スキャン</string>
     <string name="fo_your_documents">あなたのドキュメント</string>
+    <string name="fo_photo_edits_message">これらの写真への変更はまだ保存されていません。</string>
 </resources>

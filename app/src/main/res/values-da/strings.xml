@@ -79,7 +79,6 @@
     <string name="merge_pdf">Flet PDF</string>
     <string name="split_pdf">Opdel PDF</string>
     <string name="convert_failed">Kunne ikke konvertere billeder til PDF</string>
-    <string name="file_name_exists">Der findes allerede en fil med dette navn</string>
     <string name="split_open_failed">Kunne ikke åbne denne PDF</string>
     <string name="split_failed">Kunne ikke opdele denne PDF</string>
     <string name="translate_to">Oversæt til</string>
@@ -132,14 +131,7 @@
     <string name="create_new">Opret ny</string>
     <string name="images_to_pdf">Billeder til PDF</string>
     <string name="new_document">Nyt dokument</string>
-    <string name="new_document_file_name">Filnavn</string>
-    <string name="save_to">Gem til</string>
-    <string name="blank_document">Tom A4-side</string>
-    <string name="blank_spreadsheet">Blankt regneark</string>
-    <string name="blank_presentation">Tom præsentation</string>
-    <string name="blank_document_desc">Åbner i redigeringstilstand med tastaturet klar.</string>
     <string name="untitled">Uden titel</string>
-    <string name="create_and_start_editing">Opret og begynd at redigere</string>
     <string name="sort_date_modified">Ændringsdato</string>
     <string name="sort_size">Størrelse</string>
     <string name="sort_file_type">Filtype</string>
@@ -212,9 +204,6 @@
     <string name="split_each_page">En fil pr. side</string>
     <string name="split_pick_pages">Vælg sider at udtrække</string>
     <string name="split_pick_pages_desc">Tryk på sideminiaturebilleder</string>
-    <string name="pages">Sider</string>
-    <string name="range_to">til</string>
-    <string name="add_range">Tilføj område</string>
     <string name="compress_pdf">Komprimer PDF</string>
     <string name="protect_pdf">Beskyt PDF</string>
     <string name="protect_warning">En glemt adgangskode kan ikke gendannes. Opbevar den et sikkert sted.</string>
@@ -399,10 +388,6 @@
         <item quantity="one">Filen slettes fra denne enhed og kan ikke gendannes.</item>
         <item quantity="other">Filerne slettes fra denne enhed og kan ikke gendannes.</item>
     </plurals>
-    <plurals name="split_creates_files">
-        <item quantity="one">Opretter %d fil</item>
-        <item quantity="other">Opretter %d filer</item>
-    </plurals>
     <plurals name="split_action">
         <item quantity="one">Opdel i %d fil</item>
         <item quantity="other">Opdel i %d filer</item>
@@ -469,4 +454,5 @@
     <string name="fo_home_create">Opret</string>
     <string name="fo_home_create_desc">Word, Excel, dias og scanninger</string>
     <string name="fo_your_documents">Dine dokumenter</string>
+    <string name="fo_photo_edits_message">Dine ændringer af disse billeder er ikke gemt endnu.</string>
 </resources>

@@ -214,6 +214,7 @@ class PdfReaderActivity : BaseAppActivity<ActivityPdfReaderBinding>(ActivityPdfR
         progress.indeterminateTintList = pdf
         layoutTop.updatePadding(top = statusBarHeight)
         tvName.text = file.name
+        tvName.isSelected = true
         layoutOverlay.addView(overlay)
         rcvAnnotateTools.adapter = toolAdapter
         rcvMatches.adapter = matchAdapter

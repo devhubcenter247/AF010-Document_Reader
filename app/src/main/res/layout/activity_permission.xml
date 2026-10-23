@@ -95,7 +95,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/_18sdp"
         android:text="@string/fo_access_title"
-        android:textSize="@dimen/_23sdp" />
+        android:textSize="@dimen/_18sdp" />
 
     <androidx.core.widget.NestedScrollView
         android:clipChildren="false"

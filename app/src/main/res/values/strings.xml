@@ -93,7 +93,6 @@
     <string name="merge_pdf">Merge PDF</string>
     <string name="split_pdf">Split PDF</string>
     <string name="convert_failed">Could not convert images to PDF</string>
-    <string name="file_name_exists">A file with this name already exists</string>
     <string name="split_open_failed">Could not open this PDF</string>
     <string name="split_failed">Could not split this PDF</string>
     <string name="translate_to">Translate to</string>
@@ -163,14 +162,7 @@
     <string name="create_new">Create new</string>
     <string name="images_to_pdf">Images to PDF</string>
     <string name="new_document">New document</string>
-    <string name="new_document_file_name">File name</string>
-    <string name="save_to">Save to</string>
-    <string name="blank_document">Blank A4 page</string>
-    <string name="blank_spreadsheet">Blank spreadsheet</string>
-    <string name="blank_presentation">Blank presentation</string>
-    <string name="blank_document_desc">Opens in edit mode with the keyboard ready.</string>
     <string name="untitled">Untitled</string>
-    <string name="create_and_start_editing">Create and start editing</string>
 
     <!-- Sort sheet -->
     <string name="sort_date_modified">Date modified</string>
@@ -915,9 +907,9 @@
     <string name="fo_try_pro_free">Try Pro free for %d days</string>
     <string name="fo_not_now">Not now</string>
     <string name="fo_used_of" translatable="false">%1$d/%2$d</string>
-    <string name="fo_ext_pptx" translatable="false">PPTX</string>
     <string name="fo_home_read">Read</string>
     <string name="fo_home_create">Create</string>
     <string name="fo_home_create_desc">Word, Excel, Slides and scans</string>
     <string name="fo_your_documents">Your documents</string>
+    <string name="fo_photo_edits_message">Your changes to these photos haven\'t been kept yet.</string>
 </resources>

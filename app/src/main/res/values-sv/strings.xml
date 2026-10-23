@@ -79,7 +79,6 @@
     <string name="merge_pdf">Slå samman PDF</string>
     <string name="split_pdf">Dela PDF</string>
     <string name="convert_failed">Kunde inte konvertera bilder till PDF</string>
-    <string name="file_name_exists">En fil med detta namn finns redan</string>
     <string name="split_open_failed">Det gick inte att öppna denna PDF</string>
     <string name="split_failed">Det gick inte att dela upp denna PDF</string>
     <string name="translate_to">Översätt till</string>
@@ -132,14 +131,7 @@
     <string name="create_new">Skapa nytt</string>
     <string name="images_to_pdf">Bilder till PDF</string>
     <string name="new_document">Nytt dokument</string>
-    <string name="new_document_file_name">Filnamn</string>
-    <string name="save_to">Spara till</string>
-    <string name="blank_document">Tom A4-sida</string>
-    <string name="blank_spreadsheet">Tomt kalkylblad</string>
-    <string name="blank_presentation">Tom presentation</string>
-    <string name="blank_document_desc">Öppnas i redigeringsläge med tangentbordet klart.</string>
     <string name="untitled">Namnlös</string>
-    <string name="create_and_start_editing">Skapa och börja redigera</string>
     <string name="sort_date_modified">Ändringsdatum</string>
     <string name="sort_size">Storlek</string>
     <string name="sort_file_type">Filtyp</string>
@@ -212,9 +204,6 @@
     <string name="split_each_page">En fil per sida</string>
     <string name="split_pick_pages">Välj sidor att extrahera</string>
     <string name="split_pick_pages_desc">Tryck på sidminiatyrer</string>
-    <string name="pages">Sidor</string>
-    <string name="range_to">till</string>
-    <string name="add_range">Lägg till intervall</string>
     <string name="compress_pdf">Komprimera PDF</string>
     <string name="protect_pdf">Skydda PDF</string>
     <string name="protect_warning">Ett glömt lösenord kan inte återställas. Förvara det någonstans säkert.</string>
@@ -399,10 +388,6 @@
         <item quantity="one">Filen raderas från den här enheten och kan inte återställas.</item>
         <item quantity="other">Filerna raderas från den här enheten och kan inte återställas.</item>
     </plurals>
-    <plurals name="split_creates_files">
-        <item quantity="one">Skapar %d fil</item>
-        <item quantity="other">Skapar %d filer</item>
-    </plurals>
     <plurals name="split_action">
         <item quantity="one">Dela upp i %d fil</item>
         <item quantity="other">Dela upp i %d filer</item>
@@ -469,4 +454,5 @@
     <string name="fo_home_create">Skapa</string>
     <string name="fo_home_create_desc">Word, Excel, bilder och skanningar</string>
     <string name="fo_your_documents">Dina dokument</string>
+    <string name="fo_photo_edits_message">Dina ändringar av de här bilderna har inte sparats än.</string>
 </resources>

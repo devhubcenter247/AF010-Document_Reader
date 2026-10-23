@@ -13,69 +13,64 @@
         android:id="@+id/topBar"
         layout="@layout/layout_screen_bar" />
 
-    <androidx.core.widget.NestedScrollView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:overScrollMode="never">
+        android:orientation="vertical"
+        android:paddingHorizontal="@dimen/_15sdp"
+        android:paddingBottom="@dimen/_10sdp">
 
-        <LinearLayout
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rcvImages"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingHorizontal="@dimen/_15sdp"
-            android:paddingBottom="@dimen/_10sdp">
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginHorizontal="@dimen/_minus5sdp"
+            android:layout_marginTop="@dimen/_3sdp"
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            android:nestedScrollingEnabled="false"
+            android:overScrollMode="never"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:spanCount="3"
+            tools:itemCount="6"
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rcvImages"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/_minus5sdp"
-                android:layout_marginTop="@dimen/_3sdp"
-                android:clipChildren="false"
-                android:clipToPadding="false"
-                android:nestedScrollingEnabled="false"
-                android:overScrollMode="never"
-                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-                app:spanCount="3"
-                tools:itemCount="6"
-                tools:listitem="@layout/item_image_page" />
+            tools:listitem="@layout/item_image_page" />
 
-            <TextView
-                style="@style/OptionHeading"
-                android:layout_marginTop="@dimen/_12sdp"
-                android:text="@string/fo_page_size" />
+        <TextView
+            style="@style/OptionHeading"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:text="@string/fo_page_size" />
 
-            <include
-                android:id="@+id/segmentSize"
-                layout="@layout/layout_segment"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+        <include
+            android:id="@+id/segmentSize"
+            layout="@layout/layout_segment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
-            <TextView
-                style="@style/OptionHeading"
-                android:layout_marginTop="@dimen/_11sdp"
-                android:text="@string/fo_orientation" />
+        <TextView
+            style="@style/OptionHeading"
+            android:layout_marginTop="@dimen/_11sdp"
+            android:text="@string/fo_orientation" />
 
-            <include
-                android:id="@+id/segmentOrientation"
-                layout="@layout/layout_segment"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+        <include
+            android:id="@+id/segmentOrientation"
+            layout="@layout/layout_segment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
-            <TextView
-                style="@style/OptionHeading"
-                android:layout_marginTop="@dimen/_11sdp"
-                android:text="@string/fo_margins" />
+        <TextView
+            style="@style/OptionHeading"
+            android:layout_marginTop="@dimen/_11sdp"
+            android:text="@string/fo_margins" />
 
-            <include
-                android:id="@+id/segmentMargins"
-                layout="@layout/layout_segment"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
-    </androidx.core.widget.NestedScrollView>
-
+        <include
+            android:id="@+id/segmentMargins"
+            layout="@layout/layout_segment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
     <include
         android:id="@+id/action"
         layout="@layout/layout_tool_action" />

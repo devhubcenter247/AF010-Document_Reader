@@ -79,7 +79,6 @@
     <string name="merge_pdf">Pagsamahin ang PDF</string>
     <string name="split_pdf">Hatiin ang PDF</string>
     <string name="convert_failed">Hindi ma-convert ang mga larawan sa PDF</string>
-    <string name="file_name_exists">Mayroon nang file na may ganitong pangalan</string>
     <string name="split_open_failed">Hindi mabuksan ang PDF na ito</string>
     <string name="split_failed">Hindi mahati ang PDF na ito</string>
     <string name="translate_to">Isalin sa</string>
@@ -132,14 +131,7 @@
     <string name="create_new">Lumikha ng bago</string>
     <string name="images_to_pdf">Mga larawan sa PDF</string>
     <string name="new_document">Bagong dokumento</string>
-    <string name="new_document_file_name">Pangalan ng file</string>
-    <string name="save_to">I-save sa</string>
-    <string name="blank_document">Blangkong A4 na pahina</string>
-    <string name="blank_spreadsheet">Blangkong spreadsheet</string>
-    <string name="blank_presentation">Blangkong pagtatanghal</string>
-    <string name="blank_document_desc">Nagbubukas sa edit mode nang handa na ang keyboard.</string>
     <string name="untitled">Walang pamagat</string>
-    <string name="create_and_start_editing">Lumikha at magsimulang mag-edit</string>
     <string name="sort_date_modified">Petsa ng pagbabago</string>
     <string name="sort_size">Sukat</string>
     <string name="sort_file_type">Uri ng file</string>
@@ -212,9 +204,6 @@
     <string name="split_each_page">Isang file bawat pahina</string>
     <string name="split_pick_pages">Pumili ng mga pahina upang i-extract</string>
     <string name="split_pick_pages_desc">I-tap ang mga thumbnail ng page</string>
-    <string name="pages">Mga pahina</string>
-    <string name="range_to">hanggang</string>
-    <string name="add_range">Magdagdag ng saklaw</string>
     <string name="compress_pdf">I-compress ang PDF</string>
     <string name="protect_pdf">Protektahan ang PDF</string>
     <string name="protect_warning">Ang isang nakalimutang password ay hindi mababawi. Itago ito sa isang lugar na ligtas.</string>
@@ -399,10 +388,6 @@
         <item quantity="one">File akan dihapus dari perangkat ini dan tidak dapat dipulihkan.</item>
         <item quantity="other">File akan dihapus dari perangkat ini dan tidak dapat dipulihkan.</item>
     </plurals>
-    <plurals name="split_creates_files">
-        <item quantity="one">Membuat %d file</item>
-        <item quantity="other">Membuat %d file</item>
-    </plurals>
     <plurals name="split_action">
         <item quantity="one">Bagi menjadi %d file</item>
         <item quantity="other">Bagi menjadi %d file</item>
@@ -469,4 +454,5 @@
     <string name="fo_home_create">Gumawa</string>
     <string name="fo_home_create_desc">Word, Excel, Slides at mga scan</string>
     <string name="fo_your_documents">Iyong mga dokumento</string>
+    <string name="fo_photo_edits_message">Hindi pa naitatabi ang mga pagbabago mo sa mga larawang ito.</string>
 </resources>

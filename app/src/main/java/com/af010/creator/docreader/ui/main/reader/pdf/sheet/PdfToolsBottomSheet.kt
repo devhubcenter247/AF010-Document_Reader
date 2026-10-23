@@ -111,6 +111,7 @@ class SheetToolAdapter : BaseAdapter<Tool, ItemSheetToolBinding>() {
         ivIcon.showToolTile(item)
         // The sheet's tiles are narrow: "To images" says it in fewer letters.
         tvLabel.setText(if (item == Tool.PdfToImages) R.string.fo_to_images else item.title)
+        tvLabel.isSelected = true
         ivPro.isVisible = item.isPremium && remoteConfig.paywallEnabled
         card.setOnClickListener { onItemClick.invoke(item) }
     }

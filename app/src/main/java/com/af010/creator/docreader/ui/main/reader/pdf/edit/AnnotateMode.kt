@@ -277,7 +277,17 @@ internal class AnnotateMode(private val overlay: PdfOverlayView, private val hos
         val r = RectF(startFrame)
         val dx = now.x - start.x
         val dy = now.y - start.y
-        if (mode == Drag.MOVE) { r.offset(dx, dy); return r }
+        if (mode == Drag.MOVE) {
+            r.offset(dx, dy)
+            // kept inside the page whole: clamping its corners one by one (pointOnPage) would shrink it
+            pdf.pageViewRect(dragPage)?.let { RectF(it).apply { inset(1f, 1f) } }?.let { page ->
+                r.offset(
+                    if (r.width() > page.width()) page.left - r.left else (page.left - r.left).coerceAtLeast(0f) + (page.right - r.right).coerceAtMost(0f),
+                    if (r.height() > page.height()) page.top - r.top else (page.top - r.top).coerceAtLeast(0f) + (page.bottom - r.bottom).coerceAtMost(0f)
+                )
+            }
+            return r
+        }
         // the opposite corner stays; pictures and text keep their proportions
         val keepRatio = selected?.let { it.startsWith("pdfview-image-") || it.startsWith("pdfview-text-") } == true
         val ax = if (corner == 0 || corner == 2) r.right else r.left

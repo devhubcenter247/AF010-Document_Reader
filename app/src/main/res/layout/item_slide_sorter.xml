@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- A slide as a picture with its number; ringed in blue while it is the one picked. -->
+<!-- A slide as a picture with its number; ringed in the file type's colour while it is the one
+     picked (SlideAdapter paints the ring in the card's foreground, over the picture's edge). -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -12,9 +13,8 @@
         android:id="@+id/card"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_80sdp"
-        android:background="@drawable/bg_page_thumb"
         android:duplicateParentState="true"
-        android:padding="@dimen/_2sdp">
+        android:foreground="@drawable/bg_page_thumb">
 
         <ImageView
             android:id="@+id/ivSlide"

@@ -79,7 +79,6 @@
     <string name="merge_pdf">PDFని విలీనం చేయండి</string>
     <string name="split_pdf">PDFని విభజించండి</string>
     <string name="convert_failed">చిత్రాలను PDFకి మార్చడం సాధ్యపడలేదు</string>
-    <string name="file_name_exists">ఈ పేరుతో ఫైల్ ఇప్పటికే ఉంది</string>
     <string name="split_open_failed">ఈ PDFని తెరవడం సాధ్యపడలేదు</string>
     <string name="split_failed">ఈ PDFని విభజించడం సాధ్యపడలేదు</string>
     <string name="translate_to">దీనికి అనువదించండి</string>
@@ -132,14 +131,7 @@
     <string name="create_new">క్రొత్తదాన్ని సృష్టించండి</string>
     <string name="images_to_pdf">చిత్రాలు PDFకి</string>
     <string name="new_document">కొత్త పత్రం</string>
-    <string name="new_document_file_name">ఫైల్ పేరు</string>
-    <string name="save_to">ఇక్కడ సేవ్ చేయండి</string>
-    <string name="blank_document">ఖాళీ A4 పేజీ</string>
-    <string name="blank_spreadsheet">ఖాళీ స్ప్రెడ్‌షీట్</string>
-    <string name="blank_presentation">ఖాళీ ప్రదర్శన</string>
-    <string name="blank_document_desc">సిద్ధంగా ఉన్న కీబోర్డ్‌తో సవరణ మోడ్‌లో తెరవబడుతుంది.</string>
     <string name="untitled">శీర్షిక లేని</string>
-    <string name="create_and_start_editing">సృష్టించండి మరియు సవరించడం ప్రారంభించండి</string>
     <string name="sort_date_modified">సవరించిన తేదీ</string>
     <string name="sort_size">పరిమాణం</string>
     <string name="sort_file_type">ఫైల్ రకం</string>
@@ -212,9 +204,6 @@
     <string name="split_each_page">ఒక్కో పేజీకి ఒక ఫైల్</string>
     <string name="split_pick_pages">సంగ్రహించడానికి పేజీలను ఎంచుకోండి</string>
     <string name="split_pick_pages_desc">పేజీ సూక్ష్మచిత్రాలను నొక్కండి</string>
-    <string name="pages">పేజీలు</string>
-    <string name="range_to">వరకు</string>
-    <string name="add_range">పరిధిని జోడించండి</string>
     <string name="compress_pdf">PDFని కుదించుము</string>
     <string name="protect_pdf">PDFని రక్షించండి</string>
     <string name="protect_warning">మర్చిపోయిన పాస్‌వర్డ్‌ని తిరిగి పొందడం సాధ్యం కాదు. ఎక్కడైనా భద్రంగా ఉంచండి.</string>
@@ -399,10 +388,6 @@
         <item quantity="one">ఫైల్ ఈ పరికరం నుండి తొలగించబడుతుంది, దానిని తిరిగి పొందడం సాధ్యం కాదు.</item>
         <item quantity="other">ఫైల్‌లు ఈ పరికరం నుండి తొలగించబడతాయి, వాటిని తిరిగి పొందడం సాధ్యం కాదు.</item>
     </plurals>
-    <plurals name="split_creates_files">
-        <item quantity="one">%d ఫైల్‌ను సృష్టిస్తుంది</item>
-        <item quantity="other">%d ఫైల్‌లను సృష్టిస్తుంది</item>
-    </plurals>
     <plurals name="split_action">
         <item quantity="one">%d ఫైల్‌గా విభజించండి</item>
         <item quantity="other">%d ఫైల్‌లుగా విభజించండి</item>
@@ -469,4 +454,5 @@
     <string name="fo_home_create">సృష్టించండి</string>
     <string name="fo_home_create_desc">Word, Excel, స్లయిడ్‌లు, స్కాన్‌లు</string>
     <string name="fo_your_documents">మీ పత్రాలు</string>
+    <string name="fo_photo_edits_message">ఈ ఫోటోలకు మీరు చేసిన మార్పులు ఇంకా సేవ్ కాలేదు.</string>
 </resources>

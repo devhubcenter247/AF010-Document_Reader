@@ -79,7 +79,6 @@
     <string name="merge_pdf">PDF egyesítése</string>
     <string name="split_pdf">PDF felosztása</string>
     <string name="convert_failed">Nem sikerült a képeket PDF-be konvertálni</string>
-    <string name="file_name_exists">Már létezik ilyen nevű fájl</string>
     <string name="split_open_failed">Ez a PDF nem nyitható meg</string>
     <string name="split_failed">Nem sikerült felosztani ezt a PDF-fájlt</string>
     <string name="translate_to">Fordítás nyelvre</string>
@@ -132,14 +131,7 @@
     <string name="create_new">Új létrehozása</string>
     <string name="images_to_pdf">Képek PDF-be</string>
     <string name="new_document">Új dokumentum</string>
-    <string name="new_document_file_name">Fájlnév</string>
-    <string name="save_to">Mentés ide</string>
-    <string name="blank_document">Üres A4-es oldal</string>
-    <string name="blank_spreadsheet">Üres táblázat</string>
-    <string name="blank_presentation">Üres bemutató</string>
-    <string name="blank_document_desc">Szerkesztés módban nyílik meg, a billentyűzet készen áll.</string>
     <string name="untitled">Cím nélkül</string>
-    <string name="create_and_start_editing">Hozzon létre és kezdje el a szerkesztést</string>
     <string name="sort_date_modified">Módosítás dátuma</string>
     <string name="sort_size">Méret</string>
     <string name="sort_file_type">Fájl típusa</string>
@@ -212,9 +204,6 @@
     <string name="split_each_page">Oldalanként egy fájl</string>
     <string name="split_pick_pages">Válassza ki a kibontandó oldalakat</string>
     <string name="split_pick_pages_desc">Koppintson az oldalak bélyegképeire</string>
-    <string name="pages">Oldalak</string>
-    <string name="range_to">–</string>
-    <string name="add_range">Tartomány hozzáadása</string>
     <string name="compress_pdf">PDF tömörítése</string>
     <string name="protect_pdf">PDF védelme</string>
     <string name="protect_warning">Az elfelejtett jelszót nem lehet visszaállítani. Tartsa biztonságos helyen.</string>
@@ -399,10 +388,6 @@
         <item quantity="one">A fájl törlődik erről az eszközről, és nem állítható vissza.</item>
         <item quantity="other">A fájlok törlődnek erről az eszközről, és nem állíthatók vissza.</item>
     </plurals>
-    <plurals name="split_creates_files">
-        <item quantity="one">%d fájlt hoz létre</item>
-        <item quantity="other">%d fájlt hoz létre</item>
-    </plurals>
     <plurals name="split_action">
         <item quantity="one">Felosztás %d fájlra</item>
         <item quantity="other">Felosztás %d fájlra</item>
@@ -469,4 +454,5 @@
     <string name="fo_home_create">Létrehozás</string>
     <string name="fo_home_create_desc">Word, Excel, diák és szkennelés</string>
     <string name="fo_your_documents">Dokumentumaid</string>
+    <string name="fo_photo_edits_message">A fotókon végzett módosításai még nincsenek mentve.</string>
 </resources>

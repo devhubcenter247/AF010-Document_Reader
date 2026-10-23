@@ -129,9 +129,18 @@ internal class PdfOverlayView(context: Context, val pdfView: PDFView) : View(con
     /** Corners in the order top left, top right, bottom left, bottom right. */
     fun corners(r: RectF) = listOf(PointF(r.left, r.top), PointF(r.right, r.top), PointF(r.left, r.bottom), PointF(r.right, r.bottom))
 
-    /** The corner of [r] under the finger, or -1. */
-    fun cornerAt(r: RectF, x: Float, y: Float): Int =
-        corners(r).indexOfFirst { Math.hypot((it.x - x).toDouble(), (it.y - y).toDouble()) <= touchRadius }
+    /**
+     * The corner of [r] under the finger (the nearest one), or -1. Inside the frame a corner only
+     * reaches a third of its shorter side: the handles of a small frame (a line of text) would
+     * cover it whole, and a finger meaning to move it would resize it.
+     */
+    fun cornerAt(r: RectF, x: Float, y: Float): Int {
+        val reach = if (r.contains(x, y)) minOf(touchRadius, minOf(r.width(), r.height()) / 3) else touchRadius
+        return corners(r).withIndex()
+            .map { (index, p) -> index to Math.hypot((p.x - x).toDouble(), (p.y - y).toDouble()) }
+            .filter { it.second <= reach }
+            .minByOrNull { it.second }?.first ?: -1
+    }
 
     fun dp(value: Float) = value * density
 

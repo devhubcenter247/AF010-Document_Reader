@@ -52,6 +52,20 @@
             android:src="@drawable/ic_fo_close"
             app:tint="@color/text_primary" />
 
+        <!-- Tapping the photo edits it; the pencil says so. -->
+        <ImageView
+            android:id="@+id/ivEdit"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="@dimen/_6sdp"
+            android:background="@drawable/bg_circle_variant"
+            android:backgroundTint="@color/color_surface_card"
+            android:contentDescription="@string/fo_edit"
+            android:padding="@dimen/_5sdp"
+            android:src="@drawable/ic_fo_pencil"
+            app:tint="@color/text_primary" />
+
         <!-- The last tile: add more photos -->
         <TextView
             android:id="@+id/btnAdd"

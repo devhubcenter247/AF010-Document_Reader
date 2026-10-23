@@ -79,7 +79,6 @@
     <string name="merge_pdf">Hợp nhất PDF</string>
     <string name="split_pdf">Tách PDF</string>
     <string name="convert_failed">Không thể chuyển đổi hình ảnh sang PDF</string>
-    <string name="file_name_exists">Đã có tệp trùng tên này</string>
     <string name="split_open_failed">Không thể mở tệp PDF này</string>
     <string name="split_failed">Không thể tách tệp PDF này</string>
     <string name="translate_to">Dịch sang</string>
@@ -132,14 +131,7 @@
     <string name="create_new">Tạo mới</string>
     <string name="images_to_pdf">Hình ảnh sang PDF</string>
     <string name="new_document">Tài liệu mới</string>
-    <string name="new_document_file_name">Tên tệp</string>
-    <string name="save_to">Lưu vào</string>
-    <string name="blank_document">Trang A4 trống</string>
-    <string name="blank_spreadsheet">Bảng tính trống</string>
-    <string name="blank_presentation">Bản trình bày trống</string>
-    <string name="blank_document_desc">Mở ở chế độ chỉnh sửa, bàn phím sẵn sàng.</string>
     <string name="untitled">Không có tiêu đề</string>
-    <string name="create_and_start_editing">Tạo và bắt đầu chỉnh sửa</string>
     <string name="sort_date_modified">Ngày sửa đổi</string>
     <string name="sort_size">Kích thước</string>
     <string name="sort_file_type">Loại tệp</string>
@@ -212,9 +204,6 @@
     <string name="split_each_page">Mỗi trang một tệp</string>
     <string name="split_pick_pages">Chọn trang để trích xuất</string>
     <string name="split_pick_pages_desc">Nhấn vào hình thu nhỏ của trang</string>
-    <string name="pages">Trang</string>
-    <string name="range_to">đến</string>
-    <string name="add_range">Thêm phạm vi</string>
     <string name="compress_pdf">Nén PDF</string>
     <string name="protect_pdf">Bảo vệ PDF</string>
     <string name="protect_warning">Mật khẩu đã quên không thể khôi phục. Hãy lưu ở nơi an toàn.</string>
@@ -399,10 +388,6 @@
         <item quantity="one">Tệp sẽ bị xóa khỏi thiết bị này và không thể phục hồi.</item>
         <item quantity="other">Các tệp sẽ bị xóa khỏi thiết bị này và không thể phục hồi.</item>
     </plurals>
-    <plurals name="split_creates_files">
-        <item quantity="one">Tạo %d tệp</item>
-        <item quantity="other">Tạo %d tệp</item>
-    </plurals>
     <plurals name="split_action">
         <item quantity="one">Tách thành %d tệp</item>
         <item quantity="other">Tách thành %d tệp</item>
@@ -479,4 +464,5 @@
     <string name="fo_home_create">Tạo mới</string>
     <string name="fo_home_create_desc">Word, Excel, trình chiếu và bản quét</string>
     <string name="fo_your_documents">Tài liệu của bạn</string>
+    <string name="fo_photo_edits_message">Những thay đổi của bạn với các ảnh này chưa được lưu.</string>
 </resources>

@@ -79,7 +79,6 @@
     <string name="merge_pdf">Îmbinați PDF</string>
     <string name="split_pdf">Divizați PDF</string>
     <string name="convert_failed">Nu s-au putut converti imaginile în PDF</string>
-    <string name="file_name_exists">Un fișier cu acest nume există deja</string>
     <string name="split_open_failed">Nu s-a putut deschide acest PDF</string>
     <string name="split_failed">Acest PDF nu a putut fi împărțit</string>
     <string name="translate_to">Traduceți în</string>
@@ -132,14 +131,7 @@
     <string name="create_new">Creați nou</string>
     <string name="images_to_pdf">Imagini în PDF</string>
     <string name="new_document">Document nou</string>
-    <string name="new_document_file_name">Nume fișier</string>
-    <string name="save_to">Salvați în</string>
-    <string name="blank_document">Pagina A4 goală</string>
-    <string name="blank_spreadsheet">Foaie de calcul goală</string>
-    <string name="blank_presentation">Prezentare goală</string>
-    <string name="blank_document_desc">Se deschide în modul de editare cu tastatura pregătită.</string>
     <string name="untitled">Fără titlu</string>
-    <string name="create_and_start_editing">Creați și începeți editarea</string>
     <string name="sort_date_modified">Data modificării</string>
     <string name="sort_size">Dimensiune</string>
     <string name="sort_file_type">Tip de fișier</string>
@@ -212,9 +204,6 @@
     <string name="split_each_page">Un fișier pe pagină</string>
     <string name="split_pick_pages">Alegeți pagini de extras</string>
     <string name="split_pick_pages_desc">Atingeți miniaturile paginii</string>
-    <string name="pages">Pagini</string>
-    <string name="range_to">până la</string>
-    <string name="add_range">Adăugați interval</string>
     <string name="compress_pdf">Comprimați PDF</string>
     <string name="protect_pdf">Protejați PDF</string>
     <string name="protect_warning">O parolă uitată nu poate fi recuperată. Păstrați-o într-un loc sigur.</string>
@@ -403,11 +392,6 @@
         <item quantity="few">Fișierele vor fi șterse de pe acest dispozitiv și nu pot fi recuperate.</item>
         <item quantity="other">Fișierele vor fi șterse de pe acest dispozitiv și nu pot fi recuperate.</item>
     </plurals>
-    <plurals name="split_creates_files">
-        <item quantity="one">Creează %d fișier</item>
-        <item quantity="few">Creează %d fișiere</item>
-        <item quantity="other">Creează %d de fișiere</item>
-    </plurals>
     <plurals name="split_action">
         <item quantity="one">Împărțiți în %d fișier</item>
         <item quantity="few">Împărțiți în %d fișiere</item>
@@ -476,4 +460,5 @@
     <string name="fo_home_create">Creează</string>
     <string name="fo_home_create_desc">Word, Excel, diapozitive și scanări</string>
     <string name="fo_your_documents">Documentele tale</string>
+    <string name="fo_photo_edits_message">Modificările aduse acestor fotografii nu au fost încă salvate.</string>
 </resources>

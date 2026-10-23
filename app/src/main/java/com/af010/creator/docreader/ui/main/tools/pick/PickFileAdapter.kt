@@ -49,6 +49,7 @@ class PickFileAdapter(private val numbered: Boolean) : DiffAdapter<RecentUi, Ite
         tvName.text = doc.name
         tvMeta.text = context.getString(R.string.document_meta, doc.sizeText(context), doc.dateText(context))
         root.isSelected = order >= 0
+        tvName.isSelected = true
         tvOrder.isVisible = numbered
         tvOrder.text = if (order >= 0) (order + 1).toString() else ""
         root.setOnClickListener { onItemClick.invoke(item) }

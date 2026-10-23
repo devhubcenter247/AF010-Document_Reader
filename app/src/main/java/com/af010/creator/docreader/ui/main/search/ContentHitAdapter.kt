@@ -26,6 +26,7 @@ class ContentHitAdapter(private val onHit: (ContentHit) -> Unit) : BaseAdapter<C
         val context = root.context
         dot.backgroundTintList = ColorStateList.valueOf(context.getColor(item.document.type.colorRes))
         tvName.text = item.document.name
+        tvName.isSelected = true
         tvPlace.text = context.getString(if (item.inPdf) R.string.fo_page_n else R.string.fo_line_n, item.place)
         tvSnippet.text = SpannableStringBuilder("…").append(item.before).apply {
             val start = length

@@ -79,7 +79,6 @@
     <string name="merge_pdf">合并PDF</string>
     <string name="split_pdf">分割PDF</string>
     <string name="convert_failed">无法将图像转换为 PDF</string>
-    <string name="file_name_exists">同名的文件已存在</string>
     <string name="split_open_failed">无法打开此 PDF</string>
     <string name="split_failed">无法分割此 PDF</string>
     <string name="translate_to">翻译为</string>
@@ -132,14 +131,7 @@
     <string name="create_new">新建</string>
     <string name="images_to_pdf">图像转PDF</string>
     <string name="new_document">新建文档</string>
-    <string name="new_document_file_name">文件名</string>
-    <string name="save_to">保存到</string>
-    <string name="blank_document">空白 A4 页</string>
-    <string name="blank_spreadsheet">空白电子表格</string>
-    <string name="blank_presentation">空白演示文稿</string>
-    <string name="blank_document_desc">在键盘准备就绪的情况下以编辑模式打开。</string>
     <string name="untitled">无题</string>
-    <string name="create_and_start_editing">创建并开始编辑</string>
     <string name="sort_date_modified">修改日期</string>
     <string name="sort_size">大小</string>
     <string name="sort_file_type">文件类型</string>
@@ -212,9 +204,6 @@
     <string name="split_each_page">每页一个文件</string>
     <string name="split_pick_pages">选择要提取的页面</string>
     <string name="split_pick_pages_desc">点按页面缩略图</string>
-    <string name="pages">页面</string>
-    <string name="range_to">到</string>
-    <string name="add_range">添加范围</string>
     <string name="compress_pdf">压缩PDF</string>
     <string name="protect_pdf">保护PDF</string>
     <string name="protect_warning">忘记密码无法恢复。 将其存放在安全的地方。</string>
@@ -399,10 +388,6 @@
         <item quantity="one">该文件将从此设备中删除，且无法恢复。</item>
         <item quantity="other">这些文件将从此设备中删除，且无法恢复。</item>
     </plurals>
-    <plurals name="split_creates_files">
-        <item quantity="one">生成 %d 个文件</item>
-        <item quantity="other">生成 %d 个文件</item>
-    </plurals>
     <plurals name="split_action">
         <item quantity="one">拆分为 %d 个文件</item>
         <item quantity="other">拆分为 %d 个文件</item>
@@ -469,4 +454,5 @@
     <string name="fo_home_create">新建</string>
     <string name="fo_home_create_desc">Word、Excel、幻灯片和扫描</string>
     <string name="fo_your_documents">你的文档</string>
+    <string name="fo_photo_edits_message">您对这些照片的更改尚未保存。</string>
 </resources>
