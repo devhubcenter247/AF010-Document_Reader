@@ -88,7 +88,7 @@ class PickFileActivity : BaseAppActivity<ActivityPickFileBinding>(ActivityPickFi
         viewModel.documents.mainCollect { response ->
             noAccess = response.isNoAccess
             val files = (response as? DataResponse.DataSuccess)?.data?.let { all ->
-                if (officeOnly) all.filter { it.document.type == DocumentType.Doc || it.document.type == DocumentType.Ppt }
+                if (officeOnly) all.filter { it.document.type in OFFICE_DOCUMENTS }
                 else all
             }
             if (files != null) fileAdapter.submitList(files)
@@ -200,9 +200,13 @@ class PickFileActivity : BaseAppActivity<ActivityPickFileBinding>(ActivityPickFi
         private val OFFICE_TYPES = arrayOf(
             "application/msword",
             "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "application/vnd.ms-excel",
+            "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+            "application/vnd.ms-excel.sheet.macroEnabled.12",
             "application/vnd.ms-powerpoint",
             "application/vnd.openxmlformats-officedocument.presentationml.presentation"
         )
+        private val OFFICE_DOCUMENTS = setOf(DocumentType.Doc, DocumentType.Excel, DocumentType.Ppt)
 
         fun start(context: Context, tool: Tool) {
             context.startActivity(intent(context, tool, forResult = false))

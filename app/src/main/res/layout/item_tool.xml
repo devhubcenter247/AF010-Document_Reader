@@ -63,20 +63,6 @@
                 android:textColor="@color/text_secondary"
                 android:textSize="@dimen/_10sdp"
                 tools:text="Paper to PDF" />
-
-            <TextView
-                android:id="@+id/tvSoon"
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/_15sdp"
-                android:layout_marginTop="@dimen/_2sdp"
-                android:background="@drawable/bg_soon_chip"
-                android:fontFamily="@font/nunito_700"
-                android:gravity="center"
-                android:paddingHorizontal="@dimen/_6sdp"
-                android:text="@string/fo_coming_soon"
-                android:textColor="@color/text_tertiary"
-                android:textSize="@dimen/_9sdp"
-                android:visibility="gone" />
         </LinearLayout>
     </LinearLayout>
 

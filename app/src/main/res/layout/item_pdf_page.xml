@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- A page of the PDF to be made: a sheet of paper floating on the screen (PdfPageAdapter sizes it to the page). -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipChildren="false"
+    android:clipToPadding="false"
+    android:paddingHorizontal="@dimen/_6sdp"
+    android:paddingVertical="@dimen/_14sdp">
+
+    <ImageView
+        android:id="@+id/ivPage"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:background="@drawable/bg_page_sheet"
+        android:clipToOutline="true"
+        android:elevation="@dimen/_6sdp"
+        android:importantForAccessibility="no"
+        android:outlineAmbientShadowColor="@color/color_shadow"
+        android:outlineSpotShadowColor="@color/color_shadow"
+        android:scaleType="fitCenter" />
+
+    <ProgressBar
+        android:id="@+id/progress"
+        android:layout_width="@dimen/_20sdp"
+        android:layout_height="@dimen/_20sdp"
+        android:layout_gravity="center"
+        android:elevation="@dimen/_7sdp"
+        android:indeterminateTint="@color/text_tertiary" />
+</FrameLayout>

@@ -164,6 +164,12 @@
             android:screenOrientation="portrait"
             tools:ignore="DiscouragedApi,LockedOrientationActivity" />
         <activity
+            android:name=".ui.main.tools.office.OfficeToPdfActivity"
+            android:configChanges="orientation|screenSize|screenLayout|smallestScreenSize|keyboardHidden"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            tools:ignore="DiscouragedApi,LockedOrientationActivity" />
+        <activity
             android:name=".ui.main.tools.ocr.OcrActivity"
             android:exported="false"
             android:screenOrientation="portrait"

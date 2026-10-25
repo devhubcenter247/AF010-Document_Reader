@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_bg_app"
+    android:orientation="vertical"
+    tools:context=".ui.main.tools.office.OfficeToPdfActivity">
+
+    <include
+        android:id="@+id/topBar"
+        layout="@layout/layout_screen_bar" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:orientation="vertical"
+        android:paddingHorizontal="@dimen/_15sdp">
+
+        <include
+            android:id="@+id/steps"
+            layout="@layout/layout_step_progress" />
+
+        <include
+            android:id="@+id/file"
+            layout="@layout/layout_tool_file"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_11sdp" />
+
+        <TextView
+            android:id="@+id/tvPreviewTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:fontFamily="@font/nunito_800"
+            android:text="@string/fo_your_pdf"
+            android:textColor="@color/text_primary"
+            android:textSize="@dimen/_13sdp" />
+
+        <TextView
+            android:id="@+id/tvPreviewCount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nunito_500"
+            android:textColor="@color/text_secondary"
+            android:textSize="@dimen/_10sdp"
+            tools:text="3 pages · swipe to see them all" />
+
+        <!-- The document opens in the SDK's view, kept under the pages: they are drawn from it. -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="@dimen/_minus15sdp"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:layout_weight="1">
+
+            <com.editor.docsdk.DocumentView
+                android:id="@+id/documentView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:importantForAccessibility="noHideDescendants" />
+
+            <LinearLayout
+                android:id="@+id/layoutPages"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/color_bg_app"
+                android:clickable="true"
+                android:focusable="false"
+                android:orientation="vertical">
+
+                <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/pagerPages"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:id="@+id/tvPagePill"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_22sdp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="@dimen/_4sdp"
+                    android:background="@drawable/bg_ink_pill"
+                    android:fontFamily="@font/nunito_700"
+                    android:gravity="center"
+                    android:paddingHorizontal="@dimen/_10sdp"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_10sdp"
+                    android:visibility="invisible"
+                    tools:text="Page 1 of 3"
+                    tools:visibility="visible" />
+            </LinearLayout>
+
+            <ProgressBar
+                android:id="@+id/progress"
+                android:layout_width="@dimen/_28sdp"
+                android:layout_height="@dimen/_28sdp"
+                android:layout_gravity="center"
+                android:indeterminateTint="@color/primary" />
+
+            <TextView
+                android:id="@+id/tvEmpty"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/nunito_600"
+                android:gravity="center"
+                android:paddingHorizontal="@dimen/_30sdp"
+                android:text="@string/fo_office_pdf_empty"
+                android:textColor="@color/text_secondary"
+                android:textSize="@dimen/_11sdp"
+                android:visibility="gone" />
+        </FrameLayout>
+    </LinearLayout>
+
+    <include
+        android:id="@+id/action"
+        layout="@layout/layout_tool_action" />
+</LinearLayout>

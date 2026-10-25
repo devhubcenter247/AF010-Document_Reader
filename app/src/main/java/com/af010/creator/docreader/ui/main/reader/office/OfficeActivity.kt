@@ -47,14 +47,10 @@ import com.af010.creator.docreader.ui.main.reader.office.sheet.OfficeOptionsBott
 import com.d010.pdf.reader.base.openFileWith
 import com.d010.pdf.reader.viewmodel.DataResponse
 import kotlinx.coroutines.flow.first
-import com.af010.creator.docreader.model.PageMargin
-import com.af010.creator.docreader.model.PageOrientation
-import com.af010.creator.docreader.model.PageSetup
-import com.af010.creator.docreader.model.PageSize
 import com.af010.creator.docreader.model.ToolRequest
+import com.af010.creator.docreader.pdf.OfficeWriter
+import com.af010.creator.docreader.pdf.ToolRunner
 import com.af010.creator.docreader.ui.main.tools.result.ProcessingActivity
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
 import com.af010.creator.docreader.ui.dialog.ChoiceDialog
 import com.af010.creator.docreader.ui.dialog.DraftTimes
 import com.af010.creator.docreader.ui.dialog.MessageDialog
@@ -114,6 +110,7 @@ class OfficeActivity : BaseAppActivity<ActivityOfficeBinding>(ActivityOfficeBind
         get() = AppUtils.documentTypeOf(file)?.colorRes
 
     private val repository: DocumentRepository by inject()
+    private val runner: ToolRunner by inject()
     private val file: File by lazy { File(intent.getStringExtra(EXTRA_PATH).orEmpty()) }
 
     private var password: String? = null
@@ -123,9 +120,8 @@ class OfficeActivity : BaseAppActivity<ActivityOfficeBinding>(ActivityOfficeBind
     /** Start editing as soon as the document shows: a new file, or a restored draft. */
     private var editWhenLoaded = false
 
-    /** Convert to PDF as soon as the document shows: opened from the Office to PDF tool. */
-    private var convertWhenLoaded = false
-    private var converting = false
+    /** Handed to [runner] by Convert to PDF; dropped here if the job never took it. */
+    private var pdfWriter: OfficeWriter? = null
     private var draftChecked = false
 
     // editing
@@ -164,7 +160,7 @@ class OfficeActivity : BaseAppActivity<ActivityOfficeBinding>(ActivityOfficeBind
 
     /** The SDK's own view inside [documentView]: it has the slide pictures. */
     private val office: OfficeDocumentView?
-        get() = documentView.children.firstOrNull { it is OfficeDocumentView } as? OfficeDocumentView
+        get() = documentView.office
 
     private val cameraLauncher =
         registerForActivityResult(ActivityResultContracts.TakePicture()) { taken ->
@@ -175,7 +171,6 @@ class OfficeActivity : BaseAppActivity<ActivityOfficeBinding>(ActivityOfficeBind
     override fun onCreate(savedInstanceState: Bundle?) {
         password = savedInstanceState?.getString(STATE_PASSWORD)
         editWhenLoaded = savedInstanceState == null && intent.getBooleanExtra(EXTRA_EDIT, false)
-        convertWhenLoaded = savedInstanceState == null && intent.getBooleanExtra(EXTRA_TO_PDF, false)
         super.onCreate(savedInstanceState)
     }
 
@@ -325,10 +320,6 @@ class OfficeActivity : BaseAppActivity<ActivityOfficeBinding>(ActivityOfficeBind
                 editWhenLoaded = false
                 startEditing()
             }
-            if (convertWhenLoaded) {
-                convertWhenLoaded = false
-                convertToPdf(closeAfter = true)
-            }
         }
 
         override fun onPageChanged(page: Int, pageCount: Int) {
@@ -373,15 +364,7 @@ class OfficeActivity : BaseAppActivity<ActivityOfficeBinding>(ActivityOfficeBind
 
     /** The app's own dialog for a document that cannot be read, worded by what went wrong. */
     private fun showOpenError(reason: DocumentException.Reason) {
-        val message = when (reason) {
-            DocumentException.Reason.UNSUPPORTED -> R.string.error_file_unsupported
-            DocumentException.Reason.DAMAGED -> R.string.error_file_damaged
-            DocumentException.Reason.NOT_FOUND -> R.string.error_file_not_found
-            DocumentException.Reason.OUT_OF_MEMORY -> R.string.error_file_too_large_memory
-            DocumentException.Reason.STORAGE -> R.string.error_file_storage
-            else -> R.string.error_file_open_generic
-        }
-        MessageDialog(this, R.string.cant_open_file, message, R.string.fo_okay, alert = true).apply {
+        MessageDialog(this, R.string.cant_open_file, reason.openMessage, R.string.fo_okay, alert = true).apply {
             setOnDismissListener { if (!isFinishing) finish() }
             show()
         }
@@ -476,51 +459,19 @@ class OfficeActivity : BaseAppActivity<ActivityOfficeBinding>(ActivityOfficeBind
 
     // ---- convert to PDF ----
 
-    /** The SDK draws Word pages and slides as pictures; it has no such drawing for a sheet. */
     private val canConvertToPdf: Boolean
-        get() = type == DocumentType.WORD || type == DocumentType.POWERPOINT
+        get() = OfficePdf.canWrite(office)
 
     /**
-     * The SDK cannot write an Office file as a PDF, so every page is drawn as a picture and the
-     * pictures become the PDF (the same job as Images to PDF): the text in it is not selectable.
-     * With [closeAfter] the screen was opened by the Office to PDF tool and leaves once the job starts.
+     * The document as shown (edits not saved yet included) into a PDF drawn as vectors, by the same
+     * job as the Office to PDF tool. This screen stays under Processing: the pages come from it.
      */
-    private fun convertToPdf(closeAfter: Boolean = false) {
-        val thumbnails = office?.thumbnails
-        val count = documentView.pageCount
-        if (!canConvertToPdf || thumbnails == null || count == 0) return toast(R.string.convert_pdf_unavailable)
-        if (converting) return
-        converting = true
-        binding.progress.visible()
-        launchMain {
-            val directory = File(cacheDir, TO_PDF_DIR)
-            val pages = withContext(Dispatchers.IO) {
-                directory.deleteRecursively()
-                directory.mkdirs()
-                (1..count).map { page ->
-                    // a page that is not laid out yet comes back null: the PDF would miss it
-                    val bitmap = runCatching { thumbnails.render(page, TO_PDF_PAGE_PX) }.getOrNull() ?: return@withContext null
-                    val target = File(directory, "page_$page.jpg")
-                    target.outputStream().use { bitmap.compress(Bitmap.CompressFormat.JPEG, TO_PDF_QUALITY, it) }
-                    bitmap.recycle()
-                    target.path
-                }
-            }
-            converting = false
-            if (isFinishing || isDestroyed) return@launchMain
-            binding.progress.gone()
-            if (pages == null) return@launchMain toast(R.string.convert_pdf_not_ready)
-            ProcessingActivity.start(
-                this@OfficeActivity,
-                ToolRequest.ImagesToPdf(
-                    pages, file.nameWithoutExtension,
-                    PageSetup(PageSize.Fit, PageOrientation.Portrait, PageMargin.None),
-                    fromOffice = true
-                )
-            )
-            // Opened only to convert: the result screen follows, not this one.
-            if (closeAfter) finish()
-        }
+    private fun convertToPdf() {
+        val office = office
+        if (!loaded || office == null || !canConvertToPdf) return toast(R.string.convert_pdf_unavailable)
+        pdfWriter = OfficeWriter(file.path) { output, progress -> OfficePdf.write(office, output, progress) }
+        runner.officeWriter = pdfWriter
+        ProcessingActivity.start(this, ToolRequest.OfficeToPdf(file.path, file.nameWithoutExtension))
     }
 
     // ---- editing ----
@@ -739,20 +690,11 @@ class OfficeActivity : BaseAppActivity<ActivityOfficeBinding>(ActivityOfficeBind
                 }
             }
             office.state.collect { state ->
-                if (state.status == ReaderState.Status.Ready) paintBehindPages()
+                if (state.status == ReaderState.Status.Ready) {
+                    office.paintBehindPages(ContextCompat.getColor(this@OfficeActivity, R.color.color_surface_track))
+                }
             }
         }
-    }
-
-    /**
-     * The SDK's Word view only draws its pages once it has a background, and [DocumentView]
-     * opens it without one (SDK 1.0.0): give it the screen's colour.
-     */
-    private fun paintBehindPages() {
-        val pages = office?.documentView ?: return
-        if (pages.background != null) return
-        pages.setBackgroundColor(ContextCompat.getColor(this, R.color.color_surface_track))
-        pages.invalidate()
     }
 
     /**
@@ -1011,6 +953,7 @@ class OfficeActivity : BaseAppActivity<ActivityOfficeBinding>(ActivityOfficeBind
     }
 
     override fun onDestroy() {
+        if (runner.officeWriter === pdfWriter) runner.officeWriter = null
         readerJob?.cancel()
         documentView.listener = null
         documentView.close()
@@ -1025,10 +968,6 @@ class OfficeActivity : BaseAppActivity<ActivityOfficeBinding>(ActivityOfficeBind
             EditAction.INSERT_TEXT, EditAction.NEW_LINE, EditAction.SET_TEXT, EditAction.ADD_TEXT_BOX
         )
         private const val EXTRA_EDIT = "extra_edit"
-        private const val EXTRA_TO_PDF = "extra_to_pdf"
-        private const val TO_PDF_DIR = "office_to_pdf"
-        private const val TO_PDF_PAGE_PX = 1600
-        private const val TO_PDF_QUALITY = 90
         private const val STATE_PASSWORD = "state_password"
         private val LEGACY_EXTENSIONS = setOf("doc", "xls", "ppt")
 
@@ -1039,12 +978,11 @@ class OfficeActivity : BaseAppActivity<ActivityOfficeBinding>(ActivityOfficeBind
         }
 
         /** With [edit], editing starts as soon as the document shows. */
-        fun start(context: Context, path: String, edit: Boolean = false, toPdf: Boolean = false) {
+        fun start(context: Context, path: String, edit: Boolean = false) {
             context.startActivity(
                 Intent(context, OfficeActivity::class.java)
                     .putExtra(EXTRA_PATH, path)
                     .putExtra(EXTRA_EDIT, edit)
-                    .putExtra(EXTRA_TO_PDF, toPdf)
             )
         }
     }

@@ -19,10 +19,7 @@ class ToolAdapter(private val onTool: (Tool) -> Unit) : BaseAdapter<Tool, ItemTo
         ivIcon.showToolTile(item)
         tvTitle.setText(item.title)
         tvTitle.isSelected = true
-        val soon = item == Tool.OfficeToPdf
-        tvDesc.isVisible = !soon
-        tvSoon.isVisible = soon
-        if (!soon) tvDesc.setText(item.desc)
+        tvDesc.setText(item.desc)
         tvDesc.isSelected = true
         ivPremium.isVisible = item.isPremium && remoteConfig.paywallEnabled
         card.setOnClickListener { onTool(item) }

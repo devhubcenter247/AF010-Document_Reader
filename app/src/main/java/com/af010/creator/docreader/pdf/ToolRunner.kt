@@ -17,6 +17,9 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import java.io.File
 
+/** Draws the open Office document at [path] into a PDF file; returns the pages written. */
+class OfficeWriter(val path: String, val write: suspend (output: File, progress: ToolProgress) -> Int)
+
 sealed interface ToolState {
     data object Idle : ToolState
 
@@ -48,6 +51,12 @@ class ToolRunner(
         field = MutableStateFlow<ToolState>(ToolState.Idle)
 
     private var job: Job? = null
+
+    /**
+     * Set by the screen showing an Office document before it starts a [ToolRequest.OfficeToPdf]:
+     * the pages are drawn from that open document. Taken by the job.
+     */
+    var officeWriter: OfficeWriter? = null
 
     fun start(request: ToolRequest) {
         if (state.value is ToolState.Running) return
@@ -152,6 +161,13 @@ class ToolRunner(
             is ToolRequest.ImagesToPdf ->
                 toolbox.imagesToPdf(request.paths.map(::File), output(request.name), request.setup, progress(request))
 
+            is ToolRequest.OfficeToPdf -> {
+                val writer = officeWriter?.takeIf { it.path == request.path }
+                    ?: throw IllegalStateException("the document is not open")
+                officeWriter = null
+                if (writer.write(output(request.name), progress(request)) == 0) throw IllegalStateException("no page was ready")
+            }
+
             is ToolRequest.Translate -> return translate(request)
         }
         return ToolResult(request.tool, outputs.map { it.path }, sourceSize)
@@ -198,6 +214,7 @@ class ToolRunner(
         request is ToolRequest.Split -> R.string.split_failed
         request is ToolRequest.Zip -> R.string.zip_failed
         request is ToolRequest.ImagesToPdf -> R.string.convert_failed
+        request is ToolRequest.OfficeToPdf -> R.string.fo_office_pdf_failed
         else -> R.string.error_file_open_generic
     }
 

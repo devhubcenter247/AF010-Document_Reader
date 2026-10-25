@@ -475,6 +475,20 @@
     <string name="convert_to_pdf">Convert to PDF</string>
     <string name="convert_pdf_unavailable">This file can’t be converted to PDF yet</string>
     <string name="convert_pdf_not_ready">The document is still loading. Try again in a moment.</string>
+    <string name="fo_step_check_pages">Check the pages</string>
+    <string name="fo_office_pdf_note">Text stays text, so you can search and copy it in the PDF.</string>
+    <string name="fo_office_pdf_failed">Couldn’t make the PDF. Try again in a moment.</string>
+    <string name="fo_your_pdf">Your PDF</string>
+    <string name="fo_swipe_to_see_all">%1$s · swipe to see them all</string>
+    <string name="fo_office_pdf_empty">This document has nothing to put in a PDF yet.</string>
+    <plurals name="fo_slide_count">
+        <item quantity="one">%d slide</item>
+        <item quantity="other">%d slides</item>
+    </plurals>
+    <plurals name="fo_sheet_count">
+        <item quantity="one">%d sheet</item>
+        <item quantity="other">%d sheets</item>
+    </plurals>
     <string name="delete_slide_title">Delete slide?</string>
     <string name="delete_slide_message">This slide will be removed from the presentation.</string>
     <string name="slides_updating">The slides are still updating. Try again in a moment.</string>
@@ -553,7 +567,6 @@
     <string name="fo_group_protect">Protect &amp; more</string>
     <string name="fo_group_protect_short">Protect</string>
     <string name="fo_all">All</string>
-    <string name="fo_coming_soon">Coming soon</string>
     <string name="fo_toolbox">Toolbox</string>
     <plurals name="fo_toolbox_count">
         <item quantity="one">%d handy tool for your files</item>
