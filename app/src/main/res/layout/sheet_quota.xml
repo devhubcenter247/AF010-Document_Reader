@@ -33,6 +33,7 @@
             android:layout_gravity="center"
             android:progress="100"
             app:indicatorColor="@color/color_pro"
+            app:indicatorTrackGapSize="0dp"
             app:indicatorSize="@dimen/_65sdp"
             app:trackColor="@color/color_surface_variant"
             app:trackCornerRadius="@dimen/_4sdp"

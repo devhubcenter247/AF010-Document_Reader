@@ -26,6 +26,7 @@
             android:indeterminate="true"
             android:visibility="gone"
             app:indicatorColor="@color/primary"
+            app:indicatorInset="0dp"
             app:indicatorSize="@dimen/_18sdp"
             app:trackThickness="@dimen/_2sdp" />
 

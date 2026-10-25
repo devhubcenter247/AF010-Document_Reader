@@ -66,6 +66,7 @@
                     android:layout_gravity="center"
                     android:indeterminate="true"
                     app:indicatorColor="@color/primary"
+                    app:indicatorTrackGapSize="0dp"
                     app:indicatorSize="@dimen/_170sdp"
                     app:trackColor="@color/color_surface_card"
                     app:trackCornerRadius="@dimen/_6sdp"

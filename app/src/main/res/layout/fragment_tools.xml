@@ -1,98 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/color_bg_app"
-    android:clipToPadding="false"
-    android:paddingBottom="@dimen/_100sdp"
-    tools:context=".ui.main.tools.ToolsFragment">
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:gravity="bottom"
+        android:orientation="horizontal"
+        android:paddingHorizontal="@dimen/_15sdp"
+        android:paddingTop="@dimen/_8sdp">
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:gravity="bottom"
-            android:orientation="horizontal"
-            android:paddingHorizontal="@dimen/_15sdp"
-            android:paddingTop="@dimen/_8sdp">
+            android:layout_weight="1"
+            android:orientation="vertical">
 
-            <LinearLayout
-                android:layout_width="0dp"
+            <TextView
+                style="@style/DisplayTitle"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
+                android:text="@string/fo_toolbox" />
 
-                <TextView
-                    style="@style/DisplayTitle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/fo_toolbox" />
-
-                <TextView
-                    android:id="@+id/tvSubtitle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_2sdp"
-                    android:fontFamily="@font/nunito_500"
-                    android:textColor="@color/text_secondary"
-                    android:textSize="@dimen/_11sdp"
-                    tools:text="17 handy tools for your files" />
-            </LinearLayout>
-
-            <ImageView
-                android:id="@+id/btnSearch"
-                style="@style/RoundIconButton"
-                android:contentDescription="@string/search_tools"
-                android:src="@drawable/ic_fo_search" />
+            <TextView
+                android:id="@+id/tvSubtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_2sdp"
+                android:fontFamily="@font/nunito_500"
+                android:textColor="@color/text_secondary"
+                android:textSize="@dimen/_11sdp"
+                tools:text="17 handy tools for your files" />
         </LinearLayout>
 
-        <EditText
-            android:id="@+id/edtSearch"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_38sdp"
-            android:layout_marginHorizontal="@dimen/_15sdp"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:background="@drawable/bg_search_field"
-            android:drawablePadding="@dimen/_6sdp"
-            android:fontFamily="@font/nunito_600"
-            android:hint="@string/search_tools"
-            android:imeOptions="actionSearch"
-            android:importantForAutofill="no"
-            android:inputType="text"
-            android:maxLines="1"
-            android:paddingHorizontal="@dimen/_12sdp"
-            android:textColor="@color/text_primary"
-            android:textColorHint="@color/text_secondary"
-            android:textSize="@dimen/_12sdp"
-            android:visibility="gone"
-            app:drawableStartCompat="@drawable/ic_fo_search_16sdp"
-            app:drawableTint="@color/text_secondary" />
+        <ImageView
+            android:id="@+id/btnSearch"
+            style="@style/RoundIconButton"
+            android:contentDescription="@string/search_tools"
+            android:src="@drawable/ic_fo_search" />
+    </LinearLayout>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rcvGroups"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_9sdp"
-            android:clipToPadding="false"
-            android:orientation="horizontal"
-            android:overScrollMode="never"
-            android:paddingHorizontal="@dimen/_15sdp"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/item_filter_chip" />
+    <EditText
+        android:id="@+id/edtSearch"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_38sdp"
+        android:layout_marginHorizontal="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:background="@drawable/bg_search_field"
+        android:drawablePadding="@dimen/_6sdp"
+        android:fontFamily="@font/nunito_600"
+        android:hint="@string/search_tools"
+        android:imeOptions="actionSearch"
+        android:importantForAutofill="no"
+        android:inputType="text"
+        android:maxLines="1"
+        android:paddingHorizontal="@dimen/_12sdp"
+        android:textColor="@color/text_primary"
+        android:textColorHint="@color/text_secondary"
+        android:textSize="@dimen/_12sdp"
+        android:visibility="gone"
+        app:drawableStartCompat="@drawable/ic_fo_search_16sdp"
+        app:drawableTint="@color/text_secondary" />
 
-        <LinearLayout
-            android:id="@+id/layoutSections"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcvGroups"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_9sdp"
+        android:clipToPadding="false"
+        android:orientation="horizontal"
+        android:overScrollMode="never"
+        android:paddingHorizontal="@dimen/_15sdp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/item_filter_chip" />
+
+    <FrameLayout
+        android:paddingTop="@dimen/_12sdp"
+        android:layout_width="match_parent"
+        android:paddingBottom="@dimen/_12sdp"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:clipToPadding="false"
-            android:orientation="vertical"
-            android:paddingHorizontal="@dimen/_10sdp" />
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/layoutSections"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:orientation="vertical"
+                android:paddingHorizontal="@dimen/_10sdp" />
+        </androidx.core.widget.NestedScrollView>
+
 
         <TextView
             android:id="@+id/tvNoTools"
@@ -105,5 +110,7 @@
             android:textColor="@color/text_secondary"
             android:textSize="@dimen/_11sdp"
             android:visibility="gone" />
-    </LinearLayout>
-</androidx.core.widget.NestedScrollView>
+
+    </FrameLayout>
+
+</LinearLayout>

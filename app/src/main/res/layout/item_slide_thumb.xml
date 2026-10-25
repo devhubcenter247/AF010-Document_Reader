@@ -16,21 +16,15 @@
         android:id="@+id/card"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_40sdp"
-        android:clipChildren="false"
         android:duplicateParentState="true"
         android:foreground="@drawable/bg_page_thumb">
-
-        <!-- Lifted off the grey page behind the strip, so a blank white slide still shows. -->
         <ImageView
             android:id="@+id/ivSlide"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/bg_page_sheet"
             android:clipToOutline="true"
-            android:elevation="@dimen/_2sdp"
             android:importantForAccessibility="no"
-            android:outlineAmbientShadowColor="@color/color_shadow"
-            android:outlineSpotShadowColor="@color/color_shadow"
             android:scaleType="fitCenter" />
 
         <ImageView
