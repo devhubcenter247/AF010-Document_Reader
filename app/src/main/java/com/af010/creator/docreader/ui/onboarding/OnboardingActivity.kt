@@ -1,7 +1,10 @@
 package com.af010.creator.docreader.ui.onboarding
 
+import android.os.Bundle
 import android.widget.LinearLayout
 import android.view.View
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.view.updatePadding
 import androidx.viewpager2.widget.ViewPager2
 import com.af010.creator.docreader.R
 import com.af010.creator.docreader.base.BaseAppActivity
@@ -14,6 +17,14 @@ class OnboardingActivity : BaseAppActivity<ActivityOnboardingBinding>(ActivityOn
     private val slides = OnboardingSlide.entries
     private val isLast get() = binding.viewPager.currentItem == slides.lastIndex
 
+    // The pictures reach under the status bar; only the top bar is padded.
+    override val fullStatus = true
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        delegate.localNightMode = AppCompatDelegate.MODE_NIGHT_NO
+        super.onCreate(savedInstanceState)
+    }
+
     override fun initialize() = Unit
 
     override fun backPressed() {
@@ -21,6 +32,7 @@ class OnboardingActivity : BaseAppActivity<ActivityOnboardingBinding>(ActivityOn
     }
 
     override fun ActivityOnboardingBinding.setData() {
+        layoutTop.updatePadding(top = statusBarHeight)
         viewPager.adapter = OnboardingPictures()
         viewPager.offscreenPageLimit = 1
         viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {

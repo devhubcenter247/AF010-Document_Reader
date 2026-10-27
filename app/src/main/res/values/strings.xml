@@ -520,8 +520,6 @@
     <string name="fo_onboarding_title_4">A toolbox for every little job</string>
     <string name="fo_onboarding_body_4">Merge, split, shrink, protect, translate and more. All in one tap from the Tools tab.</string>
     <string name="fo_lets_get_started">Let’s get started</string>
-    <string name="fo_signed_by_you">Signed by you</string>
-    <string name="fo_edges_found">Edges found</string>
     <string name="fo_welcome_title">What brings you to Folio?</string>
     <string name="fo_welcome_subtitle">Pick as many as you like. We’ll keep your favourite tools close by.</string>
     <string name="fo_use_case_work_desc">Contracts, reports and signing</string>
