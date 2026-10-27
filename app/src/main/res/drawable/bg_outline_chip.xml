@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- A tool chip on a white card: hairline, icon in the tool's colour (Files tab, edit card). -->
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="rectangle">
     <solid android:color="@color/color_surface_card" />
-    <corners android:radius="@dimen/_14sdp" />
+    <corners android:radius="@dimen/_9sdp" />
     <stroke android:width="@dimen/_1sdp" android:color="@color/color_stroke" />
 </shape>

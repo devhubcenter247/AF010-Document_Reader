@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Scan to PDF or Photos to PDF on the Files tab: a glyph tile, the label and a chevron (from code). -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/HomeCard"
+    android:layout_width="0dp"
+    android:layout_height="@dimen/_46sdp"
+    android:layout_weight="1"
+    android:background="@drawable/bg_home_card"
+    android:foreground="?attr/selectableItemBackground"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingStart="@dimen/_7sdp"
+    android:paddingEnd="@dimen/_7sdp">
+
+    <ImageView
+        android:id="@+id/ivIcon"
+        android:layout_width="@dimen/_27sdp"
+        android:layout_height="@dimen/_27sdp"
+        android:background="@drawable/bg_tool_glyph"
+        android:importantForAccessibility="no"
+        android:padding="@dimen/_6sdp"
+        tools:backgroundTint="@color/primary"
+        tools:src="@drawable/ic_fo_scan" />
+
+    <TextView
+        android:id="@+id/tvLabel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_7sdp"
+        android:layout_marginEnd="@dimen/_3sdp"
+        android:layout_weight="1"
+        android:autoSizeMaxTextSize="@dimen/_11sdp"
+        android:autoSizeMinTextSize="@dimen/_9sdp"
+        android:autoSizeTextType="uniform"
+        android:fontFamily="@font/nunito_700"
+        android:maxLines="1"
+        android:textColor="@color/text_primary"
+        android:textSize="@dimen/_11sdp"
+        tools:text="Scan to PDF" />
+
+    <ImageView
+        android:layout_width="@dimen/_12sdp"
+        android:layout_height="@dimen/_12sdp"
+        android:importantForAccessibility="no"
+        android:src="@drawable/ic_fo_chevron"
+        app:tint="@color/text_secondary" />
+</LinearLayout>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="color_home_background">@color/color_tools_background</color>
+    <color name="color_home_card_stroke">@color/color_tool_card_stroke</color>
+    <color name="color_home_card_shadow">@color/color_tool_card_shadow</color>
+
+    <style name="HomeCard" parent="FloatingCard">
+        <item name="android:background">@drawable/bg_home_card</item>
+        <item name="android:elevation">@dimen/_4sdp</item>
+        <item name="android:outlineAmbientShadowColor">@color/color_home_card_shadow</item>
+        <item name="android:outlineSpotShadowColor">@color/color_home_card_shadow</item>
+    </style>
+</resources>

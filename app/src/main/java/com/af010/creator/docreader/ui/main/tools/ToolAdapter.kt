@@ -6,22 +6,19 @@ import androidx.core.view.isVisible
 import com.af010.creator.docreader.app.remote.remoteConfig
 import com.af010.creator.docreader.databinding.ItemToolBinding
 import com.af010.creator.docreader.model.Tool
-import com.af010.creator.docreader.ui.common.showToolTile
 import com.ui.baselib.base.BaseAdapter
 
-/** Toolbox cards; the tiles lean a little, each its own way, like cards on a table. */
+/** Toolbox cards: the tool's picture, name and line, and a Pro tag on Premium tools. */
 class ToolAdapter(private val onTool: (Tool) -> Unit) : BaseAdapter<Tool, ItemToolBinding>() {
 
     override fun createBinding(inflater: LayoutInflater, parent: ViewGroup, viewType: Int) =
         ItemToolBinding.inflate(inflater, parent, false)
 
     override fun ItemToolBinding.bind(item: Tool, position: Int) {
-        ivIcon.showToolTile(item)
+        ivIcon.setImageResource(item.art)
         tvTitle.setText(item.title)
-        tvTitle.isSelected = true
         tvDesc.setText(item.desc)
-        tvDesc.isSelected = true
-        ivPremium.isVisible = item.isPremium && remoteConfig.paywallEnabled
+        tvPremium.isVisible = item.isPremium && remoteConfig.paywallEnabled
         card.setOnClickListener { onTool(item) }
     }
 }

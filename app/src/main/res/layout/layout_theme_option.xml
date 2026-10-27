@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- One theme in Settings: a small screen in that theme (Auto shows half light, half dark) and its name.
+     Picked through isSelected on the root, which ViewGroup passes on to the children. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    android:clipChildren="false"
+    android:clipToPadding="false"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_62sdp"
+        android:background="@drawable/bg_theme_frame"
+        android:clipToOutline="true"
+        android:foreground="?attr/selectableItemBackground"
+        android:padding="@dimen/_4sdp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_theme_screen"
+            android:baselineAligned="false"
+            android:clipToOutline="true"
+            android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/halfLight"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/theme_preview_light_bg"
+            android:orientation="vertical"
+            android:paddingHorizontal="@dimen/_5sdp"
+            android:paddingTop="@dimen/_6sdp">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_14sdp"
+                android:background="@drawable/bg_theme_mini"
+                android:backgroundTint="@color/theme_preview_light_card" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_4sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:background="@drawable/bg_theme_mini"
+                android:backgroundTint="@color/theme_preview_light_line" />
+
+            <View
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_4sdp"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:background="@drawable/bg_theme_mini"
+                android:backgroundTint="@color/theme_preview_light_line" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/halfDark"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/theme_preview_dark_bg"
+            android:orientation="vertical"
+            android:paddingHorizontal="@dimen/_5sdp"
+            android:paddingTop="@dimen/_6sdp">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_14sdp"
+                android:background="@drawable/bg_theme_mini"
+                android:backgroundTint="@color/theme_preview_dark_card" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_4sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:background="@drawable/bg_theme_mini"
+                android:backgroundTint="@color/theme_preview_dark_line" />
+
+            <View
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_4sdp"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:background="@drawable/bg_theme_mini"
+                android:backgroundTint="@color/theme_preview_dark_line" />
+        </LinearLayout>
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/ivCheck"
+            android:layout_width="@dimen/_17sdp"
+            android:layout_height="@dimen/_17sdp"
+            android:layout_gravity="top|end"
+            android:layout_marginTop="@dimen/_3sdp"
+            android:layout_marginEnd="@dimen/_3sdp"
+            android:background="@drawable/bg_theme_check"
+            android:importantForAccessibility="no"
+            android:padding="@dimen/_3sdp"
+            android:src="@drawable/ic_fo_check"
+            android:visibility="invisible"
+            app:tint="@color/on_primary" />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/tvName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:fontFamily="@font/nunito_700"
+        android:maxLines="1"
+        android:textColor="@color/text_theme_option"
+        android:textSize="@dimen/_11sdp"
+        tools:text="Auto" />
+</LinearLayout>

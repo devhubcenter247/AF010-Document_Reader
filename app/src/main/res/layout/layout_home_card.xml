@@ -1,45 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Read or Create at the top of the Files tab: a tilted glyph tile, a title and a line under it
-     (glyph and colour from code). -->
+<!-- Read or Create at the top of the Files tab: a big tilted glyph tile in front of a sheet of paper,
+     a round chevron, a title and a line under it (glyph and colour from code). -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    style="@style/FloatingCard"
+    style="@style/HomeCard"
     android:layout_width="0dp"
     android:layout_height="wrap_content"
     android:layout_weight="1"
+    android:background="@drawable/bg_home_card"
+    android:clipToOutline="true"
     android:foreground="?attr/selectableItemBackground"
     android:orientation="vertical"
     android:padding="@dimen/_12sdp">
 
-    <LinearLayout
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
+        android:layout_height="@dimen/_62sdp"
+        android:clipChildren="false">
+
+        <!-- The paper behind the tile -->
+        <LinearLayout
+            android:id="@+id/paper"
+            android:layout_width="@dimen/_38sdp"
+            android:layout_height="@dimen/_48sdp"
+            android:layout_marginStart="@dimen/_36sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:background="@drawable/bg_page_sheet"
+            android:elevation="@dimen/_3sdp"
+            android:orientation="vertical"
+            android:outlineAmbientShadowColor="@color/color_shadow"
+            android:outlineSpotShadowColor="@color/color_shadow"
+            android:paddingHorizontal="@dimen/_6sdp"
+            android:paddingTop="@dimen/_9sdp"
+            android:rotation="8">
+
+            <View
+                android:id="@+id/paperAccent"
+                android:layout_width="@dimen/_18sdp"
+                android:layout_height="@dimen/_3sdp"
+                android:background="@drawable/bg_mini_line_ink"
+                tools:backgroundTint="@color/primary" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_3sdp"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:background="@drawable/bg_mini_line" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_3sdp"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:background="@drawable/bg_mini_line" />
+
+            <View
+                android:layout_width="@dimen/_16sdp"
+                android:layout_height="@dimen/_3sdp"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:background="@drawable/bg_mini_line" />
+        </LinearLayout>
 
         <ImageView
             android:id="@+id/ivIcon"
-            android:layout_width="@dimen/_34sdp"
-            android:layout_height="@dimen/_34sdp"
+            android:layout_width="@dimen/_46sdp"
+            android:layout_height="@dimen/_46sdp"
+            android:layout_gravity="bottom|start"
+            android:layout_marginBottom="@dimen/_2sdp"
             android:background="@drawable/bg_tool_glyph"
+            android:elevation="@dimen/_4sdp"
             android:importantForAccessibility="no"
-            android:padding="@dimen/_8sdp"
+            android:outlineAmbientShadowColor="@color/color_shadow"
+            android:outlineSpotShadowColor="@color/color_shadow"
+            android:padding="@dimen/_11sdp"
             tools:backgroundTint="@color/primary"
             tools:src="@drawable/ic_fo_book" />
 
-        <View
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_weight="1" />
-
         <ImageView
-            android:layout_width="@dimen/_16sdp"
-            android:layout_height="@dimen/_16sdp"
+            android:layout_width="@dimen/_22sdp"
+            android:layout_height="@dimen/_22sdp"
+            android:layout_gravity="top|end"
+            android:background="@drawable/bg_circle_variant"
             android:importantForAccessibility="no"
+            android:padding="@dimen/_6sdp"
             android:src="@drawable/ic_fo_chevron"
-            app:tint="@color/text_tertiary" />
-    </LinearLayout>
+            app:tint="@color/text_secondary" />
+    </FrameLayout>
 
     <TextView
         android:id="@+id/tvTitle"
@@ -57,9 +103,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_1sdp"
-        android:fontFamily="@font/nunito_500"
         android:ellipsize="end"
-        android:lines="2"
+        android:fontFamily="@font/nunito_500"
+        android:maxLines="1"
         android:textColor="@color/text_secondary"
         android:textSize="@dimen/_10sdp"
         tools:text="47 files on this phone" />

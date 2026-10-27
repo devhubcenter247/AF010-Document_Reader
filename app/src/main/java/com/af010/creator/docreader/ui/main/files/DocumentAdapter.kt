@@ -20,13 +20,24 @@ import com.ui.baselib.base.DiffAdapter
 /** What closes a document row: the star and options button, an "Open" pill, or nothing. */
 enum class RowEnd { Options, Open, Nothing }
 
-/** Document rows as floating cards: the type tile, name and details, then [end]. */
-class DocumentAdapter(private val end: RowEnd = RowEnd.Options) : DiffAdapter<RecentUi, ItemDocumentBinding>(
+/**
+ * Document rows as floating cards: the type tile, name and details, then [end]. [flat] rows have no
+ * card of their own, for a list that sits in one card (the Files tab).
+ */
+class DocumentAdapter(
+    private val end: RowEnd = RowEnd.Options,
+    private val flat: Boolean = false
+) : DiffAdapter<RecentUi, ItemDocumentBinding>(
     areItemsTheSame = { old, new -> old.document.mediaId == new.document.mediaId },
     areContentsTheSame = { old, new -> old.sameContent(new) }
 ) {
     override fun createBinding(inflater: LayoutInflater, parent: ViewGroup, viewType: Int) =
-        ItemDocumentBinding.inflate(inflater, parent, false)
+        ItemDocumentBinding.inflate(inflater, parent, false).apply {
+            if (!flat) return@apply
+            root.background = null
+            root.elevation = 0f
+            (root.layoutParams as ViewGroup.MarginLayoutParams).bottomMargin = 0
+        }
 
     private var onItemClick: (RecentUi) -> Unit = {}
     private var onItemLongClick: (RecentUi) -> Unit = {}

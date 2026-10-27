@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- A document with a folded corner, tinted with the file type's colour (the fold shows lighter). -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="28dp"
+    android:viewportWidth="24"
+    android:viewportHeight="28">
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M4,0 H16 L24,8 V24 C24,26.2 22.2,28 20,28 H4 C1.8,28 0,26.2 0,24 V4 C0,1.8 1.8,0 4,0 Z" />
+    <path
+        android:fillAlpha="0.55"
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M16,0 V5 C16,6.7 17.3,8 19,8 H24 Z" />
+</vector>

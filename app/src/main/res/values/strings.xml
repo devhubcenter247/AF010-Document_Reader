@@ -570,6 +570,10 @@
         <item quantity="one">%d handy tool for your files</item>
         <item quantity="other">%d handy tools for your files</item>
     </plurals>
+    <plurals name="fo_section_tool_count">
+        <item quantity="one">%d tool</item>
+        <item quantity="other">%d tools</item>
+    </plurals>
     <string name="fo_no_tools">No tool by that name</string>
     <string name="fo_create_title">What shall we make?</string>
     <string name="fo_create_location">New files are saved to Download › Folio</string>

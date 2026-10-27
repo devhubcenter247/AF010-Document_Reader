@@ -1,49 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="icon_default">#F2F4F8</color>
+    <color name="icon_default">#EEF3FF</color>
 
     <!-- Surfaces -->
-    <color name="color_bg_app">#14161C</color>
-    <color name="color_surface_card">#1F222B</color>
-    <color name="color_surface_variant">#292D38</color>
-    <color name="color_surface_track">#292D38</color>
-    <color name="color_bg_selected">#1E2A44</color>
-    <color name="color_stroke">#333846</color>
-    <color name="color_handle">#3D4250</color>
-    <color name="color_checkbox_stroke">#4A5060</color>
+    <color name="color_bg_app">#0F1424</color>
+    <color name="color_surface_card">#182036</color>
+    <color name="color_surface_variant">#222B45</color>
+    <color name="color_surface_track">#222B45</color>
+    <color name="color_bg_selected">#1C2E5C</color>
+    <color name="color_stroke">#2A3452</color>
+    <color name="color_handle">#3A4562</color>
+    <color name="color_checkbox_stroke">#55617F</color>
     <color name="color_shadow">#000000</color>
     <color name="color_warning">#F3B27A</color>
-    <color name="color_pro_bg">#45301F</color>
+    <color name="color_pro_bg">#3A3020</color>
 
     <!-- Text -->
-    <color name="text_primary">#F2F4F8</color>
-    <color name="text_secondary">#B9BFCC</color>
-    <color name="text_tertiary">#9AA1B2</color>
+    <color name="text_primary">#EEF3FF</color>
+    <color name="text_secondary">#B3BED6</color>
+    <color name="text_tertiary">#95A2BE</color>
     <color name="text_on_selected">#8DB4FF</color>
+    <color name="color_icon_muted">#8C9AB5</color>
+
+    <!-- Picked filter chip: light pill with dark text on the dark ground -->
+    <color name="color_chip_picked">#EEF3FF</color>
+    <color name="color_on_chip_picked">#14192B</color>
+    <color name="color_on_primary_soft">#C9DAFF</color>
+
+    <color name="color_file_pdf">#F2566A</color>
+    <color name="color_file_word">#4C86FF</color>
+    <color name="color_file_excel">#1BA466</color>
+    <color name="color_file_powerpoint">#EE7426</color>
+    <color name="color_file_txt">#9B6BFA</color>
+    <color name="color_file_image">#12A0BD</color>
+    <color name="color_tool_indigo">#9B6BFA</color>
+    <color name="color_tool_amber">#FFD078</color>
 
     <!-- File type tints: deep fills, light glyphs -->
-    <color name="color_file_pdf_bg">#4A2523</color>
-    <color name="color_file_word_bg">#1F2C48</color>
-    <color name="color_file_excel_bg">#1B3427</color>
-    <color name="color_file_powerpoint_bg">#45301F</color>
-    <color name="color_file_txt_bg">#292D38</color>
-    <color name="color_file_image_bg">#163640</color>
-    <color name="color_file_zip_bg">#45301F</color>
+    <color name="color_file_pdf_bg">#3D1E2A</color>
+    <color name="color_file_word_bg">#1A2C55</color>
+    <color name="color_file_excel_bg">#15352C</color>
+    <color name="color_file_powerpoint_bg">#3D2A1F</color>
+    <color name="color_file_txt_bg">#2A2250</color>
+    <color name="color_file_image_bg">#123444</color>
+    <color name="color_file_zip_bg">#3A3020</color>
 
     <!-- Illustration grounds -->
     <color name="color_blob_peach">#2A2620</color>
     <color name="color_blob_butter">#2B2819</color>
     <color name="color_blob_sage">#202A22</color>
-    <color name="color_bg_app_clear">#0014161C</color>
+    <color name="color_bg_app_clear">#000F1424</color>
     <color name="star_idle">#8AB4FF</color>
-    <color name="line_soft">#2E4370</color>  <!-- Dashed "add" outlines and light blue frames -->
+    <color name="line_soft">#2E4A85</color>  <!-- Dashed "add" outlines and light blue frames -->
     <color name="excel_track">#3341C47A</color>
     <color name="zip_box">#8C6A0C</color>
     <color name="warning_track">#33F4B740</color>
-    <color name="ocr_picture_bg">#2A2E38</color>
-    <color name="ocr_picture_line">#4A5060</color>
+    <color name="ocr_picture_bg">#222B45</color>
+    <color name="ocr_picture_line">#55617F</color>
     <color name="ocr_tag_dark">#BF000000</color>
     <color name="ocr_highlight">#806B4E00</color>
-    <color name="scan_board">#2A2E38</color>
-    <color name="reader_bg">#101217</color>
+    <color name="scan_board">#222B45</color>
+    <color name="reader_bg">#0B0F1B</color>
+
+    <!-- Floating bottom bar: a step lighter than the cards, with a light rim -->
+    <color name="color_nav_bar">#26304F</color>
+    <color name="color_nav_stroke">#3A4870</color>
+    <color name="color_nav_shadow">#FF000000</color>
+    <color name="color_nav_selected">#34509A</color>
 </resources>

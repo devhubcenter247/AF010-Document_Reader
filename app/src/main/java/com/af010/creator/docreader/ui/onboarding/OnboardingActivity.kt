@@ -42,7 +42,6 @@ class OnboardingActivity : BaseAppActivity<ActivityOnboardingBinding>(ActivityOn
     }
 
     override fun ActivityOnboardingBinding.onClick() {
-        btnSkip.clickSingle { openWelcome() }
         btnNext.clickSingle {
             if (isLast) openWelcome() else viewPager.setCurrentItem(viewPager.currentItem + 1, true)
         }
@@ -54,7 +53,6 @@ class OnboardingActivity : BaseAppActivity<ActivityOnboardingBinding>(ActivityOn
         tvTitle.setText(slide.title)
         tvSubtitle.setText(slide.body)
         btnNext.setText(if (position == slides.lastIndex) R.string.fo_lets_get_started else R.string.next)
-        btnSkip.visibility = if (position == slides.lastIndex) View.INVISIBLE else View.VISIBLE
         drawBars(position)
     }
 

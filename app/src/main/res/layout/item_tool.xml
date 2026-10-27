@@ -1,40 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- A Toolbox card: the tool's picture, its name and what it does, and a Pro tag for Premium tools. -->
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:clipToPadding="false"
-    android:padding="@dimen/_4sdp">
+    android:padding="@dimen/_5sdp">
 
     <LinearLayout
         android:id="@+id/card"
         style="@style/FloatingCard"
         android:layout_width="match_parent"
-        android:elevation="@dimen/_2sdp"
         android:layout_height="wrap_content"
+        android:background="@drawable/bg_tool_card"
+        android:clipToOutline="true"
+        android:elevation="@dimen/_4sdp"
+        android:outlineAmbientShadowColor="@color/color_tool_card_shadow"
+        android:outlineSpotShadowColor="@color/color_tool_card_shadow"
         android:foreground="?attr/selectableItemBackground"
         android:gravity="center_vertical"
         android:minHeight="@dimen/_58sdp"
         android:orientation="horizontal"
-        android:paddingVertical="@dimen/_8sdp"
+        android:paddingVertical="@dimen/_7sdp"
         android:paddingStart="@dimen/_9sdp"
         android:paddingEnd="@dimen/_8sdp">
 
         <ImageView
             android:id="@+id/ivIcon"
-            android:layout_width="@dimen/_32sdp"
-            android:layout_height="40dp"
+            android:layout_width="@dimen/_36sdp"
+            android:layout_height="@dimen/_36sdp"
             android:importantForAccessibility="no"
-            android:padding="@dimen/_8sdp"
-            tools:background="@drawable/bg_tool_glyph"
-            tools:src="@drawable/ic_fo_scan" />
+            android:scaleType="fitCenter"
+            tools:src="@drawable/ic_tool_scan" />
 
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_8sdp"
-            android:layout_marginEnd="@dimen/_10sdp"
             android:layout_weight="1"
             android:orientation="vertical">
 
@@ -42,11 +44,11 @@
                 android:id="@+id/tvTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ellipsize="marquee"
-                android:marqueeRepeatLimit="marquee_forever"
-                android:singleLine="true"
+                android:autoSizeMaxTextSize="@dimen/_11sdp"
+                android:autoSizeMinTextSize="@dimen/_9sdp"
+                android:autoSizeTextType="uniform"
                 android:fontFamily="@font/nunito_700"
-                android:lineSpacingMultiplier="0.95"
+                android:maxLines="1"
                 android:textColor="@color/text_primary"
                 android:textSize="@dimen/_11sdp"
                 tools:text="Scan" />
@@ -55,30 +57,35 @@
                 android:id="@+id/tvDesc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ellipsize="marquee"
-                android:marqueeRepeatLimit="marquee_forever"
-                android:singleLine="true"
                 android:layout_marginTop="@dimen/_1sdp"
+                android:ellipsize="end"
                 android:fontFamily="@font/nunito_500"
+                android:maxLines="2"
                 android:textColor="@color/text_secondary"
-                android:textSize="@dimen/_10sdp"
+                android:textSize="@dimen/_9sdp"
                 tools:text="Paper to PDF" />
         </LinearLayout>
     </LinearLayout>
 
-    <ImageView
-        android:id="@+id/ivPremium"
-        android:layout_width="@dimen/_17sdp"
-        android:layout_height="@dimen/_17sdp"
+    <TextView
+        android:id="@+id/tvPremium"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/_14sdp"
         android:layout_gravity="top|end"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:layout_marginEnd="@dimen/_10sdp"
-        android:background="@drawable/bg_circle_pro"
-        android:contentDescription="@string/fo_pro_name"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:layout_marginEnd="@dimen/_8sdp"
+        android:background="@drawable/bg_badge"
+        android:backgroundTint="@color/color_pro_bg"
         android:elevation="@dimen/_4sdp"
+        android:fontFamily="@font/nunito_800"
+        android:gravity="center"
+        android:includeFontPadding="false"
         android:outlineProvider="none"
-        android:padding="@dimen/_3sdp"
-        android:src="@drawable/ic_fo_crown"
+        android:paddingHorizontal="@dimen/_5sdp"
+        android:text="@string/fo_pro"
+        android:textAllCaps="true"
+        android:textColor="@color/color_warning"
+        android:textSize="@dimen/_9sdp"
         android:visibility="gone"
-        app:tint="@color/color_premium_gold" />
+        tools:visibility="visible" />
 </FrameLayout>

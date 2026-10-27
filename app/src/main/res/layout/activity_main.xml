@@ -37,11 +37,11 @@
         android:layout_marginEnd="@dimen/_8sdp"
         android:layout_marginBottom="@dimen/_17sdp"
         android:background="@drawable/bg_nav_bar"
-        android:elevation="@dimen/_8sdp"
+        android:elevation="@dimen/_12sdp"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:outlineAmbientShadowColor="@color/color_shadow"
-        android:outlineSpotShadowColor="@color/color_shadow"
+        android:outlineAmbientShadowColor="@color/color_nav_shadow"
+        android:outlineSpotShadowColor="@color/color_nav_shadow"
         android:paddingHorizontal="@dimen/_5sdp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btnCreate"
@@ -51,27 +51,39 @@
             android:id="@+id/tabFiles"
             style="@style/NavTab">
 
-            <ImageView style="@style/NavTabIcon" android:src="@drawable/ic_fo_folder" />
+            <ImageView
+                style="@style/NavTabIcon"
+                android:src="@drawable/ic_fo_folder" />
 
-            <TextView style="@style/NavTabLabel" android:text="@string/files" />
+            <TextView
+                style="@style/NavTabLabel"
+                android:text="@string/files" />
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/tabTools"
             style="@style/NavTab">
 
-            <ImageView style="@style/NavTabIcon" android:src="@drawable/ic_fo_tools" />
+            <ImageView
+                style="@style/NavTabIcon"
+                android:src="@drawable/ic_fo_tools" />
 
-            <TextView style="@style/NavTabLabel" android:text="@string/tools" />
+            <TextView
+                style="@style/NavTabLabel"
+                android:text="@string/tools" />
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/tabSettings"
             style="@style/NavTab">
 
-            <ImageView style="@style/NavTabIcon" android:src="@drawable/ic_fo_settings" />
+            <ImageView
+                style="@style/NavTabIcon"
+                android:src="@drawable/ic_fo_settings" />
 
-            <TextView style="@style/NavTabLabel" android:text="@string/settings" />
+            <TextView
+                style="@style/NavTabLabel"
+                android:text="@string/settings" />
         </LinearLayout>
     </LinearLayout>
 
