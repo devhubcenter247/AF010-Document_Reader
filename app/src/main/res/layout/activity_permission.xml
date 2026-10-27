@@ -107,10 +107,14 @@
         android:paddingHorizontal="@dimen/_15sdp"
         android:paddingBottom="@dimen/_6sdp">
 
+        <!-- The three points as one card with hairlines between them -->
         <LinearLayout
+            style="@style/HomeCard"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:divider="@drawable/bg_point_divider"
+            android:orientation="vertical"
+            android:showDividers="middle">
 
             <include
                 android:id="@+id/pointList"
@@ -118,17 +122,11 @@
 
             <include
                 android:id="@+id/pointPrivate"
-                layout="@layout/layout_point_card"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_8sdp" />
+                layout="@layout/layout_point_card" />
 
             <include
                 android:id="@+id/pointInPlace"
-                layout="@layout/layout_point_card"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_8sdp" />
+                layout="@layout/layout_point_card" />
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 

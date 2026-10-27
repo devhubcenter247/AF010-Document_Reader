@@ -1,17 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- One choice of a tool: radio, title, a line under it, and an optional badge at the end.
-     Picked = selected state (bg_option_card, bg_radio). -->
+<!-- One choice of a tool, a flat row of an OptionGroup card: radio, title, a line under it, and an
+     optional badge at the end. Picked = selected state (bg_list_row, bg_radio). -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/bg_option_card"
-    android:elevation="@dimen/_3sdp"
+    android:background="@drawable/bg_list_row"
     android:gravity="center_vertical"
     android:minHeight="@dimen/_52sdp"
     android:orientation="horizontal"
-    android:outlineAmbientShadowColor="@color/color_shadow"
-    android:outlineSpotShadowColor="@color/color_shadow"
     android:paddingHorizontal="@dimen/_12sdp"
     android:paddingVertical="@dimen/_9sdp">
 

@@ -128,8 +128,6 @@
                 android:layout_marginHorizontal="@dimen/_15sdp"
                 android:layout_marginTop="@dimen/_14sdp"
                 android:layout_marginBottom="@dimen/_6sdp"
-                android:background="@drawable/bg_rounded_panel"
-                android:backgroundTint="@color/color_surface_card"
                 android:orientation="vertical"
                 android:paddingHorizontal="@dimen/_12sdp"
                 android:paddingVertical="@dimen/_6sdp">

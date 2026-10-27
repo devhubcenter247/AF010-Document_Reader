@@ -13,8 +13,6 @@
         style="@style/FloatingCard"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_58sdp"
-        android:background="@drawable/bg_rounded_panel"
-        android:backgroundTint="@color/color_surface_card"
         android:foreground="?attr/selectableItemBackground"
         android:gravity="center"
         android:orientation="vertical">

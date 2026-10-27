@@ -151,8 +151,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/_15sdp"
                 android:layout_marginTop="@dimen/_14sdp"
-                android:background="@drawable/bg_rounded_panel"
-                android:backgroundTint="@color/color_surface_card"
                 android:orientation="vertical"
                 android:padding="@dimen/_12sdp">
 
@@ -175,10 +173,10 @@
                             android:gravity="center"
                             android:importantForAccessibility="no"
                             android:maxLines="1"
+                            android:textColor="@color/on_primary"
                             android:textSize="@dimen/_9sdp"
-                            tools:backgroundTint="@color/color_file_pdf_bg"
-                            tools:text="PDF"
-                            tools:textColor="@color/color_file_pdf" />
+                            tools:backgroundTint="@color/color_file_pdf"
+                            tools:text="PDF" />
 
                         <ImageView
                             android:id="@+id/ivThumb"

@@ -1,19 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- A file in the Merge or ZIP list. Merge shows its place, a move-up button and the drag handle;
-     ZIP shows its type tile and a remove button. FileRowAdapter picks the pieces. -->
+     ZIP shows its type tile and a remove button. FileRowAdapter picks the pieces. Flat: the list is one
+     card; the row being dragged is activated (bg_list_row). -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="@dimen/_8sdp"
-    android:background="@drawable/bg_card"
-    android:elevation="@dimen/_3sdp"
+    android:background="@drawable/bg_list_row"
     android:gravity="center_vertical"
     android:minHeight="@dimen/_52sdp"
     android:orientation="horizontal"
-    android:outlineAmbientShadowColor="@color/color_shadow"
-    android:outlineSpotShadowColor="@color/color_shadow"
     android:paddingVertical="@dimen/_6sdp"
     android:paddingStart="@dimen/_10sdp"
     android:paddingEnd="@dimen/_5sdp">

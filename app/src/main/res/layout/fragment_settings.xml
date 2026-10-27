@@ -5,24 +5,66 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/color_bg_app"
+    android:clipChildren="false"
     android:clipToPadding="false"
     android:paddingBottom="@dimen/_100sdp"
     tools:context=".ui.main.settings.SettingsFragment">
 
     <LinearLayout
+        android:clipChildren="false"
         android:clipToPadding="false"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:paddingHorizontal="@dimen/_15sdp">
 
-        <TextView
-            style="@style/DisplayTitle"
-            android:layout_width="wrap_content"
+        <!-- Header in the Files and Tools style: the mascot, the title and the app's version -->
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
             android:paddingTop="@dimen/_8sdp"
-            android:paddingBottom="@dimen/_11sdp"
-            android:text="@string/settings" />
+            android:paddingBottom="@dimen/_12sdp">
+
+            <FrameLayout
+                android:layout_width="@dimen/_38sdp"
+                android:layout_height="@dimen/_38sdp"
+                android:background="@drawable/bg_mascot_tile"
+                android:rotation="-6">
+
+                <ImageView
+                    android:layout_width="@dimen/_22sdp"
+                    android:layout_height="@dimen/_28sdp"
+                    android:layout_gravity="center"
+                    android:importantForAccessibility="no"
+                    android:src="@drawable/ic_mascot_smile_ink" />
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/DisplayTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/settings" />
+
+                <TextView
+                    android:id="@+id/tvVersion"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nunito_500"
+                    android:maxLines="1"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="@dimen/_11sdp"
+                    tools:text="Folio 1.0.0 (1) · Made with care" />
+            </LinearLayout>
+        </LinearLayout>
 
         <!-- Free plan: the Pro offer -->
         <FrameLayout
@@ -103,19 +145,35 @@
             </LinearLayout>
         </FrameLayout>
 
-        <TextView
-            style="@style/SectionHeading"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="@dimen/_17sdp"
-            android:paddingBottom="@dimen/_8sdp"
-            android:text="@string/fo_make_it_yours" />
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="@dimen/_2sdp"
+            android:paddingTop="@dimen/_6sdp"
+            android:paddingBottom="@dimen/_8sdp">
+
+            <View
+                android:layout_width="@dimen/_10sdp"
+                android:layout_height="@dimen/_10sdp"
+                android:background="@drawable/bg_letter_badge"
+                android:backgroundTint="@color/primary" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_7sdp"
+                android:fontFamily="@font/nunito_700"
+                android:text="@string/fo_make_it_yours"
+                android:textColor="@color/text_primary"
+                android:textSize="@dimen/_14sdp" />
+        </LinearLayout>
 
         <LinearLayout
-            style="@style/FloatingCard"
+            style="@style/HomeCard"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/bg_benefits_card"
             android:clipToOutline="true"
             android:orientation="vertical"
             android:paddingHorizontal="@dimen/_6sdp"
@@ -127,9 +185,10 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_2sdp"
-                android:layout_marginHorizontal="@dimen/_6sdp"
-                android:background="@drawable/line_dashed" />
+                android:layout_height="1dp"
+                android:layout_marginStart="@dimen/_46sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:background="@color/color_stroke" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -194,57 +253,82 @@
                         layout="@layout/layout_theme_option" />
                 </LinearLayout>
             </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_2sdp"
-                android:layout_marginHorizontal="@dimen/_6sdp"
-                android:background="@drawable/line_dashed" />
-
-            <include
-                android:id="@+id/rowUseCases"
-                layout="@layout/layout_settings_row" />
         </LinearLayout>
 
+        <!-- Rating: the mascot asks, five stars answer -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_11sdp"
+            android:layout_marginTop="@dimen/_12sdp"
             android:background="@drawable/bg_rate_card"
-            android:gravity="center_horizontal"
-            android:orientation="vertical"
-            android:padding="@dimen/_12sdp">
+            android:clipChildren="false"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingVertical="@dimen/_11sdp"
+            android:paddingStart="@dimen/_12sdp"
+            android:paddingEnd="@dimen/_6sdp">
 
-            <TextView
-                android:id="@+id/tvRate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/nunito_700"
-                android:text="@string/fo_rate_0"
-                android:textColor="@color/text_primary"
-                android:textSize="@dimen/_12sdp" />
+            <ImageView
+                android:layout_width="@dimen/_38sdp"
+                android:layout_height="@dimen/_48sdp"
+                android:importantForAccessibility="no"
+                android:rotation="-6"
+                android:src="@drawable/ic_mascot_smile" />
 
             <LinearLayout
-                android:id="@+id/layoutStars"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_3sdp"
-                android:orientation="horizontal" />
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvRate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_7sdp"
+                    android:fontFamily="@font/nunito_700"
+                    android:text="@string/fo_rate_0"
+                    android:textColor="@color/text_primary"
+                    android:textSize="@dimen/_12sdp" />
+
+                <LinearLayout
+                    android:id="@+id/layoutStars"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" />
+            </LinearLayout>
         </LinearLayout>
 
-        <TextView
-            style="@style/SectionHeading"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="@dimen/_17sdp"
-            android:paddingBottom="@dimen/_8sdp"
-            android:text="@string/fo_about" />
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="@dimen/_2sdp"
+            android:paddingTop="@dimen/_16sdp"
+            android:paddingBottom="@dimen/_8sdp">
+
+            <View
+                android:layout_width="@dimen/_10sdp"
+                android:layout_height="@dimen/_10sdp"
+                android:background="@drawable/bg_letter_badge"
+                android:backgroundTint="@color/color_file_image" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_7sdp"
+                android:fontFamily="@font/nunito_700"
+                android:text="@string/fo_about"
+                android:textColor="@color/text_primary"
+                android:textSize="@dimen/_14sdp" />
+        </LinearLayout>
 
         <LinearLayout
-            style="@style/FloatingCard"
+            style="@style/HomeCard"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/bg_benefits_card"
             android:clipToOutline="true"
             android:orientation="vertical"
             android:paddingHorizontal="@dimen/_6sdp"
@@ -256,24 +340,14 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_2sdp"
-                android:layout_marginHorizontal="@dimen/_6sdp"
-                android:background="@drawable/line_dashed" />
+                android:layout_height="1dp"
+                android:layout_marginStart="@dimen/_46sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:background="@color/color_stroke" />
 
             <include
                 android:id="@+id/rowShare"
                 layout="@layout/layout_settings_row" />
         </LinearLayout>
-
-        <TextView
-            android:id="@+id/tvVersion"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/nunito_600"
-            android:gravity="center"
-            android:paddingTop="@dimen/_11sdp"
-            android:textColor="@color/text_secondary"
-            android:textSize="@dimen/_10sdp"
-            tools:text="Folio 1.0.0 (1) · Made with care" />
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>

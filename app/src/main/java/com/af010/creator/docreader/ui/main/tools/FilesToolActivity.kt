@@ -11,6 +11,7 @@ import com.af010.creator.docreader.base.BaseAppActivity
 import com.af010.creator.docreader.databinding.ActivityToolFilesBinding
 import com.af010.creator.docreader.model.Tool
 import com.af010.creator.docreader.model.ToolRequest
+import com.af010.creator.docreader.ui.main.common.RowDivider
 import com.af010.creator.docreader.ui.main.tools.pick.PickFileActivity
 import com.af010.creator.docreader.ui.main.tools.result.ProcessingActivity
 import com.ui.baselib.extensions.afterTextChanged
@@ -88,6 +89,8 @@ abstract class FilesToolActivity :
         tvExtension.text = getString(R.string.file_extension, extension)
         action.btnAction.setIconResource(actionIcon)
         rcvFiles.adapter = fileAdapter
+        // Merge rows lead with their number, ZIP rows with the type tile.
+        rcvFiles.addItemDecoration(RowDivider(if (ordered) com.intuit.sdp.R.dimen._44sdp else com.intuit.sdp.R.dimen._50sdp))
         if (ordered) ItemTouchHelper(dragCallback).attachToRecyclerView(rcvFiles)
         setFiles(files)
     }
@@ -153,8 +156,15 @@ abstract class FilesToolActivity :
             files.getOrNull(viewHolder.bindingAdapterPosition)?.let { setFiles(files - it) }
         }
 
+        override fun onSelectedChanged(viewHolder: RecyclerView.ViewHolder?, actionState: Int) {
+            super.onSelectedChanged(viewHolder, actionState)
+            // The row being dragged gets the picked pill, so it covers the rows it passes over.
+            if (actionState == ItemTouchHelper.ACTION_STATE_DRAG) viewHolder?.itemView?.isActivated = true
+        }
+
         override fun clearView(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder) {
             super.clearView(recyclerView, viewHolder)
+            viewHolder.itemView.isActivated = false
             // The numbers follow the new order.
             refreshRows()
         }

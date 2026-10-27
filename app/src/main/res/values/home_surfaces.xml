@@ -10,4 +10,12 @@
         <item name="android:outlineAmbientShadowColor">@color/color_home_card_shadow</item>
         <item name="android:outlineSpotShadowColor">@color/color_home_card_shadow</item>
     </style>
+
+    <!-- A tool's choices (layout_option rows) as one card with hairlines between them. -->
+    <style name="OptionGroup" parent="HomeCard">
+        <item name="android:orientation">vertical</item>
+        <item name="android:clipToOutline">true</item>
+        <item name="android:showDividers">middle</item>
+        <item name="android:divider">@drawable/bg_option_divider</item>
+    </style>
 </resources>

@@ -21,23 +21,18 @@ import com.ui.baselib.base.DiffAdapter
 enum class RowEnd { Options, Open, Nothing }
 
 /**
- * Document rows as floating cards: the type tile, name and details, then [end]. [flat] rows have no
- * card of their own, for a list that sits in one card (the Files tab).
+ * Document rows: the type tile, name and details, then [end]. Rows are flat, for a list drawn as one
+ * card (a `HomeCard` list with [com.af010.creator.docreader.ui.main.common.RowDivider], or
+ * [com.af010.creator.docreader.ui.main.common.CardGroupDecoration]).
  */
 class DocumentAdapter(
-    private val end: RowEnd = RowEnd.Options,
-    private val flat: Boolean = false
+    private val end: RowEnd = RowEnd.Options
 ) : DiffAdapter<RecentUi, ItemDocumentBinding>(
     areItemsTheSame = { old, new -> old.document.mediaId == new.document.mediaId },
     areContentsTheSame = { old, new -> old.sameContent(new) }
 ) {
     override fun createBinding(inflater: LayoutInflater, parent: ViewGroup, viewType: Int) =
-        ItemDocumentBinding.inflate(inflater, parent, false).apply {
-            if (!flat) return@apply
-            root.background = null
-            root.elevation = 0f
-            (root.layoutParams as ViewGroup.MarginLayoutParams).bottomMargin = 0
-        }
+        ItemDocumentBinding.inflate(inflater, parent, false)
 
     private var onItemClick: (RecentUi) -> Unit = {}
     private var onItemLongClick: (RecentUi) -> Unit = {}
@@ -47,7 +42,7 @@ class DocumentAdapter(
     fun onDocumentLongClick(listener: (RecentUi) -> Unit) = apply { onItemLongClick = listener }
     fun onMoreClick(listener: (RecentUi) -> Unit) = apply { onItemMoreClick = listener }
 
-    /** Multi-select: a tick box leads each row and picked rows are ringed. */
+    /** Multi-select: a tick box leads each row and picked rows are tinted. */
     var selectionMode = false
 
     var selectedIds: Set<Long> = emptySet()

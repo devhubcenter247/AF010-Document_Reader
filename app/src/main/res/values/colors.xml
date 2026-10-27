@@ -61,6 +61,7 @@
     <color name="color_white_55">#8CFFFFFF</color>
     <color name="color_white_20">#33FFFFFF</color>
     <color name="color_on_primary_soft">#E3ECFF</color>
+    <color name="color_row_picked">#EAF1FF</color> <!-- Dòng đang chọn trong danh sách một card -->
     <color name="color_on_pdf_soft">#FFE1E1</color>
     <color name="color_danger_soft">#FFB4A8</color>
     <color name="color_ink_bar">#204EC8</color>

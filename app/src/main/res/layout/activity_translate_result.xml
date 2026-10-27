@@ -29,8 +29,6 @@
         android:layout_height="0dp"
         android:layout_marginHorizontal="@dimen/_15sdp"
         android:layout_weight="1"
-        android:background="@drawable/bg_rounded_panel"
-        android:backgroundTint="@color/color_surface_card"
         android:clipToOutline="true"
         android:overScrollMode="never">
 

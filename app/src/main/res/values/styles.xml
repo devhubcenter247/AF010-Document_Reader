@@ -99,10 +99,10 @@
 
     <!-- Folio: the white floating card used for rows and options -->
     <style name="FloatingCard">
-        <item name="android:background">@drawable/bg_card</item>
-        <item name="android:elevation">@dimen/_2sdp</item>
-        <item name="android:outlineSpotShadowColor">@color/color_shadow</item>
-        <item name="android:outlineAmbientShadowColor">@color/color_shadow</item>
+        <item name="android:background">@drawable/bg_home_card</item>
+        <item name="android:elevation">@dimen/_3sdp</item>
+        <item name="android:outlineSpotShadowColor">@color/color_home_card_shadow</item>
+        <item name="android:outlineAmbientShadowColor">@color/color_home_card_shadow</item>
     </style>
 
     <!-- Folio: one option of a segmented control (layout_segment.xml) -->
@@ -410,8 +410,8 @@
     <style name="FloatBar">
         <item name="android:background">@drawable/bg_float_card</item>
         <item name="android:elevation">@dimen/_8sdp</item>
-        <item name="android:outlineSpotShadowColor">@color/color_shadow</item>
-        <item name="android:outlineAmbientShadowColor">@color/color_shadow</item>
+        <item name="android:outlineSpotShadowColor">@color/color_home_card_shadow</item>
+        <item name="android:outlineAmbientShadowColor">@color/color_home_card_shadow</item>
     </style>
     <style name="ReaderBarIcon">
         <item name="android:layout_width">@dimen/_34sdp</item>

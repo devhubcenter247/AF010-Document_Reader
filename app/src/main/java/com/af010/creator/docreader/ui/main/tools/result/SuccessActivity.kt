@@ -2,15 +2,10 @@ package com.af010.creator.docreader.ui.main.tools.result
 
 import android.content.Context
 import android.content.Intent
-import android.content.res.ColorStateList
 import android.media.MediaScannerConnection
 import androidx.core.view.isVisible
 import com.af010.creator.docreader.model.RecentDocument
 import com.af010.creator.docreader.ui.dialog.RenameDialog
-import com.af010.creator.docreader.utils.AppUtils
-import com.af010.creator.docreader.utils.extensions.colorRes
-import com.af010.creator.docreader.utils.extensions.softColorRes
-import java.util.Locale
 import android.text.format.Formatter
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -22,7 +17,7 @@ import com.af010.creator.docreader.databinding.ActivitySuccessBinding
 import com.af010.creator.docreader.databinding.ItemNextToolBinding
 import com.af010.creator.docreader.model.Tool
 import com.af010.creator.docreader.model.ToolResult
-import com.af010.creator.docreader.ui.common.showToolTile
+import com.af010.creator.docreader.ui.common.showTypeTile
 import com.af010.creator.docreader.ui.main.reader.office.OfficeActivity
 import com.af010.creator.docreader.ui.main.reader.pdf.PdfReaderActivity
 import com.af010.creator.docreader.ui.main.tools.isImage
@@ -85,10 +80,7 @@ class SuccessActivity : BaseAppActivity<ActivitySuccessBinding>(ActivitySuccessB
         // A picture shows itself rather than a tile.
         ivThumb.isVisible = first.isImage
         if (first.isImage) Glide.with(this@SuccessActivity).load(first).into(ivThumb)
-        val type = AppUtils.documentTypeOf(first)
-        tvType.text = first.extension.uppercase(Locale.ROOT).take(4)
-        tvType.backgroundTintList = ColorStateList.valueOf(getColor(type?.softColorRes ?: R.color.color_file_zip_bg))
-        tvType.setTextColor(getColor(type?.colorRes ?: R.color.color_file_zip))
+        tvType.showTypeTile(first)
         tvName.text = if (outputs.size > 1) resources.getQuantityString(R.plurals.file_count, outputs.size, outputs.size) else first.name
         tvName.isSelected = true
         tvMeta.text = getString(R.string.document_meta, sizeText, getString(R.string.fo_saved_place))
@@ -152,7 +144,7 @@ class SuccessActivity : BaseAppActivity<ActivitySuccessBinding>(ActivitySuccessB
         }
 
         override fun ItemNextToolBinding.bind(item: Tool, position: Int) {
-            ivIcon.showToolTile(item)
+            ivIcon.setImageResource(item.art)
             tvTitle.setText(item.title)
             tvTitle.isSelected = true
             card.setOnClickListener { onItemClick.invoke(item) }

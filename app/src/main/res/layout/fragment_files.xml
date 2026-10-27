@@ -97,7 +97,8 @@
                 android:id="@+id/layoutHome"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:paddingBottom="@dimen/_12sdp">
 
                 <!-- The two halves of the app side by side: read what is on the phone, or make something -->
                 <LinearLayout

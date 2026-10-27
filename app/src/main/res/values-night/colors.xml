@@ -26,6 +26,7 @@
     <color name="color_chip_picked">#EEF3FF</color>
     <color name="color_on_chip_picked">#14192B</color>
     <color name="color_on_primary_soft">#C9DAFF</color>
+    <color name="color_row_picked">#24335A</color>
 
     <color name="color_file_pdf">#F2566A</color>
     <color name="color_file_word">#4C86FF</color>

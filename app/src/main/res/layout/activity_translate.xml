@@ -39,9 +39,7 @@
                 style="@style/FloatingCard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_11sdp"
-                android:background="@drawable/bg_rounded_panel"
-                android:backgroundTint="@color/color_surface_card">
+                android:layout_marginTop="@dimen/_11sdp">
 
                 <LinearLayout
                     android:layout_width="match_parent"

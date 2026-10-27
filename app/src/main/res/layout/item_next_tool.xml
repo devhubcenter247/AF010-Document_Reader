@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- A tool to run next on the new file: its tile and name on a white card. -->
+<!-- A tool to run next on the new file: its picture (Tool.art, as on the Tools tab) and name on a card. -->
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:clipToPadding="false"
@@ -11,19 +11,18 @@
         android:id="@+id/card"
         style="@style/FloatingCard"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_60sdp"
-        android:background="@drawable/bg_rounded_panel"
-        android:backgroundTint="@color/color_surface_card"
+        android:layout_height="@dimen/_72sdp"
         android:foreground="?attr/selectableItemBackground"
         android:gravity="center"
         android:orientation="vertical">
 
         <ImageView
             android:id="@+id/ivIcon"
-            android:layout_width="@dimen/_29sdp"
-            android:layout_height="@dimen/_29sdp"
+            android:layout_width="@dimen/_36sdp"
+            android:layout_height="@dimen/_36sdp"
             android:importantForAccessibility="no"
-            tools:src="@drawable/ic_fo_sign" />
+            android:scaleType="fitCenter"
+            tools:src="@drawable/ic_tool_sign" />
 
         <TextView
             android:id="@+id/tvTitle"

@@ -12,6 +12,7 @@ import com.af010.creator.docreader.base.BaseAppActivity
 import com.af010.creator.docreader.databinding.ActivityPickFileBinding
 import com.af010.creator.docreader.model.DocumentType
 import com.af010.creator.docreader.model.Tool
+import com.af010.creator.docreader.ui.main.common.CardGroupDecoration
 import com.af010.creator.docreader.ui.main.common.isNoAccess
 import com.af010.creator.docreader.ui.main.common.show
 import com.af010.creator.docreader.ui.main.common.showNoAccess
@@ -84,6 +85,7 @@ class PickFileActivity : BaseAppActivity<ActivityPickFileBinding>(ActivityPickFi
         edtSearch.setHint(if (pdfOnly) R.string.fo_search_your_pdfs else R.string.fo_search_your_files)
         viewModel.setSearchScope(SearchScope.FileName)
         rcvDocuments.adapter = fileAdapter
+        rcvDocuments.addItemDecoration(CardGroupDecoration())
 
         viewModel.documents.mainCollect { response ->
             noAccess = response.isNoAccess

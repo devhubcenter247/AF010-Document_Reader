@@ -43,7 +43,6 @@ class SettingsFragment : BaseAppFragment<FragmentSettingsBinding>(FragmentSettin
     override fun FragmentSettingsBinding.initView() {
         cardPremium.isVisible = remoteConfig.paywallEnabled
         rowLanguage.describe(R.drawable.ic_fo_globe, R.color.primary, R.string.language)
-        rowUseCases.describe(R.drawable.ic_fo_heart, R.color.color_file_pdf, R.string.fo_i_use_for)
         rowPrivacy.describe(R.drawable.ic_fo_shield, R.color.color_file_excel, R.string.privacy_policy)
         rowShare.describe(R.drawable.ic_fo_share, R.color.color_file_powerpoint, R.string.fo_tell_a_friend)
         rowPrivacy.tvValue.isVisible = false
@@ -68,7 +67,6 @@ class SettingsFragment : BaseAppFragment<FragmentSettingsBinding>(FragmentSettin
         cardPremium.clickSingle { PaywallActivity.start(requireActivity()) }
         btnTrial.clickSingle { PaywallActivity.start(requireActivity()) }
         rowLanguage.root.clickSingle { launchActivity<LanguageActivity>() }
-        rowUseCases.root.clickSingle { launchActivity<WelcomeActivity>() }
         rowPrivacy.root.clickSingle { appContext().openUrl(Aso.POLICY_LINK) }
         rowShare.root.clickSingle { appContext().shareApp() }
     }
@@ -80,7 +78,6 @@ class SettingsFragment : BaseAppFragment<FragmentSettingsBinding>(FragmentSettin
 
     private fun FragmentSettingsBinding.showPreferences() {
         rowLanguage.tvValue.text = listLanguage.firstOrNull { it.code == preferenceHelper.languageSelected }?.name.orEmpty()
-        rowUseCases.tvValue.text = UseCase.of(preferenceHelper.useCases).joinToString { getString(it.title) }
         selectTheme(preferenceHelper.themeMode)
     }
 

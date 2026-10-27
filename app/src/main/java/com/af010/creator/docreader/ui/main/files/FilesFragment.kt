@@ -6,12 +6,9 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.ColorRes
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
-import android.graphics.Canvas
-import android.graphics.Paint
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.core.widget.TextViewCompat
-import androidx.recyclerview.widget.RecyclerView
 import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
 import com.af010.creator.docreader.R
@@ -26,6 +23,7 @@ import com.af010.creator.docreader.databinding.LayoutQuickTileBinding
 import com.af010.creator.docreader.databinding.LayoutStartTileBinding
 import com.af010.creator.docreader.databinding.LayoutTypeCountBinding
 import com.af010.creator.docreader.model.DocumentType
+import com.af010.creator.docreader.ui.main.common.RowDivider
 import com.af010.creator.docreader.model.StorageTab
 import com.af010.creator.docreader.model.Tool
 import com.af010.creator.docreader.ui.common.showToolTile
@@ -55,7 +53,7 @@ class FilesFragment : BaseAppFragment<FragmentFilesBinding>(FragmentFilesBinding
 
     private val viewModel: DocumentsViewModel by viewModel()
     private val repository: DocumentRepository by inject()
-    private val recent = DocumentAdapter(RowEnd.Options, flat = true)
+    private val recent = DocumentAdapter(RowEnd.Options)
     private val documentActions by lazy { DocumentActions(requireActivity(), viewModel) }
 
     private val permissionRequester = StoragePermissionRequester(this) { viewModel.refresh() }
@@ -322,20 +320,3 @@ class FilesFragment : BaseAppFragment<FragmentFilesBinding>(FragmentFilesBinding
 }
 
 private class TypeTile(val type: DocumentType, val letter: String, @param:StringRes val name: Int)
-
-/** Hairlines between the rows of the recent list, from the name's start to the card's end. */
-private class RowDivider : RecyclerView.ItemDecoration() {
-    private val paint = Paint()
-
-    override fun onDraw(canvas: Canvas, parent: RecyclerView, state: RecyclerView.State) {
-        val context = parent.context
-        paint.color = ContextCompat.getColor(context, R.color.color_stroke)
-        val height = context.resources.getDimension(com.intuit.sdp.R.dimen._1sdp)
-        val start = context.resources.getDimension(com.intuit.sdp.R.dimen._53sdp)
-        for (i in 0 until parent.childCount - 1) {
-            val child = parent.getChildAt(i)
-            val y = child.bottom + child.translationY
-            canvas.drawRect(start, y - height, parent.width.toFloat(), y, paint)
-        }
-    }
-}

@@ -100,8 +100,6 @@
                     android:layout_height="@dimen/_135sdp"
                     android:layout_gravity="end|center_vertical"
                     android:layout_marginEnd="@dimen/_20sdp"
-                    android:background="@drawable/bg_rounded_panel"
-                    android:backgroundTint="@color/color_surface_card"
                     android:rotation="4">
 
                     <ImageView

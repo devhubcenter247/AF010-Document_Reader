@@ -133,26 +133,28 @@
                 </LinearLayout>
             </LinearLayout>
 
-            <include
-                android:id="@+id/optionLow"
-                layout="@layout/layout_option"
+            <LinearLayout
+                style="@style/OptionGroup"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_11sdp" />
+                android:layout_marginTop="@dimen/_11sdp">
 
-            <include
-                android:id="@+id/optionMedium"
-                layout="@layout/layout_option"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_8sdp" />
-
-            <include
-                android:id="@+id/optionHigh"
-                layout="@layout/layout_option"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_8sdp" />
+                <include
+                    android:id="@+id/optionLow"
+                    layout="@layout/layout_option"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <include
+                    android:id="@+id/optionMedium"
+                    layout="@layout/layout_option"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <include
+                    android:id="@+id/optionHigh"
+                    layout="@layout/layout_option"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
