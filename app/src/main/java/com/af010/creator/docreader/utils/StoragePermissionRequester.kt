@@ -10,6 +10,8 @@ import android.provider.Settings
 import androidx.activity.result.ActivityResultCaller
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
+import com.af010.creator.docreader.R
+import com.af010.creator.docreader.ui.dialog.MessageDialog
 
 /**
  * Asks for the file access the app needs: "All files access" on Android 11+, read/write
@@ -34,7 +36,7 @@ class StoragePermissionRequester(
         // The system no longer asks (denied twice): only the app's settings can grant it.
         val blocked = activity != null && !AppUtils.hasStoragePermission(activity) &&
                 !couldAskAgain && !canAskAgain(activity)
-        if (activity != null && blocked) openAppSettings(activity) else onResult()
+        if (activity != null && blocked) showSettingsGuide(activity) else onResult()
     }
 
     private var requestedFrom: Activity? = null
@@ -69,6 +71,21 @@ class StoragePermissionRequester(
     private fun canAskAgain(activity: Activity) = ActivityCompat.shouldShowRequestPermissionRationale(
         activity, Manifest.permission.READ_EXTERNAL_STORAGE
     )
+
+    /** Tells where access is turned on before leaving for the app's settings; [onResult] on Not now. */
+    private fun showSettingsGuide(activity: Activity) {
+        var opening = false
+        MessageDialog(
+            activity, R.string.fo_storage_blocked_title, R.string.fo_storage_blocked_message,
+            R.string.fo_open_settings, R.string.fo_not_now
+        ) {
+            opening = true
+            openAppSettings(activity)
+        }.apply {
+            // Posted by the dialog, so it runs after the confirm callback.
+            setOnDismissListener { if (!opening) onResult() }
+        }.show()
+    }
 
     private fun openAppSettings(activity: Activity) {
         manageStorageLauncher.launch(

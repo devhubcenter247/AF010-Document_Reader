@@ -3,6 +3,7 @@ package com.af010.creator.docreader.ui.language
 import android.content.Intent
 import android.content.res.Resources
 import androidx.recyclerview.widget.SimpleItemAnimator
+import com.af010.creator.docreader.R
 import com.af010.creator.docreader.base.BaseAppActivity
 import com.af010.creator.docreader.databinding.ActivityLanguageBinding
 import com.af010.creator.docreader.ui.main.common.CardGroupDecoration
@@ -26,9 +27,14 @@ class LanguageActivity :
     override fun initialize() = Unit
 
     override fun ActivityLanguageBinding.setData() {
-        // Opened again from Settings, the first-run steps make no sense.
-        steps.root.isVisible = !preferenceHelper.isFinishFirstFlow
-        steps.show(current = 1, total = 3)
+        // Opened again from Settings: no greeting, and the choice is applied rather than a step.
+        val fromSettings = preferenceHelper.isFinishFirstFlow
+        btnBack.isVisible = fromSettings
+        if (fromSettings) {
+            tvTitle.setText(R.string.language)
+            tvSubtitle.setText(R.string.fo_language_change_subtitle)
+            btnContinue.setText(R.string.apply)
+        }
         (rcvLangue.itemAnimator as? SimpleItemAnimator)?.supportsChangeAnimations = false
         rcvLangue.adapter = languageAdapter
         rcvLangue.addItemDecoration(CardGroupDecoration())
@@ -39,6 +45,7 @@ class LanguageActivity :
     }
 
     override fun ActivityLanguageBinding.onClick() {
+        btnBack.clickSingle { onBackPressedDispatcher.onBackPressed() }
 
         btnContinue.clickSingle {
             val selected = languageAdapter.selectedItem ?: return@clickSingle

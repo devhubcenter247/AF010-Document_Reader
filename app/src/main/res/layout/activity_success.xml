@@ -215,7 +215,7 @@
                             android:fontFamily="@font/nunito_500"
                             android:textColor="@color/text_secondary"
                             android:textSize="@dimen/_10sdp"
-                            tools:text="3.7 MB · Download › Folio" />
+                            tools:text="3.7 MB · Download › All Document Reader &amp; Editor" />
                     </LinearLayout>
                 </LinearLayout>
 

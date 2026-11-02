@@ -24,15 +24,7 @@ dependencyResolutionManagement {
         maven(url = "https://artifact.bytedance.com/repository/pangle/")
         maven(url = "https://dl-maven-android.mintegral.com/repository/mbridge_android_sdk_oversea")
         google()
-        maven {
-            url = uri("https://maven.pkg.github.com/dbv0610/InAppUpdate")
-            // GitHub Packages answers 401 without a token, even for a public package.
-            credentials {
-                username = providers.gradleProperty("gpr.user").orNull
-                password = providers.gradleProperty("gpr.key").orNull
-            }
-            content { includeGroup("com.github.dong0610") }
-        }
+
 
         mavenCentral()
         val gprUser = providers.gradleProperty("devCenter").orNull ?: System.getenv("GITHUB_ACTOR")
@@ -46,11 +38,22 @@ dependencyResolutionManagement {
             }
             content { includeGroup("com.lib") }
         }
+        val gitName = providers.gradleProperty("dbvUser").orNull ?: "dbv0610"
+        // Token lives in ~/.gradle/gradle.properties (dbvToken), never in the repo.
+        val gitToken = providers.gradleProperty("dbvToken").orNull ?: System.getenv("GITHUB_TOKEN")
         maven {
-            url = uri("https://maven.pkg.github.com/devhubcenter247/Document-Core-Office")
+            url = uri("https://maven.pkg.github.com/dbv0610/InAppUpdate")
             credentials {
-                username = gprUser
-                password = gprKey
+                username = gitName
+                password = gitToken
+            }
+            content { includeGroup("com.github.dong0610") }
+        }
+        maven {
+            url = uri("https://maven.pkg.github.com/dbv0610/Core-Document-Reader")
+            credentials {
+                username = gitName
+                password = gitToken
             }
             content { includeGroup("com.editor") }
         }

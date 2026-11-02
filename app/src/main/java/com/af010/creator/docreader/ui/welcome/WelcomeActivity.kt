@@ -16,9 +16,6 @@ class WelcomeActivity : BaseAppActivity<ActivityWelcomeBinding>(ActivityWelcomeB
     override fun backPressed() = finish()
 
     override fun ActivityWelcomeBinding.setData() {
-        // Opened again from Settings there are no first-run steps around it.
-        steps.root.isVisible = !preferenceHelper.isFinishFirstFlow
-        steps.show(current = 2, total = 3)
         rcvUseCase.adapter = cards
         val saved = preferenceHelper.useCases
         cards.submitList(

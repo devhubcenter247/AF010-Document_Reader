@@ -17,14 +17,13 @@ import com.ui.baselib.extensions.clickSingle
 /** The last first-run step. Allowing access leads to the one-time offer; "Maybe later" goes straight in. */
 class PermissionActivity : BaseAppActivity<ActivityPermissionBinding>(ActivityPermissionBinding::inflate) {
 
-    private val permissionRequester = StoragePermissionRequester(this) { finishFirstRun(showOffer = true) }
+    private val permissionRequester = StoragePermissionRequester(this) { finishFirstRun(showOffer = false) }
 
     override fun initialize() = Unit
 
     override fun backPressed() = finishFirstRun(showOffer = false)
 
     override fun ActivityPermissionBinding.setData() {
-        steps.show(current = 3, total = 3)
         cardPdf.tag("PDF", R.drawable.bg_chip_pdf, R.color.color_file_pdf, tilt = -10f)
         cardDocx.tag("DOCX", R.drawable.bg_chip_word, R.color.color_file_word, tilt = 8f)
         pointList.show(R.drawable.ic_fo_folder, R.string.fo_access_point_1, R.string.fo_access_point_1_desc)

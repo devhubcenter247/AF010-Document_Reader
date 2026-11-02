@@ -1,6 +1,7 @@
 package com.af010.creator.docreader.ui.splash
 
 import android.content.Intent
+import androidx.core.view.doOnLayout
 import androidx.lifecycle.lifecycleScope
 import com.af010.creator.docreader.R
 import com.af010.creator.docreader.base.BaseAppActivity
@@ -65,7 +66,17 @@ class SplashActivity : BaseAppActivity<ActivitySplashBinding>(ActivitySplashBind
     }
 
     override fun ActivitySplashBinding.setData() {
-      
+        ivBackground.doOnLayout {
+            ivBackground.setImageResource(backgroundFor(it.height.toFloat() / it.width))
+        }
+    }
+
+    /** Resource qualifiers cannot tell screen shapes apart, so the closest picture is picked here. */
+    private fun backgroundFor(heightPerWidth: Float) = when {
+        heightPerWidth < 1.89f -> R.drawable.bg_splash_1920 // 16:9
+        heightPerWidth < 2.08f -> R.drawable.bg_splash_2160 // 18:9
+        heightPerWidth < 2.19f -> R.drawable.bg_splash_2340 // 19.5:9
+        else -> R.drawable.bg_splash_2400 // 20:9
     }
 
     override fun ActivitySplashBinding.onClick() {

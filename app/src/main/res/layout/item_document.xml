@@ -55,7 +55,7 @@
             android:ellipsize="marquee"
             android:marqueeRepeatLimit="marquee_forever"
             android:singleLine="true"
-            android:fontFamily="@font/nunito_700"
+            android:fontFamily="@font/nunito_600"
             android:textColor="@color/text_primary"
             android:textSize="@dimen/_11sdp"
             tools:text="Lease_Agreement_2026.pdf" />

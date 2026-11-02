@@ -7,6 +7,6 @@ class RemoteConfig : RemoteConfigBase() {
         val Instance: RemoteConfig by lazy { RemoteConfig() }
     }
 
-    val paywallEnabled  by  remote("paywall_enabled", false)
+    val paywallEnabled = false //  by  remote("paywall_enabled", false)
 
 }

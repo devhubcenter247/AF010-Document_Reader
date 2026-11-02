@@ -81,7 +81,7 @@ android {
         }
 
         create("product") {
-            applicationId = "com.af010.creator.docreader"
+            applicationId = "com.alldocs.document.reader.editor"
             manifestPlaceholders["ad_app_id"] = "ca-app-pub-3940256099942544~3347511713"
             buildConfigField("boolean", "build_debug", "false")
         }

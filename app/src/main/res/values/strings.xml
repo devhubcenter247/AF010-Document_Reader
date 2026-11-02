@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name" translatable="false">Folio</string>
+    <string name="app_name" translatable="false">All Document Reader &amp; Editor</string>
 
     <string name="this_action_may_contain_advertising">This action may contain advertising</string>
     <string name="language">Language</string>
@@ -500,7 +500,7 @@
     <string name="ocr_page_failed">Could not recognize the text</string>
     <string name="scanner_discard_message">The pages you scanned haven’t been saved as a PDF yet.</string>
 
-    <!-- Folio · first run -->
+    <!-- All Document Reader &amp; Editor · first run -->
     <string name="splash_tagline">Your documents, made easy</string>
     <string name="splash_loading">Getting things ready…</string>
     <string name="fo_step_of">Step %1$d of %2$d</string>
@@ -520,7 +520,7 @@
     <string name="fo_onboarding_title_4">A toolbox for every little job</string>
     <string name="fo_onboarding_body_4">Merge, split, shrink, protect, translate and more. All in one tap from the Tools tab.</string>
     <string name="fo_lets_get_started">Let’s get started</string>
-    <string name="fo_welcome_title">What brings you to Folio?</string>
+    <string name="fo_welcome_title">What brings you to All Document Reader &amp; Editor?</string>
     <string name="fo_welcome_subtitle">Pick as many as you like. We’ll keep your favourite tools close by.</string>
     <string name="fo_use_case_work_desc">Contracts, reports and signing</string>
     <string name="fo_use_case_personal_desc">IDs, bills and photos</string>
@@ -530,7 +530,7 @@
         <item quantity="one">Nice! %d picked</item>
         <item quantity="other">Nice! %d picked</item>
     </plurals>
-    <string name="fo_access_title">Let Folio gather your documents</string>
+    <string name="fo_access_title">Let All Document Reader &amp; Editor gather your documents</string>
     <string name="fo_access_point_1">Everything in one list</string>
     <string name="fo_access_point_1_desc">PDF, Word, Excel, PowerPoint, text and photos from all your folders.</string>
     <string name="fo_access_point_2">It all stays on your phone</string>
@@ -539,7 +539,7 @@
     <string name="fo_access_point_3_desc">Sign, annotate or rename and the original file updates.</string>
     <string name="fo_phone_storage">Phone storage</string>
     <string name="fo_maybe_later">Maybe later</string>
-    <string name="fo_pro_name">Folio Pro</string>
+    <string name="fo_pro_name">All Document Reader &amp; Editor Pro</string>
     <string name="fo_paywall_first_title">Do more with your documents</string>
     <string name="fo_paywall_first_subtitle">Unlock every tool, with no limits and no ads.</string>
     <string name="fo_pro_benefit_ocr">Turn scans into editable text (OCR)</string>
@@ -559,7 +559,7 @@
     <string name="fo_privacy">Privacy</string>
     <string name="close">Close</string>
 
-    <!-- Folio · Files, Tools, Settings -->
+    <!-- All Document Reader &amp; Editor · Files, Tools, Settings -->
     <string name="fo_tool_photos_desc">Pics into one PDF</string>
     <string name="fo_tool_annotate_desc">Highlight &amp; notes</string>
     <string name="fo_group_protect">Protect &amp; more</string>
@@ -576,7 +576,7 @@
     </plurals>
     <string name="fo_no_tools">No tool by that name</string>
     <string name="fo_create_title">What shall we make?</string>
-    <string name="fo_create_location">New files are saved to Download › Folio</string>
+    <string name="fo_create_location">New files are saved to Download › All Document Reader &amp; Editor</string>
     <string name="fo_scan_document">Scan a document</string>
     <string name="fo_scan_document_desc">We’ll find the edges and save a PDF</string>
     <string name="fo_photos_desc">Pick pictures from your gallery</string>
@@ -597,11 +597,11 @@
     <string name="fo_your_library">Your library</string>
     <string name="fo_pro" translatable="false">Pro</string>
     <string name="fo_no_access_title">We can’t see your files yet</string>
-    <string name="fo_no_access_desc">Allow access and Folio will gather the PDFs, Word, Excel and PowerPoint files on this phone.</string>
+    <string name="fo_no_access_desc">Allow access and All Document Reader &amp; Editor will gather the PDFs, Word, Excel and PowerPoint files on this phone.</string>
     <string name="fo_quick_start">Quick start</string>
     <string name="fo_photos">Photos</string>
     <string name="fo_empty_shelf">A cosy, empty shelf</string>
-    <string name="fo_empty_shelf_desc">Files you open, scan or create in Folio will still show up right here.</string>
+    <string name="fo_empty_shelf_desc">Files you open, scan or create in All Document Reader &amp; Editor will still show up right here.</string>
     <string name="fo_nothing_recent">Nothing opened yet</string>
     <string name="fo_nothing_recent_desc">Open a file from All files and it will wait for you here.</string>
     <string name="fo_favourites">Favourites</string>
@@ -631,10 +631,10 @@
     <string name="fo_make_it_yours">Make it yours</string>
     <string name="fo_theme">Theme</string>
     <string name="fo_theme_auto">Auto</string>
-    <string name="fo_i_use_for">I use Folio for</string>
+    <string name="fo_i_use_for">I use All Document Reader &amp; Editor for</string>
     <string name="fo_about">About</string>
     <string name="fo_tell_a_friend">Tell a friend</string>
-    <string name="fo_rate_0">Enjoying Folio? Tap a star</string>
+    <string name="fo_rate_0">Enjoying All Document Reader &amp; Editor? Tap a star</string>
     <string name="fo_rate_1">Oh no! We’ll do better</string>
     <string name="fo_rate_2">Thanks, we’re listening</string>
     <string name="fo_rate_3">Thanks! Glad it helps</string>
@@ -644,7 +644,7 @@
         <item quantity="one">Rate %d star</item>
         <item quantity="other">Rate %d stars</item>
     </plurals>
-    <string name="fo_version">Folio %1$s (%2$d) · Made with care</string>
+    <string name="fo_version" translatable="false">All Document Reader &amp; Editor</string>
     <string name="fo_clear">Clear</string>
     <string name="fo_merge_pdf">Merge PDF</string>
     <string name="fo_favourite">Favourite</string>
@@ -771,7 +771,7 @@
         <item quantity="one">Read %d file</item>
         <item quantity="other">Read %d files</item>
     </plurals>
-    <string name="fo_step_save">Save to Download › Folio</string>
+    <string name="fo_step_save">Save to Download › All Document Reader &amp; Editor</string>
     <string name="fo_step_working">Work through the pages</string>
     <string name="fo_all_done">All done!</string>
     <string name="fo_done_merge">Your files are now one tidy PDF.</string>
@@ -787,7 +787,7 @@
     <string name="fo_keep_going">Keep going with this file</string>
     <string name="fo_open">Open</string>
     <string name="fo_rename">Rename</string>
-    <string name="fo_saved_place">Download › Folio</string>
+    <string name="fo_saved_place">Download › All Document Reader &amp; Editor</string>
     <string name="fo_your_translation">Your translation</string>
     <string name="fo_translation_route">%1$s → %2$s · %3$s</string>
     <string name="fo_save_as_pdf">Save as PDF</string>
@@ -895,9 +895,9 @@
     <string name="fo_restore">Restore</string>
     <string name="fo_lifetime_price">Lifetime %s</string>
     <string name="fo_paywall_title">Every tool, no ads, no limits</string>
-    <string name="fo_paywall_subtitle">Folio Pro adds OCR, protect, redact, full translation and no ads.</string>
-    <string name="fo_paywall_tool_title">Unlock %s with Folio Pro</string>
-    <string name="fo_paywall_tool_subtitle">%s comes with Folio Pro, along with protect, redact, full translation and no ads.</string>
+    <string name="fo_paywall_subtitle">All Document Reader &amp; Editor Pro adds OCR, protect, redact, full translation and no ads.</string>
+    <string name="fo_paywall_tool_title">Unlock %s with All Document Reader &amp; Editor Pro</string>
+    <string name="fo_paywall_tool_subtitle">%s comes with All Document Reader &amp; Editor Pro, along with protect, redact, full translation and no ads.</string>
     <string name="fo_yearly_line">%1$s a month · %2$d days free</string>
     <string name="fo_monthly_line">Billed every month</string>
     <string name="fo_try_days_free">Try %d days free</string>
@@ -927,4 +927,12 @@
     <string name="fo_home_create_desc">Word, Excel, Slides and scans</string>
     <string name="fo_your_documents">Your documents</string>
     <string name="fo_photo_edits_message">Your changes to these photos haven\'t been kept yet.</string>
+    <!-- Permission blocked: guide to the app's settings -->
+    <string name="fo_open_settings">Open settings</string>
+    <string name="fo_camera_blocked_title">Camera access is off</string>
+    <string name="fo_camera_blocked_message">To scan documents, open Settings › Permissions › Camera and choose Allow.</string>
+    <string name="fo_storage_blocked_title">File access is off</string>
+    <string name="fo_storage_blocked_message">To show and edit your documents, open Settings › Permissions › Files and media and choose Allow.</string>
+    <string name="fo_terms_of_service">Terms of Service</string>
+    <string name="fo_language_change_subtitle">Pick a language and tap Apply. The app switches right away.</string>
 </resources>

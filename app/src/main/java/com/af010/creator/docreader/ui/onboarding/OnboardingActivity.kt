@@ -65,6 +65,7 @@ class OnboardingActivity : BaseAppActivity<ActivityOnboardingBinding>(ActivityOn
         slides.indices.forEach { index ->
             addView(View(context).apply {
                 setBackgroundResource(if (index <= position) R.drawable.bg_step_done else R.drawable.bg_step_todo)
+                backgroundTintList = getColorStateList(if (index <= position) R.color.primary else R.color.white)
                 layoutParams = LinearLayout.LayoutParams(if (index == position) long else short, short).apply {
                     if (index > 0) marginStart = gap
                 }
