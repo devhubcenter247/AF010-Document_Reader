@@ -74,7 +74,7 @@
         <LinearLayout
             android:id="@+id/rowFavorite"
             style="@style/SheetRow"
-            android:minHeight="@dimen/_44sdp">
+            android:minHeight="@dimen/_40sdp">
 
             <ImageView
             android:id="@+id/ivFavorite"
@@ -90,7 +90,7 @@
         <LinearLayout
             android:id="@+id/rowInfo"
             style="@style/SheetRow"
-            android:minHeight="@dimen/_44sdp">
+            android:minHeight="@dimen/_40sdp">
 
             <ImageView
                 style="@style/SheetRowIcon"
@@ -105,7 +105,7 @@
         <LinearLayout
             android:id="@+id/rowOpenWith"
             style="@style/SheetRow"
-            android:minHeight="@dimen/_44sdp">
+            android:minHeight="@dimen/_40sdp">
 
             <ImageView
                 style="@style/SheetRowIcon"
@@ -120,7 +120,7 @@
         <LinearLayout
             android:id="@+id/rowDelete"
             style="@style/SheetRow"
-            android:minHeight="@dimen/_44sdp">
+            android:minHeight="@dimen/_40sdp">
 
             <ImageView
                 style="@style/SheetRowIcon"

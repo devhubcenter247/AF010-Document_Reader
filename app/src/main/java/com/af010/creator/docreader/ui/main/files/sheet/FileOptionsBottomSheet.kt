@@ -30,6 +30,7 @@ class FileOptionsBottomSheet(
         tvType.setTextColor(host.getColor(doc.type.colorRes))
         tvType.backgroundTintList = ColorStateList.valueOf(host.getColor(doc.type.softColorRes))
         tvName.text = doc.name
+        tvName.isSelected = true
         tvMeta.text = host.getString(R.string.document_meta, doc.sizeText(host), doc.folderName)
 
         btnFavorite.isSelected = item.isFavorite

@@ -6,6 +6,7 @@ import com.af010.creator.docreader.base.BaseAppActivity
 import com.af010.creator.docreader.databinding.ActivityAllFilesBinding
 import com.af010.creator.docreader.model.DocumentType
 import com.af010.creator.docreader.model.StorageTab
+import com.af010.creator.docreader.ui.main.common.CardGroupDecoration
 import com.af010.creator.docreader.ui.main.common.FilterChip
 import com.af010.creator.docreader.ui.main.common.FilterChipAdapter
 import com.af010.creator.docreader.ui.main.common.isNoAccess
@@ -49,6 +50,7 @@ class AllFilesActivity : BaseAppActivity<ActivityAllFilesBinding>(ActivityAllFil
         if (type != null) viewModel.setScope(type, null)
         typeChips.submitList(TYPES.map { (chip, label) -> FilterChip(chip, label, isSelected = chip == type) })
         rcvDocuments.adapter = rows
+        rcvDocuments.addItemDecoration(CardGroupDecoration())
 
         viewModel.filter.mainCollect { segmentTab.select(it.tab.ordinal) }
         viewModel.documents.mainCollect { response ->

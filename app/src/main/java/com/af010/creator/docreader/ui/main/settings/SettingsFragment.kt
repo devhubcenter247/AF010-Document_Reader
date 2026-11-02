@@ -16,12 +16,11 @@ import com.af010.creator.docreader.app.remote.remoteConfig
 import com.af010.creator.docreader.base.BaseAppFragment
 import com.af010.creator.docreader.databinding.FragmentSettingsBinding
 import com.af010.creator.docreader.databinding.LayoutSettingsRowBinding
+import com.af010.creator.docreader.databinding.LayoutThemeOptionBinding
 import com.af010.creator.docreader.model.ThemeMode
 import com.af010.creator.docreader.model.UseCase
 import com.af010.creator.docreader.ui.language.LanguageActivity
 import com.af010.creator.docreader.ui.language.listLanguage
-import com.af010.creator.docreader.ui.main.common.select
-import com.af010.creator.docreader.ui.main.common.setUp
 import com.af010.creator.docreader.ui.main.premium.PaywallActivity
 import com.af010.creator.docreader.ui.welcome.WelcomeActivity
 import com.af010.creator.docreader.utils.PreferenceHelper
@@ -36,23 +35,29 @@ class SettingsFragment : BaseAppFragment<FragmentSettingsBinding>(FragmentSettin
 
     private val preferenceHelper: PreferenceHelper by inject()
 
-    /** The segment's order: Auto, Light, Dark. */
+    /** The previews' order: Auto, Light, Dark. */
     private val themes = listOf(ThemeMode.System, ThemeMode.Light, ThemeMode.Dark)
+
+    private val FragmentSettingsBinding.themeOptions get() = listOf(themeAuto, themeLight, themeDark)
 
     override fun FragmentSettingsBinding.initView() {
         cardPremium.isVisible = remoteConfig.paywallEnabled
         rowLanguage.describe(R.drawable.ic_fo_globe, R.color.primary, R.string.language)
-        rowUseCases.describe(R.drawable.ic_fo_heart, R.color.color_file_pdf, R.string.fo_i_use_for)
         rowPrivacy.describe(R.drawable.ic_fo_shield, R.color.color_file_excel, R.string.privacy_policy)
         rowShare.describe(R.drawable.ic_fo_share, R.color.color_file_powerpoint, R.string.fo_tell_a_friend)
         rowPrivacy.tvValue.isVisible = false
         rowShare.tvValue.isVisible = false
-        segmentTheme.setUp(R.string.fo_theme_auto, R.string.theme_light, R.string.theme_dark) { index ->
-            val mode = themes[index]
-            if (mode == preferenceHelper.themeMode) return@setUp
-            preferenceHelper.themeMode = mode
-            segmentTheme.select(index)
-            AppCompatDelegate.setDefaultNightMode(mode.nightMode)
+        themeAuto.describe(R.string.fo_theme_auto, light = true, dark = true)
+        themeLight.describe(R.string.theme_light, light = true, dark = false)
+        themeDark.describe(R.string.theme_dark, light = false, dark = true)
+        themeOptions.forEachIndexed { index, option ->
+            option.root.clickSingle {
+                val mode = themes[index]
+                if (mode == preferenceHelper.themeMode) return@clickSingle
+                preferenceHelper.themeMode = mode
+                selectTheme(mode)
+                AppCompatDelegate.setDefaultNightMode(mode.nightMode)
+            }
         }
         showStars(0)
         tvVersion.text = getString(R.string.fo_version, BuildConfig.VERSION_NAME, BuildConfig.VERSION_CODE)
@@ -62,7 +67,6 @@ class SettingsFragment : BaseAppFragment<FragmentSettingsBinding>(FragmentSettin
         cardPremium.clickSingle { PaywallActivity.start(requireActivity()) }
         btnTrial.clickSingle { PaywallActivity.start(requireActivity()) }
         rowLanguage.root.clickSingle { launchActivity<LanguageActivity>() }
-        rowUseCases.root.clickSingle { launchActivity<WelcomeActivity>() }
         rowPrivacy.root.clickSingle { appContext().openUrl(Aso.POLICY_LINK) }
         rowShare.root.clickSingle { appContext().shareApp() }
     }
@@ -74,8 +78,23 @@ class SettingsFragment : BaseAppFragment<FragmentSettingsBinding>(FragmentSettin
 
     private fun FragmentSettingsBinding.showPreferences() {
         rowLanguage.tvValue.text = listLanguage.firstOrNull { it.code == preferenceHelper.languageSelected }?.name.orEmpty()
-        rowUseCases.tvValue.text = UseCase.of(preferenceHelper.useCases).joinToString { getString(it.title) }
-        segmentTheme.select(themes.indexOf(preferenceHelper.themeMode))
+        selectTheme(preferenceHelper.themeMode)
+    }
+
+    private fun FragmentSettingsBinding.selectTheme(mode: ThemeMode) {
+        themeOptions.forEachIndexed { index, option ->
+            val picked = themes[index] == mode
+            option.root.isSelected = picked
+            option.ivCheck.isVisible = picked
+        }
+    }
+
+    /** Auto shows half of each theme; Light and Dark show one. */
+    private fun LayoutThemeOptionBinding.describe(@StringRes name: Int, light: Boolean, dark: Boolean) {
+        tvName.setText(name)
+        halfLight.isVisible = light
+        halfDark.isVisible = dark
+        root.contentDescription = getString(name)
     }
 
     private fun LayoutSettingsRowBinding.describe(@DrawableRes icon: Int, @ColorRes tint: Int, @StringRes label: Int) {

@@ -87,6 +87,17 @@
             android:text="@string/scanner_add_page"
             app:drawableTopCompat="@drawable/ic_fo_plus_17sdp" />
 
+        <!-- Takes Add page's place when editing picked photos (ScanActivity.isEditing). -->
+        <TextView
+            android:id="@+id/btnRotate"
+            style="@style/ActionTile"
+            android:layout_height="@dimen/_49sdp"
+            android:paddingTop="@dimen/_8sdp"
+            android:paddingBottom="@dimen/_6sdp"
+            android:text="@string/scanner_rotate"
+            android:visibility="gone"
+            app:drawableTopCompat="@drawable/ic_fo_rotate_17sdp" />
+
         <TextView
             android:id="@+id/btnCleanUp"
             style="@style/ActionTile"

@@ -1,10 +1,12 @@
 package com.af010.creator.docreader.ui.main.tools
 
 import android.view.LayoutInflater
-import android.view.inputmethod.InputMethodManager
+import android.content.res.ColorStateList
+import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.core.widget.doAfterTextChanged
 import com.af010.creator.docreader.R
+import com.af010.creator.docreader.app.remote.remoteConfig
 import com.af010.creator.docreader.base.BaseAppFragment
 import com.af010.creator.docreader.databinding.FragmentToolsBinding
 import com.af010.creator.docreader.databinding.ItemToolSectionBinding
@@ -12,9 +14,10 @@ import com.af010.creator.docreader.model.Tool
 import com.af010.creator.docreader.model.ToolGroup
 import com.af010.creator.docreader.ui.main.common.FilterChip
 import com.af010.creator.docreader.ui.main.common.FilterChipAdapter
+import com.af010.creator.docreader.ui.main.premium.PaywallActivity
 import com.ui.baselib.extensions.clickSingle
 
-/** The Toolbox: every tool by section, narrowed by a section chip or by name. */
+/** The Toolbox: every tool by section, narrowed by a section chip or by name (the search field). */
 class ToolsFragment : BaseAppFragment<FragmentToolsBinding>(FragmentToolsBinding::inflate) {
 
     /** null = every section. */
@@ -25,6 +28,7 @@ class ToolsFragment : BaseAppFragment<FragmentToolsBinding>(FragmentToolsBinding
     private val toolbox = Tool.entries.filter { it.inToolbox }
 
     override fun FragmentToolsBinding.initView() {
+        btnPro.isVisible = remoteConfig.paywallEnabled
         tvSubtitle.text = resources.getQuantityString(R.plurals.fo_toolbox_count, toolbox.size, toolbox.size)
         rcvGroups.adapter = sectionChips
         sectionChips.submitList(
@@ -35,7 +39,7 @@ class ToolsFragment : BaseAppFragment<FragmentToolsBinding>(FragmentToolsBinding
     }
 
     override fun FragmentToolsBinding.onClick() {
-        btnSearch.clickSingle { toggleSearch() }
+        btnPro.clickSingle { PaywallActivity.start(requireActivity()) }
         sectionChips.onChipClick {
             section = it
             sectionChips.select(it)
@@ -44,19 +48,6 @@ class ToolsFragment : BaseAppFragment<FragmentToolsBinding>(FragmentToolsBinding
         edtSearch.doAfterTextChanged {
             query = it?.toString()?.trim().orEmpty()
             showSections()
-        }
-    }
-
-    private fun FragmentToolsBinding.toggleSearch() {
-        val open = !edtSearch.isVisible
-        edtSearch.isVisible = open
-        val keyboard = requireContext().getSystemService(InputMethodManager::class.java)
-        if (open) {
-            edtSearch.requestFocus()
-            keyboard.showSoftInput(edtSearch, InputMethodManager.SHOW_IMPLICIT)
-        } else {
-            edtSearch.text = null
-            keyboard.hideSoftInputFromWindow(edtSearch.windowToken, 0)
         }
     }
 
@@ -71,6 +62,8 @@ class ToolsFragment : BaseAppFragment<FragmentToolsBinding>(FragmentToolsBinding
             shown += tools.size
             ItemToolSectionBinding.inflate(inflater, layoutSections, true).apply {
                 tvTitle.setText(group.title)
+                tvCount.text = resources.getQuantityString(R.plurals.fo_section_tool_count, tools.size, tools.size)
+                vDot.backgroundTintList = ColorStateList.valueOf(ContextCompat.getColor(root.context, group.tint))
                 rcvTools.adapter = ToolAdapter { requireActivity().openTool(it) }.apply { submitList(tools) }
             }
         }

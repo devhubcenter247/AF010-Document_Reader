@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- The reader's "More": how the pages look and move, reading aids, the tools that make a new file
+<?xml version="1.0" encoding="utf-8"?><!-- The reader's "More": how the pages look and move, reading aids, the tools that make a new file
      from this one, and what can be done with the file itself. -->
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -14,8 +13,8 @@
         android:layout_height="wrap_content"
         android:clipToPadding="false"
         android:orientation="vertical"
-        android:paddingHorizontal="@dimen/_15sdp"
-        android:paddingBottom="@dimen/_20sdp">
+        android:paddingHorizontal="@dimen/_8sdp"
+        android:paddingBottom="@dimen/_16sdp">
 
         <include
             android:id="@+id/header"
@@ -25,14 +24,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:baselineAligned="false"
+            android:gravity="center"
             android:clipToPadding="false"
-            android:orientation="horizontal"
-            android:paddingVertical="@dimen/_2sdp">
+            android:orientation="horizontal">
 
             <LinearLayout
+                android:layout_marginVertical="@dimen/_3sdp"
+                android:layout_marginStart="@dimen/_4sdp"
                 android:id="@+id/cardNormal"
                 android:layout_width="0dp"
-                android:layout_height="@dimen/_42sdp"
+                android:layout_height="@dimen/_39sdp"
                 android:layout_weight="1"
                 android:background="@drawable/bg_option_card"
                 android:elevation="@dimen/_2sdp"
@@ -71,7 +72,7 @@
             <LinearLayout
                 android:id="@+id/cardSepia"
                 android:layout_width="0dp"
-                android:layout_height="@dimen/_42sdp"
+                android:layout_height="@dimen/_39sdp"
                 android:layout_weight="1"
                 android:background="@drawable/bg_option_card"
                 android:elevation="@dimen/_2sdp"
@@ -110,8 +111,9 @@
             <LinearLayout
                 android:id="@+id/cardNight"
                 android:layout_width="0dp"
-                android:layout_height="@dimen/_42sdp"
+                android:layout_height="@dimen/_39sdp"
                 android:layout_weight="1"
+                android:layout_marginEnd="@dimen/_4sdp"
                 android:background="@drawable/bg_option_card"
                 android:elevation="@dimen/_2sdp"
                 android:foreground="?attr/selectableItemBackground"
@@ -156,49 +158,52 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_9sdp"
             android:clipToPadding="false"
-            android:orientation="horizontal"
-            android:paddingVertical="@dimen/_2sdp">
+            android:gravity="center"
+            android:orientation="horizontal">
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnTextView"
-            style="@style/SoftPillButton"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/_38sdp"
-            android:layout_weight="1"
-            android:backgroundTint="@color/color_surface_card"
-            android:elevation="@dimen/_2sdp"
-            android:text="@string/fo_text_view"
-            android:textSize="@dimen/_11sdp"
-            app:icon="@drawable/ic_fo_book"
-            app:iconTint="@color/primary" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnTextView"
+                style="@style/SoftPillButton"
+                android:layout_marginStart="@dimen/_4sdp"
+                android:layout_marginVertical="@dimen/_4sdp"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_38sdp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/color_surface_card"
+                android:elevation="@dimen/_2sdp"
+                android:text="@string/fo_text_view"
+                android:textSize="@dimen/_11sdp"
+                app:icon="@drawable/ic_fo_book"
+                app:iconTint="@color/primary" />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnReadAloud"
-            style="@style/SoftPillButton"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/_38sdp"
-            android:layout_marginStart="@dimen/_6sdp"
-            android:layout_weight="1"
-            android:backgroundTint="@color/color_surface_card"
-            android:elevation="@dimen/_2sdp"
-            android:text="@string/fo_read_aloud"
-            android:textSize="@dimen/_11sdp"
-            app:icon="@drawable/ic_fo_volume"
-            app:iconTint="@color/primary" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnReadAloud"
+                style="@style/SoftPillButton"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_38sdp"
+                android:layout_marginStart="@dimen/_6sdp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/color_surface_card"
+                android:elevation="@dimen/_2sdp"
+                android:text="@string/fo_read_aloud"
+                android:textSize="@dimen/_11sdp"
+                app:icon="@drawable/ic_fo_volume"
+                app:iconTint="@color/primary" />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnAutoScroll"
-            style="@style/SoftPillButton"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/_38sdp"
-            android:layout_marginStart="@dimen/_6sdp"
-            android:layout_weight="1"
-            android:backgroundTint="@color/color_surface_card"
-            android:elevation="@dimen/_2sdp"
-            android:text="@string/fo_auto_scroll"
-            android:textSize="@dimen/_11sdp"
-            app:icon="@drawable/ic_fo_download"
-            app:iconTint="@color/primary" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnAutoScroll"
+                style="@style/SoftPillButton"
+                android:layout_width="0dp"
+                android:layout_marginEnd="@dimen/_4sdp"
+                android:layout_height="@dimen/_38sdp"
+                android:layout_marginStart="@dimen/_6sdp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/color_surface_card"
+                android:elevation="@dimen/_2sdp"
+                android:text="@string/fo_auto_scroll"
+                android:textSize="@dimen/_11sdp"
+                app:icon="@drawable/ic_fo_download"
+                app:iconTint="@color/primary" />
 
         </LinearLayout>
 
@@ -236,14 +241,17 @@
                 android:id="@+id/chipShare"
                 style="@style/OutlineChip"
                 android:text="@string/file_action_share" />
+
             <TextView
                 android:id="@+id/chipRename"
                 style="@style/OutlineChip"
                 android:text="@string/fo_rename" />
+
             <TextView
                 android:id="@+id/chipInfo"
                 style="@style/OutlineChip"
                 android:text="@string/fo_file_info" />
+
             <TextView
                 android:id="@+id/chipOrganize"
                 style="@style/OutlineChip"

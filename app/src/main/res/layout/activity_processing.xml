@@ -51,6 +51,7 @@
                 android:layout_height="@dimen/_223sdp">
 
                 <ImageView
+                    android:id="@+id/ivBlob"
                     android:layout_width="@dimen/_200sdp"
                     android:layout_height="@dimen/_200sdp"
                     android:layout_gravity="center"
@@ -65,6 +66,7 @@
                     android:layout_gravity="center"
                     android:indeterminate="true"
                     app:indicatorColor="@color/primary"
+                    app:indicatorTrackGapSize="0dp"
                     app:indicatorSize="@dimen/_170sdp"
                     app:trackColor="@color/color_surface_card"
                     app:trackCornerRadius="@dimen/_6sdp"
@@ -126,8 +128,6 @@
                 android:layout_marginHorizontal="@dimen/_15sdp"
                 android:layout_marginTop="@dimen/_14sdp"
                 android:layout_marginBottom="@dimen/_6sdp"
-                android:background="@drawable/bg_rounded_panel"
-                android:backgroundTint="@color/color_surface_card"
                 android:orientation="vertical"
                 android:paddingHorizontal="@dimen/_12sdp"
                 android:paddingVertical="@dimen/_6sdp">

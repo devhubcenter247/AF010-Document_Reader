@@ -32,13 +32,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:id="@+id/ivMascot"
-            android:layout_width="@dimen/_95sdp"
-            android:layout_height="@dimen/_119sdp"
-            android:importantForAccessibility="no"
-            android:rotation="-6"
-            android:src="@drawable/ic_mascot_cheer" />
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="@dimen/_100sdp"
+            app:strokeWidth="0dp"
+            app:cardCornerRadius="@dimen/_24sdp"
+            android:layout_height="@dimen/_100sdp">
+
+            <ImageView
+                android:id="@+id/ivMascot"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:importantForAccessibility="no"
+                android:src="@drawable/icon_logo_store" />
+        </com.google.android.material.card.MaterialCardView>
+
 
         <TextView
             android:id="@+id/tvAppName"

@@ -20,8 +20,14 @@ import com.ui.baselib.base.DiffAdapter
 /** What closes a document row: the star and options button, an "Open" pill, or nothing. */
 enum class RowEnd { Options, Open, Nothing }
 
-/** Document rows as floating cards: the type tile, name and details, then [end]. */
-class DocumentAdapter(private val end: RowEnd = RowEnd.Options) : DiffAdapter<RecentUi, ItemDocumentBinding>(
+/**
+ * Document rows: the type tile, name and details, then [end]. Rows are flat, for a list drawn as one
+ * card (a `HomeCard` list with [com.af010.creator.docreader.ui.main.common.RowDivider], or
+ * [com.af010.creator.docreader.ui.main.common.CardGroupDecoration]).
+ */
+class DocumentAdapter(
+    private val end: RowEnd = RowEnd.Options
+) : DiffAdapter<RecentUi, ItemDocumentBinding>(
     areItemsTheSame = { old, new -> old.document.mediaId == new.document.mediaId },
     areContentsTheSame = { old, new -> old.sameContent(new) }
 ) {
@@ -36,7 +42,7 @@ class DocumentAdapter(private val end: RowEnd = RowEnd.Options) : DiffAdapter<Re
     fun onDocumentLongClick(listener: (RecentUi) -> Unit) = apply { onItemLongClick = listener }
     fun onMoreClick(listener: (RecentUi) -> Unit) = apply { onItemMoreClick = listener }
 
-    /** Multi-select: a tick box leads each row and picked rows are ringed. */
+    /** Multi-select: a tick box leads each row and picked rows are tinted. */
     var selectionMode = false
 
     var selectedIds: Set<Long> = emptySet()
@@ -58,6 +64,7 @@ class DocumentAdapter(private val end: RowEnd = RowEnd.Options) : DiffAdapter<Re
         val doc = item.document
         tvType.showTypeTile(doc)
         tvName.text = marked(doc.name, ContextCompat.getColor(context, R.color.color_pro))
+        tvName.isSelected = true
         tvMeta.text = context.getString(
             R.string.document_meta,
             doc.sizeText(context),

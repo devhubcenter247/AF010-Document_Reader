@@ -33,6 +33,7 @@
             android:layout_gravity="center"
             android:progress="100"
             app:indicatorColor="@color/color_pro"
+            app:indicatorTrackGapSize="0dp"
             app:indicatorSize="@dimen/_65sdp"
             app:trackColor="@color/color_surface_variant"
             app:trackCornerRadius="@dimen/_4sdp"
@@ -72,7 +73,7 @@
         android:fontFamily="@font/nunito_700"
         android:gravity="center"
         android:textColor="@color/text_primary"
-        android:textSize="@dimen/_18sdp"
+        android:textSize="@dimen/_16sdp"
         tools:text="You’ve used your free OCR" />
 
     <TextView
@@ -93,8 +94,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_12sdp"
-        android:background="@drawable/bg_rounded_panel"
-        android:backgroundTint="@color/color_surface_card"
         android:orientation="vertical"
         android:paddingHorizontal="@dimen/_12sdp"
         android:paddingVertical="@dimen/_3sdp">

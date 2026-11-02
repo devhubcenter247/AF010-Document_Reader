@@ -10,6 +10,7 @@ import com.af010.creator.docreader.model.RecentDocument
 import com.af010.creator.docreader.model.StorageTab
 import com.af010.creator.docreader.model.Tool
 import com.af010.creator.docreader.ui.dialog.DeleteDialog
+import com.af010.creator.docreader.ui.main.common.CardGroupDecoration
 import com.af010.creator.docreader.ui.main.files.DocumentAdapter
 import com.af010.creator.docreader.ui.main.files.DocumentsViewModel
 import com.af010.creator.docreader.ui.main.tools.openTool
@@ -54,6 +55,8 @@ class MultiSelectActivity :
 
     override fun ActivityMultiSelectBinding.setData() {
         rcvDocuments.adapter = documentAdapter
+        // The tick box leads each row, so the hairlines start further in.
+        rcvDocuments.addItemDecoration(CardGroupDecoration(com.intuit.sdp.R.dimen._82sdp))
 
         viewModel.documents.mainCollect { response ->
             if (response !is DataResponse.DataSuccess) return@mainCollect

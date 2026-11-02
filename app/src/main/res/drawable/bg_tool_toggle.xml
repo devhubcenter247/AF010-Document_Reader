@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- An annotate tool: blue once picked (selected state). -->
+<!-- An annotate tool of the PDF reader: in the PDF colour once picked (selected state). -->
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:state_selected="true">
         <shape android:shape="rectangle">
-            <solid android:color="@color/primary" />
+            <solid android:color="@color/color_file_pdf" />
             <corners android:radius="@dimen/_12sdp" />
         </shape>
     </item>

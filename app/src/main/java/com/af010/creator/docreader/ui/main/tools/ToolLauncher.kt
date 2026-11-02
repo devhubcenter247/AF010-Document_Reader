@@ -4,7 +4,6 @@ import android.app.Activity
 import android.content.Intent
 import com.af010.creator.docreader.model.Tool
 import com.af010.creator.docreader.model.ToolRequest
-import com.af010.creator.docreader.ui.main.reader.office.OfficeActivity
 import com.af010.creator.docreader.ui.main.reader.pdf.PdfReaderActivity
 import com.af010.creator.docreader.ui.main.reader.pdf.organize.PdfOrganizeActivity
 import com.af010.creator.docreader.ui.main.scan.ScanActivity
@@ -12,6 +11,7 @@ import com.af010.creator.docreader.ui.main.tools.compress.CompressActivity
 import com.af010.creator.docreader.ui.main.tools.images.ImageToPdfActivity
 import com.af010.creator.docreader.ui.main.tools.merge.MergeActivity
 import com.af010.creator.docreader.ui.main.tools.ocr.OcrActivity
+import com.af010.creator.docreader.ui.main.tools.office.OfficeToPdfActivity
 import com.af010.creator.docreader.ui.main.tools.pick.PickFileActivity
 import com.af010.creator.docreader.ui.main.tools.protect.ProtectActivity
 import com.af010.creator.docreader.ui.main.tools.redact.RedactActivity
@@ -33,6 +33,7 @@ private val Tool.setupActivity: Class<out Activity>?
         Tool.Ocr -> OcrActivity::class.java
         Tool.Translate -> TranslateActivity::class.java
         Tool.Zip -> ZipActivity::class.java
+        Tool.OfficeToPdf -> OfficeToPdfActivity::class.java
         else -> null
     }
 
@@ -46,8 +47,6 @@ fun Activity.openTool(tool: Tool, paths: List<String> = emptyList()) {
         tool == Tool.Scan -> startActivity(Intent(this, ScanActivity::class.java))
         tool == Tool.ImagesToPdf -> startActivity(Intent(this, ImageToPdfActivity::class.java))
         paths.isEmpty() -> PickFileActivity.start(this, tool)
-        // The Office screen draws the pages: it opens the file and converts it there.
-        tool == Tool.OfficeToPdf -> OfficeActivity.start(this, paths.first(), toPdf = true)
         // Edited in the reader, which opens straight in the tool's mode.
         tool == Tool.Sign || tool == Tool.Annotate || tool == Tool.FillForm || tool == Tool.AddText ->
             PdfReaderActivity.start(this, paths.first(), tool)

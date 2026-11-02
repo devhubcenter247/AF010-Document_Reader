@@ -5,6 +5,7 @@ import android.content.res.Resources
 import androidx.recyclerview.widget.SimpleItemAnimator
 import com.af010.creator.docreader.base.BaseAppActivity
 import com.af010.creator.docreader.databinding.ActivityLanguageBinding
+import com.af010.creator.docreader.ui.main.common.CardGroupDecoration
 import com.af010.creator.docreader.ui.main.MainActivity
 import com.af010.creator.docreader.ui.onboarding.OnboardingActivity
 import com.ui.baselib.extensions.clickSingle
@@ -30,6 +31,7 @@ class LanguageActivity :
         steps.show(current = 1, total = 3)
         (rcvLangue.itemAnimator as? SimpleItemAnimator)?.supportsChangeAnimations = false
         rcvLangue.adapter = languageAdapter
+        rcvLangue.addItemDecoration(CardGroupDecoration())
         val savedCode =
             preferenceHelper.languageSelected.takeIf { preferenceHelper.isFinishFirstFlow }
         val deviceLocale = Resources.getSystem().configuration.locales[0]

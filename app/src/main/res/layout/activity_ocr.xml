@@ -79,9 +79,7 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_marginStart="@dimen/_5sdp"
-                        android:layout_weight="1"
-                        android:background="@drawable/bg_rounded_panel"
-                        android:backgroundTint="@color/color_surface_card">
+                        android:layout_weight="1">
 
                         <ImageView
                             android:layout_width="match_parent"
@@ -110,12 +108,18 @@
                     app:tint="@color/on_primary" />
             </FrameLayout>
 
-            <include
-                android:id="@+id/optionSearchable"
-                layout="@layout/layout_option"
+            <LinearLayout
+                style="@style/OptionGroup"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_11sdp" />
+                android:layout_marginTop="@dimen/_11sdp">
+
+                <include
+                    android:id="@+id/optionSearchable"
+                    layout="@layout/layout_option"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 

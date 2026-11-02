@@ -4,6 +4,7 @@ import android.graphics.Bitmap
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.af010.creator.docreader.databinding.ItemPageThumbBinding
+import com.af010.creator.docreader.ui.common.showPageThumb
 import com.ui.baselib.base.BaseAdapter
 
 /** Page thumbnails to tap; [load] hands back the picture of a page once it is drawn. */
@@ -30,6 +31,7 @@ class PageThumbAdapter(
     override fun ItemPageThumbBinding.bind(item: Int, position: Int) {
         tvNumber.text = (item + 1).toString()
         root.isSelected = item in selectedPages
+        showPageThumb(card, ivPage, tvNumber, root.isSelected)
 
         ivPage.tag = item
         ivPage.setImageDrawable(null)

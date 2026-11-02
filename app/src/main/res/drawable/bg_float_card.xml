@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- The reader's floating bars: a white card with round ends. -->
+<!-- The reader's floating bars: a white card with round ends and the Files tab cards' rim. -->
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="rectangle">
     <solid android:color="@color/color_surface_card" />
     <corners android:radius="@dimen/_23sdp" />
+    <stroke android:width="1dp" android:color="@color/color_home_card_stroke" />
 </shape>

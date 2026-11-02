@@ -1,5 +1,6 @@
 package com.af010.creator.docreader.ui.main.tools.result
 
+import android.content.res.ColorStateList
 import android.content.Context
 import android.content.Intent
 import androidx.core.content.IntentCompat
@@ -70,6 +71,10 @@ class ProcessingActivity :
 
     private fun ActivityProcessingBinding.show(state: ToolState.Running) {
         val request = state.request
+        val (color, soft) = request.tool.resultColors
+        progress.setIndicatorColor(getColor(color))
+        stepWork.spinner.setIndicatorColor(getColor(color))
+        ivBlob.imageTintList = ColorStateList.valueOf(getColor(soft))
         tvTool.setText(request.tool.title)
         tvStepCount.text = getString(R.string.fo_step_of, TOOL_STEPS, TOOL_STEPS)
         tvTitle.setText(titles[request.tool] ?: R.string.processing_generic)
@@ -99,6 +104,14 @@ class ProcessingActivity :
         tvStep.setTextColor(getColor(if (step == Step.Now) R.color.text_primary else R.color.text_tertiary))
         tvStep.typeface = ResourcesCompat.getFont(this@ProcessingActivity, if (step == Step.Now) R.font.nunito_700 else R.font.nunito_600)
     }
+
+    /** The colour and pale tint of what the tool makes (a PDF for most), for the ring and the blob. */
+    private val Tool.resultColors: Pair<Int, Int>
+        get() = when (this) {
+            Tool.Zip -> R.color.color_file_zip to R.color.color_file_zip_bg
+            Tool.PdfToImages -> R.color.color_file_image to R.color.color_file_image_bg
+            else -> R.color.color_file_pdf to R.color.color_file_pdf_bg
+        }
 
     /** How many files the job reads, for "Read 3 files". */
     private val ToolRequest.inputCount: Int

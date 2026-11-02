@@ -1,9 +1,15 @@
 package com.af010.creator.docreader.ui.main.reader.pdf.organize
 
+import android.content.res.ColorStateList
 import android.graphics.Bitmap
+import android.graphics.Matrix
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
+import com.af010.creator.docreader.R
 import com.af010.creator.docreader.databinding.ItemOrganizePageBinding
+import com.af010.creator.docreader.ui.common.showPageThumb
+import com.af010.creator.docreader.ui.dialog.hostAccent
 import com.ui.baselib.base.BaseAdapter
 import com.ui.baselib.extensions.visibleOrGone
 
@@ -38,22 +44,24 @@ class OrganizePageAdapter(
         tvNumber.text = (position + 1).toString()
         ivCheck.visibleOrGone(selected)
         root.isSelected = selected
+        showPageThumb(card, ivPage, tvNumber, selected)
+        ivCheck.backgroundTintList = ColorStateList.valueOf(
+            ContextCompat.getColor(root.context, root.context.hostAccent() ?: R.color.primary)
+        )
 
-        // A page on its side has to fit the upright card.
-        val sideways = item.quarterTurns % 2 != 0
-        ivPage.rotation = item.quarterTurns % 4 * 90f
-        ivPage.scaleX = if (sideways) SIDEWAYS_SCALE else 1f
-        ivPage.scaleY = if (sideways) SIDEWAYS_SCALE else 1f
         ivPage.tag = item.id
         ivPage.setImageDrawable(null)
         if (item.source >= 0) load(item.source) { bitmap ->
             // The row may show another page by the time the picture is ready.
-            if (ivPage.tag == item.id) ivPage.setImageBitmap(bitmap)
+            if (ivPage.tag == item.id) ivPage.setImageBitmap(bitmap.turned(item.quarterTurns))
         }
         root.setOnClickListener { onItemClick.invoke(item) }
     }
 
-    private companion object {
-        const val SIDEWAYS_SCALE = 0.72f
+    /** The picture turned, not the view: the sheet and its ring stay upright and fitCenter fits a page on its side. */
+    private fun Bitmap.turned(quarterTurns: Int): Bitmap {
+        val degrees = quarterTurns.mod(4) * 90f
+        if (degrees == 0f) return this
+        return Bitmap.createBitmap(this, 0, 0, width, height, Matrix().apply { postRotate(degrees) }, true)
     }
 }

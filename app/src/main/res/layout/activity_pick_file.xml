@@ -167,7 +167,7 @@
         <TextView
             android:id="@+id/btnNext"
             android:layout_width="wrap_content"
-            android:layout_height="@dimen/_43sdp"
+            android:layout_height="@dimen/_39sdp"
             android:background="@drawable/bg_ink_next"
             android:fontFamily="@font/nunito_700"
             android:gravity="center"

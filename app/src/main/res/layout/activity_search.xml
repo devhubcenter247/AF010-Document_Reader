@@ -104,8 +104,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:paddingHorizontal="@dimen/_15sdp">
+                android:paddingHorizontal="@dimen/_15sdp"
+                android:paddingBottom="@dimen/_12sdp">
 
+                <!-- Each list is one card (HomeCard) with hairlines between its rows -->
                 <LinearLayout
                     android:id="@+id/layoutResults"
                     android:clipChildren="false"
@@ -135,9 +137,12 @@
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/rcvDocuments"
+                        style="@style/HomeCard"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:clipToOutline="true"
                         android:nestedScrollingEnabled="false"
+                        android:overScrollMode="never"
                         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                         tools:itemCount="2"
                         tools:listitem="@layout/item_document" />
@@ -146,7 +151,7 @@
                         android:id="@+id/btnShowAll"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/_34sdp"
-                        android:layout_marginTop="@dimen/_4sdp"
+                        android:layout_marginTop="@dimen/_6sdp"
                         android:background="?attr/selectableItemBackground"
                         android:fontFamily="@font/nunito_700"
                         android:gravity="center"
@@ -186,9 +191,12 @@
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/rcvInside"
+                        style="@style/HomeCard"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:clipToOutline="true"
                         android:nestedScrollingEnabled="false"
+                        android:overScrollMode="never"
                         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                         tools:itemCount="2"
                         tools:listitem="@layout/item_content_hit" />
@@ -196,6 +204,7 @@
 
                 <LinearLayout
                     android:id="@+id/layoutRecent"
+                    android:clipChildren="false"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
@@ -211,9 +220,12 @@
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/rcvRecent"
+                        style="@style/HomeCard"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:clipToOutline="true"
                         android:nestedScrollingEnabled="false"
+                        android:overScrollMode="never"
                         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                         tools:listitem="@layout/item_recent_search" />
                 </LinearLayout>

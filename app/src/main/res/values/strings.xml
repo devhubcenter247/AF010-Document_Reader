@@ -93,7 +93,6 @@
     <string name="merge_pdf">Merge PDF</string>
     <string name="split_pdf">Split PDF</string>
     <string name="convert_failed">Could not convert images to PDF</string>
-    <string name="file_name_exists">A file with this name already exists</string>
     <string name="split_open_failed">Could not open this PDF</string>
     <string name="split_failed">Could not split this PDF</string>
     <string name="translate_to">Translate to</string>
@@ -163,14 +162,7 @@
     <string name="create_new">Create new</string>
     <string name="images_to_pdf">Images to PDF</string>
     <string name="new_document">New document</string>
-    <string name="new_document_file_name">File name</string>
-    <string name="save_to">Save to</string>
-    <string name="blank_document">Blank A4 page</string>
-    <string name="blank_spreadsheet">Blank spreadsheet</string>
-    <string name="blank_presentation">Blank presentation</string>
-    <string name="blank_document_desc">Opens in edit mode with the keyboard ready.</string>
     <string name="untitled">Untitled</string>
-    <string name="create_and_start_editing">Create and start editing</string>
 
     <!-- Sort sheet -->
     <string name="sort_date_modified">Date modified</string>
@@ -483,6 +475,20 @@
     <string name="convert_to_pdf">Convert to PDF</string>
     <string name="convert_pdf_unavailable">This file can’t be converted to PDF yet</string>
     <string name="convert_pdf_not_ready">The document is still loading. Try again in a moment.</string>
+    <string name="fo_step_check_pages">Check the pages</string>
+    <string name="fo_office_pdf_note">Text stays text, so you can search and copy it in the PDF.</string>
+    <string name="fo_office_pdf_failed">Couldn’t make the PDF. Try again in a moment.</string>
+    <string name="fo_your_pdf">Your PDF</string>
+    <string name="fo_swipe_to_see_all">%1$s · swipe to see them all</string>
+    <string name="fo_office_pdf_empty">This document has nothing to put in a PDF yet.</string>
+    <plurals name="fo_slide_count">
+        <item quantity="one">%d slide</item>
+        <item quantity="other">%d slides</item>
+    </plurals>
+    <plurals name="fo_sheet_count">
+        <item quantity="one">%d sheet</item>
+        <item quantity="other">%d sheets</item>
+    </plurals>
     <string name="delete_slide_title">Delete slide?</string>
     <string name="delete_slide_message">This slide will be removed from the presentation.</string>
     <string name="slides_updating">The slides are still updating. Try again in a moment.</string>
@@ -514,8 +520,6 @@
     <string name="fo_onboarding_title_4">A toolbox for every little job</string>
     <string name="fo_onboarding_body_4">Merge, split, shrink, protect, translate and more. All in one tap from the Tools tab.</string>
     <string name="fo_lets_get_started">Let’s get started</string>
-    <string name="fo_signed_by_you">Signed by you</string>
-    <string name="fo_edges_found">Edges found</string>
     <string name="fo_welcome_title">What brings you to Folio?</string>
     <string name="fo_welcome_subtitle">Pick as many as you like. We’ll keep your favourite tools close by.</string>
     <string name="fo_use_case_work_desc">Contracts, reports and signing</string>
@@ -561,11 +565,14 @@
     <string name="fo_group_protect">Protect &amp; more</string>
     <string name="fo_group_protect_short">Protect</string>
     <string name="fo_all">All</string>
-    <string name="fo_coming_soon">Coming soon</string>
     <string name="fo_toolbox">Toolbox</string>
     <plurals name="fo_toolbox_count">
         <item quantity="one">%d handy tool for your files</item>
         <item quantity="other">%d handy tools for your files</item>
+    </plurals>
+    <plurals name="fo_section_tool_count">
+        <item quantity="one">%d tool</item>
+        <item quantity="other">%d tools</item>
     </plurals>
     <string name="fo_no_tools">No tool by that name</string>
     <string name="fo_create_title">What shall we make?</string>
@@ -915,9 +922,9 @@
     <string name="fo_try_pro_free">Try Pro free for %d days</string>
     <string name="fo_not_now">Not now</string>
     <string name="fo_used_of" translatable="false">%1$d/%2$d</string>
-    <string name="fo_ext_pptx" translatable="false">PPTX</string>
     <string name="fo_home_read">Read</string>
     <string name="fo_home_create">Create</string>
     <string name="fo_home_create_desc">Word, Excel, Slides and scans</string>
     <string name="fo_your_documents">Your documents</string>
+    <string name="fo_photo_edits_message">Your changes to these photos haven\'t been kept yet.</string>
 </resources>

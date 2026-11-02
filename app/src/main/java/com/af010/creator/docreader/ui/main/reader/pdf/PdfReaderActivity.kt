@@ -214,6 +214,7 @@ class PdfReaderActivity : BaseAppActivity<ActivityPdfReaderBinding>(ActivityPdfR
         progress.indeterminateTintList = pdf
         layoutTop.updatePadding(top = statusBarHeight)
         tvName.text = file.name
+        tvName.isSelected = true
         layoutOverlay.addView(overlay)
         rcvAnnotateTools.adapter = toolAdapter
         rcvMatches.adapter = matchAdapter
@@ -1126,6 +1127,8 @@ class PdfReaderActivity : BaseAppActivity<ActivityPdfReaderBinding>(ActivityPdfR
         // Sign names the page the signature will land on.
         if (mode == Mode.Sign) tvModeSubtitle.text = getString(R.string.fo_page_x_of_y, page, count)
         seekPage.max = (count - 1).coerceAtLeast(0)
+        // One page has nowhere to slide to: the slider would show as a lone dot.
+        seekPage.visibleOrGone(count > 1)
         if (!seekPage.isPressed) seekPage.progress = page - 1
         val marked = prefs.bookmarks(file.path).any { it.page == page - 1 }
         btnBookmark.setImageResource(if (marked) R.drawable.ic_fo_star_filled else R.drawable.ic_fo_star)

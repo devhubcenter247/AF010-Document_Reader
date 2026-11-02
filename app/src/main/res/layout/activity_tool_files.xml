@@ -71,10 +71,11 @@
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rcvFiles"
+                style="@style/HomeCard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_11sdp"
-                android:clipToPadding="false"
+                android:clipToOutline="true"
                 android:nestedScrollingEnabled="false"
                 android:overScrollMode="never"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"

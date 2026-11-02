@@ -116,21 +116,24 @@ sealed interface ToolRequest : Parcelable {
         override val tool: Tool get() = Tool.Zip
     }
 
-    /** Also used to save a scan ([fromScan]) and the pages of an Office file ([fromOffice]). */
+    /** Also used to save a scan ([fromScan]). */
     @Parcelize
     data class ImagesToPdf(
         val paths: List<String>,
         val name: String,
         val setup: PageSetup,
-        val fromScan: Boolean = false,
-        val fromOffice: Boolean = false
+        val fromScan: Boolean = false
     ) : ToolRequest {
-        override val tool: Tool
-            get() = when {
-                fromScan -> Tool.Scan
-                fromOffice -> Tool.OfficeToPdf
-                else -> Tool.ImagesToPdf
-            }
+        override val tool: Tool get() = if (fromScan) Tool.Scan else Tool.ImagesToPdf
+    }
+
+    /**
+     * The Word, Excel or PowerPoint file at [path] as a PDF named [name]. The pages are drawn from
+     * the document open on screen, which hands ToolRunner an [com.af010.creator.docreader.pdf.OfficeWriter] first.
+     */
+    @Parcelize
+    data class OfficeToPdf(val path: String, val name: String) : ToolRequest {
+        override val tool: Tool get() = Tool.OfficeToPdf
     }
 }
 

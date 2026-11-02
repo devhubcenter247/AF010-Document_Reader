@@ -9,6 +9,7 @@ import com.af010.creator.docreader.model.DocumentType
 import com.af010.creator.docreader.model.RecentUi
 import com.af010.creator.docreader.ui.main.common.FilterChip
 import com.af010.creator.docreader.ui.main.common.FilterChipAdapter
+import com.af010.creator.docreader.ui.main.common.RowDivider
 import com.af010.creator.docreader.ui.main.common.isNoAccess
 import com.af010.creator.docreader.ui.main.common.show
 import com.af010.creator.docreader.ui.main.common.showNoAccess
@@ -54,6 +55,9 @@ class SearchActivity : BaseAppActivity<ActivitySearchBinding>(ActivitySearchBind
         rcvDocuments.adapter = names
         rcvInside.adapter = inside
         rcvRecent.adapter = recentAdapter
+        rcvDocuments.addItemDecoration(RowDivider())
+        rcvInside.addItemDecoration(RowDivider(com.intuit.sdp.R.dimen._12sdp))
+        rcvRecent.addItemDecoration(RowDivider(com.intuit.sdp.R.dimen._34sdp))
         typeChips.submitList(TYPES.map { (type, label) -> FilterChip(type, label, isSelected = type == null) })
         viewModel.setSearchScope(SearchScope.Apart)
         showRecentSearches()

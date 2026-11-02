@@ -1,15 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- A match inside a document, flat in the search card: file, page or line, and the text around it. -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="@dimen/_8sdp"
-    android:background="@drawable/bg_card"
-    android:elevation="@dimen/_3sdp"
-    android:foreground="?attr/selectableItemBackground"
+    android:background="?attr/selectableItemBackground"
     android:orientation="vertical"
-    android:outlineAmbientShadowColor="@color/color_shadow"
-    android:outlineSpotShadowColor="@color/color_shadow"
     android:paddingHorizontal="@dimen/_12sdp"
     android:paddingVertical="@dimen/_11sdp">
 
@@ -32,9 +28,10 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/_6sdp"
             android:layout_weight="1"
-            android:ellipsize="middle"
+            android:ellipsize="marquee"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:singleLine="true"
             android:fontFamily="@font/nunito_700"
-            android:maxLines="1"
             android:textColor="@color/text_tertiary"
             android:textSize="@dimen/_10sdp"
             tools:text="Lease_Agreement_2026.pdf" />

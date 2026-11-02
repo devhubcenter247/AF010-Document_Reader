@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The hairline between two points of the permission card, from the text's start to the card's end. -->
+<inset xmlns:android="http://schemas.android.com/apk/res/android"
+    android:insetLeft="@dimen/_53sdp">
+    <shape android:shape="rectangle">
+        <solid android:color="@color/color_stroke" />
+        <size android:height="@dimen/_1sdp" />
+    </shape>
+</inset>

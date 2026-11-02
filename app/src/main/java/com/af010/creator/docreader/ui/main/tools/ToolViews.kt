@@ -64,6 +64,7 @@ const val SETUP_STEP = 2
 fun LayoutToolFileBinding.show(file: File, meta: String) {
     tvType.showTypeTile(file)
     tvName.text = file.name
+    tvName.isSelected = true
     tvMeta.text = meta
 }
 

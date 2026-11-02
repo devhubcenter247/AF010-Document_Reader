@@ -39,6 +39,7 @@ class FileRowAdapter(private val ordered: Boolean) : BaseAdapter<FileRow, ItemTo
         tvNumber.text = (position + 1).toString()
         tvType.showTypeTile(item.file)
         tvName.text = item.file.name
+        tvName.isSelected = true
         tvMeta.text = item.meta
         btnUp.isEnabled = position > 0
         btnUp.alpha = if (position > 0) 1f else 0.35f

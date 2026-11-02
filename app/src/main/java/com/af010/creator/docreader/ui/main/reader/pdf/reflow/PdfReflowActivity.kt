@@ -1,5 +1,6 @@
 package com.af010.creator.docreader.ui.main.reader.pdf.reflow
 
+import android.content.res.ColorStateList
 import android.content.Context
 import android.content.Intent
 import android.graphics.Typeface
@@ -50,6 +51,7 @@ class PdfReflowActivity : BaseAppActivity<ActivityPdfReflowBinding>(ActivityPdfR
     }
 
     override fun ActivityPdfReflowBinding.setData() {
+        progress.indeterminateTintList = ColorStateList.valueOf(getColor(R.color.color_file_pdf))
         topBar.updatePadding(top = statusBarHeight)
 
         adapter.sizeSp = prefs.reflowSize

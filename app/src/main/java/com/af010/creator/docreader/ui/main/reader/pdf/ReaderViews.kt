@@ -15,6 +15,7 @@ import android.widget.SeekBar
 import androidx.core.content.ContextCompat
 import com.af010.creator.docreader.R
 import com.af010.creator.docreader.ui.common.ColorGridDialog
+import com.af010.creator.docreader.ui.dialog.hostAccent
 import com.af010.creator.docreader.utils.extensions.setCircle
 import com.af010.creator.docreader.utils.extensions.setStroke
 import com.ui.baselib.utils.dpToPx
@@ -80,12 +81,13 @@ private fun Context.findActivity(): Activity? {
     return null
 }
 
-/** The dot of [color] gets a ring. */
+/** The dot of [color] gets a ring, in the colour of the open file. */
 internal fun LinearLayout.selectColorDot(color: Int) {
     for (index in 0 until childCount) {
         val dot = getChildAt(index) as? View ?: continue
         val selected = dot.tag == color
-        dot.setStroke(context.dpToPx(if (selected) 3 else 1), ContextCompat.getColor(context, if (selected) R.color.primary else R.color.color_checkbox_stroke))
+        val ring = if (selected) context.hostAccent() ?: R.color.primary else R.color.color_checkbox_stroke
+        dot.setStroke(context.dpToPx(if (selected) 3 else 1), ContextCompat.getColor(context, ring))
         dot.invalidate()
     }
 }

@@ -54,8 +54,8 @@
 
             <ImageView
                 android:id="@+id/btnAlignLeft"
-                android:layout_width="@dimen/_36sdp"
-                android:layout_height="@dimen/_36sdp"
+                android:layout_width="@dimen/_32sdp"
+                android:layout_height="@dimen/_32sdp"
                 android:layout_marginEnd="@dimen/_6sdp"
                 android:contentDescription="@null"
                 android:padding="@dimen/_10sdp"
@@ -64,8 +64,8 @@
 
             <ImageView
                 android:id="@+id/btnAlignCenter"
-                android:layout_width="@dimen/_36sdp"
-                android:layout_height="@dimen/_36sdp"
+                android:layout_width="@dimen/_32sdp"
+                android:layout_height="@dimen/_32sdp"
                 android:layout_marginEnd="@dimen/_6sdp"
                 android:contentDescription="@null"
                 android:padding="@dimen/_10sdp"
@@ -74,8 +74,8 @@
 
             <ImageView
                 android:id="@+id/btnAlignRight"
-                android:layout_width="@dimen/_36sdp"
-                android:layout_height="@dimen/_36sdp"
+                android:layout_width="@dimen/_32sdp"
+                android:layout_height="@dimen/_32sdp"
                 android:layout_marginEnd="@dimen/_6sdp"
                 android:contentDescription="@null"
                 android:padding="@dimen/_10sdp"
@@ -85,7 +85,7 @@
             <TextView
                 android:id="@+id/btnWrap"
                 android:layout_width="wrap_content"
-                android:layout_height="@dimen/_36sdp"
+                android:layout_height="@dimen/_32sdp"
                 android:layout_marginStart="@dimen/_8sdp"
                 android:drawablePadding="@dimen/_8sdp"
                 android:fontFamily="@font/nunito_500"

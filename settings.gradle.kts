@@ -47,17 +47,16 @@ dependencyResolutionManagement {
             content { includeGroup("com.lib") }
         }
         maven {
-            url = uri("https://maven.pkg.github.com/dbv0610/Pdf-Document-Reader")
+            url = uri("https://maven.pkg.github.com/devhubcenter247/Document-Core-Office")
             credentials {
-                username = providers.gradleProperty("gpr.user").orNull
-                password = providers.gradleProperty("gpr.key").orNull
+                username = gprUser
+                password = gprKey
             }
             content { includeGroup("com.editor") }
         }
     }
 }
 
-rootProject.name = "AF006-DocReader-Creator"
+rootProject.name = "AF010-DocReader-Creator"
 include(":app")
 include(":opencv")
-//include(":pdfview")

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="color_tools_background">#F1F5FC</color>
+    <color name="color_tool_card_stroke">#E8EEF7</color>
+    <color name="color_tool_card_shadow">#66394F78</color>
+</resources>

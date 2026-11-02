@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/_46sdp"
+    android:layout_height="@dimen/_40sdp"
     android:background="@drawable/bg_choice_row"
     android:elevation="@dimen/_3sdp"
     android:gravity="center_vertical"
@@ -31,9 +31,9 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/_9sdp"
         android:layout_weight="1"
-        android:fontFamily="@font/nunito_700"
+        android:fontFamily="@font/nunito_500"
         android:textColor="@color/text_primary"
-        android:textSize="@dimen/_12sdp"
+        android:textSize="@dimen/_11sdp"
         tools:text="Date modified" />
 
     <ImageView
