@@ -81,7 +81,7 @@ class PickFileActivity : BaseAppActivity<ActivityPickFileBinding>(ActivityPickFi
 
     override fun ActivityPickFileBinding.setData() {
         topBar.tvTitle.setText(tool.title)
-        steps.show(1, TOOL_STEPS, getString(R.string.fo_step_pick_files))
+        steps.show(1, TOOL_STEPS, getString(if (multiple) R.string.fo_step_pick_files else R.string.fo_pick_a_file))
         edtSearch.setHint(if (pdfOnly) R.string.fo_search_your_pdfs else R.string.fo_search_your_files)
         viewModel.setSearchScope(SearchScope.FileName)
         rcvDocuments.adapter = fileAdapter

@@ -51,7 +51,7 @@ class SplitActivity : BaseAppActivity<ActivitySplitBinding>(ActivitySplitBinding
     }
 
     override fun ActivitySplitBinding.setData() {
-        topBar.show(Tool.Split, R.string.split_pdf)
+        topBar.show(Tool.Split)
         steps.showSetupStep(R.string.fo_step_choose_how)
         file.btnChange.isVisible = true
         optionEachPage.show(R.string.split_each_page, getString(R.string.split_each_page_desc))

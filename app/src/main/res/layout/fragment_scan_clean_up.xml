@@ -116,7 +116,7 @@
                 android:layout_marginHorizontal="@dimen/_6sdp"
                 android:layout_weight="1"
                 android:max="100"
-                android:progressBackgroundTint="@color/color_surface_variant"
+                android:progressDrawable="@drawable/bg_slider_progress"
                 android:progressTint="@color/text_primary"
                 android:splitTrack="false"
                 android:thumbTint="@color/text_primary" />

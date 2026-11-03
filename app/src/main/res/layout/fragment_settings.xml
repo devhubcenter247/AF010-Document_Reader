@@ -18,7 +18,7 @@
         android:orientation="vertical"
         android:paddingHorizontal="@dimen/_15sdp">
 
-        <!-- Header in the Files and Tools style: the mascot, the title and the app's version -->
+        <!-- Header in the Files and Tools style: the title and the app's name -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -27,24 +27,9 @@
             android:paddingTop="@dimen/_8sdp"
             android:paddingBottom="@dimen/_12sdp">
 
-            <FrameLayout
-                android:layout_width="@dimen/_38sdp"
-                android:layout_height="@dimen/_38sdp"
-                android:background="@drawable/bg_mascot_tile"
-                android:rotation="-6">
-
-                <ImageView
-                    android:layout_width="@dimen/_22sdp"
-                    android:layout_height="@dimen/_28sdp"
-                    android:layout_gravity="center"
-                    android:importantForAccessibility="no"
-                    android:src="@drawable/ic_mascot_smile_ink" />
-            </FrameLayout>
-
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_10sdp"
                 android:layout_weight="1"
                 android:orientation="vertical">
 

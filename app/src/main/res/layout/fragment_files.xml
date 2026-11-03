@@ -1,8 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?><!-- The Files tab. With file access a MotionLayout (scene_files_home) under a header that stays: the
-     screen is split in two: the top region (edit card to "Your documents") and the files opened lately.
-     Swiping up hides the top region, pushes the list up under the header and shows two pills (Read,
-     Create). Without access, the library with
-     its own header. FilesFragment shows one or the other. -->
+<?xml version="1.0" encoding="utf-8"?><!-- The Files tab. With file access: a header that stays, the file types with their counts (picking
+     one narrows the list; they scroll away with the list), Recent / Favourites / All with the sort button,
+     and the files. Without access, the library with its own header. FilesFragment shows one or the other. -->
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -11,364 +9,14 @@
     android:background="@color/color_home_background"
     tools:context=".ui.main.files.FilesFragment">
 
-    <com.af010.creator.docreader.ui.main.files.HomeMotionLayout
-        android:id="@+id/motionHome"
+    <LinearLayout
+        android:id="@+id/screenFiles"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layoutDescription="@xml/scene_files_home">
-
-        <!-- Top region: hidden by scene_files_home when the list below is pushed up -->
-        <LinearLayout
-            android:id="@+id/layoutTop"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:clipChildren="false"
-            android:clipToPadding="false"
-            android:orientation="vertical">
-
-                <LinearLayout
-                    android:clipChildren="false"
-                    android:clipToPadding="false"
-                    android:id="@+id/cardEdit"
-                    style="@style/HomeCard"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/_15sdp"
-                    android:layout_marginTop="@dimen/_5sdp"
-                    android:background="@drawable/bg_home_card"
-                    android:clipToOutline="true"
-                    android:foreground="?attr/selectableItemBackground"
-                    android:orientation="vertical"
-                    android:paddingHorizontal="@dimen/_12sdp"
-                    android:paddingTop="@dimen/_12sdp"
-                    android:paddingBottom="@dimen/_7sdp">
-
-                    <LinearLayout
-                        android:clipToPadding="false"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:clipChildren="false"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal">
-
-                        <LinearLayout
-                            android:clipChildren="false"
-                            android:clipToPadding="false"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="@font/nunito_700"
-                                android:letterSpacing="-0.015"
-                                android:text="@string/fo_edit_any_document"
-                                android:textColor="@color/text_primary"
-                                android:textSize="@dimen/_15sdp" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="@dimen/_2sdp"
-                                android:fontFamily="@font/nunito_500"
-                                android:text="@string/fo_edit_any_document_desc"
-                                android:textColor="@color/text_secondary"
-                                android:textSize="@dimen/_10sdp" />
-                        </LinearLayout>
-
-                        <FrameLayout
-                            android:clipToPadding="false"
-                            android:layout_width="@dimen/_74sdp"
-                            android:layout_height="@dimen/_58sdp"
-                            android:clipChildren="false">
-
-                            <LinearLayout
-                                android:clipChildren="false"
-                                android:clipToPadding="false"
-                                android:layout_width="@dimen/_40sdp"
-                                android:layout_height="@dimen/_50sdp"
-                                android:layout_gravity="center"
-                                android:background="@drawable/bg_page_sheet"
-                                android:elevation="@dimen/_3sdp"
-                                android:orientation="vertical"
-                                android:outlineAmbientShadowColor="@color/color_shadow"
-                                android:outlineSpotShadowColor="@color/color_shadow"
-                                android:paddingHorizontal="@dimen/_6sdp"
-                                android:paddingTop="@dimen/_9sdp"
-                                android:rotation="-6">
-
-                                <View
-                                    android:layout_width="@dimen/_20sdp"
-                                    android:layout_height="@dimen/_3sdp"
-                                    android:background="@drawable/bg_mini_line_ink"
-                                    android:backgroundTint="@color/primary" />
-
-                                <View
-                                    android:layout_width="match_parent"
-                                    android:layout_height="@dimen/_3sdp"
-                                    android:layout_marginTop="@dimen/_4sdp"
-                                    android:background="@drawable/bg_mini_line" />
-
-                                <View
-                                    android:layout_width="match_parent"
-                                    android:layout_height="@dimen/_3sdp"
-                                    android:layout_marginTop="@dimen/_4sdp"
-                                    android:background="@drawable/bg_mini_line" />
-
-                                <View
-                                    android:layout_width="@dimen/_16sdp"
-                                    android:layout_height="@dimen/_3sdp"
-                                    android:layout_marginTop="@dimen/_4sdp"
-                                    android:background="@drawable/bg_mini_line" />
-                            </LinearLayout>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="@dimen/_15sdp"
-                                android:layout_gravity="bottom|start"
-                                android:layout_marginBottom="@dimen/_6sdp"
-                                android:background="@drawable/bg_letter_badge"
-                                android:backgroundTint="@color/color_file_pdf"
-                                android:elevation="@dimen/_4sdp"
-                                android:fontFamily="@font/nunito_800"
-                                android:gravity="center"
-                                android:includeFontPadding="false"
-                                android:outlineProvider="none"
-                                android:paddingHorizontal="@dimen/_4sdp"
-                                android:rotation="-10"
-                                android:text="@string/tab_pdf"
-                                android:textColor="@color/on_primary"
-                                android:textSize="@dimen/_9sdp" />
-
-                            <ImageView
-                                android:layout_width="@dimen/_26sdp"
-                                android:layout_height="@dimen/_26sdp"
-                                android:layout_gravity="bottom|end"
-                                android:background="@drawable/bg_circle_primary"
-                                android:elevation="@dimen/_4sdp"
-                                android:importantForAccessibility="no"
-                                android:outlineProvider="none"
-                                android:padding="@dimen/_6sdp"
-                                android:src="@drawable/ic_fo_pen"
-                                app:tint="@color/on_primary" />
-                        </FrameLayout>
-                    </LinearLayout>
-
-                    <com.ui.baselib.widget.flexbox.FlexboxLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_8sdp"
-                        app:uiFlexWrap="wrap">
-
-                        <TextView
-                            android:id="@+id/chipAddText"
-                            style="@style/ToolChip"
-                            android:text="@string/add_text" />
-
-                        <TextView
-                            android:id="@+id/chipSign"
-                            style="@style/ToolChip"
-                            android:text="@string/tool_sign" />
-
-                        <TextView
-                            android:id="@+id/chipAnnotate"
-                            style="@style/ToolChip"
-                            android:text="@string/tool_annotate" />
-
-                        <TextView
-                            android:id="@+id/chipFillForms"
-                            style="@style/ToolChip"
-                            android:text="@string/fo_fill_forms" />
-
-                        <TextView
-                            android:id="@+id/chipOrganize"
-                            style="@style/ToolChip"
-                            android:text="@string/tool_organize" />
-                    </com.ui.baselib.widget.flexbox.FlexboxLayout>
-                </LinearLayout>
-
-                <TextView
-                    style="@style/SectionHeading"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingHorizontal="@dimen/_15sdp"
-                    android:paddingTop="@dimen/_12sdp"
-                    android:paddingBottom="@dimen/_8sdp"
-                    android:text="@string/fo_start_something_new" />
-
-                <LinearLayout
-                    android:clipToPadding="false"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:clipChildren="false"
-                    android:orientation="horizontal"
-                    android:paddingHorizontal="@dimen/_15sdp">
-
-                    <include
-                        android:id="@+id/tileWord"
-                        layout="@layout/layout_start_tile"
-                        android:layout_width="0dp"
-                        android:layout_height="@dimen/_105sdp"
-                        android:layout_weight="1" />
-
-                    <include
-                        android:id="@+id/tileExcel"
-                        layout="@layout/layout_start_tile"
-                        android:layout_width="0dp"
-                        android:layout_height="@dimen/_105sdp"
-                        android:layout_marginHorizontal="@dimen/_8sdp"
-                        android:layout_weight="1" />
-
-                    <include
-                        android:id="@+id/tilePpt"
-                        layout="@layout/layout_start_tile"
-                        android:layout_width="0dp"
-                        android:layout_height="@dimen/_105sdp"
-                        android:layout_weight="1" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:clipChildren="false"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:clipToPadding="false"
-                    android:orientation="horizontal"
-                    android:paddingHorizontal="@dimen/_15sdp"
-                    android:paddingTop="@dimen/_8sdp"
-                    android:paddingBottom="@dimen/_6sdp">
-
-                    <include
-                        android:id="@+id/btnScan"
-                        layout="@layout/layout_home_action" />
-
-                    <Space
-                        android:layout_width="@dimen/_8sdp"
-                        android:layout_height="0dp" />
-
-                    <include
-                        android:id="@+id/btnPhotos"
-                        layout="@layout/layout_home_action" />
-                </LinearLayout>
-
-        </LinearLayout>
-
-        <!-- Bottom region: the files opened lately; pushed up under the header, its list scrolls on its own -->
-        <LinearLayout
-            android:id="@+id/layoutRecent"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:clipChildren="false"
-            android:clipToPadding="false"
-            android:orientation="vertical"
-            android:paddingBottom="@dimen/_70sdp">
-
-            <TextView
-                android:id="@+id/tvYourDocuments"
-                style="@style/SectionHeading"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingHorizontal="@dimen/_15sdp"
-                android:paddingTop="@dimen/_10sdp"
-                android:paddingBottom="@dimen/_6sdp"
-                android:text="@string/fo_your_documents" />
-
-            <LinearLayout
-                android:clipChildren="false"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:clipToPadding="false"
-                android:orientation="horizontal"
-                android:paddingHorizontal="@dimen/_15sdp"
-                android:paddingBottom="@dimen/_4sdp">
-
-                <include
-                    android:id="@+id/typePdf"
-                    layout="@layout/layout_type_count" />
-
-                <include
-                    android:id="@+id/typeWord"
-                    layout="@layout/layout_type_count"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_7sdp"
-                    android:layout_weight="1" />
-
-                <include
-                    android:id="@+id/typeExcel"
-                    layout="@layout/layout_type_count"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_7sdp"
-                    android:layout_weight="1" />
-
-                <include
-                    android:id="@+id/typePpt"
-                    layout="@layout/layout_type_count"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_7sdp"
-                    android:layout_weight="1" />
-            </LinearLayout>
-
-
-            <LinearLayout
-                    android:clipChildren="false"
-                    android:clipToPadding="false"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal"
-                    android:paddingHorizontal="@dimen/_15sdp"
-                    android:paddingTop="@dimen/_17sdp"
-                    android:paddingBottom="@dimen/_8sdp">
-
-                    <TextView
-                        style="@style/SectionHeading"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="@string/fo_pick_up" />
-
-                    <TextView
-                        android:id="@+id/btnAllFiles"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="?attr/selectableItemBackgroundBorderless"
-                        android:fontFamily="@font/nunito_700"
-                        android:padding="@dimen/_3sdp"
-                        android:text="@string/all_file"
-                        android:textColor="@color/primary"
-                        android:textSize="@dimen/_11sdp" />
-                </LinearLayout>
-
-                <!-- The files opened lately, as rows of one card -->
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rcvDocuments"
-                    style="@style/HomeCard"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/_15sdp"
-                    android:layout_marginTop="@dimen/_2sdp"
-                    android:background="@drawable/bg_home_card"
-                    android:clipToOutline="true"
-                    android:overScrollMode="never"
-                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    tools:itemCount="3"
-                    tools:listitem="@layout/item_document" />
-
-                <include
-                    android:id="@+id/emptyRecent"
-                    layout="@layout/layout_empty_shelf"
-                    android:visibility="gone" />
-        </LinearLayout>
+        android:orientation="vertical">
 
         <LinearLayout
             android:id="@+id/headerHome"
-            android:background="@color/color_home_background"
-            android:clickable="true"
-            android:focusable="false"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_49sdp"
             android:gravity="center_vertical"
@@ -376,26 +24,26 @@
             android:paddingStart="@dimen/_15sdp"
             android:paddingEnd="@dimen/_9sdp">
 
-            <FrameLayout
-                android:layout_width="@dimen/_34sdp"
-                android:layout_height="@dimen/_34sdp"
-                android:background="@drawable/bg_mascot_tile"
-                android:rotation="-6">
-
-                <ImageView
-                    android:layout_width="@dimen/_20sdp"
-                    android:layout_height="@dimen/_25sdp"
-                    android:layout_gravity="center"
-                    android:importantForAccessibility="no"
-                    android:src="@drawable/ic_mascot_smile_ink" />
-            </FrameLayout>
-
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/_9sdp"
+                android:layout_marginEnd="@dimen/_9sdp"
                 android:layout_weight="1"
                 android:orientation="vertical">
+
+                <!-- The app's name is long: it scrolls (marquee, started by FilesFragment) rather than being cut -->
+                <TextView
+                    android:id="@+id/tvAppName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="marquee"
+                    android:fontFamily="@font/nunito_700"
+                    android:letterSpacing="-0.015"
+                    android:marqueeRepeatLimit="marquee_forever"
+                    android:singleLine="true"
+                    android:text="@string/app_name"
+                    android:textColor="@color/text_primary"
+                    android:textSize="@dimen/_18sdp" />
 
                 <TextView
                     android:id="@+id/tvGreeting"
@@ -403,18 +51,8 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/nunito_600"
                     android:textColor="@color/text_secondary"
-                    android:textSize="@dimen/_10sdp"
+                    android:textSize="@dimen/_11sdp"
                     tools:text="Good morning" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/nunito_700"
-                    android:letterSpacing="-0.015"
-                    android:maxLines="1"
-                    android:text="@string/fo_whats_on_today"
-                    android:textColor="@color/text_primary"
-                    android:textSize="@dimen/_16sdp" />
             </LinearLayout>
 
             <ImageView
@@ -436,42 +74,123 @@
                 app:tint="@color/color_premium_gold" />
         </LinearLayout>
 
-
-        <!-- Read and Create in place of the top region once it is hidden -->
-        <LinearLayout
-            android:id="@+id/layoutPills"
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/color_home_background"
-            android:clipToPadding="false"
-            android:orientation="horizontal"
-            android:paddingHorizontal="@dimen/_15sdp"
-            android:paddingTop="@dimen/_2sdp"
-            android:paddingBottom="@dimen/_6sdp">
+            android:layout_height="0dp"
+            android:layout_weight="1">
 
-            <TextView
-                android:id="@+id/pillRead"
-                style="@style/PillAction"
-                android:layout_width="0dp"
-                android:layout_height="@dimen/_34sdp"
-                android:layout_weight="1"
-                android:text="@string/fo_home_read"
-                app:drawableStartCompat="@drawable/ic_fo_book_15sdp"
-                app:drawableTint="@color/primary" />
+            <com.google.android.material.appbar.AppBarLayout
+                android:id="@+id/appBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/color_home_background"
+                android:stateListAnimator="@null"
+                app:elevation="0dp"
+                app:liftOnScroll="false">
 
-            <TextView
-                android:id="@+id/pillCreate"
-                style="@style/PillAction"
-                android:layout_width="0dp"
-                android:layout_height="@dimen/_34sdp"
-                android:layout_marginStart="@dimen/_8sdp"
-                android:layout_weight="1"
-                android:text="@string/fo_home_create"
-                app:drawableStartCompat="@drawable/ic_fo_plus_15sdp"
-                app:drawableTint="@color/color_file_powerpoint" />
-        </LinearLayout>
-    </com.af010.creator.docreader.ui.main.files.HomeMotionLayout>
+                <!-- The file types: tap one to narrow the list, tap it again for every type -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/_15sdp"
+                    android:paddingTop="@dimen/_5sdp"
+                    android:paddingBottom="@dimen/_6sdp"
+                    app:layout_scrollFlags="scroll|enterAlways|snap">
 
+                    <include
+                        android:id="@+id/typePdf"
+                        layout="@layout/layout_type_count" />
+
+                    <include
+                        android:id="@+id/typeWord"
+                        layout="@layout/layout_type_count"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_7sdp"
+                        android:layout_weight="1" />
+
+                    <include
+                        android:id="@+id/typeExcel"
+                        layout="@layout/layout_type_count"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_7sdp"
+                        android:layout_weight="1" />
+
+                    <include
+                        android:id="@+id/typePpt"
+                        layout="@layout/layout_type_count"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_7sdp"
+                        android:layout_weight="1" />
+                </LinearLayout>
+
+                <!-- Recent / Favourites / All and the sort button: stays under the header -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clipToPadding="false"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/_15sdp"
+                    android:paddingTop="@dimen/_6sdp"
+                    android:paddingBottom="@dimen/_6sdp">
+
+                    <include
+                        android:id="@+id/segmentTab"
+                        layout="@layout/layout_segment"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <ImageView
+                        android:id="@+id/btnSort"
+                        android:layout_width="@dimen/_37sdp"
+                        android:layout_height="@dimen/_37sdp"
+                        android:layout_marginStart="@dimen/_8sdp"
+                        android:background="@drawable/bg_square_button"
+                        android:contentDescription="@string/sort"
+                        android:elevation="@dimen/_3sdp"
+                        android:foreground="?attr/selectableItemBackground"
+                        android:outlineAmbientShadowColor="@color/color_shadow"
+                        android:outlineSpotShadowColor="@color/color_shadow"
+                        android:padding="@dimen/_10sdp"
+                        android:src="@drawable/ic_fo_sort"
+                        app:tint="@color/text_primary" />
+                </LinearLayout>
+            </com.google.android.material.appbar.AppBarLayout>
+
+            <!-- The files, as rows of one card; the bottom padding keeps the last row above the floating bar -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rcvDocuments"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="false"
+                android:overScrollMode="never"
+                android:paddingHorizontal="@dimen/_15sdp"
+                android:paddingTop="@dimen/_4sdp"
+                android:paddingBottom="@dimen/_80sdp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                tools:listitem="@layout/item_document" />
+
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/scrollEmpty"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+                <include
+                    android:id="@+id/emptyList"
+                    layout="@layout/layout_empty_shelf" />
+            </androidx.core.widget.NestedScrollView>
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+    </LinearLayout>
     <LinearLayout
         android:id="@+id/screenNoAccess"
         android:layout_width="match_parent"

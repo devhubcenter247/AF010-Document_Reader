@@ -45,9 +45,9 @@ internal class FormMode(private val overlay: PdfOverlayView, private val host: H
     override fun onCancel() { touched = null }
 
     private val outline = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-        style = Paint.Style.STROKE; strokeWidth = overlay.dp(1.5f); color = PdfOverlayView.ACCENT
+        style = Paint.Style.STROKE; strokeWidth = overlay.dp(1.5f); color = FIELD_BLUE
     }
-    private val fill = Paint(Paint.ANTI_ALIAS_FLAG).apply { color = 0x224850F4 }
+    private val fill = Paint(Paint.ANTI_ALIAS_FLAG).apply { color = 0x26246BFD }
 
     override fun draw(canvas: Canvas) {
         val pdf = overlay.pdfView
@@ -62,5 +62,10 @@ internal class FormMode(private val overlay: PdfOverlayView, private val host: H
                 canvas.drawRect(r, outline)
             }
         }
+    }
+
+    private companion object {
+        /** The app's primary blue (@color/primary), so "tap a blue field" is true. */
+        const val FIELD_BLUE = 0xFF246BFD.toInt()
     }
 }

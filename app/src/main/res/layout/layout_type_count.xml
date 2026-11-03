@@ -1,50 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- "Your documents": one file type (a page in its colour with its letter), its name and how many of it
-     are on the phone (FilesFragment). -->
+<!-- A file type on the Files tab (a page in its colour with its letter), its name and how many of it are on
+     the phone. Picked (isSelected), it narrows the list below to that type (FilesFragment). -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/HomeCard"
     android:layout_width="0dp"
     android:layout_height="wrap_content"
     android:layout_weight="1"
-    android:background="@drawable/bg_home_card"
+    android:background="@drawable/bg_type_card"
     android:foreground="?attr/selectableItemBackground"
     android:orientation="vertical"
     android:paddingHorizontal="@dimen/_9sdp"
     android:paddingTop="@dimen/_9sdp"
     android:paddingBottom="@dimen/_10sdp">
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:id="@+id/tvBadge"
-            android:layout_width="@dimen/_27sdp"
-            android:layout_height="@dimen/_32sdp"
-            android:layout_marginStart="@dimen/_2sdp"
-            android:layout_marginTop="@dimen/_6sdp"
-            android:background="@drawable/ic_file_page"
-            android:fontFamily="@font/nunito_800"
-            android:gravity="center"
-            android:maxLines="1"
-            android:paddingTop="@dimen/_4sdp"
-            android:textColor="@color/on_primary"
-            android:textSize="@dimen/_10sdp"
-            tools:backgroundTint="@color/color_file_word"
-            tools:text="W" />
-
-        <ImageView
-            android:layout_width="@dimen/_17sdp"
-            android:layout_height="@dimen/_17sdp"
-            android:layout_gravity="top|end"
-            android:background="@drawable/bg_circle_variant"
-            android:importantForAccessibility="no"
-            android:padding="@dimen/_4sdp"
-            android:src="@drawable/ic_fo_chevron"
-            app:tint="@color/text_secondary" />
-    </FrameLayout>
+    <TextView
+        android:id="@+id/tvBadge"
+        android:layout_width="@dimen/_27sdp"
+        android:layout_height="@dimen/_32sdp"
+        android:layout_marginStart="@dimen/_2sdp"
+        android:background="@drawable/ic_file_page"
+        android:fontFamily="@font/nunito_800"
+        android:gravity="center"
+        android:maxLines="1"
+        android:paddingTop="@dimen/_4sdp"
+        android:textColor="@color/on_primary"
+        android:textSize="@dimen/_10sdp"
+        tools:backgroundTint="@color/color_file_word"
+        tools:text="W" />
 
     <TextView
         android:id="@+id/tvName"

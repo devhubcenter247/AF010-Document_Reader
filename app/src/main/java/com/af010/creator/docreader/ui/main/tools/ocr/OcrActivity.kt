@@ -37,7 +37,7 @@ class OcrActivity : BaseAppActivity<ActivityOcrBinding>(ActivityOcrBinding::infl
     }
 
     override fun ActivityOcrBinding.setData() {
-        topBar.show(Tool.Ocr, R.string.fo_ocr_title)
+        topBar.show(Tool.Ocr)
         steps.showSetupStep(R.string.fo_step_find_words)
         file.btnChange.isVisible = true
         // The only output there is: shown as a choice so it is clear what comes out.

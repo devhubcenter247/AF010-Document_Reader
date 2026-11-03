@@ -52,7 +52,7 @@ class TranslateActivity : BaseAppActivity<ActivityTranslateBinding>(ActivityTran
     }
 
     override fun ActivityTranslateBinding.setData() {
-        topBar.show(Tool.Translate, R.string.translate_pdf, getString(R.string.translate_subtitle))
+        topBar.show(Tool.Translate, subtitle = getString(R.string.translate_subtitle))
         file.show(source, source.sizeText(this@TranslateActivity))
         rcvRecent.adapter = recentAdapter
         render()

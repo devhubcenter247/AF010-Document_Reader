@@ -82,6 +82,7 @@ class ProcessingActivity :
         val files = request.inputCount
         stepRead.show(resources.getQuantityString(R.plurals.fo_step_read_files, files, files), Step.Done)
         stepWork.show(getString(if (state.step != 0) state.step else R.string.fo_step_working), Step.Now)
+        // Cut at the end when too long (layout_process_step), so "Save to …" always reads.
         stepSave.show(getString(R.string.fo_step_save), Step.Later)
 
         val counted = state.total > 0
@@ -91,6 +92,10 @@ class ProcessingActivity :
             val percent = state.done * 100 / state.total
             progress.setProgressCompat(percent, true)
             tvPercent.text = getString(R.string.translate_percent, percent)
+            if (percent >= 100) {
+                tvTitle.setText(R.string.done)
+                btnCancel.visibility = android.view.View.INVISIBLE
+            }
         }
     }
 
@@ -133,7 +138,8 @@ class ProcessingActivity :
             tvPercent.text = getString(R.string.translate_percent, 100)
             stepWork.show(stepWork.tvStep.text.toString(), Step.Done)
             stepSave.show(stepSave.tvStep.text.toString(), Step.Done)
-            btnCancel.isEnabled = false
+            btnCancel.visibility = android.view.View.INVISIBLE
+            tvTitle.setText(R.string.done)
         }
         postDelayed(DONE_HOLD_MS) {
             if (isFinishing || isDestroyed) runner.reset() else then()

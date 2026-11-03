@@ -393,7 +393,7 @@
                 android:maxHeight="@dimen/_5sdp"
                 android:minHeight="@dimen/_5sdp"
                 android:paddingHorizontal="@dimen/_12sdp"
-                android:progressBackgroundTint="@color/color_surface_variant"
+                android:progressDrawable="@drawable/bg_slider_progress"
                 android:progressTint="@color/color_file_pdf"
                 android:splitTrack="false"
                 android:thumbTint="@color/color_file_pdf" />
@@ -583,7 +583,7 @@
                     android:layout_height="wrap_content"
                     android:max="7"
                     android:paddingHorizontal="@dimen/_8sdp"
-                    android:progressBackgroundTint="@color/color_surface_variant"
+                    android:progressDrawable="@drawable/bg_slider_progress"
                     android:progressTint="@color/text_primary"
                     android:splitTrack="false"
                     android:thumbTint="@color/text_primary" />
