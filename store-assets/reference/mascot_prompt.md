@@ -1,4 +1,4 @@
-# Folio mascot — image prompt
+# All Document Reader & Editor mascot — image prompt
 
 Written from the vectors in the app (`app/src/main/res/drawable/ic_mascot_smile.xml`,
 `ic_mascot_cheer.xml`, `ic_mascot_smile_ink.xml`). Colours are from `values/colors.xml`:
@@ -8,7 +8,7 @@ Written from the vectors in the app (`app/src/main/res/drawable/ic_mascot_smile.
 ## Base prompt
 
 ```
-A cute, minimal mascot for a document reader app called "Folio": a single sheet of paper
+A cute, minimal mascot for a document reader app called "All Document Reader & Editor": a single sheet of paper
 standing upright with a folded top-right corner (dog-ear), rounded corners, white body
 (#FFFFFF) with a thick royal-blue outline (#1858C4), the folded corner filled light grey-blue
 (#E8EBF2). Simple kawaii face in the upper-middle: two small solid blue dot eyes, a small

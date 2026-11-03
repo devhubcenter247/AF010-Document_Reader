@@ -1,4 +1,4 @@
-# Helpers to drive Folio over adb by resource id / text. Source it: . ./adb_ui.sh
+# Helpers to drive All Document Reader & Editor over adb by resource id / text. Source it: . ./adb_ui.sh
 PKG=${PKG:-com.af010.creator.docreader}
 SHOTS=${SHOTS:-raw}
 
@@ -32,8 +32,8 @@ draw() {
   adb shell input motionevent UP 0 0 >/dev/null 2>&1 || true
 }
 
-open_file() { # open_file "/sdcard/Download/Folio/x.pdf" mime
-  local uri="file://$(echo "$1" | sed 's/ /%20/g')"
+open_file() { # open_file "/sdcard/Download/All Document Reader & Editor/x.pdf" mime
+  local uri="file://$(echo "$1" | sed 's/ /%20/g; s/\&/%26/g')"
   adb shell am start -a android.intent.action.VIEW -d "$uri" -t "$2" -n "$PKG/.ui.splash.SplashActivity" >/dev/null
   sleep "${3:-5}"
 }

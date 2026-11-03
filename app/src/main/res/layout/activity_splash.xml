@@ -8,17 +8,19 @@
     android:background="@color/color_bg_app"
     tools:context=".ui.splash.SplashActivity">
 
-    <!-- Soft blobs and sparkles, laid out on the 390 × 844 design canvas -->
+    <!-- The picture for this screen's shape is set by SplashActivity -->
     <ImageView
+        android:id="@+id/ivBackground"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:importantForAccessibility="no"
         android:scaleType="centerCrop"
-        android:src="@drawable/bg_decor_splash"
+        android:alpha="0.75"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/bg_splash_2400" />
 
     <!-- Mascot and name, centred -->
     <LinearLayout
@@ -51,12 +53,14 @@
             android:id="@+id/tvAppName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_12sdp"
             android:layout_marginTop="@dimen/_15sdp"
             android:fontFamily="@font/nunito_700"
+           android:gravity="center"
             android:letterSpacing="-0.025"
             android:text="@string/app_name"
             android:textColor="@color/text_primary"
-            android:textSize="@dimen/_37sdp" />
+            android:textSize="@dimen/_22sdp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -101,7 +105,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_9sdp"
-        android:layout_marginBottom="@dimen/_54sdp"
+        android:layout_marginBottom="@dimen/_16sdp"
         android:fontFamily="@font/nunito_500"
         android:text="@string/this_action_may_contain_advertising"
         android:textColor="@color/text_secondary"

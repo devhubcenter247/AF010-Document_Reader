@@ -62,7 +62,7 @@
                     android:maxLines="1"
                     android:textColor="@color/text_secondary"
                     android:textSize="@dimen/_11sdp"
-                    tools:text="Folio 1.0.0 (1) · Made with care" />
+                    tools:text="All Document Reader &amp; Editor" />
             </LinearLayout>
         </LinearLayout>
 
@@ -154,12 +154,6 @@
             android:paddingTop="@dimen/_6sdp"
             android:paddingBottom="@dimen/_8sdp">
 
-            <View
-                android:layout_width="@dimen/_10sdp"
-                android:layout_height="@dimen/_10sdp"
-                android:background="@drawable/bg_letter_badge"
-                android:backgroundTint="@color/primary" />
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -219,7 +213,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="@dimen/_9sdp"
                         android:layout_weight="1"
-                        android:fontFamily="@font/nunito_700"
+                        android:fontFamily="@font/nunito_600"
                         android:text="@string/fo_theme"
                         android:textColor="@color/text_primary"
                         android:textSize="@dimen/_12sdp" />
@@ -306,14 +300,8 @@
             android:gravity="center_vertical"
             android:orientation="horizontal"
             android:paddingStart="@dimen/_2sdp"
-            android:paddingTop="@dimen/_16sdp"
+            android:paddingTop="@dimen/_12sdp"
             android:paddingBottom="@dimen/_8sdp">
-
-            <View
-                android:layout_width="@dimen/_10sdp"
-                android:layout_height="@dimen/_10sdp"
-                android:background="@drawable/bg_letter_badge"
-                android:backgroundTint="@color/color_file_image" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -336,6 +324,17 @@
 
             <include
                 android:id="@+id/rowPrivacy"
+                layout="@layout/layout_settings_row" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginStart="@dimen/_46sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:background="@color/color_stroke" />
+
+            <include
+                android:id="@+id/rowTerms"
                 layout="@layout/layout_settings_row" />
 
             <View

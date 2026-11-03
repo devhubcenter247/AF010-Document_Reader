@@ -12,6 +12,9 @@ from docx.oxml import OxmlElement
 from docx.oxml.ns import qn
 from docx.shared import Pt, RGBColor
 from openpyxl import Workbook
+from openpyxl.chart import BarChart, LineChart, Reference
+from openpyxl.chart.data_source import NumData, NumVal, StrData, StrRef, StrVal
+from openpyxl.utils.cell import range_boundaries
 from openpyxl.styles import Alignment, Border, Font, PatternFill, Side
 from pptx import Presentation
 from pptx.dml.color import RGBColor as PRGB
@@ -78,6 +81,25 @@ def word():
     d.save(out / "Project Proposal.docx")
 
 
+def cache_series(chart, ws):
+    """Writes the values each series reads into the chart itself. openpyxl leaves them out, and the
+    app's spreadsheet viewer reads charts from these caches only: without them it cannot open the file."""
+    def cells(ref):
+        min_col, min_row, max_col, max_row = range_boundaries(ref.split("!")[1].replace("$", ""))
+        return [v for row in ws.iter_rows(min_row, max_row, min_col, max_col, values_only=True) for v in row]
+    for s in chart.series:
+        names = cells(s.tx.strRef.f)
+        s.tx.strRef.strCache = StrData(ptCount=len(names), pt=[StrVal(idx=i, v=str(v)) for i, v in enumerate(names)])
+        values = cells(s.val.numRef.f)
+        s.val.numRef.numCache = NumData(formatCode="General", ptCount=len(values),
+                                        pt=[NumVal(idx=i, v=v) for i, v in enumerate(values)])
+        f = s.cat.numRef.f
+        # Short month names: the full ones run into each other under a phone-sized chart.
+        labels = [str(v)[:3] for v in cells(f)]
+        s.cat.numRef = None
+        s.cat.strRef = StrRef(f=f, strCache=StrData(ptCount=len(labels), pt=[StrVal(idx=i, v=str(v)) for i, v in enumerate(labels)]))
+
+
 def excel():
     # Large type and wide columns so the sheet fills a phone screen at the viewer's default zoom.
     wb = Workbook()
@@ -125,6 +147,55 @@ def excel():
     ws.column_dimensions["A"].width = 26
     for col in "BCD":
         ws.column_dimensions[col].width = 22
+
+    # A second sheet, "Report": three figures and two charts drawn from the table.
+    rep = wb.create_sheet("Report")
+    rep["A1"] = "2026 at a glance"
+    rep["A1"].font = Font(size=30, bold=True, color="128A3C")
+    rep.row_dimensions[1].height = 48
+    figures = [("Revenue", sum(revenue), "$#,##0"), ("Profit", sum(revenue) - sum(costs), "$#,##0"),
+               ("Margin", (sum(revenue) - sum(costs)) / sum(revenue), "0%")]
+    for j, (name, value, fmt) in enumerate(figures, 1):
+        head_cell = rep.cell(3, j, name)
+        head_cell.font = Font(size=16, bold=True, color="FFFFFF")
+        head_cell.fill = PatternFill("solid", fgColor="128A3C")
+        head_cell.alignment = Alignment(horizontal="center", vertical="center")
+        value_cell = rep.cell(4, j, value)
+        value_cell.number_format = fmt
+        value_cell.font = Font(size=24, bold=True, color="0E6B2E")
+        value_cell.fill = PatternFill("solid", fgColor="E8F5EC")
+        value_cell.alignment = Alignment(horizontal="center", vertical="center")
+    rep.row_dimensions[3].height = 30
+    rep.row_dimensions[4].height = 44
+    for col in "ABC":
+        rep.column_dimensions[col].width = 30
+
+    labels = Reference(ws, min_col=1, min_row=4, max_row=last)
+    bars = BarChart()
+    bars.type = "col"
+    bars.title = "Revenue vs costs"
+    bars.style = 10
+    bars.y_axis.numFmt = "$#,##0"
+    bars.add_data(Reference(ws, min_col=2, max_col=3, min_row=3, max_row=last), titles_from_data=True)
+    bars.set_categories(labels)
+    bars.series[0].graphicalProperties.solidFill = "128A3C"
+    bars.series[1].graphicalProperties.solidFill = "9AD3AA"
+    bars.width, bars.height = 17, 14
+    cache_series(bars, ws)
+    rep.add_chart(bars, "A6")
+
+    line = LineChart()
+    line.title = "Monthly profit"
+    line.style = 12
+    line.y_axis.numFmt = "$#,##0"
+    line.add_data(Reference(ws, min_col=4, min_row=3, max_row=last), titles_from_data=True)
+    line.set_categories(labels)
+    line.series[0].graphicalProperties.line.solidFill = "1F6FEB"
+    line.series[0].graphicalProperties.line.width = 38100
+    line.series[0].smooth = True
+    line.width, line.height = 17, 14
+    cache_series(line, ws)
+    rep.add_chart(line, "A34")
     wb.save(out / "Sales Report 2026.xlsx")
 
 
@@ -132,7 +203,7 @@ def slides():
     pr = Presentation()
     pr.slide_width, pr.slide_height = Inches(13.333), Inches(7.5)
     colors = ["C9520A", "1F6FEB", "128A3C", "7A3FD1"]
-    content = [("Product Launch 2027", "Folio Notes · Go-to-market plan"),
+    content = [("Product Launch 2027", "All Document Reader & Editor Notes · Go-to-market plan"),
                ("Why now?", "Remote teams sign 3× more documents on mobile than in 2023"),
                ("Our plan", "Beta in March · Launch in May · 1M users by December"),
                ("Thank you!", "Questions? hello@example.com")]

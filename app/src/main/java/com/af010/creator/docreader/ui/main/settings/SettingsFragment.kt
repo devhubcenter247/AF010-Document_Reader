@@ -44,8 +44,10 @@ class SettingsFragment : BaseAppFragment<FragmentSettingsBinding>(FragmentSettin
         cardPremium.isVisible = remoteConfig.paywallEnabled
         rowLanguage.describe(R.drawable.ic_fo_globe, R.color.primary, R.string.language)
         rowPrivacy.describe(R.drawable.ic_fo_shield, R.color.color_file_excel, R.string.privacy_policy)
+        rowTerms.describe(R.drawable.ic_fo_note, R.color.color_file_word, R.string.fo_terms_of_service)
         rowShare.describe(R.drawable.ic_fo_share, R.color.color_file_powerpoint, R.string.fo_tell_a_friend)
         rowPrivacy.tvValue.isVisible = false
+        rowTerms.tvValue.isVisible = false
         rowShare.tvValue.isVisible = false
         themeAuto.describe(R.string.fo_theme_auto, light = true, dark = true)
         themeLight.describe(R.string.theme_light, light = true, dark = false)
@@ -60,7 +62,7 @@ class SettingsFragment : BaseAppFragment<FragmentSettingsBinding>(FragmentSettin
             }
         }
         showStars(0)
-        tvVersion.text = getString(R.string.fo_version, BuildConfig.VERSION_NAME, BuildConfig.VERSION_CODE)
+        tvVersion.text = getString(R.string.fo_version,)
     }
 
     override fun FragmentSettingsBinding.onClick() {
@@ -68,6 +70,7 @@ class SettingsFragment : BaseAppFragment<FragmentSettingsBinding>(FragmentSettin
         btnTrial.clickSingle { PaywallActivity.start(requireActivity()) }
         rowLanguage.root.clickSingle { launchActivity<LanguageActivity>() }
         rowPrivacy.root.clickSingle { appContext().openUrl(Aso.POLICY_LINK) }
+        rowTerms.root.clickSingle { appContext().openUrl(Aso.TEAM_SERVICE) }
         rowShare.root.clickSingle { appContext().shareApp() }
     }
 
@@ -97,6 +100,7 @@ class SettingsFragment : BaseAppFragment<FragmentSettingsBinding>(FragmentSettin
         root.contentDescription = getString(name)
     }
 
+    /** Icon, colour and label of a row; its tap is set in [onClick]. */
     private fun LayoutSettingsRowBinding.describe(@DrawableRes icon: Int, @ColorRes tint: Int, @StringRes label: Int) {
         ivIcon.setImageResource(icon)
         ivIcon.setBackgroundResource(R.drawable.bg_tool_glyph)

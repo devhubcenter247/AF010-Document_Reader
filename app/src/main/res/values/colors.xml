@@ -66,7 +66,7 @@
     <color name="color_danger_soft">#FFB4A8</color>
     <color name="color_ink_bar">#204EC8</color>
 
-    <!-- Folio palette additions -->
+    <!-- All Document Reader &amp; Editor palette additions -->
     <color name="text_tertiary">#607089</color> <!-- Chữ phụ, giữ tương phản trên nền sáng -->
     <color name="color_shadow">#591E2846</color> <!-- Màu bóng của thẻ nổi -->
     <color name="color_pro">#FFC64A</color> <!-- Chỉ dùng cho Pro -->

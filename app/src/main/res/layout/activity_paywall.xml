@@ -146,7 +146,7 @@
                 android:paddingHorizontal="@dimen/_18sdp"
                 android:textColor="@color/text_secondary"
                 android:textSize="@dimen/_11sdp"
-                tools:text="OCR comes with Folio Pro, along with protect, redact, full translation and no ads." />
+                tools:text="OCR comes with All Document Reader &amp; Editor Pro, along with protect, redact, full translation and no ads." />
 
             <LinearLayout
                 android:layout_width="match_parent"

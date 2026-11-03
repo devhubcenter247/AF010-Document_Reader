@@ -2,6 +2,7 @@ package com.af010.creator.docreader.ui.main.files
 
 import android.content.res.ColorStateList
 import android.net.Uri
+import android.view.View
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.ColorRes
 import androidx.annotation.DrawableRes
@@ -9,7 +10,10 @@ import androidx.annotation.StringRes
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.core.widget.TextViewCompat
+import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
+import androidx.constraintlayout.motion.widget.MotionLayout
+import androidx.constraintlayout.motion.widget.TransitionAdapter
 import androidx.lifecycle.lifecycleScope
 import com.af010.creator.docreader.R
 import com.af010.creator.docreader.app.remote.remoteConfig
@@ -18,7 +22,6 @@ import com.af010.creator.docreader.database.DocsResponse
 import com.af010.creator.docreader.database.DocumentRepository
 import com.af010.creator.docreader.databinding.FragmentFilesBinding
 import com.af010.creator.docreader.databinding.LayoutHomeActionBinding
-import com.af010.creator.docreader.databinding.LayoutHomeCardBinding
 import com.af010.creator.docreader.databinding.LayoutQuickTileBinding
 import com.af010.creator.docreader.databinding.LayoutStartTileBinding
 import com.af010.creator.docreader.databinding.LayoutTypeCountBinding
@@ -46,8 +49,9 @@ import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 /**
- * The Files tab. With file access: Read and Create side by side, how many files of each type
- * the phone has, start something new, the edit card and the files opened lately. Without it: a library that asks for access and still offers what works without.
+ * The Files tab. With file access the screen is split in two (scene_files_home): on top the edit
+ * card, start something new and how many files of each type the phone has; below, the files opened
+ * lately. Swiping up hides the top part, pushes the list up and shows the Read and Create pills. Without it: a library that asks for access and still offers what works without.
  */
 class FilesFragment : BaseAppFragment<FragmentFilesBinding>(FragmentFilesBinding::inflate) {
 
@@ -66,9 +70,6 @@ class FilesFragment : BaseAppFragment<FragmentFilesBinding>(FragmentFilesBinding
         tvGreeting.setText(greeting())
         btnPro.isVisible = remoteConfig.paywallEnabled
         btnProPill.isVisible = remoteConfig.paywallEnabled
-
-        cardRead.home(R.drawable.ic_fo_book, R.color.primary, R.string.fo_home_read, R.string.all_file, tilt = -5f)
-        cardCreate.home(R.drawable.ic_fo_plus, R.color.color_file_powerpoint, R.string.fo_home_create, R.string.fo_home_create_desc, tilt = 4f)
         TYPE_TILES.forEach { tile -> typeTile(tile.type).badge(tile) }
 
         tileWord.blank(R.string.fo_document, R.string.tab_word, "W", R.color.color_file_word, tilt = -3f)
@@ -97,13 +98,30 @@ class FilesFragment : BaseAppFragment<FragmentFilesBinding>(FragmentFilesBinding
         btnSearch.clickSingle { launchActivity<SearchActivity>() }
         btnPro.clickSingle { PaywallActivity.start(requireActivity()) }
         btnProPill.clickSingle { PaywallActivity.start(requireActivity()) }
-
-        cardRead.root.clickSingle { openAllFiles(null) }
-        cardCreate.root.clickSingle { (activity as? MainActivity)?.showCreateSheet() }
         pillRead.clickSingle { openAllFiles(null) }
         pillCreate.clickSingle { (activity as? MainActivity)?.showCreateSheet() }
-        foldCards(0f)
-        scroll.setOnScrollChangeListener { _, _, scrollY, _, _ -> foldCards(pillsProgress(scrollY)) }
+        pillsShown(motionHome.progress)
+        motionHome.scrollingList = rcvDocuments
+        // Also after any layout change (the top region's height decides the distances).
+        motionHome.viewTreeObserver.addOnPreDrawListener { placeRegions(motionHome.progress); true }
+        motionHome.addTransitionListener(object : TransitionAdapter() {
+            override fun onTransitionStarted(motionLayout: MotionLayout, startId: Int, endId: Int) {
+                // Fading a region full of shadowed cards is cheap only from a layer.
+                layoutTop.setLayerType(View.LAYER_TYPE_HARDWARE, null)
+            }
+
+            override fun onTransitionChange(motionLayout: MotionLayout, startId: Int, endId: Int, progress: Float) {
+                placeRegions(progress)
+                pillsShown(progress)
+            }
+
+            override fun onTransitionCompleted(motionLayout: MotionLayout, currentId: Int) {
+                layoutTop.setLayerType(View.LAYER_TYPE_NONE, null)
+                val progress = if (currentId == R.id.collapsed) 1f else 0f
+                placeRegions(progress)
+                pillsShown(progress)
+            }
+        })
         TYPE_TILES.forEach { tile -> typeTile(tile.type).root.clickSingle { openAllFiles(tile.type) } }
 
         tileWord.root.clickSingle { newDocument(DocumentType.Doc) }
@@ -140,7 +158,6 @@ class FilesFragment : BaseAppFragment<FragmentFilesBinding>(FragmentFilesBinding
         screenNoAccess.isVisible = noAccess
         layoutNoAccess.isVisible = noAccess
         motionHome.isVisible = !noAccess
-        layoutHome.isVisible = !noAccess
         if (response !is DataResponse.DataSuccess) return
         val files = response.data.take(RECENT_LIMIT)
         recent.submitList(files)
@@ -149,26 +166,33 @@ class FilesFragment : BaseAppFragment<FragmentFilesBinding>(FragmentFilesBinding
     }
 
     /**
-     * How far the pills of scene_files_home are in: from 0 while the Read and Create cards show
-     * below them to 1 once the cards have gone under them.
+     * Moves the two regions of scene_files_home for [progress] by translation only (no new layout):
+     * expanded (0), the list is pushed down below the top region; collapsed (1), the top region is
+     * moved up behind the header and the list sits under the pills.
      */
-    private fun FragmentFilesBinding.pillsProgress(scrollY: Int): Float {
-        val pills = layoutPills.height.takeIf { it > 0 } ?: return 0f
-        val hidden = layoutHome.top + layoutCards.bottom - pills
-        return ((scrollY - hidden + pills) / pills.toFloat()).coerceIn(0f, 1f)
+    private fun FragmentFilesBinding.placeRegions(progress: Float) {
+        val top = layoutTop.height
+        val pills = layoutPills.height
+        if (top == 0 || pills == 0) return
+        motionHome.collapseDistance = top - pills
+        layoutTop.translationY = -top * progress
+        layoutRecent.translationY = (top - pills) * (1f - progress)
     }
 
-    /** The pills stay over the content while faded: they take taps only once they show, the rest passes through. */
-    private fun FragmentFilesBinding.foldCards(progress: Float) {
-        if (motionHome.progress != progress) motionHome.progress = progress
-        pillRead.isClickable = progress > 0.5f
-        pillCreate.isClickable = progress > 0.5f
+    /**
+     * The pills stay over the top region while faded: they take taps only once they show, and the
+     * top region only while it does.
+     */
+    private fun FragmentFilesBinding.pillsShown(progress: Float) {
+        val shown = progress > 0.5f
+        pillRead.isClickable = shown
+        pillCreate.isClickable = shown
+        layoutPills.isInvisible = progress == 0f
     }
 
-    /** Every document on the phone, counted for Read and per type. */
+    /** Every document on the phone, counted per type. */
     private fun FragmentFilesBinding.showCounts(response: DocsResponse) {
         val files = (response as? DataResponse.DataSuccess)?.data ?: return
-        cardRead.tvDesc.text = resources.getQuantityString(R.plurals.fo_files_on_phone, files.size, files.size)
         val counts = files.groupingBy { it.type }.eachCount()
         TYPE_TILES.forEach { tile ->
             val count = counts[tile.type] ?: 0
@@ -189,19 +213,6 @@ class FilesFragment : BaseAppFragment<FragmentFilesBinding>(FragmentFilesBinding
         Tool.Annotate -> chipAnnotate
         Tool.FillForm -> chipFillForms
         else -> chipOrganize
-    }
-
-    private fun LayoutHomeCardBinding.home(
-        @DrawableRes glyph: Int, @ColorRes color: Int, @StringRes title: Int, @StringRes desc: Int, tilt: Float
-    ) {
-        val tint = ColorStateList.valueOf(ContextCompat.getColor(root.context, color))
-        ivIcon.setImageResource(glyph)
-        ivIcon.backgroundTintList = tint
-        paperAccent.backgroundTintList = tint
-        ivIcon.imageTintList = ColorStateList.valueOf(ContextCompat.getColor(root.context, R.color.on_primary))
-        ivIcon.rotation = tilt
-        tvTitle.setText(title)
-        tvDesc.setText(desc)
     }
 
     private fun LayoutTypeCountBinding.badge(tile: TypeTile) {

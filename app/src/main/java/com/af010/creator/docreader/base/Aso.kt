@@ -16,9 +16,9 @@ import com.google.android.play.core.review.*
 import java.io.File
 
 object Aso {
-    const val POLICY_LINK ="https://docs.google.com/document/d/e/2PACX-1vS9fB2OVQK9mJqrJNCxFPkPNiU9vpVZfOMEfSgU1Z3Ya6LurXGlzTExVE3tJuF-pA/pub"
+    const val POLICY_LINK ="https://docs.google.com/document/d/e/2PACX-1vQdhR5cxEvofV0VTN9VIitxjGY9W8iftfiVtRuY7H1oQcNKxrgXQqodZKrAUOPlrw/pub"
 
-    const val TEAM_SERVICE ="https://docs.google.com/document/d/e/2PACX-1vTNwnUGcBgKUQagmz23J9yrhEIzqldF8fZ6nLkMULdwGRLsZLRCDg3fiMXLHU986g/pub"
+    const val TEAM_SERVICE ="https://docs.google.com/document/d/e/2PACX-1vQN3sj3ZBhSPqnD56Cu8IN3uiREDcl9gX4IUnTW6k2-dI_r-jtMmsH8x9f7mXjMQg/pub"
 
     const val MAIL_SUPPORT = "dong2k2.dev@gmail.com"
 }

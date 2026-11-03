@@ -56,7 +56,7 @@
     </style>
 
 
-    <!-- Folio: the main action, a 56px blue pill with a soft blue glow -->
+    <!-- All Document Reader &amp; Editor: the main action, a 56px blue pill with a soft blue glow -->
     <style name="PrimaryPillButton">
         <item name="android:layout_height">@dimen/_39sdp</item>
         <item name="android:background">@drawable/bg_button_primary</item>
@@ -70,7 +70,7 @@
         <item name="android:outlineAmbientShadowColor">@color/primary</item>
     </style>
 
-    <!-- Folio: a quiet text-only action under the main one ("Maybe later") -->
+    <!-- All Document Reader &amp; Editor: a quiet text-only action under the main one ("Maybe later") -->
     <style name="GhostButton">
         <item name="android:layout_height">@dimen/_37sdp</item>
         <item name="android:background">?attr/selectableItemBackgroundBorderless</item>
@@ -81,10 +81,10 @@
         <item name="android:fontFamily">@font/nunito_600</item>
     </style>
 
-    <!-- Folio: big friendly screen titles (32px) -->
+    <!-- All Document Reader &amp; Editor: big friendly screen titles (32px) -->
     <style name="DisplayTitle">
         <item name="android:textColor">@color/text_primary</item>
-        <item name="android:textSize">@dimen/_18sdp</item>
+        <item name="android:textSize">@dimen/_15sdp</item>
         <item name="android:fontFamily">@font/nunito_700</item>
         <item name="android:letterSpacing">-0.02</item>
         <item name="android:lineSpacingMultiplier">0.95</item>
@@ -94,10 +94,10 @@
         <item name="android:textColor">@color/text_secondary</item>
         <item name="android:textSize">@dimen/_12sdp</item>
         <item name="android:fontFamily">@font/nunito_500</item>
-        <item name="android:lineSpacingMultiplier">1.15</item>
+        <item name="android:lineSpacingMultiplier">1</item>
     </style>
 
-    <!-- Folio: the white floating card used for rows and options -->
+    <!-- All Document Reader &amp; Editor: the white floating card used for rows and options -->
     <style name="FloatingCard">
         <item name="android:background">@drawable/bg_home_card</item>
         <item name="android:elevation">@dimen/_3sdp</item>
@@ -105,7 +105,7 @@
         <item name="android:outlineAmbientShadowColor">@color/color_home_card_shadow</item>
     </style>
 
-    <!-- Folio: one option of a segmented control (layout_segment.xml) -->
+    <!-- All Document Reader &amp; Editor: one option of a segmented control (layout_segment.xml) -->
     <style name="SegmentItem">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">@dimen/_31sdp</item>
@@ -123,7 +123,7 @@
         <item name="android:outlineAmbientShadowColor">@color/color_shadow</item>
     </style>
 
-    <!-- Folio: a round white icon button (back, search) -->
+    <!-- All Document Reader &amp; Editor: a round white icon button (back, search) -->
     <style name="RoundIconButton">
         <item name="android:layout_width">@dimen/_34sdp</item>
         <item name="android:layout_height">@dimen/_34sdp</item>
@@ -133,7 +133,7 @@
         <item name="tint">@color/text_primary</item>
     </style>
 
-    <!-- Folio: section heading with an optional link on the right -->
+    <!-- All Document Reader &amp; Editor: section heading with an optional link on the right -->
     <style name="SectionHeading">
         <item name="android:textColor">@color/text_primary</item>
         <item name="android:textSize">@dimen/_12sdp</item>
@@ -141,7 +141,7 @@
         <item name="android:letterSpacing">-0.01</item>
     </style>
 
-    <!-- Folio: one tab of the floating bottom bar; the icon and label follow its selected state -->
+    <!-- All Document Reader &amp; Editor: one tab of the floating bottom bar; the icon and label follow its selected state -->
     <style name="NavTab">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">@dimen/_38sdp</item>
@@ -170,7 +170,7 @@
         <item name="android:textSize">@dimen/_9sdp</item>
     </style>
 
-    <!-- Folio: an outlined tool chip on a white card (Files tab edit card); the icon comes from code -->
+    <!-- All Document Reader &amp; Editor: an outlined tool chip on a white card (Files tab edit card); the icon comes from code -->
     <style name="ToolChip">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">@dimen/_25sdp</item>
@@ -189,7 +189,7 @@
         <item name="android:textSize">@dimen/_10sdp</item>
     </style>
 
-    <!-- Folio: a white pill with a blue icon ("Scan to PDF") -->
+    <!-- All Document Reader &amp; Editor: a white pill with a blue icon ("Scan to PDF") -->
     <style name="PillAction">
         <item name="android:layout_height">@dimen/_40sdp</item>
         <item name="android:background">@drawable/bg_pill_button</item>
@@ -206,7 +206,7 @@
         <item name="android:textSize">@dimen/_11sdp</item>
     </style>
 
-    <!-- Folio: an action tile in a sheet's grid (Share, Favourite, Rename, Copy) -->
+    <!-- All Document Reader &amp; Editor: an action tile in a sheet's grid (Share, Favourite, Rename, Copy) -->
     <style name="ActionTile">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">@dimen/_62sdp</item>
@@ -225,7 +225,7 @@
         <item name="drawableTint">@color/action_tile_content</item>
     </style>
 
-    <!-- Folio: a row inside a white list card (File info, Delete) -->
+    <!-- All Document Reader &amp; Editor: a row inside a white list card (File info, Delete) -->
     <style name="CardRow">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">@dimen/_43sdp</item>
@@ -239,7 +239,7 @@
         <item name="drawableTint">@color/text_primary</item>
     </style>
 
-    <!-- Folio: an action on the dark floating bar of multi-select -->
+    <!-- All Document Reader &amp; Editor: an action on the dark floating bar of multi-select -->
     <style name="InkBarAction">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">@dimen/_46sdp</item>
@@ -255,7 +255,7 @@
         <item name="drawableTint">@color/ink_bar_action</item>
     </style>
 
-    <!-- Folio: the small grey note at the right of a section heading ("2 found") -->
+    <!-- All Document Reader &amp; Editor: the small grey note at the right of a section heading ("2 found") -->
     <style name="SectionNote">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>

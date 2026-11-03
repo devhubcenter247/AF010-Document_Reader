@@ -8,21 +8,12 @@
     android:background="@color/color_bg_app"
     android:orientation="vertical"
     tools:context=".ui.welcome.WelcomeActivity">
-
-    <include
-        android:id="@+id/steps"
-        layout="@layout/layout_step_progress"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/_18sdp"
-        android:layout_marginTop="@dimen/_14sdp" />
-
     <TextView
         style="@style/DisplayTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/_18sdp"
-        android:layout_marginTop="@dimen/_12sdp"
+        android:layout_marginTop="@dimen/_6sdp"
         android:text="@string/fo_welcome_title" />
 
     <TextView
@@ -64,6 +55,6 @@
         android:layout_width="match_parent"
         android:layout_marginHorizontal="@dimen/_18sdp"
         android:layout_marginTop="@dimen/_8sdp"
-        android:layout_marginBottom="@dimen/_26sdp"
+        android:layout_marginBottom="@dimen/_12sdp"
         android:text="@string/txt_continues" />
 </LinearLayout>

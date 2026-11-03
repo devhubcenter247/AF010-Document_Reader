@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
-# Takes the 6 raw store screenshots of Folio over adb into store-assets/raw/.
+# Takes the raw store screenshots of All Document Reader & Editor over adb into store-assets/raw/.
 #
-#   cd store-assets && ./capture.sh            # all six
-#   ./capture.sh 02 05                         # only some of them
+#   cd store-assets && ./capture.sh            # all of them
+#   ./capture.sh 02 05                         # only some of them (05b: the Excel report)
 #
 # Needs: one device connected (tuned on a 1080x2340 phone, SM-A165F), the dev build installed with
 # storage access granted and the first-run flow finished, and the sample files from make_samples.py
@@ -14,7 +14,7 @@ export PKG=${PKG:-com.af010.creator.docreader}
 export SHOTS=raw
 . ./adb_ui.sh
 
-DIR=/sdcard/Download/Folio
+DIR="/sdcard/Download/All Document Reader & Editor"
 ONLY="$*"
 want() { [ -z "$ONLY" ] || [[ " $ONLY " == *" $1 "* ]]; }
 
@@ -25,6 +25,9 @@ MIME_PPTX=application/vnd.openxmlformats-officedocument.presentationml.presentat
 
 # --- device setup -------------------------------------------------------------------------------
 demo_on() {
+  # No animations: the "+" keeps pulsing and turning, and a shot can catch it half-turned (an "x").
+  ANIM_SCALE=$(adb shell settings get global animator_duration_scale | tr -d '\r')
+  adb shell settings put global animator_duration_scale 0
   adb shell settings put global sysui_demo_allowed 1
   local b="adb shell am broadcast -a com.android.systemui.demo"
   $b -e command enter >/dev/null
@@ -35,18 +38,22 @@ demo_on() {
   $b -e command notifications -e visible false >/dev/null
   $b -e command status -e volume hide -e bluetooth hide -e alarm hide >/dev/null
 }
-demo_off() { adb shell am broadcast -a com.android.systemui.demo -e command exit >/dev/null; }
+demo_off() {
+  adb shell am broadcast -a com.android.systemui.demo -e command exit >/dev/null
+  case "${ANIM_SCALE:-null}" in null|"") adb shell settings delete global animator_duration_scale >/dev/null ;;
+    *) adb shell settings put global animator_duration_scale "$ANIM_SCALE" ;; esac
+}
 trap demo_off EXIT
 
 restart() { adb shell am force-stop "$PKG"; sleep 1; }
 
 # Fresh copies every run, so edits from a previous run never show.
 push_samples() {
-  adb shell mkdir -p "$DIR"
+  adb shell "mkdir -p '$DIR'"
   for f in samples/*; do
     adb push "$f" "$DIR/" >/dev/null 2>&1
     adb shell am broadcast -a android.intent.action.MEDIA_SCANNER_SCAN_FILE \
-      -d "file://$DIR/$(basename "$f" | sed 's/ /%20/g')" >/dev/null
+      -d "file://$(printf '%s' "$DIR" | sed 's/ /%20/g; s/\&/%26/g')/$(basename "$f" | sed 's/ /%20/g; s/\&/%26/g')" >/dev/null
   done
 }
 
@@ -93,31 +100,8 @@ shot_02_sign() {
   shot 02_pdf_sign
 }
 
-# 03 Word editing: ribbon, a heading selected.
-shot_03_word() {
-  open_doc "$DIR/Project Proposal.docx" $MIME_DOCX OfficeActivity || return
-  skip_draft
-  tap_id btnEdit 3
-  hide_keyboard
-  adb shell input swipe 545 375 545 375 900; sleep 1.5      # long press "Green"
-  hide_keyboard
-  adb shell input swipe 633 440 845 440 800; sleep 1.5      # drag the end handle to "2027"
-  shot 03_word_edit
-}
-
-# 04 Excel editing: formula bar and ribbon, a cell picked.
-shot_04_excel() {
-  open_doc "$DIR/Sales Report 2026.xlsx" $MIME_XLSX OfficeActivity || return
-  skip_draft
-  tap_id btnEdit 3
-  hide_keyboard
-  tap_at 735 1001; sleep 1.5                                # December profit
-  hide_keyboard
-  shot 04_excel_edit
-}
-
-# 05 Scanner: needs a real sheet of paper in front of the camera.
-shot_05_scan() {
+# 03 Scanner: needs a real sheet of paper in front of the camera.
+shot_03_scan() {
   restart
   adb shell monkey -p "$PKG" -c android.intent.category.LAUNCHER 1 >/dev/null 2>&1
   sleep 6
@@ -128,21 +112,64 @@ shot_05_scan() {
   echo ">> Put a printed page on a dark table, hold the phone above it until the blue outline"
   echo ">> sits on the paper edges, then press Enter here (keep holding the phone still)."
   read -r _
-  shot 05a_scan_camera
+  shot 03a_scan_camera
   tap_id captureButton 4
-  shot 05b_scan_crop
+  shot 03b_scan_crop
   tap_id btnNext 5                                          # "Looks good"
-  shot 05_scan_filters
+  shot 03_scan_filters
 }
 
-# 06 Create sheet: scan, photos to PDF, blank Word / Excel / PowerPoint.
-shot_06_create() {
+# 04 Word editing: ribbon, a heading selected.
+shot_04_word() {
+  open_doc "$DIR/Project Proposal.docx" $MIME_DOCX OfficeActivity || return
+  skip_draft
+  tap_id btnEdit 3
+  hide_keyboard
+  adb shell input swipe 545 375 545 375 900; sleep 1.5      # long press "Green"
+  hide_keyboard
+  adb shell input swipe 633 440 845 440 800; sleep 1.5      # drag the end handle to "2027"
+  shot 04_word_edit
+}
+
+# 05 Excel editing: formula bar and ribbon, a cell picked.
+shot_05_excel() {
+  open_doc "$DIR/Sales Report 2026.xlsx" $MIME_XLSX OfficeActivity || return
+  skip_draft
+  tap_id btnEdit 3
+  hide_keyboard
+  tap_at 735 1001; sleep 1.5                                # December profit
+  hide_keyboard
+  shot 05_excel_edit
+}
+
+# 05b Excel report: the second sheet, with its figures and charts.
+shot_05b_report() {
+  open_doc "$DIR/Sales Report 2026.xlsx" $MIME_XLSX OfficeActivity || return
+  skip_draft
+  tap_text "Report" 3
+  shot 05b_excel_report
+}
+
+# 06 PowerPoint editing: the title of the first slide picked, the slide strip and ribbon below.
+shot_06_ppt() {
+  open_doc "$DIR/Product Launch.pptx" $MIME_PPTX OfficeActivity || return
+  skip_draft
+  tap_id btnEdit 3
+  hide_keyboard
+  tap_at 150 1946; sleep 2                                  # first slide in the strip
+  tap_at 368 977; sleep 1.5                                 # its title
+  hide_keyboard
+  shot 06_ppt_edit
+}
+
+# 07 Create sheet: scan, photos to PDF, blank Word / Excel / PowerPoint.
+shot_07_create() {
   restart
   adb shell monkey -p "$PKG" -c android.intent.category.LAUNCHER 1 >/dev/null 2>&1
   sleep 6
   tap_at 186 2200; sleep 1.5                                # Files tab behind the sheet
   tap_at 958 2200; sleep 2.5                                # "+"
-  shot 06_create
+  shot 07_create
 }
 
 # --- run ------------------------------------------------------------------------------------------
@@ -160,9 +187,11 @@ done
 
 want 01 && shot_01_home
 want 02 && shot_02_sign
-want 03 && shot_03_word
-want 04 && shot_04_excel
-want 05 && shot_05_scan
-want 06 && shot_06_create
+want 03 && shot_03_scan
+want 04 && shot_04_word
+want 05 && shot_05_excel
+want 05b && shot_05b_report
+want 06 && shot_06_ppt
+want 07 && shot_07_create
 restart
 echo "done: $(ls raw | tr '\n' ' ')"

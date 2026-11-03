@@ -62,8 +62,6 @@ class ToolsFragment : BaseAppFragment<FragmentToolsBinding>(FragmentToolsBinding
             shown += tools.size
             ItemToolSectionBinding.inflate(inflater, layoutSections, true).apply {
                 tvTitle.setText(group.title)
-                tvCount.text = resources.getQuantityString(R.plurals.fo_section_tool_count, tools.size, tools.size)
-                vDot.backgroundTintList = ColorStateList.valueOf(ContextCompat.getColor(root.context, group.tint))
                 rcvTools.adapter = ToolAdapter { requireActivity().openTool(it) }.apply { submitList(tools) }
             }
         }

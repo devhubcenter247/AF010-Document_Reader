@@ -99,7 +99,10 @@ class ScanCameraFragment :
             when {
                 granted -> showCamera()
                 // The system no longer asks (denied twice): only the app's settings can grant it.
-                askedByUser && !couldAskAgain && !canAskAgain() -> openAppSettings()
+                askedByUser && !couldAskAgain && !canAskAgain() -> {
+                    showPermissionPanel(true)
+                    showSettingsGuide()
+                }
                 else -> showPermissionPanel(true)
             }
         }
@@ -162,6 +165,15 @@ class ScanCameraFragment :
         val binding = bindingOrNull ?: return
         binding.layoutPermission.isVisible = show
         binding.scanHint.isVisible = !show
+    }
+
+    /** Tells where the permission is turned on before leaving for the app's settings. */
+    private fun showSettingsGuide() {
+        val activity = activity ?: return
+        MessageDialog(
+            activity, R.string.fo_camera_blocked_title, R.string.fo_camera_blocked_message,
+            R.string.fo_open_settings, R.string.fo_not_now
+        ) { openAppSettings() }.show()
     }
 
     private fun openAppSettings() {

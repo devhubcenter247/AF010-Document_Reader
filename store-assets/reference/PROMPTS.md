@@ -1,9 +1,9 @@
-# Folio — prompt ChatGPT cho icon, onboarding và ảnh store
+# All Document Reader & Editor — prompt ChatGPT cho icon, onboarding và ảnh store
 
 Style lấy theo bộ mẫu `~/Downloads/sc_pdf_1..6.png` (ảnh store) và ảnh onboarding của AF06
 (`AF06-DocReaderCreator/app/src/main/res/drawable/img_onboard_1..4.webp`): đồ vật 3D bóng kiểu
 clay, nền gradient có mảng sóng mờ, headline hai dòng với dòng thứ hai nằm trong pill trắng.
-Màu đổi sang màu Folio (xanh #1F6FEB thay cho tím của mẫu).
+Màu đổi sang màu All Document Reader & Editor (xanh #1F6FEB thay cho tím của mẫu).
 
 Ảnh chụp thô: `store-assets/raw/` (1080x2340, chụp bằng `capture.sh`). Màn 05 (Scan) cần camera thật:
 chạy `./capture.sh 05`, đặt tờ giấy dưới máy, khi viền xanh bám đúng mép giấy thì bấm Enter.
@@ -28,7 +28,7 @@ Prompt riêng cho mascot vector trong app: `mascot_prompt.md`.
 ## Prompt 0: Luật chung (dán đầu mỗi chat mới)
 
 ```
-You are making production art for "Folio", an Android app that opens, edits and creates
+You are making production art for "All Document Reader & Editor", an Android app that opens, edits and creates
 PDF, Word, Excel and PowerPoint files and scans paper. Follow these rules for every image
 in this chat. They override anything that conflicts later.
 
@@ -143,7 +143,7 @@ A glossy white 3D phone, slightly tilted, its screen showing 4 abstract file row
 (a coloured file glyph and two grey bars each: red, blue, green, orange).
 Floating around it, larger glossy 3D file icons with folded corners: PDF red (top-left),
 Excel green with a white grid (top-right), Word blue with white lines (left),
-PowerPoint orange with a white pie glyph (right). At the bottom-right, the Folio mascot
+PowerPoint orange with a white pie glyph (right). At the bottom-right, the All Document Reader & Editor mascot
 from the icon, small, peeking from behind the phone and smiling. 6 objects in total.
 ```
 
@@ -247,7 +247,7 @@ a glossy white 3D camera with a blue lens at the lower-right.
 LINE1 "Create new files"  PILL "in one tap"
 SUB "Word, Excel, PowerPoint and scans"   ANGLE -5 degrees
 Props: a glossy blue round "+" badge at the upper-right, a small stack of white 3D
-pages at the left, the Folio mascot from the icon in 3D, cheering, at the lower-right.
+pages at the left, the All Document Reader & Editor mascot from the icon in 3D, cheering, at the lower-right.
 ```
 
 Ảnh 07 (tuỳ chọn, như `sc_pdf_5`): chụp thêm tab Tools thành `raw/07_tools.png` rồi dùng
@@ -264,9 +264,9 @@ trang có mũi tên bên trái.
 1536x1024 landscape banner in the attached reference's style. Keep every element inside
 the middle band y 160-864; above and below is plain background that will be cropped.
 Background: gradient #1F6FEB to #1858C4 with soft translucent wave shapes.
-Left half: the Folio mascot from the icon as a large glossy 3D object, with four smaller
+Left half: the All Document Reader & Editor mascot from the icon as a large glossy 3D object, with four smaller
 3D file icons around it (red, blue, green, orange, no labels).
-Right half, vertically centred, left-aligned: "Folio" in bold heavy rounded white
+Right half, vertically centred, left-aligned: "All Document Reader & Editor" in bold heavy rounded white
 sans-serif; under it "Read, edit and create documents" in white, medium weight.
 No other text, no phone.
 ```
@@ -303,4 +303,4 @@ gốc trong `raw/`.
   tả, không lặp; màn hình app không bị đổi.
 - Onboarding: ảnh tràn hết bốn mép (không bo góc, không lề); cảnh ở nửa trên, nửa dưới trơn
   #F2F4F8; cùng góc máy, cùng ánh sáng ở cả 4 slide.
-- Feature graphic: đúng 1024x500, chỉ có chữ "Folio" và tagline.
+- Feature graphic: đúng 1024x500, chỉ có chữ "All Document Reader & Editor" và tagline.

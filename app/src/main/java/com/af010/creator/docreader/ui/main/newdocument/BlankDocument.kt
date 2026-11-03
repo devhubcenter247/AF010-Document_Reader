@@ -19,7 +19,7 @@ import org.koin.core.context.GlobalContext
 
 /**
  * A blank Word, Excel or PowerPoint file, made at once and opened ready to edit: no form first.
- * It is named "Untitled-Oct-18" (or the next free "-2", "-3"…) in Download › Folio; Save a copy
+ * It is named "Untitled-Oct-18" (or the next free "-2", "-3"…) in Download › All Document Reader & Editor; Save a copy
  * in the editor puts it somewhere else under another name.
  */
 fun ComponentActivity.createBlankDocument(type: DocumentType) {

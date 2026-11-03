@@ -1,6 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?><!-- The Files tab. With file access a MotionLayout (scene_files_home) under a header that stays: once
-     the Read and Create cards scroll away, two pills take their place under the header. Without access, the
-     library with its own header. FilesFragment shows one or the other. -->
+<?xml version="1.0" encoding="utf-8"?><!-- The Files tab. With file access a MotionLayout (scene_files_home) under a header that stays: the
+     screen is split in two: the top region (edit card to "Your documents") and the files opened lately.
+     Swiping up hides the top region, pushes the list up under the header and shows two pills (Read,
+     Create). Without access, the library with
+     its own header. FilesFragment shows one or the other. -->
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -9,240 +11,21 @@
     android:background="@color/color_home_background"
     tools:context=".ui.main.files.FilesFragment">
 
-    <androidx.constraintlayout.motion.widget.MotionLayout
+    <com.af010.creator.docreader.ui.main.files.HomeMotionLayout
         android:id="@+id/motionHome"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layoutDescription="@xml/scene_files_home">
 
+        <!-- Top region: hidden by scene_files_home when the list below is pushed up -->
         <LinearLayout
-            android:id="@+id/headerHome"
+            android:id="@+id/layoutTop"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_49sdp"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:paddingStart="@dimen/_15sdp"
-            android:paddingEnd="@dimen/_9sdp">
-
-            <FrameLayout
-                android:layout_width="@dimen/_34sdp"
-                android:layout_height="@dimen/_34sdp"
-                android:background="@drawable/bg_mascot_tile"
-                android:rotation="-6">
-
-                <ImageView
-                    android:layout_width="@dimen/_20sdp"
-                    android:layout_height="@dimen/_25sdp"
-                    android:layout_gravity="center"
-                    android:importantForAccessibility="no"
-                    android:src="@drawable/ic_mascot_smile_ink" />
-            </FrameLayout>
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/_9sdp"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/tvGreeting"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/nunito_600"
-                    android:textColor="@color/text_secondary"
-                    android:textSize="@dimen/_10sdp"
-                    tools:text="Good morning" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/nunito_700"
-                    android:letterSpacing="-0.015"
-                    android:maxLines="1"
-                    android:text="@string/fo_whats_on_today"
-                    android:textColor="@color/text_primary"
-                    android:textSize="@dimen/_16sdp" />
-            </LinearLayout>
-
-            <ImageView
-                android:id="@+id/btnSearch"
-                style="@style/RoundIconButton"
-                android:contentDescription="@string/search_files"
-                android:src="@drawable/ic_fo_search" />
-
-            <ImageView
-                android:id="@+id/btnPro"
-                android:layout_width="@dimen/_34sdp"
-                android:layout_height="@dimen/_34sdp"
-                android:layout_marginStart="@dimen/_9sdp"
-                android:background="@drawable/bg_circle_pro"
-                android:contentDescription="@string/fo_pro_name"
-                android:foreground="?attr/selectableItemBackgroundBorderless"
-                android:padding="@dimen/_9sdp"
-                android:src="@drawable/ic_fo_crown"
-                app:tint="@color/color_premium_gold" />
-        </LinearLayout>
-
-        <androidx.core.widget.NestedScrollView
-            android:id="@+id/scroll"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
+            android:clipChildren="false"
             android:clipToPadding="false"
-            android:paddingBottom="@dimen/_100sdp">
+            android:orientation="vertical">
 
-            <LinearLayout
-                android:clipChildren="false"
-                android:clipToPadding="false"
-                android:id="@+id/layoutHome"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:paddingBottom="@dimen/_12sdp">
-
-                <!-- The two halves of the app side by side: read what is on the phone, or make something -->
-                <LinearLayout
-                    android:clipChildren="false"
-                    android:id="@+id/layoutCards"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:baselineAligned="false"
-                    android:clipToPadding="false"
-                    android:orientation="horizontal"
-                    android:paddingHorizontal="@dimen/_15sdp"
-                    android:paddingTop="@dimen/_6sdp"
-                    android:paddingBottom="@dimen/_4sdp">
-
-                    <include
-                        android:id="@+id/cardRead"
-                        layout="@layout/layout_home_card"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1" />
-
-                    <Space
-                        android:layout_width="@dimen/_8sdp"
-                        android:layout_height="0dp" />
-
-                    <include
-                        android:id="@+id/cardCreate"
-                        layout="@layout/layout_home_card"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1" />
-                </LinearLayout>
-
-                <TextView
-                    style="@style/SectionHeading"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingHorizontal="@dimen/_15sdp"
-                    android:paddingTop="@dimen/_10sdp"
-                    android:paddingBottom="@dimen/_6sdp"
-                    android:text="@string/fo_your_documents" />
-
-                <LinearLayout
-                    android:clipChildren="false"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:clipToPadding="false"
-                    android:orientation="horizontal"
-                    android:paddingHorizontal="@dimen/_15sdp"
-                    android:paddingBottom="@dimen/_4sdp">
-
-                    <include
-                        android:id="@+id/typePdf"
-                        layout="@layout/layout_type_count" />
-
-                    <include
-                        android:id="@+id/typeWord"
-                        layout="@layout/layout_type_count"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/_7sdp"
-                        android:layout_weight="1" />
-
-                    <include
-                        android:id="@+id/typeExcel"
-                        layout="@layout/layout_type_count"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/_7sdp"
-                        android:layout_weight="1" />
-
-                    <include
-                        android:id="@+id/typePpt"
-                        layout="@layout/layout_type_count"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/_7sdp"
-                        android:layout_weight="1" />
-                </LinearLayout>
-
-                <TextView
-                    style="@style/SectionHeading"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingHorizontal="@dimen/_15sdp"
-                    android:paddingTop="@dimen/_12sdp"
-                    android:paddingBottom="@dimen/_8sdp"
-                    android:text="@string/fo_start_something_new" />
-
-                <LinearLayout
-                    android:clipToPadding="false"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:clipChildren="false"
-                    android:orientation="horizontal"
-                    android:paddingHorizontal="@dimen/_15sdp">
-
-                    <include
-                        android:id="@+id/tileWord"
-                        layout="@layout/layout_start_tile"
-                        android:layout_width="0dp"
-                        android:layout_height="@dimen/_105sdp"
-                        android:layout_weight="1" />
-
-                    <include
-                        android:id="@+id/tileExcel"
-                        layout="@layout/layout_start_tile"
-                        android:layout_width="0dp"
-                        android:layout_height="@dimen/_105sdp"
-                        android:layout_marginHorizontal="@dimen/_8sdp"
-                        android:layout_weight="1" />
-
-                    <include
-                        android:id="@+id/tilePpt"
-                        layout="@layout/layout_start_tile"
-                        android:layout_width="0dp"
-                        android:layout_height="@dimen/_105sdp"
-                        android:layout_weight="1" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:clipChildren="false"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:clipToPadding="false"
-                    android:orientation="horizontal"
-                    android:paddingHorizontal="@dimen/_15sdp"
-                    android:paddingTop="@dimen/_8sdp"
-                    android:paddingBottom="@dimen/_6sdp">
-
-                    <include
-                        android:id="@+id/btnScan"
-                        layout="@layout/layout_home_action" />
-
-                    <Space
-                        android:layout_width="@dimen/_8sdp"
-                        android:layout_height="0dp" />
-
-                    <include
-                        android:id="@+id/btnPhotos"
-                        layout="@layout/layout_home_action" />
-                </LinearLayout>
-
-                <!-- The edit card: a sheet and a pen on the right, the reader's editing tools as chips -->
                 <LinearLayout
                     android:clipChildren="false"
                     android:clipToPadding="false"
@@ -406,7 +189,131 @@
                     </com.ui.baselib.widget.flexbox.FlexboxLayout>
                 </LinearLayout>
 
+                <TextView
+                    style="@style/SectionHeading"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="@dimen/_15sdp"
+                    android:paddingTop="@dimen/_12sdp"
+                    android:paddingBottom="@dimen/_8sdp"
+                    android:text="@string/fo_start_something_new" />
+
                 <LinearLayout
+                    android:clipToPadding="false"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clipChildren="false"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/_15sdp">
+
+                    <include
+                        android:id="@+id/tileWord"
+                        layout="@layout/layout_start_tile"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_105sdp"
+                        android:layout_weight="1" />
+
+                    <include
+                        android:id="@+id/tileExcel"
+                        layout="@layout/layout_start_tile"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_105sdp"
+                        android:layout_marginHorizontal="@dimen/_8sdp"
+                        android:layout_weight="1" />
+
+                    <include
+                        android:id="@+id/tilePpt"
+                        layout="@layout/layout_start_tile"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_105sdp"
+                        android:layout_weight="1" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:clipChildren="false"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clipToPadding="false"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/_15sdp"
+                    android:paddingTop="@dimen/_8sdp"
+                    android:paddingBottom="@dimen/_6sdp">
+
+                    <include
+                        android:id="@+id/btnScan"
+                        layout="@layout/layout_home_action" />
+
+                    <Space
+                        android:layout_width="@dimen/_8sdp"
+                        android:layout_height="0dp" />
+
+                    <include
+                        android:id="@+id/btnPhotos"
+                        layout="@layout/layout_home_action" />
+                </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Bottom region: the files opened lately; pushed up under the header, its list scrolls on its own -->
+        <LinearLayout
+            android:id="@+id/layoutRecent"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/_70sdp">
+
+            <TextView
+                android:id="@+id/tvYourDocuments"
+                style="@style/SectionHeading"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="@dimen/_15sdp"
+                android:paddingTop="@dimen/_10sdp"
+                android:paddingBottom="@dimen/_6sdp"
+                android:text="@string/fo_your_documents" />
+
+            <LinearLayout
+                android:clipChildren="false"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:orientation="horizontal"
+                android:paddingHorizontal="@dimen/_15sdp"
+                android:paddingBottom="@dimen/_4sdp">
+
+                <include
+                    android:id="@+id/typePdf"
+                    layout="@layout/layout_type_count" />
+
+                <include
+                    android:id="@+id/typeWord"
+                    layout="@layout/layout_type_count"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_7sdp"
+                    android:layout_weight="1" />
+
+                <include
+                    android:id="@+id/typeExcel"
+                    layout="@layout/layout_type_count"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_7sdp"
+                    android:layout_weight="1" />
+
+                <include
+                    android:id="@+id/typePpt"
+                    layout="@layout/layout_type_count"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_7sdp"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+
+            <LinearLayout
                     android:clipChildren="false"
                     android:clipToPadding="false"
                     android:layout_width="match_parent"
@@ -446,7 +353,6 @@
                     android:layout_marginTop="@dimen/_2sdp"
                     android:background="@drawable/bg_home_card"
                     android:clipToOutline="true"
-                    android:nestedScrollingEnabled="false"
                     android:overScrollMode="never"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     tools:itemCount="3"
@@ -456,10 +362,82 @@
                     android:id="@+id/emptyRecent"
                     layout="@layout/layout_empty_shelf"
                     android:visibility="gone" />
-            </LinearLayout>
-        </androidx.core.widget.NestedScrollView>
+        </LinearLayout>
 
-        <!-- Read and Create once the cards above have scrolled away -->
+        <LinearLayout
+            android:id="@+id/headerHome"
+            android:background="@color/color_home_background"
+            android:clickable="true"
+            android:focusable="false"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_49sdp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="@dimen/_15sdp"
+            android:paddingEnd="@dimen/_9sdp">
+
+            <FrameLayout
+                android:layout_width="@dimen/_34sdp"
+                android:layout_height="@dimen/_34sdp"
+                android:background="@drawable/bg_mascot_tile"
+                android:rotation="-6">
+
+                <ImageView
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_25sdp"
+                    android:layout_gravity="center"
+                    android:importantForAccessibility="no"
+                    android:src="@drawable/ic_mascot_smile_ink" />
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_9sdp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvGreeting"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nunito_600"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="@dimen/_10sdp"
+                    tools:text="Good morning" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nunito_700"
+                    android:letterSpacing="-0.015"
+                    android:maxLines="1"
+                    android:text="@string/fo_whats_on_today"
+                    android:textColor="@color/text_primary"
+                    android:textSize="@dimen/_16sdp" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/btnSearch"
+                style="@style/RoundIconButton"
+                android:contentDescription="@string/search_files"
+                android:src="@drawable/ic_fo_search" />
+
+            <ImageView
+                android:id="@+id/btnPro"
+                android:layout_width="@dimen/_34sdp"
+                android:layout_height="@dimen/_34sdp"
+                android:layout_marginStart="@dimen/_9sdp"
+                android:background="@drawable/bg_circle_pro"
+                android:contentDescription="@string/fo_pro_name"
+                android:foreground="?attr/selectableItemBackgroundBorderless"
+                android:padding="@dimen/_9sdp"
+                android:src="@drawable/ic_fo_crown"
+                app:tint="@color/color_premium_gold" />
+        </LinearLayout>
+
+
+        <!-- Read and Create in place of the top region once it is hidden -->
         <LinearLayout
             android:id="@+id/layoutPills"
             android:layout_width="match_parent"
@@ -492,7 +470,7 @@
                 app:drawableStartCompat="@drawable/ic_fo_plus_15sdp"
                 app:drawableTint="@color/color_file_powerpoint" />
         </LinearLayout>
-    </androidx.constraintlayout.motion.widget.MotionLayout>
+    </com.af010.creator.docreader.ui.main.files.HomeMotionLayout>
 
     <LinearLayout
         android:id="@+id/screenNoAccess"
