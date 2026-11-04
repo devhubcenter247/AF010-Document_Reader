@@ -45,6 +45,7 @@ import com.af010.creator.docreader.ui.main.reader.pdf.reflow.PdfReflowActivity
 import com.af010.creator.docreader.ui.main.reader.pdf.sheet.ReaderAction
 import com.af010.creator.docreader.ui.main.reader.pdf.sheet.PdfToolsBottomSheet
 import com.af010.creator.docreader.ui.dialog.RenameDialog
+import com.af010.creator.docreader.ui.main.files.OpenedFiles
 import com.af010.creator.docreader.ui.main.files.sheet.FileInfoBottomSheet
 import com.af010.creator.docreader.model.RecentDocument
 import com.af010.creator.docreader.model.DocumentType
@@ -504,7 +505,12 @@ class PdfReaderActivity : BaseAppActivity<ActivityPdfReaderBinding>(ActivityPdfR
             repository.refresh()
             thumbnails.clear()
             contents.refreshPages()
-            toast(R.string.saved_changes)
+            // A document opened from another app: the edits go back to it, or to a copy we name.
+            when (val back = OpenedFiles.writeBack(applicationContext, file)) {
+                is OpenedFiles.WriteBack.Copy -> toast(getString(R.string.fo_saved_copy, back.file.parentFile?.name.orEmpty()))
+                OpenedFiles.WriteBack.Failed -> toast(R.string.save_failed)
+                else -> toast(R.string.saved_changes)
+            }
             then()
         }
     }

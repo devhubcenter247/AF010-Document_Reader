@@ -17,8 +17,10 @@ import com.af010.creator.docreader.pdf.ToolState
 import com.af010.creator.docreader.ui.main.tools.TOOL_STEPS
 import com.af010.creator.docreader.databinding.LayoutProcessStepBinding
 import com.af010.creator.docreader.ui.main.tools.translate.TranslateResultActivity
+import android.widget.Toast
 import com.ui.baselib.extensions.clickSingle
 import org.koin.android.ext.android.inject
+import org.koin.core.context.GlobalContext
 
 /** Shows the progress of the tool job started with [EXTRA_REQUEST], then moves on to its result. */
 class ProcessingActivity :
@@ -170,10 +172,24 @@ class ProcessingActivity :
             Tool.Scan to R.string.processing_images
         )
 
+        /**
+         * Starts [request] and shows its progress. One job runs at a time: while another is still
+         * running (the user left its Processing screen), this says so and shows that job instead of
+         * dropping [request] silently under the other job's progress.
+         */
         fun start(context: Context, request: ToolRequest) {
+            if (showBusy(context)) return
             context.startActivity(
                 Intent(context, ProcessingActivity::class.java).putExtra(EXTRA_REQUEST, request)
             )
+        }
+
+        /** True when a job is already running: the user is told and taken to its progress. */
+        fun showBusy(context: Context): Boolean {
+            if (!GlobalContext.get().get<ToolRunner>().isBusy) return false
+            Toast.makeText(context, R.string.fo_tool_busy, Toast.LENGTH_LONG).show()
+            context.startActivity(Intent(context, ProcessingActivity::class.java))
+            return true
         }
     }
 }

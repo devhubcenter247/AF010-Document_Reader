@@ -625,6 +625,8 @@
     <string name="fo_nothing_favourite">אין עדיין מועדפים</string>
     <string name="fo_nothing_favourite_desc">הקישו על ⋮ בקובץ ובחרו מועדף כדי לשמור אותו כאן.</string>
     <string name="fo_pick_a_file">בחרו קובץ</string>
+    <string name="fo_tool_busy">קובץ אחר עדיין בעיבוד. כאן אפשר לראות את ההתקדמות.</string>
+    <string name="fo_saved_copy">נשמר כעותק ב-%1$s</string>
     <string name="fo_group_pages">דפים</string>
     <string name="fo_change">שנה</string>
     <string name="fo_step_pick_files">בחר את הקבצים שלך</string>

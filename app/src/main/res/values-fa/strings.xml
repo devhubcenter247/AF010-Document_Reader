@@ -625,6 +625,8 @@
     <string name="fo_nothing_favourite">هنوز موردی در علاقه‌مندی‌ها نیست</string>
     <string name="fo_nothing_favourite_desc">روی ⋮ یک فایل بزنید و علاقه‌مندی را انتخاب کنید تا اینجا بماند.</string>
     <string name="fo_pick_a_file">یک فایل انتخاب کنید</string>
+    <string name="fo_tool_busy">هنوز فایل دیگری در حال پردازش است. پیشرفت آن را اینجا ببینید.</string>
+    <string name="fo_saved_copy">به‌صورت نسخه‌ای در %1$s ذخیره شد</string>
     <string name="fo_group_pages">صفحه‌ها</string>
     <string name="fo_change">تغییر دهید</string>
     <string name="fo_step_pick_files">فایل های خود را انتخاب کنید</string>

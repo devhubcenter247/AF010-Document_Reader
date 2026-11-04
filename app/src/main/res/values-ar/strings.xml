@@ -625,6 +625,8 @@
     <string name="fo_nothing_favourite">لا توجد مفضلة بعد</string>
     <string name="fo_nothing_favourite_desc">اضغط ⋮ على ملف واختر المفضلة لإبقائه هنا.</string>
     <string name="fo_pick_a_file">اختر ملفًا</string>
+    <string name="fo_tool_busy">لا يزال ملف آخر قيد المعالجة. إليك مدى التقدم.</string>
+    <string name="fo_saved_copy">تم الحفظ كنسخة في %1$s</string>
     <string name="fo_group_pages">الصفحات</string>
     <string name="fo_change">يتغير</string>
     <string name="fo_step_pick_files">اختر ملفاتك</string>

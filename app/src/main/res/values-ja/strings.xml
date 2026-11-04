@@ -625,6 +625,8 @@
     <string name="fo_nothing_favourite">お気に入りはまだありません</string>
     <string name="fo_nothing_favourite_desc">ファイルの ⋮ をタップして［お気に入り］を選ぶと、ここに表示されます。</string>
     <string name="fo_pick_a_file">ファイルを選択</string>
+    <string name="fo_tool_busy">別のファイルを処理中です。進行状況はこちらです。</string>
+    <string name="fo_saved_copy">%1$s にコピーとして保存しました</string>
     <string name="fo_group_pages">ページ</string>
     <string name="fo_change">変更</string>
     <string name="fo_step_pick_files">ファイルを選択してください</string>

@@ -625,6 +625,8 @@
     <string name="fo_nothing_favourite">Belum ada kegemaran</string>
     <string name="fo_nothing_favourite_desc">Ketik ⋮ pada fail dan pilih Kegemaran untuk menyimpannya di sini.</string>
     <string name="fo_pick_a_file">Pilih fail</string>
+    <string name="fo_tool_busy">Masih memproses fail lain. Ini kemajuannya.</string>
+    <string name="fo_saved_copy">Disimpan sebagai salinan dalam %1$s</string>
     <string name="fo_group_pages">Halaman</string>
     <string name="fo_change">Berubah</string>
     <string name="fo_step_pick_files">Pilih fail anda</string>

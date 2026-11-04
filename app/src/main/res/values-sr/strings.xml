@@ -631,6 +631,8 @@
     <string name="fo_nothing_favourite">Још нема омиљених</string>
     <string name="fo_nothing_favourite_desc">Додирните ⋮ на датотеци и изаберите Омиљено да бисте је задржали овде.</string>
     <string name="fo_pick_a_file">Изаберите датотеку</string>
+    <string name="fo_tool_busy">Друга датотека се још обрађује. Ево напретка.</string>
+    <string name="fo_saved_copy">Сачувано као копија у %1$s</string>
     <string name="fo_group_pages">Странице</string>
     <string name="fo_change">Промена</string>
     <string name="fo_step_pick_files">Изаберите своје датотеке</string>

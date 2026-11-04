@@ -1,6 +1,9 @@
 package com.af010.creator.docreader.base
 
 import android.content.Context
+import android.content.res.Resources
+import com.af010.creator.docreader.ui.language.deviceCode
+import com.af010.creator.docreader.ui.language.listLanguage
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -23,10 +26,12 @@ abstract class BaseAppActivity<VB : ViewBinding>(
 
     override fun attachBaseContext(newBase: Context?) {
         if (newBase == null) return super.attachBaseContext(null)
-        val languageCode = if (isFinishFirstFlow()) {
-           preferenceHelper.languageSelected
+        // Before a language is picked (first run), the device's own language when the app has it.
+        val chosen = preferenceHelper.isLanguageChosen || preferenceHelper.isFinishFirstFlow
+        val languageCode = if (chosen) {
+            preferenceHelper.languageSelected
         } else {
-            LocateManager.getDeviceLanguageCode()
+            listLanguage.deviceCode(Resources.getSystem().configuration.locales[0]) ?: preferenceHelper.languageSelected
         }
         super.attachBaseContext(LocateManager.createLocale(newBase, languageCode))
     }

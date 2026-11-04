@@ -625,6 +625,8 @@
     <string name="fo_nothing_favourite">Belum ada favorit</string>
     <string name="fo_nothing_favourite_desc">Ketuk ⋮ pada file dan pilih Favorit untuk menyimpannya di sini.</string>
     <string name="fo_pick_a_file">Pilih file</string>
+    <string name="fo_tool_busy">Masih memproses file lain. Ini progresnya.</string>
+    <string name="fo_saved_copy">Disimpan sebagai salinan di %1$s</string>
     <string name="fo_group_pages">Halaman</string>
     <string name="fo_change">Perubahan</string>
     <string name="fo_step_pick_files">Pilih file Anda</string>

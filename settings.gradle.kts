@@ -57,6 +57,15 @@ dependencyResolutionManagement {
             }
             content { includeGroup("com.editor") }
         }
+        // Fallback: docsdk 1.0.0 is still published here (read with the gpr.* token).
+        maven {
+            url = uri("https://maven.pkg.github.com/dbv0610/Pdf-Document-Reader")
+            credentials {
+                username = providers.gradleProperty("gpr.user").orNull
+                password = providers.gradleProperty("gpr.key").orNull
+            }
+            content { includeGroup("com.editor") }
+        }
     }
 }
 

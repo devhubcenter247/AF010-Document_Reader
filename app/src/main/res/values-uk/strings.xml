@@ -625,6 +625,8 @@
     <string name="fo_nothing_favourite">Ще немає вибраного</string>
     <string name="fo_nothing_favourite_desc">Торкніться ⋮ біля файлу й виберіть «Вибране», щоб він був тут.</string>
     <string name="fo_pick_a_file">Виберіть файл</string>
+    <string name="fo_tool_busy">Інший файл ще обробляється. Ось його прогрес.</string>
+    <string name="fo_saved_copy">Збережено як копію в %1$s</string>
     <string name="fo_group_pages">Сторінки</string>
     <string name="fo_change">Зміна</string>
     <string name="fo_step_pick_files">Виберіть свої файли</string>

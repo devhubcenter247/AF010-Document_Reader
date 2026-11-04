@@ -631,6 +631,8 @@
     <string name="fo_nothing_favourite">Zatím žádné oblíbené</string>
     <string name="fo_nothing_favourite_desc">Klepněte na ⋮ u souboru a vyberte Oblíbené, aby zůstal zde.</string>
     <string name="fo_pick_a_file">Vyberte soubor</string>
+    <string name="fo_tool_busy">Ještě se zpracovává jiný soubor. Tady je průběh.</string>
+    <string name="fo_saved_copy">Uloženo jako kopie do %1$s</string>
     <string name="fo_group_pages">Stránky</string>
     <string name="fo_change">Přeměna</string>
     <string name="fo_step_pick_files">Vyberte si soubory</string>

@@ -659,6 +659,8 @@
     <string name="fo_change">Change</string>
     <string name="fo_step_pick_files">Pick your files</string>
     <string name="fo_pick_a_file">Pick a file</string>
+    <string name="fo_tool_busy">Still working on another file. Here’s how it’s going.</string>
+    <string name="fo_saved_copy">Saved as a copy in %1$s</string>
     <string name="fo_group_pages">Pages</string>
     <string name="fo_step_set_order">Set the order</string>
     <string name="fo_step_how_small">How small?</string>

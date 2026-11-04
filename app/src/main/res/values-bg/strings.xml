@@ -625,6 +625,8 @@
     <string name="fo_nothing_favourite">Все още няма любими</string>
     <string name="fo_nothing_favourite_desc">Докоснете ⋮ на файл и изберете Любими, за да го запазите тук.</string>
     <string name="fo_pick_a_file">Изберете файл</string>
+    <string name="fo_tool_busy">Все още се обработва друг файл. Ето докъде е стигнал.</string>
+    <string name="fo_saved_copy">Запазено като копие в %1$s</string>
     <string name="fo_group_pages">Страници</string>
     <string name="fo_change">промяна</string>
     <string name="fo_step_pick_files">Изберете вашите файлове</string>

@@ -625,6 +625,8 @@
     <string name="fo_nothing_favourite">Aún no hay favoritos</string>
     <string name="fo_nothing_favourite_desc">Toca ⋮ en un archivo y elige Favorito para guardarlo aquí.</string>
     <string name="fo_pick_a_file">Elige un archivo</string>
+    <string name="fo_tool_busy">Todavía se está procesando otro archivo. Así va.</string>
+    <string name="fo_saved_copy">Guardado como copia en %1$s</string>
     <string name="fo_group_pages">Páginas</string>
     <string name="fo_change">Cambiar</string>
     <string name="fo_step_pick_files">Elige tus archivos</string>

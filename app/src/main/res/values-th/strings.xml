@@ -625,6 +625,8 @@
     <string name="fo_nothing_favourite">ยังไม่มีรายการโปรด</string>
     <string name="fo_nothing_favourite_desc">แตะ ⋮ ที่ไฟล์แล้วเลือกรายการโปรดเพื่อเก็บไว้ที่นี่</string>
     <string name="fo_pick_a_file">เลือกไฟล์</string>
+    <string name="fo_tool_busy">ยังประมวลผลไฟล์อื่นอยู่ ดูความคืบหน้าได้ที่นี่</string>
+    <string name="fo_saved_copy">บันทึกเป็นสำเนาใน %1$s แล้ว</string>
     <string name="fo_group_pages">หน้า</string>
     <string name="fo_change">เปลี่ยน</string>
     <string name="fo_step_pick_files">เลือกไฟล์ของคุณ</string>

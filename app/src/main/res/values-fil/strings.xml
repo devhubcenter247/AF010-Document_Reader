@@ -625,6 +625,8 @@
     <string name="fo_nothing_favourite">Wala pang paborito</string>
     <string name="fo_nothing_favourite_desc">I-tap ang ⋮ sa isang file at piliin ang Paborito para itago ito rito.</string>
     <string name="fo_pick_a_file">Pumili ng file</string>
+    <string name="fo_tool_busy">May ibang file pang pinoproseso. Narito ang progreso nito.</string>
+    <string name="fo_saved_copy">Na-save bilang kopya sa %1$s</string>
     <string name="fo_group_pages">Mga pahina</string>
     <string name="fo_change">Baguhin</string>
     <string name="fo_step_pick_files">Piliin ang iyong mga file</string>

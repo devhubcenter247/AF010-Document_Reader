@@ -625,6 +625,8 @@
     <string name="fo_nothing_favourite">अद्याप कोणतेही आवडते नाहीत</string>
     <string name="fo_nothing_favourite_desc">फाइलवर ⋮ टॅप करा आणि ती इथे ठेवण्यासाठी आवडते निवडा.</string>
     <string name="fo_pick_a_file">फाइल निवडा</string>
+    <string name="fo_tool_busy">दुसऱ्या फाइलवर अजून काम सुरू आहे. तिची प्रगती येथे पहा.</string>
+    <string name="fo_saved_copy">%1$s मध्ये प्रत म्हणून सेव्ह केले</string>
     <string name="fo_group_pages">पृष्ठे</string>
     <string name="fo_change">बदला</string>
     <string name="fo_step_pick_files">तुमच्या फाइल्स निवडा</string>

@@ -41,6 +41,7 @@ import androidx.annotation.StringRes
 import com.af010.creator.docreader.model.RecentDocument
 import com.af010.creator.docreader.ui.dialog.DeleteDialog
 import com.af010.creator.docreader.ui.dialog.TextInputDialog
+import com.af010.creator.docreader.ui.main.files.OpenedFiles
 import com.af010.creator.docreader.ui.main.files.sheet.FileInfoBottomSheet
 import com.af010.creator.docreader.ui.main.reader.office.sheet.OfficeOption
 import com.af010.creator.docreader.ui.main.reader.office.sheet.OfficeOptionsBottomSheet
@@ -409,7 +410,7 @@ class OfficeActivity : BaseAppActivity<ActivityOfficeBinding>(ActivityOfficeBind
 
     private fun share() {
         val editor = editor
-        if (editor != null && editor.hasRealChanges() && !editor.save()) return
+        if (editor != null && editor.hasRealChanges() && !saveEdits(editor)) return
         if (!shareFile(file.path)) toast(R.string.file_share_failed)
     }
 
@@ -484,7 +485,9 @@ class OfficeActivity : BaseAppActivity<ActivityOfficeBinding>(ActivityOfficeBind
     private fun convertToPdf() {
         val office = office
         if (!loaded || office == null || !canConvertToPdf) return toast(R.string.convert_pdf_unavailable)
-        pdfWriter = OfficeWriter(file.path) { output, progress -> OfficePdf.write(office, output, progress) }
+        // Before handing over a writer: it would replace the one a running job is using.
+        if (ProcessingActivity.showBusy(this)) return
+        pdfWriter =OfficeWriter(file.path) { output, progress -> OfficePdf.write(office, output, progress) }
         runner.officeWriter = pdfWriter
         ProcessingActivity.start(this, ToolRequest.OfficeToPdf(file.path, file.nameWithoutExtension))
     }
@@ -531,6 +534,19 @@ class OfficeActivity : BaseAppActivity<ActivityOfficeBinding>(ActivityOfficeBind
         return true
     }
 
+    /** Saves the edits over the file; a document opened from another app then gets them back too. */
+    private fun saveEdits(editor: DocumentEditor): Boolean {
+        if (!editor.save()) return false
+        lifecycleScope.launch {
+            when (val back = OpenedFiles.writeBack(applicationContext, file)) {
+                is OpenedFiles.WriteBack.Copy -> toast(getString(R.string.fo_saved_copy, back.file.parentFile?.name.orEmpty()))
+                OpenedFiles.WriteBack.Failed -> toast(R.string.save_failed)
+                else -> Unit
+            }
+        }
+        return true
+    }
+
     /** [DocumentEditor.hasUnsavedChanges] without the change the SDK makes up for workbooks. */
     private fun DocumentEditor.hasRealChanges(): Boolean {
         if (!hasUnsavedChanges()) return false
@@ -546,7 +562,7 @@ class OfficeActivity : BaseAppActivity<ActivityOfficeBinding>(ActivityOfficeBind
             getString(R.string.unsaved_message, file.name),
             R.string.fo_save_and_leave, R.string.fo_leave_without_saving, R.string.keep_editing,
             secondaryDanger = true,
-            onPrimary = { if (editor.save()) stopEditing() },
+            onPrimary = { if (saveEdits(editor)) stopEditing() },
             onSecondary = {
                 EditDrafts.delete(this, file)
                 stopEditing()
@@ -647,7 +663,7 @@ class OfficeActivity : BaseAppActivity<ActivityOfficeBinding>(ActivityOfficeBind
         }
         SaveDocumentBottomSheet(this, file.name, available) { action ->
             when (action) {
-                SaveAction.Save -> if (editor.hasRealChanges()) editor.save() else toast(R.string.saved)
+                SaveAction.Save -> if (editor.hasRealChanges()) saveEdits(editor) else toast(R.string.saved)
                 SaveAction.SaveCopy -> editor.runSafely(EditAction.SAVE_COPY)
                 SaveAction.ExportPdf -> editor.runSafely(EditAction.EXPORT_PDF)
                 SaveAction.Share -> share()

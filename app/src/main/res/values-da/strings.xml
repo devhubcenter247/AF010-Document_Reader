@@ -625,6 +625,8 @@
     <string name="fo_nothing_favourite">Ingen favoritter endnu</string>
     <string name="fo_nothing_favourite_desc">Tryk på ⋮ ved en fil, og vælg Favorit for at gemme den her.</string>
     <string name="fo_pick_a_file">Vælg en fil</string>
+    <string name="fo_tool_busy">Arbejder stadig på en anden fil. Her kan du se, hvordan det går.</string>
+    <string name="fo_saved_copy">Gemt som en kopi i %1$s</string>
     <string name="fo_group_pages">Sider</string>
     <string name="fo_change">Forandring</string>
     <string name="fo_step_pick_files">Vælg dine filer</string>

@@ -625,6 +625,8 @@
     <string name="fo_nothing_favourite">अभी कोई पसंदीदा नहीं</string>
     <string name="fo_nothing_favourite_desc">किसी फ़ाइल पर ⋮ टैप करें और उसे यहां रखने के लिए पसंदीदा चुनें।</string>
     <string name="fo_pick_a_file">एक फ़ाइल चुनें</string>
+    <string name="fo_tool_busy">दूसरी फ़ाइल पर अभी काम चल रहा है। उसकी प्रगति यहां देखें।</string>
+    <string name="fo_saved_copy">%1$s में कॉपी के रूप में सेव किया गया</string>
     <string name="fo_group_pages">पेज</string>
     <string name="fo_change">परिवर्तन</string>
     <string name="fo_step_pick_files">अपनी फ़ाइलें चुनें</string>

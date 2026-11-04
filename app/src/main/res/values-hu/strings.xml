@@ -625,6 +625,8 @@
     <string name="fo_nothing_favourite">Még nincsenek kedvencek</string>
     <string name="fo_nothing_favourite_desc">Koppints a ⋮ ikonra egy fájlnál, és válaszd a Kedvenc lehetőséget, hogy itt maradjon.</string>
     <string name="fo_pick_a_file">Válassz egy fájlt</string>
+    <string name="fo_tool_busy">Egy másik fájl feldolgozása még tart. Itt látod, hol tart.</string>
+    <string name="fo_saved_copy">Másolatként mentve ide: %1$s</string>
     <string name="fo_group_pages">Oldalak</string>
     <string name="fo_change">Változás</string>
     <string name="fo_step_pick_files">Válassza ki a fájljait</string>

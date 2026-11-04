@@ -625,6 +625,8 @@
     <string name="fo_nothing_favourite">还没有收藏</string>
     <string name="fo_nothing_favourite_desc">点按文件上的 ⋮ 并选择“收藏”，即可在此找到它。</string>
     <string name="fo_pick_a_file">选择文件</string>
+    <string name="fo_tool_busy">另一个文件仍在处理中，进度如下。</string>
+    <string name="fo_saved_copy">已另存为副本到 %1$s</string>
     <string name="fo_group_pages">页面</string>
     <string name="fo_change">改变</string>
     <string name="fo_step_pick_files">选择您的文件</string>

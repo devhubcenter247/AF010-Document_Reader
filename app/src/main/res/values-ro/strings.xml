@@ -631,6 +631,8 @@
     <string name="fo_nothing_favourite">Încă nu ai favorite</string>
     <string name="fo_nothing_favourite_desc">Atinge ⋮ la un fișier și alege Favorit ca să-l păstrezi aici.</string>
     <string name="fo_pick_a_file">Alege un fișier</string>
+    <string name="fo_tool_busy">Încă se procesează alt fișier. Iată progresul.</string>
+    <string name="fo_saved_copy">Salvat ca o copie în %1$s</string>
     <string name="fo_group_pages">Pagini</string>
     <string name="fo_change">Schimbare</string>
     <string name="fo_step_pick_files">Alege-ți fișierele</string>

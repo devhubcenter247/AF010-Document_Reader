@@ -626,6 +626,8 @@
     <string name="fo_nothing_favourite">Chưa có mục yêu thích</string>
     <string name="fo_nothing_favourite_desc">Nhấn ⋮ ở một tệp rồi chọn Yêu thích để lưu tệp ở đây.</string>
     <string name="fo_pick_a_file">Chọn một tệp</string>
+    <string name="fo_tool_busy">Một tệp khác vẫn đang được xử lý. Đây là tiến độ của tệp đó.</string>
+    <string name="fo_saved_copy">Đã lưu một bản sao vào %1$s</string>
     <string name="fo_group_pages">Trang</string>
     <string name="fo_change">Thay đổi</string>
     <string name="fo_step_pick_files">Chọn các tệp của bạn</string>

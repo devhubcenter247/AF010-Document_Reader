@@ -625,6 +625,8 @@
     <string name="fo_nothing_favourite">ఇంకా ఇష్టమైనవి లేవు</string>
     <string name="fo_nothing_favourite_desc">ఫైల్‌పై ⋮ ట్యాప్ చేసి, దాన్ని ఇక్కడ ఉంచడానికి ఇష్టమైనది ఎంచుకోండి.</string>
     <string name="fo_pick_a_file">ఫైల్‌ను ఎంచుకోండి</string>
+    <string name="fo_tool_busy">మరో ఫైల్ ఇంకా ప్రాసెస్ అవుతోంది. దాని పురోగతి ఇదిగో.</string>
+    <string name="fo_saved_copy">%1$sలో కాపీగా సేవ్ చేయబడింది</string>
     <string name="fo_group_pages">పేజీలు</string>
     <string name="fo_change">మార్చు</string>
     <string name="fo_step_pick_files">మీ ఫైల్‌లను ఎంచుకోండి</string>

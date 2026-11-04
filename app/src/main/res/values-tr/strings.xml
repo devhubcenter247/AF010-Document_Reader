@@ -625,6 +625,8 @@
     <string name="fo_nothing_favourite">Henüz favori yok</string>
     <string name="fo_nothing_favourite_desc">Bir dosyada ⋮ simgesine dokunun ve burada tutmak için Favori’yi seçin.</string>
     <string name="fo_pick_a_file">Bir dosya seçin</string>
+    <string name="fo_tool_busy">Başka bir dosya hâlâ işleniyor. İlerlemesi burada.</string>
+    <string name="fo_saved_copy">%1$s klasörüne kopya olarak kaydedildi</string>
     <string name="fo_group_pages">Sayfalar</string>
     <string name="fo_change">Değiştir</string>
     <string name="fo_step_pick_files">Dosyalarınızı seçin</string>

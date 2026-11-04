@@ -625,6 +625,8 @@
     <string name="fo_nothing_favourite">Nog geen favorieten</string>
     <string name="fo_nothing_favourite_desc">Tik op ⋮ bij een bestand en kies Favoriet om het hier te bewaren.</string>
     <string name="fo_pick_a_file">Kies een bestand</string>
+    <string name="fo_tool_busy">Er wordt nog aan een ander bestand gewerkt. Zo staat het ervoor.</string>
+    <string name="fo_saved_copy">Opgeslagen als kopie in %1$s</string>
     <string name="fo_group_pages">Pagina’s</string>
     <string name="fo_change">Verandering</string>
     <string name="fo_step_pick_files">Kies uw bestanden</string>

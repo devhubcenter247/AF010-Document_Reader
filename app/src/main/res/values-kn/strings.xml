@@ -625,6 +625,8 @@
     <string name="fo_nothing_favourite">ಇನ್ನೂ ಯಾವುದೇ ಮೆಚ್ಚಿನವುಗಳಿಲ್ಲ</string>
     <string name="fo_nothing_favourite_desc">ಫೈಲ್‌ನಲ್ಲಿ ⋮ ಟ್ಯಾಪ್ ಮಾಡಿ ಮತ್ತು ಇಲ್ಲಿ ಇರಿಸಲು ಮೆಚ್ಚಿನದು ಆಯ್ಕೆಮಾಡಿ.</string>
     <string name="fo_pick_a_file">ಫೈಲ್ ಆಯ್ಕೆಮಾಡಿ</string>
+    <string name="fo_tool_busy">ಇನ್ನೊಂದು ಫೈಲ್ ಇನ್ನೂ ಪ್ರಕ್ರಿಯೆಯಲ್ಲಿದೆ. ಅದರ ಪ್ರಗತಿ ಇಲ್ಲಿದೆ.</string>
+    <string name="fo_saved_copy">%1$s ನಲ್ಲಿ ಪ್ರತಿಯಾಗಿ ಉಳಿಸಲಾಗಿದೆ</string>
     <string name="fo_group_pages">ಪುಟಗಳು</string>
     <string name="fo_change">ಬದಲಾವಣೆ</string>
     <string name="fo_step_pick_files">ನಿಮ್ಮ ಫೈಲ್‌ಗಳನ್ನು ಆರಿಸಿ</string>

@@ -218,7 +218,9 @@ class OfficeToPdfActivity : BaseAppActivity<ActivityOfficeToPdfBinding>(Activity
         val office = documentView.office
         if (!loaded || office == null || !OfficePdf.canWrite(office)) return toast(R.string.convert_pdf_not_ready)
         val path = source.path
-        writer = OfficeWriter(path) { output, progress -> OfficePdf.write(office, output, progress) }
+        // Before handing over a writer: it would replace the one a running job is using.
+        if (ProcessingActivity.showBusy(this)) return
+        writer =OfficeWriter(path) { output, progress -> OfficePdf.write(office, output, progress) }
         runner.officeWriter = writer
         // Not tied to the lifecycle: this screen is stopped under Processing while the job runs.
         doneJob?.cancel()

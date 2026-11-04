@@ -625,6 +625,8 @@
     <string name="fo_nothing_favourite">Δεν υπάρχουν ακόμα αγαπημένα</string>
     <string name="fo_nothing_favourite_desc">Πατήστε ⋮ σε ένα αρχείο και επιλέξτε Αγαπημένο για να το κρατήσετε εδώ.</string>
     <string name="fo_pick_a_file">Επιλέξτε αρχείο</string>
+    <string name="fo_tool_busy">Γίνεται ακόμα επεξεργασία άλλου αρχείου. Δείτε την πρόοδο.</string>
+    <string name="fo_saved_copy">Αποθηκεύτηκε ως αντίγραφο στο %1$s</string>
     <string name="fo_group_pages">Σελίδες</string>
     <string name="fo_change">Αλλαγή</string>
     <string name="fo_step_pick_files">Επιλέξτε τα αρχεία σας</string>

@@ -29,6 +29,11 @@ data class LanguageUiModel(
     val subtitle: String get() = if (isDeviceLanguage) "Device language" else item.englishName
 }
 
+/** The code of the listed language the device speaks, or null when the app has no such language. */
+fun List<LanguageItem>.deviceCode(deviceLocale: Locale): String? =
+    (firstOrNull { it.languageTag.equals(deviceLocale.toLanguageTag(), true) }
+        ?: firstOrNull { it.languageTag.equals(deviceLocale.language, true) })?.code
+
 fun List<LanguageItem>.toUiModels(
     selectedCode: String?,
     deviceLocale: Locale = Locale.getDefault(),

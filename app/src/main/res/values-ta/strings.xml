@@ -625,6 +625,8 @@
     <string name="fo_nothing_favourite">பிடித்தவை இன்னும் இல்லை</string>
     <string name="fo_nothing_favourite_desc">கோப்பில் ⋮ ஐத் தட்டி, இங்கே வைத்திருக்க பிடித்தவை என்பதைத் தேர்ந்தெடுக்கவும்.</string>
     <string name="fo_pick_a_file">கோப்பைத் தேர்ந்தெடுக்கவும்</string>
+    <string name="fo_tool_busy">மற்றொரு கோப்பு இன்னும் செயலாக்கப்படுகிறது. அதன் முன்னேற்றம் இதோ.</string>
+    <string name="fo_saved_copy">%1$s இல் நகலாகச் சேமிக்கப்பட்டது</string>
     <string name="fo_group_pages">பக்கங்கள்</string>
     <string name="fo_change">மாற்றவும்</string>
     <string name="fo_step_pick_files">உங்கள் கோப்புகளைத் தேர்ந்தெடுக்கவும்</string>

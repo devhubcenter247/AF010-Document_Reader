@@ -625,6 +625,8 @@
     <string name="fo_nothing_favourite">아직 즐겨찾기가 없습니다</string>
     <string name="fo_nothing_favourite_desc">파일의 ⋮를 탭하고 즐겨찾기를 선택하면 여기에 표시됩니다.</string>
     <string name="fo_pick_a_file">파일 선택</string>
+    <string name="fo_tool_busy">다른 파일을 아직 처리하고 있어요. 진행 상황은 여기에서 확인하세요.</string>
+    <string name="fo_saved_copy">%1$s에 사본으로 저장했습니다</string>
     <string name="fo_group_pages">페이지</string>
     <string name="fo_change">변경</string>
     <string name="fo_step_pick_files">파일을 선택하세요</string>

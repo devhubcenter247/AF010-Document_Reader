@@ -625,6 +625,8 @@
     <string name="fo_nothing_favourite">ഇതുവരെ പ്രിയപ്പെട്ടവയൊന്നുമില്ല</string>
     <string name="fo_nothing_favourite_desc">ഒരു ഫയലിൽ ⋮ ടാപ്പ് ചെയ്‌ത് ഇവിടെ സൂക്ഷിക്കാൻ പ്രിയപ്പെട്ടത് തിരഞ്ഞെടുക്കൂ.</string>
     <string name="fo_pick_a_file">ഒരു ഫയൽ തിരഞ്ഞെടുക്കൂ</string>
+    <string name="fo_tool_busy">മറ്റൊരു ഫയൽ ഇപ്പോഴും പ്രോസസ് ചെയ്യുന്നു. അതിന്റെ പുരോഗതി ഇതാ.</string>
+    <string name="fo_saved_copy">%1$s എന്നതിൽ പകർപ്പായി സംരക്ഷിച്ചു</string>
     <string name="fo_group_pages">പേജുകൾ</string>
     <string name="fo_change">മാറ്റുക</string>
     <string name="fo_step_pick_files">നിങ്ങളുടെ ഫയലുകൾ തിരഞ്ഞെടുക്കുക</string>
