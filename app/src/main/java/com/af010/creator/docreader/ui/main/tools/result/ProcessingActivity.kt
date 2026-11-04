@@ -17,8 +17,10 @@ import com.af010.creator.docreader.pdf.ToolState
 import com.af010.creator.docreader.ui.main.tools.TOOL_STEPS
 import com.af010.creator.docreader.databinding.LayoutProcessStepBinding
 import com.af010.creator.docreader.ui.main.tools.translate.TranslateResultActivity
+import android.widget.Toast
 import com.ui.baselib.extensions.clickSingle
 import org.koin.android.ext.android.inject
+import org.koin.core.context.GlobalContext
 
 /** Shows the progress of the tool job started with [EXTRA_REQUEST], then moves on to its result. */
 class ProcessingActivity :
@@ -82,6 +84,7 @@ class ProcessingActivity :
         val files = request.inputCount
         stepRead.show(resources.getQuantityString(R.plurals.fo_step_read_files, files, files), Step.Done)
         stepWork.show(getString(if (state.step != 0) state.step else R.string.fo_step_working), Step.Now)
+        // Cut at the end when too long (layout_process_step), so "Save to …" always reads.
         stepSave.show(getString(R.string.fo_step_save), Step.Later)
 
         val counted = state.total > 0
@@ -91,6 +94,10 @@ class ProcessingActivity :
             val percent = state.done * 100 / state.total
             progress.setProgressCompat(percent, true)
             tvPercent.text = getString(R.string.translate_percent, percent)
+            if (percent >= 100) {
+                tvTitle.setText(R.string.done)
+                btnCancel.visibility = android.view.View.INVISIBLE
+            }
         }
     }
 
@@ -133,7 +140,8 @@ class ProcessingActivity :
             tvPercent.text = getString(R.string.translate_percent, 100)
             stepWork.show(stepWork.tvStep.text.toString(), Step.Done)
             stepSave.show(stepSave.tvStep.text.toString(), Step.Done)
-            btnCancel.isEnabled = false
+            btnCancel.visibility = android.view.View.INVISIBLE
+            tvTitle.setText(R.string.done)
         }
         postDelayed(DONE_HOLD_MS) {
             if (isFinishing || isDestroyed) runner.reset() else then()
@@ -164,10 +172,24 @@ class ProcessingActivity :
             Tool.Scan to R.string.processing_images
         )
 
+        /**
+         * Starts [request] and shows its progress. One job runs at a time: while another is still
+         * running (the user left its Processing screen), this says so and shows that job instead of
+         * dropping [request] silently under the other job's progress.
+         */
         fun start(context: Context, request: ToolRequest) {
+            if (showBusy(context)) return
             context.startActivity(
                 Intent(context, ProcessingActivity::class.java).putExtra(EXTRA_REQUEST, request)
             )
+        }
+
+        /** True when a job is already running: the user is told and taken to its progress. */
+        fun showBusy(context: Context): Boolean {
+            if (!GlobalContext.get().get<ToolRunner>().isBusy) return false
+            Toast.makeText(context, R.string.fo_tool_busy, Toast.LENGTH_LONG).show()
+            context.startActivity(Intent(context, ProcessingActivity::class.java))
+            return true
         }
     }
 }

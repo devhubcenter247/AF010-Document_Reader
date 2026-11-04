@@ -50,6 +50,7 @@ class LanguageActivity :
         btnContinue.clickSingle {
             val selected = languageAdapter.selectedItem ?: return@clickSingle
             preferenceHelper.languageSelected = selected.item.code
+            preferenceHelper.isLanguageChosen = true
             if (!preferenceHelper.isFinishFirstFlow) {
                 launchAndFinish<OnboardingActivity>()
             } else {

@@ -176,7 +176,7 @@
     <string name="tool_protect_desc">Добавить пароль</string>
     <string name="tool_redact">Скрыть</string>
     <string name="tool_redact_desc">Скрыть личную информацию</string>
-    <string name="tool_ocr_desc">Сделать текст доступным для поиска</string>
+    <string name="tool_ocr_desc">Текст с поиском</string>
     <string name="tool_translate">Перевести</string>
     <string name="tool_translate_desc">Офлайн, на устройстве</string>
     <string name="tool_zip_desc">Упаковать файлы</string>
@@ -605,7 +605,7 @@
     <string name="fo_make_it_yours">Сделайте это своим</string>
     <string name="fo_i_use_for">Я использую All Document Reader &amp; Editor для</string>
     <string name="fo_tell_a_friend">Расскажи другу</string>
-    <string name="fo_rate_0">Вам нравится программа для чтения и редактирования всех документов? Нажмите звезду</string>
+    <string name="fo_rate_0">Нравится приложение? Нажмите на звезду.</string>
     <string name="fo_rate_1">О нет! Мы сделаем лучше</string>
     <string name="fo_rate_2">Спасибо, мы слушаем</string>
     <string name="fo_rate_3">Спасибо! Рад, что это помогает</string>
@@ -621,7 +621,13 @@
     <string name="fo_pdf_first">PDF сначала</string>
     <string name="fo_images_first">Сначала изображения</string>
     <string name="fo_nothing_here">Здесь пока ничего</string>
-    <string name="fo_nothing_here_desc">Попробуйте другой тип или нажмите + на вкладке «Файлы», чтобы создать что-то новое.</string>
+    <string name="fo_nothing_here_desc">Выберите другой тип или нажмите +, чтобы создать что-то новое.</string>
+    <string name="fo_nothing_favourite">Избранного пока нет</string>
+    <string name="fo_nothing_favourite_desc">Нажмите ⋮ у файла и выберите «Избранное», чтобы он был здесь.</string>
+    <string name="fo_pick_a_file">Выберите файл</string>
+    <string name="fo_tool_busy">Другой файл ещё обрабатывается. Вот его прогресс.</string>
+    <string name="fo_saved_copy">Сохранено как копия в %1$s</string>
+    <string name="fo_group_pages">Страницы</string>
     <string name="fo_change">Изменить</string>
     <string name="fo_step_pick_files">Выберите файлы</string>
     <string name="fo_step_set_order">Установить порядок</string>

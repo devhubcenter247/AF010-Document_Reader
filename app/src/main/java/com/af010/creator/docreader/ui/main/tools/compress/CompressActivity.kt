@@ -43,7 +43,7 @@ class CompressActivity : BaseAppActivity<ActivityCompressBinding>(ActivityCompre
     }
 
     override fun ActivityCompressBinding.setData() {
-        topBar.show(Tool.Compress, R.string.compress_pdf)
+        topBar.show(Tool.Compress)
         steps.showSetupStep(R.string.fo_step_how_small)
         file.btnChange.isVisible = true
         action.show(getString(R.string.fo_make_it_smaller), R.drawable.ic_fo_compress)

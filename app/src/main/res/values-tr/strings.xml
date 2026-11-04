@@ -176,7 +176,7 @@
     <string name="tool_protect_desc">Şifre ekle</string>
     <string name="tool_redact">Karart</string>
     <string name="tool_redact_desc">Özel bilgileri gizle</string>
-    <string name="tool_ocr_desc">Metni aranabilir hale getirin</string>
+    <string name="tool_ocr_desc">Aranabilir metin</string>
     <string name="tool_translate">Çevir</string>
     <string name="tool_translate_desc">Çevrimdışı, cihazda</string>
     <string name="tool_zip_desc">Dosyaları paketle</string>
@@ -605,7 +605,7 @@
     <string name="fo_make_it_yours">Senin olsun</string>
     <string name="fo_i_use_for">Tüm Belge Okuyucu ve Düzenleyici\'yi şunun için kullanıyorum:</string>
     <string name="fo_tell_a_friend">Bir arkadaşına söyle</string>
-    <string name="fo_rate_0">Tüm Belge Okuyucu ve Düzenleyiciyi beğeniyor musunuz? Bir yıldıza dokunun</string>
+    <string name="fo_rate_0">Uygulamayı beğendiniz mi? Bir yıldıza dokunun.</string>
     <string name="fo_rate_1">Ah hayır! Daha iyisini yapacağız</string>
     <string name="fo_rate_2">Teşekkürler dinliyoruz</string>
     <string name="fo_rate_3">Teşekkürler! Yardımcı olduğuna sevindim</string>
@@ -621,7 +621,13 @@
     <string name="fo_pdf_first">Önce PDF</string>
     <string name="fo_images_first">Önce resimler</string>
     <string name="fo_nothing_here">Henüz burada hiçbir şey yok</string>
-    <string name="fo_nothing_here_desc">Başka bir tür deneyin veya yeni bir şey oluşturmak için Dosyalar sekmesinde + simgesine dokunun.</string>
+    <string name="fo_nothing_here_desc">Başka bir tür deneyin veya yeni bir şey oluşturmak için + simgesine dokunun.</string>
+    <string name="fo_nothing_favourite">Henüz favori yok</string>
+    <string name="fo_nothing_favourite_desc">Bir dosyada ⋮ simgesine dokunun ve burada tutmak için Favori’yi seçin.</string>
+    <string name="fo_pick_a_file">Bir dosya seçin</string>
+    <string name="fo_tool_busy">Başka bir dosya hâlâ işleniyor. İlerlemesi burada.</string>
+    <string name="fo_saved_copy">%1$s klasörüne kopya olarak kaydedildi</string>
+    <string name="fo_group_pages">Sayfalar</string>
     <string name="fo_change">Değiştir</string>
     <string name="fo_step_pick_files">Dosyalarınızı seçin</string>
     <string name="fo_step_set_order">Sırayı ayarla</string>

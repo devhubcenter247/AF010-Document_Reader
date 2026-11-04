@@ -176,7 +176,7 @@
     <string name="tool_protect_desc">پاس ورڈ شامل کریں</string>
     <string name="tool_redact">چھپائیں</string>
     <string name="tool_redact_desc">نجی معلومات چھپائیں</string>
-    <string name="tool_ocr_desc">متن کو قابل تلاش بنائیں</string>
+    <string name="tool_ocr_desc">قابلِ تلاش متن</string>
     <string name="tool_translate">ترجمہ کریں</string>
     <string name="tool_translate_desc">آف لائن، ڈیوائس پر</string>
     <string name="tool_zip_desc">فائلیں بنڈل کریں</string>
@@ -605,7 +605,7 @@
     <string name="fo_make_it_yours">اسے اپنا بنائیں</string>
     <string name="fo_i_use_for">میں آل ڈاکومنٹ ریڈر اور ایڈیٹر کے لیے استعمال کرتا ہوں۔</string>
     <string name="fo_tell_a_friend">کسی دوست کو بتائیں</string>
-    <string name="fo_rate_0">تمام دستاویزی ریڈر اور ایڈیٹر سے لطف اندوز ہو رہے ہیں؟ ایک ستارے کو تھپتھپائیں۔</string>
+    <string name="fo_rate_0">ایپ پسند آ رہی ہے؟ کسی ستارے پر تھپتھپائیں۔</string>
     <string name="fo_rate_1">ارے نہیں! ہم بہتر کریں گے۔</string>
     <string name="fo_rate_2">شکریہ، ہم سن رہے ہیں۔</string>
     <string name="fo_rate_3">شکریہ! خوشی ہے کہ اس سے مدد ملتی ہے۔</string>
@@ -621,7 +621,13 @@
     <string name="fo_pdf_first">پہلے پی ڈی ایف</string>
     <string name="fo_images_first">پہلے تصاویر</string>
     <string name="fo_nothing_here">ابھی تک یہاں کچھ نہیں ہے۔</string>
-    <string name="fo_nothing_here_desc">کوئی اور قسم آزمائیں، یا کچھ نیا کرنے کے لیے فائلز ٹیب پر + کو تھپتھپائیں۔</string>
+    <string name="fo_nothing_here_desc">کوئی اور قسم آزمائیں، یا کچھ نیا بنانے کے لیے + پر تھپتھپائیں۔</string>
+    <string name="fo_nothing_favourite">ابھی کوئی پسندیدہ نہیں</string>
+    <string name="fo_nothing_favourite_desc">کسی فائل پر ⋮ تھپتھپائیں اور اسے یہاں رکھنے کے لیے پسندیدہ منتخب کریں۔</string>
+    <string name="fo_pick_a_file">ایک فائل منتخب کریں</string>
+    <string name="fo_tool_busy">ابھی ایک اور فائل پر کام جاری ہے۔ اس کی پیش رفت یہاں ہے۔</string>
+    <string name="fo_saved_copy">%1$s میں کاپی کے طور پر محفوظ کیا گیا</string>
+    <string name="fo_group_pages">صفحات</string>
     <string name="fo_change">تبدیلی</string>
     <string name="fo_step_pick_files">اپنی فائلیں چنیں۔</string>
     <string name="fo_step_set_order">آرڈر سیٹ کریں۔</string>

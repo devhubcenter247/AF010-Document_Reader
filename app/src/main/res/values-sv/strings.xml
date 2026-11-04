@@ -176,7 +176,7 @@
     <string name="tool_protect_desc">Lägg till ett lösenord</string>
     <string name="tool_redact">Maskera</string>
     <string name="tool_redact_desc">Dölj privat information</string>
-    <string name="tool_ocr_desc">Gör text sökbar</string>
+    <string name="tool_ocr_desc">Sökbar text</string>
     <string name="tool_translate">Översätt</string>
     <string name="tool_translate_desc">Offline, på enheten</string>
     <string name="tool_zip_desc">Paketera filer</string>
@@ -605,7 +605,7 @@
     <string name="fo_make_it_yours">Gör det till ditt</string>
     <string name="fo_i_use_for">Jag använder All Document Reader &amp; Editor för</string>
     <string name="fo_tell_a_friend">Berätta för en vän</string>
-    <string name="fo_rate_0">Gillar du All Document Reader &amp; Editor? Tryck på en stjärna</string>
+    <string name="fo_rate_0">Gillar du appen? Tryck på en stjärna.</string>
     <string name="fo_rate_1">Åh nej! Vi kommer att göra det bättre</string>
     <string name="fo_rate_2">Tack, vi lyssnar</string>
     <string name="fo_rate_3">Tack! Kul att det hjälper</string>
@@ -621,7 +621,13 @@
     <string name="fo_pdf_first">PDF först</string>
     <string name="fo_images_first">Bilder först</string>
     <string name="fo_nothing_here">Inget här ännu</string>
-    <string name="fo_nothing_here_desc">Prova en annan typ, eller tryck på + på fliken Filer för att skapa något nytt.</string>
+    <string name="fo_nothing_here_desc">Prova en annan typ eller tryck på + för att skapa något nytt.</string>
+    <string name="fo_nothing_favourite">Inga favoriter än</string>
+    <string name="fo_nothing_favourite_desc">Tryck på ⋮ vid en fil och välj Favorit för att spara den här.</string>
+    <string name="fo_pick_a_file">Välj en fil</string>
+    <string name="fo_tool_busy">Arbetar fortfarande med en annan fil. Så här långt har den kommit.</string>
+    <string name="fo_saved_copy">Sparad som kopia i %1$s</string>
+    <string name="fo_group_pages">Sidor</string>
     <string name="fo_change">Ändra</string>
     <string name="fo_step_pick_files">Välj dina filer</string>
     <string name="fo_step_set_order">Ställ in ordningen</string>

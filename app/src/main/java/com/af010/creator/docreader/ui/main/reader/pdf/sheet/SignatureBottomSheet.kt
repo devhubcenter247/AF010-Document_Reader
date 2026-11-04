@@ -12,6 +12,9 @@ import android.view.ViewGroup
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
+import android.widget.TextView
+import com.af010.creator.docreader.ui.main.common.fillSegment
+import com.af010.creator.docreader.ui.main.common.selectSegment
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.lifecycleScope
 import com.af010.creator.docreader.R
@@ -77,13 +80,17 @@ class SignatureBottomSheet(
                 loadSaved()
             }
 
-        mapOf(tabDraw to Tab.Draw, tabType to Tab.Type, tabImage to Tab.Image, tabSaved to Tab.Saved)
-            .forEach { (view, viewTab) ->
-                view.click {
-                    tab = viewTab
-                    render()
-                }
-            }
+        layoutTabs.fillSegment(
+            listOf(
+                activity.getString(R.string.sign_draw),
+                activity.getString(R.string.sign_type),
+                activity.getString(R.string.annot_image),
+                activity.getString(R.string.sign_saved, 0)
+            )
+        ) { index ->
+            tab = Tab.entries[index]
+            render()
+        }
         btnClear.click {
             when (tab) {
                 Tab.Draw -> pad.clear()
@@ -109,21 +116,12 @@ class SignatureBottomSheet(
     private fun SheetSignatureBinding.loadSaved() {
         val saved = store.list()
         savedAdapter.submitList(saved)
-        tabSaved.text = activity.getString(R.string.sign_saved, saved.size)
+        (layoutTabs.getChildAt(Tab.Saved.ordinal) as TextView).text = activity.getString(R.string.sign_saved, saved.size)
         render()
     }
 
     private fun SheetSignatureBinding.render() {
-        listOf(tabDraw, tabType, tabImage, tabSaved).forEachIndexed { index, view ->
-            val selected = index == tab.ordinal
-            view.setFillColor(ContextCompat.getColor(
-                activity, if (selected) R.color.color_surface_card else android.R.color.transparent
-            ))
-            view.setTextColor(
-                ContextCompat.getColor(activity, if (selected) R.color.text_primary else R.color.text_secondary)
-            )
-            view.invalidate()
-        }
+        layoutTabs.selectSegment(tab.ordinal)
         pad.color = color
         edtSignature.setTextColor(color)
         edtSignature.typeface = SIGNATURE_TYPEFACE

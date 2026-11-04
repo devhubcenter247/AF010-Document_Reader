@@ -176,7 +176,7 @@
     <string name="tool_protect_desc">Tambahkan kata sandi</string>
     <string name="tool_redact">Sensor</string>
     <string name="tool_redact_desc">Sembunyikan informasi pribadi</string>
-    <string name="tool_ocr_desc">Jadikan teks dapat dicari</string>
+    <string name="tool_ocr_desc">Teks yang dapat dicari</string>
     <string name="tool_translate">Terjemahkan</string>
     <string name="tool_translate_desc">Offline, di perangkat</string>
     <string name="tool_zip_desc">Gabungkan file</string>
@@ -605,7 +605,7 @@
     <string name="fo_make_it_yours">Jadikan itu milikmu</string>
     <string name="fo_i_use_for">Saya menggunakan Semua Pembaca &amp; Editor Dokumen untuk</string>
     <string name="fo_tell_a_friend">Beritahu teman</string>
-    <string name="fo_rate_0">Menikmati Semua Pembaca &amp; Editor Dokumen? Ketuk bintang</string>
+    <string name="fo_rate_0">Suka aplikasinya? Ketuk bintang.</string>
     <string name="fo_rate_1">Oh tidak! Kami akan melakukan yang lebih baik</string>
     <string name="fo_rate_2">Terima kasih, kami mendengarkan</string>
     <string name="fo_rate_3">Terima kasih! Senang itu membantu</string>
@@ -621,7 +621,13 @@
     <string name="fo_pdf_first">PDF dulu</string>
     <string name="fo_images_first">Gambar dulu</string>
     <string name="fo_nothing_here">Belum ada apa pun di sini</string>
-    <string name="fo_nothing_here_desc">Coba jenis lain, atau ketuk + pada tab File untuk membuat sesuatu yang baru.</string>
+    <string name="fo_nothing_here_desc">Coba jenis lain, atau ketuk + untuk membuat sesuatu yang baru.</string>
+    <string name="fo_nothing_favourite">Belum ada favorit</string>
+    <string name="fo_nothing_favourite_desc">Ketuk ⋮ pada file dan pilih Favorit untuk menyimpannya di sini.</string>
+    <string name="fo_pick_a_file">Pilih file</string>
+    <string name="fo_tool_busy">Masih memproses file lain. Ini progresnya.</string>
+    <string name="fo_saved_copy">Disimpan sebagai salinan di %1$s</string>
+    <string name="fo_group_pages">Halaman</string>
     <string name="fo_change">Perubahan</string>
     <string name="fo_step_pick_files">Pilih file Anda</string>
     <string name="fo_step_set_order">Tetapkan pesanan</string>

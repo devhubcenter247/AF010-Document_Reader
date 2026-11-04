@@ -176,7 +176,7 @@
     <string name="tool_protect_desc">הוסף סיסמה</string>
     <string name="tool_redact">השחרה</string>
     <string name="tool_redact_desc">הסתר מידע פרטי</string>
-    <string name="tool_ocr_desc">הפוך טקסט לחיפוש</string>
+    <string name="tool_ocr_desc">טקסט שניתן לחפש</string>
     <string name="tool_translate">תרגם</string>
     <string name="tool_translate_desc">לא מקוון, במכשיר</string>
     <string name="tool_zip_desc">ארוז קבצים</string>
@@ -605,7 +605,7 @@
     <string name="fo_make_it_yours">הפוך אותו לשלך</string>
     <string name="fo_i_use_for">אני משתמש ב-All Document Reader &amp; Editor עבור</string>
     <string name="fo_tell_a_friend">ספר לחבר</string>
-    <string name="fo_rate_0">נהנה מכל קורא ועורך מסמכים? הקש על כוכב</string>
+    <string name="fo_rate_0">נהנים מהאפליקציה? הקישו על כוכב.</string>
     <string name="fo_rate_1">הו לא! נעשה יותר טוב</string>
     <string name="fo_rate_2">תודה, אנחנו מקשיבים</string>
     <string name="fo_rate_3">תודה! שמח שזה עוזר</string>
@@ -621,7 +621,13 @@
     <string name="fo_pdf_first">תחילה PDF</string>
     <string name="fo_images_first">תחילה תמונות</string>
     <string name="fo_nothing_here">שום דבר כאן עדיין</string>
-    <string name="fo_nothing_here_desc">נסה סוג אחר, או הקש על + בכרטיסייה קבצים כדי ליצור משהו חדש.</string>
+    <string name="fo_nothing_here_desc">נסו סוג אחר, או הקישו על + כדי ליצור משהו חדש.</string>
+    <string name="fo_nothing_favourite">אין עדיין מועדפים</string>
+    <string name="fo_nothing_favourite_desc">הקישו על ⋮ בקובץ ובחרו מועדף כדי לשמור אותו כאן.</string>
+    <string name="fo_pick_a_file">בחרו קובץ</string>
+    <string name="fo_tool_busy">קובץ אחר עדיין בעיבוד. כאן אפשר לראות את ההתקדמות.</string>
+    <string name="fo_saved_copy">נשמר כעותק ב-%1$s</string>
+    <string name="fo_group_pages">דפים</string>
     <string name="fo_change">שנה</string>
     <string name="fo_step_pick_files">בחר את הקבצים שלך</string>
     <string name="fo_step_set_order">קבע את הסדר</string>

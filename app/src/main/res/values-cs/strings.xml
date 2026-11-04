@@ -176,7 +176,7 @@
     <string name="tool_protect_desc">Přidejte heslo</string>
     <string name="tool_redact">Začernit</string>
     <string name="tool_redact_desc">Skrýt soukromé informace</string>
-    <string name="tool_ocr_desc">Umožněte vyhledávání textu</string>
+    <string name="tool_ocr_desc">Prohledávatelný text</string>
     <string name="tool_translate">Přeložit</string>
     <string name="tool_translate_desc">Offline, na zařízení</string>
     <string name="tool_zip_desc">Sbalit soubory</string>
@@ -611,7 +611,7 @@
     <string name="fo_make_it_yours">Udělejte to po svém</string>
     <string name="fo_i_use_for">Používám All Document Reader &amp; Editor pro</string>
     <string name="fo_tell_a_friend">Řekni příteli</string>
-    <string name="fo_rate_0">Líbí se vám aplikace All Document Reader &amp; Editor? Klepněte na hvězdičku</string>
+    <string name="fo_rate_0">Líbí se vám aplikace? Klepněte na hvězdičku.</string>
     <string name="fo_rate_1">Ach ne! uděláme to lépe</string>
     <string name="fo_rate_2">Děkujeme, posloucháme</string>
     <string name="fo_rate_3">Díky! Jsem rád, že to pomáhá</string>
@@ -627,7 +627,13 @@
     <string name="fo_pdf_first">Nejprve PDF</string>
     <string name="fo_images_first">Nejprve obrázky</string>
     <string name="fo_nothing_here">Tady zatím nic</string>
-    <string name="fo_nothing_here_desc">Zkuste jiný typ nebo klepněte na + na kartě Soubory a vytvořte něco nového.</string>
+    <string name="fo_nothing_here_desc">Zkuste jiný typ nebo klepnutím na + vytvořte něco nového.</string>
+    <string name="fo_nothing_favourite">Zatím žádné oblíbené</string>
+    <string name="fo_nothing_favourite_desc">Klepněte na ⋮ u souboru a vyberte Oblíbené, aby zůstal zde.</string>
+    <string name="fo_pick_a_file">Vyberte soubor</string>
+    <string name="fo_tool_busy">Ještě se zpracovává jiný soubor. Tady je průběh.</string>
+    <string name="fo_saved_copy">Uloženo jako kopie do %1$s</string>
+    <string name="fo_group_pages">Stránky</string>
     <string name="fo_change">Přeměna</string>
     <string name="fo_step_pick_files">Vyberte si soubory</string>
     <string name="fo_step_set_order">Nastavte pořadí</string>

@@ -58,8 +58,11 @@ class ToolRunner(
      */
     var officeWriter: OfficeWriter? = null
 
+    /** A job is running: another one cannot start until it ends (see [ProcessingActivity.start]). */
+    val isBusy: Boolean get() = state.value is ToolState.Running
+
     fun start(request: ToolRequest) {
-        if (state.value is ToolState.Running) return
+        if (isBusy) return
         state.value = ToolState.Running(request)
         job = scope.launch {
             val outputs = ArrayList<File>()

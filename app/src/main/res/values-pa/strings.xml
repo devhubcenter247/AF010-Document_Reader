@@ -176,7 +176,7 @@
     <string name="tool_protect_desc">ਇੱਕ ਪਾਸਵਰਡ ਸ਼ਾਮਲ ਕਰੋ</string>
     <string name="tool_redact">ਲੁਕਾਓ</string>
     <string name="tool_redact_desc">ਨਿੱਜੀ ਜਾਣਕਾਰੀ ਲੁਕਾਓ</string>
-    <string name="tool_ocr_desc">ਟੈਕਸਟ ਨੂੰ ਖੋਜਣ ਯੋਗ ਬਣਾਓ</string>
+    <string name="tool_ocr_desc">ਖੋਜਣਯੋਗ ਲਿਖਤ</string>
     <string name="tool_translate">ਅਨੁਵਾਦ ਕਰੋ</string>
     <string name="tool_translate_desc">ਔਫਲਾਈਨ, ਡਿਵਾਈਸ \'ਤੇ</string>
     <string name="tool_zip_desc">ਫ਼ਾਈਲਾਂ ਬੰਡਲ ਕਰੋ</string>
@@ -605,7 +605,7 @@
     <string name="fo_make_it_yours">ਇਸਨੂੰ ਆਪਣਾ ਬਣਾਓ</string>
     <string name="fo_i_use_for">ਮੈਂ ਇਸ ਲਈ ਸਾਰੇ ਦਸਤਾਵੇਜ਼ ਰੀਡਰ ਅਤੇ ਸੰਪਾਦਕ ਦੀ ਵਰਤੋਂ ਕਰਦਾ ਹਾਂ</string>
     <string name="fo_tell_a_friend">ਇੱਕ ਦੋਸਤ ਨੂੰ ਦੱਸੋ</string>
-    <string name="fo_rate_0">ਸਾਰੇ ਦਸਤਾਵੇਜ਼ ਰੀਡਰ ਅਤੇ ਸੰਪਾਦਕ ਦਾ ਆਨੰਦ ਮਾਣ ਰਹੇ ਹੋ? ਇੱਕ ਤਾਰੇ \'ਤੇ ਟੈਪ ਕਰੋ</string>
+    <string name="fo_rate_0">ਐਪ ਪਸੰਦ ਆ ਰਹੀ ਹੈ? ਇੱਕ ਤਾਰੇ ’ਤੇ ਟੈਪ ਕਰੋ।</string>
     <string name="fo_rate_1">ਓਹ ਨਹੀਂ! ਅਸੀਂ ਬਿਹਤਰ ਕਰਾਂਗੇ</string>
     <string name="fo_rate_2">ਧੰਨਵਾਦ, ਅਸੀਂ ਸੁਣ ਰਹੇ ਹਾਂ</string>
     <string name="fo_rate_3">ਧੰਨਵਾਦ! ਖੁਸ਼ੀ ਹੈ ਕਿ ਇਹ ਮਦਦ ਕਰਦਾ ਹੈ</string>
@@ -621,7 +621,13 @@
     <string name="fo_pdf_first">ਪਹਿਲਾਂ PDF</string>
     <string name="fo_images_first">ਪਹਿਲਾਂ ਚਿੱਤਰ</string>
     <string name="fo_nothing_here">ਅਜੇ ਇੱਥੇ ਕੁਝ ਨਹੀਂ</string>
-    <string name="fo_nothing_here_desc">ਕੋਈ ਹੋਰ ਕਿਸਮ ਅਜ਼ਮਾਓ, ਜਾਂ ਕੁਝ ਨਵਾਂ ਕਰਨ ਲਈ ਫ਼ਾਈਲਾਂ ਟੈਬ \'ਤੇ + \'ਤੇ ਟੈਪ ਕਰੋ।</string>
+    <string name="fo_nothing_here_desc">ਕੋਈ ਹੋਰ ਕਿਸਮ ਅਜ਼ਮਾਓ, ਜਾਂ ਕੁਝ ਨਵਾਂ ਬਣਾਉਣ ਲਈ + ’ਤੇ ਟੈਪ ਕਰੋ।</string>
+    <string name="fo_nothing_favourite">ਹਾਲੇ ਕੋਈ ਮਨਪਸੰਦ ਨਹੀਂ</string>
+    <string name="fo_nothing_favourite_desc">ਕਿਸੇ ਫ਼ਾਈਲ ’ਤੇ ⋮ ਟੈਪ ਕਰੋ ਅਤੇ ਇਸਨੂੰ ਇੱਥੇ ਰੱਖਣ ਲਈ ਮਨਪਸੰਦ ਚੁਣੋ।</string>
+    <string name="fo_pick_a_file">ਇੱਕ ਫ਼ਾਈਲ ਚੁਣੋ</string>
+    <string name="fo_tool_busy">ਹਾਲੇ ਕਿਸੇ ਹੋਰ ਫ਼ਾਈਲ ’ਤੇ ਕੰਮ ਚੱਲ ਰਿਹਾ ਹੈ। ਇਸਦੀ ਪ੍ਰਗਤੀ ਇੱਥੇ ਹੈ।</string>
+    <string name="fo_saved_copy">%1$s ਵਿੱਚ ਕਾਪੀ ਵਜੋਂ ਸੰਭਾਲਿਆ ਗਿਆ</string>
+    <string name="fo_group_pages">ਪੰਨੇ</string>
     <string name="fo_change">ਬਦਲੋ</string>
     <string name="fo_step_pick_files">ਆਪਣੀਆਂ ਫਾਈਲਾਂ ਚੁਣੋ</string>
     <string name="fo_step_set_order">ਆਰਡਰ ਸੈੱਟ ਕਰੋ</string>

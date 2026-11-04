@@ -14,7 +14,10 @@ import android.view.MotionEvent
 import android.view.WindowManager
 import android.widget.SeekBar
 import android.view.ViewGroup
+import android.transition.Fade
+import android.transition.TransitionManager
 import androidx.core.view.updateLayoutParams
+import androidx.core.widget.doAfterTextChanged
 import android.view.inputmethod.EditorInfo
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.StringRes
@@ -42,6 +45,7 @@ import com.af010.creator.docreader.ui.main.reader.pdf.reflow.PdfReflowActivity
 import com.af010.creator.docreader.ui.main.reader.pdf.sheet.ReaderAction
 import com.af010.creator.docreader.ui.main.reader.pdf.sheet.PdfToolsBottomSheet
 import com.af010.creator.docreader.ui.dialog.RenameDialog
+import com.af010.creator.docreader.ui.main.files.OpenedFiles
 import com.af010.creator.docreader.ui.main.files.sheet.FileInfoBottomSheet
 import com.af010.creator.docreader.model.RecentDocument
 import com.af010.creator.docreader.model.DocumentType
@@ -65,6 +69,8 @@ import com.ui.baselib.extensions.visibleOrGone
 import java.io.FileNotFoundException
 import java.io.IOException
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.withContext
 import org.koin.android.ext.android.inject
 import java.io.File
@@ -100,6 +106,12 @@ class PdfReaderActivity : BaseAppActivity<ActivityPdfReaderBinding>(ActivityPdfR
     private var mode = Mode.Read
     private var pendingTool: Tool? = null
 
+    /** Reading with both bars hidden (a tap on the page in Read mode); the page pill shows instead. */
+    private var barsHidden = false
+
+    /** The page slider is being dragged: the pill names the page it will jump to. */
+    private var draggingPage = false
+
     // add text and annotate
     private var textSize = DEFAULT_TEXT_SIZE
     private var textColor = TEXT_COLORS.first()
@@ -120,6 +132,7 @@ class PdfReaderActivity : BaseAppActivity<ActivityPdfReaderBinding>(ActivityPdfR
     private var results: List<SearchResult> = emptyList()
     private var resultIndex = 0
     private var query = ""
+    private var searchJob: Job? = null
 
     // read aloud and auto-scroll
     private var playback = Playback.None
@@ -197,6 +210,10 @@ class PdfReaderActivity : BaseAppActivity<ActivityPdfReaderBinding>(ActivityPdfR
         when {
             mode != Mode.Read -> closeMode()
             playback != Playback.None -> stopPlayback()
+            barsHidden -> {
+                barsHidden = false
+                render()
+            }
             else -> finish()
         }
     }
@@ -246,9 +263,15 @@ class PdfReaderActivity : BaseAppActivity<ActivityPdfReaderBinding>(ActivityPdfR
                 if (fromUser) tvPagePill.text = getString(R.string.page_count_short, progress + 1, pdfView.pageCount)
             }
 
-            override fun onStartTrackingTouch(seekBar: SeekBar) = Unit
+            override fun onStartTrackingTouch(seekBar: SeekBar) {
+                draggingPage = true
+                renderPage()
+            }
+
             override fun onStopTrackingTouch(seekBar: SeekBar) {
+                draggingPage = false
                 if (loaded) pdfView.jumpTo(seekBar.progress, false)
+                renderPage()
             }
         })
         matchAdapter.onMatchClick { index ->
@@ -317,8 +340,28 @@ class PdfReaderActivity : BaseAppActivity<ActivityPdfReaderBinding>(ActivityPdfR
         btnSearchClose.click { closeMode() }
         btnSearchPrevious.click { moveResult(-1) }
         btnSearchNext.click { moveResult(1) }
+        edtSearch.doAfterTextChanged { editable ->
+            searchJob?.cancel()
+            binding.progress.gone()
+            val text = editable?.toString()?.trim().orEmpty()
+            if (mode != Mode.Search || text == query) return@doAfterTextChanged
+            if (text.length < 2) {
+                if (results.isNotEmpty() || query.isNotEmpty()) {
+                    results = emptyList()
+                    query = ""
+                    binding.pdfView.clearSearch()
+                    render()
+                }
+                return@doAfterTextChanged
+            }
+            searchJob = launchMain {
+                delay(SEARCH_DEBOUNCE)
+                search(text, typing = true)
+            }
+        }
         edtSearch.setOnEditorActionListener { _, actionId, _ ->
             if (actionId != EditorInfo.IME_ACTION_SEARCH) return@setOnEditorActionListener false
+            searchJob?.cancel()
             search(edtSearch.text.toString().trim())
             true
         }
@@ -462,7 +505,12 @@ class PdfReaderActivity : BaseAppActivity<ActivityPdfReaderBinding>(ActivityPdfR
             repository.refresh()
             thumbnails.clear()
             contents.refreshPages()
-            toast(R.string.saved_changes)
+            // A document opened from another app: the edits go back to it, or to a copy we name.
+            when (val back = OpenedFiles.writeBack(applicationContext, file)) {
+                is OpenedFiles.WriteBack.Copy -> toast(getString(R.string.fo_saved_copy, back.file.parentFile?.name.orEmpty()))
+                OpenedFiles.WriteBack.Failed -> toast(R.string.save_failed)
+                else -> toast(R.string.saved_changes)
+            }
             then()
         }
     }
@@ -537,6 +585,7 @@ class PdfReaderActivity : BaseAppActivity<ActivityPdfReaderBinding>(ActivityPdfR
         stopPlayback()
         if (mode == Mode.Search && next != Mode.Search) clearSearch()
         mode = next
+        barsHidden = false
         pdfView.setDrawingMode(false)
         pdfView.clearTextSelection()
         annotate.clearSelection()
@@ -580,6 +629,12 @@ class PdfReaderActivity : BaseAppActivity<ActivityPdfReaderBinding>(ActivityPdfR
         val pdfView = binding.pdfView
         val tool = annotateTool.takeIf { mode == Mode.Annotate }
         when {
+            // Reading: a tap hides both bars for the whole screen, the next one brings them back.
+            mode == Mode.Read && playback == Playback.None -> {
+                barsHidden = !barsHidden
+                TransitionManager.beginDelayedTransition(binding.root as ViewGroup, Fade().setDuration(BARS_FADE_MS))
+                render()
+            }
             mode == Mode.Text -> askText { text -> annotate.addTextAt(x, y, text, textSize, textColor) }
             tool == AnnotateTool.Text -> askText { text -> annotate.addTextAt(x, y, text, textSize, inkColor) }
             tool == AnnotateTool.Note -> {
@@ -778,19 +833,19 @@ class PdfReaderActivity : BaseAppActivity<ActivityPdfReaderBinding>(ActivityPdfR
 
     // ---- search ----
 
-    private fun search(text: String) {
+    private fun search(text: String, typing: Boolean = false) {
         if (!loaded || text.isEmpty()) return
-        hideKeyboard()
+        if (!typing) hideKeyboard()
         query = text
         binding.progress.visible()
-        launchMain {
+        searchJob = launchMain {
             val found = runCatching { binding.pdfView.searchDocument(text) }.getOrDefault(emptyList())
             binding.progress.gone()
             if (mode != Mode.Search) return@launchMain
             results = found
             if (found.isEmpty()) {
                 binding.pdfView.clearSearch()
-                toast(R.string.search_no_results)
+                if (!typing) toast(R.string.search_no_results)
             } else {
                 binding.pdfView.setSearchQuery(text)
                 // start from the page being read
@@ -823,6 +878,7 @@ class PdfReaderActivity : BaseAppActivity<ActivityPdfReaderBinding>(ActivityPdfR
     }
 
     private fun clearSearch() {
+        searchJob?.cancel()
         hideKeyboard()
         results = emptyList()
         query = ""
@@ -1010,6 +1066,9 @@ class PdfReaderActivity : BaseAppActivity<ActivityPdfReaderBinding>(ActivityPdfR
 
     private fun render() = with(binding) {
         val editing = mode == Mode.Text || mode == Mode.Annotate || mode == Mode.Sign || mode == Mode.Form
+        val immersive = barsHidden && mode == Mode.Read && playback == Playback.None
+        layoutTop.visibleOrGone(!immersive)
+        layoutBottom.visibleOrGone(!immersive)
         barReader.visibleOrGone(mode == Mode.Read)
         barSearch.visibleOrGone(mode == Mode.Search)
         barMode.visibleOrGone(editing || mode == Mode.Contents)
@@ -1069,7 +1128,9 @@ class PdfReaderActivity : BaseAppActivity<ActivityPdfReaderBinding>(ActivityPdfR
         val field = fields.getOrNull(fieldIndex)
         tvFieldCount.visibleOrGone(field != null)
         tvFieldCount.text = getString(R.string.fo_field_x_of_y, fieldIndex + 1, fields.size)
-        tvField.text = field?.name?.ifBlank { getString(R.string.form_field_default) } ?: getString(R.string.form_hint)
+        // The "tap a blue field" hint is the top banner's; with no field picked this line stays empty.
+        tvField.visibleOrGone(field != null)
+        tvField.text = field?.name?.ifBlank { getString(R.string.form_field_default) }.orEmpty()
         tvSearchCount.text = if (results.isEmpty()) "" else getString(R.string.search_count, resultIndex + 1, results.size)
         bottomSearch.visibleOrGone(mode == Mode.Search && results.isNotEmpty())
         if (mode == Mode.Search && results.isNotEmpty()) {
@@ -1122,8 +1183,9 @@ class PdfReaderActivity : BaseAppActivity<ActivityPdfReaderBinding>(ActivityPdfR
             PdfReadingPrefs.THEME_SEPIA -> getString(R.string.page_theme_suffix, text, getString(R.string.theme_sepia))
             else -> text
         }
-        tvPagePill.text = getString(R.string.page_count_short, page, count)
-        tvPagePill.visibleOrGone(loaded && count > 0 && mode != Mode.Contents)
+        // The top bar already names the page: the pill only while sliding to a page or with the bars hidden.
+        if (!draggingPage) tvPagePill.text = getString(R.string.page_count_short, page, count)
+        tvPagePill.visibleOrGone(loaded && count > 1 && (draggingPage || (barsHidden && mode == Mode.Read)))
         // Sign names the page the signature will land on.
         if (mode == Mode.Sign) tvModeSubtitle.text = getString(R.string.fo_page_x_of_y, page, count)
         seekPage.max = (count - 1).coerceAtLeast(0)
@@ -1152,6 +1214,8 @@ class PdfReaderActivity : BaseAppActivity<ActivityPdfReaderBinding>(ActivityPdfR
     companion object {
         /** Matches listed before the search list scrolls. */
         private const val MATCH_ROWS = 3
+        private const val SEARCH_DEBOUNCE = 300L
+        private const val BARS_FADE_MS = 150L
         private const val EXTRA_PATH = "extra_path"
         private const val EXTRA_TOOL = "extra_tool"
         private const val STATE_PASSWORD = "state_password"

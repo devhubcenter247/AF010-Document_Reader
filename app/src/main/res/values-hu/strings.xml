@@ -176,7 +176,7 @@
     <string name="tool_protect_desc">Adjon hozzá egy jelszót</string>
     <string name="tool_redact">Kitakarás</string>
     <string name="tool_redact_desc">Privát adatok elrejtése</string>
-    <string name="tool_ocr_desc">Tedd kereshetővé a szöveget</string>
+    <string name="tool_ocr_desc">Kereshető szöveg</string>
     <string name="tool_translate">Fordítás</string>
     <string name="tool_translate_desc">Offline, az eszközön</string>
     <string name="tool_zip_desc">Fájlok kötegelése</string>
@@ -605,7 +605,7 @@
     <string name="fo_make_it_yours">Legyen a tiéd</string>
     <string name="fo_i_use_for">Az All Document Reader &amp; Editor programot használom</string>
     <string name="fo_tell_a_friend">Mondd el egy barátodnak</string>
-    <string name="fo_rate_0">Élvezed az összes dokumentumolvasót és -szerkesztőt? Koppintson egy csillagra</string>
+    <string name="fo_rate_0">Tetszik az alkalmazás? Koppints egy csillagra.</string>
     <string name="fo_rate_1">Ó nem! jobban fogjuk csinálni</string>
     <string name="fo_rate_2">Köszi, hallgatunk</string>
     <string name="fo_rate_3">Köszönöm! Örülök, hogy segít</string>
@@ -621,7 +621,13 @@
     <string name="fo_pdf_first">PDF először</string>
     <string name="fo_images_first">Képek először</string>
     <string name="fo_nothing_here">Itt még semmi</string>
-    <string name="fo_nothing_here_desc">Próbáljon ki egy másik típust, vagy érintse meg a + gombot a Fájlok lapon, hogy újat készítsen.</string>
+    <string name="fo_nothing_here_desc">Próbálj másik típust, vagy koppints a + gombra valami új létrehozásához.</string>
+    <string name="fo_nothing_favourite">Még nincsenek kedvencek</string>
+    <string name="fo_nothing_favourite_desc">Koppints a ⋮ ikonra egy fájlnál, és válaszd a Kedvenc lehetőséget, hogy itt maradjon.</string>
+    <string name="fo_pick_a_file">Válassz egy fájlt</string>
+    <string name="fo_tool_busy">Egy másik fájl feldolgozása még tart. Itt látod, hol tart.</string>
+    <string name="fo_saved_copy">Másolatként mentve ide: %1$s</string>
+    <string name="fo_group_pages">Oldalak</string>
     <string name="fo_change">Változás</string>
     <string name="fo_step_pick_files">Válassza ki a fájljait</string>
     <string name="fo_step_set_order">Állítsa be a sorrendet</string>

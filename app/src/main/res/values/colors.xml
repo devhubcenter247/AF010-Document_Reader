@@ -73,6 +73,12 @@
     <color name="color_pro_bg">#FFF7DF</color>
     <color name="color_file_pdf_bg">#FFF0F3</color>
     <color name="color_file_word_bg">#EDF4FF</color>
+    <!-- The blank Word tile of the Create sheet: color_file_word_bg is too close to the sheet's own blue-grey -->
+    <color name="color_blank_word_bg">#DFEAFF</color>
+    <!-- The rail of a slider (bg_slider_progress), visible on a white card -->
+    <color name="color_slider_track">#DCE3EF</color>
+    <!-- Delete on the blue ink bar (ink_bar_danger) -->
+    <color name="color_ink_danger">#FFD6CF</color>
     <color name="color_file_excel_bg">#E8FCF1</color>
     <color name="color_file_powerpoint_bg">#FFF4E8</color>
     <color name="color_file_txt_bg">#F6EEFF</color>

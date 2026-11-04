@@ -176,7 +176,7 @@
     <string name="tool_protect_desc">Voeg een wachtwoord toe</string>
     <string name="tool_redact">Zwartmaken</string>
     <string name="tool_redact_desc">Privégegevens verbergen</string>
-    <string name="tool_ocr_desc">Maak tekst doorzoekbaar</string>
+    <string name="tool_ocr_desc">Doorzoekbare tekst</string>
     <string name="tool_translate">Vertalen</string>
     <string name="tool_translate_desc">Offline, op apparaat</string>
     <string name="tool_zip_desc">Bestanden bundelen</string>
@@ -605,7 +605,7 @@
     <string name="fo_make_it_yours">Maak het de jouwe</string>
     <string name="fo_i_use_for">Ik gebruik All Document Reader &amp; Editor voor</string>
     <string name="fo_tell_a_friend">Vertel het aan een vriend</string>
-    <string name="fo_rate_0">Geniet u van alle documentlezers en -editors? Tik op een ster</string>
+    <string name="fo_rate_0">Vind je de app leuk? Tik op een ster.</string>
     <string name="fo_rate_1">O nee! Wij zullen het beter doen</string>
     <string name="fo_rate_2">Bedankt, we luisteren</string>
     <string name="fo_rate_3">Bedankt! Fijn dat het helpt</string>
@@ -621,7 +621,13 @@
     <string name="fo_pdf_first">Eerst pdf</string>
     <string name="fo_images_first">Afbeeldingen eerst</string>
     <string name="fo_nothing_here">Hier nog niets</string>
-    <string name="fo_nothing_here_desc">Probeer een ander type, of tik op + op het tabblad Bestanden om iets nieuws te maken.</string>
+    <string name="fo_nothing_here_desc">Probeer een ander type, of tik op + om iets nieuws te maken.</string>
+    <string name="fo_nothing_favourite">Nog geen favorieten</string>
+    <string name="fo_nothing_favourite_desc">Tik op ⋮ bij een bestand en kies Favoriet om het hier te bewaren.</string>
+    <string name="fo_pick_a_file">Kies een bestand</string>
+    <string name="fo_tool_busy">Er wordt nog aan een ander bestand gewerkt. Zo staat het ervoor.</string>
+    <string name="fo_saved_copy">Opgeslagen als kopie in %1$s</string>
+    <string name="fo_group_pages">Pagina’s</string>
     <string name="fo_change">Verandering</string>
     <string name="fo_step_pick_files">Kies uw bestanden</string>
     <string name="fo_step_set_order">Stel de volgorde in</string>

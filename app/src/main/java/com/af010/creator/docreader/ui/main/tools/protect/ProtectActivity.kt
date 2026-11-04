@@ -59,7 +59,7 @@ class ProtectActivity : BaseAppActivity<ActivityProtectBinding>(ActivityProtectB
     override fun initialize() = Unit
 
     override fun ActivityProtectBinding.setData() {
-        topBar.show(Tool.Protect, R.string.protect_pdf)
+        topBar.show(Tool.Protect)
         steps.showSetupStep(R.string.fo_step_pick_password)
         tvFileName.text = source.name
         action.show(getString(R.string.fo_lock_this_file), R.drawable.ic_fo_lock)

@@ -176,7 +176,7 @@
     <string name="tool_protect_desc">Thêm mật khẩu</string>
     <string name="tool_redact">Che thông tin</string>
     <string name="tool_redact_desc">Ẩn thông tin riêng tư</string>
-    <string name="tool_ocr_desc">Giúp văn bản tìm kiếm được</string>
+    <string name="tool_ocr_desc">Tìm kiếm văn bản</string>
     <string name="tool_translate">Dịch</string>
     <string name="tool_translate_desc">Ngoại tuyến, trên thiết bị</string>
     <string name="tool_zip_desc">Gộp tệp</string>
@@ -606,7 +606,7 @@
     <string name="fo_make_it_yours">Tùy chỉnh theo ý bạn</string>
     <string name="fo_i_use_for">Tôi sử dụng All Document Reader &amp; Editor cho</string>
     <string name="fo_tell_a_friend">Giới thiệu cho bạn bè</string>
-    <string name="fo_rate_0">Hài lòng với All Document Reader &amp; Editor? Hãy đánh giá sao nhé</string>
+    <string name="fo_rate_0">Bạn thích ứng dụng chứ? Hãy đánh giá sao nhé</string>
     <string name="fo_rate_1">Rất tiếc! Chúng tôi sẽ cải thiện tốt hơn</string>
     <string name="fo_rate_2">Cảm ơn bạn, chúng tôi luôn lắng nghe</string>
     <string name="fo_rate_3">Cảm ơn bạn! Rất vui vì ứng dụng có ích</string>
@@ -622,7 +622,13 @@
     <string name="fo_pdf_first">Ưu tiên PDF</string>
     <string name="fo_images_first">Ưu tiên hình ảnh</string>
     <string name="fo_nothing_here">Chưa có gì ở đây</string>
-    <string name="fo_nothing_here_desc">Thử chọn loại tệp khác, hoặc nhấn + ở thẻ Tệp để tạo mới.</string>
+    <string name="fo_nothing_here_desc">Thử chọn loại tệp khác, hoặc nhấn + để tạo mới.</string>
+    <string name="fo_nothing_favourite">Chưa có mục yêu thích</string>
+    <string name="fo_nothing_favourite_desc">Nhấn ⋮ ở một tệp rồi chọn Yêu thích để lưu tệp ở đây.</string>
+    <string name="fo_pick_a_file">Chọn một tệp</string>
+    <string name="fo_tool_busy">Một tệp khác vẫn đang được xử lý. Đây là tiến độ của tệp đó.</string>
+    <string name="fo_saved_copy">Đã lưu một bản sao vào %1$s</string>
+    <string name="fo_group_pages">Trang</string>
     <string name="fo_change">Thay đổi</string>
     <string name="fo_step_pick_files">Chọn các tệp của bạn</string>
     <string name="fo_step_set_order">Sắp xếp thứ tự</string>

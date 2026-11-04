@@ -9,7 +9,7 @@ import com.af010.creator.docreader.R
 enum class ToolGroup(@param:StringRes val title: Int, @param:StringRes val chip: Int, @param:ColorRes val tint: Int) {
     Convert(R.string.tool_group_convert, R.string.tool_group_convert, R.color.primary),
     EditSign(R.string.tool_group_edit_sign, R.string.tool_group_edit_sign, R.color.color_file_powerpoint),
-    Organize(R.string.tool_group_organize, R.string.tool_group_organize, R.color.color_tool_indigo),
+    Organize(R.string.fo_group_pages, R.string.fo_group_pages, R.color.color_tool_indigo),
     Security(R.string.fo_group_protect, R.string.fo_group_protect_short, R.color.color_file_image)
 }
 

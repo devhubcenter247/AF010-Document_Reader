@@ -176,7 +176,7 @@
     <string name="tool_protect_desc">Tilføj en adgangskode</string>
     <string name="tool_redact">Maskér</string>
     <string name="tool_redact_desc">Skjul private oplysninger</string>
-    <string name="tool_ocr_desc">Gør tekst søgbar</string>
+    <string name="tool_ocr_desc">Søgbar tekst</string>
     <string name="tool_translate">Oversæt</string>
     <string name="tool_translate_desc">Offline, på enheden</string>
     <string name="tool_zip_desc">Pak filer</string>
@@ -605,7 +605,7 @@
     <string name="fo_make_it_yours">Gør det til dit</string>
     <string name="fo_i_use_for">Jeg bruger All Document Reader &amp; Editor til</string>
     <string name="fo_tell_a_friend">Fortæl det til en ven</string>
-    <string name="fo_rate_0">Nyder du All Document Reader &amp; Editor? Tryk på en stjerne</string>
+    <string name="fo_rate_0">Kan du lide appen? Tryk på en stjerne.</string>
     <string name="fo_rate_1">Åh nej! Vi vil gøre det bedre</string>
     <string name="fo_rate_2">Tak, vi lytter</string>
     <string name="fo_rate_3">Tak! Godt det hjælper</string>
@@ -621,7 +621,13 @@
     <string name="fo_pdf_first">PDF først</string>
     <string name="fo_images_first">Billeder først</string>
     <string name="fo_nothing_here">Intet her endnu</string>
-    <string name="fo_nothing_here_desc">Prøv en anden type, eller tryk på + på fanen Filer for at lave noget nyt.</string>
+    <string name="fo_nothing_here_desc">Prøv en anden type, eller tryk på + for at lave noget nyt.</string>
+    <string name="fo_nothing_favourite">Ingen favoritter endnu</string>
+    <string name="fo_nothing_favourite_desc">Tryk på ⋮ ved en fil, og vælg Favorit for at gemme den her.</string>
+    <string name="fo_pick_a_file">Vælg en fil</string>
+    <string name="fo_tool_busy">Arbejder stadig på en anden fil. Her kan du se, hvordan det går.</string>
+    <string name="fo_saved_copy">Gemt som en kopi i %1$s</string>
+    <string name="fo_group_pages">Sider</string>
     <string name="fo_change">Forandring</string>
     <string name="fo_step_pick_files">Vælg dine filer</string>
     <string name="fo_step_set_order">Indstil rækkefølgen</string>

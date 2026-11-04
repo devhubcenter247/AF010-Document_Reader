@@ -2,62 +2,51 @@ package com.af010.creator.docreader.ui.main.files
 
 import android.content.res.ColorStateList
 import android.net.Uri
-import android.view.View
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.ColorRes
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
-import android.widget.TextView
 import androidx.core.content.ContextCompat
-import androidx.core.widget.TextViewCompat
-import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
-import androidx.constraintlayout.motion.widget.MotionLayout
-import androidx.constraintlayout.motion.widget.TransitionAdapter
 import androidx.lifecycle.lifecycleScope
 import com.af010.creator.docreader.R
 import com.af010.creator.docreader.app.remote.remoteConfig
 import com.af010.creator.docreader.base.BaseAppFragment
-import com.af010.creator.docreader.database.DocsResponse
-import com.af010.creator.docreader.database.DocumentRepository
 import com.af010.creator.docreader.databinding.FragmentFilesBinding
-import com.af010.creator.docreader.databinding.LayoutHomeActionBinding
 import com.af010.creator.docreader.databinding.LayoutQuickTileBinding
-import com.af010.creator.docreader.databinding.LayoutStartTileBinding
 import com.af010.creator.docreader.databinding.LayoutTypeCountBinding
 import com.af010.creator.docreader.model.DocumentType
-import com.af010.creator.docreader.ui.main.common.RowDivider
 import com.af010.creator.docreader.model.StorageTab
 import com.af010.creator.docreader.model.Tool
 import com.af010.creator.docreader.ui.common.showToolTile
 import com.af010.creator.docreader.ui.main.MainActivity
+import com.af010.creator.docreader.ui.main.common.CardGroupDecoration
 import com.af010.creator.docreader.ui.main.common.isNoAccess
-import com.af010.creator.docreader.ui.main.documents.AllFilesActivity
-import com.af010.creator.docreader.ui.main.newdocument.createBlankDocument
+import com.af010.creator.docreader.ui.main.common.select
+import com.af010.creator.docreader.ui.main.common.setUp
+import com.af010.creator.docreader.ui.main.files.sheet.SortBottomSheet
 import com.af010.creator.docreader.ui.main.premium.PaywallActivity
 import com.af010.creator.docreader.ui.main.search.SearchActivity
 import com.af010.creator.docreader.ui.main.select.MultiSelectActivity
 import com.af010.creator.docreader.ui.main.tools.openTool
-import com.af010.creator.docreader.utils.extensions.colorRes
-import com.af010.creator.docreader.utils.extensions.setCompoundDrawablesSized
 import com.af010.creator.docreader.utils.StoragePermissionRequester
+import com.af010.creator.docreader.utils.extensions.colorRes
 import com.d010.pdf.reader.viewmodel.DataResponse
 import com.ui.baselib.extensions.clickSingle
 import java.util.Calendar
 import kotlinx.coroutines.launch
-import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 /**
- * The Files tab. With file access the screen is split in two (scene_files_home): on top the edit
- * card, start something new and how many files of each type the phone has; below, the files opened
- * lately. Swiping up hides the top part, pushes the list up and shows the Read and Create pills. Without it: a library that asks for access and still offers what works without.
+ * The Files tab: the phone's documents. On top the file types with their counts (one is always picked,
+ * PDF at first, and the list shows that type; they scroll away with it), then Recent / Favourites / All with the sort button, then the
+ * files. Creating and the tools live in the "+" sheet and the Tools tab, not here. Without storage
+ * access: a library that asks for access and still offers what works without.
  */
 class FilesFragment : BaseAppFragment<FragmentFilesBinding>(FragmentFilesBinding::inflate) {
 
     private val viewModel: DocumentsViewModel by viewModel()
-    private val repository: DocumentRepository by inject()
-    private val recent = DocumentAdapter(RowEnd.Options)
+    private val rows = DocumentAdapter(RowEnd.Options)
     private val documentActions by lazy { DocumentActions(requireActivity(), viewModel) }
 
     private val permissionRequester = StoragePermissionRequester(this) { viewModel.refresh() }
@@ -68,73 +57,47 @@ class FilesFragment : BaseAppFragment<FragmentFilesBinding>(FragmentFilesBinding
 
     override fun FragmentFilesBinding.initView() {
         tvGreeting.setText(greeting())
+        tvAppName.isSelected = true // starts the marquee
         btnPro.isVisible = remoteConfig.paywallEnabled
         btnProPill.isVisible = remoteConfig.paywallEnabled
         TYPE_TILES.forEach { tile -> typeTile(tile.type).badge(tile) }
+        // The list always shows one type; PDF until another is picked (kept across view re-creation).
+        if (viewModel.filter.value.type == null) viewModel.setScope(DEFAULT_TYPE, null)
 
-        tileWord.blank(R.string.fo_document, R.string.tab_word, "W", R.color.color_file_word, tilt = -3f)
-        tileExcel.blank(R.string.fo_sheet, R.string.tab_excel, "X", R.color.color_file_excel, tilt = 2f)
-        tilePpt.blank(R.string.fo_slides, R.string.powerpoint, "P", R.color.color_file_powerpoint, tilt = -2f)
-        btnScan.action(R.drawable.ic_fo_scan, R.color.primary, R.string.fo_scan_to_pdf)
-        btnPhotos.action(R.drawable.ic_fo_photo, R.color.color_file_image, R.string.photos_to_pdf)
-        EDIT_CHIPS.forEach { (chip, tint) -> editChip(chip).toolChip(chip, tint) }
+        segmentTab.setUp(R.string.recent, R.string.fo_favourites, R.string.fo_all) { viewModel.setTab(StorageTab.entries[it]) }
+        rcvDocuments.adapter = rows
+        rcvDocuments.addItemDecoration(CardGroupDecoration())
+
 
         quickScan.quick(Tool.Scan, R.string.scan)
         quickPhotos.quick(Tool.ImagesToPdf, R.string.fo_photos)
         quickNew.quick(R.drawable.ic_fo_plus, R.color.primary, R.string.new_file)
 
-        emptyRecent.tvTitle.setText(R.string.fo_nothing_recent)
-        emptyRecent.tvDesc.setText(R.string.fo_nothing_recent_desc)
-
-        rcvDocuments.adapter = recent
-        rcvDocuments.addItemDecoration(RowDivider())
-        // This tab only lists what was opened in the app; All files has the rest.
-        if (viewModel.filter.value.tab != StorageTab.Recent) viewModel.setTab(StorageTab.Recent)
+        viewModel.filter.mainCollect { filter ->
+            segmentTab.select(filter.tab.ordinal)
+            // What an empty list means depends on the tab.
+            val (title, desc) = when (filter.tab) {
+                StorageTab.Recent -> R.string.fo_nothing_recent to R.string.fo_nothing_recent_desc
+                StorageTab.Favorites -> R.string.fo_nothing_favourite to R.string.fo_nothing_favourite_desc
+                StorageTab.All -> R.string.fo_nothing_here to R.string.fo_nothing_here_desc
+            }
+            emptyList.tvTitle.setText(title)
+            emptyList.tvDesc.setText(desc)
+            TYPE_TILES.forEach { tile -> typeTile(tile.type).root.isSelected = tile.type == filter.type }
+        }
         viewModel.documents.mainCollect { show(it) }
-        repository.documents.mainCollect { showCounts(it) }
+        viewModel.typeCounts.mainCollect { showCounts(it) }
     }
 
     override fun FragmentFilesBinding.onClick() {
         btnSearch.clickSingle { launchActivity<SearchActivity>() }
         btnPro.clickSingle { PaywallActivity.start(requireActivity()) }
         btnProPill.clickSingle { PaywallActivity.start(requireActivity()) }
-        pillRead.clickSingle { openAllFiles(null) }
-        pillCreate.clickSingle { (activity as? MainActivity)?.showCreateSheet() }
-        pillsShown(motionHome.progress)
-        motionHome.scrollingList = rcvDocuments
-        // Also after any layout change (the top region's height decides the distances).
-        motionHome.viewTreeObserver.addOnPreDrawListener { placeRegions(motionHome.progress); true }
-        motionHome.addTransitionListener(object : TransitionAdapter() {
-            override fun onTransitionStarted(motionLayout: MotionLayout, startId: Int, endId: Int) {
-                // Fading a region full of shadowed cards is cheap only from a layer.
-                layoutTop.setLayerType(View.LAYER_TYPE_HARDWARE, null)
-            }
-
-            override fun onTransitionChange(motionLayout: MotionLayout, startId: Int, endId: Int, progress: Float) {
-                placeRegions(progress)
-                pillsShown(progress)
-            }
-
-            override fun onTransitionCompleted(motionLayout: MotionLayout, currentId: Int) {
-                layoutTop.setLayerType(View.LAYER_TYPE_NONE, null)
-                val progress = if (currentId == R.id.collapsed) 1f else 0f
-                placeRegions(progress)
-                pillsShown(progress)
-            }
-        })
-        TYPE_TILES.forEach { tile -> typeTile(tile.type).root.clickSingle { openAllFiles(tile.type) } }
-
-        tileWord.root.clickSingle { newDocument(DocumentType.Doc) }
-        tileExcel.root.clickSingle { newDocument(DocumentType.Excel) }
-        tilePpt.root.clickSingle { newDocument(DocumentType.Ppt) }
-        btnScan.root.clickSingle { requireActivity().openTool(Tool.Scan) }
-        btnPhotos.root.clickSingle { requireActivity().openTool(Tool.ImagesToPdf) }
-
-        cardEdit.clickSingle { launchActivity<AllFilesActivity>() }
-        EDIT_CHIPS.forEach { (tool, _) -> editChip(tool).clickSingle { requireActivity().openTool(tool) } }
-
-        btnAllFiles.clickSingle { launchActivity<AllFilesActivity>() }
-        recent
+        btnSort.clickSingle {
+            SortBottomSheet(requireActivity(), viewModel.filter.value.sort, showType = false) { viewModel.setSort(it) }.show()
+        }
+        TYPE_TILES.forEach { tile -> typeTile(tile.type).root.clickSingle { viewModel.setScope(tile.type, null) } }
+        rows
             .onDocumentClick { documentActions.open(it.document) }
             .onDocumentLongClick { openMultiSelect(it.document.mediaId) }
             .onMoreClick { documentActions.showOptions(it) }
@@ -157,43 +120,16 @@ class FilesFragment : BaseAppFragment<FragmentFilesBinding>(FragmentFilesBinding
         val noAccess = response.isNoAccess
         screenNoAccess.isVisible = noAccess
         layoutNoAccess.isVisible = noAccess
-        motionHome.isVisible = !noAccess
+        screenFiles.isVisible = !noAccess
         if (response !is DataResponse.DataSuccess) return
-        val files = response.data.take(RECENT_LIMIT)
-        recent.submitList(files)
+        val files = response.data
+        rows.submitList(files)
         rcvDocuments.isVisible = files.isNotEmpty()
-        emptyRecent.root.isVisible = files.isEmpty()
-    }
-
-    /**
-     * Moves the two regions of scene_files_home for [progress] by translation only (no new layout):
-     * expanded (0), the list is pushed down below the top region; collapsed (1), the top region is
-     * moved up behind the header and the list sits under the pills.
-     */
-    private fun FragmentFilesBinding.placeRegions(progress: Float) {
-        val top = layoutTop.height
-        val pills = layoutPills.height
-        if (top == 0 || pills == 0) return
-        motionHome.collapseDistance = top - pills
-        layoutTop.translationY = -top * progress
-        layoutRecent.translationY = (top - pills) * (1f - progress)
-    }
-
-    /**
-     * The pills stay over the top region while faded: they take taps only once they show, and the
-     * top region only while it does.
-     */
-    private fun FragmentFilesBinding.pillsShown(progress: Float) {
-        val shown = progress > 0.5f
-        pillRead.isClickable = shown
-        pillCreate.isClickable = shown
-        layoutPills.isInvisible = progress == 0f
+        scrollEmpty.isVisible = files.isEmpty()
     }
 
     /** Every document on the phone, counted per type. */
-    private fun FragmentFilesBinding.showCounts(response: DocsResponse) {
-        val files = (response as? DataResponse.DataSuccess)?.data ?: return
-        val counts = files.groupingBy { it.type }.eachCount()
+    private fun FragmentFilesBinding.showCounts(counts: Map<DocumentType, Int>) {
         TYPE_TILES.forEach { tile ->
             val count = counts[tile.type] ?: 0
             typeTile(tile.type).tvCount.text = resources.getQuantityString(R.plurals.file_count, count, count)
@@ -207,49 +143,10 @@ class FilesFragment : BaseAppFragment<FragmentFilesBinding>(FragmentFilesBinding
         else -> typeWord
     }
 
-    private fun FragmentFilesBinding.editChip(tool: Tool): TextView = when (tool) {
-        Tool.AddText -> chipAddText
-        Tool.Sign -> chipSign
-        Tool.Annotate -> chipAnnotate
-        Tool.FillForm -> chipFillForms
-        else -> chipOrganize
-    }
-
     private fun LayoutTypeCountBinding.badge(tile: TypeTile) {
         tvBadge.text = tile.letter
         tvBadge.backgroundTintList = ColorStateList.valueOf(ContextCompat.getColor(root.context, tile.type.colorRes))
         tvName.setText(tile.name)
-    }
-
-    private fun LayoutHomeActionBinding.action(@DrawableRes glyph: Int, @ColorRes color: Int, @StringRes label: Int) {
-        ivIcon.setImageResource(glyph)
-        ivIcon.backgroundTintList = ColorStateList.valueOf(ContextCompat.getColor(root.context, color))
-        ivIcon.imageTintList = ColorStateList.valueOf(ContextCompat.getColor(root.context, R.color.on_primary))
-        tvLabel.setText(label)
-    }
-
-    private fun TextView.toolChip(tool: Tool, @ColorRes tint: Int) {
-        setCompoundDrawablesSized(com.intuit.sdp.R.dimen._13sdp, start = tool.glyph)
-        TextViewCompat.setCompoundDrawableTintList(this, ColorStateList.valueOf(ContextCompat.getColor(context, tint)))
-    }
-
-    /** Every document on the phone, narrowed to [type] when there is one. */
-    private fun openAllFiles(type: DocumentType?) = launchActivity<AllFilesActivity>(
-        AllFilesActivity.EXTRA_TAB to StorageTab.All.name,
-        AllFilesActivity.EXTRA_TYPE to type?.name
-    )
-
-    private fun LayoutStartTileBinding.blank(
-        @StringRes title: Int, @StringRes app: Int, letter: String, @ColorRes color: Int, tilt: Float
-    ) {
-        val tint = ColorStateList.valueOf(ContextCompat.getColor(root.context, color))
-        tvLetter.text = letter
-        tvLetter.backgroundTintList = tint
-        lineAccent.backgroundTintList = tint
-        ivPlus.backgroundTintList = tint
-        page.rotation = tilt
-        tvTitle.setText(title)
-        tvApp.setText(app)
     }
 
     private fun LayoutQuickTileBinding.quick(tool: Tool, @StringRes label: Int) {
@@ -272,9 +169,6 @@ class FilesFragment : BaseAppFragment<FragmentFilesBinding>(FragmentFilesBinding
         else -> R.string.fo_good_evening
     }
 
-    private fun newDocument(type: DocumentType) =
-        requireActivity().createBlankDocument(type)
-
     private fun openPicked(uri: Uri) {
         val context = appContext()
         lifecycleScope.launch {
@@ -287,32 +181,24 @@ class FilesFragment : BaseAppFragment<FragmentFilesBinding>(FragmentFilesBinding
         }
     }
 
-    private fun openMultiSelect(selectedId: Long? = null) {
+    private fun openMultiSelect(selectedId: Long) {
+        val filter = viewModel.filter.value
         launchActivity<MultiSelectActivity>(
-            MultiSelectActivity.EXTRA_TAB to viewModel.filter.value.tab.name,
+            MultiSelectActivity.EXTRA_TAB to filter.tab.name,
+            MultiSelectActivity.EXTRA_TYPE to filter.type?.name,
             MultiSelectActivity.EXTRA_SELECTED_ID to selectedId
         )
     }
 
     companion object {
-        /** How many recently opened files the tab lists before "All files". */
-        private const val RECENT_LIMIT = 8
+        private val DEFAULT_TYPE = DocumentType.Pdf
 
-        /** The types counted under "Your documents": the letter on the page icon and the name under it. */
+        /** The file types on top of the tab: the letter on the page icon and the name under it. */
         private val TYPE_TILES = listOf(
             TypeTile(DocumentType.Pdf, "PDF", R.string.tab_pdf),
             TypeTile(DocumentType.Doc, "W", R.string.tab_word),
             TypeTile(DocumentType.Excel, "X", R.string.tab_excel),
             TypeTile(DocumentType.Ppt, "P", R.string.fo_slides)
-        )
-
-        /** The reader's editing tools on the edit card, with their icon colour. */
-        private val EDIT_CHIPS = listOf(
-            Tool.AddText to R.color.primary,
-            Tool.Sign to R.color.color_file_excel,
-            Tool.Annotate to R.color.color_tool_indigo,
-            Tool.FillForm to R.color.color_file_powerpoint,
-            Tool.Organize to R.color.primary
         )
 
         /** PDF, Word, Excel, PowerPoint (old and new formats) and plain text. */

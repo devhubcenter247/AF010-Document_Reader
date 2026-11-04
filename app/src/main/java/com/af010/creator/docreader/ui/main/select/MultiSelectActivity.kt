@@ -1,6 +1,7 @@
 package com.af010.creator.docreader.ui.main.select
 
 import android.content.Intent
+import androidx.core.view.isVisible
 import androidx.core.view.updatePadding
 import com.af010.creator.docreader.R
 import com.af010.creator.docreader.base.BaseAppActivity
@@ -112,8 +113,10 @@ class MultiSelectActivity :
         btnShare.isEnabled = any
         btnZip.isEnabled = any
         btnDelete.isEnabled = any
-        // Merge takes PDFs only.
-        btnMerge.isEnabled = any && selected.all { it.type == DocumentType.Pdf }
+        // Merge takes PDFs only: offered while nothing or only PDFs are picked.
+        val onlyPdfs = selected.all { it.type == DocumentType.Pdf }
+        btnMerge.isVisible = onlyPdfs
+        btnMerge.isEnabled = any && onlyPdfs
     }
 
     private fun shareSelected() {

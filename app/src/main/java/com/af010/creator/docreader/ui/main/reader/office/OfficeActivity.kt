@@ -41,6 +41,7 @@ import androidx.annotation.StringRes
 import com.af010.creator.docreader.model.RecentDocument
 import com.af010.creator.docreader.ui.dialog.DeleteDialog
 import com.af010.creator.docreader.ui.dialog.TextInputDialog
+import com.af010.creator.docreader.ui.main.files.OpenedFiles
 import com.af010.creator.docreader.ui.main.files.sheet.FileInfoBottomSheet
 import com.af010.creator.docreader.ui.main.reader.office.sheet.OfficeOption
 import com.af010.creator.docreader.ui.main.reader.office.sheet.OfficeOptionsBottomSheet
@@ -141,8 +142,18 @@ class OfficeActivity : BaseAppActivity<ActivityOfficeBinding>(ActivityOfficeBind
     private var slidesChanging = false
     private var readerJob: Job? = null
     private var startingShow = false
-    /** Last answer of [DocumentEditor.hasUnsavedChanges], kept while the user types in the document. */
+    /** Last answer of [hasRealChanges], kept while the user types in the document. */
     private var unsaved = false
+
+    /** A restored draft: its edits are real changes from the first moment of editing. */
+    private var restoredDraft = false
+
+    /**
+     * Where a workbook's edit session stood when editing began. SDK 1.0.0 records a change nobody
+     * made when it starts editing some workbooks (an undo step, and it reports changes even once
+     * that step is undone), so only what comes after this counts.
+     */
+    private var excelBaseline: ExcelBaseline? = null
     /**
      * A ribbon command ran with the keyboard down: the SDK puts the caret after most edits and
      * opens the keyboard, which would push the ribbon up under the finger. Kept down until the
@@ -240,7 +251,11 @@ class OfficeActivity : BaseAppActivity<ActivityOfficeBinding>(ActivityOfficeBind
 
         // edit bar
         btnEditBack.click { leaveEditing() }
-        btnUndo.click { editor?.runSafely(EditAction.UNDO) }
+        btnUndo.click {
+            val editor = editor ?: return@click
+            // Not the step the SDK made up when editing began.
+            if (excelBaseline?.undoIsMadeUp(editor) != true) editor.runSafely(EditAction.UNDO)
+        }
         btnRedo.click { editor?.runSafely(EditAction.REDO) }
         btnPlay.clickSingle { startShow() }
         btnSave.clickSingle { showSaveSheet() }
@@ -382,6 +397,7 @@ class OfficeActivity : BaseAppActivity<ActivityOfficeBinding>(ActivityOfficeBind
             onPrimary = {
                 if (EditDrafts.restore(this, file)) {
                     editWhenLoaded = true
+                    restoredDraft = true
                     open()
                 } else {
                     toast(R.string.draft_restore_failed)
@@ -394,7 +410,7 @@ class OfficeActivity : BaseAppActivity<ActivityOfficeBinding>(ActivityOfficeBind
 
     private fun share() {
         val editor = editor
-        if (editor != null && editor.hasUnsavedChanges() && !editor.save()) return
+        if (editor != null && editor.hasRealChanges() && !saveEdits(editor)) return
         if (!shareFile(file.path)) toast(R.string.file_share_failed)
     }
 
@@ -469,7 +485,9 @@ class OfficeActivity : BaseAppActivity<ActivityOfficeBinding>(ActivityOfficeBind
     private fun convertToPdf() {
         val office = office
         if (!loaded || office == null || !canConvertToPdf) return toast(R.string.convert_pdf_unavailable)
-        pdfWriter = OfficeWriter(file.path) { output, progress -> OfficePdf.write(office, output, progress) }
+        // Before handing over a writer: it would replace the one a running job is using.
+        if (ProcessingActivity.showBusy(this)) return
+        pdfWriter =OfficeWriter(file.path) { output, progress -> OfficePdf.write(office, output, progress) }
         runner.officeWriter = pdfWriter
         ProcessingActivity.start(this, ToolRequest.OfficeToPdf(file.path, file.nameWithoutExtension))
     }
@@ -501,21 +519,50 @@ class OfficeActivity : BaseAppActivity<ActivityOfficeBinding>(ActivityOfficeBind
         tabs = Ribbons.of(editor)
         tabIndex = 0
         chipTexts.clear()
+        excelBaseline = if (restoredDraft) null else ExcelBaseline.of(editor)
+        restoredDraft = false
+        // The SDK may add its step a moment later: look again before anyone can have edited.
+        binding.root.postDelayed({
+            val baseline = excelBaseline
+            if (baseline != null && this.editor === editor && baseline.session === ExcelBaseline.of(editor)?.session) {
+                excelBaseline = ExcelBaseline.of(editor)
+                renderState()
+            }
+        }, BASELINE_SETTLE_MS)
         buildTabs()
         setMode(Mode.Edit)
         return true
     }
 
+    /** Saves the edits over the file; a document opened from another app then gets them back too. */
+    private fun saveEdits(editor: DocumentEditor): Boolean {
+        if (!editor.save()) return false
+        lifecycleScope.launch {
+            when (val back = OpenedFiles.writeBack(applicationContext, file)) {
+                is OpenedFiles.WriteBack.Copy -> toast(getString(R.string.fo_saved_copy, back.file.parentFile?.name.orEmpty()))
+                OpenedFiles.WriteBack.Failed -> toast(R.string.save_failed)
+                else -> Unit
+            }
+        }
+        return true
+    }
+
+    /** [DocumentEditor.hasUnsavedChanges] without the change the SDK makes up for workbooks. */
+    private fun DocumentEditor.hasRealChanges(): Boolean {
+        if (!hasUnsavedChanges()) return false
+        return excelBaseline?.isUnchanged(this) != true
+    }
+
     /** Back from editing: to viewing, after asking what to do with unsaved edits. */
     private fun leaveEditing() {
         val editor = editor ?: return setMode(Mode.View)
-        if (!editor.hasUnsavedChanges()) return stopEditing()
+        if (!editor.hasRealChanges()) return stopEditing()
         ChoiceDialog(
             this, R.string.unsaved_title,
             getString(R.string.unsaved_message, file.name),
             R.string.fo_save_and_leave, R.string.fo_leave_without_saving, R.string.keep_editing,
             secondaryDanger = true,
-            onPrimary = { if (editor.save()) stopEditing() },
+            onPrimary = { if (saveEdits(editor)) stopEditing() },
             onSecondary = {
                 EditDrafts.delete(this, file)
                 stopEditing()
@@ -527,6 +574,7 @@ class OfficeActivity : BaseAppActivity<ActivityOfficeBinding>(ActivityOfficeBind
         hideKeyboard()
         formatSheet = null
         findRequest = null
+        excelBaseline = null
         // Dropped edits make the SDK read the file again: the document loads once more.
         documentView.stopEditing()
         setMode(Mode.View)
@@ -615,7 +663,7 @@ class OfficeActivity : BaseAppActivity<ActivityOfficeBinding>(ActivityOfficeBind
         }
         SaveDocumentBottomSheet(this, file.name, available) { action ->
             when (action) {
-                SaveAction.Save -> if (editor.hasUnsavedChanges()) editor.save() else toast(R.string.saved)
+                SaveAction.Save -> if (editor.hasRealChanges()) saveEdits(editor) else toast(R.string.saved)
                 SaveAction.SaveCopy -> editor.runSafely(EditAction.SAVE_COPY)
                 SaveAction.ExportPdf -> editor.runSafely(EditAction.EXPORT_PDF)
                 SaveAction.Share -> share()
@@ -662,7 +710,7 @@ class OfficeActivity : BaseAppActivity<ActivityOfficeBinding>(ActivityOfficeBind
         binding.edtFind.setText("")
         binding.edtReplace.setText("")
         binding.tvFindCount.text = ""
-        if (findFromView && editor?.hasUnsavedChanges() != true) stopEditing() else setMode(Mode.Edit)
+        if (findFromView && editor?.hasRealChanges() != true) stopEditing() else setMode(Mode.Edit)
     }
 
     // ---- slides ----
@@ -693,6 +741,7 @@ class OfficeActivity : BaseAppActivity<ActivityOfficeBinding>(ActivityOfficeBind
                 if (state.status == ReaderState.Status.Ready) {
                     office.paintBehindPages(ContextCompat.getColor(this@OfficeActivity, R.color.color_surface_track))
                 }
+                renderPage()
             }
         }
     }
@@ -779,6 +828,12 @@ class OfficeActivity : BaseAppActivity<ActivityOfficeBinding>(ActivityOfficeBind
         btnMore.visibleOrGone(loaded)
         btnSearch.visibleOrGone(loaded && documentView.canEdit && type == DocumentType.WORD)
         btnEdit.visibleOrGone(mode == Mode.View && loaded && documentView.canEdit)
+        // A workbook has its sheet tabs along the bottom: the pill sits above them.
+        btnEdit.updateLayoutParams<ViewGroup.MarginLayoutParams> {
+            bottomMargin = resources.getDimensionPixelSize(
+                if (type == DocumentType.EXCEL) com.intuit.sdp.R.dimen._50sdp else com.intuit.sdp.R.dimen._20sdp
+            )
+        }
         btnPlay.visibleOrGone(slides)
 
         layoutFormula.visibleOrGone(editing && excelPanel != null)
@@ -820,12 +875,12 @@ class OfficeActivity : BaseAppActivity<ActivityOfficeBinding>(ActivityOfficeBind
     private fun renderState() = with(binding) {
         layoutSlides.visibleOrGone(mode == Mode.Edit && type == DocumentType.POWERPOINT && !typingInSlide())
         val editor = editor ?: return@with
-        btnUndo.setEnabledLook(editor.isEnabled(EditAction.UNDO))
+        btnUndo.setEnabledLook(editor.isEnabled(EditAction.UNDO) && excelBaseline?.undoIsMadeUp(editor) != true)
         btnRedo.setEnabledLook(editor.isEnabled(EditAction.REDO))
 
         // Asking closes the box being typed in (slide text, cell): the keyboard would drop at once.
         // Word only reads its state, and its hidden typing box has the focus all the time.
-        if (type == DocumentType.WORD || !typingInDocument()) unsaved = editor.hasUnsavedChanges()
+        if (type == DocumentType.WORD || !typingInDocument()) unsaved = editor.hasRealChanges()
         tvStatus.setText(if (unsaved) R.string.fo_edited else R.string.saved)
         tvStatus.setTextColor(
             ContextCompat.getColor(this@OfficeActivity, if (unsaved) R.color.text_secondary else R.color.color_success)
@@ -845,12 +900,19 @@ class OfficeActivity : BaseAppActivity<ActivityOfficeBinding>(ActivityOfficeBind
         refreshSlides(redraw = false)
     }
 
-    private fun renderPage() = with(binding) {
+    /** The page, slide or sheet shown (from 1) and how many there are. */
+    private fun pagePosition(): Pair<Int, Int> {
+        // Workbooks: the SDK's page count and current page stay at 1 whatever the sheets.
+        if (type == DocumentType.EXCEL) OfficePdf.sheetPosition(office)?.let { (shown, count) -> return shown + 1 to count }
         val count = documentView.pageCount
-        val page = (documentView.currentPage + 1).coerceIn(1, count.coerceAtLeast(1))
+        return (documentView.currentPage + 1).coerceIn(1, count.coerceAtLeast(1)) to count
+    }
+
+    private fun renderPage() = with(binding) {
+        val (page, count) = pagePosition()
         tvPage.visibleOrGone(loaded && count > 0)
-        tvPagePill.visibleOrGone(loaded && count > 1 && mode == Mode.View)
-        tvPagePill.text = getString(R.string.page_count_short, page, count)
+        // The top bar names the page; a second count in a pill only covered the document.
+        tvPagePill.gone()
         tvPage.text = getString(
             when (type) {
                 DocumentType.EXCEL -> R.string.sheet_of
@@ -949,7 +1011,7 @@ class OfficeActivity : BaseAppActivity<ActivityOfficeBinding>(ActivityOfficeBind
     override fun onStop() {
         super.onStop()
         // The app may be killed in the background: keep the unsaved edits as a draft.
-        editor?.takeIf { it.hasUnsavedChanges() }?.panel?.saveDraft()
+        editor?.takeIf { it.hasRealChanges() }?.panel?.saveDraft()
     }
 
     override fun onDestroy() {
@@ -969,6 +1031,9 @@ class OfficeActivity : BaseAppActivity<ActivityOfficeBinding>(ActivityOfficeBind
         )
         private const val EXTRA_EDIT = "extra_edit"
         private const val STATE_PASSWORD = "state_password"
+
+        /** How long after editing begins the SDK may still add its made-up step ([ExcelBaseline]). */
+        private const val BASELINE_SETTLE_MS = 400L
         private val LEGACY_EXTENSIONS = setOf("doc", "xls", "ppt")
 
         /** Whether this screen can show the file with [name]. */

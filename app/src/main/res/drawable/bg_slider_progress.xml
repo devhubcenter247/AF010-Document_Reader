@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- A slider's track: an opaque rail (the platform one is drawn at 30% and vanishes on white cards)
+     and the filled part, coloured by the SeekBar's progressTint. -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@android:id/background" android:gravity="center_vertical|fill_horizontal">
+        <shape android:shape="rectangle">
+            <size android:height="@dimen/_4sdp" />
+            <corners android:radius="@dimen/_2sdp" />
+            <solid android:color="@color/color_slider_track" />
+        </shape>
+    </item>
+    <item android:id="@android:id/progress" android:gravity="center_vertical|fill_horizontal">
+        <scale android:scaleWidth="100%">
+            <shape android:shape="rectangle">
+                <size android:height="@dimen/_4sdp" />
+                <corners android:radius="@dimen/_2sdp" />
+                <solid android:color="@android:color/white" />
+            </shape>
+        </scale>
+    </item>
+</layer-list>

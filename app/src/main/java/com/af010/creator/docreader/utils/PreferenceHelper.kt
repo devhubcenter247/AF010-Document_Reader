@@ -9,6 +9,8 @@ class PreferenceHelper(preference: SharedPreference) {
 
     var isRatedApp = preference.observable("isRatedApp", false)
     var languageSelected by preference.string("language_code", "en")
+    /** The user picked a language on the Language screen; until then the device's language is used. */
+    var isLanguageChosen by preference.boolean("is_language_chosen", false)
     var isFinishFirstFlow by preference.boolean("is_finish_first_flow", false)
 
     var countSessionApp by preference.int("count_session_app", 0)

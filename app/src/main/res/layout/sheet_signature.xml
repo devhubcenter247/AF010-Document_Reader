@@ -16,58 +16,14 @@
         layout="@layout/layout_sheet_header" />
 
     <LinearLayout
+        android:id="@+id/layoutTabs"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/_15sdp"
+        android:background="@drawable/bg_segment_track"
+        android:clipToPadding="false"
         android:orientation="horizontal"
-        android:padding="@dimen/_3sdp"
-        android:background="@drawable/bg_surface_track_r11sdp"
-        android:clipToOutline="true">
-
-        <TextView
-            android:id="@+id/tabDraw"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/_25sdp"
-            android:layout_weight="1"
-            android:fontFamily="@font/nunito_600"
-            android:gravity="center"
-            android:maxLines="1"
-            android:text="@string/sign_draw"
-            android:textSize="@dimen/_10sdp" />
-
-        <TextView
-            android:id="@+id/tabType"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/_25sdp"
-            android:layout_weight="1"
-            android:fontFamily="@font/nunito_600"
-            android:gravity="center"
-            android:maxLines="1"
-            android:text="@string/sign_type"
-            android:textSize="@dimen/_10sdp" />
-
-        <TextView
-            android:id="@+id/tabImage"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/_25sdp"
-            android:layout_weight="1"
-            android:fontFamily="@font/nunito_600"
-            android:gravity="center"
-            android:maxLines="1"
-            android:text="@string/annot_image"
-            android:textSize="@dimen/_10sdp" />
-
-        <TextView
-            android:id="@+id/tabSaved"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/_25sdp"
-            android:layout_weight="1"
-            android:fontFamily="@font/nunito_600"
-            android:gravity="center"
-            android:maxLines="1"
-            tools:text="Saved (1)"
-            android:textSize="@dimen/_10sdp" />
-    </LinearLayout>
+        android:padding="@dimen/_3sdp" />
 
     <FrameLayout
         android:id="@+id/layoutPad"

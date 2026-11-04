@@ -3,6 +3,7 @@ package com.af010.creator.docreader.ui.main.files.sheet
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.core.view.isInvisible
+import androidx.core.view.isVisible
 import androidx.fragment.app.FragmentActivity
 import com.af010.creator.docreader.R
 import com.af010.creator.docreader.databinding.LayoutChoiceRowBinding
@@ -17,10 +18,14 @@ import com.ui.baselib.base.BaseBottomSheet
 import com.ui.baselib.extensions.click
 import com.ui.baselib.extensions.clickSingle
 
-/** Picks what to sort by and which way round; the order's labels follow the field. */
+/**
+ * Picks what to sort by and which way round; the order's labels follow the field. [showType] hides
+ * the "File type" row where the list is already one type (the Files tab); a saved type sort still applies.
+ */
 class SortBottomSheet(
     activity: FragmentActivity,
     current: SortOption,
+    private val showType: Boolean = true,
     private val onApply: (SortOption) -> Unit
 ) : BaseBottomSheet<SheetSortBinding>(activity, SheetSortBinding::inflate) {
 
@@ -48,6 +53,7 @@ class SortBottomSheet(
         header.tvTitle.setText(R.string.fo_sort_title)
         header.btnClose.click { dismissSafe() }
         rows.zip(Field.entries).forEach { (row, rowField) -> row.describe(rowField) }
+        rowType.root.isVisible = showType
         segmentOrder.setUp(field.first, field.second) { index ->
             order = if (index == 0) field.firstOrder else field.firstOrder.flipped()
             show()

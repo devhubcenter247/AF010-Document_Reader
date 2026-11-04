@@ -46,6 +46,19 @@ object OfficePdf {
     }
 
     /**
+     * The sheet shown (from 0) and how many sheets a workbook has, or null when [office] shows no
+     * workbook. The SDK's page count and current page stay at 1 for workbooks.
+     */
+    fun sheetPosition(office: OfficeDocumentView?): Pair<Int, Int>? {
+        val excel = office?.content as? l4 ?: return null
+        val book = excel.book ?: return null
+        val count = book.sheetCount
+        if (count <= 0) return null
+        val shown = excel.sheetView?.currentSheet?.let { book.indexOf(it) }?.takeIf { it >= 0 } ?: 0
+        return shown to count
+    }
+
+    /**
      * Writes [office] to [output]; returns the pages written (0 when nothing was laid out yet).
      * [progress] may be called from the SDK's drawing thread.
      */

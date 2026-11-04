@@ -176,7 +176,7 @@
     <string name="tool_protect_desc">Adăugați o parolă</string>
     <string name="tool_redact">Ascunde</string>
     <string name="tool_redact_desc">Ascunde informațiile private</string>
-    <string name="tool_ocr_desc">Faceți textul căutabil</string>
+    <string name="tool_ocr_desc">Text căutabil</string>
     <string name="tool_translate">Traduceți</string>
     <string name="tool_translate_desc">Offline, pe dispozitiv</string>
     <string name="tool_zip_desc">Grupați fișiere</string>
@@ -611,7 +611,7 @@
     <string name="fo_make_it_yours">Fă-l al tău</string>
     <string name="fo_i_use_for">Folosesc All Document Reader &amp; Editor pentru</string>
     <string name="fo_tell_a_friend">Spune-i unui prieten</string>
-    <string name="fo_rate_0">Vă bucurați de All Document Reader &amp; Editor? Atingeți o stea</string>
+    <string name="fo_rate_0">Îți place aplicația? Atinge o stea.</string>
     <string name="fo_rate_1">O, nu! Ne vom descurca mai bine</string>
     <string name="fo_rate_2">Mulțumesc, ascultăm</string>
     <string name="fo_rate_3">Multumesc! Mă bucur că ajută</string>
@@ -627,7 +627,13 @@
     <string name="fo_pdf_first">Mai întâi PDF</string>
     <string name="fo_images_first">Mai întâi imaginile</string>
     <string name="fo_nothing_here">Nimic aici încă</string>
-    <string name="fo_nothing_here_desc">Încercați alt tip sau atingeți + pe fila Fișiere pentru a crea ceva nou.</string>
+    <string name="fo_nothing_here_desc">Încearcă alt tip sau atinge + pentru a crea ceva nou.</string>
+    <string name="fo_nothing_favourite">Încă nu ai favorite</string>
+    <string name="fo_nothing_favourite_desc">Atinge ⋮ la un fișier și alege Favorit ca să-l păstrezi aici.</string>
+    <string name="fo_pick_a_file">Alege un fișier</string>
+    <string name="fo_tool_busy">Încă se procesează alt fișier. Iată progresul.</string>
+    <string name="fo_saved_copy">Salvat ca o copie în %1$s</string>
+    <string name="fo_group_pages">Pagini</string>
     <string name="fo_change">Schimbare</string>
     <string name="fo_step_pick_files">Alege-ți fișierele</string>
     <string name="fo_step_set_order">Stabiliți ordinea</string>

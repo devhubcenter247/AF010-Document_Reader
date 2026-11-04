@@ -40,6 +40,8 @@
     <!-- File type tints: deep fills, light glyphs -->
     <color name="color_file_pdf_bg">#3D1E2A</color>
     <color name="color_file_word_bg">#1A2C55</color>
+    <color name="color_blank_word_bg">#1A2C55</color>
+    <color name="color_slider_track">#34405E</color>
     <color name="color_file_excel_bg">#15352C</color>
     <color name="color_file_powerpoint_bg">#3D2A1F</color>
     <color name="color_file_txt_bg">#2A2250</color>

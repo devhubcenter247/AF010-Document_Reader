@@ -91,6 +91,10 @@ class SearchActivity : BaseAppActivity<ActivitySearchBinding>(ActivitySearchBind
             showAllNames = false
             btnClear.isVisible = it.isNotEmpty()
             viewModel.setQuery(it)
+            // The list may not change (the query matches every file listed, so the StateFlow does not
+            // emit again): redraw for the new query here too.
+            showNames()
+            showState()
         }
         edtSearch.setOnEditorActionListener { _, actionId, _ ->
             if (actionId == EditorInfo.IME_ACTION_SEARCH) {
@@ -165,6 +169,7 @@ class SearchActivity : BaseAppActivity<ActivitySearchBinding>(ActivitySearchBind
             DocumentType.Pdf to R.string.tab_pdf,
             DocumentType.Doc to R.string.tab_word,
             DocumentType.Excel to R.string.tab_excel,
+            DocumentType.Ppt to R.string.powerpoint,
             DocumentType.Txt to R.string.fo_text
         )
     }
