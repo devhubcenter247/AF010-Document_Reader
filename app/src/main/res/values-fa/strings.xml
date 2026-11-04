@@ -176,7 +176,7 @@
     <string name="tool_protect_desc">یک رمز عبور اضافه کنید</string>
     <string name="tool_redact">پوشاندن</string>
     <string name="tool_redact_desc">پنهان کردن اطلاعات خصوصی</string>
-    <string name="tool_ocr_desc">متن را قابل جستجو کنید</string>
+    <string name="tool_ocr_desc">متن قابل جستجو</string>
     <string name="tool_translate">ترجمه</string>
     <string name="tool_translate_desc">آفلاین، روی دستگاه</string>
     <string name="tool_zip_desc">بسته‌بندی فایل‌ها</string>
@@ -605,7 +605,7 @@
     <string name="fo_make_it_yours">آن را مال خودت کن</string>
     <string name="fo_i_use_for">من از All Document Reader &amp; Editor استفاده می کنم</string>
     <string name="fo_tell_a_friend">به یک دوست بگویید</string>
-    <string name="fo_rate_0">از همه اسناد خوان و ویرایشگر لذت می برید؟ روی یک ستاره ضربه بزنید</string>
+    <string name="fo_rate_0">از برنامه راضی هستید؟ روی یک ستاره بزنید.</string>
     <string name="fo_rate_1">اوه نه! بهتر عمل خواهیم کرد</string>
     <string name="fo_rate_2">با تشکر، ما گوش می دهیم</string>
     <string name="fo_rate_3">با تشکر خوشحالم که کمک می کند</string>
@@ -621,7 +621,11 @@
     <string name="fo_pdf_first">ابتدا PDF</string>
     <string name="fo_images_first">ابتدا تصاویر</string>
     <string name="fo_nothing_here">اینجا هنوز چیزی نیست</string>
-    <string name="fo_nothing_here_desc">نوع دیگری را امتحان کنید، یا روی + در برگه Files ضربه بزنید تا چیزی جدید بسازید.</string>
+    <string name="fo_nothing_here_desc">نوع دیگری را امتحان کنید یا برای ساختن چیزی جدید روی + بزنید.</string>
+    <string name="fo_nothing_favourite">هنوز موردی در علاقه‌مندی‌ها نیست</string>
+    <string name="fo_nothing_favourite_desc">روی ⋮ یک فایل بزنید و علاقه‌مندی را انتخاب کنید تا اینجا بماند.</string>
+    <string name="fo_pick_a_file">یک فایل انتخاب کنید</string>
+    <string name="fo_group_pages">صفحه‌ها</string>
     <string name="fo_change">تغییر دهید</string>
     <string name="fo_step_pick_files">فایل های خود را انتخاب کنید</string>
     <string name="fo_step_set_order">ترتیب را تنظیم کنید</string>

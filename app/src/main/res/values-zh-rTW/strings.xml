@@ -176,7 +176,7 @@
     <string name="tool_protect_desc">新增密碼</string>
     <string name="tool_redact">塗黑</string>
     <string name="tool_redact_desc">隱藏私人訊息</string>
-    <string name="tool_ocr_desc">使文字可搜尋</string>
+    <string name="tool_ocr_desc">可搜尋文字</string>
     <string name="tool_translate">翻譯</string>
     <string name="tool_translate_desc">離線，在設備上</string>
     <string name="tool_zip_desc">打包檔案</string>
@@ -605,7 +605,7 @@
     <string name="fo_make_it_yours">讓它成為你的</string>
     <string name="fo_i_use_for">我使用所有文件閱讀器和編輯器</string>
     <string name="fo_tell_a_friend">告訴朋友</string>
-    <string name="fo_rate_0">喜歡所有文件閱讀器和編輯器嗎？點擊一顆星星</string>
+    <string name="fo_rate_0">喜歡這個應用程式嗎？點一顆星吧。</string>
     <string name="fo_rate_1">哦不！我們會做得更好</string>
     <string name="fo_rate_2">謝謝，我們正在聽</string>
     <string name="fo_rate_3">謝謝！很高興有幫助</string>
@@ -621,7 +621,11 @@
     <string name="fo_pdf_first">首先是 PDF</string>
     <string name="fo_images_first">圖片優先</string>
     <string name="fo_nothing_here">這裡還什麼都沒有</string>
-    <string name="fo_nothing_here_desc">嘗試其他類型，或點擊「檔案」標籤上的 + 來建立新內容。</string>
+    <string name="fo_nothing_here_desc">試試其他類型，或輕觸 + 建立新內容。</string>
+    <string name="fo_nothing_favourite">還沒有收藏</string>
+    <string name="fo_nothing_favourite_desc">輕觸檔案上的 ⋮ 並選擇「收藏」，即可在這裡找到它。</string>
+    <string name="fo_pick_a_file">選擇檔案</string>
+    <string name="fo_group_pages">頁面</string>
     <string name="fo_change">改變</string>
     <string name="fo_step_pick_files">選擇您的文件</string>
     <string name="fo_step_set_order">設定順序</string>

@@ -176,7 +176,7 @@
     <string name="tool_protect_desc">Ajouter un mot de passe</string>
     <string name="tool_redact">Masquer</string>
     <string name="tool_redact_desc">Masquer les informations privées</string>
-    <string name="tool_ocr_desc">Rendre le texte consultable</string>
+    <string name="tool_ocr_desc">Texte consultable</string>
     <string name="tool_translate">Traduire</string>
     <string name="tool_translate_desc">Hors ligne, sur appareil</string>
     <string name="tool_zip_desc">Regrouper des fichiers</string>
@@ -605,7 +605,7 @@
     <string name="fo_make_it_yours">Faites-le vôtre</string>
     <string name="fo_i_use_for">J\'utilise All Document Reader &amp; Editor pour</string>
     <string name="fo_tell_a_friend">Parle à un ami</string>
-    <string name="fo_rate_0">Vous appréciez tous les lecteurs et éditeurs de documents ? Appuyez sur une étoile</string>
+    <string name="fo_rate_0">Vous aimez l’appli ? Touchez une étoile.</string>
     <string name="fo_rate_1">Ah non ! Nous ferons mieux</string>
     <string name="fo_rate_2">Merci, nous écoutons</string>
     <string name="fo_rate_3">Merci! Content que ça aide</string>
@@ -621,7 +621,11 @@
     <string name="fo_pdf_first">PDF d\'abord</string>
     <string name="fo_images_first">Les images d’abord</string>
     <string name="fo_nothing_here">Rien ici encore</string>
-    <string name="fo_nothing_here_desc">Essayez un autre type ou appuyez sur + dans l\'onglet Fichiers pour créer quelque chose de nouveau.</string>
+    <string name="fo_nothing_here_desc">Essayez un autre type ou touchez + pour créer quelque chose.</string>
+    <string name="fo_nothing_favourite">Aucun favori pour l’instant</string>
+    <string name="fo_nothing_favourite_desc">Touchez ⋮ sur un fichier et choisissez Favori pour le garder ici.</string>
+    <string name="fo_pick_a_file">Choisissez un fichier</string>
+    <string name="fo_group_pages">Pages</string>
     <string name="fo_change">Changement</string>
     <string name="fo_step_pick_files">Choisissez vos fichiers</string>
     <string name="fo_step_set_order">Définir la commande</string>

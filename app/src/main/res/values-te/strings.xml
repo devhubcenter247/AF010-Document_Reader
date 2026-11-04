@@ -176,7 +176,7 @@
     <string name="tool_protect_desc">పాస్వర్డ్ను జోడించండి</string>
     <string name="tool_redact">దాచు</string>
     <string name="tool_redact_desc">ప్రైవేట్ సమాచారాన్ని దాచండి</string>
-    <string name="tool_ocr_desc">వచనాన్ని వెతకగలిగేలా చేయండి</string>
+    <string name="tool_ocr_desc">శోధించదగిన టెక్స్ట్</string>
     <string name="tool_translate">అనువదించు</string>
     <string name="tool_translate_desc">ఆఫ్‌లైన్, పరికరంలో</string>
     <string name="tool_zip_desc">ఫైళ్లను కట్టండి</string>
@@ -605,7 +605,7 @@
     <string name="fo_make_it_yours">దీన్ని మీ స్వంతం చేసుకోండి</string>
     <string name="fo_i_use_for">నేను అన్ని డాక్యుమెంట్ రీడర్ &amp; ఎడిటర్‌ని ఉపయోగిస్తాను</string>
     <string name="fo_tell_a_friend">స్నేహితుడికి చెప్పండి</string>
-    <string name="fo_rate_0">అన్ని డాక్యుమెంట్ రీడర్ &amp; ఎడిటర్‌ని ఆస్వాదిస్తున్నారా? నక్షత్రాన్ని నొక్కండి</string>
+    <string name="fo_rate_0">యాప్ నచ్చిందా? ఒక నక్షత్రాన్ని ట్యాప్ చేయండి.</string>
     <string name="fo_rate_1">అరెరే! మేము బాగా చేస్తాము</string>
     <string name="fo_rate_2">ధన్యవాదాలు, మేము వింటున్నాము</string>
     <string name="fo_rate_3">ధన్యవాదాలు! సహాయం చేయడం ఆనందంగా ఉంది</string>
@@ -621,7 +621,11 @@
     <string name="fo_pdf_first">ముందుగా PDF</string>
     <string name="fo_images_first">మొదట చిత్రాలు</string>
     <string name="fo_nothing_here">ఇక్కడ ఇంకా ఏమీ లేదు</string>
-    <string name="fo_nothing_here_desc">మరొక రకాన్ని ప్రయత్నించండి లేదా ఏదైనా కొత్తది చేయడానికి ఫైల్‌ల ట్యాబ్‌లో + నొక్కండి.</string>
+    <string name="fo_nothing_here_desc">వేరే రకాన్ని ప్రయత్నించండి లేదా కొత్తది సృష్టించడానికి + ట్యాప్ చేయండి.</string>
+    <string name="fo_nothing_favourite">ఇంకా ఇష్టమైనవి లేవు</string>
+    <string name="fo_nothing_favourite_desc">ఫైల్‌పై ⋮ ట్యాప్ చేసి, దాన్ని ఇక్కడ ఉంచడానికి ఇష్టమైనది ఎంచుకోండి.</string>
+    <string name="fo_pick_a_file">ఫైల్‌ను ఎంచుకోండి</string>
+    <string name="fo_group_pages">పేజీలు</string>
     <string name="fo_change">మార్చు</string>
     <string name="fo_step_pick_files">మీ ఫైల్‌లను ఎంచుకోండి</string>
     <string name="fo_step_set_order">ఆర్డర్ సెట్ చేయండి</string>

@@ -176,7 +176,7 @@
     <string name="tool_protect_desc">パスワードを追加する</string>
     <string name="tool_redact">墨消し</string>
     <string name="tool_redact_desc">個人情報を隠す</string>
-    <string name="tool_ocr_desc">テキストを検索可能にする</string>
+    <string name="tool_ocr_desc">検索可能なテキスト</string>
     <string name="tool_translate">翻訳</string>
     <string name="tool_translate_desc">オフライン、デバイス上</string>
     <string name="tool_zip_desc">ファイルをまとめる</string>
@@ -605,7 +605,7 @@
     <string name="fo_make_it_yours">それをあなたのものにしてください</string>
     <string name="fo_i_use_for">私は All Document Reader &amp; Editor を次の目的で使用しています。</string>
     <string name="fo_tell_a_friend">友達に教えて</string>
-    <string name="fo_rate_0">All Document Reader &amp; Editor をお楽しみですか?星をタップします</string>
+    <string name="fo_rate_0">アプリを気に入っていただけましたか？星をタップしてください。</string>
     <string name="fo_rate_1">いやあ！より良くやっていきます</string>
     <string name="fo_rate_2">ありがとう、聞いています</string>
     <string name="fo_rate_3">ありがとう！役に立ってよかったです</string>
@@ -621,7 +621,11 @@
     <string name="fo_pdf_first">まずはPDF</string>
     <string name="fo_images_first">まずは画像</string>
     <string name="fo_nothing_here">ここにはまだ何もありません</string>
-    <string name="fo_nothing_here_desc">別の種類を試すか、[ファイル] タブの [+] をタップして新しいものを作成します。</string>
+    <string name="fo_nothing_here_desc">別の種類を試すか、+ をタップして新しく作成しましょう。</string>
+    <string name="fo_nothing_favourite">お気に入りはまだありません</string>
+    <string name="fo_nothing_favourite_desc">ファイルの ⋮ をタップして［お気に入り］を選ぶと、ここに表示されます。</string>
+    <string name="fo_pick_a_file">ファイルを選択</string>
+    <string name="fo_group_pages">ページ</string>
     <string name="fo_change">変更</string>
     <string name="fo_step_pick_files">ファイルを選択してください</string>
     <string name="fo_step_set_order">順序を設定する</string>

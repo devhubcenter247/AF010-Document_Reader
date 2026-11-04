@@ -176,7 +176,7 @@
     <string name="tool_protect_desc">கடவுச்சொல்லைச் சேர்க்கவும்</string>
     <string name="tool_redact">மறை</string>
     <string name="tool_redact_desc">தனிப்பட்ட தகவலை மறை</string>
-    <string name="tool_ocr_desc">உரையைத் தேடக்கூடியதாக ஆக்குங்கள்</string>
+    <string name="tool_ocr_desc">தேடக்கூடிய உரை</string>
     <string name="tool_translate">மொழிபெயர்</string>
     <string name="tool_translate_desc">ஆஃப்லைனில், சாதனத்தில்</string>
     <string name="tool_zip_desc">கோப்புகளைத் தொகுக்கவும்</string>
@@ -605,7 +605,7 @@
     <string name="fo_make_it_yours">அதை உன்னுடையதாக ஆக்கு</string>
     <string name="fo_i_use_for">நான் அனைத்து ஆவண ரீடர் &amp; எடிட்டரைப் பயன்படுத்துகிறேன்</string>
     <string name="fo_tell_a_friend">நண்பரிடம் சொல்லுங்கள்</string>
-    <string name="fo_rate_0">அனைத்து ஆவண ரீடர் &amp; எடிட்டரை அனுபவிக்கிறீர்களா? ஒரு நட்சத்திரத்தைத் தட்டவும்</string>
+    <string name="fo_rate_0">ஆப்ஸ் பிடித்திருக்கிறதா? ஒரு நட்சத்திரத்தைத் தட்டவும்.</string>
     <string name="fo_rate_1">அடடா! சிறப்பாக செய்வோம்</string>
     <string name="fo_rate_2">நன்றி, நாங்கள் கேட்கிறோம்</string>
     <string name="fo_rate_3">நன்றி! உதவுவதில் மகிழ்ச்சி</string>
@@ -621,7 +621,11 @@
     <string name="fo_pdf_first">முதலில் PDF</string>
     <string name="fo_images_first">முதலில் படங்கள்</string>
     <string name="fo_nothing_here">இன்னும் இங்கே எதுவும் இல்லை</string>
-    <string name="fo_nothing_here_desc">வேறொரு வகையை முயற்சிக்கவும் அல்லது புதிதாக ஒன்றை உருவாக்க கோப்புகள் தாவலில் + தட்டவும்.</string>
+    <string name="fo_nothing_here_desc">வேறு வகையை முயலவும் அல்லது புதிதாக உருவாக்க + ஐத் தட்டவும்.</string>
+    <string name="fo_nothing_favourite">பிடித்தவை இன்னும் இல்லை</string>
+    <string name="fo_nothing_favourite_desc">கோப்பில் ⋮ ஐத் தட்டி, இங்கே வைத்திருக்க பிடித்தவை என்பதைத் தேர்ந்தெடுக்கவும்.</string>
+    <string name="fo_pick_a_file">கோப்பைத் தேர்ந்தெடுக்கவும்</string>
+    <string name="fo_group_pages">பக்கங்கள்</string>
     <string name="fo_change">மாற்றவும்</string>
     <string name="fo_step_pick_files">உங்கள் கோப்புகளைத் தேர்ந்தெடுக்கவும்</string>
     <string name="fo_step_set_order">ஆர்டரை அமைக்கவும்</string>

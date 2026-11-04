@@ -176,7 +176,7 @@
     <string name="tool_protect_desc">비밀번호 추가</string>
     <string name="tool_redact">가리기</string>
     <string name="tool_redact_desc">개인 정보 숨기기</string>
-    <string name="tool_ocr_desc">텍스트를 검색 가능하게 만들기</string>
+    <string name="tool_ocr_desc">검색 가능한 텍스트</string>
     <string name="tool_translate">번역</string>
     <string name="tool_translate_desc">오프라인, 기기 내</string>
     <string name="tool_zip_desc">파일 묶기</string>
@@ -605,7 +605,7 @@
     <string name="fo_make_it_yours">당신의 것으로 만드세요</string>
     <string name="fo_i_use_for">나는 모든 문서 리더 및 편집기를 사용합니다</string>
     <string name="fo_tell_a_friend">친구에게 말하세요</string>
-    <string name="fo_rate_0">모든 문서 리더 및 편집기를 즐기고 계시나요? 별표를 탭하세요</string>
+    <string name="fo_rate_0">앱이 마음에 드세요? 별을 탭하세요.</string>
     <string name="fo_rate_1">아 안돼! 우리는 더 잘할 것이다</string>
     <string name="fo_rate_2">고마워요, 듣고 있어요</string>
     <string name="fo_rate_3">감사합니다! 도움이 되셨다니 다행이네요</string>
@@ -621,7 +621,11 @@
     <string name="fo_pdf_first">PDF 먼저</string>
     <string name="fo_images_first">이미지 우선</string>
     <string name="fo_nothing_here">아직 아무것도 없습니다</string>
-    <string name="fo_nothing_here_desc">다른 유형을 시도하거나 파일 탭에서 +를 탭하여 새로운 것을 만드세요.</string>
+    <string name="fo_nothing_here_desc">다른 유형을 선택하거나 +를 탭해 새로 만들어 보세요.</string>
+    <string name="fo_nothing_favourite">아직 즐겨찾기가 없습니다</string>
+    <string name="fo_nothing_favourite_desc">파일의 ⋮를 탭하고 즐겨찾기를 선택하면 여기에 표시됩니다.</string>
+    <string name="fo_pick_a_file">파일 선택</string>
+    <string name="fo_group_pages">페이지</string>
     <string name="fo_change">변경</string>
     <string name="fo_step_pick_files">파일을 선택하세요</string>
     <string name="fo_step_set_order">순서를 정하세요</string>

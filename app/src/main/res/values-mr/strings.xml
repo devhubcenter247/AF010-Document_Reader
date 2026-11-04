@@ -176,7 +176,7 @@
     <string name="tool_protect_desc">पासवर्ड जोडा</string>
     <string name="tool_redact">लपवा</string>
     <string name="tool_redact_desc">खाजगी माहिती लपवा</string>
-    <string name="tool_ocr_desc">मजकूर शोधण्यायोग्य बनवा</string>
+    <string name="tool_ocr_desc">शोधता येणारा मजकूर</string>
     <string name="tool_translate">भाषांतर करा</string>
     <string name="tool_translate_desc">ऑफलाइन, डिव्हाइसवर</string>
     <string name="tool_zip_desc">फायली बंडल करा</string>
@@ -605,7 +605,7 @@
     <string name="fo_make_it_yours">ते आपले बनवा</string>
     <string name="fo_i_use_for">मी यासाठी ऑल डॉक्युमेंट रीडर आणि एडिटर वापरतो</string>
     <string name="fo_tell_a_friend">मित्राला सांगा</string>
-    <string name="fo_rate_0">सर्व दस्तऐवज वाचक आणि संपादकाचा आनंद घेत आहात? तारेवर टॅप करा</string>
+    <string name="fo_rate_0">ॲप आवडले? एका ताऱ्यावर टॅप करा.</string>
     <string name="fo_rate_1">अरे नाही! आम्ही अधिक चांगले करू</string>
     <string name="fo_rate_2">धन्यवाद, आम्ही ऐकत आहोत</string>
     <string name="fo_rate_3">धन्यवाद! ते मदत करते आनंद</string>
@@ -621,7 +621,11 @@
     <string name="fo_pdf_first">प्रथम PDF</string>
     <string name="fo_images_first">प्रथम प्रतिमा</string>
     <string name="fo_nothing_here">अजून इथे काहीही नाही</string>
-    <string name="fo_nothing_here_desc">दुसरा प्रकार वापरून पहा किंवा काहीतरी नवीन करण्यासाठी फाईल्स टॅबवर + वर टॅप करा.</string>
+    <string name="fo_nothing_here_desc">दुसरा प्रकार वापरून पहा किंवा काहीतरी नवीन तयार करण्यासाठी + वर टॅप करा.</string>
+    <string name="fo_nothing_favourite">अद्याप कोणतेही आवडते नाहीत</string>
+    <string name="fo_nothing_favourite_desc">फाइलवर ⋮ टॅप करा आणि ती इथे ठेवण्यासाठी आवडते निवडा.</string>
+    <string name="fo_pick_a_file">फाइल निवडा</string>
+    <string name="fo_group_pages">पृष्ठे</string>
     <string name="fo_change">बदला</string>
     <string name="fo_step_pick_files">तुमच्या फाइल्स निवडा</string>
     <string name="fo_step_set_order">ऑर्डर सेट करा</string>

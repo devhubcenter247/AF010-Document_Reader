@@ -176,7 +176,7 @@
     <string name="tool_protect_desc">Magdagdag ng password</string>
     <string name="tool_redact">I-redact</string>
     <string name="tool_redact_desc">Itago ang pribadong impormasyon</string>
-    <string name="tool_ocr_desc">Gawing nahahanap ang teksto</string>
+    <string name="tool_ocr_desc">Mahahanap na teksto</string>
     <string name="tool_translate">Isalin</string>
     <string name="tool_translate_desc">Offline, sa device</string>
     <string name="tool_zip_desc">I-bundle ang mga file</string>
@@ -605,7 +605,7 @@
     <string name="fo_make_it_yours">Gawin itong sa iyo</string>
     <string name="fo_i_use_for">Ginagamit ko ang All Document Reader at Editor para sa</string>
     <string name="fo_tell_a_friend">Sabihin sa isang kaibigan</string>
-    <string name="fo_rate_0">Nasisiyahan sa Lahat ng Reader at Editor ng Dokumento? Mag-tap ng star</string>
+    <string name="fo_rate_0">Gusto mo ba ang app? Mag-tap ng bituin.</string>
     <string name="fo_rate_1">Ay hindi! Gagawin namin ang mas mahusay</string>
     <string name="fo_rate_2">Salamat, nakikinig kami</string>
     <string name="fo_rate_3">Salamat! Natutuwa itong nakakatulong</string>
@@ -621,7 +621,11 @@
     <string name="fo_pdf_first">PDF muna</string>
     <string name="fo_images_first">Mga larawan muna</string>
     <string name="fo_nothing_here">Wala pa dito</string>
-    <string name="fo_nothing_here_desc">Subukan ang ibang uri, o i-tap ang + sa tab na Mga File para gumawa ng bago.</string>
+    <string name="fo_nothing_here_desc">Sumubok ng ibang uri, o i-tap ang + para gumawa ng bago.</string>
+    <string name="fo_nothing_favourite">Wala pang paborito</string>
+    <string name="fo_nothing_favourite_desc">I-tap ang ⋮ sa isang file at piliin ang Paborito para itago ito rito.</string>
+    <string name="fo_pick_a_file">Pumili ng file</string>
+    <string name="fo_group_pages">Mga pahina</string>
     <string name="fo_change">Baguhin</string>
     <string name="fo_step_pick_files">Piliin ang iyong mga file</string>
     <string name="fo_step_set_order">Itakda ang order</string>

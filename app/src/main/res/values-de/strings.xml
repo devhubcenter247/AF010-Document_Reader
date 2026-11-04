@@ -176,7 +176,7 @@
     <string name="tool_protect_desc">Passwort hinzufügen</string>
     <string name="tool_redact">Schwärzen</string>
     <string name="tool_redact_desc">Private Informationen ausblenden</string>
-    <string name="tool_ocr_desc">Text durchsuchbar machen</string>
+    <string name="tool_ocr_desc">Durchsuchbarer Text</string>
     <string name="tool_translate">Übersetzen</string>
     <string name="tool_translate_desc">Offline, auf dem Gerät</string>
     <string name="tool_zip_desc">Dateien bündeln</string>
@@ -605,7 +605,7 @@
     <string name="fo_make_it_yours">Machen Sie es zu Ihrem</string>
     <string name="fo_i_use_for">Ich verwende All Document Reader &amp; Editor für</string>
     <string name="fo_tell_a_friend">Sag es einem Freund</string>
-    <string name="fo_rate_0">Genießen Sie All Document Reader &amp; Editor? Tippen Sie auf einen Stern</string>
+    <string name="fo_rate_0">Gefällt dir die App? Tippe auf einen Stern.</string>
     <string name="fo_rate_1">Oh nein! Wir werden es besser machen</string>
     <string name="fo_rate_2">Danke, wir hören zu</string>
     <string name="fo_rate_3">Danke! Ich bin froh, dass es hilft</string>
@@ -621,7 +621,11 @@
     <string name="fo_pdf_first">Zuerst PDF</string>
     <string name="fo_images_first">Bilder zuerst</string>
     <string name="fo_nothing_here">Hier ist noch nichts</string>
-    <string name="fo_nothing_here_desc">Probieren Sie einen anderen Typ aus oder tippen Sie auf der Registerkarte „Dateien“ auf „+“, um etwas Neues zu erstellen.</string>
+    <string name="fo_nothing_here_desc">Probiere einen anderen Typ oder tippe auf +, um etwas Neues zu erstellen.</string>
+    <string name="fo_nothing_favourite">Noch keine Favoriten</string>
+    <string name="fo_nothing_favourite_desc">Tippe bei einer Datei auf ⋮ und wähle Favorit, um sie hier zu behalten.</string>
+    <string name="fo_pick_a_file">Datei auswählen</string>
+    <string name="fo_group_pages">Seiten</string>
     <string name="fo_change">Ändern</string>
     <string name="fo_step_pick_files">Wählen Sie Ihre Dateien aus</string>
     <string name="fo_step_set_order">Legen Sie die Reihenfolge fest</string>

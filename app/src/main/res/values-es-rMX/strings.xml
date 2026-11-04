@@ -176,7 +176,7 @@
     <string name="tool_protect_desc">Agregar una contraseña</string>
     <string name="tool_redact">Censurar</string>
     <string name="tool_redact_desc">Ocultar información privada</string>
-    <string name="tool_ocr_desc">Hacer que el texto se pueda buscar</string>
+    <string name="tool_ocr_desc">Texto con búsqueda</string>
     <string name="tool_translate">Traducir</string>
     <string name="tool_translate_desc">Sin conexión, en el dispositivo</string>
     <string name="tool_zip_desc">Agrupar archivos</string>
@@ -605,7 +605,7 @@
     <string name="fo_make_it_yours">Hazlo tuyo</string>
     <string name="fo_i_use_for">Utilizo All Document Reader &amp; Editor para</string>
     <string name="fo_tell_a_friend">Dile a un amigo</string>
-    <string name="fo_rate_0">¿Disfrutas de todo el lector y editor de documentos? Toca una estrella</string>
+    <string name="fo_rate_0">¿Te gusta la app? Toca una estrella.</string>
     <string name="fo_rate_1">¡Ay no! Lo haremos mejor</string>
     <string name="fo_rate_2">Gracias, estamos escuchando.</string>
     <string name="fo_rate_3">¡Gracias! Me alegra que ayude</string>
@@ -621,7 +621,11 @@
     <string name="fo_pdf_first">PDF primero</string>
     <string name="fo_images_first">Imágenes primero</string>
     <string name="fo_nothing_here">Nada aquí todavía</string>
-    <string name="fo_nothing_here_desc">Pruebe con otro tipo o toque + en la pestaña Archivos para crear algo nuevo.</string>
+    <string name="fo_nothing_here_desc">Prueba otro tipo o toca + para crear algo nuevo.</string>
+    <string name="fo_nothing_favourite">Aún no hay favoritos</string>
+    <string name="fo_nothing_favourite_desc">Toca ⋮ en un archivo y elige Favorito para guardarlo aquí.</string>
+    <string name="fo_pick_a_file">Elige un archivo</string>
+    <string name="fo_group_pages">Páginas</string>
     <string name="fo_change">Cambiar</string>
     <string name="fo_step_pick_files">Elige tus archivos</string>
     <string name="fo_step_set_order">Establecer el orden</string>

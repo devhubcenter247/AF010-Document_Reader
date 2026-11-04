@@ -176,7 +176,7 @@
     <string name="tool_protect_desc">أضف كلمة مرور</string>
     <string name="tool_redact">حجب</string>
     <string name="tool_redact_desc">إخفاء المعلومات الخاصة</string>
-    <string name="tool_ocr_desc">جعل النص قابلاً للبحث</string>
+    <string name="tool_ocr_desc">نص قابل للبحث</string>
     <string name="tool_translate">ترجمة</string>
     <string name="tool_translate_desc">غير متصل، على الجهاز</string>
     <string name="tool_zip_desc">تجميع الملفات</string>
@@ -605,7 +605,7 @@
     <string name="fo_make_it_yours">اجعلها لك</string>
     <string name="fo_i_use_for">أنا استخدم فوليو ل</string>
     <string name="fo_tell_a_friend">أخبر صديقا</string>
-    <string name="fo_rate_0">تتمتع فوليو؟ اضغط على نجمة</string>
+    <string name="fo_rate_0">هل يعجبك التطبيق؟ اضغط على نجمة.</string>
     <string name="fo_rate_1">أوه لا! سنفعل ما هو أفضل</string>
     <string name="fo_rate_2">شكرا، نحن نستمع</string>
     <string name="fo_rate_3">شكرًا! سعيد أنه يساعد</string>
@@ -621,7 +621,11 @@
     <string name="fo_pdf_first">قوات الدفاع الشعبي أولا</string>
     <string name="fo_images_first">الصور أولا</string>
     <string name="fo_nothing_here">لا شيء هنا بعد</string>
-    <string name="fo_nothing_here_desc">جرب نوعًا آخر، أو اضغط على + في علامة التبويب "الملفات" لإنشاء شيء جديد.</string>
+    <string name="fo_nothing_here_desc">جرّب نوعًا آخر، أو اضغط + لإنشاء شيء جديد.</string>
+    <string name="fo_nothing_favourite">لا توجد مفضلة بعد</string>
+    <string name="fo_nothing_favourite_desc">اضغط ⋮ على ملف واختر المفضلة لإبقائه هنا.</string>
+    <string name="fo_pick_a_file">اختر ملفًا</string>
+    <string name="fo_group_pages">الصفحات</string>
     <string name="fo_change">يتغير</string>
     <string name="fo_step_pick_files">اختر ملفاتك</string>
     <string name="fo_step_set_order">ضبط النظام</string>

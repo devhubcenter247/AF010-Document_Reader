@@ -176,7 +176,7 @@
     <string name="tool_protect_desc">Додайте пароль</string>
     <string name="tool_redact">Приховати</string>
     <string name="tool_redact_desc">Приховати особисту інформацію</string>
-    <string name="tool_ocr_desc">Зробіть текст доступним для пошуку</string>
+    <string name="tool_ocr_desc">Текст із пошуком</string>
     <string name="tool_translate">Перекласти</string>
     <string name="tool_translate_desc">Офлайн, на пристрої</string>
     <string name="tool_zip_desc">Запакувати файли</string>
@@ -605,7 +605,7 @@
     <string name="fo_make_it_yours">Зробіть це своїм</string>
     <string name="fo_i_use_for">Я використовую All Document Reader &amp; Editor для</string>
     <string name="fo_tell_a_friend">Розкажи другу</string>
-    <string name="fo_rate_0">Вам подобаються всі програми для читання та редагування документів? Торкніться зірочки</string>
+    <string name="fo_rate_0">Подобається застосунок? Торкніться зірки.</string>
     <string name="fo_rate_1">О ні! Ми зробимо краще</string>
     <string name="fo_rate_2">Дякую, ми слухаємо</string>
     <string name="fo_rate_3">дякую Радий, що це допомагає</string>
@@ -621,7 +621,11 @@
     <string name="fo_pdf_first">Спочатку PDF</string>
     <string name="fo_images_first">Спочатку зображення</string>
     <string name="fo_nothing_here">Тут ще нічого немає</string>
-    <string name="fo_nothing_here_desc">Спробуйте інший тип або натисніть + на вкладці «Файли», щоб створити щось нове.</string>
+    <string name="fo_nothing_here_desc">Спробуйте інший тип або торкніться +, щоб створити щось нове.</string>
+    <string name="fo_nothing_favourite">Ще немає вибраного</string>
+    <string name="fo_nothing_favourite_desc">Торкніться ⋮ біля файлу й виберіть «Вибране», щоб він був тут.</string>
+    <string name="fo_pick_a_file">Виберіть файл</string>
+    <string name="fo_group_pages">Сторінки</string>
     <string name="fo_change">Зміна</string>
     <string name="fo_step_pick_files">Виберіть свої файли</string>
     <string name="fo_step_set_order">Встановити порядок</string>

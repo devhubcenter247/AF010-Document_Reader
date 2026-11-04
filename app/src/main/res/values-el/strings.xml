@@ -176,7 +176,7 @@
     <string name="tool_protect_desc">Προσθέστε έναν κωδικό πρόσβασης</string>
     <string name="tool_redact">Απόκρυψη</string>
     <string name="tool_redact_desc">Απόκρυψη προσωπικών πληροφοριών</string>
-    <string name="tool_ocr_desc">Κάντε το κείμενο αναζητήσιμο</string>
+    <string name="tool_ocr_desc">Κείμενο με αναζήτηση</string>
     <string name="tool_translate">Μετάφραση</string>
     <string name="tool_translate_desc">Εκτός σύνδεσης, στη συσκευή</string>
     <string name="tool_zip_desc">Ομαδοποίηση αρχείων</string>
@@ -605,7 +605,7 @@
     <string name="fo_make_it_yours">Κάντε το δικό σας</string>
     <string name="fo_i_use_for">Χρησιμοποιώ το All Document Reader &amp; Editor για</string>
     <string name="fo_tell_a_friend">Πες σε έναν φίλο</string>
-    <string name="fo_rate_0">Σας αρέσει το πρόγραμμα ανάγνωσης και επεξεργασίας όλων των εγγράφων; Πατήστε ένα αστέρι</string>
+    <string name="fo_rate_0">Σας αρέσει η εφαρμογή; Πατήστε ένα αστέρι.</string>
     <string name="fo_rate_1">Ωχ όχι! θα τα πάμε καλύτερα</string>
     <string name="fo_rate_2">Ευχαριστούμε, ακούμε</string>
     <string name="fo_rate_3">Ευχαριστώ! Χαίρομαι που βοηθάει</string>
@@ -621,7 +621,11 @@
     <string name="fo_pdf_first">PDF πρώτα</string>
     <string name="fo_images_first">Εικόνες πρώτα</string>
     <string name="fo_nothing_here">Τίποτα εδώ ακόμα</string>
-    <string name="fo_nothing_here_desc">Δοκιμάστε έναν άλλο τύπο ή πατήστε + στην καρτέλα Αρχεία για να δημιουργήσετε κάτι νέο.</string>
+    <string name="fo_nothing_here_desc">Δοκιμάστε άλλον τύπο ή πατήστε + για να δημιουργήσετε κάτι νέο.</string>
+    <string name="fo_nothing_favourite">Δεν υπάρχουν ακόμα αγαπημένα</string>
+    <string name="fo_nothing_favourite_desc">Πατήστε ⋮ σε ένα αρχείο και επιλέξτε Αγαπημένο για να το κρατήσετε εδώ.</string>
+    <string name="fo_pick_a_file">Επιλέξτε αρχείο</string>
+    <string name="fo_group_pages">Σελίδες</string>
     <string name="fo_change">Αλλαγή</string>
     <string name="fo_step_pick_files">Επιλέξτε τα αρχεία σας</string>
     <string name="fo_step_set_order">Ορίστε τη σειρά</string>

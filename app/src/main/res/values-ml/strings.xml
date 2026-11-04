@@ -176,7 +176,7 @@
     <string name="tool_protect_desc">ഒരു പാസ്‌വേഡ് ചേർക്കുക</string>
     <string name="tool_redact">മറയ്ക്കുക</string>
     <string name="tool_redact_desc">സ്വകാര്യ വിവരങ്ങൾ മറയ്ക്കുക</string>
-    <string name="tool_ocr_desc">വാചകം തിരയാനാകുന്നതാക്കുക</string>
+    <string name="tool_ocr_desc">തിരയാവുന്ന ടെക്സ്റ്റ്</string>
     <string name="tool_translate">വിവർത്തനം ചെയ്യുക</string>
     <string name="tool_translate_desc">ഓഫ്‌ലൈൻ, ഉപകരണത്തിൽ</string>
     <string name="tool_zip_desc">ഫയലുകൾ ബണ്ടിൽ ചെയ്യുക</string>
@@ -605,7 +605,7 @@
     <string name="fo_make_it_yours">ഇത് നിങ്ങളുടേതാക്കുക</string>
     <string name="fo_i_use_for">ഇതിനായി ഞാൻ എല്ലാ ഡോക്യുമെൻ്റ് റീഡറും എഡിറ്ററും ഉപയോഗിക്കുന്നു</string>
     <string name="fo_tell_a_friend">ഒരു സുഹൃത്തിനോട് പറയുക</string>
-    <string name="fo_rate_0">എല്ലാ ഡോക്യുമെൻ്റ് റീഡറും എഡിറ്ററും ആസ്വദിക്കുന്നുണ്ടോ? ഒരു നക്ഷത്രം ടാപ്പ് ചെയ്യുക</string>
+    <string name="fo_rate_0">ആപ്പ് ഇഷ്ടമായോ? ഒരു നക്ഷത്രം ടാപ്പ് ചെയ്യൂ.</string>
     <string name="fo_rate_1">അയ്യോ! ഞങ്ങൾ നന്നായി ചെയ്യും</string>
     <string name="fo_rate_2">നന്ദി, ഞങ്ങൾ ശ്രദ്ധിക്കുന്നു</string>
     <string name="fo_rate_3">നന്ദി! സഹായിച്ചതിൽ സന്തോഷം</string>
@@ -621,7 +621,11 @@
     <string name="fo_pdf_first">ആദ്യം PDF</string>
     <string name="fo_images_first">ആദ്യം ചിത്രങ്ങൾ</string>
     <string name="fo_nothing_here">ഇതുവരെ ഇവിടെ ഒന്നുമില്ല</string>
-    <string name="fo_nothing_here_desc">മറ്റൊരു തരം പരീക്ഷിക്കുക, അല്ലെങ്കിൽ പുതിയ എന്തെങ്കിലും ഉണ്ടാക്കാൻ ഫയലുകൾ ടാബിൽ + ടാപ്പുചെയ്യുക.</string>
+    <string name="fo_nothing_here_desc">മറ്റൊരു തരം പരീക്ഷിക്കൂ, അല്ലെങ്കിൽ പുതിയത് ഉണ്ടാക്കാൻ + ടാപ്പ് ചെയ്യൂ.</string>
+    <string name="fo_nothing_favourite">ഇതുവരെ പ്രിയപ്പെട്ടവയൊന്നുമില്ല</string>
+    <string name="fo_nothing_favourite_desc">ഒരു ഫയലിൽ ⋮ ടാപ്പ് ചെയ്‌ത് ഇവിടെ സൂക്ഷിക്കാൻ പ്രിയപ്പെട്ടത് തിരഞ്ഞെടുക്കൂ.</string>
+    <string name="fo_pick_a_file">ഒരു ഫയൽ തിരഞ്ഞെടുക്കൂ</string>
+    <string name="fo_group_pages">പേജുകൾ</string>
     <string name="fo_change">മാറ്റുക</string>
     <string name="fo_step_pick_files">നിങ്ങളുടെ ഫയലുകൾ തിരഞ്ഞെടുക്കുക</string>
     <string name="fo_step_set_order">ഓർഡർ സജ്ജമാക്കുക</string>

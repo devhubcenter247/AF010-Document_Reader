@@ -176,7 +176,7 @@
     <string name="tool_protect_desc">પાસવર્ડ ઉમેરો</string>
     <string name="tool_redact">છુપાવો</string>
     <string name="tool_redact_desc">ખાનગી માહિતી છુપાવો</string>
-    <string name="tool_ocr_desc">ટેક્સ્ટને શોધવા યોગ્ય બનાવો</string>
+    <string name="tool_ocr_desc">શોધી શકાય એવું લખાણ</string>
     <string name="tool_translate">અનુવાદ કરો</string>
     <string name="tool_translate_desc">ઑફલાઇન, ઉપકરણ પર</string>
     <string name="tool_zip_desc">ફાઇલો બંડલ કરો</string>
@@ -605,7 +605,7 @@
     <string name="fo_make_it_yours">તેને તમારું બનાવો</string>
     <string name="fo_i_use_for">હું ઓલ ડોક્યુમેન્ટ રીડર અને એડિટરનો ઉપયોગ કરું છું</string>
     <string name="fo_tell_a_friend">મિત્રને કહો</string>
-    <string name="fo_rate_0">બધા દસ્તાવેજ રીડર અને સંપાદકનો આનંદ માણી રહ્યાં છો? તારા પર ટૅપ કરો</string>
+    <string name="fo_rate_0">ઍપ ગમે છે? એક સ્ટાર પર ટૅપ કરો.</string>
     <string name="fo_rate_1">ઓહ ના! અમે વધુ સારું કરીશું</string>
     <string name="fo_rate_2">આભાર, અમે સાંભળીએ છીએ</string>
     <string name="fo_rate_3">આભાર! ખુશી છે કે તે મદદ કરે છે</string>
@@ -621,7 +621,11 @@
     <string name="fo_pdf_first">પહેલા પીડીએફ</string>
     <string name="fo_images_first">પ્રથમ છબીઓ</string>
     <string name="fo_nothing_here">હજુ સુધી અહીં કંઈ નથી</string>
-    <string name="fo_nothing_here_desc">અન્ય પ્રકારનો પ્રયાસ કરો અથવા કંઈક નવું કરવા માટે ફાઇલ્સ ટૅબ પર + ટૅપ કરો.</string>
+    <string name="fo_nothing_here_desc">બીજો પ્રકાર અજમાવો અથવા કંઈક નવું બનાવવા + પર ટૅપ કરો.</string>
+    <string name="fo_nothing_favourite">હજી કોઈ મનપસંદ નથી</string>
+    <string name="fo_nothing_favourite_desc">ફાઇલ પર ⋮ ટૅપ કરો અને તેને અહીં રાખવા મનપસંદ પસંદ કરો.</string>
+    <string name="fo_pick_a_file">ફાઇલ પસંદ કરો</string>
+    <string name="fo_group_pages">પૃષ્ઠો</string>
     <string name="fo_change">બદલો</string>
     <string name="fo_step_pick_files">તમારી ફાઇલો ચૂંટો</string>
     <string name="fo_step_set_order">ઓર્ડર સેટ કરો</string>

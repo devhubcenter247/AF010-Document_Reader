@@ -176,7 +176,7 @@
     <string name="tool_protect_desc">Dodaj hasło</string>
     <string name="tool_redact">Zaczernij</string>
     <string name="tool_redact_desc">Ukryj prywatne informacje</string>
-    <string name="tool_ocr_desc">Umożliw wyszukiwanie w tekście</string>
+    <string name="tool_ocr_desc">Tekst z wyszukiwaniem</string>
     <string name="tool_translate">Przetłumacz</string>
     <string name="tool_translate_desc">Offline, na urządzeniu</string>
     <string name="tool_zip_desc">Spakuj pliki</string>
@@ -605,7 +605,7 @@
     <string name="fo_make_it_yours">Zrób to swoje</string>
     <string name="fo_i_use_for">Używam All Document Reader &amp; Editor do</string>
     <string name="fo_tell_a_friend">Powiedz znajomemu</string>
-    <string name="fo_rate_0">Lubisz wszystkie czytniki i edytory dokumentów? Kliknij gwiazdkę</string>
+    <string name="fo_rate_0">Podoba Ci się aplikacja? Dotknij gwiazdki.</string>
     <string name="fo_rate_1">O nie! Zrobimy to lepiej</string>
     <string name="fo_rate_2">Dziękujemy, słuchamy</string>
     <string name="fo_rate_3">Dzięki! Cieszę się, że to pomaga</string>
@@ -621,7 +621,11 @@
     <string name="fo_pdf_first">Najpierw PDF</string>
     <string name="fo_images_first">Najpierw obrazy</string>
     <string name="fo_nothing_here">Jeszcze nic tu nie ma</string>
-    <string name="fo_nothing_here_desc">Wypróbuj inny typ lub dotknij + na karcie Pliki, aby utworzyć coś nowego.</string>
+    <string name="fo_nothing_here_desc">Wypróbuj inny typ lub dotknij +, aby utworzyć coś nowego.</string>
+    <string name="fo_nothing_favourite">Brak ulubionych</string>
+    <string name="fo_nothing_favourite_desc">Dotknij ⋮ przy pliku i wybierz Ulubione, aby go tu zachować.</string>
+    <string name="fo_pick_a_file">Wybierz plik</string>
+    <string name="fo_group_pages">Strony</string>
     <string name="fo_change">Zmień</string>
     <string name="fo_step_pick_files">Wybierz swoje pliki</string>
     <string name="fo_step_set_order">Ustaw kolejność</string>
