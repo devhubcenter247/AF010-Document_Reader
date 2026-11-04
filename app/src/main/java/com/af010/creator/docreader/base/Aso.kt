@@ -20,7 +20,7 @@ object Aso {
 
     const val TEAM_SERVICE ="https://docs.google.com/document/d/e/2PACX-1vQN3sj3ZBhSPqnD56Cu8IN3uiREDcl9gX4IUnTW6k2-dI_r-jtMmsH8x9f7mXjMQg/pub"
 
-    const val MAIL_SUPPORT = "dong2k2.dev@gmail.com"
+    const val MAIL_SUPPORT = "harrisonrubio3gsvjq6@gmail.com"
 }
 
 fun Context.openUrl(url: String) {
